@@ -70,7 +70,7 @@ const config = {
         },
         items: [
           {
-            href: 'https://docusaurus-eta-inky.vercel.app/client.html',
+            href: 'https://docusaurus-eta-inky.vercel.app/pydocs/client.html',
             label: 'Python Client Reference',
             position: 'left',
           },
