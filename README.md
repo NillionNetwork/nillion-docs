@@ -1,6 +1,6 @@
-# Website
+# Nillion docs
 
-These docs are built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+The Nillion docs are built using [Docusaurus](https://docusaurus.io/), a modern static website generator. Documentation content lives in the docs folder of this repo, and new sections can be added to the sidebar by including the pages in sidebar.js. Got a suggestion for improving the docs? [Create a Github Issue](https://github.com/nillion-oss/docusaurus/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D)
 
 ### Installation
 
