@@ -14,7 +14,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://docusaurus-eta-inky.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -46,8 +46,8 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/nillion-oss/docusaurus/',
         },
         blog: false,
         theme: {
@@ -70,7 +70,7 @@ const config = {
         },
         items: [
           {
-            href: 'http://localhost:3000/pydocs/client.html',
+            href: 'https://docusaurus-eta-inky.vercel.app/client.html',
             label: 'Python Client Reference',
             position: 'left',
           },
