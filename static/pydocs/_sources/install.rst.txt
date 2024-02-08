@@ -1,0 +1,89 @@
+Install Python Client
+=====================
+
+**Nillion Python Client** runs on Python ``3.8``, ``3.9``, ``3.10``,  ``3.11``, and ``3.12`` and on several platforms (linux, windows, osx[intel|arm]). In addition to other SDK tools, you may be interested in writing Nillion's nada_lang compute programs which is a python based language.
+
+Some good practices to follow for options below are:
+
+- Use new and isolated Virtual Environments for each project (`virtualenv <https://virtualenv.pypa.io/en/latest/user_guide.html>`_).
+- On Notebooks, always restart your kernel after installations.
+
+PyPI (pip)
+----------
+
+    >>> pip install /path/to/nillion-sdk-root/py_nillion_client-x.x.x.whl
+
+Example
+-------
+
+In our linux use-case, we will need to download `py_nillion_client-0.1.0-cp37-abi3-musllinux_1_2_x86_64.whl`. As it is a python package is recommended to install it in a virtualenv, so we are going to install to the same virtualenv that we will use for `nada_dsl`.
+
+.. code-block:: bash
+  
+    virtualenv venv
+    . ./venv/bin/activate
+    pip install ./nada_dsl-0.1.0-py3-none-any.whl
+    pip install ./py_nillion_client-0.1.0-cp37-abi3-musllinux_1_2_x86_64.whl
+
+Install Nillion Python Client
+===================
+
+First, you need to know which operating system you are using, the current supported OSs are  
+
+- Linux
+- MacOS / darwin / apple
+
+And which architecture, the current supported architectures are  
+
+- x86-64 / amd64 / Intel or AMD processor
+- aarch64 / arm64 / M1 / M2 / ARM 64 bit processor
+
+Once you know your architecture and OS you can pick the correct packages of the SDK to install, in this guide we are going to use Linux and x86-64 but others will be a matter of changing the names.
+
+
+Binaries
+--------
+
+The first thing that you will want to install is the binaries (run-local-cluster, program-simulator, pynadac, node-keygen, user-keygen, nil-cli) read the SDK Getting started guide to know more about them. In order to install the binaries you have to download the `nillion-sdk-bins-x86_64-unknown-linux-musl.tar.gz` . Once you have the .tar.gz file with the binaries you have to decompress the file and store it somewhere in your machine.
+
+.. code-block:: bash
+
+    tar -xzvf nillion-sdk-bins-x86_64-unknown-linux-musl.tar.gz
+    cd x86_64-unknown-linux-musl
+
+Now you can run the binaries by entering in the directory where you decompressed the .tar.gz and doing
+
+.. code-block:: bash
+
+    cd <directory with bins>/x86_64-unknown-linux-musl
+    ./<binary to run> --help
+
+
+nada_dsl python package
+-----------------------
+
+Ok, now that we have the binaries installed we have to install the nada_dsl python package to be able to create Nada programs. As nada_dsl is a python package is recommended to install it in a virtualenv (you may have to install it first, python3-virtualenv for Debian base systems), so we are going to create the virtualenv and install it. First you have to download the `nada_dsl-0.1.0-py3-none-any.whl` .
+
+.. code-block:: bash
+
+    virtualenv venv
+    . ./venv/bin/activate
+    pip install ./nada_dsl-0.1.0-py3-none-any.whl
+
+
+MacOS Users
+===========
+
+When you run SDK binaries first time MacOS security will block it saying that they are from unidentified developer. You will need to allow the binary in:
+
+**System Settings…** > **Privacy & Security > Allow Anyway**
+
+.. image:: _static/osx-sdk-bins-error.png
+   :align: left
+
+An alternative way is to self-sign all the binaries (thanks @Tristan Litre)
+
+.. code-block:: bash
+
+    for f in ./aarch64-apple-darwin/*; do codesign -s - "$f"; done
+

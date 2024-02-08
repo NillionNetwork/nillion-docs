@@ -1,0 +1,63 @@
+This is the official documentation of the Python client for the `Nillion network <https://www.nillion.com/>`_ . 
+
+Quick Start
+-----------
+
+    >>> pip install /path/to/nillion-sdk-root/py_nillion_client-x.x.x.whl
+
+.. code-block:: py3
+  
+    import asyncio
+    import os
+    import py_nillion_client as nillion
+
+    def create_payments_config():
+        return nillion.PaymentsConfig(
+            os.getenv("NILLION_BLOCKCHAIN_RPC_ENDPOINT"),
+            os.getenv("NILLION_WALLET_PRIVATE_KEY"),
+            int(os.getenv("NILLION_CHAIN_ID")),
+            os.getenv("NILLION_PAYMENTS_SC_ADDRESS"),
+            os.getenv("NILLION_BLINDING_FACTORS_MANAGER_SC_ADDRESS"),
+        )
+
+    def create_nillion_client(userkey):
+        nodekey_path = os.getenv("NILLION_NODEKEY_PATH")
+        bootnodes = [os.getenv("NILLION_BOOTNODE_MULTIADDRESS")]
+        nodekey = nillion.NodeKey.from_file(nodekey_path)
+        payments_config = create_payments_config()
+
+        return nillion.NillionClient(
+            nodekey,
+            bootnodes,
+            nillion.ConnectionMode.relay(),
+            userkey,
+            payments_config,
+        )
+
+    async def main():
+        reader_userkey_path = os.getenv("NILLION_READERKEY_PATH")
+        reader_userkey = nillion.UserKey.from_file(reader_userkey_path)
+        
+        # Reader Nillion client
+        reader = create_nillion_client(reader_userkey)
+        # Get the reader's user id
+        reader_user_id = reader.user_id()
+    
+        print("ℹ️ Fetched the reader's USER ID:", reader_user_id)
+    
+    asyncio.run(main())
+
+Read The Docs
+-------------
+
+.. toctree::
+   :maxdepth: 2
+
+   about
+   install
+   tutorials
+   client
+   support
+
+.. image:: _static/logo.png
+   :align: left
