@@ -82,17 +82,17 @@ const sidebars = {
             {
               type: 'link',
               label: 'Single Party Examples',
-              href: 'https://github.com/nillion-oss/nillion-python-starter/client_single_party_compute',
+              href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/client_single_party_compute',
             },
             {
               type: 'link',
               label: 'Multi Party Examples',
-              href: 'https://github.com/nillion-oss/nillion-python-starter/client_multi_party_compute',
+              href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/client_multi_party_compute',
             },
             {
               type: 'link',
               label: 'Permissions Examples',
-              href: 'https://github.com/nillion-oss/nillion-python-starter/permissions',
+              href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/permissions',
             },
           ],
         },
