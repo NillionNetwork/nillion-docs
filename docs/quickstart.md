@@ -27,10 +27,10 @@ The [Nillion SDK](nillion-sdk-and-tools) includes tools for generating node keys
 
 ## Clone the Nillion python starter repo
 
-The Nillion Python Starter repo that has everything you need to start building. Clone the repo:
+The [Nillion Python Starter](https://github.com/nillion-oss/nillion-python-starter) repo that has everything you need to start building. Clone the repo:
 
 ```bash
-git clone --branch storage git@github.com:NillionNetwork/examples.git nillion-python-starter
+https://github.com/nillion-oss/nillion-python-starter.git
 cd nillion-python-starter
 ```
 
@@ -378,4 +378,4 @@ You've successfully written your first single party Nada program, stored it on a
 
 - leveling up: run multi party examples in the client_multi_party_compute folder.
 
-- learning how to permission secrets (storing and retrieving permissioned secrets, revoking permissions) in the permissions folder.
+- learning how to permission secrets (storing and retrieving permissioned secrets, revoking permissions) in the permissions folder

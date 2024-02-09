@@ -2,15 +2,15 @@
 
 ## Nillion Python Starter Repo
 
-The [Nillion Python Starter Repo](https://github.com/NillionNetwork/examples/tree/storage) used in the [Developer Quickstart](quickstart) contains single party compute examples, multi party compute examples, and examples involving secret permissions.
+The [Nillion Python Starter Repo](https://github.com/nillion-oss/nillion-python-starter) used in the [Developer Quickstart](quickstart) contains single party compute examples, multi party compute examples, and examples involving secret permissions.
 
 ## Single Party Compute
 
-Single party compute involves only one Party that provides inputs and receives outputs of a program. Single party compute examples are available in the Python Starter Repo [client_single_party_compute folder](https://github.com/NillionNetwork/examples/tree/storage/client_single_party_compute).
+Single party compute involves only one Party that provides inputs and receives outputs of a program. Single party compute examples are available in the Python Starter Repo [client_single_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/client_single_party_compute).
 
 ### Example: addition_simple.py
 
-Check out [addition_simple.py](https://github.com/NillionNetwork/examples/blob/storage/client_single_party_compute/addition_simple.py), a single party compute example, on Github
+Check out [addition_simple.py](https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py), a single party compute example, on Github
 
 ```python title="/client_single_party_compute/addition_simple.py"
 # 1 Party running simple addition on 1 stored secret and 1 compute time secret
@@ -71,7 +71,7 @@ async def main():
 
 Multi party compute involves more than one Party. These Parties collaborate to provide secret inputs and one Party receives outputs of the program.
 
-Check out the [client_multi_party_compute](https://github.com/NillionNetwork/examples/blob/storage/client_multi_party_compute) folder, a 3-step multi party compute example, on Github.
+Check out the [client_multi_party_compute](https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_party_compute) folder, a 3-step multi party compute example, on Github.
 
 ### Step 1: 1st Party Stores a Secret
 
@@ -196,7 +196,7 @@ async def main():
 
 ## Permissions Examples
 
-Permissions examples demonstrated modifying the permissions of secrets. Check out the [permissions](https://github.com/NillionNetwork/examples/blob/storage/permissions) folder on Github for examples of
+Permissions examples demonstrated modifying the permissions of secrets. Check out the [permissions](https://github.com/nillion-oss/nillion-python-starter/blob/main/permissions) folder on Github for examples of
 
 - storing a permissioned secret
 - retrieving a secret
