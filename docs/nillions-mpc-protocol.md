@@ -1,6 +1,6 @@
 # Nillion’s MPC Protocol
 
-Nillion’s novel MPC protocol extends the capabilities of [Linear Secret-Sharing Schemes (LSSS)](../resources/glossary.md#linear-secret-sharing-scheme-lsss) to perform some non-linear operations, specifically evaluating a [sum of products](../resources/glossary.md#sum-of-products-sop) of non-zero user inputs.
+Nillion’s novel MPC protocol extends the capabilities of [Linear Secret-Sharing Schemes (LSSS)](glossary.md#linear-secret-sharing-scheme-lsss) to perform some non-linear operations, specifically evaluating a [sum of products](glossary.md#sum-of-products-sop) of non-zero user inputs.
 
 The protocol workflow is split into 2 phases:
 
@@ -8,7 +8,7 @@ The protocol workflow is split into 2 phases:
 
 The pre-processing phase prepares for the network to securely handle the high value data so that future computations can be performed without revealing individual inputs.
 
-The point of pre-processing is to generate and distribute [shares](../resources/glossary.md#share) (masks) for each [factor and term](../resources/glossary.md#factors-and-terms) in the sum of products expression using standard MPC techniques.
+The point of pre-processing is to generate and distribute [shares](glossary.md#share) (masks) for each [factor and term](glossary.md#factors-and-terms) in the sum of products expression using standard MPC techniques.
 
 Pre-processing is independent of input values. This phase only depends on the number of inputs (factors and terms) so that the appropriate number of shares are created ahead of computation. &#x20;
 
@@ -34,10 +34,10 @@ Parties reveal the result of local calculations. These results are aggregated to
 
 Nillion’s novel MPC protocol achieves
 
-* **Non-linear arithmetic capabilities:** The protocol can evaluate a sum of products of hidden inputs without leaking input information to any of the parties.
-* **Efficient pre-processing**: The creation of shares is independent of input values and only depends on the number of inputs (factors and terms) in each term.
-* **Asynchronous computation:** The non-interactive nature of the computation phase aligns with asynchronous workflows and accelerates the process, as it does not require message exchanges between parties.
-* **ITS security**: The protocol upholds the [information-theoretic security (ITS)](../resources/glossary.md#information-theoretic-security-its) inherent in LSSS, meaning it is secure against adversaries with unlimited computing resources and time.
+- **Non-linear arithmetic capabilities:** The protocol can evaluate a sum of products of hidden inputs without leaking input information to any of the parties.
+- **Efficient pre-processing**: The creation of shares is independent of input values and only depends on the number of inputs (factors and terms) in each term.
+- **Asynchronous computation:** The non-interactive nature of the computation phase aligns with asynchronous workflows and accelerates the process, as it does not require message exchanges between parties.
+- **ITS security**: The protocol upholds the [information-theoretic security (ITS)](glossary.md#information-theoretic-security-its) inherent in LSSS, meaning it is secure against adversaries with unlimited computing resources and time.
 
 Read the full technical paper on Nillion's MPC Protocol: [Evaluation of Arithmetic Sum-of-Products Expressions in Linear Secret Sharing Schemes with a Non-Interactive Computation Phase](https://eprint.iacr.org/2023/1740)
 

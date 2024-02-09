@@ -28,10 +28,10 @@ const sidebars = {
       value: 'About',
       defaultStyle: true,
     },
-    'about/what-is-nillion',
-    'about/high-value-data',
-    'about/multi-party-computation',
-    'about/nillions-mpc-protocol',
+    'what-is-nillion',
+    'high-value-data',
+    'multi-party-computation',
+    'nillions-mpc-protocol',
 
     {
       type: 'html',
@@ -39,50 +39,90 @@ const sidebars = {
       value: 'Components',
       defaultStyle: true,
     },
-    'nillion-components/concepts',
-    'nillion-components/nillion-sdk-and-tools',
-    'nillion-components/nillion-client',
-    'nillion-components/nada-lang-framework',
+    'concepts',
+    {
+      type: 'category',
+      label: 'Nillion SDK and Tools',
+      link: {
+        type: 'doc',
+        id: 'nillion-sdk-and-tools',
+      },
+      items: [
+        'user-keygen',
+        'node-keygen',
+        'node-key2peerid',
+        'pynadac',
+        'program-simulator',
+        'run-local-cluster',
+        'nil-cli',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Nillion Client',
+      link: {
+        type: 'doc',
+        id: 'nillion-client',
+      },
+      items: [
+        {
+          type: 'link',
+          label: 'Python Client Reference',
+          href: 'https://nillion-builder-docs.vercel.app/pydocs/client.html',
+        },
+        {
+          type: 'category',
+          label: 'Python Nillion Client Examples',
+          link: {
+            type: 'doc',
+            id: 'python-client-examples',
+          },
+          collapsed: false,
+          items: [
+            {
+              type: 'link',
+              label: 'Single Party Examples',
+              href: 'https://github.com/NillionNetwork/examples/tree/storage/client_single_party_compute',
+            },
+            {
+              type: 'link',
+              label: 'Multi Party Examples',
+              href: 'https://github.com/NillionNetwork/examples/tree/storage/client_multi_party_compute',
+            },
+            {
+              type: 'link',
+              label: 'Permissions Examples',
+              href: 'https://github.com/NillionNetwork/examples/tree/storage/permissions',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Nada-Lang Framework',
+      link: {
+        type: 'doc',
+        id: 'nada-lang-framework',
+      },
+      items: [
+        {
+          type: 'link',
+          label: 'Nada Program Examples',
+          href: 'https://github.com/NillionNetwork/examples/tree/storage/programs',
+        },
+      ],
+    },
     {
       type: 'html',
       className: 'sidebar-title',
       value: 'Resources',
       defaultStyle: true,
     },
-    'resources/community-and-support',
-    'resources/running-a-node',
-    'resources/technical-reports-and-demos',
-    'resources/glossary',
-    // {
-    //   type: 'category',
-    //   label: 'About',
-    //   items: [
-    //     'about/what-is-nillion',
-    //     'about/high-value-data',
-    //     'about/multi-party-computation',
-    //     'about/nillions-mpc-protocol',
-    //   ],
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Nillion Components',
-    //   items: [
-    //     'nillion-components/concepts',
-    //     'nillion-components/nillion-sdk-and-tools',
-    //     'nillion-components/nillion-client',
-    //     'nillion-components/nada-lang-framework',
-    //   ],
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Resources',
-    //   items: [
-    //     'resources/community-and-support',
-    //     'resources/running-a-node',
-    //     'resources/technical-reports-and-demos',
-    //     'resources/glossary',
-    //     'resources/test',
-    //   ],
+    'community-and-support',
+    'running-a-node',
+    'technical-reports-and-demos',
+    'glossary',
   ],
 };
 

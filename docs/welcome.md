@@ -8,7 +8,7 @@ Nillion is a secure computation network that decentralizes trust for high value 
 
 **What if privacy was an enabler of use cases rather than a constraint?**
 
-Developers can use Nillion to build secure, [high value data](about/high-value-data.md) focused applications. Nillion empowers developers to
+Developers can use Nillion to build secure, [high value data](high-value-data.md) focused applications. Nillion empowers developers to
 
 - write programs in PyNada, our language for defining MPC programs
 - compile programs with the PyNada compiler

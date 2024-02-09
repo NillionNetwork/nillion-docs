@@ -63,17 +63,12 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Nillion',
+        title: 'Nillion Builder Docs',
         logo: {
           alt: 'Nillion logo',
           src: 'img/nillion-logo.jpeg',
         },
         items: [
-          {
-            href: 'https://nillion-builder-docs.vercel.app/pydocs/client.html',
-            label: 'Python Client Reference',
-            position: 'left',
-          },
           {
             href: 'https://github.com/nillion-oss/docusaurus',
             label: 'GitHub',
