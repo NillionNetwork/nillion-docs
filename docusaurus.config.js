@@ -63,7 +63,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Nillion Builder Docs',
+        title: 'Nillion Builder Docs V2',
         logo: {
           alt: 'Nillion logo',
           src: 'img/nillion-logo.jpeg',
