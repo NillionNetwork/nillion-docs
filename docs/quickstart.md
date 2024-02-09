@@ -1,6 +1,6 @@
 # Developer Quickstart
 
-Get started with Nillion by writing your first Nada program, storing secrets, and compute on the network.
+Get started with Nillion by writing your first Nada program, storing secrets, and computing on programs on the network.
 
 ## Install the Nillion SDK
 
