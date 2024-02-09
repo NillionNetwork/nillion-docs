@@ -20,6 +20,7 @@ const sidebars = {
     },
     'welcome',
     'nucleus-builders-program',
+    'quickstart',
 
     {
       type: 'html',

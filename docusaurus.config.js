@@ -14,7 +14,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://docusaurus-eta-inky.vercel.app',
+  url: 'https://nillion-builder-docs.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -70,12 +70,12 @@ const config = {
         },
         items: [
           {
-            href: 'https://docusaurus-eta-inky.vercel.app/pydocs/client.html',
+            href: 'https://nillion-builder-docs.vercel.app/pydocs/client.html',
             label: 'Python Client Reference',
             position: 'left',
           },
           {
-            href: 'https://github.com/nillion-oss',
+            href: 'https://github.com/nillion-oss/docusaurus',
             label: 'GitHub',
             position: 'right',
           },
