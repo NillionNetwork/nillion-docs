@@ -109,7 +109,7 @@ const sidebars = {
         {
           type: 'link',
           label: 'Nada Program Examples',
-          href: 'https://github.com/nillion-oss/nillion-python-starter/programs',
+          href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/programs',
         },
       ],
     },
