@@ -30,7 +30,7 @@ The [Nillion SDK](nillion-sdk-and-tools) includes tools for generating node keys
 The [Nillion Python Starter](https://github.com/nillion-oss/nillion-python-starter) repo that has everything you need to start building. Clone the repo:
 
 ```bash
-https://github.com/nillion-oss/nillion-python-starter.git
+git clone https://github.com/nillion-oss/nillion-python-starter.git
 cd nillion-python-starter
 ```
 
