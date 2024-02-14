@@ -8,7 +8,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Nillion Docs',
+  title: 'Nillion Builder Docs',
   tagline:
     'Nillion is a secure computation network that decentralizes trust for high value data',
   favicon: 'img/favicon.ico',
@@ -56,7 +56,7 @@ const config = {
       }),
     ],
   ],
-
+  themes: ['docusaurus-theme-github-codeblock'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -83,6 +83,12 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      codeblock: {
+        showGithubLink: true,
+        githubLinkLabel: 'View on GitHub',
+        showRunmeLink: false,
+        runmeLinkLabel: 'Checkout via Runme',
       },
     }),
 };

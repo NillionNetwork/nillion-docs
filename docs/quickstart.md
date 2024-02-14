@@ -79,19 +79,8 @@ The bootstrap-local-environment script installs Nada DSL and Nillion Client, the
 
 Let’s write a tiny Nada program that adds 2 secret numbers. Here’s the code for the finished program we’ll write line by line:
 
-```bash
-from nada_dsl import *
-def nada_main():
-
-    party1 = Party(name="Party1")
-
-    my_int1 = SecretInteger(Input(name="my_int1", party=party1))
-
-    my_int2 = SecretInteger(Input(name="my_int2", party=party1))
-
-    new_int = my_int1 + my_int2
-
-    return [Output(new_int, "my_output", party1)]
+```python reference showGithubLink
+https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py
 ```
 
 Create a python file for the Nada program in the programs folder
