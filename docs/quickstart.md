@@ -1,6 +1,12 @@
 # Developer Quickstart
 
-Get started with Nillion by writing your first Nada program, storing secrets, and computing on programs on the network.
+Start building on Nillion. This quickstart will walk you through
+
+1. Installing the Nillion SDK
+2. Setting up a developer environment with nillion-python-starter
+3. Running a local network (cluster of nodes)
+4. Writing your first Nada program
+5. Connecting to the network with NillionClient to store secrets, store programs, and compute on programs with stored secrets
 
 ## Install the Nillion SDK
 
@@ -48,15 +54,19 @@ There are a few pre-reqs for using the python starter repo: make sure you have f
 cp .env.sample .env
 ```
 
-Update SDK path variables within the .env: NILLION_WHL_ROOT, NILLION_SDK_ROOT, NILLION_PYCLIENT_WHL_FILE_NAME
+Update the following SDK path variables within your .env
 
-- NILLION_WHL_ROOT is the path to your folder that contains the py_nillion_client whl file and the pynada whl file
-- NILLION_SDK_ROOT is the path to your folder that contains the Nillion SDK binaries (node-keygen, user-keygen, node-key2peerid, nil-cli, program-simulator, pynadac, run-local-cluster)
-- NILLION_PYCLIENT_WHL_FILE_NAME is the name of your py_nillion_client whl file inside of NILLION_WHL_ROOT
+- `NILLION_WHL_ROOT` with the path to your folder that contains the py_nillion_client whl file and the pynada whl file
+- `NILLION_SDK_ROOT` with the path to your folder that contains the Nillion SDK binaries (node-keygen, user-keygen, node-key2peerid, nil-cli, program-simulator, pynadac, run-local-cluster)
+- `NILLION_PYCLIENT_WHL_FILE_NAME` with the name of your py_nillion_client whl file inside of NILLION_WHL_ROOT
+
+```yaml reference showGithubLink
+https://github.com/nillion-oss/nillion-python-starter/blob/main/.env.sample#L3-L11
+```
 
 ### Activate the virtual environment
 
-These scripts activate a python virtual environment at .venv and install dependencies.
+These scripts activate a python virtual environment at .venv and install dependencies listed in the `requirements.txt` file
 
 ```bash
 source ./activate_venv.sh
@@ -65,15 +75,21 @@ pip install -r requirements.txt
 
 ## Bootstrap a local Nillion node cluster
 
-The bootstrap-local-environment script installs Nada DSL and Nillion Client, then uses the Nillion SDK tool run-local-cluster to spin up a local test Nillion cluster that is completely isolated within your computer. The script also populates your .env file with keys, bootnodes, cluster, and payment info that will allow you to connect to the local cluster network.
+The bootstrap-local-environment script installs Nada DSL and Nillion Client, then uses the [run-local-cluster](/run-local-cluster) Nillion SDK tool to spin up a local test Nillion cluster that is completely isolated within your computer. The script also populates your .env file with keys, bootnodes, cluster, and payment info that will allow you to connect to the local cluster network.
 
 ```bash
 ./bootstrap-local-environment.sh
 ```
 
-> [!TIP]
-> You can stop the local cluster at any time by running
-> `killall run-local-cluster`
+:::tip
+
+You can stop the local cluster at any time by running
+
+```bash
+killall run-local-cluster
+```
+
+:::
 
 ## Write a Nada program
 
@@ -228,48 +244,12 @@ Storing a program results in the stored program_id, the network's reference to t
 
 When we wrote our Nada program, we created 2 secret integers that are inputs to the program. We'll store one of these secrets in the network using the Python Client, and provide the other secret at compute time.
 
-Open the `client_single_party_compute/tiny_secret_addition.py` file. This file contains code to store secrets and code to compute on the tiny_secret_addition program. Let's look at the first half of the code to understand how to store the first secret, my_int_1: 500
+Open the `client_single_party_compute/tiny_secret_addition.py` file. This file contains code to store secrets and code to compute on the tiny_secret_addition program. Let's look at the first half of the code to understand how to store the first secret, `my_int_1: 500`
 
 ### Review secret storage code
 
-```python
-async def main():
-    # Get cluster_id and userkey_path from the .env file
-    cluster_id = os.getenv("NILLION_CLUSTER_ID")
-    userkey_path = os.getenv("NILLION_WRITERKEY_PATH")
-
-    # Read user key from file
-    userkey = nillion.UserKey.from_file(userkey_path)
-
-    # Create Nillion Client for user
-    client = create_nillion_client(userkey)
-
-    # Get the party id and user id
-    party_id = client.party_id()
-    user_id = client.user_id()
-
-    # Set the program id
-    program_id=f"{user_id}/tiny_secret_addition"
-
-    # Set the party name to match the party name from the stored program
-    party_name="Party1"
-
-    # Create a secret
-    stored_secret = nillion.Secrets({
-        "my_int1": nillion.SecretInteger(500),
-    })
-
-    # Create secret bindings to tie a secret to a program and set the input party
-    secret_bindings = nillion.ProgramBindings(program_id)
-    secret_bindings.add_input_party(party_name, party_id)
-
-    # Store a secret
-    store_id = await client.store_secrets(
-        cluster_id, secret_bindings, stored_secret, None
-    )
-
-    print(f"Computing using program {program_id}")
-    print(f"Use secret store_id: {store_id}")
+```yaml reference showGithubLink
+https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L36
 ```
 
 When a secret is stored, the network returns its store_id.
@@ -280,72 +260,8 @@ The second half of the `client_single_party_compute/tiny_secret_addition.py` exa
 
 ### Review full example
 
-```python
-async def main():
-
-        # Get cluster_id and userkey_path from the .env file
-    cluster_id = os.getenv("NILLION_CLUSTER_ID")
-    userkey_path = os.getenv("NILLION_WRITERKEY_PATH")
-
-    # Read user key from file
-    userkey = nillion.UserKey.from_file(userkey_path)
-
-    # Create Nillion Client for user
-    client = create_nillion_client(userkey)
-
-    # Get the party id and user id
-    party_id = client.party_id()
-    user_id = client.user_id()
-
-    # Set the program id
-    program_id=f"{user_id}/tiny_secret_addition"
-
-    # Set the party name to match the party name from the stored program
-    party_name="Party1"
-
-    # Create a secret
-    stored_secret = nillion.Secrets({
-        "my_int1": nillion.SecretInteger(500),
-    })
-
-    # Create secret bindings to tie a secret to a program and set the input party
-    secret_bindings = nillion.ProgramBindings(program_id)
-    secret_bindings.add_input_party(party_name, party_id)
-
-    # Store a secret
-    store_id = await client.store_secrets(
-        cluster_id, secret_bindings, stored_secret, None
-    )
-
-    print(f"Computing using program {program_id}")
-    print(f"Use secret store_id: {store_id}")
-
-    # Bind the parties in the computation to the client to set input and output parties
-    compute_bindings = nillion.ProgramBindings(program_id)
-    compute_bindings.add_input_party(party_name, party_id)
-    compute_bindings.add_output_party(party_name, party_id)
-
-    # Add the second secret at computation time
-    computation_time_secrets = nillion.Secrets({"my_int2": nillion.SecretInteger(10)})
-
-    # Compute on the secret
-    compute_id = await client.compute(
-        cluster_id,
-        compute_bindings,
-        [store_id],
-        computation_time_secrets,
-        nillion.PublicVariables({}),
-    )
-
-    # Print compute result
-    print(f"The computation was sent to the network. compute_id: {compute_id}")
-    while True:
-        compute_event = await client.next_compute_event()
-        if isinstance(compute_event, nillion.ComputeFinishedEvent):
-            print(f"✅  Compute complete for compute_id {compute_event.uuid}")
-            print(f"🖥️  The result is {compute_event.result.value}")
-            break
-
+```yaml reference showGithubLink
+https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L100
 ```
 
 ### Run the example
@@ -363,8 +279,8 @@ Check out the network result on tiny_secret_addition. Update the SecretInteger i
 
 You've successfully written your first single party Nada program, stored it on a local network cluster, stored secrets on the network, and run compute against secrets. Keep exploring by
 
-- running other single party program examples in the client_single_party_compute folder
+- running other single party program examples in the [client_single_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_single_party_compute)
 
-- leveling up: run multi party examples in the client_multi_party_compute folder.
+- leveling up: run multi party examples in the [client_multi_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_multi_party_compute)
 
-- learning how to permission secrets (storing and retrieving permissioned secrets, revoking permissions) in the permissions folder
+- learning how to permission secrets (storing and retrieving permissioned secrets, revoking permissions) in the [permissions folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/permissions)

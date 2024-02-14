@@ -57,7 +57,7 @@ Options:
           Print version
 ```
 
-### Local Cluster Outputs
+### Local cluster outputs
 
 Running a local cluster outputs values you can use to run nil-cli against your local cluster rather than the network
 
@@ -72,3 +72,11 @@ Running a local cluster outputs values you can use to run nil-cli against your l
   - blinding_factors_manager_sc_address
 - bootnode
 - websocket
+
+### Spin down local cluster
+
+To stop the local cluster, run
+
+```bash
+killall run-local-cluster
+```
