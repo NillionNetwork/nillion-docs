@@ -5,6 +5,7 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import { themes as prismThemes } from 'prism-react-renderer';
+import 'dotenv/config';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -34,6 +35,25 @@ const config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+  },
+
+  customFields: {
+    // pass in .env variables client side
+    downloadBaseUrl: process.env.DOWNLOAD_BASE,
+    sdkAppleM: process.env.DOWNLOAD_SDK_APPLE_M,
+    sdkAppleIntel: process.env.DOWNLOAD_SDK_APPLE_INTEL,
+    sdkLinuxArm: process.env.DOWNLOAD_SDK_LINUX_ARM,
+    sdkLinuxIntel: process.env.DOWNLOAD_SDK_LINUX_INTEL,
+
+    pyClientAppleM: process.env.DOWNLOAD_PYCLIENT_APPLE_M,
+    pyClientAppleIntel: process.env.DOWNLOAD_PYCLIENT_APPLE_INTEL,
+    pyClientLinuxArm: process.env.DOWNLOAD_PYCLIENT_LINUX_ARM,
+    pyClientLinuxIntel: process.env.DOWNLOAD_PYCLIENT_LINUX_INTEL,
+
+    pyNadaAppleM: process.env.DOWNLOAD_PYNADA_APPLE_M,
+    pyNadaAppleIntel: process.env.DOWNLOAD_PYNADA_APPLE_INTEL,
+    pyNadaLinuxArm: process.env.DOWNLOAD_PYNADA_LINUX_ARM,
+    pyNadaLinuxIntel: process.env.DOWNLOAD_PYNADA_LINUX_INTEL,
   },
 
   presets: [

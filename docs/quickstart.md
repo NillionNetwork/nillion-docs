@@ -1,3 +1,5 @@
+import DownloadSDK from '@site/src/components/DownloadSDK/downloadSDK';
+
 # Developer Quickstart
 
 Start building on Nillion. This quickstart will walk you through
@@ -8,27 +10,21 @@ Start building on Nillion. This quickstart will walk you through
 4. Writing your first Nada program
 5. Connecting to the network with NillionClient to store secrets, store programs, and compute on programs with stored secrets
 
+## Download Binaries
+
+<DownloadSDK/>
+
 ## Install the Nillion SDK
 
 The [Nillion SDK](nillion-sdk-and-tools) includes tools for generating node keys, peer ids, and user keys, compiling Nada code, simulating programs, running a local network, and connecting to the Nillion network via your cli. Install the Nillion SDK from binaries to have access to SDK tools including nil-cli, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen.
 
-### SDK Installation steps
+### SDK Installation
 
-1. Select the appropriate Nillion SDK binaries for your machine
-
-   | Platform               | Nillion binaries to use                            | Resulting folder           |
-   | ---------------------- | -------------------------------------------------- | -------------------------- |
-   | Apple (M1/M2)          | nillion-sdk-bins-aarch64-apple-darwin.dmg          | aarch64-apple-darwin       |
-   | Apple (Intel chip)     | nillion-sdk-bins-x86_64-apple-darwin.dmg           | x86_64-apple-darwin        |
-   | Linux (ARM chip)       | nillion-sdk-bins-aarch64-unknown-linux-musl.tar.gz | aarch64-unknown-linux-musl |
-   | Linux (Intel/AMD chip) | nillion-sdk-bins-x86_64-unknown-linux-musl.tar.gz  | x86_64-unknown-linux-musl  |
-
-2. Download the selected binaries onto your machine.
-3. Decompress the binaries and store the resulting folder on your machine
+Decompress the Nillion SDK binaries and store the resulting folder on your machine
 
 ```bash
-# suggested naming convention: nillion-sdk/{version}/{platform}
-/Users/steph/Desktop/nillion-sdk/sdk-v2024-02-06-65a7e7887/aarch64-apple-darwin
+# suggested naming convention: nillion-binaries/{version}/{platform}
+/Users/steph/Desktop/nillion-binaries/sdk-v2024-02-06-65a7e7887/aarch64-apple-darwin
 ```
 
 ## Clone the Nillion python starter repo
@@ -56,9 +52,9 @@ cp .env.sample .env
 
 Update the following SDK path variables within your .env
 
-- `NILLION_WHL_ROOT` with the path to your folder that contains the py_nillion_client whl file and the pynada whl file
-- `NILLION_SDK_ROOT` with the path to your folder that contains the Nillion SDK binaries (node-keygen, user-keygen, node-key2peerid, nil-cli, program-simulator, pynadac, run-local-cluster)
-- `NILLION_PYCLIENT_WHL_FILE_NAME` with the name of your py_nillion_client whl file inside of NILLION_WHL_ROOT
+- `NILLION_WHL_ROOT` with the path to your folder that contains the Python Client binaries and PyNada DSL binaries (both are .whl files)
+- `NILLION_SDK_ROOT` with the path to your decompressed Nillion SDK binaries folder that contains tools: node-keygen, user-keygen, node-key2peerid, nil-cli, program-simulator, pynadac, run-local-cluster
+- `NILLION_PYCLIENT_WHL_FILE_NAME` with the file name of your Python Client binaries. This is a py_nillion_client .whl file inside of NILLION_WHL_ROOT
 
 ```yaml reference showGithubLink
 https://github.com/nillion-oss/nillion-python-starter/blob/main/.env.sample#L3-L11
