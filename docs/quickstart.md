@@ -89,7 +89,7 @@ killall run-local-cluster
 
 ## Write a Nada program
 
-Let’s write a tiny Nada program that adds 2 secret numbers. Here’s the code for the finished program we’ll write line by line:
+The Nillion Network uses [Nada](nada-lang-framework), our MPC language, to define MPC programs. The first implementation of Nada is a Python DSL (Domain Specific Language), called PyNada. Let’s write a tiny Nada program that adds 2 secret numbers. Here’s the code for the finished program we’ll write line by line:
 
 ```python reference showGithubLink
 https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py
