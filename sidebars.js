@@ -16,12 +16,13 @@ const sidebars = {
   nillionSidebar: [
     {
       type: 'html',
-      value: '<span class="sidebar-divider" />',
+      className: 'sidebar-title',
+      value: 'Welcome',
+      defaultStyle: true,
     },
     'welcome',
     'nucleus-builders-program',
     'quickstart',
-
     {
       type: 'html',
       className: 'sidebar-title',

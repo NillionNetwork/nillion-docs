@@ -14,7 +14,7 @@ The `user_id` is the user's public key, and is the public user identifier. Other
 
 ### Programs
 
-Programs are written in Nada, then compiled to generate a mid-level intermediate (MIR) representation of the program that can be stored in the Nillion Network for future use.
+A Nada program is also a piece of software that is written in Nada language, then compiled to generate a mid-level intermediate (MIR) representation of the program that can be stored in the Nillion Network for future use. Programs are characterized by a set of inputs, the computation logic, and a set of outputs. Programs are reusable, and computation is invoked by a Nillion Client. At computation time, the client specifies inputs, which can be any combination of Secrets already stored in the network, secrets provided at compute time, and public variables.
 
 #### Program ID
 
@@ -34,7 +34,7 @@ An `Output` is the named result of a Nada program revealed to a specific [Party]
 
 ### Secrets
 
-A Nillion `Secret`, identified by a `store_id`, consists of one or more named secret values.
+A Nillion `Secret`, identified in the network by a `store_id`, consists of one or more named secret values. Secrets can be stored in the network or provided as inputs to programs at compute time.
 
 #### Store ID
 
@@ -56,10 +56,10 @@ Any `user_id` given "default permissions" at store time through `default_for_use
 
 A `user_id` can be given retrieve, update, delete, and/or compute permissions on a secret.
 
-* retrieve / read a secret: `add_retrieve_permissions(user_id)`
-* update a secret: `add_update_permissions(user_id)`
-* delete a secret: `add_delete_permissions(user_id)`
-* compute on a secret: `add_compute_permissions({user_id: {program_id}})`
+- retrieve / read a secret: `add_retrieve_permissions(user_id)`
+- update a secret: `add_update_permissions(user_id)`
+- delete a secret: `add_delete_permissions(user_id)`
+- compute on a secret: `add_compute_permissions({user_id: {program_id}})`
 
 ### Clusters
 

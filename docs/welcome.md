@@ -18,4 +18,4 @@ Developers can use Nillion to build secure, [high value data](high-value-data.md
 
 ### Nillion Network access
 
-The Nillion Network is in private beta for now. Builders can [fill out this DeForm](https://app.deform.cc/form/51a162ff-4ffb-4d9b-86ec-249f087a332f/) to apply for Nillion Network access through our [Nucleus Builders Program](nucleus-builders-program.md).
+The Nillion Network is in private beta for now, with network access gated by a [peer_id](/concepts#peer-id) allowlist. Builders can [fill out this DeForm](https://app.deform.cc/form/51a162ff-4ffb-4d9b-86ec-249f087a332f/) to apply for Nillion Network access through our [Nucleus Builders Program](nucleus-builders-program.md).

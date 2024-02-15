@@ -13,21 +13,34 @@ Single party compute involves only one Party that provides inputs and receives o
 
 ### Example: addition_simple.py
 
-Check out [addition_simple.py](https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py), a single party compute example, on Github
+The addition_simple example is a single party compute example that adds two secret integers. In the client code, the first secret integer is stored in the network ahead of time, and the second secret integer is provided at computation time.
+
+<Tabs>
+  <TabItem value="client" label="Client code" default>
 
 ```python reference showGithubLink
 https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L14-L100
 ```
 
+  </TabItem>
+  <TabItem value="readme" label="Nada program" default>
+
+```python reference showGithubLink
+https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/addition_simple.py
+
+```
+
+  </TabItem>
+</Tabs>
+
 ## Multi Party Compute
 
 Multi party compute involves more than one Party. These Parties collaborate to provide secret inputs and one Party receives outputs of the program.
 
-Check out the [client_multi_party_compute](https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_party_compute) folder, a 3-step multi party compute example, on Github.
+The [client_multi_party_compute](https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_party_compute) folder has a 3-step multi party compute example involving multiple parties providing secret inputs for computation of a program. The first party stores a secret, then N other parties store permissioned secrets giving the first party compute access. The first party computes with all secrets.
 
 <Tabs>
   <TabItem value="readme" label="README" default>
-    ### README
 
 ```python reference showGithubLink
 https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_party_compute/README.md
@@ -36,7 +49,6 @@ https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_par
 
   </TabItem>
   <TabItem value="config" label="Config file" default>
-    ### README
 
 ```python reference showGithubLink
 https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_party_compute/config.py
@@ -68,3 +80,12 @@ https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_par
 
   </TabItem>
 </Tabs>
+
+## Setting permissions
+
+Permissions examples demonstrated modifying the permissions of secrets. Check out the [permissions](https://github.com/nillion-oss/nillion-python-starter/blob/main/permissions) folder on Github for examples of
+
+- storing a permissioned secret
+- retrieving a secret
+- revoking permissions to read a secret
+- checking that permissions were revoked
