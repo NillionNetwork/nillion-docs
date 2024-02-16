@@ -60,6 +60,16 @@ Update the following SDK path variables within your .env
 https://github.com/nillion-oss/nillion-python-starter/blob/main/.env.sample#L3-L11
 ```
 
+:::tip
+
+Enable verbose debugging by adding the following to your .env file:
+
+```bash
+RUST_LOG=debug
+```
+
+:::
+
 ### Activate the virtual environment
 
 These scripts activate a python virtual environment at .venv and install dependencies listed in the `requirements.txt` file
