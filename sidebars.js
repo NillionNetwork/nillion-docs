@@ -124,6 +124,32 @@ const sidebars = {
     'running-a-node',
     'technical-reports-and-demos',
     'glossary',
+    {
+      type: 'html',
+      className: 'sidebar-title',
+      value: 'Links',
+      defaultStyle: true,
+    },
+    {
+      type: 'link',
+      label: 'Website',
+      href: 'https://nillion.com',
+    },
+    {
+      type: 'link',
+      label: 'X (formerly Twitter)',
+      href: 'https://twitter.com/nillionnetwork',
+    },
+    {
+      type: 'link',
+      label: 'Github',
+      href: 'https://github.com/nillion-oss',
+    },
+    {
+      type: 'link',
+      label: 'Blog',
+      href: 'https://medium.com/@Nillion_Network',
+    },
   ],
 };
 
