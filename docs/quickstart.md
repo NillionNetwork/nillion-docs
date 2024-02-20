@@ -62,7 +62,7 @@ https://github.com/nillion-oss/nillion-python-starter/blob/main/.env.sample#L3-L
 
 :::tip
 
-Enable verbose debugging by adding the following to your .env file:
+To enable more verbose logs for debugging, add the following to your .env file:
 
 ```bash
 RUST_LOG=debug
@@ -165,7 +165,7 @@ Scalar
 - Rational
 - String
 
-These categories are combined into types like SecretInteger, which are used to type an Input. See all types [LINK TO ALL TYPES]
+These categories are combined into types like SecretInteger, which are used to type an Input. [See all types](nada-lang-framework#nada-data-types)
 
 - Here’s an example of a SecretInteger Input provided by Steph
   ```python
