@@ -18,7 +18,7 @@ The computation phase is where the actual calculations on the private inputs are
 
 #### Input Stage
 
-Shares generated during the pre-processing phase are distributed to parties. A party receives one share per input. Parties combine their inputs with shares to create masked factors. These multiplicatively homomorphic masked factors are broadcasted to the network, maintaining ITS.
+Shares generated during the pre-processing phase are distributed to parties. A party receives one share per input. Parties combine their inputs with shares to create masked factors. These multiplicatively homomorphic masked factors are broadcasted to the network, maintaining [information-theoretic security (ITS)](glossary.md#information-theoretic-security-its).
 
 #### Evaluation Stage
 
@@ -37,7 +37,7 @@ Nillion’s novel MPC protocol achieves
 - **Non-linear arithmetic capabilities:** The protocol can evaluate a sum of products of hidden inputs without leaking input information to any of the parties.
 - **Efficient pre-processing**: The creation of shares is independent of input values and only depends on the number of inputs (factors and terms) in each term.
 - **Asynchronous computation:** The non-interactive nature of the computation phase aligns with asynchronous workflows and accelerates the process, as it does not require message exchanges between parties.
-- **ITS security**: The protocol upholds the [information-theoretic security (ITS)](glossary.md#information-theoretic-security-its) inherent in LSSS, meaning it is secure against adversaries with unlimited computing resources and time.
+- **ITS security**: The protocol upholds the ITS inherent in LSSS, meaning it is secure against adversaries with unlimited computing resources and time.
 
 Read the full technical paper on Nillion's MPC Protocol: [Evaluation of Arithmetic Sum-of-Products Expressions in Linear Secret Sharing Schemes with a Non-Interactive Computation Phase](https://eprint.iacr.org/2023/1740)
 

@@ -23,6 +23,11 @@ The [Nillion SDK](nillion-sdk-and-tools) includes tools for generating node keys
 Decompress the Nillion SDK binaries and store the resulting folder on your machine
 
 ```bash
+# Linux command for decompressing binaries
+tar -xzvf {nillion-sdk-binaries-file}
+```
+
+```bash
 # suggested naming convention: nillion-binaries/{version}/{platform}
 /Users/steph/Desktop/nillion-binaries/sdk-v2024-02-06-65a7e7887/aarch64-apple-darwin
 ```
@@ -40,6 +45,7 @@ cd nillion-python-starter
 
 There are a few pre-reqs for using the python starter repo: make sure you have foundry, pidof, and grep installed on your machine.
 
+- [python3](https://www.python.org/downloads/) version 3.10 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed
 - [foundry](https://book.getfoundry.sh/getting-started/installation)
 - [pidof](https://command-not-found.com/pidof)
 - [grep](https://command-not-found.com/grep)

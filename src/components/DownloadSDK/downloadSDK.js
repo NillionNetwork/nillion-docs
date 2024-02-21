@@ -128,8 +128,9 @@ export default function DownloadSDK() {
         <div>
           <p>
             For now, Nillion binaries including the SDK tools, Python Client,
-            and Nada DSL are only available to builders who are part of{' '}
+            and Nada DSL are only available to builders who are part of the{' '}
             <Link to="/nucleus-builders-program">Nucleus Builders Program</Link>
+            .
           </p>
           <button onClick={promptForVersion}>
             Enter version code to download binaries
