@@ -20,16 +20,17 @@ The [Nillion SDK](nillion-sdk-and-tools) includes tools for generating node keys
 
 ### SDK Installation
 
-Decompress the Nillion SDK binaries and store the resulting folder on your machine
+Decompress the Nillion SDK binaries and store the resulting folder on your machine.
 
 ```bash
 # Linux command for decompressing binaries
-tar -xzvf {nillion-sdk-binaries-file}
+tar -xzvf {nillion-sdk-binaries}
 ```
 
 ```bash
-# suggested naming convention: nillion-binaries/{version}/{platform}
-/Users/steph/Desktop/nillion-binaries/sdk-v2024-02-06-65a7e7887/aarch64-apple-darwin
+# suggested naming convention for decompressed sdk folder:
+# {folder}/nillion-binaries/{version}/{platform}
+/Users/steph/Desktop/nillion-binaries/sdk-v2024-02-06-123456789/aarch64-apple-darwin
 ```
 
 ## Clone the Nillion python starter repo
@@ -291,8 +292,12 @@ Check out the network result on tiny_secret_addition. Update the SecretInteger i
 
 You've successfully written your first single party Nada program, stored it on a local network cluster, stored secrets on the network, and run compute against secrets. Keep exploring by
 
-- running other single party program examples in the [client_single_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_single_party_compute)
+- running other examples
 
-- leveling up: run multi party examples in the [client_multi_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_multi_party_compute)
+  - single party program examples in the [client_single_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_single_party_compute)
+  - multi party examples in the [client_multi_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_multi_party_compute)
+  - permissioning secrets examples in the in the [permissions folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/permissions) for storing and retrieving permissioned secrets and revoking permissions
 
-- learning how to permission secrets (storing and retrieving permissioned secrets, revoking permissions) in the [permissions folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/permissions)
+- reading about [Nillion concepts](/concepts) and the [Nada-lang framework](nada-lang-framework)
+
+- learning how to interact with and manage programs, secrets, and permissions on the Nillion Network with [Nillion Client](/nillion-client)

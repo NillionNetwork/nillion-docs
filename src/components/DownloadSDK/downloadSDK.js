@@ -132,7 +132,11 @@ export default function DownloadSDK() {
             <Link to="/nucleus-builders-program">Nucleus Builders Program</Link>
             .
           </p>
-          <button onClick={promptForVersion}>
+          <button
+            onClick={promptForVersion}
+            className="breadcrumbs__link"
+            style={{ cursor: 'pointer', borderRadius: 10 }}
+          >
             Enter version code to download binaries
           </button>
         </div>
