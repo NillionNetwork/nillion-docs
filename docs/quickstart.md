@@ -35,7 +35,7 @@ tar -xzvf {nillion-sdk-binaries}
 
 ## Clone the Nillion python starter repo
 
-The [Nillion Python Starter](https://github.com/nillion-oss/nillion-python-starter) repo that has everything you need to start building. Clone the repo:
+The [Nillion Python Starter](https://github.com/nillion-oss/nillion-python-starter) repo has everything you need to start building. Clone the repo:
 
 ```bash
 git clone https://github.com/nillion-oss/nillion-python-starter.git
@@ -44,7 +44,7 @@ cd nillion-python-starter
 
 ### Install script dependencies
 
-There are a few pre-reqs for using the python starter repo: make sure you have foundry, pidof, and grep installed on your machine.
+There are a few pre-reqs for using the python starter repo: make sure you have python3 and pip, foundry, pidof, and grep installed on your machine.
 
 - [python3](https://www.python.org/downloads/) version 3.10 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed
 - [foundry](https://book.getfoundry.sh/getting-started/installation)
