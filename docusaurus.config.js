@@ -15,16 +15,11 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://nillion-builder-docs.vercel.app',
+  url: 'https://docs.nillion.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
   trailingSlash: false,
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'nillion-oss', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -67,7 +62,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
-          //   'https://github.com/nillion-oss/docusaurus/',
+          //   'https://github.com/nillion-oss/nillion-docs/',
         },
         blog: false,
         theme: {
@@ -93,8 +88,13 @@ const config = {
         },
         items: [
           {
-            href: 'https://github.com/nillion-oss/docusaurus',
+            href: 'https://github.com/nillion-oss/nillion-docs',
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/orgs/nillion-oss/discussions?discussions_q=',
+            label: 'Discussions',
             position: 'right',
           },
         ],

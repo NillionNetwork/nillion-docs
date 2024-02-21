@@ -69,7 +69,7 @@ const sidebars = {
         {
           type: 'link',
           label: 'Python Client Reference',
-          href: 'https://nillion-builder-docs.vercel.app/pydocs/client.html',
+          href: 'https://docs.nillion.com/pydocs/client.html',
         },
         {
           type: 'category',

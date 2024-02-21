@@ -1,14 +1,14 @@
 # Nillion docs
 
-The Nillion docs are built using [Docusaurus](https://docusaurus.io/), a modern static website generator. Documentation content lives in the docs folder of this repo, and new sections can be added to the sidebar by including the pages in sidebar.js.
+The Nillion docs are built using [Docusaurus v3](https://docusaurus.io/). Documentation content lives in the docs folder of this repo, and new sections can be added to the sidebar by including the pages in sidebar.js.
 
 ## Improving the docs
 
-Got a suggestion for improving the docs? Let us know by [creating a Github Issue](https://github.com/nillion-oss/docusaurus/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D)
+Got a suggestion for improving the docs? Let us know by [creating a Github Issue](https://github.com/nillion-oss/nillion-docs/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D)
 
 ## Asking questions
 
-Use our [Github Discussions forum](https://github.com/orgs/nillion-oss/discussions) to ask questions and share ideas about Nillion.
+Use our [Github Discussions forum](https://github.com/orgs/nillion-oss/discussions?discussions_q=) to ask questions and share ideas about Nillion.
 
 ## Running the docs locally
 

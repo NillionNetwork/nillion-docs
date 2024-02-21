@@ -10,7 +10,7 @@
 
 ### Improve the docs
 
-Got a suggestion for improving the docs? Let us know by [creating a Github Issue](https://github.com/nillion-oss/docusaurus/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D).
+Got a suggestion for improving the docs? Let us know by [creating a Github Issue](https://github.com/nillion-oss/nillion-docs/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D).
 
 ### How to open a support ticket
 
