@@ -116,7 +116,7 @@ const config = {
         // Public API key: it is safe to commit it
         apiKey: process.env.ALGOLIA_API_KEY_SEARCH,
 
-        indexName: process.env.ALGOLIA_INDEX_NAME,
+        indexName: 'nillion_docs',
 
         // Optional: see doc section below
         contextualSearch: true,
