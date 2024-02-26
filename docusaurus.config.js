@@ -110,8 +110,8 @@ const config = {
         runmeLinkLabel: 'Checkout via Runme',
       },
       algolia: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY_SEARCH,
+        appId: 'I1AVSJUXEA',
+        apiKey: '54efdeb0639df4a13b0e58e37360efe9', // search only - safe to share
         indexName: 'nillion_docs',
         searchPagePasitemapth: 'search',
       },
