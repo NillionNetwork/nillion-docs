@@ -67,7 +67,7 @@ https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_par
     ### Step 2: The 2nd Party stores a permissioned secret
 
 ```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_party_compute/02_store_secret_party2.py#L37-L100
+https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_party_compute/02_store_secret_party_n.py#L36-L108
 ```
 
   </TabItem>
@@ -75,7 +75,7 @@ https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_par
     ### Step 3: The 1st Party computes with both secrets
 
 ```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_party_compute/03_multi_party_compute.py#L45-L100
+https://github.com/nillion-oss/nillion-python-starter/blob/main/client_multi_party_compute/03_multi_party_compute.py#L43-L100
 ```
 
   </TabItem>
