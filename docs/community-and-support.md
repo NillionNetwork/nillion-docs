@@ -6,7 +6,11 @@
 - Telegram groups
   - Subscribe to [Nillion Official Announcements](https://t.me/nillionofficialannouncements) to stay up to date with the latest Nillion news
   - Join [MPC 👀](https://t.me/Multipartycomputation), a broader community group for discussing MPC developments, papers, and implementation examples.
-- Connect with other Nillion builders using [Github Discussions](https://github.com/orgs/nillion-oss/discussions?discussions_q=), our forum for technical discussions and developer questions
+- Visit [NillHub](https://www.nillhub.com), our community discussion forum. This is a place where all Nills from around the globe can share, learn, and create together, and for anyone whose native language isn’t English, there are sub-categories for languages with their own communities too.
+
+### Developer questions and technical discussions
+
+Nillion's [Github Discussions](https://github.com/orgs/nillion-oss/discussions?discussions_q=) forum is our central developer hub for technical discussions related to Nillion. Builders can use Github discussions to share ideas, ask questions, showcase their projects, and stay updated on the latest news and announcements from the Nillion team.
 
 ### Improve the docs
 

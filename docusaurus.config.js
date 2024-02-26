@@ -84,13 +84,13 @@ const config = {
         },
         items: [
           {
-            href: 'https://github.com/nillion-oss/nillion-docs',
+            href: 'https://github.com/nillion-oss',
             label: 'GitHub',
             position: 'right',
           },
           {
-            href: 'https://github.com/orgs/nillion-oss/discussions?discussions_q=',
-            label: 'Discussions',
+            href: 'https://www.nillhub.com',
+            label: 'Forum',
             position: 'right',
           },
         ],
