@@ -1,6 +1,6 @@
 # Store Secrets
 
-Use `store_secrets` to store a SecretBlob, SecretInteger, or SecretArray in the network
+Store secret strings, integers, and arrays in the network.
 
 Check out the [store_secrets](https://docs.nillion.com/pydocs/client#py_nillion_client.NillionClient.store_secrets) Python Client Reference
 

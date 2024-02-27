@@ -67,13 +67,8 @@ const sidebars = {
       },
       items: [
         {
-          type: 'link',
-          label: 'Python Client Reference',
-          href: 'https://docs.nillion.com/pydocs/client.html',
-        },
-        {
           type: 'category',
-          label: 'Python Nillion Client Examples',
+          label: 'Python Client Examples',
           link: {
             type: 'doc',
             id: 'python-client-examples',
@@ -83,21 +78,48 @@ const sidebars = {
             'store-secrets',
             'retrieve-secret',
             {
-              type: 'link',
-              label: 'Single Party Examples',
-              href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/client_single_party_compute',
+              type: 'category',
+              label: 'Permissions',
+              link: {
+                type: 'doc',
+                id: 'permissions',
+              },
+              collapsed: false,
+              items: [
+                {
+                  type: 'link',
+                  label: 'Permissions Examples',
+                  href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/permissions',
+                },
+              ],
             },
             {
-              type: 'link',
-              label: 'Multi Party Examples',
-              href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/client_multi_party_compute',
-            },
-            {
-              type: 'link',
-              label: 'Permissions Examples',
-              href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/permissions',
+              type: 'category',
+              label: 'Compute',
+              link: {
+                type: 'doc',
+                id: 'compute',
+              },
+              collapsed: false,
+              items: [
+                {
+                  type: 'link',
+                  label: 'Single Party Examples',
+                  href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/client_single_party_compute',
+                },
+                {
+                  type: 'link',
+                  label: 'Multi Party Examples',
+                  href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/client_multi_party_compute',
+                },
+              ],
             },
           ],
+        },
+        {
+          type: 'link',
+          label: 'Python Client Reference',
+          href: 'https://docs.nillion.com/pydocs/client.html',
         },
       ],
     },

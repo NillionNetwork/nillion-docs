@@ -1,6 +1,8 @@
 # Retrieve Secret
 
-Use `retrieve_secret` to retrieve and read the value of a secret in the network. `retrieve_secret` returns a tuple containing two elements: the first element is the name of the secret represented as a UUID (Universally Unique Identifier), and the second element is the actual secret value.
+Retrieve secret strings, integers, and arrays from the network.
+
+`retrieve_secret` returns a tuple containing two elements: the first element is the name of the secret represented as a UUID (Universally Unique Identifier), and the second element is the actual secret value.
 
 [retrieve_secret Python Client Reference](https://docs.nillion.com/pydocs/client#py_nillion_client.NillionClient.retrieve_secret)
 
