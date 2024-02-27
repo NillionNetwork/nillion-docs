@@ -4,6 +4,14 @@ Use `retrieve_secret` to retrieve and read the value of a secret in the network.
 
 [retrieve_secret Python Client Reference](https://docs.nillion.com/pydocs/client#py_nillion_client.NillionClient.retrieve_secret)
 
+## Retrieve a SecretBlob
+
+Retrieve and decode a stored secret string
+
+```python reference showGithubLink
+https://github.com/nillion-oss/nillion-python-starter/blob/main/store_and_retrieve_secrets/store_and_retrieve_blob.py#L38-L44
+```
+
 ## Retrieve a SecretInteger
 
 Retrieve a stored secret integer

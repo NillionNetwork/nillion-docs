@@ -30,6 +30,7 @@ The Nada language is
 | --------------- | --------------------- |
 | Integer         | SecretInteger         |
 | UnsignedInteger | SecretUnsignedInteger |
+| Blob            | SecretBlob            |
 | Array           | SecretArray           |
 
 #### Example Nada program
