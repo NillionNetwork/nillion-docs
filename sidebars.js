@@ -80,6 +80,8 @@ const sidebars = {
           },
           collapsed: false,
           items: [
+            'store-secrets',
+            'retrieve-secret',
             {
               type: 'link',
               label: 'Single Party Examples',

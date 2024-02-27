@@ -10,19 +10,19 @@ The Nillion Network uses Nada, our MPC language, to define MPC programs. The fir
 
 The Nada language is
 
-* Strongly typed: every variable and expression has a specific type that is checked at compile time to prevent common errors such as type mismatches
-* Correctness-oriented: Nada has features including type-checking and static analysis built into the compiler
-* Compiled: Nada is a compiled language with different stages
+- Strongly typed: every variable and expression has a specific type that is checked at compile time to prevent common errors such as type mismatches
+- Correctness-oriented: Nada has features including type-checking and static analysis built into the compiler
+- Compiled: Nada is a compiled language with different stages
 
 #### Nada Operations
 
-* addition
-* subtraction
-* multiplication
-* comparison
-  * greater than
-  * greater than or equal to&#x20;
-  * less than
+- addition
+- subtraction
+- multiplication
+- comparison
+  - greater than
+  - greater than or equal to&#x20;
+  - less than
 
 #### Nada Data Types
 
@@ -30,7 +30,7 @@ The Nada language is
 | --------------- | --------------------- |
 | Integer         | SecretInteger         |
 | UnsignedInteger | SecretUnsignedInteger |
-| Boolean         | SecretBoolean         |
+| Array           | SecretArray           |
 
 #### Example Nada program
 
@@ -53,11 +53,11 @@ def nada_main():
     return [Output(total, "my_output", nilla_the_dog)]
 ```
 
-tiny\_addition.py takes in 2 [Inputs](concepts.md#inputs) from the same [Party](concepts.md#party)
+tiny_addition.py takes in 2 [Inputs](concepts.md#inputs) from the same [Party](concepts.md#party)
 
 <table><thead><tr><th width="162">Input name</th><th width="145">Input type</th><th>Party name</th></tr></thead><tbody><tr><td>my_secret_1</td><td>SecretInteger</td><td>Nilla 🐶</td></tr><tr><td>my_secret_2</td><td>SecretInteger</td><td>Nilla 🐶</td></tr></tbody></table>
 
-tiny\_addition.py returns an [Output](concepts.md#outputs) to a [Party](concepts.md#party)
+tiny_addition.py returns an [Output](concepts.md#outputs) to a [Party](concepts.md#party)
 
 <table><thead><tr><th>Output value</th><th>Output name</th><th>Output Type</th><th>Party name</th><th data-hidden>Output type</th><th data-hidden>Party name</th><th data-hidden>Output name</th></tr></thead><tbody><tr><td>total</td><td>my_output</td><td>SecretInteger</td><td>Nilla 🐶</td><td>SecretInteger</td><td>Nilla 🐶</td><td>my_output</td></tr></tbody></table>
 
@@ -67,16 +67,16 @@ Before the programs can be stored and run on the Nillion Network, they must be c
 
 Compiling the example above outputs the compiled circuit to bytecode in a new file:
 
-* Input program: **tiny\_addition.py**
-* Output bytecode: **tiny\_addition.nada.bin**
+- Input program: **tiny_addition.py**
+- Output bytecode: **tiny_addition.nada.bin**
 
 ### Simulate program execution with program-simulator
 
-Use the program-simulator developer tool within the [Nillion SDK](nillion-sdk-and-tools.md)  to quickly execute and iterate on Nada programs under an environment that is a close as it can get to running them in a real network. The program simulator tool
+Use the program-simulator developer tool within the [Nillion SDK](nillion-sdk-and-tools.md) to quickly execute and iterate on Nada programs under an environment that is a close as it can get to running them in a real network. The program simulator tool
 
-* takes in a compiled PyNada program and secrets
-* creates blinding factors locally to hide every secret input you provide to the program
-* creates a stripped down version of a Nillion cluster and runs the same bytecode that would be run during a real execution of your program.&#x20;
+- takes in a compiled PyNada program and secrets
+- creates blinding factors locally to hide every secret input you provide to the program
+- creates a stripped down version of a Nillion cluster and runs the same bytecode that would be run during a real execution of your program.&#x20;
 
 ```python
 # secrets file
@@ -87,8 +87,8 @@ integers:
 
 Simulated program execution goes through the same flows your code would on the Nillion Network. Here's how you could simulate program execution from the command line assuming you had the following files
 
-* secrets
-* tiny\_addition.nada.bin
+- secrets
+- tiny_addition.nada.bin
 
 ```
 ./program-simulator --secrets-path ./secrets tiny_addition.nada.bin
