@@ -79,11 +79,11 @@ RUST_LOG=debug
 
 ### Activate the virtual environment
 
-These scripts activate a python virtual environment at .venv and install dependencies listed in the `requirements.txt` file
+These scripts activate a python virtual environment at .venv and install py_nillion_client and nada_dsl packages + dependencies listed in the `requirements.txt` file
 
 ```bash
-source ./activate_venv.sh
-pip install -r requirements.txt
+./activate_venv.sh
+source .venv/bin/activate
 ```
 
 ## Bootstrap a local Nillion node cluster
