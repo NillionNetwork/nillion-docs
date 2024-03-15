@@ -132,14 +132,19 @@ from nada_dsl import *
 def nada_main():
 ```
 
-### Add a Party
+### Add a party
 
 In Nada you have to declare the parties involved in the computation through the `Party` type. A `Party` is defined with a name.
 
-- Here’s an example of a `Party`:
-  ```python
-  Party(name="Steph")
-  ```
+:::info
+
+Here’s an example of a `Party`
+
+```python
+Party(name="Steph")
+```
+
+:::
 
 Create party1, a `Party` named “Party1”
 
@@ -150,12 +155,18 @@ def nada_main():
     party1 = Party(name="Party1")
 ```
 
+### Learn about inputs
+
 Nada programs have inputs. An `Input` is defined with a name and a party, which is the `Party` providing the input.
 
-- Here’s an example of an `Input`:
-  ```python
-  Input(name="numberOfDogs", party=Party(name="Steph"))
-  ```
+:::info
+Here’s an example of an `Input`:
+
+```python
+Input(name="numberOfDogs", party=Party(name="Steph"))
+```
+
+:::
 
 Nada program inputs are typed. There are a few categories of types
 
@@ -174,13 +185,17 @@ Scalar
 
 These categories are combined into types like SecretInteger, which are used to type an Input. [See all types](nada-lang-framework#nada-data-types)
 
-- Here’s an example of a SecretInteger Input provided by Steph
-  ```python
-  steph = Party(name="Steph")
-  stephs_secret_int = SecretInteger(Input(name="numberOfDogs", party=steph))
-  ```
+:::info
+Here’s an example of a SecretInteger Input provided by Steph
 
-### Create 2 secret integers
+```python
+steph = Party(name="Steph")
+stephs_secret_int = SecretInteger(Input(name="numberOfDogs", party=steph))
+```
+
+:::
+
+### Create 2 secret integers inputs
 
 - my_int1, a SecretInteger named “my_int1” owned by Party1
 - my_int2, a SecretInteger named “my_int2” owned by Party1
@@ -212,6 +227,21 @@ def nada_main():
 ```
 
 Finally, Nada programs return an output. The `Output` type is used to declare a named output that will be revealed to a concrete `Party`. The Output has a name and a party as parameters.
+
+### Return the output
+
+Nada programs return an array of outputs.
+
+:::info
+Here’s an example of an output. The output is named "total_score", its value is `score_int`, and it can be read by the party named Steph.
+
+```python
+Output(score_int, "total_score", Party(name="Steph"))
+```
+
+:::
+
+Complete your Nada program by adding a final line that returns an array with one output. The output is named "my_output", its value is `new_int`, and it can be ready by `party1`.
 
 ### Resulting Nada program
 
@@ -262,7 +292,7 @@ Open the `client_single_party_compute/tiny_secret_addition.py` file. This file c
 ### Review secret storage code
 
 ```yaml reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L36
+https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L38
 ```
 
 When a secret is stored, the network returns its store_id.
