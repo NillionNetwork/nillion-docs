@@ -23,7 +23,7 @@ Options:
   -n, --node-count <NODE_COUNT>
           The number of nodes in the cluster
 
-          [default: 5]
+          [default: 3]
 
   -c, --cluster-id <CLUSTER_ID>
           The uuid of the cluster.

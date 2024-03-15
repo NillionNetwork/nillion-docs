@@ -16,7 +16,7 @@ Options:
   -n, --network-size <NETWORK_SIZE>
           The size of the simulated network
 
-          [default: 5]
+          [default: 3]
 
   -d, --polynomial-degree <POLYNOMIAL_DEGREE>
           The degree of the polynomial used
