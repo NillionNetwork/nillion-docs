@@ -45,10 +45,10 @@ const config = {
     pyClientLinuxArm: process.env.DOWNLOAD_PYCLIENT_LINUX_ARM,
     pyClientLinuxIntel: process.env.DOWNLOAD_PYCLIENT_LINUX_INTEL,
 
-    pyNadaAppleM: process.env.DOWNLOAD_PYNADA_APPLE_M,
-    pyNadaAppleIntel: process.env.DOWNLOAD_PYNADA_APPLE_INTEL,
-    pyNadaLinuxArm: process.env.DOWNLOAD_PYNADA_LINUX_ARM,
-    pyNadaLinuxIntel: process.env.DOWNLOAD_PYNADA_LINUX_INTEL,
+    pyNadaAppleM: process.env.DOWNLOAD_PYNADA,
+    pyNadaAppleIntel: process.env.DOWNLOAD_PYNADA,
+    pyNadaLinuxArm: process.env.DOWNLOAD_PYNADA,
+    pyNadaLinuxIntel: process.env.DOWNLOAD_PYNADA,
   },
 
   presets: [
