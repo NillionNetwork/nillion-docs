@@ -44,9 +44,21 @@ cd nillion-python-starter
 
 ### Install script dependencies
 
-There are a few pre-reqs for using the python starter repo: make sure you have python3 and pip, foundry, pidof, and grep installed on your machine.
+There are a few pre-reqs for using the python starter repo: make sure you have python3 (version >=3.10) and pip, foundry, pidof, and grep installed on your machine.
 
-- [python3](https://www.python.org/downloads/) version 3.10 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed
+- [python3 version >=3.10](https://www.python.org/downloads/) version 3.10 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed
+
+  :::tip
+
+  Use these commands to confirm that you have python3 (version >=3.10) and pip installed:
+
+  ```
+  python3 --version
+  python3 -m pip --version
+  ```
+
+  :::
+
 - [foundry](https://book.getfoundry.sh/getting-started/installation)
 - [pidof](https://command-not-found.com/pidof)
 - [grep](https://command-not-found.com/grep)
