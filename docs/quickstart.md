@@ -1,3 +1,5 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import DownloadSDK from '@site/src/components/DownloadSDK/downloadSDK';
 
 # Developer Quickstart
@@ -5,7 +7,7 @@ import DownloadSDK from '@site/src/components/DownloadSDK/downloadSDK';
 Start building on Nillion. This quickstart will walk you through
 
 1. Installing the Nillion SDK
-2. Setting up a developer environment with nillion-python-starter
+2. Setting up a developer environment with [nillion-python-starter](https://github.com/nillion-oss/nillion-python-starter)
 3. Running a local network (cluster of nodes)
 4. Writing your first Nada program
 5. Connecting to the network with NillionClient to store secrets, store programs, and compute on programs with stored secrets
@@ -18,20 +20,154 @@ Start building on Nillion. This quickstart will walk you through
 
 The [Nillion SDK](nillion-sdk-and-tools) includes tools for generating node keys, peer ids, and user keys, compiling Nada code, simulating programs, running a local network, and connecting to the Nillion network via your cli. Install the Nillion SDK from binaries to have access to SDK tools including nil-cli, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen.
 
-### SDK Installation
+### Set up folder structure
 
-Decompress the Nillion SDK binaries and store the resulting folder on your machine.
+Create a `nillion-binaries` folder. Inside that folder create a version folder like `v2024-03-20-123456789`.
 
-```bash
-# Linux command for decompressing binaries
-tar -xzvf {nillion-sdk-binaries}
+### Save binaries
+
+<Tabs>
+  <TabItem value="apple-m1" label="Apple (M1/M2/M3)" default>
+
+#### Decompress SDK binaries
+
+Double-click on `aarch64-apple-darwin` to decompress the folder. Move the decompressed `aarch64-apple-darwin` SDK binaries folder into the version folder. `aarch64-apple-darwin` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen).
+
+#### Download PyNada DSL and Python Client binaries
+
+Download the PyNada DSL binaries and Python Client binaries. Save these in the version folder.
+
+#### Resulting binaries folder structure
+
+```
+├── Desktop
+│   ├── nillion-binaries
+│   │   ├── v2024-03-20-123456789
+│   │   │   ├── aarch64-apple-darwin
+│   │   │   │   ├── foundry.sh
+│   │   │   │   ├── nillion
+│   │   │   │   ├── nilup
+│   │   │   │   ├── node-key2peerid
+│   │   │   │   ├── node-keygen
+│   │   │   │   ├── program-simulator
+│   │   │   │   ├── pynadac
+│   │   │   │   ├── run-local-cluster
+│   │   │   │   ├── user-keygen
+│   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
+│   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-macosx_11_0_arm64.whl
 ```
 
-```bash
-# suggested naming convention for decompressed sdk folder:
-# {folder}/nillion-binaries/{version}/{platform}
-/Users/steph/Desktop/nillion-binaries/sdk-v2024-02-06-123456789/aarch64-apple-darwin
+  </TabItem>
+  <TabItem value="apple-intel" label="Apple (Intel chip)" default>
+
+#### Decompress SDK binaries
+
+Double-click on `x86_64-apple-darwin` to decompress the folder. Move the decompressed `x86_64-apple-darwin` SDK binaries folder into the version folder. `x86_64-apple-darwin` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen).
+
+#### Download PyNada DSL and Python Client binaries
+
+Download the PyNada DSL binaries and Python Client binaries. Save these in the version folder.
+
+#### Resulting binaries folder structure
+
 ```
+├── Desktop
+│   ├── nillion-binaries
+│   │   ├── v2024-03-20-123456789
+│   │   │   ├── x86_64-apple-darwin
+│   │   │   │   ├── foundry.sh
+│   │   │   │   ├── nillion
+│   │   │   │   ├── nilup
+│   │   │   │   ├── node-key2peerid
+│   │   │   │   ├── node-keygen
+│   │   │   │   ├── program-simulator
+│   │   │   │   ├── pynadac
+│   │   │   │   ├── run-local-cluster
+│   │   │   │   ├── user-keygen
+│   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
+│   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-macosx_10_7_x86_64.whl
+```
+
+  </TabItem>
+  <TabItem value="linux-arm" label="Linux (ARM chip)">
+
+#### Decompress SDK binaries
+
+Decompress the SDK binaries folder with the following command:
+
+```bash
+
+tar -xzvf {path/to/aarch64-unknown-linux}
+
+```
+
+Move the decompressed `aarch64-unknown-linux` SDK binaries folder into the version folder. `aarch64-unknown-linux` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen).
+
+#### Download PyNada DSL and Python Client binaries
+
+Download the PyNada DSL binaries and Python Client binaries. Save these in the version folder.
+
+#### Binaries folder structure
+
+```
+├── Desktop
+│   ├── nillion-binaries
+│   │   ├── v2024-03-20-123456789
+│   │   │   ├── aarch64-unknown-linux
+│   │   │   │   ├── foundry.sh
+│   │   │   │   ├── nillion
+│   │   │   │   ├── nilup
+│   │   │   │   ├── node-key2peerid
+│   │   │   │   ├── node-keygen
+│   │   │   │   ├── program-simulator
+│   │   │   │   ├── pynadac
+│   │   │   │   ├── run-local-cluster
+│   │   │   │   ├── user-keygen
+│   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
+│   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
+```
+
+  </TabItem>
+    <TabItem value="linux-amd" label="Linux (Intel/AMD chip)">
+
+#### Decompress SDK binaries
+
+Decompress the SDK binaries folder with the following command:
+
+```bash
+
+tar -xzvf {path/to/x86_64-unknown-linux}
+
+```
+
+Move the decompressed `x86_64-unknown-linux` SDK binaries folder into the version folder. `x86_64-unknown-linux` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen).
+
+#### Download PyNada DSL and Python Client binaries
+
+Download the PyNada DSL binaries and Python Client binaries. Save these in the version folder.
+
+#### Binaries folder structure
+
+```
+├── Desktop
+│   ├── nillion-binaries
+│   │   ├── v2024-03-20-123456789
+│   │   │   ├── x86_64-unknown-linux
+│   │   │   │   ├── foundry.sh
+│   │   │   │   ├── nillion
+│   │   │   │   ├── nilup
+│   │   │   │   ├── node-key2peerid
+│   │   │   │   ├── node-keygen
+│   │   │   │   ├── program-simulator
+│   │   │   │   ├── pynadac
+│   │   │   │   ├── run-local-cluster
+│   │   │   │   ├── user-keygen
+│   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
+│   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+```
+
+  </TabItem>
+</Tabs>
 
 ## Clone the Nillion python starter repo
 
@@ -79,7 +215,7 @@ Update the following SDK path variables within your .env
 https://github.com/nillion-oss/nillion-python-starter/blob/main/.env.sample#L3-L11
 ```
 
-:::tip
+<!-- :::tip
 
 To enable more verbose logs for debugging, add the following to your .env file:
 
@@ -87,7 +223,7 @@ To enable more verbose logs for debugging, add the following to your .env file:
 RUST_LOG=debug
 ```
 
-:::
+::: -->
 
 ### Activate the virtual environment
 

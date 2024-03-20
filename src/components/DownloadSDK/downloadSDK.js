@@ -35,6 +35,15 @@ const DownloadTable = ({
           </td>
         </tr>
         <tr>
+          <td>PyNada DSL</td>
+          <td>Nada DSL for Python, needed for writing programs</td>
+          <td>
+            <a target="_blank" href={downloadLink(pyNadaLink)}>
+              <button>Download</button>
+            </a>
+          </td>
+        </tr>
+        <tr>
           <td>Python Client</td>
           <td>
             Nillion Client Python module with APIs for building on the Nillion
@@ -42,15 +51,6 @@ const DownloadTable = ({
           </td>
           <td>
             <a target="_blank" href={downloadLink(pyClientLink)}>
-              <button>Download</button>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>PyNada DSL</td>
-          <td>Nada DSL for Python, needed for writing programs</td>
-          <td>
-            <a target="_blank" href={downloadLink(pyNadaLink)}>
               <button>Download</button>
             </a>
           </td>
@@ -80,10 +80,13 @@ export default function DownloadSDK() {
       userVersionCode.length == 21 ? (
         <div>
           <h3>Version: {userVersionCode}</h3>
-          <p>Select your target platform to download Nillion binaries</p>
+          <p>
+            Select your target platform to download Nillion binaries for the
+            Nillion SDK, PyNada DSL, and Python Client
+          </p>
           <Tabs>
-            <TabItem value="apple-m" label="Apple (M1/M2)" default>
-              <h2>Apple (M1/M2)</h2>
+            <TabItem value="apple-m" label="Apple (M1/M2/M3)" default>
+              <h2>Apple (M1/M2/M3)</h2>
               <DownloadTable
                 downloadBaseUrl={customFields.downloadBaseUrl}
                 version={userVersionCode}
