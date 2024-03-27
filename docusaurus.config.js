@@ -62,7 +62,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
-          //   'https://github.com/nillion-oss/nillion-docs/',
+          //   'https://github.com/NillionNetwork/nillion-docs/',
         },
         blog: false,
         theme: {
@@ -84,7 +84,7 @@ const config = {
         },
         items: [
           {
-            href: 'https://github.com/nillion-oss',
+            href: 'https://github.com/NillionNetwork',
             label: 'GitHub',
             position: 'right',
           },
