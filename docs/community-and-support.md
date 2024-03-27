@@ -10,11 +10,11 @@
 
 ### Developer questions and technical discussions
 
-Nillion's [Github Discussions](https://github.com/orgs/nillion-oss/discussions?discussions_q=) forum is our central developer hub for technical discussions related to Nillion. Builders can use Github discussions to share ideas, ask questions, showcase their projects, and stay updated on the latest news and announcements from the Nillion team.
+Nillion's [Github Discussions](https://github.com/orgs/NillionNetwork/discussions?discussions_q=) forum is our central developer hub for technical discussions related to Nillion. Builders can use Github discussions to share ideas, ask questions, showcase their projects, and stay updated on the latest news and announcements from the Nillion team.
 
 ### Improve the docs
 
-Got a suggestion for improving the docs? Let us know by [creating a Github Issue](https://github.com/nillion-oss/nillion-docs/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D).
+Got a suggestion for improving the docs? Let us know by [creating a Github Issue](https://github.com/NillionNetwork/nillion-docs/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D).
 
 ### How to open a support ticket
 
