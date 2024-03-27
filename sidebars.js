@@ -89,7 +89,7 @@ const sidebars = {
                 {
                   type: 'link',
                   label: 'Permissions Examples',
-                  href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/permissions',
+                  href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/permissions',
                 },
               ],
             },
@@ -105,12 +105,12 @@ const sidebars = {
                 {
                   type: 'link',
                   label: 'Single Party Examples',
-                  href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/client_single_party_compute',
+                  href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_single_party_compute',
                 },
                 {
                   type: 'link',
                   label: 'Multi Party Examples',
-                  href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/client_multi_party_compute',
+                  href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_multi_party_compute',
                 },
               ],
             },
@@ -134,7 +134,7 @@ const sidebars = {
         {
           type: 'link',
           label: 'Nada Program Examples',
-          href: 'https://github.com/nillion-oss/nillion-python-starter/tree/main/programs',
+          href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs',
         },
       ],
     },
@@ -167,7 +167,7 @@ const sidebars = {
     {
       type: 'link',
       label: 'Github',
-      href: 'https://github.com/nillion-oss',
+      href: 'https://github.com/NillionNetwork',
     },
     {
       type: 'link',
