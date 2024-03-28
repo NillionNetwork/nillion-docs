@@ -1,9 +1,9 @@
-# program-simulator
+# nada-run
 
-The program-simulator tool simulates program execution against a local stripped down version of a Nillion cluster
+The `nada-run` tool executes a Nada program using the Nada VM with the cryptographic algorithms but without the peer-to-peer (p2p) network.
 
 ```bash
-Usage: program-simulator [OPTIONS] --prime-size <PRIME_SIZE> <PROGRAM_PATH>
+Usage: nada-run [OPTIONS] --prime-size <PRIME_SIZE> <PROGRAM_PATH>
 
 Arguments:
   <PROGRAM_PATH>
@@ -14,7 +14,7 @@ Options:
           Prime size in bits; 256 is a good default
 
   -n, --network-size <NETWORK_SIZE>
-          The size of the simulated network
+          The size of the local network
 
           [default: 3]
 

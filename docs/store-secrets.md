@@ -9,7 +9,7 @@ Check out the [store_secrets](https://docs.nillion.com/pydocs/client#py_nillion_
 Store a SecretBlob, a UTF-8 encoded secret string
 
 ```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/store_and_retrieve_secrets/store_and_retrieve_blob.py#L15-L39
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/store_and_retrieve_secrets/store_and_retrieve_blob.py#L15-L39
 ```
 
 ## Store a SecretInteger
@@ -17,7 +17,7 @@ https://github.com/nillion-oss/nillion-python-starter/blob/main/store_and_retrie
 Store a single SecretInteger
 
 ```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/store_and_retrieve_secrets/store_and_retrieve_integer.py#L15-L37
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/store_and_retrieve_secrets/store_and_retrieve_integer.py#L15-L37
 ```
 
 ## Store a SecretArray
@@ -25,5 +25,5 @@ https://github.com/nillion-oss/nillion-python-starter/blob/main/store_and_retrie
 Stores an array, a list of values with the SecretInteger type
 
 ```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/store_and_retrieve_secrets/store_and_retrieve_array.py#L15-L45
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/store_and_retrieve_secrets/store_and_retrieve_array.py#L15-L45
 ```

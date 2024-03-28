@@ -7,7 +7,7 @@ import DownloadSDK from '@site/src/components/DownloadSDK/downloadSDK';
 Start building on Nillion. This quickstart will walk you through
 
 1. Installing the Nillion SDK
-2. Setting up a developer environment with [nillion-python-starter](https://github.com/nillion-oss/nillion-python-starter)
+2. Setting up a developer environment with [nillion-python-starter](https://github.com/NillionNetwork/nillion-python-starter)
 3. Running a local network (cluster of nodes)
 4. Writing your first Nada program
 5. Connecting to the network with NillionClient to store secrets, store programs, and compute on programs with stored secrets
@@ -18,7 +18,7 @@ Start building on Nillion. This quickstart will walk you through
 
 ## Install the Nillion SDK
 
-The [Nillion SDK](nillion-sdk-and-tools) includes tools for generating node keys, peer ids, and user keys, compiling Nada code, simulating programs, running a local network, and connecting to the Nillion network via your cli. Install the Nillion SDK from binaries to have access to SDK tools including nil-cli, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen.
+The [Nillion SDK](nillion-sdk-and-tools) includes tools for generating node keys, peer ids, and user keys, compiling Nada code, simulating programs, running a local network, and connecting to the Nillion network via your cli. Install the Nillion SDK from binaries to have access to SDK tools including `nilup`, `nada`, `nillion`, `node-key2peerid`, `node-keygen`, `nada-run`, `pynadac`, `nillion-devnet`, and `user-keygen`.
 
 ### Set up folder structure
 
@@ -31,11 +31,11 @@ Create a `nillion-binaries` folder. Inside that folder create a version folder l
 
 #### Decompress SDK binaries
 
-Double-click on `aarch64-apple-darwin` to decompress the folder. Move the decompressed `aarch64-apple-darwin` SDK binaries folder into the version folder. `aarch64-apple-darwin` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen).
+Double-click on `aarch64-apple-darwin` to decompress the folder. Move the decompressed `aarch64-apple-darwin` SDK binaries folder into the version folder. `aarch64-apple-darwin` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, nada-run, pynadac, nillion-devnet, and user-keygen).
 
-#### Download PyNada DSL and Python Client binaries
+#### Download Nada DSL and Python Client binaries
 
-Download the PyNada DSL binaries and Python Client binaries. Save these in the version folder.
+Download the Nada DSL binaries and Python Client binaries. Save these in the version folder.
 
 #### Resulting binaries folder structure
 
@@ -45,13 +45,14 @@ Download the PyNada DSL binaries and Python Client binaries. Save these in the v
 │   │   ├── v2024-03-20-123456789
 │   │   │   ├── aarch64-apple-darwin
 │   │   │   │   ├── foundry.sh
+│   │   │   │   ├── nada
 │   │   │   │   ├── nillion
 │   │   │   │   ├── nilup
 │   │   │   │   ├── node-key2peerid
 │   │   │   │   ├── node-keygen
-│   │   │   │   ├── program-simulator
+│   │   │   │   ├── nada-run
 │   │   │   │   ├── pynadac
-│   │   │   │   ├── run-local-cluster
+│   │   │   │   ├── nillion-devnet
 │   │   │   │   ├── user-keygen
 │   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
 │   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-macosx_11_0_arm64.whl
@@ -62,11 +63,11 @@ Download the PyNada DSL binaries and Python Client binaries. Save these in the v
 
 #### Decompress SDK binaries
 
-Double-click on `x86_64-apple-darwin` to decompress the folder. Move the decompressed `x86_64-apple-darwin` SDK binaries folder into the version folder. `x86_64-apple-darwin` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen).
+Double-click on `x86_64-apple-darwin` to decompress the folder. Move the decompressed `x86_64-apple-darwin` SDK binaries folder into the version folder. `x86_64-apple-darwin` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, nada-run, pynadac, nillion-devnet, and user-keygen).
 
-#### Download PyNada DSL and Python Client binaries
+#### Download Nada DSL and Python Client binaries
 
-Download the PyNada DSL binaries and Python Client binaries. Save these in the version folder.
+Download the Nada DSL binaries and Python Client binaries. Save these in the version folder.
 
 #### Resulting binaries folder structure
 
@@ -76,13 +77,14 @@ Download the PyNada DSL binaries and Python Client binaries. Save these in the v
 │   │   ├── v2024-03-20-123456789
 │   │   │   ├── x86_64-apple-darwin
 │   │   │   │   ├── foundry.sh
+│   │   │   │   ├── nada
 │   │   │   │   ├── nillion
 │   │   │   │   ├── nilup
 │   │   │   │   ├── node-key2peerid
 │   │   │   │   ├── node-keygen
-│   │   │   │   ├── program-simulator
+│   │   │   │   ├── nada-run
 │   │   │   │   ├── pynadac
-│   │   │   │   ├── run-local-cluster
+│   │   │   │   ├── nillion-devnet
 │   │   │   │   ├── user-keygen
 │   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
 │   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-macosx_10_7_x86_64.whl
@@ -101,11 +103,11 @@ tar -xzvf {path/to/aarch64-unknown-linux}
 
 ```
 
-Move the decompressed `aarch64-unknown-linux` SDK binaries folder into the version folder. `aarch64-unknown-linux` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen).
+Move the decompressed `aarch64-unknown-linux` SDK binaries folder into the version folder. `aarch64-unknown-linux` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, nada-run, pynadac, nillion-devnet, and user-keygen).
 
-#### Download PyNada DSL and Python Client binaries
+#### Download Nada DSL and Python Client binaries
 
-Download the PyNada DSL binaries and Python Client binaries. Save these in the version folder.
+Download the Nada DSL binaries and Python Client binaries. Save these in the version folder.
 
 #### Binaries folder structure
 
@@ -115,13 +117,14 @@ Download the PyNada DSL binaries and Python Client binaries. Save these in the v
 │   │   ├── v2024-03-20-123456789
 │   │   │   ├── aarch64-unknown-linux
 │   │   │   │   ├── foundry.sh
+│   │   │   │   ├── nada
 │   │   │   │   ├── nillion
 │   │   │   │   ├── nilup
 │   │   │   │   ├── node-key2peerid
 │   │   │   │   ├── node-keygen
-│   │   │   │   ├── program-simulator
+│   │   │   │   ├── nada-run
 │   │   │   │   ├── pynadac
-│   │   │   │   ├── run-local-cluster
+│   │   │   │   ├── nillion-devnet
 │   │   │   │   ├── user-keygen
 │   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
 │   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
@@ -140,11 +143,11 @@ tar -xzvf {path/to/x86_64-unknown-linux}
 
 ```
 
-Move the decompressed `x86_64-unknown-linux` SDK binaries folder into the version folder. `x86_64-unknown-linux` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, program-simulator, pynadac, run-local-cluster, and user-keygen).
+Move the decompressed `x86_64-unknown-linux` SDK binaries folder into the version folder. `x86_64-unknown-linux` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, nada-run, pynadac, nillion-devnet, and user-keygen).
 
-#### Download PyNada DSL and Python Client binaries
+#### Download Nada DSL and Python Client binaries
 
-Download the PyNada DSL binaries and Python Client binaries. Save these in the version folder.
+Download the Nada DSL binaries and Python Client binaries. Save these in the version folder.
 
 #### Binaries folder structure
 
@@ -154,13 +157,14 @@ Download the PyNada DSL binaries and Python Client binaries. Save these in the v
 │   │   ├── v2024-03-20-123456789
 │   │   │   ├── x86_64-unknown-linux
 │   │   │   │   ├── foundry.sh
+│   │   │   │   ├── nada
 │   │   │   │   ├── nillion
 │   │   │   │   ├── nilup
 │   │   │   │   ├── node-key2peerid
 │   │   │   │   ├── node-keygen
-│   │   │   │   ├── program-simulator
+│   │   │   │   ├── nada-run
 │   │   │   │   ├── pynadac
-│   │   │   │   ├── run-local-cluster
+│   │   │   │   ├── nillion-devnet
 │   │   │   │   ├── user-keygen
 │   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
 │   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
@@ -171,10 +175,10 @@ Download the PyNada DSL binaries and Python Client binaries. Save these in the v
 
 ## Clone the Nillion python starter repo
 
-The [Nillion Python Starter](https://github.com/nillion-oss/nillion-python-starter) repo has everything you need to start building. Clone the repo:
+The [Nillion Python Starter](https://github.com/NillionNetwork/nillion-python-starter) repo has everything you need to start building. Clone the repo:
 
 ```bash
-git clone https://github.com/nillion-oss/nillion-python-starter.git
+git clone https://github.com/NillionNetwork/nillion-python-starter.git
 cd nillion-python-starter
 ```
 
@@ -207,12 +211,12 @@ cp .env.sample .env
 
 Update the following SDK path variables within your .env
 
-- `NILLION_WHL_ROOT` with the path to your folder that contains the Python Client binaries and PyNada DSL binaries (both are .whl files)
-- `NILLION_SDK_ROOT` with the path to your decompressed Nillion SDK binaries folder that contains tools: node-keygen, user-keygen, node-key2peerid, nil-cli, program-simulator, pynadac, run-local-cluster
+- `NILLION_WHL_ROOT` with the path to your folder that contains the Python Client binaries and Nada DSL binaries (both are .whl files)
+- `NILLION_SDK_ROOT` with the path to your decompressed Nillion SDK binaries folder that contains tools: node-keygen, user-keygen, node-key2peerid, nillion, nada-run, pynadac, nillion-devnet
 - `NILLION_PYCLIENT_WHL_FILE_NAME` with the file name of your Python Client binaries. This is a py_nillion_client .whl file inside of NILLION_WHL_ROOT
 
 ```yaml reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/.env.sample#L3-L11
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/.env.sample#L3-L11
 ```
 
 <!-- :::tip
@@ -236,7 +240,7 @@ source .venv/bin/activate
 
 ## Bootstrap a local Nillion node cluster
 
-The bootstrap-local-environment script installs Nada DSL and Nillion Client, then uses the [run-local-cluster](/run-local-cluster) Nillion SDK tool to spin up a local test Nillion cluster that is completely isolated within your computer. The script also populates your .env file with keys, bootnodes, cluster, and payment info that will allow you to connect to the local cluster network.
+The bootstrap-local-environment script installs Nada DSL and Nillion Client, then uses the [nillion-devnet](/nillion-devnet) Nillion SDK tool to spin up a local test Nillion cluster that is completely isolated within your computer. The script also populates your .env file with keys, bootnodes, cluster, and payment info that will allow you to connect to the local cluster network.
 
 ```bash
 ./bootstrap-local-environment.sh
@@ -247,17 +251,17 @@ The bootstrap-local-environment script installs Nada DSL and Nillion Client, the
 You can stop the local cluster at any time by running
 
 ```bash
-killall run-local-cluster
+killall nillion-devnet
 ```
 
 :::
 
 ## Write a Nada program
 
-The Nillion Network uses [Nada](nada-lang-framework), our MPC language, to define MPC programs. The first implementation of Nada is a Python DSL (Domain Specific Language), called PyNada. Let’s write a tiny Nada program that adds 2 secret numbers. Here’s the code for the finished program we’ll write line by line:
+The Nillion Network uses [Nada](nada-lang), our MPC language, to define MPC programs. The first implementation of Nada is a Python DSL (Domain Specific Language), called Nada. Let's write a tiny Nada program that adds two secret numbers. Here's the code for the finished program we'll write line by line:
 
 ```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py
 ```
 
 Create a python file for the Nada program in the programs folder
@@ -286,7 +290,7 @@ In Nada you have to declare the parties involved in the computation through the 
 
 :::info
 
-Here’s an example of a `Party`
+Here's an example of a `Party`
 
 ```python
 Party(name="Steph")
@@ -294,7 +298,7 @@ Party(name="Steph")
 
 :::
 
-Create party1, a `Party` named “Party1”
+Create party1, a `Party` named "Party1"
 
 ```python
 from nada_dsl import *
@@ -308,7 +312,7 @@ def nada_main():
 Nada programs have inputs. An `Input` is defined with a name and a party, which is the `Party` providing the input.
 
 :::info
-Here’s an example of an `Input`:
+Here's an example of an `Input`:
 
 ```python
 Input(name="numberOfDogs", party=Party(name="Steph"))
@@ -331,10 +335,10 @@ Scalar
 - Rational
 - String
 
-These categories are combined into types like SecretInteger, which are used to type an Input. [See all types](nada-lang-framework#nada-data-types)
+These categories are combined into types like `SecretInteger`, which are used to type an Input. [See all types](/nada-lang-types)
 
 :::info
-Here’s an example of a SecretInteger Input provided by Steph
+Here's an example of a `SecretInteger` Input provided by Steph
 
 ```python
 steph = Party(name="Steph")
@@ -345,17 +349,15 @@ stephs_secret_int = SecretInteger(Input(name="numberOfDogs", party=steph))
 
 ### Create 2 secret integers inputs
 
-- my_int1, a SecretInteger named “my_int1” owned by Party1
-- my_int2, a SecretInteger named “my_int2” owned by Party1
+- `my_int1`, a `SecretInteger` named "my_int1" owned by Party1
+- `my_int2`, a `SecretInteger` named "my_int2" owned by Party1
 
 ```python
 from nada_dsl import *
+
 def nada_main():
-
     party1 = Party(name="Party1")
-
     my_int1 = SecretInteger(Input(name="my_int1", party=party1))
-
     my_int2 = SecretInteger(Input(name="my_int2", party=party1))
 ```
 
@@ -363,12 +365,10 @@ Add the integers by creating a new variable called new_int and setting it equal 
 
 ```python
 from nada_dsl import *
+
 def nada_main():
-
     party1 = Party(name="Party1")
-
     my_int1 = SecretInteger(Input(name="my_int1", party=party1))
-
     my_int2 = SecretInteger(Input(name="my_int2", party=party1))
 
     new_int = my_int1 + my_int2
@@ -381,7 +381,7 @@ Finally, Nada programs return an output. The `Output` type is used to declare a 
 Nada programs return an array of outputs.
 
 :::info
-Here’s an example of an output. The output is named "total_score", its value is `score_int`, and it can be read by the party named Steph.
+Here's an example of an output. The output is named `total_score`, its value is `score_int`, and it can be read by the party named Steph.
 
 ```python
 Output(score_int, "total_score", Party(name="Steph"))
@@ -393,19 +393,8 @@ Complete your Nada program by adding a final line that returns an array with one
 
 ### Resulting Nada program
 
-```python
-from nada_dsl import *
-def nada_main():
-
-    party1 = Party(name="Party1")
-
-    my_int1 = SecretInteger(Input(name="my_int1", party=party1))
-
-    my_int2 = SecretInteger(Input(name="my_int2", party=party1))
-
-    new_int = my_int1 + my_int2
-
-    return [Output(new_int, "my_output", party1)]
+```python reference showGithubLink
+https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/addition_simple.py
 ```
 
 🎉 You just wrote your first Nada program! Next, let's compile the program.
@@ -423,7 +412,7 @@ This results in programs-compiled, a folder of compiled programs.
 
 ## Store the Nada program
 
-Next, store the compiled tiny_secret_addition program in the network with the store_program script. This script runs the nil-cli SDK tool to store your program.
+Next, store the compiled tiny_secret_addition program in the network with the store_program script. This script runs the nillion SDK tool to store your program.
 
 ```shell
 ./store_program.sh programs-compiled/tiny_secret_addition.nada.bin
@@ -440,7 +429,7 @@ Open the `client_single_party_compute/tiny_secret_addition.py` file. This file c
 ### Review secret storage code
 
 ```yaml reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L38
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L38
 ```
 
 When a secret is stored, the network returns its store_id.
@@ -452,7 +441,7 @@ The second half of the `client_single_party_compute/tiny_secret_addition.py` exa
 ### Review full example
 
 ```yaml reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L100
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L100
 ```
 
 ### Run the example
@@ -472,10 +461,10 @@ You've successfully written your first single party Nada program, stored it on a
 
 - running other examples
 
-  - single party program examples in the [client_single_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_single_party_compute)
-  - multi party examples in the [client_multi_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_multi_party_compute)
-  - permissioning secrets examples in the in the [permissions folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/permissions) for storing and retrieving permissioned secrets and revoking permissions
+  - single party program examples in the [client_single_party_compute folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_single_party_compute)
+  - multi party examples in the [client_multi_party_compute folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_multi_party_compute)
+  - permissioning secrets examples in the in the [permissions folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/permissions) for storing and retrieving permissioned secrets and revoking permissions
 
-- reading about [Nillion concepts](/concepts) and the [Nada-lang framework](nada-lang-framework)
+- reading about [Nillion concepts](/concepts) and the [Nada Language](nada-lang)
 
 - learning how to interact with and manage programs, secrets, and permissions on the Nillion Network with [Nillion Client](/nillion-client)
