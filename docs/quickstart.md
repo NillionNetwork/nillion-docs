@@ -7,7 +7,7 @@ import DownloadSDK from '@site/src/components/DownloadSDK/downloadSDK';
 Start building on Nillion. This quickstart will walk you through
 
 1. Installing the Nillion SDK
-2. Setting up a developer environment with [nillion-python-starter](https://github.com/nillion-oss/nillion-python-starter)
+2. Setting up a developer environment with [nillion-python-starter](https://github.com/NillionNetwork/nillion-python-starter)
 3. Running a local network (cluster of nodes)
 4. Writing your first Nada program
 5. Connecting to the network with NillionClient to store secrets, store programs, and compute on programs with stored secrets
@@ -171,10 +171,10 @@ Download the PyNada DSL binaries and Python Client binaries. Save these in the v
 
 ## Clone the Nillion python starter repo
 
-The [Nillion Python Starter](https://github.com/nillion-oss/nillion-python-starter) repo has everything you need to start building. Clone the repo:
+The [Nillion Python Starter](https://github.com/NillionNetwork/nillion-python-starter) repo has everything you need to start building. Clone the repo:
 
 ```bash
-git clone https://github.com/nillion-oss/nillion-python-starter.git
+git clone https://github.com/NillionNetwork/nillion-python-starter.git
 cd nillion-python-starter
 ```
 
@@ -212,7 +212,7 @@ Update the following SDK path variables within your .env
 - `NILLION_PYCLIENT_WHL_FILE_NAME` with the file name of your Python Client binaries. This is a py_nillion_client .whl file inside of NILLION_WHL_ROOT
 
 ```yaml reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/.env.sample#L3-L11
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/.env.sample#L3-L11
 ```
 
 <!-- :::tip
@@ -257,7 +257,7 @@ killall run-local-cluster
 The Nillion Network uses [Nada](nada-lang-framework), our MPC language, to define MPC programs. The first implementation of Nada is a Python DSL (Domain Specific Language), called PyNada. Let’s write a tiny Nada program that adds 2 secret numbers. Here’s the code for the finished program we’ll write line by line:
 
 ```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py
 ```
 
 Create a python file for the Nada program in the programs folder
@@ -440,7 +440,7 @@ Open the `client_single_party_compute/tiny_secret_addition.py` file. This file c
 ### Review secret storage code
 
 ```yaml reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L38
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L38
 ```
 
 When a secret is stored, the network returns its store_id.
@@ -452,7 +452,7 @@ The second half of the `client_single_party_compute/tiny_secret_addition.py` exa
 ### Review full example
 
 ```yaml reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L100
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L100
 ```
 
 ### Run the example
@@ -472,9 +472,9 @@ You've successfully written your first single party Nada program, stored it on a
 
 - running other examples
 
-  - single party program examples in the [client_single_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_single_party_compute)
-  - multi party examples in the [client_multi_party_compute folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/client_multi_party_compute)
-  - permissioning secrets examples in the in the [permissions folder](https://github.com/nillion-oss/nillion-python-starter/tree/main/permissions) for storing and retrieving permissioned secrets and revoking permissions
+  - single party program examples in the [client_single_party_compute folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_single_party_compute)
+  - multi party examples in the [client_multi_party_compute folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_multi_party_compute)
+  - permissioning secrets examples in the in the [permissions folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/permissions) for storing and retrieving permissioned secrets and revoking permissions
 
 - reading about [Nillion concepts](/concepts) and the [Nada-lang framework](nada-lang-framework)
 
