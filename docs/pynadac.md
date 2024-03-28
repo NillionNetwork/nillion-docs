@@ -1,6 +1,6 @@
 # pynadac
 
-The pynadac tool is a Nada compiler for PyNada programs. It compiles programs to program_name.nada.bin files and can also generate MIR JSON files like program_name.nada.json.
+The pynadac tool is a Nada compiler for Nada programs. It compiles programs to program_name.nada.bin files and can also generate MIR JSON files like program_name.nada.json.
 
 ### Usage
 

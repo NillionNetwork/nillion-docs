@@ -26,7 +26,7 @@ const DownloadTable = ({
           <td>Nillion SDK</td>
           <td>
             SDK Tools for key generation, compiling programs, simulating
-            programs, and using nil-cli
+            programs, and using nillion
           </td>
           <td>
             <a target="_blank" href={downloadLink(sdkLink)}>
@@ -35,7 +35,7 @@ const DownloadTable = ({
           </td>
         </tr>
         <tr>
-          <td>PyNada DSL</td>
+          <td>Nada DSL</td>
           <td>Nada DSL for Python, needed for writing programs</td>
           <td>
             <a target="_blank" href={downloadLink(pyNadaLink)}>
@@ -82,7 +82,7 @@ export default function DownloadSDK() {
           <h3>Version: {userVersionCode}</h3>
           <p>
             Select your target platform to download Nillion binaries for the
-            Nillion SDK, PyNada DSL, and Python Client
+            Nillion SDK, Nada DSL, and Python Client
           </p>
           <Tabs>
             <TabItem value="apple-m" label="Apple (M1/M2/M3)" default>

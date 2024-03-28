@@ -10,7 +10,7 @@ The `user_key` is the user's private key. The user key should never be shared pu
 
 #### User ID
 
-The `user_id` is the user's public key, and is the public user identifier. Other parties can grant a user permissions to a secret based on their user id.&#x20;
+The `user_id` is derived from the user's public key, and is the public user identifier. Other parties can grant a user permissions to a secret based on their user id.&#x20;
 
 ### Programs
 

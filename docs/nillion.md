@@ -1,11 +1,11 @@
-# nil-cli
+# nillion
 
-The nil-cli tool is a command line version of the Nillion Client that can be used to store secrets, retrieve a secret, store a program, compute on a program, get cluster information, check the preprocessing pool status, and display node and user ids from keys.
+The nillion tool is a command line version of the Nillion Client that can be used to store secrets, retrieve a secret, store a program, compute on a program, get cluster information, check the preprocessing pool status, and display node and user ids from keys.
 
-nil-cli can be run against the Nillion Network or against a local cluster spun up with run-local-cluster. If nil-cli is running against your local cluster, use the cluster id, bootnodes, smart contract addresses, chain id, rpc url endpoint values that are [local cluster outputs](run-local-cluster#local-cluster-outputs) as nil-cli options.
+nillion can be run against the Nillion Network or against a local cluster spun up with nillion-devnet. If nillion is running against your local cluster, use the cluster id, bootnodes, smart contract addresses, chain id, rpc url endpoint values that are [local cluster outputs](nillion-devnet#local-cluster-outputs) as nillion options.
 
 ```bash
-Usage: nil-cli [OPTIONS] -b <BOOTNODES> <COMMAND>
+Usage: nillion [OPTIONS] -b <BOOTNODES> <COMMAND>
 
 Commands:
   store-secrets              Store secrets in the network
@@ -71,14 +71,14 @@ Options:
           Print version
 ```
 
-## Store secrets with nil-cli
+## Store secrets with nillion
 
 Store secrets from a secrets file or by passing them into the command directly.
 
 ### store-secrets usage
 
 ```bash
-nil-cli --user-key <YOUR_USER_KEY> \
+nillion --user-key <YOUR_USER_KEY> \
 	--node-key <YOUR_NODE_KEY> \
 	-b <BOOTNODES> \
 	--payments-private-key <PRIVATE_KEY> \
@@ -138,14 +138,14 @@ integers:
   my_secret2: 4
 ```
 
-## Retrieve a secret with nil-cli
+## Retrieve a secret with nillion
 
 Retrieve a secret by store id and secret id
 
 ### retrieve-secret usage
 
 ```bash
-nil-cli --user-key <YOUR_USER_KEY> \
+nillion --user-key <YOUR_USER_KEY> \
 	--node-key <YOUR_NODE_KEY> \
 	-b <BOOTNODES> \
 	--payments-private-key <PRIVATE_KEY> \
@@ -167,14 +167,14 @@ Options:
   -h, --help                     Print help
 ```
 
-## Store a program with nil-cli
+## Store a program with nillion
 
 Name and store a compiled Nada program on the network.
 
 ### store-program usage
 
 ```bash
-nil-cli --user-key <YOUR_USER_KEY> \
+nillion --user-key <YOUR_USER_KEY> \
 	--node-key <YOUR_NODE_KEY> \
 	-b <BOOTNODES> \
 	--payments-private-key <PRIVATE_KEY> \
@@ -194,14 +194,14 @@ Arguments:
   <PROGRAM_NAME>  The name of the program
 ```
 
-## Compute on a program with nil-cli
+## Compute on a program with nillion
 
 Compute on a stored program by program id with stored secrets, secrets and public variables from files, or secrets and public variables input directly in the command
 
 ### compute usage
 
 ```bash
-nil-cli --user-key <YOUR_USER_KEY> \
+nillion --user-key <YOUR_USER_KEY> \
 	--node-key <YOUR_NODE_KEY> \
 	-b <BOOTNODES> \
 	--payments-private-key <PRIVATE_KEY> \
@@ -285,14 +285,14 @@ integers:
   my_public_variable2: 12
 ```
 
-## Get cluster information with nil-cli
+## Get cluster information with nillion
 
 Get info about the cluster
 
 ### cluster-information usage
 
 ```bash
-nil-cli --user-key <YOUR_USER_KEY> \
+nillion --user-key <YOUR_USER_KEY> \
 	--node-key <YOUR_NODE_KEY> \
 	-b <BOOTNODES> \
 	--payments-private-key <PRIVATE_KEY> \
@@ -310,14 +310,14 @@ Options:
   -h, --help  Print help
 ```
 
-## Check the preprocessing pool status with nil-cli
+## Check the preprocessing pool status with nillion
 
 Fetch the preprocessing pool status for a cluster
 
 ### preprocessing-pool-status usage
 
 ```bash
-nil-cli --user-key <YOUR_USER_KEY> \
+nillion --user-key <YOUR_USER_KEY> \
 	--node-key <YOUR_NODE_KEY> \
 	-b <BOOTNODES> \
 	--payments-private-key <PRIVATE_KEY> \
@@ -335,14 +335,14 @@ Options:
   -h, --help  Print help
 ```
 
-## Display node and user ids with nil-cli
+## Display node and user ids with nillion
 
 Check the peer id of the node and the user id of the user.
 
 ### inspect-ids usage
 
 ```bash
-nil-cli --user-key <YOUR_USER_KEY> \
+nillion --user-key <YOUR_USER_KEY> \
 	--node-key <YOUR_NODE_KEY> \
 	-b <BOOTNODES> \
 	--payments-private-key <PRIVATE_KEY> \

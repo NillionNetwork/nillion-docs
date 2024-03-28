@@ -10,8 +10,8 @@ Nillion is a secure computation network that decentralizes trust for high value 
 
 Developers can use Nillion to build secure, [high value data](high-value-data.md) focused applications. Nillion empowers developers to
 
-- write programs in PyNada, our language for defining MPC programs
-- compile programs with the PyNada compiler
+- write programs in Nada, our language for defining MPC programs
+- compile programs with the Nada compiler
 - upload programs to the Nillion Network
 - store permissioned secrets (high value data) on the Nillion Network
 - run programs to compute on secrets on the Nillion Network

@@ -1,10 +1,10 @@
-# run-local-cluster
+# nillion-devnet
 
-The run-local-cluster tool creates a local cluster of Nillion nodes you can interact with while you keep the process running.
+The `nillion-devnet` tool creates a Nillion network devnet that you can interact with while you keep the process running.
 
 ### Pre-req: Install Foundry
 
-[Foundry](https://book.getfoundry.sh/getting-started/installation) is a portable and modular toolkit for Ethereum development. Running a local cluster uses Foundry's anvil tool under the hood, so you need to have Foundry installed.
+[Foundry](https://book.getfoundry.sh/getting-started/installation) is a portable and modular toolkit for Ethereum development. Running a local devnet uses Foundry's `anvil` tool under the hood, so you need to have Foundry installed.
 
 ```bash
 # install Foundryup, the Foundry toolchain installer
@@ -14,14 +14,14 @@ curl -L https://foundry.paradigm.xyz | bash
 foundryup
 ```
 
-### Run Local Cluster
+### Run Devnet
 
 ```bash
-Usage: run-local-cluster [OPTIONS]
+Usage: nillion-devnet [OPTIONS]
 
 Options:
   -n, --node-count <NODE_COUNT>
-          The number of nodes in the cluster
+          The number of nodes in the devnet
 
           [default: 3]
 
@@ -57,11 +57,11 @@ Options:
           Print version
 ```
 
-### Local cluster outputs
+### Devnet outputs
 
-Running a local cluster outputs values you can use to run nil-cli against your local cluster rather than the network
+Running a local devnet outputs values you can use to run nillion against your local devnet rather than the network
 
-- cluster id
+- devnet id
 - blockchain node endpoint
 - node ids
 - wallet keys: 14 private keys written to a file
@@ -73,10 +73,10 @@ Running a local cluster outputs values you can use to run nil-cli against your l
 - bootnode
 - websocket
 
-### Spin down local cluster
+### Spin down local devnet
 
-To stop the local cluster, run
+To stop the local devnet, run
 
 ```bash
-killall run-local-cluster
+killall nillion-devnet
 ```

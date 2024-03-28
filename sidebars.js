@@ -49,13 +49,15 @@ const sidebars = {
         id: 'nillion-sdk-and-tools',
       },
       items: [
+        'nilup',
         'user-keygen',
         'node-keygen',
         'node-key2peerid',
+        'nada',
         'pynadac',
-        'program-simulator',
-        'run-local-cluster',
-        'nil-cli',
+        'nada-run',
+        'nillion-devnet',
+        'nillion',
       ],
     },
     {
@@ -125,17 +127,15 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Nada-Lang Framework',
+      label: 'Nada Language',
       link: {
         type: 'doc',
-        id: 'nada-lang-framework',
+        id: 'nada-lang',
       },
       items: [
-        {
-          type: 'link',
-          label: 'Nada Program Examples',
-          href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs',
-        },
+        'nada-lang-types',
+        'nada-lang-operators',
+        'nada-lang-programs',
       ],
     },
     {
