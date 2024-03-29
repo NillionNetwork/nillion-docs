@@ -4,8 +4,9 @@
 
 To install `nilup`, run: `curl https://nilup.nilogy.xyz | bash`
 
-If you install the Nillion SDK using `nilup`, all the Nillion SDK commands will be managed by `nilup`
-and it will pick the version to use base on the next order.
+If you install the Nillion SDK using `nilup`, all the Nillion SDK commands will be managed by `nilup`,
+which will pick the version to use based on the next order, from highest to lowest priority: 
+the `+<version>` flag, the `nil-sdk.toml` file, and the global version set with the `use` command. 
 
 ### `+<version>` flag
 When you call any Nillion SDK command like `nada` you can add a `+<version>` argument to use that version of `nada`.
