@@ -21,7 +21,6 @@ const sidebars = {
       defaultStyle: true,
     },
     'welcome',
-    'nucleus-builders-program',
     {
       type: 'doc',
       label: 'Developer Quickstart',
@@ -54,14 +53,12 @@ const sidebars = {
       },
       items: [
         'nilup',
-        'user-keygen',
-        'node-keygen',
+        'nillion',
+        'nillion-devnet',
         'node-key2peerid',
         'nada',
         'pynadac',
         'nada-run',
-        'nillion-devnet',
-        'nillion',
       ],
     },
     {
@@ -164,6 +161,7 @@ const sidebars = {
       defaultStyle: true,
     },
     'community-and-support',
+    'nucleus-builders-program',
     'running-a-node',
     'technical-reports-and-demos',
     'glossary',

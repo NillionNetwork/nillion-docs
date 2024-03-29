@@ -1,12 +1,13 @@
 # nillion
 
-The nillion tool is a command line version of the Nillion Client that can be used to store secrets, retrieve a secret, store a program, compute on a program, get cluster information, check the preprocessing pool status, and display node and user ids from keys.
+The `nillion` tool is a command line version of the Nillion Client. We refer to the tool as the CLI Client.
+
+The nillion tool can be used to generate user keys, generate node keys, store secrets, retrieve a secret, store a program, compute on a program, get cluster information, check the preprocessing pool status, and display node and user ids from keys.
 
 nillion can be run against the Nillion Network or against a local cluster spun up with nillion-devnet. If nillion is running against your local cluster, use the cluster id, bootnodes, smart contract addresses, chain id, rpc url endpoint values that are [local cluster outputs](nillion-devnet#local-cluster-outputs) as nillion options.
 
 ```bash
 Usage: nillion [OPTIONS] -b <BOOTNODES> <COMMAND>
-
 Commands:
   store-secrets              Store secrets in the network
   retrieve-secret            Retrieve a secret from the network
@@ -15,60 +16,64 @@ Commands:
   cluster-information        Fetch the cluster's information
   preprocessing-pool-status  Fetch the preprocessing pool status for a cluster
   inspect-ids                Display the node/user ids derived from the provided keys
+  shell-completions          Generate shell completions
+  node-key-gen               Generate Node keys
+  user-key-gen               Generate User keys
   help                       Print this message or the help of the given subcommand(s)
 
 Options:
       --user-key <USER_KEY>
           The user key in base58
-
       --user-key-seed <USER_KEY_SEED>
           The seed to be used to derive user key
-
   -u, --user-key-path <USER_KEY_PATH>
           The path to the file that contains the user key in base58
-
       --node-key <NODE_KEY>
           The node key in base58
-
       --node-key-seed <NODE_KEY_SEED>
           The seed to be used to derive node key
-
   -n, --node-key-path <NODE_KEY_PATH>
           The path to the file that contains the node key in base58
-
   -b <BOOTNODES>
-          A list of bootnodes to connect to.
-
-          This needs to use libp2p multiaddress format.
-
+          A list of bootnodes to connect to
   -l, --listen-address <LISTEN_ADDRESS>
-          The address to listen on.
-
-          If none is provided, the client will be expected to dial all of its peers (not receive incoming connections).
-
+          The address to listen on
       --payments-rpc-endpoint <RPC_ENDPOINT>
           RPC endpoint URL
-
       --payments-sc-address <PAYMENTS_SC_ADDRESS>
           Payments smart contract address
-
       --blinding-factors-manager-sc-address <BLINDING_FACTORS_MANAGER_SC_ADDRESS>
           Blinding factors manager smart contract address
-
       --payments-private-key <PRIVATE_KEY>
           Wallet signer private key
-
       --payments-chain-id <CHAIN_ID>
           Wallet signer chain ID
-
       --blockchain-config-path <BLOCKCHAIN_CONFIG_PATH>
           Path to a configuration file containing the blockchain configurations
-
   -h, --help
-          Print help (see a summary with '-h')
-
+          Print help (see more with '--help')
   -V, --version
           Print version
+```
+
+## Generate user key with nillion
+
+Generate a Nillion [user key](concepts.md#user-key) and store it in a file
+
+### user-key-gen usage
+
+```bash
+nillion user-key-gen <FILENAME>
+```
+
+## Generate node key with nillion
+
+Generate a Nillion [node key](concepts.md#node-key) and store it in a file
+
+### node-key-gen usage
+
+```bash
+nillion node-key-gen <FILENAME>
 ```
 
 ## Store secrets with nillion

@@ -481,6 +481,9 @@ same interpreter.
 
 #### Example
 
+For further information about the structure of the objects used by the
+constructor, we refer to the [quickstart guide](https://docs.nillion.com/quickstart) .
+
 ```py3
 import py_nillion_client as nillion
 
@@ -668,7 +671,8 @@ generated from the public key of the node’s key-pair ([`NodeKey`](#py_nillion_
 be confused with the [`user_id()`](#py_nillion_client.NillionClient.user_id) which is generated from the
 public key of the user’s key-pair ([`UserKey`](#py_nillion_client.UserKey)).
 
-Read more about [party_id](/concepts#party-id) and [peer_id](concepts#peer-id)
+Read more about [party ID](https://docs.nillion.com/concepts#party-id)
+and [peer ID](https://docs.nillion.com/concepts#peer-id).
 
 - **Returns:**
   UUID of libp2p party identifier.
@@ -897,8 +901,8 @@ It is a hash generated from the public key of the user’s key-pair ([`UserKey`]
 be confused with the [`party_id()`](#py_nillion_client.NillionClient.party_id) which is the generated from the
 public key of the node’s key-pair ([`NodeKey`](#py_nillion_client.NodeKey)).
 
-Please check [[https://docs.nillion.com/concepts](Nillion](https://docs.nillion.com/concepts](Nillion) Docs)
-for more information.
+Read more about [user ID](https://docs.nillion.com/concepts#user-id)
+in the Nillion Docs.
 
 - **Returns:**
   Client’s user identifier.
@@ -2010,6 +2014,10 @@ print("Are the secret integers the same? ", sec_integer_1 == sec_integer_2)
 >>> Are the secret integers the same?  False
 ```
 
+#### WARNING
+
+Providing zero as [`SecretInteger`](#py_nillion_client.SecretInteger) leaks information.
+
 <a id="py_nillion_client.SecretInteger.value"></a>
 
 #### value
@@ -2069,6 +2077,10 @@ print("Are the public unsigned integers the same? ", sec_uinteger_1 == sec_uinte
 ```text
 >>> Are the secret unsigned integers the same?  False
 ```
+
+#### WARNING
+
+Providing zero as [`SecretUnsignedInteger`](#py_nillion_client.SecretUnsignedInteger) leaks information.
 
 <a id="py_nillion_client.SecretUnsignedInteger.value"></a>
 
