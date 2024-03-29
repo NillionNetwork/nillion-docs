@@ -123,6 +123,11 @@ const sidebars = {
                       label: 'Multi Party Examples',
                       href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_multi_party_compute',
                     },
+                    {
+                      type: 'link',
+                      label: 'Millionaires Problem',
+                      href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/millionaires_problem_example',
+                    },
                   ],
                 },
               ],

@@ -13,9 +13,9 @@ MPC enables computation over inputs from multiple parties while keeping the actu
 
 ## Applied MPC
 
-### Classic Scenario: The Millionaire's Problem
+### Classic Scenario: The Millionaires Problem
 
-The "Millionaire's Problem" is a classic MPC scenario, first introduced by Andrew Yao in 1982. In the "Millionaire's Problem" problem, two millionaires want to find out who is richer without disclosing their actual net worths. Using MPC, the millionaires can jointly compute who has more money without revealing their individual net worths to each other or anyone else. This is achieved through a series of cryptographic operations that allow each party to input their net worth into a shared computation. The computation is structured in a way that it only outputs the comparison result (i.e., which millionaire is richer) without leaking any specifics about their respective net worths. This problem showcases the power of MPC - it can preserve privacy while enabling collaborative computation.
+The "Millionaires Problem" is a classic MPC scenario, first introduced by Andrew Yao in 1982. In the "Millionaires Problem" problem, two millionaires want to find out who is richer without disclosing their actual net worths. Using MPC, the millionaires can jointly compute who has more money without revealing their individual net worths to each other or anyone else. This is achieved through a series of cryptographic operations that allow each party to input their net worth into a shared computation. The computation is structured in a way that it only outputs the comparison result (i.e., which millionaire is richer) without leaking any specifics about their respective net worths. This problem showcases the power of MPC - it can preserve privacy while enabling collaborative computation.
 
 ### Real World Application: The 2008 Danish Sugar Beet Auction
 
