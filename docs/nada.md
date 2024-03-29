@@ -14,121 +14,116 @@ install `nada_dsl`.
 
 ## Usage
 
-```bash
-Usage: nada <COMMAND>
+### Create a new project
+You can create a new nada project running 
+```
+nada init <project-name>
+```
+It will create a new directory with the project name and the following structure:
+```
+nada-project.toml  # File to configure the project
+src/               # Directory to store the programs
+src/main.py        # nada program
+target/            # Directory where nada will produce the compiled programs
+tests/             # Directory to store the tests
+``` 
 
-Commands:
-  init           Create a new nada project
-  build          Build a program
-  run            Run a program using the inputs from a test file
-  test           Run tests
-  generate-test  Generate a test for a program with example values
-  help           Print this message or the help of the given subcommand(s)
+#### `nada-project.toml` file
+This file defines the nada project, it looks like this
 
-Options:
-  -h, --help  Print help
+```toml
+name = "<project name>" # name of the project
+version = "0.1.0"       # version of the project
+authors = [""]          # authors of the project
+
+[[programs]]            # program entry, you can have several of this ones
+path = "src/main.py"    # path to the program
+prime_size = 128        # prime size to use in the execution of the program
 ```
 
-### Example flow
-
-```bash
-$ nada init my-nada-project
-Creating new nada project: my-nada-project
-Project created!
-
-$ cd my-nada-project
-
-$ ls -R
-.:
-nada-project.toml  src  target  tests
-
-./src:
-main.py
-
-./target:
-
-./tests:
-
-$ cat nada-project.toml
-name = "my-nada-project"
+#### `nil-sdk.toml` file
+We recommend to create a `nil-sdk.toml` file in the project directory to specify the version of the Nada SDK to use.
+The file should have the following format:
+```toml
 version = "0.1.0"
-authors = [""]
+```
+This will ensure that when you call nada or any other Nillion SDK command, it will use the version specified in that file.
 
+#### Add a new program to the project
+To add a new program to the project, you can create a new file in the `src` directory and add a new entry in the `nada-project.toml` file.
+There is the option to use another name for your program using the `name` field in the program entry. 
+
+Let's say that the new file is called `new_program.py` and you want to call it `my_program`, then you can add a new entry in the `nada-project.toml` file like this:
+
+```toml
 [[programs]]
-path = "src/main.py"
+path = "src/new_program.py"
+name = "my_program"
 prime_size = 128
+```
 
-$ cat src/main.py
-from nada_dsl import *
+### Build a program
+To build a program you can run
+```
+nada build
+```
+It will compile all the programs in the project,
+also you can specify which program to build by passing the program name as an argument
+```
+nada build <program-name>
+```
+The `build` command will produce a `<program name>.nada.bin` file in the `target` directory.
+You can use this file to upload it to the Nillion Network. And then run it in the network.
 
-def nada_main():
-    party1 = Party(name="Party1")
-    party2 = Party(name="Party2")
-    party3 = Party(name="Party3")
-    a = SecretInteger(Input(name="A", party=party1))
-    b = SecretInteger(Input(name="B", party=party2))
+### Generate a test file
+To be able to `run` or `test` programs we need a test file with the inputs and expected outputs.
+`nada` have the ability to generate a test file with example values for you.
+To generate a test file you can run
+```
+nada generate-test --test-name <test-name> <program-name>
+```
+It will generate a test file with the name `<test-name>.yaml` in the `tests` directory.
 
-    result = a + b
+You should edit the test file to change the inputs and the expected outputs.
 
-    return [Output(result, "my_output", party3)]
+### Run a program
+To `run` a program using nada you need a test file, goto the [Generate a test file](#Generate-a-test-file) section to see how to generate it.
 
-$ nada build
-Building program: main
-Build complete!
+#### Run in normal mode
+To `run` a program you can run
+```
+nada run <test-name>
+```
+It will run the program associated to that test file and will print the output
 
-$ nada generate-test --test-name my-main-test main
-Generating test 'my-main-test' for
-Building ...
-Generating test file ...
-Test generated!
+#### Run in debug mode
+`nada` have the ability to run a program in debug mode, 
+in this mode the operations are done in plain, so you can inspect the intermediary values.
+When running in debug mode you can see the operations that are done in the program with the corresponding values.
 
-$ cat tests/my-main-test.yaml
----
-program: main
-inputs:
-  secrets:
-    A:
-      SecretInteger: "3"
-    B:
-      SecretInteger: "3"
-  public_variables: {}
-expected_outputs:
-  my_output:
-    SecretInteger: "3"
+To run a program in debug you can run
+```
+nada run --debug <test-name>
+```
+It will run the program associated to that test file and will print all operations, values and the output
 
-$ nada run my-main-test
-Running program 'main' with inputs from test file my-main-test
-Building ...
-Running ...
-Program ran!
-Outputs: {
-    "my_output": SecretInteger(
-        NadaInt(
-            6,
-        ),
-    ),
-}
+### Test a program
+To `test` a program using `nada` you need a test file, goto the [Generate a test file](#Generate-a-test-file) section to see how to generate it.
 
-$ nada test my-main-test
-Running test: my-main-test
-Building ...
-Running ...
-my-main-test: FAIL
-Output 'my_output' expected SecretInteger(NadaInt(3)) but got SecretInteger(NadaInt(6))
+#### Test in normal mode
+To run all the tests in the project you can run
+```
+nada test
+```
+To run a single test you can run
+```
+nada test <test-name>
+```
+It will run the program associated to that test file and will check if the output is the expected one.
 
-$ nada run my-main-test -d
-Running program 'main' with inputs from test file my-main-test
-Building ...
-Running ...
-[Heap 1] main.py:7 a = SecretInteger(Input(name="A", party=party1)) -> load [Input 0] <= SecretInteger(3 mod 340282366920938463463374607429104828419)
-[Heap 2] main.py:8 b = SecretInteger(Input(name="B", party=party2)) -> load [Input 1] <= SecretInteger(3 mod 340282366920938463463374607429104828419)
-[Operation 3] main.py:10 result = a + b => SecretInteger(3 mod 340282366920938463463374607429104828419) + SecretInteger(3 mod 340282366920938463463374607429104828419)  = SecretInteger(6 mod 340282366920938463463374607429104828419)
-Program ran!
-Outputs: {
-    "my_output": SecretInteger(
-        NadaInt(
-            6,
-        ),
-    ),
-}
+#### Test in debug mode
+You can also run a test in debug mode, to know more about debug mode go to [Run in debug mode](#Run-in-debug-mode) section.
+To run a test in debug mode you can run
+```
+nada test --debug <test-name>
 ```
