@@ -1,6 +1,10 @@
-# Example Programs
+# Nada Programs
 
-A closer look into some Nada programs.
+Check out Nada program examples and learn how to compile and run Nada programs.
+
+## Program examples
+
+### Tiny addition
 
 Here's a tiny Nada program that adds two secret integer inputs.
 
@@ -26,32 +30,38 @@ def nada_main():
 
 <table><thead><tr><th>Output value</th><th>Output name</th><th>Output Type</th><th>Party name</th><th data-hidden>Output type</th><th data-hidden>Party name</th><th data-hidden>Output name</th></tr></thead><tbody><tr><td>`total`</td><td>`my_output`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td><td>`my_output`</td></tr></tbody></table>
 
+### Addition by reducing an array
 
 Let's do something more interesting!
 
-The following program adds up every element of the array:
+The following program reduces an array to add up every element
+
 ```python reference showGithubLink
 https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/reduce_simple.py
 ```
 
+### Ternary conditional operators
+
 Next, let's see an example of our ternary operation:
+
 ```python reference showGithubLink
 https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/nada_fn_max.py
 ```
 
+### Multiple parties in Nada
+
 Lastly, below is an example with two parties:
+
 ```python reference showGithubLink
 https://github.com/NillionNetwork/nillion-python-starter/blob/main/programs/less_or_equal_than.py
 ```
 
 For more examples visit our [`programs directory`](https://github.com/nillion-oss/nillion-python-starter/blob/main/programs).
 
-
 ## Compile and run Nada programs
 
 The [`nada`](nada) tool can be used to manage Nada projects (create project, compile, run, and test programs, generate tests, etc.).
 Alternatively, you can use the `pynadac` and `nada-run` standalone tools.
-
 
 ### Compile a Nada program with [`pynadac`](pynadac)
 
@@ -59,13 +69,14 @@ Before the programs can be stored and run on the Nillion Network, they must be c
 The Nada Compiler, referred to as [`pynadac`](pynadac), is a developer tool within the [Nillion SDK](nillion-sdk-and-tools.md) used to compile programs written in Nada to bytecode.
 
 Compiling the example above outputs the compiled circuit to bytecode in a new file:
+
 - Input program: **tiny_addition.py**
 - Output bytecode: **tiny_addition.nada.bin**
-
 
 ### Run a program locally with the [`nada-run`](nada-run)
 
 Use the [`nada-run`](nada-run) developer tool within the [Nillion SDK](nillion-sdk-and-tools.md) to quickly execute and iterate on Nada programs under an environment that is a close as it can get to running them in a real network. The local network tool:
+
 - takes in a compiled Nada program and secrets,
 - creates blinding factors locally to hide every secret input you provide to the program,
 - creates a stripped down version of a Nillion cluster and runs the same bytecode that would be run during a real execution of your program.&#x20;

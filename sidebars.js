@@ -157,7 +157,26 @@ const sidebars = {
         type: 'doc',
         id: 'nada-lang',
       },
-      items: ['nada-lang-types', 'nada-lang-operators', 'nada-lang-programs'],
+      items: [
+        'nada-lang-types',
+        'nada-lang-operators',
+
+        {
+          type: 'category',
+          label: 'Nada Programs',
+          link: {
+            type: 'doc',
+            id: 'nada-lang-programs',
+          },
+          items: [
+            {
+              type: 'link',
+              label: 'Nada Program Examples',
+              href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs',
+            },
+          ],
+        },
+      ],
     },
     {
       type: 'html',
