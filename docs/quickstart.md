@@ -1,6 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DownloadSDK from '@site/src/components/DownloadSDK/downloadSDK';
+import IframeVideo from '@site/src/components/IframeVideo/index';
 
 # Python Developer Quickstart
 
@@ -468,3 +469,8 @@ You've successfully written your first single party Nada program, stored it on a
 - reading about [Nillion concepts](/concepts) and the [Nada Language](nada-lang)
 
 - learning how to interact with and manage programs, secrets, and permissions on the Nillion Network with [Nillion Client](/nillion-client)
+- solving the [millionaires problem](/multi-party-computation#classic-scenario-the-millionaires-problem) in the [millionaires_problem_example folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/millionaires_problem_example)
+
+### Solve the millionaires problem
+
+<IframeVideo videoSrc="https://www.loom.com/embed/d77604f001be4293b1b0c72c67620071?sid=d8dba7d7-0643-47cf-bf44-8b8b33c18cd6"/>
