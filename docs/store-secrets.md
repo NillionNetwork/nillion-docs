@@ -2,7 +2,7 @@
 
 Store secret strings, integers, and arrays in the network.
 
-Check out the [store_secrets](https://docs.nillion.com/pydocs/client#py_nillion_client.NillionClient.store_secrets) Python Client Reference
+Check out the [store_secrets](/python-client-reference#py_nillion_client.NillionClient.store_secrets) Python Client Reference
 
 ## Store a SecretBlob
 

@@ -22,7 +22,11 @@ const sidebars = {
     },
     'welcome',
     'nucleus-builders-program',
-    'quickstart',
+    {
+      type: 'doc',
+      label: 'Developer Quickstart',
+      id: 'quickstart',
+    },
     {
       type: 'html',
       className: 'sidebar-title',
@@ -37,7 +41,7 @@ const sidebars = {
     {
       type: 'html',
       className: 'sidebar-title',
-      value: 'Components',
+      value: 'Build',
       defaultStyle: true,
     },
     'concepts',
@@ -62,7 +66,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Nillion Client',
+      label: 'Nillion Clients',
       link: {
         type: 'doc',
         id: 'nillion-client',
@@ -70,58 +74,77 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Python Client Examples',
+          label: 'Python Client',
           link: {
             type: 'doc',
-            id: 'python-client-examples',
+            id: 'python-client',
           },
-          collapsed: false,
           items: [
-            'store-secrets',
-            'retrieve-secret',
+            'quickstart',
+            'python-client-reference',
             {
               type: 'category',
-              label: 'Permissions',
+              label: 'Python Client Examples',
               link: {
                 type: 'doc',
-                id: 'permissions',
+                id: 'python-client-examples',
               },
               collapsed: false,
               items: [
+                'store-secrets',
+                'retrieve-secret',
                 {
-                  type: 'link',
-                  label: 'Permissions Examples',
-                  href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/permissions',
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Compute',
-              link: {
-                type: 'doc',
-                id: 'compute',
-              },
-              collapsed: false,
-              items: [
-                {
-                  type: 'link',
-                  label: 'Single Party Examples',
-                  href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_single_party_compute',
+                  type: 'category',
+                  label: 'Permissions',
+                  link: {
+                    type: 'doc',
+                    id: 'permissions',
+                  },
+                  items: [
+                    {
+                      type: 'link',
+                      label: 'Permissions Examples',
+                      href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/permissions',
+                    },
+                  ],
                 },
                 {
-                  type: 'link',
-                  label: 'Multi Party Examples',
-                  href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_multi_party_compute',
+                  type: 'category',
+                  label: 'Compute',
+                  link: {
+                    type: 'doc',
+                    id: 'compute',
+                  },
+                  items: [
+                    {
+                      type: 'link',
+                      label: 'Single Party Examples',
+                      href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_single_party_compute',
+                    },
+                    {
+                      type: 'link',
+                      label: 'Multi Party Examples',
+                      href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/client_multi_party_compute',
+                    },
+                  ],
                 },
               ],
             },
           ],
         },
         {
-          type: 'link',
-          label: 'Python Client Reference',
-          href: 'https://docs.nillion.com/pydocs/client.html',
+          type: 'category',
+          label: 'JavaScript Client',
+          link: {
+            type: 'doc',
+            id: 'js-client',
+          },
+          items: ['js-client-reference'],
+        },
+        {
+          type: 'doc',
+          label: 'CLI Client',
+          id: 'nillion',
         },
       ],
     },
@@ -132,11 +155,7 @@ const sidebars = {
         type: 'doc',
         id: 'nada-lang',
       },
-      items: [
-        'nada-lang-types',
-        'nada-lang-operators',
-        'nada-lang-programs',
-      ],
+      items: ['nada-lang-types', 'nada-lang-operators', 'nada-lang-programs'],
     },
     {
       type: 'html',

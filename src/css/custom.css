@@ -32,3 +32,8 @@
 .sidebar-title {
   font-weight: bold;
 }
+
+/* css fix for scrolling to the right section in reference docs - leave space for navbar */
+html {
+  scroll-padding-top: 55px;
+}

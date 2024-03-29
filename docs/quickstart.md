@@ -2,13 +2,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DownloadSDK from '@site/src/components/DownloadSDK/downloadSDK';
 
-# Developer Quickstart
+# Python Developer Quickstart
 
 Start building on Nillion. This quickstart will walk you through
 
 1. Installing the Nillion SDK
 2. Setting up a developer environment with [nillion-python-starter](https://github.com/NillionNetwork/nillion-python-starter)
-3. Running a local network (cluster of nodes)
+3. Running nillion-devnet, a local Nillion network
 4. Writing your first Nada program
 5. Connecting to the network with NillionClient to store secrets, store programs, and compute on programs with stored secrets
 

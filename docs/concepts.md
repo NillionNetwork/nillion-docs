@@ -18,11 +18,15 @@ A Nada program is also a piece of software that is written in Nada language, the
 
 #### Program ID
 
-The `program_id` is the identifier for a program stored in the Nillion Network.
+The `program_id` is the identifier for a program stored in the Nillion Network. The convention for `program_id` is the `{user_id}/{program_name}` where the `user_id` corresponds to the user that stored the program in the network, and the `program_name` is the program name the storer set when storing the program.
 
 #### Party
 
 A `Party` is a named entity involved in Nada program computation. Parties can supply inputs to calculations, reveal outputs of calculations, or both.
+
+#### Party ID
+
+The `party_id`, sometimes called [`peer_id`](concepts#peer-id), is the public identifier for a `Party`.
 
 #### Inputs
 
