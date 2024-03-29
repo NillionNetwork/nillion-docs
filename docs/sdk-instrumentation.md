@@ -7,8 +7,9 @@ you can enable telemetry by running the following command:
 ```bash
 nilup instrumentation enable --wallet <your-wallet-address>
 ```
+The wallet address is optional.
 
-The wallet address is optional. For privacy reasons, we recommend using a new wallet address that cannot be linked to your identity.
+While we will not collect any personal information, we still recommend using a new wallet address that cannot be linked to your identity by any third party.
 
 By enabling telemetry you consent to the collection of telemetry data by the Nillion Network.
 That includes but is not limited to
