@@ -912,7 +912,7 @@ in the Nillion Docs.
 #### Example
 
 ```py3
-print("Party ID:", client.client_id())
+print("User ID:", client.user_id())
 ```
 
 <a id="py_nillion_client.NodeKey"></a>

@@ -2,177 +2,22 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DownloadSDK from '@site/src/components/DownloadSDK/downloadSDK';
 import IframeVideo from '@site/src/components/IframeVideo/index';
+import SdkInstallation from './\_sdk-installation.mdx';
+import FoundryInstallation from './\_foundry-installation.mdx';
 
 # Python Developer Quickstart
 
 Start building on Nillion. This quickstart will walk you through
 
-1. Installing the Nillion SDK
+1. Installing the [Nillion SDK](/nillion-sdk-and-tools)
 2. Setting up a developer environment with [nillion-python-starter](https://github.com/NillionNetwork/nillion-python-starter)
-3. Running nillion-devnet, a local Nillion network
-4. Writing your first Nada program
-5. Connecting to the network with NillionClient to store secrets, store programs, and compute on programs with stored secrets
+3. Running [nillion-devnet](/nillion-devnet), a local Nillion network
+4. Writing your first [Nada](/nada-lang) program, `tiny_secret_addition.py`
+5. Connecting to the network with the Nillion [Python Client](/python-client) to store secrets, store programs, and compute on programs with stored secrets
 
-## Download Binaries
+## Install the Nillion SDK tools
 
-<DownloadSDK/>
-
-## Install the Nillion SDK
-
-The [Nillion SDK](nillion-sdk-and-tools) includes tools for generating node keys, peer ids, and user keys, compiling Nada code, simulating programs, running a local network, and connecting to the Nillion network via your cli. Install the Nillion SDK from binaries to have access to SDK tools including `nilup`, `nada`, `nillion`, `node-key2peerid`, `node-keygen`, `nada-run`, `pynadac`, `nillion-devnet`, and `user-keygen`.
-
-### Set up folder structure
-
-Create a `nillion-binaries` folder. Inside that folder create a version folder like `v2024-03-20-123456789`.
-
-### Save binaries
-
-<Tabs>
-  <TabItem value="apple-m1" label="Apple (M1/M2/M3)" default>
-
-#### Decompress SDK binaries
-
-Double-click on `aarch64-apple-darwin` to decompress the folder. Move the decompressed `aarch64-apple-darwin` SDK binaries folder into the version folder. `aarch64-apple-darwin` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, nada-run, pynadac, nillion-devnet, and user-keygen).
-
-#### Download Nada DSL and Python Client binaries
-
-Download the Nada DSL binaries and Python Client binaries. Save these in the version folder.
-
-#### Resulting binaries folder structure
-
-```
-├── Desktop
-│   ├── nillion-binaries
-│   │   ├── v2024-03-20-123456789
-│   │   │   ├── aarch64-apple-darwin
-│   │   │   │   ├── foundry.sh
-│   │   │   │   ├── nada
-│   │   │   │   ├── nillion
-│   │   │   │   ├── nilup
-│   │   │   │   ├── node-key2peerid
-│   │   │   │   ├── node-keygen
-│   │   │   │   ├── nada-run
-│   │   │   │   ├── pynadac
-│   │   │   │   ├── nillion-devnet
-│   │   │   │   ├── user-keygen
-│   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
-│   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-macosx_11_0_arm64.whl
-```
-
-  </TabItem>
-  <TabItem value="apple-intel" label="Apple (Intel chip)" default>
-
-#### Decompress SDK binaries
-
-Double-click on `x86_64-apple-darwin` to decompress the folder. Move the decompressed `x86_64-apple-darwin` SDK binaries folder into the version folder. `x86_64-apple-darwin` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, nada-run, pynadac, nillion-devnet, and user-keygen).
-
-#### Download Nada DSL and Python Client binaries
-
-Download the Nada DSL binaries and Python Client binaries. Save these in the version folder.
-
-#### Resulting binaries folder structure
-
-```
-├── Desktop
-│   ├── nillion-binaries
-│   │   ├── v2024-03-20-123456789
-│   │   │   ├── x86_64-apple-darwin
-│   │   │   │   ├── foundry.sh
-│   │   │   │   ├── nada
-│   │   │   │   ├── nillion
-│   │   │   │   ├── nilup
-│   │   │   │   ├── node-key2peerid
-│   │   │   │   ├── node-keygen
-│   │   │   │   ├── nada-run
-│   │   │   │   ├── pynadac
-│   │   │   │   ├── nillion-devnet
-│   │   │   │   ├── user-keygen
-│   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
-│   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-macosx_10_7_x86_64.whl
-```
-
-  </TabItem>
-  <TabItem value="linux-arm" label="Linux (ARM chip)">
-
-#### Decompress SDK binaries
-
-Decompress the SDK binaries folder with the following command:
-
-```bash
-
-tar -xzvf {path/to/aarch64-unknown-linux}
-
-```
-
-Move the decompressed `aarch64-unknown-linux` SDK binaries folder into the version folder. `aarch64-unknown-linux` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, nada-run, pynadac, nillion-devnet, and user-keygen).
-
-#### Download Nada DSL and Python Client binaries
-
-Download the Nada DSL binaries and Python Client binaries. Save these in the version folder.
-
-#### Binaries folder structure
-
-```
-├── Desktop
-│   ├── nillion-binaries
-│   │   ├── v2024-03-20-123456789
-│   │   │   ├── aarch64-unknown-linux
-│   │   │   │   ├── foundry.sh
-│   │   │   │   ├── nada
-│   │   │   │   ├── nillion
-│   │   │   │   ├── nilup
-│   │   │   │   ├── node-key2peerid
-│   │   │   │   ├── node-keygen
-│   │   │   │   ├── nada-run
-│   │   │   │   ├── pynadac
-│   │   │   │   ├── nillion-devnet
-│   │   │   │   ├── user-keygen
-│   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
-│   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
-```
-
-  </TabItem>
-    <TabItem value="linux-amd" label="Linux (Intel/AMD chip)">
-
-#### Decompress SDK binaries
-
-Decompress the SDK binaries folder with the following command:
-
-```bash
-
-tar -xzvf {path/to/x86_64-unknown-linux}
-
-```
-
-Move the decompressed `x86_64-unknown-linux` SDK binaries folder into the version folder. `x86_64-unknown-linux` is the SDK root folder that holds all SDK tools (nillion, nilup, node-key2peerid, node-keygen, nada-run, pynadac, nillion-devnet, and user-keygen).
-
-#### Download Nada DSL and Python Client binaries
-
-Download the Nada DSL binaries and Python Client binaries. Save these in the version folder.
-
-#### Binaries folder structure
-
-```
-├── Desktop
-│   ├── nillion-binaries
-│   │   ├── v2024-03-20-123456789
-│   │   │   ├── x86_64-unknown-linux
-│   │   │   │   ├── foundry.sh
-│   │   │   │   ├── nada
-│   │   │   │   ├── nillion
-│   │   │   │   ├── nilup
-│   │   │   │   ├── node-key2peerid
-│   │   │   │   ├── node-keygen
-│   │   │   │   ├── nada-run
-│   │   │   │   ├── pynadac
-│   │   │   │   ├── nillion-devnet
-│   │   │   │   ├── user-keygen
-│   │   │   ├── nada_dsl-0.1.0-py3-none-any.whl
-│   │   │   ├── py_nillion_client-0.1.1-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-```
-
-  </TabItem>
-</Tabs>
+<SdkInstallation/>
 
 ## Clone the Nillion python starter repo
 
@@ -185,13 +30,13 @@ cd nillion-python-starter
 
 ### Install script dependencies
 
-There are a few pre-reqs for using the python starter repo: make sure you have python3 (version >=3.10) and pip, foundry, pidof, and grep installed on your machine.
+There are a few pre-reqs for using the python starter repo: make sure you have python3 (version >=3.11) and pip, foundry, pidof, and grep installed on your machine.
 
-- [python3 version >=3.10](https://www.python.org/downloads/) version 3.10 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed
+- [python3 version >=3.11](https://www.python.org/downloads/) version 3.11 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed
 
   :::tip
 
-  Use these commands to confirm that you have python3 (version >=3.10) and pip installed:
+  Use these commands to confirm that you have python3 (version >=3.11) and pip installed:
 
   ```
   python3 --version
@@ -200,7 +45,10 @@ There are a few pre-reqs for using the python starter repo: make sure you have p
 
   :::
 
-- [foundry](https://book.getfoundry.sh/getting-started/installation)
+- anvil tool from [foundry](https://book.getfoundry.sh/getting-started/installation), which can be installed with:
+
+  <FoundryInstallation/>
+
 - [pidof](https://command-not-found.com/pidof)
 - [grep](https://command-not-found.com/grep)
 
@@ -210,36 +58,15 @@ There are a few pre-reqs for using the python starter repo: make sure you have p
 cp .env.sample .env
 ```
 
-Update the following SDK path variables within your .env
-
-- `NILLION_WHL_ROOT` with the path to your folder that contains the Python Client binaries and Nada DSL binaries (both are .whl files)
-- `NILLION_SDK_ROOT` with the path to your decompressed Nillion SDK binaries folder that contains tools: node-keygen, user-keygen, node-key2peerid, nillion, nada-run, pynadac, nillion-devnet
-- `NILLION_PYCLIENT_WHL_FILE_NAME` with the file name of your Python Client binaries. This is a py_nillion_client .whl file inside of NILLION_WHL_ROOT
-
-```yaml reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/main/.env.sample#L3-L11
-```
-
-<!-- :::tip
-
-To enable more verbose logs for debugging, add the following to your .env file:
-
-```bash
-RUST_LOG=debug
-```
-
-::: -->
-
 ### Activate the virtual environment
 
 These scripts activate a python virtual environment at .venv and install py_nillion_client and nada_dsl packages + dependencies listed in the `requirements.txt` file
 
 ```bash
-./activate_venv.sh
-source .venv/bin/activate
+sh ./create_venv.sh && source .venv/bin/activate
 ```
 
-## Bootstrap a local Nillion node cluster
+## Bootstrap your local environment and run the nillion-devnet
 
 The bootstrap-local-environment script installs Nada DSL and Nillion Client, then uses the [nillion-devnet](/nillion-devnet) Nillion SDK tool to spin up a local test Nillion cluster that is completely isolated within your computer. The script also populates your .env file with keys, bootnodes, cluster, and payment info that will allow you to connect to the local cluster network.
 
@@ -265,7 +92,7 @@ The Nillion Network uses [Nada](nada-lang), our MPC language, to define MPC prog
 https://github.com/NillionNetwork/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py
 ```
 
-Create a python file for the Nada program in the programs folder
+Create a python file called `tiny_secret_addition.py` in the programs folder. This is where you will write your Nada program code.
 
 ```python
 cd programs
@@ -395,59 +222,179 @@ Complete your Nada program by adding a final line that returns an array with one
 ### Resulting Nada program
 
 ```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/addition_simple.py
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py
 ```
 
 🎉 You just wrote your first Nada program! Next, let's compile the program.
 
 ## Compile the Nada program
 
-Nada programs need to be compiled ahead of being stored. Navigate back to the root of the repo,and compile all programs in the programs folder, including tiny_secret_addition.py, with the compile script. This script runs the pynadac SDK tool.
+Nada programs need to be compiled ahead of being stored. Navigate back to the root of the repo, and compile all programs in the programs folder, including tiny_secret_addition.py, with the compile script. The [compile_programs.sh](https://github.com/NillionNetwork/nillion-python-starter/blob/main/compile_programs.sh) script runs the [pynadac SDK tool](pynadac) on all files in the programs folder.
 
 ```bash
 cd ..
-./compile_programs.sh
+sh compile_programs.sh
 ```
 
-This results in programs-compiled, a folder of compiled programs.
+This results in programs-compiled, a folder of compiled programs. Check programs-compiled for your compiled output, called `tiny_secret_addition.nada.bin`
 
-## Store the Nada program
+## Write a Python script to interact with nillion-devnet
 
-Next, store the compiled tiny_secret_addition program in the network with the store_program script. This script runs the nillion SDK tool to store your program.
+Let's write a Python script that will interact with nillion-devnet. This Python script will:
 
-```shell
-./store_program.sh programs-compiled/tiny_secret_addition.nada.bin
+1. Initialize NillionClient against nillion-devnet
+2. Get the user id and party id from NillionClient
+3. Store a compiled Nada program in the network
+4. Create the 1st secret with bindings to the program
+5. Store the secret in the network
+6. Create compute bindings to set input and output parties
+7. Compute on the program with 1st secret from the network, and the 2nd secret, provided at compute time
+8. Print the computation result
+
+Check out the completed Python script [here](https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition_complete.py)
+
+### Complete the python script 🎯 TODOs
+
+Open the [client_single_party_compute/tiny_secret_addition.py](https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition.py) file and let's work through the 🎯 TODOs.
+
+:::tip
+
+Open the Nillion [Python Client Reference](/python-client-reference) doc in another tab to search for available classes while completing the 🎯 TODOs.
+
+:::
+
+#### 1. Initialize NillionClient against nillion-devnet
+
+The first step was completed for you. The script uses a `create_nillion_client` helper file to create the instance of `nillion.NillionClient` used throught the script
+
+<Tabs>
+  <TabItem value="todo-1" label="Todo #1" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition.py#L14-L24
 ```
-
-Storing a program results in the stored program_id, the network's reference to the program. The program_id naming convention is `{user_id}/{program_name}`
-
-## Store secrets
-
-When we wrote our Nada program, we created 2 secret integers that are inputs to the program. We'll store one of these secrets in the network using the Python Client, and provide the other secret at compute time.
-
-Open the `client_single_party_compute/tiny_secret_addition.py` file. This file contains code to store secrets and code to compute on the tiny_secret_addition program. Let's look at the first half of the code to understand how to store the first secret, `my_int_1: 500`
-
-### Review secret storage code
-
-```yaml reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L38
+  </TabItem>
+  <TabItem value="complete-1" label="Complete #1" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition_complete.py#L14-L24
 ```
-
-When a secret is stored, the network returns its store_id.
-
-## Compute using secrets
-
-The second half of the `client_single_party_compute/tiny_secret_addition.py` example has code for running computation. We create compute bindings to set the program input and output parties. The second secret my_int2: 10 is added at computation time rather than being stored in the network ahead of time. Then compute is run and the output party gets the result.
-
-### Review full example
-
-```yaml reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/addition_simple.py#L15-L100
+  </TabItem>
+  <TabItem value="nillion-client" label="create_nillion_client helper" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/helpers/nillion_client_helper.py
 ```
+  </TabItem>
+</Tabs>
 
-### Run the example
+#### 2. Get the user id and party id from NillionClient
 
-Run the script to store secrets and compute on the program.
+<Tabs>
+  <TabItem value="todo-1" label="Todo #2" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition.py#L26-L28
+```
+  </TabItem>
+  <TabItem value="complete-1" label="Complete #2" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition_complete.py#L26-L29
+```
+  </TabItem>
+</Tabs>
+
+#### 3. Store a compiled Nada program in the network
+
+<Tabs>
+  <TabItem value="todo-3" label="Todo #3" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition.py#L29-L37
+```
+  </TabItem>
+  <TabItem value="complete-3" label="Complete #3" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition_complete.py#L30-L44
+```
+  </TabItem>
+</Tabs>
+
+#### 4. Create the 1st secret with bindings to the program
+
+<Tabs>
+  <TabItem value="todo-4" label="Todo #4" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition.py#L38-L44
+```
+  </TabItem>
+  <TabItem value="complete-4" label="Complete #4" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition_complete.py#L45-L58
+```
+  </TabItem>
+</Tabs>
+
+#### 5. Store the secret in the network
+
+When we wrote our Nada program, we created 2 secret integers that are inputs to the program. We'll store one of these secrets in the network using the Python Client, and provide the other secret at compute time. Let's store the first secret.
+
+<Tabs>
+  <TabItem value="todo-5" label="Todo #5" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition.py#L45-L47
+```
+  </TabItem>
+  <TabItem value="complete-5" label="Complete #5" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition_complete.py#L59-L65
+```
+  </TabItem>
+</Tabs>
+
+#### 6. Create compute bindings to set input and output parties
+
+<Tabs>
+  <TabItem value="todo-6" label="Todo #6" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition.py#L48-L50
+```
+  </TabItem>
+  <TabItem value="complete-6" label="Complete #6" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition_complete.py#L66-L70
+```
+  </TabItem>
+</Tabs>
+
+#### 7. Compute on the program with 1st secret from the network, and the 2nd secret, provided at compute time
+
+<Tabs>
+  <TabItem value="todo-7" label="Todo #7" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition.py#L51-L54
+```
+  </TabItem>
+  <TabItem value="complete-7" label="Complete #7" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition_complete.py#L71-L84
+```
+  </TabItem>
+</Tabs>
+
+#### 8. Print the computation result
+
+<Tabs>
+  <TabItem value="todo-8" label="Todo #8" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition.py#L55-L56
+```
+  </TabItem>
+  <TabItem value="complete-8" label="Complete #8" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/client_single_party_compute/tiny_secret_addition_complete.py#L85-L93
+```
+  </TabItem>
+</Tabs>
+
+### Run the completed python script
+
+Run the script to store the program, store secrets and compute on the program.
 
 ```bash
 cd client_single_party_compute
@@ -458,7 +405,7 @@ Check out the network result on tiny_secret_addition. Update the SecretInteger i
 
 ## Keep exploring
 
-You've successfully written your first single party Nada program, stored it on a local network cluster, stored secrets on the network, and run compute against secrets. Keep exploring by
+You've successfully written your first single party Nada program, stored the program on the network, stored secrets on the network, and run compute against secrets. Keep exploring by
 
 - running other examples
 

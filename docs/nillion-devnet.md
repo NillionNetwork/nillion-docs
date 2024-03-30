@@ -1,3 +1,5 @@
+import FoundryInstallation from './\_foundry-installation.mdx';
+
 # nillion-devnet
 
 The `nillion-devnet` tool creates a Nillion network devnet that you can interact with while you keep the process running.
@@ -6,13 +8,7 @@ The `nillion-devnet` tool creates a Nillion network devnet that you can interact
 
 [Foundry](https://book.getfoundry.sh/getting-started/installation) is a portable and modular toolkit for Ethereum development. Running a local devnet uses Foundry's `anvil` tool under the hood, so you need to have Foundry installed.
 
-```bash
-# install Foundryup, the Foundry toolchain installer
-curl -L https://foundry.paradigm.xyz | bash
-
-# after installation, use the foundryup commmand to install the binaries including Anvil
-foundryup
-```
+<FoundryInstallation/>
 
 ### Run Devnet
 
