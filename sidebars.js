@@ -11,8 +11,6 @@
 
 // @ts-check
 
-import 'dotenv/config';
-
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   nillionSidebar: [
@@ -143,17 +141,7 @@ const sidebars = {
             type: 'doc',
             id: 'js-client',
           },
-          items: [
-            'js-client-reference',
-            {
-              type: 'link',
-              label: 'JavaScript Client Reference',
-              href:
-                process.env.ENV == 'prod'
-                  ? 'https://docs.nillion.com/js-docs/index.html'
-                  : 'http://localhost:3000/js-docs/index.html',
-            },
-          ],
+          items: ['js-client-reference'],
         },
         {
           type: 'doc',
