@@ -141,7 +141,13 @@ const sidebars = {
             type: 'doc',
             id: 'js-client',
           },
-          items: ['js-client-reference'],
+          items: [
+            {
+              type: 'link',
+              label: 'JavaScript Client Reference',
+              href: 'https://nillion.pub/nillion-js-reference',
+            },
+          ],
         },
         {
           type: 'doc',
