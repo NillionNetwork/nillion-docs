@@ -51,6 +51,13 @@ const config = {
     pyNadaLinuxIntel: process.env.DOWNLOAD_PYNADA,
   },
 
+  scripts: [
+    {
+      src: '/js/piwik.js',
+      async: false,
+    },
+  ],
+
   presets: [
     [
       'classic',
