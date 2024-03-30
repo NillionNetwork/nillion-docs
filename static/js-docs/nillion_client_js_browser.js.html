@@ -1,0 +1,2851 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>nillion_client_js_browser.js</title>
+
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./build/entry.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/app.min.css" />
+    <link type="text/css" rel="stylesheet" href="styles/iframe.css" />
+    <link type="text/css" rel="stylesheet" href="" />
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </head>
+
+  <body class="layout">
+    <div id="stickyNavbarOverlay"></div>
+
+    <div class="top-nav">
+      <div class="inner">
+        <a
+          id="hamburger"
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+          <a href="index.html">
+            <h1 class="navbar-item">Nillion Javascript Client</h1>
+          </a>
+        </div>
+        <div class="menu">
+          <div class="navigation">
+            <a href="index.html" class="link"> Documentation </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <div class="sidebar" id="sidebarNav">
+        <div class="search-wrapper">
+          <input
+            id="search"
+            type="text"
+            placeholder="Search docs..."
+            class="input"
+          />
+        </div>
+
+        <nav>
+          <h2><a href="index.html">Documentation</a></h2>
+          <div class="category">
+            <h3>Classes</h3>
+            <ul>
+              <li><a href="ClusterDescriptor.html">ClusterDescriptor</a></li>
+              <li><a href="LoaderHelper.html">LoaderHelper</a></li>
+              <li><a href="NillionClient.html">NillionClient</a></li>
+              <li><a href="NodeKey.html">NodeKey</a></li>
+              <li><a href="Permissions.html">Permissions</a></li>
+              <li>
+                <a href="PreprocessingConfig.html">PreprocessingConfig</a>
+              </li>
+              <li>
+                <a href="PreprocessingProtocolConfig.html"
+                  >PreprocessingProtocolConfig</a
+                >
+              </li>
+              <li><a href="ProgramBindings.html">ProgramBindings</a></li>
+              <li><a href="PublicVariable.html">PublicVariable</a></li>
+              <li><a href="PublicVariables.html">PublicVariables</a></li>
+              <li><a href="Secret.html">Secret</a></li>
+              <li><a href="Secrets.html">Secrets</a></li>
+              <li><a href="UserKey.html">UserKey</a></li>
+            </ul>
+            <h3>Global</h3>
+            <ul>
+              <li>
+                <a href="global.html#worker_entry_point">worker_entry_point</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="core" id="main-content-wrapper">
+        <div class="content">
+          <header class="page-title">
+            <p>Source</p>
+            <h1>nillion_client_js_browser.js</h1>
+          </header>
+
+          <section>
+            <article>
+              <pre
+                class="prettyprint source linenums"
+              ><code>import { startWorker } from './snippets/browser-async-executor-b51ed65827bac93b/src/worker.js';
+import { websocket_transport } from './snippets/libp2p-wasm-ext-7e5f5edb880ee0f5/src/websockets.js';
+
+let wasm;
+
+const cachedTextDecoder = (typeof TextDecoder !== 'undefined' ? new TextDecoder('utf-8', { ignoreBOM: true, fatal: true }) : { decode: () => { throw Error('TextDecoder not available') } } );
+
+if (typeof TextDecoder !== 'undefined') { cachedTextDecoder.decode(); };
+
+let cachedUint8Memory0 = null;
+
+function getUint8Memory0() {
+    if (cachedUint8Memory0 === null || cachedUint8Memory0.buffer !== wasm.memory.buffer) {
+        cachedUint8Memory0 = new Uint8Array(wasm.memory.buffer);
+    }
+    return cachedUint8Memory0;
+}
+
+function getStringFromWasm0(ptr, len) {
+    ptr = ptr >>> 0;
+    return cachedTextDecoder.decode(getUint8Memory0().slice(ptr, ptr + len));
+}
+
+const heap = new Array(128).fill(undefined);
+
+heap.push(undefined, null, true, false);
+
+let heap_next = heap.length;
+
+function addHeapObject(obj) {
+    if (heap_next === heap.length) heap.push(heap.length + 1);
+    const idx = heap_next;
+    heap_next = heap[idx];
+
+    heap[idx] = obj;
+    return idx;
+}
+
+function getObject(idx) { return heap[idx]; }
+
+function dropObject(idx) {
+    if (idx &lt; 132) return;
+    heap[idx] = heap_next;
+    heap_next = idx;
+}
+
+function takeObject(idx) {
+    const ret = getObject(idx);
+    dropObject(idx);
+    return ret;
+}
+
+let WASM_VECTOR_LEN = 0;
+
+const cachedTextEncoder = (typeof TextEncoder !== 'undefined' ? new TextEncoder('utf-8') : { encode: () => { throw Error('TextEncoder not available') } } );
+
+const encodeString = function (arg, view) {
+    const buf = cachedTextEncoder.encode(arg);
+    view.set(buf);
+    return {
+        read: arg.length,
+        written: buf.length
+    };
+};
+
+function passStringToWasm0(arg, malloc, realloc) {
+
+    if (realloc === undefined) {
+        const buf = cachedTextEncoder.encode(arg);
+        const ptr = malloc(buf.length, 1) >>> 0;
+        getUint8Memory0().subarray(ptr, ptr + buf.length).set(buf);
+        WASM_VECTOR_LEN = buf.length;
+        return ptr;
+    }
+
+    let len = arg.length;
+    let ptr = malloc(len, 1) >>> 0;
+
+    const mem = getUint8Memory0();
+
+    let offset = 0;
+
+    for (; offset &lt; len; offset++) {
+        const code = arg.charCodeAt(offset);
+        if (code > 0x7F) break;
+        mem[ptr + offset] = code;
+    }
+
+    if (offset !== len) {
+        if (offset !== 0) {
+            arg = arg.slice(offset);
+        }
+        ptr = realloc(ptr, len, len = offset + arg.length * 3, 1) >>> 0;
+        const view = getUint8Memory0().subarray(ptr + offset, ptr + len);
+        const ret = encodeString(arg, view);
+
+        offset += ret.written;
+        ptr = realloc(ptr, len, offset, 1) >>> 0;
+    }
+
+    WASM_VECTOR_LEN = offset;
+    return ptr;
+}
+
+function isLikeNone(x) {
+    return x === undefined || x === null;
+}
+
+let cachedInt32Memory0 = null;
+
+function getInt32Memory0() {
+    if (cachedInt32Memory0 === null || cachedInt32Memory0.buffer !== wasm.memory.buffer) {
+        cachedInt32Memory0 = new Int32Array(wasm.memory.buffer);
+    }
+    return cachedInt32Memory0;
+}
+
+function debugString(val) {
+    // primitive types
+    const type = typeof val;
+    if (type == 'number' || type == 'boolean' || val == null) {
+        return  `${val}`;
+    }
+    if (type == 'string') {
+        return `"${val}"`;
+    }
+    if (type == 'symbol') {
+        const description = val.description;
+        if (description == null) {
+            return 'Symbol';
+        } else {
+            return `Symbol(${description})`;
+        }
+    }
+    if (type == 'function') {
+        const name = val.name;
+        if (typeof name == 'string' &amp;&amp; name.length > 0) {
+            return `Function(${name})`;
+        } else {
+            return 'Function';
+        }
+    }
+    // objects
+    if (Array.isArray(val)) {
+        const length = val.length;
+        let debug = '[';
+        if (length > 0) {
+            debug += debugString(val[0]);
+        }
+        for(let i = 1; i &lt; length; i++) {
+            debug += ', ' + debugString(val[i]);
+        }
+        debug += ']';
+        return debug;
+    }
+    // Test for built-in
+    const builtInMatches = /\[object ([^\]]+)\]/.exec(toString.call(val));
+    let className;
+    if (builtInMatches.length > 1) {
+        className = builtInMatches[1];
+    } else {
+        // Failed to match the standard '[object ClassName]'
+        return toString.call(val);
+    }
+    if (className == 'Object') {
+        // we're a user defined class or Object
+        // JSON.stringify avoids problems with cycles, and is generally much
+        // easier than looping through ownProperties of `val`.
+        try {
+            return 'Object(' + JSON.stringify(val) + ')';
+        } catch (_) {
+            return 'Object';
+        }
+    }
+    // errors
+    if (val instanceof Error) {
+        return `${val.name}: ${val.message}\n${val.stack}`;
+    }
+    // TODO we could test for more things here, like `Set`s and `Map`s.
+    return className;
+}
+
+let cachedBigInt64Memory0 = null;
+
+function getBigInt64Memory0() {
+    if (cachedBigInt64Memory0 === null || cachedBigInt64Memory0.buffer !== wasm.memory.buffer) {
+        cachedBigInt64Memory0 = new BigInt64Array(wasm.memory.buffer);
+    }
+    return cachedBigInt64Memory0;
+}
+
+let cachedFloat64Memory0 = null;
+
+function getFloat64Memory0() {
+    if (cachedFloat64Memory0 === null || cachedFloat64Memory0.buffer !== wasm.memory.buffer) {
+        cachedFloat64Memory0 = new Float64Array(wasm.memory.buffer);
+    }
+    return cachedFloat64Memory0;
+}
+
+const CLOSURE_DTORS = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(state => {
+    wasm.__wbindgen_export_3.get(state.dtor)(state.a, state.b)
+});
+
+function makeMutClosure(arg0, arg1, dtor, f) {
+    const state = { a: arg0, b: arg1, cnt: 1, dtor };
+    const real = (...args) => {
+        // First up with a closure we increment the internal reference
+        // count. This ensures that the Rust closure environment won't
+        // be deallocated while we're invoking it.
+        state.cnt++;
+        const a = state.a;
+        state.a = 0;
+        try {
+            return f(a, state.b, ...args);
+        } finally {
+            if (--state.cnt === 0) {
+                wasm.__wbindgen_export_3.get(state.dtor)(a, state.b);
+                CLOSURE_DTORS.unregister(state);
+            } else {
+                state.a = a;
+            }
+        }
+    };
+    real.original = state;
+    CLOSURE_DTORS.register(real, state, state);
+    return real;
+}
+function __wbg_adapter_54(arg0, arg1) {
+    wasm.wasm_bindgen__convert__closures__invoke0_mut__h774ef35edc3304bb(arg0, arg1);
+}
+
+function __wbg_adapter_57(arg0, arg1, arg2) {
+    wasm.wasm_bindgen__convert__closures__invoke1_mut__h02910502e6814157(arg0, arg1, addHeapObject(arg2));
+}
+
+/**
+* Entry point invoked by the web worker. The passed pointer will be unconditionally interpreted
+* as an `Box::&lt;(WorkerExecutor, Worker)>`.
+* @param {number} shared_state_ptr
+*/
+export function worker_entry_point(shared_state_ptr) {
+    wasm.worker_entry_point(shared_state_ptr);
+}
+
+function handleError(f, args) {
+    try {
+        return f.apply(this, args);
+    } catch (e) {
+        wasm.__wbindgen_exn_store(addHeapObject(e));
+    }
+}
+
+function getArrayU8FromWasm0(ptr, len) {
+    ptr = ptr >>> 0;
+    return getUint8Memory0().subarray(ptr / 1, ptr / 1 + len);
+}
+function __wbg_adapter_178(arg0, arg1, arg2, arg3) {
+    wasm.wasm_bindgen__convert__closures__invoke2_mut__h3fc67643083a94ab(arg0, arg1, addHeapObject(arg2), addHeapObject(arg3));
+}
+
+let cachedUint32Memory0 = null;
+
+function getUint32Memory0() {
+    if (cachedUint32Memory0 === null || cachedUint32Memory0.buffer !== wasm.memory.buffer) {
+        cachedUint32Memory0 = new Uint32Array(wasm.memory.buffer);
+    }
+    return cachedUint32Memory0;
+}
+
+function passArrayJsValueToWasm0(array, malloc) {
+    const ptr = malloc(array.length * 4, 4) >>> 0;
+    const mem = getUint32Memory0();
+    for (let i = 0; i &lt; array.length; i++) {
+        mem[ptr / 4 + i] = addHeapObject(array[i]);
+    }
+    WASM_VECTOR_LEN = array.length;
+    return ptr;
+}
+
+function passArray8ToWasm0(arg, malloc) {
+    const ptr = malloc(arg.length * 1, 1) >>> 0;
+    getUint8Memory0().set(arg, ptr / 1);
+    WASM_VECTOR_LEN = arg.length;
+    return ptr;
+}
+
+function _assertClass(instance, klass) {
+    if (!(instance instanceof klass)) {
+        throw new Error(`expected instance of ${klass.name}`);
+    }
+    return instance.ptr;
+}
+
+const ClusterDescriptorFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_clusterdescriptor_free(ptr >>> 0));
+/**
+* Cluster descriptor
+*
+* The cluster descriptor contains relevant cluster configuration information.
+* This is the structure returned by the `cluster_information` operation in the client.
+*/
+export class ClusterDescriptor {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(ClusterDescriptor.prototype);
+        obj.__wbg_ptr = ptr;
+        ClusterDescriptorFinalization.register(obj, obj.__wbg_ptr, obj);
+        return obj;
+    }
+
+    toJSON() {
+        return {
+            id: this.id,
+            parties: this.parties,
+            prime: this.prime,
+            kappa: this.kappa,
+            preprocessing: this.preprocessing,
+        };
+    }
+
+    toString() {
+        return JSON.stringify(this);
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        ClusterDescriptorFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_clusterdescriptor_free(ptr);
+    }
+    /**
+    * Creates an empty cluster descriptor.
+    */
+    constructor() {
+        const ret = wasm.clusterdescriptor_new();
+        this.__wbg_ptr = ret >>> 0;
+        return this;
+    }
+    /**
+    * Cluster identifier
+    * @returns {string}
+    */
+    get id() {
+        let deferred1_0;
+        let deferred1_1;
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.clusterdescriptor_id(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            deferred1_0 = r0;
+            deferred1_1 = r1;
+            return getStringFromWasm0(r0, r1);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+            wasm.__wbindgen_free(deferred1_0, deferred1_1, 1);
+        }
+    }
+    /**
+    * Cluster parties
+    * @returns {any}
+    */
+    get parties() {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.clusterdescriptor_parties(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            return takeObject(r0);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * The prime number to be used in this cluster.
+    * @returns {string}
+    */
+    get prime() {
+        let deferred1_0;
+        let deferred1_1;
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.clusterdescriptor_prime(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            deferred1_0 = r0;
+            deferred1_1 = r1;
+            return getStringFromWasm0(r0, r1);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+            wasm.__wbindgen_free(deferred1_0, deferred1_1, 1);
+        }
+    }
+    /**
+    * The security parameter kappa for this cluster.
+    * @returns {number}
+    */
+    get kappa() {
+        const ret = wasm.clusterdescriptor_kappa(this.__wbg_ptr);
+        return ret >>> 0;
+    }
+    /**
+    * The preprocessing configuration.
+    * @returns {PreprocessingConfig}
+    */
+    get preprocessing() {
+        const ret = wasm.clusterdescriptor_preprocessing(this.__wbg_ptr);
+        return PreprocessingConfig.__wrap(ret);
+    }
+}
+
+const LoaderHelperFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_loaderhelper_free(ptr >>> 0));
+/**
+*/
+export class LoaderHelper {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(LoaderHelper.prototype);
+        obj.__wbg_ptr = ptr;
+        LoaderHelperFinalization.register(obj, obj.__wbg_ptr, obj);
+        return obj;
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        LoaderHelperFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_loaderhelper_free(ptr);
+    }
+    /**
+    * @returns {string}
+    */
+    mainJS() {
+        const ret = wasm.loaderhelper_mainJS(this.__wbg_ptr);
+        return takeObject(ret);
+    }
+}
+
+const NillionClientFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_nillionclient_free(ptr >>> 0));
+/**
+* The Nillion Client
+*
+* This is the main interface with the Nillion network.
+* The Nillion Client provides APIs that you can use for:
+* - secure computing in Nillion,
+* - storing programs,
+* - managing secrets, and
+* - managing permissions
+*/
+export class NillionClient {
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        NillionClientFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_nillionclient_free(ptr);
+    }
+    /**
+    * Creates an instance of Nillion Client
+    *
+    * @param {UserKey} user_key - The user private key
+    * @param {NodeKey} node_key - The node private key
+    * @param {string[]} bootnodes - The Nillion cluster bootnode websocket multiaddresses. A websocket multiaddress has `/ws` or `/wss` (secure sockets) in the address. Example: "/ip4/127.0.0.1/tcp/14211/wss/p2p/12D3KooWCAGu6gqDrkDWWcFnjsT9Y8rUzUH8buWjdFcU3TfWRmuN"
+    * @param {any} payments_config - The payments configuration
+    */
+    constructor(user_key, node_key, bootnodes, payments_config) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            _assertClass(user_key, UserKey);
+            var ptr0 = user_key.__destroy_into_raw();
+            _assertClass(node_key, NodeKey);
+            var ptr1 = node_key.__destroy_into_raw();
+            const ptr2 = passArrayJsValueToWasm0(bootnodes, wasm.__wbindgen_malloc);
+            const len2 = WASM_VECTOR_LEN;
+            wasm.nillionclient_new(retptr, ptr0, ptr1, ptr2, len2, addHeapObject(payments_config));
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            this.__wbg_ptr = r0 >>> 0;
+            return this;
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Enable remote logging
+    *
+    * Writes client logs to a websocket that can be accessed in URL: ws://127.0.0.1:11100/logs.
+    * You can use tools like [websocat](https://github.com/vi/websocat) to access and read these logs.
+    */
+    static enable_remote_logging() {
+        wasm.nillionclient_enable_remote_logging();
+    }
+    /**
+    * Get the party identifier for the current client.
+    *
+    * @return {string} The party identifier for the current client
+    */
+    party_id() {
+        let deferred2_0;
+        let deferred2_1;
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.nillionclient_party_id(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            var r3 = getInt32Memory0()[retptr / 4 + 3];
+            var ptr1 = r0;
+            var len1 = r1;
+            if (r3) {
+                ptr1 = 0; len1 = 0;
+                throw takeObject(r2);
+            }
+            deferred2_0 = ptr1;
+            deferred2_1 = len1;
+            return getStringFromWasm0(ptr1, len1);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+            wasm.__wbindgen_free(deferred2_0, deferred2_1, 1);
+        }
+    }
+    /**
+    * Get the user identifier for the current user.
+    *
+    * @return {string} - The Nillion user identifier for the current user
+    */
+    user_id() {
+        let deferred1_0;
+        let deferred1_1;
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.nillionclient_user_id(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            deferred1_0 = r0;
+            deferred1_1 = r1;
+            return getStringFromWasm0(r0, r1);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+            wasm.__wbindgen_free(deferred1_0, deferred1_1, 1);
+        }
+    }
+    /**
+    * Store a secret on Nillion
+    *
+    * @param {string} cluster_id - The targeted cluster identifier
+    * @param {Secrets} secrets - The collection of secrets to store
+    * @param {ProgramBindings | undefined} bindings - Optional bindings between network parties and the parties are defined by the program
+    * @param {Permissions | undefined} permissions - Optional permissions to be associated with the secrets. By default the user has full access to the secret.
+    * @returns {Promise&lt;string>} A store ID that can be used to retrieve the secret.
+    */
+    store_secrets(cluster_id, secrets, bindings, permissions) {
+        const ptr0 = passStringToWasm0(cluster_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        _assertClass(secrets, Secrets);
+        let ptr1 = 0;
+        if (!isLikeNone(bindings)) {
+            _assertClass(bindings, ProgramBindings);
+            ptr1 = bindings.__destroy_into_raw();
+        }
+        let ptr2 = 0;
+        if (!isLikeNone(permissions)) {
+            _assertClass(permissions, Permissions);
+            ptr2 = permissions.__destroy_into_raw();
+        }
+        const ret = wasm.nillionclient_store_secrets(this.__wbg_ptr, ptr0, len0, secrets.__wbg_ptr, ptr1, ptr2);
+        return takeObject(ret);
+    }
+    /**
+    * Retrieve a secret already stored in Nillion
+    *
+    * @param {string} cluster_id - UUID of the targeted preprocessing cluster
+    * @param {string} store_ids - The store secret operation identifier for the secret collection that will be retrieved.
+    * @param {string} secret_id - The secret identifier inside the secrets collection
+    * @return {Promise&lt;Secret>} - The secret identified by `secret_id`
+    */
+    retrieve_secret(cluster_id, store_id, secret_id) {
+        const ptr0 = passStringToWasm0(cluster_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passStringToWasm0(store_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        const ptr2 = passStringToWasm0(secret_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len2 = WASM_VECTOR_LEN;
+        const ret = wasm.nillionclient_retrieve_secret(this.__wbg_ptr, ptr0, len0, ptr1, len1, ptr2, len2);
+        return takeObject(ret);
+    }
+    /**
+    * Update a secret stored in Nillion
+    *
+    * @param {string} cluster_id - UUID of the targeted preprocessing cluster
+    * @param {string} store_ids - The store secret operation identifier for the secret collection that will be updated.
+    * @param {Secrets} secrets - The new secret collection that will replace the existing one
+    * @return {Promise&lt;string>} The unique identifier of the update operation
+    */
+    update_secrets(cluster_id, store_id, secrets, bindings) {
+        const ptr0 = passStringToWasm0(cluster_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passStringToWasm0(store_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        _assertClass(secrets, Secrets);
+        let ptr2 = 0;
+        if (!isLikeNone(bindings)) {
+            _assertClass(bindings, ProgramBindings);
+            ptr2 = bindings.__destroy_into_raw();
+        }
+        const ret = wasm.nillionclient_update_secrets(this.__wbg_ptr, ptr0, len0, ptr1, len1, secrets.__wbg_ptr, ptr2);
+        return takeObject(ret);
+    }
+    /**
+    * Delete secrets collection from the network.
+    *
+    * @param {string} cluster_id - UUID of the targeted preprocessing cluster
+    * @param {string} store_ids - The store secret operation identifier for the secret collection that will be deleted.
+    *
+    * @return {Promise}
+    */
+    delete_secrets(cluster_id, store_id) {
+        const ptr0 = passStringToWasm0(cluster_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passStringToWasm0(store_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        const ret = wasm.nillionclient_delete_secrets(this.__wbg_ptr, ptr0, len0, ptr1, len1);
+        return takeObject(ret);
+    }
+    /**
+    * Compute in the Nillion Network. This method invokes the compute operation in Nillion.
+    * It returns a compute ID that can be used by `compute_result` to fetch
+    * the results of this computation.
+    *
+    * @param {string} cluster_id - Identifier of the targeted cluster
+    * @param {ProgramBindings} bindings - The program bindings for the computation
+    * @param {Array.&lt;string>} store_ids - The store IDs of the secrets to use for the computation
+    * @param {Secrets} secrets - Additional secrets to use for the computation
+    * @param {PublicVariables} public_variables - Public variables that are used in the computation.
+    *
+    * @return {Promise&lt;Object>} A computation UUID.
+    */
+    compute(cluster_id, bindings, store_ids, secrets, public_variables) {
+        const ptr0 = passStringToWasm0(cluster_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        _assertClass(bindings, ProgramBindings);
+        const ptr1 = passArrayJsValueToWasm0(store_ids, wasm.__wbindgen_malloc);
+        const len1 = WASM_VECTOR_LEN;
+        _assertClass(secrets, Secrets);
+        _assertClass(public_variables, PublicVariables);
+        const ret = wasm.nillionclient_compute(this.__wbg_ptr, ptr0, len0, bindings.__wbg_ptr, ptr1, len1, secrets.__wbg_ptr, public_variables.__wbg_ptr);
+        return takeObject(ret);
+    }
+    /**
+    * Fetch the result of the compute in the Nillion Network
+    *
+    * @param {string} result_id - The computation UUID returned after calling `compute`
+    * @return {Promise&lt;Object>} - The result of the computation
+    */
+    compute_result(result_id) {
+        const ptr0 = passStringToWasm0(result_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.nillionclient_compute_result(this.__wbg_ptr, ptr0, len0);
+        return takeObject(ret);
+    }
+    /**
+    * Retrieve permissions for a secret stored in Nillion.
+    *
+    * @param {string} cluster_id - The identifier of the target cluster
+    * @param {string} store_id - The store secret idenfitier for the secret collection where the secret is
+    * @param {string} secret_id - The identifier of the secret in the secret collection
+    * @return {Promise&lt;Permissions>} The permissions associated to the secret
+    */
+    retrieve_permissions(cluster_id, store_id, secret_id) {
+        const ptr0 = passStringToWasm0(cluster_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passStringToWasm0(store_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        const ptr2 = passStringToWasm0(secret_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len2 = WASM_VECTOR_LEN;
+        const ret = wasm.nillionclient_retrieve_permissions(this.__wbg_ptr, ptr0, len0, ptr1, len1, ptr2, len2);
+        return takeObject(ret);
+    }
+    /**
+    * Update permissions for a secret stored in Nillion.
+    *
+    * @param {string} cluster_id - The identifier of the target cluster
+    * @param {string} store_id - The store secret idenfitier for the secret collection where the secret is
+    * @param {string} secret_id - The identifier of the secret in the secret collection
+    * @param {Permissions} permissions - The permissions that will replace the existing permissions for the secret
+    * @return {Promise&lt;String>} The action ID corresponding to the update operation
+    */
+    update_permissions(cluster_id, store_id, secret_id, permissions) {
+        const ptr0 = passStringToWasm0(cluster_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passStringToWasm0(store_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        const ptr2 = passStringToWasm0(secret_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len2 = WASM_VECTOR_LEN;
+        _assertClass(permissions, Permissions);
+        const ret = wasm.nillionclient_update_permissions(this.__wbg_ptr, ptr0, len0, ptr1, len1, ptr2, len2, permissions.__wbg_ptr);
+        return takeObject(ret);
+    }
+    /**
+    * Store a program in the Nillion Network
+    *
+    * @param {string} cluster_id - UUID of the targeted preprocessing cluster
+    * @param {string} program_name - The name of the program
+    * @param {UInt8Array} program - The compiled nada program in binary format
+    * @return The action ID associated with the action of storing a program
+    */
+    store_program(cluster_id, program_name, program) {
+        const ptr0 = passStringToWasm0(cluster_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passStringToWasm0(program_name, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        const ptr2 = passArray8ToWasm0(program, wasm.__wbindgen_malloc);
+        const len2 = WASM_VECTOR_LEN;
+        const ret = wasm.nillionclient_store_program(this.__wbg_ptr, ptr0, len0, ptr1, len1, ptr2, len2);
+        return takeObject(ret);
+    }
+    /**
+    * Returns information about a Nillion cluster
+    *
+    * @param {string} cluster_id - Identifier of the target cluster
+    *
+    * @return {Promise&lt;ClusterDescriptor>} The cluster descriptor for the given cluster
+    */
+    cluster_information(cluster_id) {
+        const ptr0 = passStringToWasm0(cluster_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.nillionclient_cluster_information(this.__wbg_ptr, ptr0, len0);
+        return takeObject(ret);
+    }
+    /**
+    * Enables tracking for the user.
+    *
+    * Enables tracking of client actions (store, retrieve, compute ...)
+    * @return {Promise}
+    */
+    static enable_tracking(wallet_addr) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            var ptr0 = isLikeNone(wallet_addr) ? 0 : passStringToWasm0(wallet_addr, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            var len0 = WASM_VECTOR_LEN;
+            wasm.nillionclient_enable_tracking(retptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            if (r1) {
+                throw takeObject(r0);
+            }
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+}
+
+const NodeKeyFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_nodekey_free(ptr >>> 0));
+/**
+* Node key
+*
+* The node key is used to authenticate the node in the Nillion network.
+* The key can be generated from a seed or from a base58 string.
+*
+* @example
+*
+* let key = new NodeKey("example")
+*/
+export class NodeKey {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(NodeKey.prototype);
+        obj.__wbg_ptr = ptr;
+        NodeKeyFinalization.register(obj, obj.__wbg_ptr, obj);
+        return obj;
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        NodeKeyFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_nodekey_free(ptr);
+    }
+    /**
+    * Generates a private key using a seed.
+    *
+    * @param {string} seed - The seed that will be used to generate the NodeKey
+    * @return {NodeKey} A NodeKey
+    *
+    * @example
+    * let key = NodeKey.from_seed("example2")
+    */
+    static from_seed(seed) {
+        const ptr0 = passStringToWasm0(seed, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.nodekey_from_seed(ptr0, len0);
+        return NodeKey.__wrap(ret);
+    }
+    /**
+    * Decodes a private key from a string encoded in Base58.
+    *
+    * @param {string} contents - A base58 string
+    * @return {NodeKey} An instance of NodeKey matching the string provided
+    */
+    static from_base58(contents) {
+        const ptr0 = passStringToWasm0(contents, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.nodekey_from_base58(ptr0, len0);
+        return NodeKey.__wrap(ret);
+    }
+}
+
+const PermissionsFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_permissions_free(ptr >>> 0));
+/**
+* The permissions data structure.
+*
+* In Nillion, every stored secret has associated a set of permissions upon creation.
+* If no permissions are provided, the network will grant ownership as well as update, delete and retrieve permissions
+* to the user storing the secret.
+*
+* For each compute operation, the secrets need to have granted compute permissions for the program and the user
+* accessing the secret for the purpose of a computation.
+*
+* Permissions for any store secret can be updated and retrieved by the owner using `update_permissions` and `retrieve_permissions` operations
+* respectively.
+*/
+export class Permissions {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(Permissions.prototype);
+        obj.__wbg_ptr = ptr;
+        PermissionsFinalization.register(obj, obj.__wbg_ptr, obj);
+        return obj;
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        PermissionsFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_permissions_free(ptr);
+    }
+    /**
+    * Build a new empty instance of Permissions
+    */
+    constructor() {
+        const ret = wasm.permissions_new();
+        this.__wbg_ptr = ret >>> 0;
+        return this;
+    }
+    /**
+    * Builds a new instance of Permissions with the default set for the user identifier.
+    *
+    * By default, the user identifier will be granted ownership of the secret as well as full access to the secret.
+    * No compute permissions are granted by default unless a program is specified. They need to be assigned separately.
+    *
+    * @param {string} user_id - The Nillion user identifier
+    * @param {string | undefined } program - Optionally specify a Program ID to apply compute permissions
+    * @returns {Permissions} An instance of Permissions with the default configuration for the user
+    *
+    * @example
+    * const permissions = nillion.Permissions.default_for_user(client.user_id())
+    */
+    static default_for_user(user_id, program) {
+        const ptr0 = passStringToWasm0(user_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        var ptr1 = isLikeNone(program) ? 0 : passStringToWasm0(program, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        var len1 = WASM_VECTOR_LEN;
+        const ret = wasm.permissions_default_for_user(ptr0, len0, ptr1, len1);
+        return Permissions.__wrap(ret);
+    }
+    /**
+    * Add retrieve permissions to the Permissions instance for the
+    * given list of user IDs
+    *
+    * @param {string[]} user_ids - The list of user identifiers that will be granted retrieve permissions
+    */
+    add_retrieve_permissions(user_ids) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passArrayJsValueToWasm0(user_ids, wasm.__wbindgen_malloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.permissions_add_retrieve_permissions(retptr, this.__wbg_ptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            if (r1) {
+                throw takeObject(r0);
+            }
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Add update permissions to the Permissions instance for the
+    * given list of user IDs
+    *
+    * @param {string[]} user_ids - The list of user identifiers that will be granted update permissions
+    */
+    add_update_permissions(user_ids) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passArrayJsValueToWasm0(user_ids, wasm.__wbindgen_malloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.permissions_add_update_permissions(retptr, this.__wbg_ptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            if (r1) {
+                throw takeObject(r0);
+            }
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Add delete permissions to the Permissions instance for the
+    * given list of user IDs
+    *
+    * @param {string[]} user_ids - The list of user identifiers that will be granted delete permissions
+    */
+    add_delete_permissions(user_ids) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passArrayJsValueToWasm0(user_ids, wasm.__wbindgen_malloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.permissions_add_delete_permissions(retptr, this.__wbg_ptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            if (r1) {
+                throw takeObject(r0);
+            }
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Add compute permissions to the Permissions instance for the
+    * given list of user IDs
+    *
+    * @param {any} permissions - object where the keys are the user identities and for each key the values are a list of program identifiers that
+    *     user will be granted compute permission for.
+    */
+    add_compute_permissions(permissions) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.permissions_add_compute_permissions(retptr, this.__wbg_ptr, addHeapObject(permissions));
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            if (r1) {
+                throw takeObject(r0);
+            }
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Returns true if user has retrieve permissions
+    *
+    * @param {string} user_id - the user identifier
+    * @return {boolean} true if the user has retrieve permissions
+    */
+    is_retrieve_allowed(user_id) {
+        const ptr0 = passStringToWasm0(user_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.permissions_is_retrieve_allowed(this.__wbg_ptr, ptr0, len0);
+        return ret !== 0;
+    }
+    /**
+    * Returns true if user has update permissions
+    *
+    * @param {string} user_id - the user identifier
+    * @return {boolean} true if the user has update permissions
+    */
+    is_update_allowed(user_id) {
+        const ptr0 = passStringToWasm0(user_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.permissions_is_update_allowed(this.__wbg_ptr, ptr0, len0);
+        return ret !== 0;
+    }
+    /**
+    * Returns true if user has delete permissions
+    *
+    * @param {string} user_id - the user identifier
+    * @return {boolean} true if the user has delete permissions
+    */
+    is_delete_allowed(user_id) {
+        const ptr0 = passStringToWasm0(user_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.permissions_is_delete_allowed(this.__wbg_ptr, ptr0, len0);
+        return ret !== 0;
+    }
+    /**
+    * Returns true if user has compute permissions for every single program
+    *
+    * @param {string} user_id - the user identifier
+    * @param {string} program - the program identifier
+    * @return {boolean} true if the user has compute permissions
+    */
+    is_compute_allowed(user_id, program) {
+        const ptr0 = passStringToWasm0(user_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passStringToWasm0(program, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        const ret = wasm.permissions_is_compute_allowed(this.__wbg_ptr, ptr0, len0, ptr1, len1);
+        return ret !== 0;
+    }
+}
+
+const PreprocessingConfigFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_preprocessingconfig_free(ptr >>> 0));
+/**
+* The pre-processing configuration
+*/
+export class PreprocessingConfig {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(PreprocessingConfig.prototype);
+        obj.__wbg_ptr = ptr;
+        PreprocessingConfigFinalization.register(obj, obj.__wbg_ptr, obj);
+        return obj;
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        PreprocessingConfigFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_preprocessingconfig_free(ptr);
+    }
+    /**
+    * The LAMBDA generation protocol configuration.
+    * @returns {PreprocessingProtocolConfig}
+    */
+    get lambda() {
+        const ret = wasm.preprocessingconfig_lambda(this.__wbg_ptr);
+        return PreprocessingProtocolConfig.__wrap(ret);
+    }
+    /**
+    * The ALPHA generation protocol configuration.
+    * @returns {PreprocessingProtocolConfig}
+    */
+    get alpha() {
+        const ret = wasm.preprocessingconfig_alpha(this.__wbg_ptr);
+        return PreprocessingProtocolConfig.__wrap(ret);
+    }
+    /**
+    * The PREP-COMPARE generation protocol configuration.
+    * @returns {PreprocessingProtocolConfig}
+    */
+    get compare() {
+        const ret = wasm.preprocessingconfig_compare(this.__wbg_ptr);
+        return PreprocessingProtocolConfig.__wrap(ret);
+    }
+    /**
+    * The PREP-DIV-INT-SECRET generation protocol configuration.
+    * @returns {PreprocessingProtocolConfig}
+    */
+    get division_integer_secret() {
+        const ret = wasm.preprocessingconfig_division_integer_secret(this.__wbg_ptr);
+        return PreprocessingProtocolConfig.__wrap(ret);
+    }
+    /**
+    * The PREP-MODULO generation protocol configuration.
+    * @returns {PreprocessingProtocolConfig}
+    */
+    get modulo() {
+        const ret = wasm.preprocessingconfig_modulo(this.__wbg_ptr);
+        return PreprocessingProtocolConfig.__wrap(ret);
+    }
+    /**
+    * The PREP-SHARE-TO-PARTICLE generation protocol configuration.
+    * @returns {PreprocessingProtocolConfig}
+    */
+    get share_to_particle() {
+        const ret = wasm.preprocessingconfig_share_to_particle(this.__wbg_ptr);
+        return PreprocessingProtocolConfig.__wrap(ret);
+    }
+    /**
+    * The PREP-PUBLIC-OUTPUT-EQUALITY generation protocol configuration.
+    * @returns {PreprocessingProtocolConfig}
+    */
+    get public_output_equality() {
+        const ret = wasm.preprocessingconfig_public_output_equality(this.__wbg_ptr);
+        return PreprocessingProtocolConfig.__wrap(ret);
+    }
+    /**
+    * The PREP-TRUNCPR generation protocol configuration
+    * @returns {PreprocessingProtocolConfig}
+    */
+    get truncpr() {
+        const ret = wasm.preprocessingconfig_truncpr(this.__wbg_ptr);
+        return PreprocessingProtocolConfig.__wrap(ret);
+    }
+}
+
+const PreprocessingProtocolConfigFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_preprocessingprotocolconfig_free(ptr >>> 0));
+/**
+* The pre-processing protocol configuration
+*/
+export class PreprocessingProtocolConfig {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(PreprocessingProtocolConfig.prototype);
+        obj.__wbg_ptr = ptr;
+        PreprocessingProtocolConfigFinalization.register(obj, obj.__wbg_ptr, obj);
+        return obj;
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        PreprocessingProtocolConfigFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_preprocessingprotocolconfig_free(ptr);
+    }
+    /**
+    * The number of elements to be generated on every run.
+    * @returns {number}
+    */
+    get batch_size() {
+        const ret = wasm.__wbg_get_preprocessingprotocolconfig_batch_size(this.__wbg_ptr);
+        return ret >>> 0;
+    }
+    /**
+    * The number of elements to be generated on every run.
+    * @param {number} arg0
+    */
+    set batch_size(arg0) {
+        wasm.__wbg_set_preprocessingprotocolconfig_batch_size(this.__wbg_ptr, arg0);
+    }
+}
+
+const ProgramBindingsFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_programbindings_free(ptr >>> 0));
+/**
+* Program Bindings
+*/
+export class ProgramBindings {
+
+    toJSON() {
+        return {
+        };
+    }
+
+    toString() {
+        return JSON.stringify(this);
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        ProgramBindingsFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_programbindings_free(ptr);
+    }
+    /**
+    * Creates a new ProgramBindings
+    *
+    * @param {string} program_id - A program identifier, this is usually the given name of the program
+    * @return {ProgramBindings} A new instance of ProgramBindings
+    *
+    * @example
+    * let bindings = new ProgramBindings("simple_program");
+    */
+    constructor(program_id) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passStringToWasm0(program_id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.programbindings_new(retptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            this.__wbg_ptr = r0 >>> 0;
+            return this;
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Bind an input party with a name
+    *
+    * @param {string} name - Name of the input party
+    * @param {string} id - Identifier of the party
+    */
+    add_input_party(name, id) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passStringToWasm0(name, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            const ptr1 = passStringToWasm0(id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len1 = WASM_VECTOR_LEN;
+            wasm.programbindings_add_input_party(retptr, this.__wbg_ptr, ptr0, len0, ptr1, len1);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            if (r1) {
+                throw takeObject(r0);
+            }
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Bind an output party with a name
+    *
+    * @param {string} name - Name of the input party
+    * @param {string} id - Identifier of the party
+    */
+    add_output_party(name, id) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passStringToWasm0(name, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            const ptr1 = passStringToWasm0(id, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len1 = WASM_VECTOR_LEN;
+            wasm.programbindings_add_output_party(retptr, this.__wbg_ptr, ptr0, len0, ptr1, len1);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            if (r1) {
+                throw takeObject(r0);
+            }
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+}
+
+const PublicVariableFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_publicvariable_free(ptr >>> 0));
+/**
+* Public Variable.
+*
+* This type represents a public variable in the Nillion network.
+* Public variables can be provided as part of program inputs, as well as secrets.
+*/
+export class PublicVariable {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(PublicVariable.prototype);
+        obj.__wbg_ptr = ptr;
+        PublicVariableFinalization.register(obj, obj.__wbg_ptr, obj);
+        return obj;
+    }
+
+    toJSON() {
+        return {
+        };
+    }
+
+    toString() {
+        return JSON.stringify(this);
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        PublicVariableFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_publicvariable_free(ptr);
+    }
+    /**
+    * Create a new public integer with the provided value.
+    *
+    * @param {string} value - The value must be a valid string representation of an integer.
+    * @return {PublicVariable} The encoded public variable corresponding to the value provided
+    *
+    * @example
+    * const public_variable = PublicVariable.new_integer("-23");
+    */
+    static new_integer(value) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passStringToWasm0(value, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.publicvariable_new_integer(retptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            return PublicVariable.__wrap(r0);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Create a new public unsigned integer with the provided value.
+    *
+    * @param {string} value - The value must be a valid string representation of an unsigned integer.
+    * @return {PublicVariable} The encoded public variable corresponding to the value provided
+    *
+    * @example
+    * const public_variable = PublicVariable.new_unsigned_integer("23");
+    * @param {string} value
+    * @returns {PublicVariable}
+    */
+    static new_unsigned_integer(value) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passStringToWasm0(value, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.publicvariable_new_unsigned_integer(retptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            return PublicVariable.__wrap(r0);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Convert this public variable into a string representation of the underlying numeric value.
+    *
+    * This only works for numeric public variables, such as integers and unsigned integers.
+    * @return {string} The string representation of the numeric value contained in the public variable.
+    *
+    * @example
+    * const public_variable = PublicVariable.new_integer("-23");
+    * const value = public_variable.to_integer();
+    * @returns {string}
+    */
+    to_integer() {
+        let deferred2_0;
+        let deferred2_1;
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.publicvariable_to_integer(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            var r3 = getInt32Memory0()[retptr / 4 + 3];
+            var ptr1 = r0;
+            var len1 = r1;
+            if (r3) {
+                ptr1 = 0; len1 = 0;
+                throw takeObject(r2);
+            }
+            deferred2_0 = ptr1;
+            deferred2_1 = len1;
+            return getStringFromWasm0(ptr1, len1);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+            wasm.__wbindgen_free(deferred2_0, deferred2_1, 1);
+        }
+    }
+}
+
+const PublicVariablesFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_publicvariables_free(ptr >>> 0));
+/**
+* Public variables
+*
+* A collection of named public variables
+*/
+export class PublicVariables {
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        PublicVariablesFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_publicvariables_free(ptr);
+    }
+    /**
+    * Creates a new instance of PublicVariables without values.
+    */
+    constructor() {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.publicvariables_new(retptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            this.__wbg_ptr = r0 >>> 0;
+            return this;
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Add encoded public variable to the PublicVariables collection.
+    * @param {string} name
+    * @param {PublicVariable} input
+    */
+    insert(name, input) {
+        const ptr0 = passStringToWasm0(name, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        _assertClass(input, PublicVariable);
+        wasm.publicvariables_insert(this.__wbg_ptr, ptr0, len0, input.__wbg_ptr);
+    }
+    /**
+    * Get the number of public variables.
+    * @returns {number}
+    */
+    get length() {
+        const ret = wasm.publicvariables_length(this.__wbg_ptr);
+        return ret >>> 0;
+    }
+}
+
+const SecretFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_secret_free(ptr >>> 0));
+/**
+* Secret
+*
+* This type represents a secret in the Nillion network. This class provides utilities
+* to encode numerical and binary values into secrets. It also provides methods to decode
+* the secret into a numerical value.
+*/
+export class Secret {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(Secret.prototype);
+        obj.__wbg_ptr = ptr;
+        SecretFinalization.register(obj, obj.__wbg_ptr, obj);
+        return obj;
+    }
+
+    toJSON() {
+        return {
+        };
+    }
+
+    toString() {
+        return JSON.stringify(this);
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        SecretFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_secret_free(ptr);
+    }
+    /**
+    * Create a new secret integer with the provided value.
+    *
+    * @param {string} value - The value must be a valid string representation of an integer.
+    * @return {Secret} The encoded secret corresponding to the value provided
+    *
+    * @example
+    * const secret = Secret.new_integer("-23");
+    */
+    static new_integer(value) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passStringToWasm0(value, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.secret_new_integer(retptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            return Secret.__wrap(r0);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Create a new secret unsigned integer with the provided value.
+    *
+    * @param {string} value - The value must be a valid string representation of an unsigned integer.
+    * @return {Secret} The encoded secret corresponding to the value provided
+    *
+    * @example
+    * const secret = Secret.new_integer("23");
+    */
+    static new_unsigned_integer(value) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passStringToWasm0(value, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.secret_new_unsigned_integer(retptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            return Secret.__wrap(r0);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Create a new secret blob with the provided value.
+    *
+    * @param {Uint8Array} value - The blob in binary (byte array) encoded format
+    * @return {Secret} The encoded secret corresponding to the value provided
+    *
+    * @example
+    * const secret = Secret.new_blob([1,0,1,222,21]);
+    */
+    static new_blob(value) {
+        const ptr0 = passArray8ToWasm0(value, wasm.__wbindgen_malloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ret = wasm.secret_new_blob(ptr0, len0);
+        return Secret.__wrap(ret);
+    }
+    /**
+    * Convert this secret into a byte array.
+    *
+    * This is only valid for blob secrets.
+    * @return {Uint8Array} the byte array contained in this secret.
+    */
+    to_byte_array() {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.secret_to_byte_array(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            var r3 = getInt32Memory0()[retptr / 4 + 3];
+            if (r3) {
+                throw takeObject(r2);
+            }
+            var v1 = getArrayU8FromWasm0(r0, r1).slice();
+            wasm.__wbindgen_free(r0, r1 * 1, 1);
+            return v1;
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Convert this secret into a string representation of the underlying numeric value.
+    *
+    * This only works for numeric secrets, such as integers and unsigned integers.
+    * @return {string} a string representation of the underlying numeric value of this secret
+    */
+    to_integer() {
+        let deferred2_0;
+        let deferred2_1;
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.secret_to_integer(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            var r3 = getInt32Memory0()[retptr / 4 + 3];
+            var ptr1 = r0;
+            var len1 = r1;
+            if (r3) {
+                ptr1 = 0; len1 = 0;
+                throw takeObject(r2);
+            }
+            deferred2_0 = ptr1;
+            deferred2_1 = len1;
+            return getStringFromWasm0(ptr1, len1);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+            wasm.__wbindgen_free(deferred2_0, deferred2_1, 1);
+        }
+    }
+}
+
+const SecretsFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_secrets_free(ptr >>> 0));
+/**
+* A collection of named secrets.
+*/
+export class Secrets {
+
+    toJSON() {
+        return {
+            length: this.length,
+        };
+    }
+
+    toString() {
+        return JSON.stringify(this);
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        SecretsFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_secrets_free(ptr);
+    }
+    /**
+    * Creates a new instance of Secrets without values.
+    *
+    * @example
+    *
+    * let secrets = nillion.Secrets()
+    */
+    constructor() {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.publicvariables_new(retptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            this.__wbg_ptr = r0 >>> 0;
+            return this;
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Add encoded secret to Secrets collection.
+    * @param {string} name
+    * @param {Secret} input
+    */
+    insert(name, input) {
+        const ptr0 = passStringToWasm0(name, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        _assertClass(input, Secret);
+        wasm.secrets_insert(this.__wbg_ptr, ptr0, len0, input.__wbg_ptr);
+    }
+    /**
+    * Get the number of secrets.
+    * @returns {number}
+    */
+    get length() {
+        const ret = wasm.publicvariables_length(this.__wbg_ptr);
+        return ret >>> 0;
+    }
+}
+
+const UserKeyFinalization = (typeof FinalizationRegistry === 'undefined')
+    ? { register: () => {}, unregister: () => {} }
+    : new FinalizationRegistry(ptr => wasm.__wbg_userkey_free(ptr >>> 0));
+/**
+* User key
+*
+* The user key is used as the user identity in the Nillion network.
+*/
+export class UserKey {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(UserKey.prototype);
+        obj.__wbg_ptr = ptr;
+        UserKeyFinalization.register(obj, obj.__wbg_ptr, obj);
+        return obj;
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+        UserKeyFinalization.unregister(this);
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_userkey_free(ptr);
+    }
+    /**
+    * Generate a new random public/private key.
+    * Uses a cryptographically secure pseudo-random number generator.
+    *
+    * @return {UserKey} a new instance of UserKey
+    */
+    static generate() {
+        const ret = wasm.userkey_generate();
+        return UserKey.__wrap(ret);
+    }
+    /**
+    * Generate a new public/private key.
+    * Uses a seed to generate the keys via a cryptographically secure pseudo-random number generator.
+    *
+    * @param {string} seed - The seed that will be used to generate the key
+    *
+    * @return {UserKey} The user key generated using the seed provided
+    */
+    static from_seed(seed) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passStringToWasm0(seed, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.userkey_from_seed(retptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            return UserKey.__wrap(r0);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Returns the public key corresponding to this key.
+    *
+    * @return {string} The public key as an UTF-8 encoded string.
+    */
+    public_key() {
+        let deferred1_0;
+        let deferred1_1;
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.userkey_public_key(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            deferred1_0 = r0;
+            deferred1_1 = r1;
+            return getStringFromWasm0(r0, r1);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+            wasm.__wbindgen_free(deferred1_0, deferred1_1, 1);
+        }
+    }
+    /**
+    * Decodes a UserKey from a Base58-encoded String
+    *
+    * @param {string} contents - The private key encoded in Base58 format
+    * @return {UserKey} The decoded instance of UserKey
+    */
+    static from_base58(contents) {
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            const ptr0 = passStringToWasm0(contents, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+            const len0 = WASM_VECTOR_LEN;
+            wasm.userkey_from_base58(retptr, ptr0, len0);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            var r2 = getInt32Memory0()[retptr / 4 + 2];
+            if (r2) {
+                throw takeObject(r1);
+            }
+            return UserKey.__wrap(r0);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+        }
+    }
+    /**
+    * Returns the key in Base58 encoded form.
+    *
+    * @return {string} the key encoded as a Base58 string
+    */
+    to_base58() {
+        let deferred1_0;
+        let deferred1_1;
+        try {
+            const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+            wasm.userkey_to_base58(retptr, this.__wbg_ptr);
+            var r0 = getInt32Memory0()[retptr / 4 + 0];
+            var r1 = getInt32Memory0()[retptr / 4 + 1];
+            deferred1_0 = r0;
+            deferred1_1 = r1;
+            return getStringFromWasm0(r0, r1);
+        } finally {
+            wasm.__wbindgen_add_to_stack_pointer(16);
+            wasm.__wbindgen_free(deferred1_0, deferred1_1, 1);
+        }
+    }
+}
+
+async function __wbg_load(module, imports) {
+    if (typeof Response === 'function' &amp;&amp; module instanceof Response) {
+        if (typeof WebAssembly.instantiateStreaming === 'function') {
+            try {
+                return await WebAssembly.instantiateStreaming(module, imports);
+
+            } catch (e) {
+                if (module.headers.get('Content-Type') != 'application/wasm') {
+                    console.warn("`WebAssembly.instantiateStreaming` failed because your server does not serve wasm with `application/wasm` MIME type. Falling back to `WebAssembly.instantiate` which is slower. Original error:\n", e);
+
+                } else {
+                    throw e;
+                }
+            }
+        }
+
+        const bytes = await module.arrayBuffer();
+        return await WebAssembly.instantiate(bytes, imports);
+
+    } else {
+        const instance = await WebAssembly.instantiate(module, imports);
+
+        if (instance instanceof WebAssembly.Instance) {
+            return { instance, module };
+
+        } else {
+            return instance;
+        }
+    }
+}
+
+function __wbg_get_imports() {
+    const imports = {};
+    imports.wbg = {};
+    imports.wbg.__wbindgen_string_new = function(arg0, arg1) {
+        const ret = getStringFromWasm0(arg0, arg1);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_call_01734de55d61e11d = function() { return handleError(function (arg0, arg1, arg2) {
+        const ret = getObject(arg0).call(getObject(arg1), getObject(arg2));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
+        takeObject(arg0);
+    };
+    imports.wbg.__wbg_clusterdescriptor_new = function(arg0) {
+        const ret = ClusterDescriptor.__wrap(arg0);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_error_new = function(arg0, arg1) {
+        const ret = new Error(getStringFromWasm0(arg0, arg1));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_new_56693dbed0c32988 = function() {
+        const ret = new Map();
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_fromEntries_46475be008d7104f = function() { return handleError(function (arg0) {
+        const ret = Object.fromEntries(getObject(arg0));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_BigInt_ff2599df450e2888 = function() { return handleError(function (arg0) {
+        const ret = BigInt(getObject(arg0));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_set_bedc3d02d0f05eb0 = function(arg0, arg1, arg2) {
+        const ret = getObject(arg0).set(getObject(arg1), getObject(arg2));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_permissions_new = function(arg0) {
+        const ret = Permissions.__wrap(arg0);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_secret_new = function(arg0) {
+        const ret = Secret.__wrap(arg0);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_new_b51585de1b234aff = function() {
+        const ret = new Object();
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_set_092e06b0f9d71865 = function() { return handleError(function (arg0, arg1, arg2) {
+        const ret = Reflect.set(getObject(arg0), getObject(arg1), getObject(arg2));
+        return ret;
+    }, arguments) };
+    imports.wbg.__wbindgen_module = function() {
+        const ret = __wbg_init.__wbindgen_wasm_module;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_memory = function() {
+        const ret = wasm.memory;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_number_new = function(arg0) {
+        const ret = arg0;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_startWorker_999d186cbabd739c = function(arg0, arg1, arg2, arg3, arg4) {
+        const ret = startWorker(takeObject(arg0), takeObject(arg1), takeObject(arg2), takeObject(arg3), LoaderHelper.__wrap(arg4));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_object_clone_ref = function(arg0) {
+        const ret = getObject(arg0);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_close_889c0c4e86f1403e = function(arg0) {
+        getObject(arg0).close();
+    };
+    imports.wbg.__wbg_static_accessor_HARDWARE_CONCURRENCY_2b7815e8c1da04c9 = function() {
+        const ret = navigator.hardwareConcurrency;
+        return ret;
+    };
+    imports.wbg.__wbg_static_accessor_URL_1a7ae0d56f4d6839 = function() {
+        const ret = import.meta.url;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_abort_654b796176d117aa = function(arg0) {
+        getObject(arg0).abort();
+    };
+    imports.wbg.__wbg_new_1eead62f64ca15ce = function() { return handleError(function () {
+        const ret = new Headers();
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_signal_4bd18fb489af2d4c = function(arg0) {
+        const ret = getObject(arg0).signal;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_append_fda9e3432e3e88da = function() { return handleError(function (arg0, arg1, arg2, arg3, arg4) {
+        getObject(arg0).append(getStringFromWasm0(arg1, arg2), getStringFromWasm0(arg3, arg4));
+    }, arguments) };
+    imports.wbg.__wbg_instanceof_Response_fc4327dbfcdf5ced = function(arg0) {
+        let result;
+        try {
+            result = getObject(arg0) instanceof Response;
+        } catch (_) {
+            result = false;
+        }
+        const ret = result;
+        return ret;
+    };
+    imports.wbg.__wbg_status_ac85a3142a84caa2 = function(arg0) {
+        const ret = getObject(arg0).status;
+        return ret;
+    };
+    imports.wbg.__wbg_headers_b70de86b8e989bc0 = function(arg0) {
+        const ret = getObject(arg0).headers;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_next_ddb3312ca1c4e32a = function() { return handleError(function (arg0) {
+        const ret = getObject(arg0).next();
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_done_5c1f01fb660d73b5 = function(arg0) {
+        const ret = getObject(arg0).done;
+        return ret;
+    };
+    imports.wbg.__wbg_value_1695675138684bd5 = function(arg0) {
+        const ret = getObject(arg0).value;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_stringify_e25465938f3f611f = function() { return handleError(function (arg0) {
+        const ret = JSON.stringify(getObject(arg0));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbindgen_string_get = function(arg0, arg1) {
+        const obj = getObject(arg1);
+        const ret = typeof(obj) === 'string' ? obj : undefined;
+        var ptr1 = isLikeNone(ret) ? 0 : passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        var len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_text_a667ac1770538491 = function() { return handleError(function (arg0) {
+        const ret = getObject(arg0).text();
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_getItem_ed8e218e51f1efeb = function() { return handleError(function (arg0, arg1, arg2, arg3) {
+        const ret = getObject(arg1).getItem(getStringFromWasm0(arg2, arg3));
+        var ptr1 = isLikeNone(ret) ? 0 : passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        var len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    }, arguments) };
+    imports.wbg.__wbg_instanceof_Window_9029196b662bc42a = function(arg0) {
+        let result;
+        try {
+            result = getObject(arg0) instanceof Window;
+        } catch (_) {
+            result = false;
+        }
+        const ret = result;
+        return ret;
+    };
+    imports.wbg.__wbg_localStorage_dbac11bd189e9fa0 = function() { return handleError(function (arg0) {
+        const ret = getObject(arg0).localStorage;
+        return isLikeNone(ret) ? 0 : addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_new_abda76e883ba8a5f = function() {
+        const ret = new Error();
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_stack_658279fe44541cf6 = function(arg0, arg1) {
+        const ret = getObject(arg1).stack;
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_error_f851667af71bcfc6 = function(arg0, arg1) {
+        let deferred0_0;
+        let deferred0_1;
+        try {
+            deferred0_0 = arg0;
+            deferred0_1 = arg1;
+            console.error(getStringFromWasm0(arg0, arg1));
+        } finally {
+            wasm.__wbindgen_free(deferred0_0, deferred0_1, 1);
+        }
+    };
+    imports.wbg.__wbg_static_accessor_MODULE_ef3aa2eb251158a5 = function() {
+        const ret = module;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_buffer_085ec1f694018c4f = function(arg0) {
+        const ret = getObject(arg0).buffer;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_newwithbyteoffsetandlength_6da8e527659b86aa = function(arg0, arg1, arg2) {
+        const ret = new Uint8Array(getObject(arg0), arg1 >>> 0, arg2 >>> 0);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_randomFillSync_dc1e9a60c158336d = function() { return handleError(function (arg0, arg1) {
+        getObject(arg0).randomFillSync(takeObject(arg1));
+    }, arguments) };
+    imports.wbg.__wbg_subarray_13db269f57aa838d = function(arg0, arg1, arg2) {
+        const ret = getObject(arg0).subarray(arg1 >>> 0, arg2 >>> 0);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_getRandomValues_37fa2ca9e4e07fab = function() { return handleError(function (arg0, arg1) {
+        getObject(arg0).getRandomValues(getObject(arg1));
+    }, arguments) };
+    imports.wbg.__wbg_new_8125e318e6245eed = function(arg0) {
+        const ret = new Uint8Array(getObject(arg0));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_set_5cf90238115182c3 = function(arg0, arg1, arg2) {
+        getObject(arg0).set(getObject(arg1), arg2 >>> 0);
+    };
+    imports.wbg.__wbg_crypto_c48a774b022d20ac = function(arg0) {
+        const ret = getObject(arg0).crypto;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_is_object = function(arg0) {
+        const val = getObject(arg0);
+        const ret = typeof(val) === 'object' &amp;&amp; val !== null;
+        return ret;
+    };
+    imports.wbg.__wbg_process_298734cf255a885d = function(arg0) {
+        const ret = getObject(arg0).process;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_versions_e2e78e134e3e5d01 = function(arg0) {
+        const ret = getObject(arg0).versions;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_node_1cd7a5d853dbea79 = function(arg0) {
+        const ret = getObject(arg0).node;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_is_string = function(arg0) {
+        const ret = typeof(getObject(arg0)) === 'string';
+        return ret;
+    };
+    imports.wbg.__wbg_msCrypto_bcb970640f50a1e8 = function(arg0) {
+        const ret = getObject(arg0).msCrypto;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_newwithlength_e5d69174d6984cd7 = function(arg0) {
+        const ret = new Uint8Array(arg0 >>> 0);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_require_8f08ceecec0f4fee = function() { return handleError(function () {
+        const ret = module.require;
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbindgen_is_function = function(arg0) {
+        const ret = typeof(getObject(arg0)) === 'function';
+        return ret;
+    };
+    imports.wbg.__wbg_code_858da7147ef5fb52 = function(arg0) {
+        const ret = getObject(arg0).code;
+        return ret;
+    };
+    imports.wbg.__wbg_reason_cab9df8d5ef57aa2 = function(arg0, arg1) {
+        const ret = getObject(arg1).reason;
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_wasClean_74cf0c4d617e8bf5 = function(arg0) {
+        const ret = getObject(arg0).wasClean;
+        return ret;
+    };
+    imports.wbg.__wbg_data_ab99ae4a2e1e8bc9 = function(arg0) {
+        const ret = getObject(arg0).data;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_instanceof_ArrayBuffer_39ac22089b74fddb = function(arg0) {
+        let result;
+        try {
+            result = getObject(arg0) instanceof ArrayBuffer;
+        } catch (_) {
+            result = false;
+        }
+        const ret = result;
+        return ret;
+    };
+    imports.wbg.__wbg_send_280c8ab5d0df82de = function() { return handleError(function (arg0, arg1, arg2) {
+        getObject(arg0).send(getStringFromWasm0(arg1, arg2));
+    }, arguments) };
+    imports.wbg.__wbg_send_1a008ea2eb3a1951 = function() { return handleError(function (arg0, arg1, arg2) {
+        getObject(arg0).send(getArrayU8FromWasm0(arg1, arg2));
+    }, arguments) };
+    imports.wbg.__wbg_instanceof_Error_ab19e20608ea43c7 = function(arg0) {
+        let result;
+        try {
+            result = getObject(arg0) instanceof Error;
+        } catch (_) {
+            result = false;
+        }
+        const ret = result;
+        return ret;
+    };
+    imports.wbg.__wbg_name_8f734cbbd6194153 = function(arg0) {
+        const ret = getObject(arg0).name;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_message_48bacc5ea57d74ee = function(arg0) {
+        const ret = getObject(arg0).message;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_toString_1c056108b87ba68b = function(arg0) {
+        const ret = getObject(arg0).toString();
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_setTimeout_75cb9b6991a4031d = function() { return handleError(function (arg0, arg1) {
+        const ret = setTimeout(getObject(arg0), arg1);
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_get_97b561fb56f034b5 = function() { return handleError(function (arg0, arg1) {
+        const ret = Reflect.get(getObject(arg0), getObject(arg1));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_now_0cfdc90c97d0c24b = function(arg0) {
+        const ret = getObject(arg0).now();
+        return ret;
+    };
+    imports.wbg.__wbg_iterator_97f0c81209c6c35a = function() {
+        const ret = Symbol.iterator;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_call_cb65541d95d71282 = function() { return handleError(function (arg0, arg1) {
+        const ret = getObject(arg0).call(getObject(arg1));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_next_526fc47e980da008 = function(arg0) {
+        const ret = getObject(arg0).next;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_length_72e2208bbc0efc61 = function(arg0) {
+        const ret = getObject(arg0).length;
+        return ret;
+    };
+    imports.wbg.__wbg_self_1ff1d729e9aae938 = function() { return handleError(function () {
+        const ret = self.self;
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_window_5f4faef6c12b79ec = function() { return handleError(function () {
+        const ret = window.window;
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_globalThis_1d39714405582d3c = function() { return handleError(function () {
+        const ret = globalThis.globalThis;
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_global_651f05c6a0944d1c = function() { return handleError(function () {
+        const ret = global.global;
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbindgen_is_undefined = function(arg0) {
+        const ret = getObject(arg0) === undefined;
+        return ret;
+    };
+    imports.wbg.__wbg_newnoargs_581967eacc0e2604 = function(arg0, arg1) {
+        const ret = new Function(getStringFromWasm0(arg0, arg1));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_clearTimeout_76877dbc010e786d = function(arg0) {
+        const ret = clearTimeout(takeObject(arg0));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_cb_drop = function(arg0) {
+        const obj = takeObject(arg0).original;
+        if (obj.cnt-- == 1) {
+            obj.a = 0;
+            return true;
+        }
+        const ret = false;
+        return ret;
+    };
+    imports.wbg.__wbg_dial_30e8812bd98d8882 = function() { return handleError(function (arg0, arg1, arg2, arg3) {
+        const ret = getObject(arg0).dial(getStringFromWasm0(arg1, arg2), arg3 !== 0);
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_instanceof_Object_3daa8298c86298be = function(arg0) {
+        let result;
+        try {
+            result = getObject(arg0) instanceof Object;
+        } catch (_) {
+            result = false;
+        }
+        const ret = result;
+        return ret;
+    };
+    imports.wbg.__wbg_toString_a8e343996af880e9 = function(arg0) {
+        const ret = getObject(arg0).toString();
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_close_6a852f1689b0b8e2 = function(arg0) {
+        getObject(arg0).close();
+    };
+    imports.wbg.__wbindgen_debug_string = function(arg0, arg1) {
+        const ret = debugString(getObject(arg1));
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_new_898a68150f225f2e = function() {
+        const ret = new Array();
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_set_502d29070ea18557 = function(arg0, arg1, arg2) {
+        getObject(arg0)[arg1 >>> 0] = takeObject(arg2);
+    };
+    imports.wbg.__wbg_String_389b54bd9d25375f = function(arg0, arg1) {
+        const ret = String(getObject(arg1));
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_self_7eede1f4488bf346 = function() { return handleError(function () {
+        const ret = self.self;
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_crypto_c909fb428dcbddb6 = function(arg0) {
+        const ret = getObject(arg0).crypto;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_msCrypto_511eefefbfc70ae4 = function(arg0) {
+        const ret = getObject(arg0).msCrypto;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_require_900d5c3984fe7703 = function(arg0, arg1, arg2) {
+        const ret = getObject(arg0).require(getStringFromWasm0(arg1, arg2));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_getRandomValues_307049345d0bd88c = function(arg0) {
+        const ret = getObject(arg0).getRandomValues;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_randomFillSync_85b3f4c52c56c313 = function(arg0, arg1, arg2) {
+        getObject(arg0).randomFillSync(getArrayU8FromWasm0(arg1, arg2));
+    };
+    imports.wbg.__wbg_getRandomValues_cd175915511f705e = function(arg0, arg1) {
+        getObject(arg0).getRandomValues(getObject(arg1));
+    };
+    imports.wbg.__wbg_getwithrefkey_4a92a5eca60879b9 = function(arg0, arg1) {
+        const ret = getObject(arg0)[getObject(arg1)];
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_in = function(arg0, arg1) {
+        const ret = getObject(arg0) in getObject(arg1);
+        return ret;
+    };
+    imports.wbg.__wbg_new_b66404b6322c59bf = function() { return handleError(function (arg0, arg1) {
+        const ret = new WebSocket(getStringFromWasm0(arg0, arg1));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_setbinaryType_096c70c4a9d97499 = function(arg0, arg1) {
+        getObject(arg0).binaryType = takeObject(arg1);
+    };
+    imports.wbg.__wbg_addEventListener_a5963e26cd7b176b = function() { return handleError(function (arg0, arg1, arg2, arg3, arg4) {
+        getObject(arg0).addEventListener(getStringFromWasm0(arg1, arg2), getObject(arg3), getObject(arg4));
+    }, arguments) };
+    imports.wbg.__wbg_addEventListener_5651108fc3ffeb6e = function() { return handleError(function (arg0, arg1, arg2, arg3) {
+        getObject(arg0).addEventListener(getStringFromWasm0(arg1, arg2), getObject(arg3));
+    }, arguments) };
+    imports.wbg.__wbg_error_788ae33f81d3b84b = function(arg0) {
+        console.error(getObject(arg0));
+    };
+    imports.wbg.__wbg_new_43f1b47c28813cbd = function(arg0, arg1) {
+        try {
+            var state0 = {a: arg0, b: arg1};
+            var cb0 = (arg0, arg1) => {
+                const a = state0.a;
+                state0.a = 0;
+                try {
+                    return __wbg_adapter_178(a, state0.b, arg0, arg1);
+                } finally {
+                    state0.a = a;
+                }
+            };
+            const ret = new Promise(cb0);
+            return addHeapObject(ret);
+        } finally {
+            state0.a = state0.b = 0;
+        }
+    };
+    imports.wbg.__wbg_setItem_d002ee486462bfff = function() { return handleError(function (arg0, arg1, arg2, arg3, arg4) {
+        getObject(arg0).setItem(getStringFromWasm0(arg1, arg2), getStringFromWasm0(arg3, arg4));
+    }, arguments) };
+    imports.wbg.__wbg_get_44be0491f933a435 = function(arg0, arg1) {
+        const ret = getObject(arg0)[arg1 >>> 0];
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_jsval_loose_eq = function(arg0, arg1) {
+        const ret = getObject(arg0) == getObject(arg1);
+        return ret;
+    };
+    imports.wbg.__wbindgen_boolean_get = function(arg0) {
+        const v = getObject(arg0);
+        const ret = typeof(v) === 'boolean' ? (v ? 1 : 0) : 2;
+        return ret;
+    };
+    imports.wbg.__wbindgen_is_bigint = function(arg0) {
+        const ret = typeof(getObject(arg0)) === 'bigint';
+        return ret;
+    };
+    imports.wbg.__wbindgen_bigint_get_as_i64 = function(arg0, arg1) {
+        const v = getObject(arg1);
+        const ret = typeof(v) === 'bigint' ? v : undefined;
+        getBigInt64Memory0()[arg0 / 8 + 1] = isLikeNone(ret) ? BigInt(0) : ret;
+        getInt32Memory0()[arg0 / 4 + 0] = !isLikeNone(ret);
+    };
+    imports.wbg.__wbindgen_bigint_from_i64 = function(arg0) {
+        const ret = arg0;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_jsval_eq = function(arg0, arg1) {
+        const ret = getObject(arg0) === getObject(arg1);
+        return ret;
+    };
+    imports.wbg.__wbindgen_bigint_from_u64 = function(arg0) {
+        const ret = BigInt.asUintN(64, arg0);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_number_get = function(arg0, arg1) {
+        const obj = getObject(arg1);
+        const ret = typeof(obj) === 'number' ? obj : undefined;
+        getFloat64Memory0()[arg0 / 8 + 1] = isLikeNone(ret) ? 0 : ret;
+        getInt32Memory0()[arg0 / 4 + 0] = !isLikeNone(ret);
+    };
+    imports.wbg.__wbg_isSafeInteger_bb8e18dd21c97288 = function(arg0) {
+        const ret = Number.isSafeInteger(getObject(arg0));
+        return ret;
+    };
+    imports.wbg.__wbg_isArray_4c24b343cb13cfb1 = function(arg0) {
+        const ret = Array.isArray(getObject(arg0));
+        return ret;
+    };
+    imports.wbg.__wbg_length_fff51ee6522a1a18 = function(arg0) {
+        const ret = getObject(arg0).length;
+        return ret;
+    };
+    imports.wbg.__wbg_entries_e51f29c7bba0c054 = function(arg0) {
+        const ret = Object.entries(getObject(arg0));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_websockettransport_84c8ba3f0c468e40 = function() {
+        const ret = websocket_transport();
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_read_c68b57fe8b00a7b9 = function(arg0) {
+        const ret = getObject(arg0).read;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_newaddrs_71100193fa47c194 = function(arg0, arg1) {
+        const ret = getObject(arg1).new_addrs;
+        var ptr1 = isLikeNone(ret) ? 0 : passArrayJsValueToWasm0(ret, wasm.__wbindgen_malloc);
+        var len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_newconnections_44d312e897866295 = function(arg0, arg1) {
+        const ret = getObject(arg1).new_connections;
+        var ptr1 = isLikeNone(ret) ? 0 : passArrayJsValueToWasm0(ret, wasm.__wbindgen_malloc);
+        var len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_localaddr_91f6c1af88a435e2 = function(arg0, arg1) {
+        const ret = getObject(arg1).local_addr;
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_observedaddr_1ca1352afe737cc2 = function(arg0, arg1) {
+        const ret = getObject(arg1).observed_addr;
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_connection_632aa60cbc9cffe2 = function(arg0) {
+        const ret = getObject(arg0).connection;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_expiredaddrs_c5a2f22f3c1b584f = function(arg0, arg1) {
+        const ret = getObject(arg1).expired_addrs;
+        var ptr1 = isLikeNone(ret) ? 0 : passArrayJsValueToWasm0(ret, wasm.__wbindgen_malloc);
+        var len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_listenon_ff60af88e263af6b = function() { return handleError(function (arg0, arg1, arg2) {
+        const ret = getObject(arg0).listen_on(getStringFromWasm0(arg1, arg2));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbindgen_is_null = function(arg0) {
+        const ret = getObject(arg0) === null;
+        return ret;
+    };
+    imports.wbg.__wbg_shutdown_a85687f76230bdad = function() { return handleError(function (arg0) {
+        getObject(arg0).shutdown();
+    }, arguments) };
+    imports.wbg.__wbg_write_3d1f2c679934dd25 = function() { return handleError(function (arg0, arg1, arg2) {
+        const ret = getObject(arg0).write(getArrayU8FromWasm0(arg1, arg2));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_arrayBuffer_288fb3538806e85c = function() { return handleError(function (arg0) {
+        const ret = getObject(arg0).arrayBuffer();
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_has_c5fcd020291e56b8 = function() { return handleError(function (arg0, arg1) {
+        const ret = Reflect.has(getObject(arg0), getObject(arg1));
+        return ret;
+    }, arguments) };
+    imports.wbg.__wbg_fetch_8eaf01857a5bb21f = function(arg0, arg1) {
+        const ret = getObject(arg0).fetch(getObject(arg1));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_fetch_b5d6bebed1e6c2d2 = function(arg0) {
+        const ret = fetch(getObject(arg0));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_new_55c9955722952374 = function() { return handleError(function () {
+        const ret = new AbortController();
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_instanceof_Uint8Array_d8d9cb2b8e8ac1d4 = function(arg0) {
+        let result;
+        try {
+            result = getObject(arg0) instanceof Uint8Array;
+        } catch (_) {
+            result = false;
+        }
+        const ret = result;
+        return ret;
+    };
+    imports.wbg.__wbindgen_throw = function(arg0, arg1) {
+        throw new Error(getStringFromWasm0(arg0, arg1));
+    };
+    imports.wbg.__wbindgen_rethrow = function(arg0) {
+        throw takeObject(arg0);
+    };
+    imports.wbg.__wbg_then_f7e06ee3c11698eb = function(arg0, arg1) {
+        const ret = getObject(arg0).then(getObject(arg1));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_waitAsync_60fb5e2e86467e31 = function() {
+        const ret = Atomics.waitAsync;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_new_a0af68041688e8fd = function(arg0) {
+        const ret = new Int32Array(getObject(arg0));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_waitAsync_73fd6eb3bace0a8d = function(arg0, arg1, arg2) {
+        const ret = Atomics.waitAsync(getObject(arg0), arg1, arg2);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_async_e1a2a669aacf35ff = function(arg0) {
+        const ret = getObject(arg0).async;
+        return ret;
+    };
+    imports.wbg.__wbg_value_555e4f564193db05 = function(arg0) {
+        const ret = getObject(arg0).value;
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_link_22046963fe0b707a = function(arg0) {
+        const ret = "data:application/javascript," + encodeURIComponent(`onmessage = function (ev) {
+            let [ia, index, value] = ev.data;
+            ia = new Int32Array(ia.buffer);
+            let result = Atomics.wait(ia, index, value);
+            postMessage(result);
+        };
+        `);
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_new_8e7322f46d5d019c = function() { return handleError(function (arg0, arg1) {
+        const ret = new Worker(getStringFromWasm0(arg0, arg1));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_setonmessage_f0bd0280573b7084 = function(arg0, arg1) {
+        getObject(arg0).onmessage = getObject(arg1);
+    };
+    imports.wbg.__wbg_of_3f69007bb4eeae65 = function(arg0, arg1, arg2) {
+        const ret = Array.of(getObject(arg0), getObject(arg1), getObject(arg2));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_postMessage_8c609e2bde333d9c = function() { return handleError(function (arg0, arg1) {
+        getObject(arg0).postMessage(getObject(arg1));
+    }, arguments) };
+    imports.wbg.__wbg_resolve_53698b95aaf7fcf8 = function(arg0) {
+        const ret = Promise.resolve(getObject(arg0));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_then_b2267541e2a73865 = function(arg0, arg1, arg2) {
+        const ret = getObject(arg0).then(getObject(arg1), getObject(arg2));
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_new0_c0be7df4b6bd481f = function() {
+        const ret = new Date();
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_getTime_5e2054f832d82ec9 = function(arg0) {
+        const ret = getObject(arg0).getTime();
+        return ret;
+    };
+    imports.wbg.__wbg_close_dfa389d8fddb52fc = function() { return handleError(function (arg0) {
+        getObject(arg0).close();
+    }, arguments) };
+    imports.wbg.__wbg_removeEventListener_5de660c02ed784e4 = function() { return handleError(function (arg0, arg1, arg2, arg3) {
+        getObject(arg0).removeEventListener(getStringFromWasm0(arg1, arg2), getObject(arg3));
+    }, arguments) };
+    imports.wbg.__wbg_newwitheventinitdict_1f554ee93659ab92 = function() { return handleError(function (arg0, arg1, arg2) {
+        const ret = new CloseEvent(getStringFromWasm0(arg0, arg1), getObject(arg2));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_dispatchEvent_a622a6455be582eb = function() { return handleError(function (arg0, arg1) {
+        const ret = getObject(arg0).dispatchEvent(getObject(arg1));
+        return ret;
+    }, arguments) };
+    imports.wbg.__wbg_readyState_b25418fd198bf715 = function(arg0) {
+        const ret = getObject(arg0).readyState;
+        return ret;
+    };
+    imports.wbg.__wbg_newwithstrandinit_cad5cd6038c7ff5d = function() { return handleError(function (arg0, arg1, arg2) {
+        const ret = new Request(getStringFromWasm0(arg0, arg1), getObject(arg2));
+        return addHeapObject(ret);
+    }, arguments) };
+    imports.wbg.__wbg_url_8503de97f69da463 = function(arg0, arg1) {
+        const ret = getObject(arg1).url;
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbg_name_9ec72b5839f16b74 = function(arg0, arg1) {
+        const ret = getObject(arg1).name;
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
+    };
+    imports.wbg.__wbindgen_closure_wrapper1299 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 94, __wbg_adapter_54);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_closure_wrapper1302 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 94, __wbg_adapter_57);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_closure_wrapper1304 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 94, __wbg_adapter_57);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_closure_wrapper1307 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 94, __wbg_adapter_57);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_closure_wrapper1312 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 94, __wbg_adapter_54);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_closure_wrapper8364 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 94, __wbg_adapter_57);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbindgen_closure_wrapper8375 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 94, __wbg_adapter_57);
+        return addHeapObject(ret);
+    };
+
+    return imports;
+}
+
+function __wbg_init_memory(imports, maybe_memory) {
+    imports.wbg.memory = maybe_memory || new WebAssembly.Memory({initial:28,maximum:16384,shared:true});
+}
+
+function __wbg_finalize_init(instance, module) {
+    wasm = instance.exports;
+    __wbg_init.__wbindgen_wasm_module = module;
+    cachedBigInt64Memory0 = null;
+    cachedFloat64Memory0 = null;
+    cachedInt32Memory0 = null;
+    cachedUint32Memory0 = null;
+    cachedUint8Memory0 = null;
+
+    wasm.__wbindgen_start();
+    return wasm;
+}
+
+function initSync(module, maybe_memory) {
+    if (wasm !== undefined) return wasm;
+
+    const imports = __wbg_get_imports();
+
+    __wbg_init_memory(imports, maybe_memory);
+
+    if (!(module instanceof WebAssembly.Module)) {
+        module = new WebAssembly.Module(module);
+    }
+
+    const instance = new WebAssembly.Instance(module, imports);
+
+    return __wbg_finalize_init(instance, module);
+}
+
+async function __wbg_init(input, maybe_memory) {
+    if (wasm !== undefined) return wasm;
+
+    if (typeof input === 'undefined') {
+        input = new URL('nillion_client_js_browser_bg.wasm', import.meta.url);
+    }
+    const imports = __wbg_get_imports();
+
+    if (typeof input === 'string' || (typeof Request === 'function' &amp;&amp; input instanceof Request) || (typeof URL === 'function' &amp;&amp; input instanceof URL)) {
+        input = fetch(input);
+    }
+
+    __wbg_init_memory(imports, maybe_memory);
+
+    const { instance, module } = await __wbg_load(await input, imports);
+
+    return __wbg_finalize_init(instance, module);
+}
+
+export { initSync }
+export default __wbg_init;
+</code></pre>
+            </article>
+          </section>
+        </div>
+      </div>
+      <div id="side-nav" class="side-nav"></div>
+    </div>
+    <script src="scripts/app.min.js"></script>
+    <script>
+      PR.prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+
+    <script src="scripts/search.js"></script>
+  </body>
+</html>

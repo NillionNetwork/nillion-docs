@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Permissions</title>
+
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="./build/entry.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/app.min.css" />
+    <link type="text/css" rel="stylesheet" href="styles/iframe.css" />
+    <link type="text/css" rel="stylesheet" href="" />
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </head>
+
+  <body class="layout">
+    <div id="stickyNavbarOverlay"></div>
+
+    <div class="top-nav">
+      <div class="inner">
+        <a
+          id="hamburger"
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+          <a href="index.html">
+            <h1 class="navbar-item">Nillion Javascript Client</h1>
+          </a>
+        </div>
+        <div class="menu">
+          <div class="navigation">
+            <a href="index.html" class="link"> Documentation </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <div class="sidebar" id="sidebarNav">
+        <div class="search-wrapper">
+          <input
+            id="search"
+            type="text"
+            placeholder="Search docs..."
+            class="input"
+          />
+        </div>
+
+        <nav>
+          <h2><a href="index.html">Documentation</a></h2>
+          <div class="category">
+            <h3>Classes</h3>
+            <ul>
+              <li><a href="ClusterDescriptor.html">ClusterDescriptor</a></li>
+              <li><a href="LoaderHelper.html">LoaderHelper</a></li>
+              <li><a href="NillionClient.html">NillionClient</a></li>
+              <li><a href="NodeKey.html">NodeKey</a></li>
+              <li><a href="Permissions.html">Permissions</a></li>
+              <li>
+                <a href="PreprocessingConfig.html">PreprocessingConfig</a>
+              </li>
+              <li>
+                <a href="PreprocessingProtocolConfig.html"
+                  >PreprocessingProtocolConfig</a
+                >
+              </li>
+              <li><a href="ProgramBindings.html">ProgramBindings</a></li>
+              <li><a href="PublicVariable.html">PublicVariable</a></li>
+              <li><a href="PublicVariables.html">PublicVariables</a></li>
+              <li><a href="Secret.html">Secret</a></li>
+              <li><a href="Secrets.html">Secrets</a></li>
+              <li><a href="UserKey.html">UserKey</a></li>
+            </ul>
+            <h3>Global</h3>
+            <ul>
+              <li>
+                <a href="global.html#worker_entry_point">worker_entry_point</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="core" id="main-content-wrapper">
+        <div class="content">
+          <header class="page-title">
+            <p>Class</p>
+            <h1>Permissions</h1>
+          </header>
+
+          <section>
+            <header>
+              <h2>
+                <span class="attribs"><span class="type-signature"></span></span
+                >Permissions<span class="signature">()</span
+                ><span class="type-signature"></span>
+              </h2>
+
+              <div class="class-description">
+                <p>The permissions data structure.</p>
+                <p>
+                  In Nillion, every stored secret has associated a set of
+                  permissions upon creation. If no permissions are provided, the
+                  network will grant ownership as well as update, delete and
+                  retrieve permissions to the user storing the secret.
+                </p>
+                <p>
+                  For each compute operation, the secrets need to have granted
+                  compute permissions for the program and the user accessing the
+                  secret for the purpose of a computation.
+                </p>
+                <p>
+                  Permissions for any store secret can be updated and retrieved
+                  by the owner using <code>update_permissions</code> and
+                  <code>retrieve_permissions</code> operations respectively.
+                </p>
+              </div>
+            </header>
+
+            <article>
+              <div class="container-overview">
+                <div class="vertical-section">
+                  <div class="members">
+                    <div class="member">
+                      <div class="name">
+                        <span class="tag">Constructor</span>
+                      </div>
+
+                      <h4 class="name" id="Permissions">
+                        <a class="href-link" href="#Permissions">#</a>
+
+                        <span class="code-name">
+                          new Permissions<span class="signature">()</span
+                          ><span class="type-signature"></span>
+                        </span>
+                      </h4>
+
+                      <div class="description">
+                        <p>Build a new empty instance of Permissions</p>
+                      </div>
+
+                      <dl class="details">
+                        <p class="tag-source">
+                          <a
+                            href="nillion_client_js_browser.js.html"
+                            class="button"
+                            >View Source</a
+                          >
+                          <span>
+                            <a href="nillion_client_js_browser.js.html"
+                              >nillion_client_js_browser.js</a
+                            >,
+                            <a href="nillion_client_js_browser.js.html#line865"
+                              >line 865</a
+                            >
+                          </span>
+                        </p>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="subsection-title">Classes</h3>
+
+              <dl>
+                <dt><a href="Permissions.html">Permissions</a></dt>
+                <dd></dd>
+              </dl>
+
+              <div class="vertical-section">
+                <h1>Methods</h1>
+                <div class="members">
+                  <div class="member">
+                    <h4 class="name" id="add_compute_permissions">
+                      <a class="href-link" href="#add_compute_permissions">#</a>
+
+                      <span class="code-name">
+                        add_compute_permissions<span class="signature"
+                          >(permissions)</span
+                        ><span class="type-signature"></span>
+                      </span>
+                    </h4>
+
+                    <div class="description">
+                      <p>
+                        Add compute permissions to the Permissions instance for
+                        the given list of user IDs
+                      </p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <div class="table-container">
+                      <table class="params table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Type</th>
+
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="deep-level-0">
+                            <td class="name"><code>permissions</code></td>
+
+                            <td class="type">
+                              <code class="param-type">any</code>
+                            </td>
+
+                            <td class="description last">
+                              <p>
+                                object where the keys are the user identities
+                                and for each key the values are a list of
+                                program identifiers that user will be granted
+                                compute permission for.
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <dl class="details">
+                      <p class="tag-source">
+                        <a
+                          href="nillion_client_js_browser.js.html"
+                          class="button"
+                          >View Source</a
+                        >
+                        <span>
+                          <a href="nillion_client_js_browser.js.html"
+                            >nillion_client_js_browser.js</a
+                          >,
+                          <a href="nillion_client_js_browser.js.html#line985"
+                            >line 985</a
+                          >
+                        </span>
+                      </p>
+                    </dl>
+                  </div>
+
+                  <div class="member">
+                    <h4 class="name" id="add_delete_permissions">
+                      <a class="href-link" href="#add_delete_permissions">#</a>
+
+                      <span class="code-name">
+                        add_delete_permissions<span class="signature"
+                          >(user_ids)</span
+                        ><span class="type-signature"></span>
+                      </span>
+                    </h4>
+
+                    <div class="description">
+                      <p>
+                        Add delete permissions to the Permissions instance for
+                        the given list of user IDs
+                      </p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <div class="table-container">
+                      <table class="params table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Type</th>
+
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="deep-level-0">
+                            <td class="name"><code>user_ids</code></td>
+
+                            <td class="type">
+                              <code class="param-type">Array.&lt;string></code>
+                            </td>
+
+                            <td class="description last">
+                              <p>
+                                The list of user identifiers that will be
+                                granted delete permissions
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <dl class="details">
+                      <p class="tag-source">
+                        <a
+                          href="nillion_client_js_browser.js.html"
+                          class="button"
+                          >View Source</a
+                        >
+                        <span>
+                          <a href="nillion_client_js_browser.js.html"
+                            >nillion_client_js_browser.js</a
+                          >,
+                          <a href="nillion_client_js_browser.js.html#line963"
+                            >line 963</a
+                          >
+                        </span>
+                      </p>
+                    </dl>
+                  </div>
+
+                  <div class="member">
+                    <h4 class="name" id="add_retrieve_permissions">
+                      <a class="href-link" href="#add_retrieve_permissions"
+                        >#</a
+                      >
+
+                      <span class="code-name">
+                        add_retrieve_permissions<span class="signature"
+                          >(user_ids)</span
+                        ><span class="type-signature"></span>
+                      </span>
+                    </h4>
+
+                    <div class="description">
+                      <p>
+                        Add retrieve permissions to the Permissions instance for
+                        the given list of user IDs
+                      </p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <div class="table-container">
+                      <table class="params table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Type</th>
+
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="deep-level-0">
+                            <td class="name"><code>user_ids</code></td>
+
+                            <td class="type">
+                              <code class="param-type">Array.&lt;string></code>
+                            </td>
+
+                            <td class="description last">
+                              <p>
+                                The list of user identifiers that will be
+                                granted retrieve permissions
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <dl class="details">
+                      <p class="tag-source">
+                        <a
+                          href="nillion_client_js_browser.js.html"
+                          class="button"
+                          >View Source</a
+                        >
+                        <span>
+                          <a href="nillion_client_js_browser.js.html"
+                            >nillion_client_js_browser.js</a
+                          >,
+                          <a href="nillion_client_js_browser.js.html#line921"
+                            >line 921</a
+                          >
+                        </span>
+                      </p>
+                    </dl>
+                  </div>
+
+                  <div class="member">
+                    <h4 class="name" id="add_update_permissions">
+                      <a class="href-link" href="#add_update_permissions">#</a>
+
+                      <span class="code-name">
+                        add_update_permissions<span class="signature"
+                          >(user_ids)</span
+                        ><span class="type-signature"></span>
+                      </span>
+                    </h4>
+
+                    <div class="description">
+                      <p>
+                        Add update permissions to the Permissions instance for
+                        the given list of user IDs
+                      </p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <div class="table-container">
+                      <table class="params table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Type</th>
+
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="deep-level-0">
+                            <td class="name"><code>user_ids</code></td>
+
+                            <td class="type">
+                              <code class="param-type">Array.&lt;string></code>
+                            </td>
+
+                            <td class="description last">
+                              <p>
+                                The list of user identifiers that will be
+                                granted update permissions
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <dl class="details">
+                      <p class="tag-source">
+                        <a
+                          href="nillion_client_js_browser.js.html"
+                          class="button"
+                          >View Source</a
+                        >
+                        <span>
+                          <a href="nillion_client_js_browser.js.html"
+                            >nillion_client_js_browser.js</a
+                          >,
+                          <a href="nillion_client_js_browser.js.html#line942"
+                            >line 942</a
+                          >
+                        </span>
+                      </p>
+                    </dl>
+                  </div>
+
+                  <div class="member">
+                    <h4 class="name" id="is_compute_allowed">
+                      <a class="href-link" href="#is_compute_allowed">#</a>
+
+                      <span class="code-name">
+                        is_compute_allowed<span class="signature"
+                          >(user_id, program)</span
+                        ><span class="type-signature"> &rarr; {boolean}</span>
+                      </span>
+                    </h4>
+
+                    <div class="description">
+                      <p>
+                        Returns true if user has compute permissions for every
+                        single program
+                      </p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <div class="table-container">
+                      <table class="params table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Type</th>
+
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="deep-level-0">
+                            <td class="name"><code>user_id</code></td>
+
+                            <td class="type">
+                              <code class="param-type">string</code>
+                            </td>
+
+                            <td class="description last">
+                              <p>the user identifier</p>
+                            </td>
+                          </tr>
+
+                          <tr class="deep-level-0">
+                            <td class="name"><code>program</code></td>
+
+                            <td class="type">
+                              <code class="param-type">string</code>
+                            </td>
+
+                            <td class="description last">
+                              <p>the program identifier</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <dl class="details">
+                      <p class="tag-source">
+                        <a
+                          href="nillion_client_js_browser.js.html"
+                          class="button"
+                          >View Source</a
+                        >
+                        <span>
+                          <a href="nillion_client_js_browser.js.html"
+                            >nillion_client_js_browser.js</a
+                          >,
+                          <a href="nillion_client_js_browser.js.html#line1041"
+                            >line 1041</a
+                          >
+                        </span>
+                      </p>
+                    </dl>
+
+                    <div class="columns method-parameter">
+                      <div class="column is-2"><label>Returns:</label></div>
+                      <div class="column is-10">
+                        <div class="columns">
+                          <div class="param-desc column is-7">
+                            <p>true if the user has compute permissions</p>
+                          </div>
+
+                          <div class="column is-5 has-text-left">
+                            <label>Type: </label>
+
+                            <code class="param-type">boolean</code>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="member">
+                    <h4 class="name" id="is_delete_allowed">
+                      <a class="href-link" href="#is_delete_allowed">#</a>
+
+                      <span class="code-name">
+                        is_delete_allowed<span class="signature">(user_id)</span
+                        ><span class="type-signature"> &rarr; {boolean}</span>
+                      </span>
+                    </h4>
+
+                    <div class="description">
+                      <p>Returns true if user has delete permissions</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <div class="table-container">
+                      <table class="params table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Type</th>
+
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="deep-level-0">
+                            <td class="name"><code>user_id</code></td>
+
+                            <td class="type">
+                              <code class="param-type">string</code>
+                            </td>
+
+                            <td class="description last">
+                              <p>the user identifier</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <dl class="details">
+                      <p class="tag-source">
+                        <a
+                          href="nillion_client_js_browser.js.html"
+                          class="button"
+                          >View Source</a
+                        >
+                        <span>
+                          <a href="nillion_client_js_browser.js.html"
+                            >nillion_client_js_browser.js</a
+                          >,
+                          <a href="nillion_client_js_browser.js.html#line1028"
+                            >line 1028</a
+                          >
+                        </span>
+                      </p>
+                    </dl>
+
+                    <div class="columns method-parameter">
+                      <div class="column is-2"><label>Returns:</label></div>
+                      <div class="column is-10">
+                        <div class="columns">
+                          <div class="param-desc column is-7">
+                            <p>true if the user has delete permissions</p>
+                          </div>
+
+                          <div class="column is-5 has-text-left">
+                            <label>Type: </label>
+
+                            <code class="param-type">boolean</code>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="member">
+                    <h4 class="name" id="is_retrieve_allowed">
+                      <a class="href-link" href="#is_retrieve_allowed">#</a>
+
+                      <span class="code-name">
+                        is_retrieve_allowed<span class="signature"
+                          >(user_id)</span
+                        ><span class="type-signature"> &rarr; {boolean}</span>
+                      </span>
+                    </h4>
+
+                    <div class="description">
+                      <p>Returns true if user has retrieve permissions</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <div class="table-container">
+                      <table class="params table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Type</th>
+
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="deep-level-0">
+                            <td class="name"><code>user_id</code></td>
+
+                            <td class="type">
+                              <code class="param-type">string</code>
+                            </td>
+
+                            <td class="description last">
+                              <p>the user identifier</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <dl class="details">
+                      <p class="tag-source">
+                        <a
+                          href="nillion_client_js_browser.js.html"
+                          class="button"
+                          >View Source</a
+                        >
+                        <span>
+                          <a href="nillion_client_js_browser.js.html"
+                            >nillion_client_js_browser.js</a
+                          >,
+                          <a href="nillion_client_js_browser.js.html#line1004"
+                            >line 1004</a
+                          >
+                        </span>
+                      </p>
+                    </dl>
+
+                    <div class="columns method-parameter">
+                      <div class="column is-2"><label>Returns:</label></div>
+                      <div class="column is-10">
+                        <div class="columns">
+                          <div class="param-desc column is-7">
+                            <p>true if the user has retrieve permissions</p>
+                          </div>
+
+                          <div class="column is-5 has-text-left">
+                            <label>Type: </label>
+
+                            <code class="param-type">boolean</code>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="member">
+                    <h4 class="name" id="is_update_allowed">
+                      <a class="href-link" href="#is_update_allowed">#</a>
+
+                      <span class="code-name">
+                        is_update_allowed<span class="signature">(user_id)</span
+                        ><span class="type-signature"> &rarr; {boolean}</span>
+                      </span>
+                    </h4>
+
+                    <div class="description">
+                      <p>Returns true if user has update permissions</p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <div class="table-container">
+                      <table class="params table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Type</th>
+
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="deep-level-0">
+                            <td class="name"><code>user_id</code></td>
+
+                            <td class="type">
+                              <code class="param-type">string</code>
+                            </td>
+
+                            <td class="description last">
+                              <p>the user identifier</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <dl class="details">
+                      <p class="tag-source">
+                        <a
+                          href="nillion_client_js_browser.js.html"
+                          class="button"
+                          >View Source</a
+                        >
+                        <span>
+                          <a href="nillion_client_js_browser.js.html"
+                            >nillion_client_js_browser.js</a
+                          >,
+                          <a href="nillion_client_js_browser.js.html#line1016"
+                            >line 1016</a
+                          >
+                        </span>
+                      </p>
+                    </dl>
+
+                    <div class="columns method-parameter">
+                      <div class="column is-2"><label>Returns:</label></div>
+                      <div class="column is-10">
+                        <div class="columns">
+                          <div class="param-desc column is-7">
+                            <p>true if the user has update permissions</p>
+                          </div>
+
+                          <div class="column is-5 has-text-left">
+                            <label>Type: </label>
+
+                            <code class="param-type">boolean</code>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="member">
+                    <h4 class="name" id=".default_for_user">
+                      <a class="href-link" href="#.default_for_user">#</a>
+
+                      <span class="tag">static</span>
+
+                      <span class="code-name">
+                        default_for_user<span class="signature"
+                          >(user_id, program)</span
+                        ><span class="type-signature">
+                          &rarr; {<a href="Permissions.html">Permissions</a
+                          >}</span
+                        >
+                      </span>
+                    </h4>
+
+                    <div class="description">
+                      <p>
+                        Builds a new instance of Permissions with the default
+                        set for the user identifier.
+                      </p>
+                      <p>
+                        By default, the user identifier will be granted
+                        ownership of the secret as well as full access to the
+                        secret. No compute permissions are granted by default
+                        unless a program is specified. They need to be assigned
+                        separately.
+                      </p>
+                    </div>
+
+                    <h5>Parameters:</h5>
+
+                    <div class="table-container">
+                      <table class="params table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+
+                            <th>Type</th>
+
+                            <th class="last">Description</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="deep-level-0">
+                            <td class="name"><code>user_id</code></td>
+
+                            <td class="type">
+                              <code class="param-type">string</code>
+                            </td>
+
+                            <td class="description last">
+                              <p>The Nillion user identifier</p>
+                            </td>
+                          </tr>
+
+                          <tr class="deep-level-0">
+                            <td class="name"><code>program</code></td>
+
+                            <td class="type">
+                              <code class="param-type">string</code>
+                              |
+
+                              <code class="param-type">undefined</code>
+                            </td>
+
+                            <td class="description last">
+                              <p>
+                                Optionally specify a Program ID to apply compute
+                                permissions
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <dl class="details">
+                      <p class="tag-source">
+                        <a
+                          href="nillion_client_js_browser.js.html"
+                          class="button"
+                          >View Source</a
+                        >
+                        <span>
+                          <a href="nillion_client_js_browser.js.html"
+                            >nillion_client_js_browser.js</a
+                          >,
+                          <a href="nillion_client_js_browser.js.html#line907"
+                            >line 907</a
+                          >
+                        </span>
+                      </p>
+                    </dl>
+
+                    <div class="columns method-parameter">
+                      <div class="column is-2"><label>Returns:</label></div>
+                      <div class="column is-10">
+                        <div class="columns">
+                          <div class="param-desc column is-7">
+                            <p>
+                              An instance of Permissions with the default
+                              configuration for the user
+                            </p>
+                          </div>
+
+                          <div class="column is-5 has-text-left">
+                            <label>Type: </label>
+
+                            <code class="param-type"
+                              ><a href="Permissions.html">Permissions</a></code
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h5>Example</h5>
+
+                    <pre
+                      class="prettyprint"
+                    ><code>const permissions = nillion.Permissions.default_for_user(client.user_id())</code></pre>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+      <div id="side-nav" class="side-nav"></div>
+    </div>
+    <script src="scripts/app.min.js"></script>
+    <script>
+      PR.prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+
+    <script src="scripts/search.js"></script>
+  </body>
+</html>
