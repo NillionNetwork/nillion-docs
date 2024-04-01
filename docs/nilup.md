@@ -2,7 +2,7 @@
 
 `nilup` is an installer and version manager for the Nillion SDK
 
-To install `nilup`, run: `curl https://nilup.nilogy.xyz | bash`
+To install `nilup`, run: `curl https://nilup.nilogy.xyz/install.sh | bash`
 
 If you install the Nillion SDK using `nilup`, all the Nillion SDK commands will be managed by `nilup`,
 which will pick the version to use based on the next order, from highest to lowest priority: 
