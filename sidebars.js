@@ -77,7 +77,7 @@ const sidebars = {
             id: 'python-client',
           },
           items: [
-            'quickstart',
+            'python-quickstart',
             'python-client-reference',
             {
               type: 'category',
@@ -142,10 +142,26 @@ const sidebars = {
             id: 'js-client',
           },
           items: [
+            'js-quickstart',
             {
               type: 'link',
               label: 'JavaScript Client Reference',
               href: 'https://nillion.pub/nillion-js-reference',
+            },
+            {
+              type: 'category',
+              label: 'JavaScript Client Examples',
+              link: {
+                type: 'doc',
+                id: 'js-client-examples',
+              },
+              collapsed: false,
+              items: [
+                'store-secrets-js',
+                'retrieve-secret-js',
+                'compute-js',
+                'get-user-key-from-snap',
+              ],
             },
           ],
         },

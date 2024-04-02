@@ -1,0 +1,127 @@
+Open the file and import nada_dsl
+
+```python
+from nada_dsl import *
+```
+
+Create a function called nada_main() that will contain the code you want to run
+
+```python
+from nada_dsl import *
+def nada_main():
+```
+
+### Add a party
+
+In Nada you have to declare the parties involved in the computation through the `Party` type. A `Party` is defined with a name.
+
+:::info
+
+Here's an example of a `Party`
+
+```python
+Party(name="Steph")
+```
+
+:::
+
+Create party1, a `Party` named "Party1"
+
+```python
+from nada_dsl import *
+def nada_main():
+
+    party1 = Party(name="Party1")
+```
+
+### Learn about inputs
+
+Nada programs have inputs. An `Input` is defined with a name and a party, which is the `Party` providing the input.
+
+:::info
+Here's an example of an `Input`:
+
+```python
+Input(name="numberOfDogs", party=Party(name="Steph"))
+```
+
+:::
+
+Nada program inputs are typed. There are a few categories of types
+
+Secrecy level
+
+- Literal: literal values provided in the program
+- Public: visible to all nodes
+- Secret: secret values to be handled by the computing nodes as shares or particles
+
+Scalar
+
+- Boolean
+- Integer
+- Rational
+- String
+
+These categories are combined into types like `SecretInteger`, which are used to type an Input. [See all types](/nada-lang-types)
+
+:::info
+Here's an example of a `SecretInteger` Input provided by Steph
+
+```python
+steph = Party(name="Steph")
+stephs_secret_int = SecretInteger(Input(name="numberOfDogs", party=steph))
+```
+
+:::
+
+### Create 2 secret integers inputs
+
+- `my_int1`, a `SecretInteger` named "my_int1" owned by Party1
+- `my_int2`, a `SecretInteger` named "my_int2" owned by Party1
+
+```python
+from nada_dsl import *
+
+def nada_main():
+    party1 = Party(name="Party1")
+    my_int1 = SecretInteger(Input(name="my_int1", party=party1))
+    my_int2 = SecretInteger(Input(name="my_int2", party=party1))
+```
+
+Add the integers by creating a new variable called new_int and setting it equal to my_int1 + my_int2
+
+```python
+from nada_dsl import *
+
+def nada_main():
+    party1 = Party(name="Party1")
+    my_int1 = SecretInteger(Input(name="my_int1", party=party1))
+    my_int2 = SecretInteger(Input(name="my_int2", party=party1))
+
+    new_int = my_int1 + my_int2
+```
+
+Finally, Nada programs return an output. The `Output` type is used to declare a named output that will be revealed to a concrete `Party`. The Output has a name and a party as parameters.
+
+### Return the output
+
+Nada programs return an array of outputs.
+
+:::info
+Here's an example of an output. The output is named `total_score`, its value is `score_int`, and it can be read by the party named Steph.
+
+```python
+Output(score_int, "total_score", Party(name="Steph"))
+```
+
+:::
+
+Complete your Nada program by adding a final line that returns an array with one output. The output is named "my_output", its value is `new_int`, and it can be ready by `party1`.
+
+### Resulting Nada program
+
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py
+```
+
+🎉 You just wrote your first Nada program! Next, let's compile the program.
