@@ -180,6 +180,12 @@ Open your app on: [http://localhost:3000](http://localhost:3000)
 - Edit the code for this page in `packages/nextjs/app/nillion-hello-world/page.tsx` to complete each of the 🎯 TODOs to get the page working
 - Need a hint on how to get something working? Take a look at the completed `packages/nextjs/app/nillion-hello-world-complete/page.tsx` page
 
+:::tip
+
+Open the Nillion [JavaScript Client Reference](https://nillion.pub/nillion-js-reference/) doc in another tab to search for available classes while completing the 🎯 TODOs.
+
+:::
+
 ## Keep exploring
 
 You've successfully written your first single party Nada program, stored the program on the network, stored secrets on the network, and run compute against secrets. Keep exploring by
