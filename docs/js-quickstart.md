@@ -26,30 +26,8 @@ git clone https://github.com/NillionNetwork/scaffold-nillion.git
 
 ### Install repo dependencies
 
-Before you use [Scaffold-Nillion](https://github.com/NillionNetwork/scaffold-nillion), you need to install the following tools:
+Before you use [Scaffold-Nillion](https://github.com/NillionNetwork/scaffold-nillion), you need to install the following:
 
-- `nilup`, an installer and version manager for the [Nillion SDK tools](https://docs.nillion.com/nillion-sdk-and-tools). Install nilup:
-
-_For the security-conscious, please download the `install.sh` script, so that you can inspect how
-it works, before piping it to `bash`._
-
-  ```
-  curl https://nilup.nilogy.xyz/install.sh | bash
-  ```
-  - Confirm `nilup` installation
-    ```
-    nilup -V
-    ```
-- [Nillion SDK tools](https://docs.nillion.com/nillion-sdk-and-tools) Use `nilup` to install these:
-  ```bash
-  nilup install latest
-  nilup use latest
-  nilup init
-  ```
-  - Confirm global Nillion tool installation
-    ```
-    nillion -V
-    ```
 - [Node (>= v18.17)](https://nodejs.org/en/download/)
 
   - Check version with
@@ -71,6 +49,13 @@ it works, before piping it to `bash`._
     yarn -v
     ```
 - [Git](https://git-scm.com/downloads)
+
+- anvil tool from [foundry](https://book.getfoundry.sh/getting-started/installation), which can be installed with:
+
+  <FoundryInstallation/>
+
+- [pidof](https://command-not-found.com/pidof)
+- [grep](https://command-not-found.com/grep)
 
 ### Install MetaMask Flask and to store a Nillion user key in MetaMask Snaps
 
