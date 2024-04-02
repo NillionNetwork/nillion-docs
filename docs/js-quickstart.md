@@ -149,7 +149,7 @@ Now the NextJs app has the Nada program and binaries in the `nextjs/public/progr
 
 ## Spin up the NextJs Web App
 
-Open one more terminal to start your NextJS web app:
+Open one more terminal to start your NextJS web app from the root directory, scaffold-nillion
 
 ```
 yarn start
