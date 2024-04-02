@@ -60,7 +60,7 @@ cp .env.sample .env
 These scripts activate a python virtual environment at .venv and install py_nillion_client and nada_dsl packages + dependencies listed in the `requirements.txt` file
 
 ```bash
-sh ./create_venv.sh && source .venv/bin/activate
+bash ./create_venv.sh && source .venv/bin/activate
 ```
 
 ## Bootstrap your local environment and run the nillion-devnet
