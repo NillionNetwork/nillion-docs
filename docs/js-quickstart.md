@@ -34,7 +34,7 @@ _For the security-conscious, please download the `install.sh` script, so that yo
 it works, before piping it to `bash`._
 
   ```
-  curl https://nilup.nilogy.xyz | bash
+  curl https://nilup.nilogy.xyz/install.sh | bash
   ```
   - Confirm `nilup` installation
     ```
