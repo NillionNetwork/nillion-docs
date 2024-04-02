@@ -54,8 +54,8 @@ Before you use [Scaffold-Nillion](https://github.com/NillionNetwork/scaffold-nil
 
   <FoundryInstallation/>
 
-- [pidof](https://command-not-found.com/pidof)
-- [grep](https://command-not-found.com/grep)
+- [pidof](https://formulae.brew.sh/formula/pidof)
+- [grep](https://formulae.brew.sh/formula/grep)
 
 ### Install MetaMask Flask and to store a Nillion user key in MetaMask Snaps
 
@@ -70,6 +70,7 @@ Before you use [Scaffold-Nillion](https://github.com/NillionNetwork/scaffold-nil
 
 ```
 cd scaffold-nillion
+yarn install
 ```
 
 ### 2. Run a local ethereum network in the first terminal:
