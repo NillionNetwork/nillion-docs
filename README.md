@@ -21,12 +21,6 @@ $ yarn
 ### Local Development
 
 ```
-$ cp .env.sample .env
-```
-
-Create a .env file by copying the sample and add environment variables.
-
-```
 $ yarn start
 ```
 

@@ -32,25 +32,6 @@ const config = {
     locales: ['en'],
   },
 
-  customFields: {
-    // pass in .env variables client side
-    downloadBaseUrl: process.env.DOWNLOAD_BASE,
-    sdkAppleM: process.env.DOWNLOAD_SDK_APPLE_M,
-    sdkAppleIntel: process.env.DOWNLOAD_SDK_APPLE_INTEL,
-    sdkLinuxArm: process.env.DOWNLOAD_SDK_LINUX_ARM,
-    sdkLinuxIntel: process.env.DOWNLOAD_SDK_LINUX_INTEL,
-
-    pyClientAppleM: process.env.DOWNLOAD_PYCLIENT_APPLE_M,
-    pyClientAppleIntel: process.env.DOWNLOAD_PYCLIENT_APPLE_INTEL,
-    pyClientLinuxArm: process.env.DOWNLOAD_PYCLIENT_LINUX_ARM,
-    pyClientLinuxIntel: process.env.DOWNLOAD_PYCLIENT_LINUX_INTEL,
-
-    pyNadaAppleM: process.env.DOWNLOAD_PYNADA,
-    pyNadaAppleIntel: process.env.DOWNLOAD_PYNADA,
-    pyNadaLinuxArm: process.env.DOWNLOAD_PYNADA,
-    pyNadaLinuxIntel: process.env.DOWNLOAD_PYNADA,
-  },
-
   scripts: [
     {
       src: '/js/piwik.js',

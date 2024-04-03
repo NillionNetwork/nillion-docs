@@ -1,6 +1,5 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import DownloadSDK from '@site/src/components/DownloadSDK/downloadSDK';
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import LinkButton from '@site/src/components/LinkButton/index';
 import SdkInstallation from './\_sdk-installation.mdx';
