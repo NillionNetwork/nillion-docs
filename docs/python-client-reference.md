@@ -563,14 +563,14 @@ xample below for clarification.
 import py_nillion_client as nillion
 
 bindings = nillion.ProgramBindings(args.program_id)
-bindings.add_input_party("Dealer", client.party_id())
+bindings.add_input_party("Dealer", client.party_id)
 store_id = await client.store_secrets(
     args.cluster_id, bindings, args.store_secrets, None
 )
 
 bindings = nillion.ProgramBindings(args.program_id)
-bindings.add_input_party("Dealer", client.party_id())
-bindings.add_output_party("Result", client.party_id())
+bindings.add_input_party("Dealer", client.party_id)
+bindings.add_output_party("Result", client.party_id)
 
 uuid = await client.compute(
     args.cluster_id,
@@ -659,7 +659,7 @@ while True:
 
 <a id="py_nillion_client.NillionClient.party_id"></a>
 
-#### party_id()
+#### party_id
 
 Returns the SDK client’s instance party ID, which can be used
 by the client to create program bindings ([`ProgramBindings`](#py_nillion_client.ProgramBindings),
@@ -668,7 +668,7 @@ check examples).
 Effectively, the party ID is equivalent to the the Peer ID
 used within libp2p for inter-node communication. It is a hash
 generated from the public key of the node’s key-pair ([`NodeKey`](#py_nillion_client.NodeKey)). Not to
-be confused with the [`user_id()`](#py_nillion_client.NillionClient.user_id) which is generated from the
+be confused with the [`user_id`](#py_nillion_client.NillionClient.user_id) which is generated from the
 public key of the user’s key-pair ([`UserKey`](#py_nillion_client.UserKey)).
 
 Read more about [party ID](https://docs.nillion.com/concepts#party-id)
@@ -682,7 +682,7 @@ and [peer ID](https://docs.nillion.com/concepts#peer-id).
 #### Example
 
 ```py3
-print("Party ID:", client.party_id())
+print("Party ID:", client.party_id)
 ```
 
 <a id="py_nillion_client.NillionClient.retrieve_secret"></a>
@@ -729,7 +729,7 @@ The program_id used by [`store_secrets()`](#py_nillion_client.NillionClient.stor
 built as follows:
 
 ```py3
-client.user_id() + "/" + program_name
+client.user_id + "/" + program_name
 ```
 
 where client is a [`NillionClient`](#py_nillion_client.NillionClient) instantiation and program_name
@@ -756,7 +756,7 @@ action_id = await client.store_program(
     args.cluster_id, program_name, program_mir_path
 )
 print("action_id is: ", action_id)
-program_id = client.user_id() + "/" + program_name
+program_id = client.user_id + "/" + program_name
 print("program_id is: ", program_id)
 ```
 
@@ -800,7 +800,7 @@ store_id = await client.store_secrets(
 ###########################
 # Example 2 - Permissions #
 ###########################
-permissions = nillion.Permissions.default_for_user(client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
 permissions.add_retrieve_permissions(set([args.retriever_user_id]))
 secrets = nillion.Secrets({"fortytwo": nillion.SecretInteger(42)})
 store_id = await client.store_secrets(
@@ -816,7 +816,7 @@ bindings = nillion.ProgramBindings(program_id)
 # Important note: the name "InputPartyName" must match the input
 # party name in the Nada program. Otherwise, the `store_secrets` action
 # is not completed and it raises a TypeError.
-bindings.add_input_party("InputPartyName", client.party_id())
+bindings.add_input_party("InputPartyName", client.party_id)
 secrets = nillion.Secrets({"fortytwo": nillion.SecretInteger(42)})
 store_id = await client.store_secrets(
     cluster_id, bindings, secrets, None
@@ -847,7 +847,7 @@ store_id = await client.store_secrets(
   cluster_id, None, secrets, None
 )
 # Update permissions
-permissions = nillion.Permissions.default_for_user(client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
 permissions.add_retrieve_permissions(set([args.retriever_user_id]))
 updated_store_id = await client.update_permissions(args.cluster_id, store_id, permissions)
 
@@ -887,7 +887,7 @@ await client.update_secrets(
 
 <a id="py_nillion_client.NillionClient.user_id"></a>
 
-#### user_id()
+#### user_id
 
 Returns SDK client’s user ID, which is the public user
 identifier.
@@ -898,7 +898,7 @@ The user ID is used to:
 2. Grant a user permission to use secrets. Check [`Permissions`](#py_nillion_client.Permissions).
 
 It is a hash generated from the public key of the user’s key-pair ([`UserKey`](#py_nillion_client.UserKey)). Not to
-be confused with the [`party_id()`](#py_nillion_client.NillionClient.party_id) which is the generated from the
+be confused with the [`party_id`](#py_nillion_client.NillionClient.party_id) which is the generated from the
 public key of the node’s key-pair ([`NodeKey`](#py_nillion_client.NodeKey)).
 
 Read more about [user ID](https://docs.nillion.com/concepts#user-id)
@@ -912,7 +912,7 @@ in the Nillion Docs.
 #### Example
 
 ```py3
-print("User ID:", client.user_id())
+print("User ID:", client.user_id)
 ```
 
 <a id="py_nillion_client.NodeKey"></a>
@@ -1080,7 +1080,7 @@ the method [`default_for_user()`](#py_nillion_client.Permissions.default_for_use
 import py_nillion_client as nillion
 
 # Example 1 - Storing a secret
-permissions = nillion.Permissions.default_for_user(client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
 permissions.add_retrieve_permissions(set([args.new_user_id]))
 secrets = nillion.Secrets({"fortytwo": nillion.SecretInteger(42)})
 # new_user_id is able to retrieve "fortytwo"
@@ -1110,8 +1110,8 @@ user IDs provided.
 ```py3
 import py_nillion_client as nillion
 
-program_id = client.user_id() + "/" + "program_name"
-permissions = nillion.Permissions.default_for_user(client.user_id())
+program_id = client.user_id + "/" + "program_name"
+permissions = nillion.Permissions.default_for_user(client.user_id)
 permissions.add_compute_permissions({
     args.compute_user_id: {program_id},
 })
@@ -1132,7 +1132,7 @@ given set of user IDs
 ```py3
 import py_nillion_client as nillion
 
-permissions = nillion.Permissions.default_for_user(client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
 permissions.add_delete_permissions(set([args.delete_user_id]))
 ```
 
@@ -1151,7 +1151,7 @@ given set of user IDs.
 ```py3
 import py_nillion_client as nillion
 
-permissions = nillion.Permissions.default_for_user(client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
 permissions.add_retrieve_permissions(set([args.retriever_user_id]))
 ```
 
@@ -1170,7 +1170,7 @@ given set of user IDs.
 ```py3
 import py_nillion_client as nillion
 
-permissions = nillion.Permissions.default_for_user(client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
 permissions.add_update_permissions(set([args.update_user_id]))
 ```
 
@@ -1194,7 +1194,7 @@ previously granted by the user.
 ```py3
 import py_nillion_client as nillion
 
-permissions = nillion.Permissions.default_for_user(client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
 ```
 
 <a id="py_nillion_client.Permissions.is_compute_allowed"></a>
@@ -1209,8 +1209,8 @@ Returns true if user has compute permissions for every single program.
 #### Example
 
 ```py3
-program_id = client.user_id() + "/" + "program_name"
-compute_allowed = permissions.is_compute_allowed(user_client.user_id(), program_id)
+program_id = client.user_id + "/" + "program_name"
+compute_allowed = permissions.is_compute_allowed(user_client.user_id, program_id)
 ```
 
 <a id="py_nillion_client.Permissions.is_delete_allowed"></a>
@@ -1227,8 +1227,8 @@ Returns true if user has delete permissions.
 ```py3
 import py_nillion_client as nillion
 
-permissions = nillion.Permissions.default_for_user(client.user_id())
-delete_allowed = permissions.is_delete_allowed(user_client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
+delete_allowed = permissions.is_delete_allowed(user_client.user_id)
 print("Default user is always allowed: ", delete_allowed)
 ```
 
@@ -1250,8 +1250,8 @@ Returns true if user has retrieve permissions.
 ```py3
 import py_nillion_client as nillion
 
-permissions = nillion.Permissions.default_for_user(client.user_id())
-retrieve_allowed = permissions.is_retrieve_allowed(user_client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
+retrieve_allowed = permissions.is_retrieve_allowed(user_client.user_id)
 print("Default user is always allowed: ", retrieve_allowed)
 ```
 
@@ -1271,7 +1271,7 @@ Checks if user is allowed to retrieve the permissions.
 #### Example
 
 ```py3
-retrieve_permissions_allowed = permissions.is_retrieve_permissions_allowed(user_client.user_id())
+retrieve_permissions_allowed = permissions.is_retrieve_permissions_allowed(user_client.user_id)
 ```
 
 <a id="py_nillion_client.Permissions.is_update_allowed"></a>
@@ -1288,8 +1288,8 @@ Returns true if user has update permissions.
 ```py3
 import py_nillion_client as nillion
 
-permissions = nillion.Permissions.default_for_user(client.user_id())
-update_allowed = permissions.is_update_allowed(user_client.user_id())
+permissions = nillion.Permissions.default_for_user(client.user_id)
+update_allowed = permissions.is_update_allowed(user_client.user_id)
 print("Default user is always allowed: ", update_allowed)
 ```
 
@@ -1309,7 +1309,7 @@ Checks if user is allowed to update the permissions.
 #### Example
 
 ```py3
-update_permissions_allowed = permissions.is_update_permissions_allowed(user_client.user_id())
+update_permissions_allowed = permissions.is_update_permissions_allowed(user_client.user_id)
 ```
 
 <a id="py_nillion_client.PreprocessingConfig"></a>
@@ -1500,7 +1500,7 @@ print("Batch size for alpha protocol:", cinfo.cinfo.preprocessing.alpha.batch_si
 
 This is a [`ProgramBindings`](#py_nillion_client.ProgramBindings) class used to
 bind compute parties to explicit peer IDs (provided
-by the [`NillionClient.party_id()`](#py_nillion_client.NillionClient.party_id)). Bindings
+by the [`NillionClient.party_id`](#py_nillion_client.NillionClient.party_id)). Bindings
 need to be set to use secrets in programs
 
 This class is used by the [`NillionClient.store_secrets()`](#py_nillion_client.NillionClient.store_secrets)
@@ -1521,7 +1521,7 @@ import py_nillion_client as nillion
 bindings = nillion.ProgramBindings(args.program_id)
 
 # Add bindings when storing a secret
-bindings.add_input_party("InputPartyName", client.party_id())
+bindings.add_input_party("InputPartyName", client.party_id)
 secrets = nillion.Secrets({"fortytwo": nillion.SecretInteger(42)})
 store_id = await client.store_secrets(
     cluster_id, bindings, secrets, None
@@ -1529,8 +1529,8 @@ store_id = await client.store_secrets(
 
 # Add bindings for compute action
 bindings = nillion.ProgramBindings(args.program_id)
-bindings.add_input_party("InputPartyName" client.party_id())
-bindings.add_output_party("OutputPartyName", client.party_id())
+bindings.add_input_party("InputPartyName" client.party_id)
+bindings.add_output_party("OutputPartyName", client.party_id)
 uuid = await client.compute(
     args.cluster_id,
     bindings,
@@ -1554,7 +1554,7 @@ Bind an input party with a name to a specific program.
 
 ```py3
 bindings = nillion.ProgramBindings(args.program_id)
-bindings.add_input_party("InputPartyName" client.party_id())
+bindings.add_input_party("InputPartyName" client.party_id)
 ```
 
 <a id="py_nillion_client.ProgramBindings.add_output_party"></a>
@@ -1571,7 +1571,7 @@ Bind an output party with a name to a specific program.
 
 ```py3
 bindings = nillion.ProgramBindings(args.program_id)
-bindings.add_output_party("OutputPartyName", client.party_id())
+bindings.add_output_party("OutputPartyName", client.party_id)
 ```
 
 <a id="py_nillion_client.ProgramError"></a>
