@@ -63,12 +63,13 @@ prime_size = 128
 ```
 
 ### Build a program
-To build a program you can run
+To build all the programs in the project, you can run
 ```
 nada build
 ```
-It will compile all the programs in the project,
-also you can specify which program to build by passing the program name as an argument
+Note: this will only build the programs specified in the `nada-project.toml` file. Visit the section [Add a new program to the project](#add-a-new-program-to-the-project) for more information.
+
+Also you can specify which program to build by passing the program name as an argument
 ```
 nada build <program-name>
 ```
@@ -94,18 +95,18 @@ To execute a program you can run
 ```
 nada run <test-name>
 ```
-It will run the program associated with that test file and print the output
+It will run the program associated with that test file and print the output. Similarly to the [nada-run](nada-run.md) tool, it executes a Nada program using the Nada VM with the cryptographic algorithms but without the peer-to-peer (p2p) network.
 
 #### Run in debug mode
-`nada` has the ability to run a program in debug mode, 
-in this mode, all operations are output in plain text, so you can inspect the intermediary values.
-When running in debug mode you can see the operations that are performed in the program, with the corresponding values.
+`nada` has the ability to run a program in debug mode.
+In this mode, all operations are computed in plain text, so you can inspect the intermediary values.
+When running in debug mode, you can view the operations performed in the program along with their corresponding values, as it does not execute the cryptographic algorithms.
 
 To execute a program in debug mode you can run
 ```
 nada run --debug <test-name>
 ```
-This will run the program associated with that test file and print all operations, values and the output
+This will run the program associated with that test file and print all operations, values and the output.
 
 ### Test a program
 To `test` a program using `nada` you need a test file, visit the [Generate a test file](#Generate-a-test-file) section to see how to generate it.
