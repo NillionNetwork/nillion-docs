@@ -176,7 +176,7 @@ Permissions
 
 ## Example
 
-    permissions = nillion.Permissions.default_for_user(client.user_id())
+    permissions = nillion.Permissions.default_for_user(client.user_id)
 
 ### Parameters
 
@@ -562,7 +562,7 @@ The value must be a valid string representation of an unsigned integer.
 
 Secret
 
-## party_id()
+## party_id
 
 Get party_id property
 
@@ -786,7 +786,7 @@ The unique identifier of the update operation
 
 Promise.&lt;string&gt;
 
-## user_id()
+## user_id
 
 Get the user ID of the Client instance.
 
