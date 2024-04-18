@@ -200,6 +200,7 @@ const sidebars = {
         },
       ],
     },
+    'limitations',
     {
       type: 'html',
       className: 'sidebar-title',
