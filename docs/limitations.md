@@ -10,7 +10,7 @@ Our SDK release provides developers with the chance to start building with Nilli
 - Missing features - suggest a feature request in [Ideas](https://github.com/orgs/NillionNetwork/discussions/categories/ideas)
 - Documentation gaps - if you notice something is missing, please let us know by creating a [Github Issue](https://github.com/NillionNetwork/nillion-docs/issues/new/choose)
 
-Here are some of the limitations you should be aware of when being an early builder with Nillion’s SDK.
+Here are some of the limitations or constraints you should be aware of when being an early builder with Nillion’s SDK.
 
 ## Platforms
 
@@ -31,7 +31,7 @@ Binaries are not yet available for Windows.
 
 ### JavaScript Client
 
-- Currently the JS client is only tested on Chromium browsers (Chrome, Brave & Edge).
+- Currently the JS client is only tested on Chromium browsers (Chrome, Brave & Edge) and production deployments will likely require [activating COOP and COEP headers](https://web.dev/coop-coep/).
 - The JS client does not yet have SecretArray functionality.
 - The JS client is a browser client and does not yet work in NodeJs.
 
@@ -42,6 +42,7 @@ Running the [`nillion-devnet`](/nillion-devnet) command (SDK tool) will spin up 
 - The devnet that is spun up will be limited by the hardware it is running on. Keep an eye on the CPU usage when running large computations.
 - Pre-processing elements are generated from scratch each time a local devnet is spun up. This means you may need to wait a little time (10-15 seconds) before the network is able to store and compute. For reference, currently 8192 alphas & 8192 lambdas are generated when you spin up a new local devnet.
 - Anything you store (programs, secrets etc) in one instance of `nillion-devnet` will not be shared with another devnet you spin up, meaning you will have to restore any stored programs or secrets in the new devnet.
+- The devnet does not currently support transport targets other than localhost.
 
 ### One node key per client
 
@@ -99,7 +100,7 @@ def inc(a: SecretInteger, my_int: SecretInteger) -> SecretInteger:
     return a + my_int
 
 def inc2(a: SecretInteger) -> SecretInteger:
-		return inc(a, SecretInteger(2))
+    return inc(a, SecretInteger(2))
 ```
 
 The Nada compiler will throw an error as `inc2` does not have access to `inc`.
