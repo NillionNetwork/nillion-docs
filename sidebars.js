@@ -200,6 +200,17 @@ const sidebars = {
         },
       ],
     },
+    'limitations',
+    {
+      type: 'link',
+      label: 'Builder Discussions',
+      href: 'https://github.com/orgs/NillionNetwork/discussions',
+    },
+    {
+      type: 'link',
+      label: 'Report a Bug',
+      href: 'https://github.com/orgs/NillionNetwork/discussions/categories/bugs',
+    },
     {
       type: 'html',
       className: 'sidebar-title',
