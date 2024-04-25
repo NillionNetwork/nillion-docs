@@ -1,0 +1,57 @@
+[
+  {
+    "project": "Identicall",
+    "website": "https://ethglobal.com/showcase/identicall-b0904",
+    "githubRepo": "https://github.com/alimahdiyar/identicall",
+    "discussions": "https://github.com/orgs/NillionNetwork/discussions/23",
+    "description": "a tool designed to assist unique-identity platforms, which depend on social graphs, in fighting small-scale Sybil attacks",
+    "tags": ["identity"]
+  },
+  {
+    "project": "BattleshipX",
+    "website": "https://ethglobal.com/showcase/battleshipx-0gc9h",
+    "githubRepo": "https://github.com/Envoy-VC/battleship-x",
+    "discussions": "https://github.com/orgs/NillionNetwork/discussions/25",
+    "description": "secure on-chain battleship game",
+    "tags": ["game"]
+  },
+  {
+    "project": "nfl",
+    "website": "https://ethglobal.com/showcase/nfl-w7yg3",
+    "githubRepo": "https://github.com/bowenyou/nillion-federated-learning",
+    "discussions": "https://github.com/orgs/NillionNetwork/discussions/22",
+    "description": "train federated learning models while keeping datasets private.",
+    "tags": ["ai"]
+  },
+  {
+    "project": "Monadic DNA",
+    "website": "https://ethglobal.com/showcase/monadic-dna-h7k7q",
+    "githubRepo": "https://github.com/Cryptonomic/MonadicDNA",
+    "discussions": "https://github.com/orgs/NillionNetwork/discussions/21",
+    "description": "privacy preserving personal genomics for health and ancestry",
+    "tags": ["healthcare"]
+  },
+  {
+    "project": "PrivyCal",
+    "website": "https://ethglobal.com/showcase/privycal-i1gub",
+    "githubRepo": "https://github.com/kanav99/privycal",
+    "discussions": "https://github.com/orgs/NillionNetwork/discussions/20",
+    "description": "schedule meetings with people, without sharing the entire calendar",
+    "tags": ["consumer app"]
+  },
+  {
+    "project": "EmailEon",
+    "website": "https://ethglobal.com/showcase/emaileon-ixsn6",
+    "githubRepo": "https://github.com/ysongh/EmailEon",
+    "discussions": "https://github.com/orgs/NillionNetwork/discussions/24",
+    "description": "decentralized email marketing platform",
+    "tags": ["consumer app"]
+  },
+  {
+    "project": "NillionHealthcare",
+    "website": "https://ethglobal.com/showcase/nillionhealthcare-b8t2c",
+    "githubRepo": "https://github.com/csalvador58/ethglobal_nillion_health",
+    "description": "blind computation between healthcare datasets",
+    "tags": ["ai", "healthcare"]
+  }
+]

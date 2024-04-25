@@ -217,6 +217,7 @@ const sidebars = {
       value: 'Resources',
       defaultStyle: true,
     },
+    'showcase',
     'community-and-support',
     'nucleus-builders-program',
     'running-a-node',

@@ -37,3 +37,8 @@
 html {
   scroll-padding-top: 55px;
 }
+
+.ag-cell-value {
+  line-height: 20px;
+  font-size: 14px;
+}
