@@ -616,7 +616,7 @@ await client.delete_secrets(cluster_id, store_id)
 
 #### next_compute_event()
 
-Returns the state of the computation in the Nillin Network.
+Returns the state of the computation in the Nillion Network.
 
 If the event is from an ongoing computation, it only includes
 the corresponding UUID from the [`compute()`](#py_nillion_client.NillionClient.compute) process.

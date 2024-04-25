@@ -46,7 +46,7 @@ Running the [`nillion-devnet`](/nillion-devnet) command (SDK tool) will spin up 
 
 ### One node key per client
 
-- If you are instantiating multiple clients (users) at once (e.g. `Party1', `Party2`, `Party3` for a multi party compute), ensure that each instantiated client uses a different node key. If a node key is reused, across clients, you will see a timeout error.
+- If you are instantiating multiple clients (users) at once (e.g. `Party1`, `Party2`, `Party3` for a multi party compute), ensure that each instantiated client uses a different node key. If a node key is reused, across clients, you will see a timeout error.
 
 ## Secrets
 
