@@ -5,11 +5,8 @@ import 'ag-grid-community/styles/ag-theme-quartz.css'; // Optional Theme applied
 import AwesomeProjects from './awesome-projects.json';
 
 const ProjectsTable = () => {
-  XMLHttpRequestUpload;
-  const [rowData, setRowData] = useState(AwesomeProjects);
-
-  // Column Definitions: Defines the columns to be displayed.
-  const [colDefs, setColDefs] = useState([
+  const [rowData] = useState(AwesomeProjects);
+  const [colDefs] = useState([
     {
       field: 'project',
       width: '160px',
@@ -60,10 +57,7 @@ const ProjectsTable = () => {
   ]);
 
   return (
-    <div
-      className="ag-theme-quartz" // applying the grid theme
-      style={{ height: 400 }} // the grid will fill the size of the parent container
-    >
+    <div className="ag-theme-quartz" style={{ height: 400 }}>
       <AgGridReact rowData={rowData} columnDefs={colDefs} />
     </div>
   );
