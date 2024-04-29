@@ -99,7 +99,7 @@ yarn nillion-devnet
 ### 5. Open another terminal to create and activate a python virtual environment for Nada program development
 
 ```
-cd packages/nillion && sh create-venv.sh && source .venv/bin/activate
+cd packages/nillion && bash create-venv.sh && source .venv/bin/activate
 ```
 
 The [nada tool](https://docs.nillion.com/nada) was used to initiate a project inside of packages/nillion/next-project-programs. Create a new Nada program `tiny_secret_addition.py` in next-project-programs/src
