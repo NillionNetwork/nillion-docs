@@ -12,6 +12,8 @@ Overview of the primitive and the array Nada operations.
 | Power                                                             | `x ** y`                                            | `P ← P ** P`                                                                                              |
 | Division                                                          | `x / y`                                             | `P ← P / P`,<br/> `S ← P / S`,<br/> `S ← S / P`,<br/> `S ← S / S`                                         |
 | Modulo                                                            | `x % y`                                             | `P ← P % P`,<br/> `S ← P % S`,<br/> `S ← S % P`,<br/> `S ← S % S`                                         |
+| Shifts                                                            | `x << y`,<br/> `x >> y`                             | `P ← P << P`,<br/> `S ← S << P` |
+| Probabilistic truncation                                          | `x.trunc_pr(y)`                                     | `S ← S.trunc_pr(P)` |
 | Comparisons                                                       | `x < y`,<br/> `x <= y`,<br/> `x > y`,<br/> `x >= y` | `P ← P < P`,<br/> `S ← P < S`,<br/> `S ← S < P`,<br/> `S ← S < S`                                         |
 | Ternary _"if else"_<br/> (public condition)                       | `cond.if_else(x, y)`                                | `P ← P.if_else(P, P)`,<br/> `S ← P.if_else(P, S)`,<br/> `S ← P.if_else(S, P)`,<br/> `S ← P.if_else(S, S)` |
 | Ternary _"if else"_<br/> (secret condition)                       | `cond.if_else(x, y)`                                | `S ← S.if_else(P, P)`,<br/> `S ← S.if_else(P, S)`,<br/> `S ← S.if_else(S, P)`,<br/> `S ← S.if_else(S, S)` |
