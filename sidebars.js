@@ -220,7 +220,6 @@ const sidebars = {
     'showcase',
     'community-and-support',
     'nucleus-builders-program',
-    'running-a-node',
     'technical-reports-and-demos',
     'glossary',
     {
