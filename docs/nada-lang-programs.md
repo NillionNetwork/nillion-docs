@@ -30,16 +30,6 @@ def nada_main():
 
 <table><thead><tr><th>Output value</th><th>Output name</th><th>Output Type</th><th>Party name</th><th data-hidden>Output type</th><th data-hidden>Party name</th><th data-hidden>Output name</th></tr></thead><tbody><tr><td>`total`</td><td>`my_output`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td><td>`my_output`</td></tr></tbody></table>
 
-### Addition by reducing an array
-
-Let's do something more interesting!
-
-The following program reduces an array to add up every element
-
-```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/reduce_simple.py
-```
-
 ### Ternary conditional operators
 
 Next, let's see an example of our ternary operation:
