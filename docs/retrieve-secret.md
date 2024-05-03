@@ -11,7 +11,7 @@ Retrieve secret strings, integers, and arrays from the network.
 Retrieve and decode a stored secret string
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_store_and_retrieve_secrets/store_and_retrieve_blob.py#L39-L45
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_store_and_retrieve_secrets/store_and_retrieve_blob.py#L39-L45
 ```
 
 ## Retrieve a SecretInteger
@@ -19,5 +19,5 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/e
 Retrieve a stored secret integer
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_store_and_retrieve_secrets/store_and_retrieve_integer.py#L37-L41
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_store_and_retrieve_secrets/store_and_retrieve_integer.py#L37-L41
 ```

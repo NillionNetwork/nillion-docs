@@ -117,11 +117,11 @@ Let's write a Python script that will interact with nillion-devnet. This Python 
 7. Compute on the program with 1st secret from the network, and the 2nd secret, provided at compute time
 8. Print the computation result
 
-Check out the completed Python script [here](https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py)
+Check out the completed Python script [here](https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py)
 
 ### Complete the python script 🎯 TODOs
 
-Open the [core_concept_single_party_compute/tiny_secret_addition.py](https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py) file and let's work through the 🎯 TODOs.
+Open the [core_concept_single_party_compute/tiny_secret_addition.py](https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py) file and let's work through the 🎯 TODOs.
 
 :::tip
 
@@ -136,12 +136,12 @@ The first step was completed for you. The script uses a `create_nillion_client` 
 <Tabs>
   <TabItem value="todo-1" label="Todo #1" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L14-L24
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L14-L24
 ```
   </TabItem>
   <TabItem value="complete-1" label="Complete #1" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L14-L24
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L14-L24
 ```
   </TabItem>
   <TabItem value="nillion-client" label="create_nillion_client helper" default>
@@ -156,12 +156,12 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/main/helpers/nilli
 <Tabs>
   <TabItem value="todo-1" label="Todo #2" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L26-L28
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L26-L28
 ```
   </TabItem>
   <TabItem value="complete-1" label="Complete #2" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L26-L29
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L26-L29
 ```
   </TabItem>
 </Tabs>
@@ -171,12 +171,12 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/e
 <Tabs>
   <TabItem value="todo-3" label="Todo #3" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L29-L37
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L29-L37
 ```
   </TabItem>
   <TabItem value="complete-3" label="Complete #3" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L30-L44
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L30-L44
 ```
   </TabItem>
 </Tabs>
@@ -186,12 +186,12 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/e
 <Tabs>
   <TabItem value="todo-4" label="Todo #4" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L38-L44
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L38-L44
 ```
   </TabItem>
   <TabItem value="complete-4" label="Complete #4" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L45-L58
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L45-L58
 ```
   </TabItem>
 </Tabs>
@@ -203,12 +203,12 @@ When we wrote our Nada program, we created 2 secret integers that are inputs to 
 <Tabs>
   <TabItem value="todo-5" label="Todo #5" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L45-L47
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L45-L47
 ```
   </TabItem>
   <TabItem value="complete-5" label="Complete #5" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L59-L65
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L59-L65
 ```
   </TabItem>
 </Tabs>
@@ -218,12 +218,12 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/e
 <Tabs>
   <TabItem value="todo-6" label="Todo #6" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L48-L50
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L48-L50
 ```
   </TabItem>
   <TabItem value="complete-6" label="Complete #6" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L66-L70
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L66-L70
 ```
   </TabItem>
 </Tabs>
@@ -233,12 +233,12 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/e
 <Tabs>
   <TabItem value="todo-7" label="Todo #7" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L51-L54
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L51-L54
 ```
   </TabItem>
   <TabItem value="complete-7" label="Complete #7" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L71-L84
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L71-L84
 ```
   </TabItem>
 </Tabs>
@@ -248,12 +248,12 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/e
 <Tabs>
   <TabItem value="todo-8" label="Todo #8" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L55-L56
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition.py#L55-L56
 ```
   </TabItem>
   <TabItem value="complete-8" label="Complete #8" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L85-L93
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L85-L93
 ```
   </TabItem>
 </Tabs>
@@ -275,14 +275,14 @@ You've successfully written your first single party Nada program, stored the pro
 
 - running other examples
 
-  - single party program examples in the [core_concept_single_party_compute folder](https://github.com/NillionNetwork/nillion-python-starter/tree/dave-restructure/examples_and_tutorials/core_concept_single_party_compute)
-  - multi party examples in the [core_concept_multi_party_compute folder](https://github.com/NillionNetwork/nillion-python-starter/tree/dave-restructure/examples_and_tutorials/core_concept_multi_party_compute)
-  - permissioning secrets examples in the in the [permissions folder](https://github.com/NillionNetwork/nillion-python-starter/tree/dave-restructure/examples_and_tutorials/core_concept_permissions) for storing and retrieving permissioned secrets and revoking permissions
+  - single party program examples in the [core_concept_single_party_compute folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/examples_and_tutorials/core_concept_single_party_compute)
+  - multi party examples in the [core_concept_multi_party_compute folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/examples_and_tutorials/core_concept_multi_party_compute)
+  - permissioning secrets examples in the in the [permissions folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/examples_and_tutorials/core_concept_permissions) for storing and retrieving permissioned secrets and revoking permissions
 
 - reading about [Nillion concepts](/concepts) and the [Nada Language](nada-lang)
 
 - learning how to interact with and manage programs, secrets, and permissions on the Nillion Network with [Nillion Client](/nillion-client)
-- solving the [millionaires problem](/multi-party-computation#classic-scenario-the-millionaires-problem) in the [millionaires_problem_example folder](https://github.com/NillionNetwork/nillion-python-starter/tree/dave-restructure/examples_and_tutorials/millionaires_problem_example)
+- solving the [millionaires problem](/multi-party-computation#classic-scenario-the-millionaires-problem) in the [millionaires_problem_example folder](https://github.com/NillionNetwork/nillion-python-starter/tree/main/examples_and_tutorials/millionaires_problem_example)
 
 ### Solve the millionaires problem
 

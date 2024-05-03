@@ -9,7 +9,7 @@ Check out the [store_secrets](/python-client-reference#py_nillion_client.Nillion
 Store a SecretBlob, a UTF-8 encoded secret string
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_store_and_retrieve_secrets/store_and_retrieve_blob.py#L15-L39
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_store_and_retrieve_secrets/store_and_retrieve_blob.py#L15-L39
 ```
 
 ## Store a SecretInteger
@@ -17,5 +17,5 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/e
 Store a single SecretInteger
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/dave-restructure/examples_and_tutorials/core_concept_store_and_retrieve_secrets/store_and_retrieve_integer.py#L15-L37
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_store_and_retrieve_secrets/store_and_retrieve_integer.py#L15-L37
 ```
