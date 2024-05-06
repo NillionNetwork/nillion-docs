@@ -37,16 +37,6 @@ The program [`tiny_addition.py`](https://github.com/nillion-oss/nillion-python-s
   </tbody>
 </table>
 
-### Addition by reducing an array
-
-Let's do something more interesting!
-
-The following program reduces an array to add up every element
-
-```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/reduce_simple.py
-```
-
 ### Ternary conditional operators
 
 Next, let's see an example of our ternary operation:
