@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <style>
+      body { padding:8px; font-family:Monospace; white-space;pre; background-color:rgb(246, 248, 250); }
+      .keyword { font-weight:bold; color:#000000; }
+      .rules-SyntaxError { background-color:#FFFF00; color:#555555; }
+      .rules-SyntaxRestriction { background-color:#CCCC00; font-weight:bold; color:#000000; }
+      .types-TypeError { background-color:#FFCCCB; font-weight:bold; color:#B22222; }
+      .types-TypeErrorRoot { background-color:#FF0000; font-weight:bold; color:#FFFFFF ; }
+      .types-bool { font-weight:bold; color:#000000; }
+      .types-int { font-weight:bold; color:#000000; }
+      .types-str { font-weight:bold; color:#000000; }
+      .types-Party { font-weight:bold; color:#d45cd6; }
+      .types-Input { font-weight:bold; color:#DAA520; }
+      .types-Output { font-weight:bold; color:#DAA520; }
+      .types-Integer { font-weight:bold; color:#009900; }
+      .types-Integer { font-weight:bold; color:#009900; }
+      .types-PublicInteger { font-weight:bold; color:#009900; }
+      .types-SecretInteger { font-weight:bold; color:#0000FF; }
+      .types-Boolean { font-weight:bold; color:#009900; }
+      .types-PublicBoolean { font-weight:bold; color:#009900; }
+      .types-SecretBoolean { font-weight:bold; color:#0000FF; }
+      div { height:18px; line-height:18px; white-space:pre; }
+      div span { padding-top:3px; padding-bottom:3px; line-height:18px; cursor:pointer; }
+      .detail { cursor:pointer; }
+      .detail:hover { background-color:#DDDDDD; }
+      #detail {
+        display:none;
+        position:absolute;
+        padding:12px;
+        background-color:#000000;
+        color:#FFFFFF;
+      }
+    </style>
+  </head>
+  <body>
+  <div id="detail"></div>
+<div><span class="keyword">from</span> nada_dsl import *</div>
+<div></div>
+<div><span class="keyword">def</span> nada_main():</div>
+<div>    <span class="detail" data-detail="Party"><span class="types-Party">data_owner</span></span> = <span class="detail" data-detail="Party"><span class="types-Party">Party</span></span>(name=<span class="detail" data-detail="str"><span class="types-str">"data_owner"</span></span>)</div>
+<div></div>
+<div>    <span class="detail" data-detail="SecretInteger"><span class="types-SecretInteger">x</span></span> = <span class="detail" data-detail="SecretInteger"><span class="types-SecretInteger">SecretInteger</span></span>(<span class="detail" data-detail="Input"><span class="types-Input">Input</span></span>(name=<span class="detail" data-detail="str"><span class="types-str">"x"</span></span>, party=<span class="detail" data-detail="Party"><span class="types-Party">data_owner</span></span>))</div>
+<div>    <span class="detail" data-detail="SecretInteger"><span class="types-SecretInteger">y</span></span> = <span class="detail" data-detail="SecretInteger"><span class="types-SecretInteger">SecretInteger</span></span>(<span class="detail" data-detail="Input"><span class="types-Input">Input</span></span>(name=<span class="detail" data-detail="str"><span class="types-str">"y"</span></span>, party=<span class="detail" data-detail="Party"><span class="types-Party">data_owner</span></span>))</div>
+<div>    <span class="detail" data-detail="PublicInteger"><span class="types-PublicInteger">z</span></span> = <span class="detail" data-detail="PublicInteger"><span class="types-PublicInteger">PublicInteger</span></span>(<span class="detail" data-detail="Input"><span class="types-Input">Input</span></span>(name=<span class="detail" data-detail="str"><span class="types-str">"z"</span></span>, party=<span class="detail" data-detail="Party"><span class="types-Party">data_owner</span></span>))</div>
+<div></div>
+<div>    <span class="detail" data-detail="SecretBoolean"><span class="types-SecretBoolean">a</span></span> = <span class="detail" data-detail="SecretInteger"><span class="types-SecretInteger">x</span></span> <span class="detail" data-detail="SecretBoolean"><span class="types-SecretBoolean"><</span></span> <span class="detail" data-detail="SecretInteger"><span class="types-SecretInteger">y</span></span></div>
+<div>    <span class="detail" data-detail="SecretBoolean"><span class="types-SecretBoolean">b</span></span> = <span class="detail" data-detail="SecretInteger"><span class="types-SecretInteger">x</span></span> <span class="detail" data-detail="SecretBoolean"><span class="types-SecretBoolean">==</span></span> <span class="detail" data-detail="PublicInteger"><span class="types-PublicInteger">z</span></span></div>
+<div></div>
+<div>    <span class="detail" data-detail="list[Output]"><span class="keyword">return</span> </span>[<span class="detail" data-detail="Output"><span class="types-Output">Output</span></span>(<span class="detail" data-detail="SecretInteger"><span class="types-SecretInteger">x</span></span>, <span class="detail" data-detail="str"><span class="types-str">"x"</span></span>, <span class="detail" data-detail="Party"><span class="types-Party">data_owner</span></span>), <span class="detail" data-detail="Output"><span class="types-Output">Output</span></span>(<span class="detail" data-detail="SecretInteger"><span class="types-SecretInteger">y</span></span>, <span class="detail" data-detail="str"><span class="types-str">"y"</span></span>, <span class="detail" data-detail="Party"><span class="types-Party">data_owner</span></span>)]</div>
+  </body>
+    <script>
+      window.onload = function () {
+        const elements = document.getElementsByClassName("detail");
+        for (let i = 0; i < elements.length; i++) {
+          const element = elements[i];
+          element.addEventListener("mouseover", function (event) {
+            const detail = document.getElementById("detail");
+            detail.style.display = "block";
+            detail.style.top = element.offsetTop + 24 + "px";
+            detail.style.left = (
+              element.offsetLeft +
+              element.getBoundingClientRect().width -
+              16
+            ) + "px";
+            detail.innerHTML = element.dataset.detail;
+          });
+          element.addEventListener("mouseout", function (event) { 
+            const detail = document.getElementById("detail");
+            detail.style.display = "none";
+          });
+        }
+      };
+    </script>
+</html>
