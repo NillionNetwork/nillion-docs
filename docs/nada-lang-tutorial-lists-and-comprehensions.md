@@ -4,7 +4,7 @@ The Nada DSL supports the introduction and use of Python lists that contain secr
 
 ## Basic Example
 
-The program below uses a [Python list comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) to build an ascending sequence of three secret integers in which the first entry is a secret integer input. This sequence of secret integers is then returned by the program.
+The program below uses [Python list comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) to build an ascending sequence of three secret integers in which the first entry is a secret integer input. This sequence of secret integers is then returned by the program.
 
 <iframe src='img/nada-lang-tutorial-lists-and-comprehensions-0.html' height='278px' width='100%'></iframe>
 <!--```python
