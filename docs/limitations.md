@@ -32,7 +32,6 @@ Binaries are not yet available for Windows.
 ### JavaScript Client
 
 - Currently the JS client is only tested on Chromium browsers (Chrome, Brave & Edge) and production deployments will likely require [activating COOP and COEP headers](https://web.dev/coop-coep/).
-- The JS client does not yet have SecretArray functionality.
 - The JS client is a browser client and does not yet work in NodeJs.
 
 ### CLI Client
@@ -57,36 +56,6 @@ Running the [`nillion-devnet`](/nillion-devnet) command (SDK tool) will spin up 
 
 Check the [Nada language docs](/nada-lang) for the current [data types](/nada-lang-types) and [operations](/nada-lang-operators) available.
 
-### No recursion and/or looping constructs
-
-You cannot write loops or recursion in Nada. You can circumvent this problem in some cases by using a Python loop so long as the data controlling the loop is not a Nada value. Consider the fragment below:
-
-```python
-voters = []
-for i in range(nr_voters):
-	voters.append(Party(name="Voter" + str(i)))
-	outparty = Party(name="OutParty")
-```
-
-The loop is providing a sequence of numbers to name party voters, therefore it works as you'd expect.
-
-Now, consider the following code fragment:
-
-```python
-
-my_array = Array(SecretInteger(Input(name="my_array_1", party=party1)), size=3)
-
-def inc(a: SecretInteger, my_int: SecretInteger) -> SecretInteger:
-return a + my_int
-
-new_array = []
-for i in range(3)
-new_array[i] = inc(my_array[i], SecretInteger(1))
-
-```
-
-This implementation won't work. It expects to run the `for … in` in the network, which is not possible. For that, you must use a map function. All array-related iterations must use either [map or reduce](/nada-lang-operators#array-operations-experimental-feature).
-
 ### No random value generation in Nada
 
 - We expect random value generation in Nada in the future.
@@ -109,36 +78,6 @@ The Nada compiler will throw an error as `inc2` does not have access to `inc`.
 
 - Currently you should not use 0 as an input value as it may leak other secrets. We are working on fixing this.
 - Ensure that your programs do not attempt to divide by 0, this is not supported in our language currently.
-
-### Storing and running large nada programs
-
-- Currently certain forms of large programs cannot be stored or computed on the network.
-
-### Arrays (experimental)
-
-- Arrays are statically allocated, and be updated.
-- Arrays only exist with statically defined lengths.
-- Arrays cannot be nested, so matrix programs cannot be ergonomically written in Nada.
-
-There are 3 ways to define an array
-
-1. Array via input
-
-```python
-my_array = Array(SecretInteger(Input(name="my_array_1", party=party1)), size=3)
-```
-
-2. Array via known list of values
-
-```python
-my_array = Array(SecretInteger(1), my_int)
-```
-
-3. Array via an existing array
-
-```python
-new_array = my_array.map(your_function)
-```
 
 ## Authentication in scaffold-nillion
 

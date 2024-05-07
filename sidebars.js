@@ -182,18 +182,37 @@ const sidebars = {
       items: [
         'nada-lang-types',
         'nada-lang-operators',
-
         {
           type: 'category',
-          label: 'Nada Programs',
+          label: 'Programming with Nada',
           link: {
             type: 'doc',
             id: 'nada-lang-programs',
           },
           items: [
             {
+              type: 'doc',
+              label: 'Arithmetic and Logic',
+              id: 'nada-lang-tutorial-arithmetic-and-logic',
+            },
+            {
+              type: 'doc',
+              label: 'Functions',
+              id: 'nada-lang-tutorial-functions',
+            },
+            {
+              type: 'doc',
+              label: 'Lists and Comprehensions',
+              id: 'nada-lang-tutorial-lists-and-comprehensions',
+            },
+            {
+              type: 'doc',
+              label: 'Lists and Iteration',
+              id: 'nada-lang-tutorial-lists-and-iteration',
+            },
+            {
               type: 'link',
-              label: 'Nada Program Examples',
+              label: 'More Example Programs',
               href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs',
             },
           ],

@@ -12,26 +12,31 @@ curl https://nilup.nilogy.xyz/install.sh | bash
 ```
 
 If you install the Nillion SDK using `nilup`, all the Nillion SDK commands will be managed by `nilup`,
-which will pick the version to use based on the next order, from highest to lowest priority: 
-the `+<version>` flag, the `nil-sdk.toml` file, and the global version set with the `use` command. 
+which will pick the version to use based on the next order, from highest to lowest priority:
+the `+<version>` flag, the `nil-sdk.toml` file, and the global version set with the `use` command.
 
 ### `+<version>` flag
+
 When you call any Nillion SDK command like `nada` you can add a `+<version>` argument to use that version of `nada`.
 For example if you run `nada +0.0.4 init` will run `nada` version 0.0.4.
 
 ### `nil-sdk.toml` file
+
 If there is a `nil-sdk.toml` or `.nil-sdk.toml` file in the current directory or parent directories, the Nillion SDK commands will use the version specified in that file.
 
 The file should have the following format:
+
 ```toml
-version = "0.0.4"
+version = "{version}"
 ```
 
 ### Global version
+
 If no version is specified in the command or in the `nil-sdk.toml` file, the Nillion SDK commands will use the global version set with the `use` command.
-You can set the global version with the command 
+You can set the global version with the command
+
 ```
-nilup use 0.0.4
+nilup use {version}
 ```
 
 ## Usage
