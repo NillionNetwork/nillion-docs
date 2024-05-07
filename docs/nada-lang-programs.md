@@ -1,12 +1,12 @@
-# Nada Programs
+# Programming with Nada
 
-Check out Nada program examples and learn how to compile and run Nada programs.
+This is a basic introduction to programming with the Nada embedded domain-specific language (DSL). Use this page to learn how to compile and run a basic Nada program. Once you are ready, proceed to the other tutorials to learn Nada features via simple example programs!
 
-## Program examples
+## Example Programs
 
-### Tiny addition
+### Tiny Addition (with a Single Party)
 
-Here's a tiny Nada program that adds two secret integer inputs.
+Below is a tiny Nada program `tiny_addition.py` that adds two secret integer inputs. Both of these integer inputs belong to `Nilla 🐶`, who is using the Nillion Network to compute their total. Most importantly, the secret integers are never revealed to the Nillion Network nodes!
 
 ```python
 from nada_dsl import *
@@ -22,13 +22,20 @@ def nada_main():
     return [Output(total, "my_output", nilla_the_dog)]
 ```
 
-[`tiny_addition.py`](https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py) takes in two [Inputs](concepts.md#inputs) from the same [Party](concepts.md#party)
+The [`tiny_addition.py`](https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py) program takes in two [Inputs](concepts.md#inputs) from the same [Party](concepts.md#party).
 
 <table><thead><tr><th width="162">Input name</th><th width="145">Input type</th><th>Party name</th></tr></thead><tbody><tr><td>`my_secret_1`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td></tr><tr><td>`my_secret_2`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td></tr></tbody></table>
 
-[`tiny_addition.py`](https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py) returns an [Output](concepts.md#outputs) to a [Party](concepts.md#party)
+The program [`tiny_addition.py`](https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py) returns an [Output](concepts.md#outputs) to a [Party](concepts.md#party). Only that party sees the output because it it of type `SecretInteger`.
 
-<table><thead><tr><th>Output value</th><th>Output name</th><th>Output Type</th><th>Party name</th><th data-hidden>Output type</th><th data-hidden>Party name</th><th data-hidden>Output name</th></tr></thead><tbody><tr><td>`total`</td><td>`my_output`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td><td>`my_output`</td></tr></tbody></table>
+<table>
+  <thead>
+    <tr><th>Output value</th><th>Output Name</th><th>Output Type</th><th>Party name</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>`total`</td><td>`my_output`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td></tr>
+  </tbody>
+</table>
 
 ### Ternary conditional operators
 
