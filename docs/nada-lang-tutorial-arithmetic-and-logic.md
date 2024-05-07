@@ -11,9 +11,9 @@ The example below computes the revenue generated from the sales of two categorie
 from nada_dsl import *
 
 def nada_main():
-    pricing = Party(name="pricing")
-    inventory = Party(name="inventory")
-    accounting = Party(name="accounting")
+pricing = Party(name="pricing")
+inventory = Party(name="inventory")
+accounting = Party(name="accounting")
 
     price_potato = SecretInteger(Input(name="price_potato", party=pricing))
     price_tomato = SecretInteger(Input(name="price_tomato", party=pricing))
@@ -24,7 +24,8 @@ def nada_main():
     revenue = (price_potato * quantity_potato) + (price_tomato + quantity_tomato)
 
     return [Output(revenue, "revenue", accounting)]
-```-->
+
+````-->
 
 Suppose that the price information is public. In this case, `revenue` is still of type [`SecretInteger`](nada-lang-types#primitive-data-types) because the quantity information is private. If `revenue` were of type [`PublicInteger`](nada-lang-types#primitive-data-types), it would (in some cases) be possible to determine the quantity information from the revenue by working backwards.
 
@@ -69,7 +70,7 @@ def nada_main():
 
 ## Boolean Values and Comparison of Integers
 
-Comparison operations can be applied to Nada integers. Such comparison expressions evaluate to Nada boolean values. Whether this resulting value is secret depends on whether the integers being compared are secret. Furthermore, Nada boolean values support the `if_else` method, which implements a variant of the [ternary conditional operator](https://en.wikipedia.org/wiki/Ternary_conditional_operator) that can work with Nada values (even if they are secret).
+Comparison operations can be applied to integers. Such comparison expressions evaluate to Nada boolean values. Whether this resulting value is secret depends on whether the integers being compared are secret. Furthermore, Nada boolean values support the `if_else` method, which implements a variant of the [ternary conditional operator](https://en.wikipedia.org/wiki/Ternary_conditional_operator) that can work with Nada values (even if they are secret).
 
 The example below leverages both an integer comparison operator and the ternary operator to determine the larger of two secret inputs.
 
@@ -112,3 +113,4 @@ def nada_main():
 
     return [Output(a, "a", data_owner), Output(b, "b", data_owner)]
 ```-->
+````
