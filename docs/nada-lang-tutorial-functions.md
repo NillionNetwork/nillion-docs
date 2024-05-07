@@ -4,9 +4,9 @@ The Nada DSL supports a limited form of user-defined functions.
 
 ## Basic Example
 
-The example below introduces a function that calculate the total of three secret integer values.
+The example below introduces a function that calculates the total of three secret integer values. Notice that the arguments and the function itself both have [Python type annotations](https://docs.python.org/3/library/typing.html).
 
-<iframe src='img/nada-lang-tutorial-functions-0.html' height='324px' width='100%'></iframe>
+<iframe src='img/nada-lang-tutorial-functions-0.html' height='334px' width='100%'></iframe>
 <!--```python
 from nada_dsl import *
 
