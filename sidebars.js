@@ -259,6 +259,11 @@ const sidebars = {
     },
     {
       type: 'link',
+      label: 'Discord',
+      href: 'https://discord.com/invite/nillionnetwork',
+    },
+    {
+      type: 'link',
       label: 'Github',
       href: 'https://github.com/NillionNetwork',
     },

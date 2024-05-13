@@ -65,10 +65,9 @@ const config = {
     ({
       image: 'img/nillion-banner-card.jpeg',
       navbar: {
-        title: 'Nillion Documentation',
         logo: {
           alt: 'Nillion logo',
-          src: 'img/nillion-logo.jpeg',
+          src: 'img/logo.svg',
         },
         items: [
           {
@@ -84,7 +83,6 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} Nillion`,
       },
       prism: {
@@ -102,6 +100,11 @@ const config = {
         apiKey: '54efdeb0639df4a13b0e58e37360efe9', // search only - safe to share
         indexName: 'nillion_docs',
         searchPagePasitemapth: 'search',
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
       },
     }),
 };
