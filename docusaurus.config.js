@@ -13,7 +13,7 @@ const config = {
   tagline:
     'Nillion is a secure computation network that decentralizes trust for high value data',
   favicon: 'img/favicon.ico',
-
+  staticDirectories: ['static'],
   // Set the production url of your site here
   url: 'https://docs.nillion.com',
   // Set the /<baseUrl>/ pathname under which your site is served

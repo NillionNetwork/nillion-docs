@@ -243,6 +243,7 @@ const sidebars = {
     },
     'showcase',
     'community-and-support',
+    'data-wars',
     'nucleus-builders-program',
     'technical-reports-and-demos',
     'glossary',
