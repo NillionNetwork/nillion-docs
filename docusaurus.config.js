@@ -63,7 +63,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/nillion-banner-card.jpeg',
+      image: 'img/nillion-banner.jpeg',
       navbar: {
         logo: {
           alt: 'Nillion logo',
