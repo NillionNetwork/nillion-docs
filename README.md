@@ -15,7 +15,7 @@ Use our [Github Discussions forum](https://github.com/orgs/NillionNetwork/discus
 ### Installation
 
 ```
-$ yarn
+$ yarn install
 ```
 
 ### Local Development
