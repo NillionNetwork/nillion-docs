@@ -4,6 +4,11 @@
  * work well for content-centric websites.
  */
 
+@font-face {
+  font-family: 'TWKEverett';
+  src: url('../../static/fonts/TWKEverett-Medium-web.woff') format('woff');
+}
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: blue;
@@ -19,7 +24,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #b2c3ca;
+  --ifm-color-primary: #b7d8f7;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
@@ -41,4 +46,26 @@ html {
 .ag-cell-value {
   line-height: 20px;
   font-size: 14px;
+}
+
+.sidebar-title,
+.navbar__title,
+button,
+.pagination-nav__label,
+.navbar__item,
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'TWKEverett';
+}
+
+.navbar {
+  background: rgb(0, 33, 245);
+}
+
+.navbar .clean-btn svg,
+.navbar .navbar__title,
+.navbar .navbar__item {
+  color: white !important;
 }

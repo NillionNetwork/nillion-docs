@@ -13,7 +13,7 @@ const config = {
   tagline:
     'Nillion is a secure computation network that decentralizes trust for high value data',
   favicon: 'img/favicon.ico',
-
+  staticDirectories: ['static'],
   // Set the production url of your site here
   url: 'https://docs.nillion.com',
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -63,12 +63,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/nillion-banner-card.jpeg',
+      image: 'img/nillion-banner.jpeg',
       navbar: {
-        title: 'Nillion Documentation',
         logo: {
           alt: 'Nillion logo',
-          src: 'img/nillion-logo.jpeg',
+          src: 'img/logo.svg',
         },
         items: [
           {
@@ -84,7 +83,6 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} Nillion`,
       },
       prism: {
@@ -102,6 +100,11 @@ const config = {
         apiKey: '54efdeb0639df4a13b0e58e37360efe9', // search only - safe to share
         indexName: 'nillion_docs',
         searchPagePasitemapth: 'search',
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
       },
     }),
 };
