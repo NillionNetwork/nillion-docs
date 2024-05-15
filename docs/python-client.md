@@ -24,16 +24,29 @@ import py_nillion_client as nillion
 
 ### Initialize a client
 
-Initialize an instance of the NillionClient connected to the Nillion Network.
+Initialize an instance of the NillionClient connected to the Nillion Network using [helpers](https://github.com/NillionNetwork/nillion-python-starter/tree/main/helpers) from [nillion-python-starter](https://github.com/NillionNetwork/nillion-python-starter)
 
 <Tabs>
 <TabItem value="main" label="main.py" default>
 ```python 
-async def main():
-    cluster_id = os.getenv("NILLION_CLUSTER_ID")
+import os
+from dotenv import load_dotenv # pip install python-dotenv
+from helpers.nillion_client_helper import create_nillion_client
+from helpers.nillion_keypath_helper import getUserKeyFromFile, getNodeKeyFromFile
+
+# Loads environment variables from the .env file
+load_dotenv()  
+
+def main():
     userkey = getUserKeyFromFile(os.getenv("NILLION_USERKEY_PATH_PARTY_1"))
     nodekey = getNodeKeyFromFile(os.getenv("NILLION_NODEKEY_PATH_PARTY_1"))
+    # Initialize Nillion Client instance
     client = create_nillion_client(userkey, nodekey)
+    # Print the user id
+    print(client.user_id)
+
+if __name__ == "__main__":
+    main()
 ```
 </TabItem>
 
@@ -48,9 +61,20 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/main/helpers/nilli
 ```
 </TabItem>
 
+<TabItem value="keypath" label="nillion_keypath_helper.py">
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/helpers/nillion_keypath_helper.py
+```
+</TabItem>
+
 <TabItem value="env" label=".env">
 ```python reference showGithubLink
 https://github.com/NillionNetwork/nillion-python-starter/blob/main/.env.sample
+```
+</TabItem>
+<TabItem value="bootstrap" label="bootstrap_script">
+```python reference showGithubLink
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/bootstrap-local-environment.sh
 ```
 </TabItem>
 </Tabs>
