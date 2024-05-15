@@ -55,11 +55,6 @@ if __name__ == "__main__":
 https://github.com/NillionNetwork/nillion-python-starter/blob/main/helpers/nillion_client_helper.py
 ```
 </TabItem>
-<TabItem value="payments" label="nillion_payments_helper.py">
-```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/main/helpers/nillion_payments_helper.py
-```
-</TabItem>
 
 <TabItem value="keypath" label="nillion_keypath_helper.py">
 ```python reference showGithubLink
