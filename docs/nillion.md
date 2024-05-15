@@ -6,6 +6,12 @@ The nillion tool can be used to generate user keys, generate node keys, store se
 
 nillion can be run against the Nillion Network or against a local cluster spun up with nillion-devnet. If nillion is running against your local cluster, use the cluster id, bootnodes, smart contract addresses, chain id, rpc url endpoint values that are [local cluster outputs](nillion-devnet#local-cluster-outputs) as nillion options.
 
+## Installation
+
+Follow instructions to [install the Nillion SDK and Tools](/nillion-sdk-and-tools#installation), which include `nillion` tool installation
+
+# Usage
+
 ```bash
 Usage: nillion [OPTIONS] -b <BOOTNODES> <COMMAND>
 Commands:
