@@ -108,7 +108,7 @@ This results in programs-compiled, a folder of compiled programs. Check programs
 
 Let's write a Python script that will interact with nillion-devnet. This Python script will:
 
-1. Initialize NillionClient against nillion-devnet
+1. Initialize NillionClient, connecting to nillion-devnet
 2. Get the user id and party id from NillionClient
 3. Store a compiled Nada program in the network
 4. Create the 1st secret with bindings to the program
@@ -129,7 +129,7 @@ Open the Nillion [Python Client Reference](/python-client-reference) doc in anot
 
 :::
 
-#### 1. Initialize NillionClient against nillion-devnet
+#### 1. Initialize NillionClient, connecting to nillion-devnet
 
 The first step was completed for you. The script uses a `create_nillion_client` helper file to create the instance of `nillion.NillionClient` used throught the script
 
@@ -141,7 +141,7 @@ https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_
   </TabItem>
   <TabItem value="complete-1" label="Complete #1" default>
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L14-L24
+https://github.com/NillionNetwork/nillion-python-starter/blob/main/examples_and_tutorials/core_concept_single_party_compute/tiny_secret_addition_complete.py#L14-L25
 ```
   </TabItem>
   <TabItem value="nillion-client" label="create_nillion_client helper" default>
