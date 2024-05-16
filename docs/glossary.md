@@ -30,6 +30,10 @@ Masked factors are the protect factors in the Sum of Products. Masked factors ar
 
 The one-time mask is the multiplicative mask that protects a factor.&#x20;
 
+#### Privacy-enhancing technologies (PETs)
+
+Privacy-enhancing technologies (PETs) are technologies that embody fundamental data protection principles by minimizing personal data use, maximizing data security, and empowering individuals.
+
 #### Share
 
 The share is the result that a node obtains by multiplying all the masked factors, and adding up all the products of those masked factors using the sum-of-products expression shape.
@@ -55,5 +59,5 @@ x^2 + 2xy + y^2
 
 #### Sum of Products (SoP) - **Factors and Terms** <a href="#factors-and-terms" id="factors-and-terms"></a>
 
-* **Terms**: In SoP, a term is a product of factors that are multiplied together. In the example SoP, the terms are (a \* b) and (c \* d). Each term represents a multiplication operation between its factors.
-* **Factor:** Factors are the individual elements that are multiplied together within a term. In the example SoP,  a and b are factors in the (a\*b) term. c and d are factors in the (c\*d) term. They are the basic building blocks of a term.
+- **Terms**: In SoP, a term is a product of factors that are multiplied together. In the example SoP, the terms are (a \* b) and (c \* d). Each term represents a multiplication operation between its factors.
+- **Factor:** Factors are the individual elements that are multiplied together within a term. In the example SoP, a and b are factors in the (a\*b) term. c and d are factors in the (c\*d) term. They are the basic building blocks of a term.
