@@ -276,7 +276,7 @@ const sidebars = {
     {
       type: 'link',
       label: 'Blog',
-      href: 'https://medium.com/@Nillion_Network',
+      href: 'https://nillion.com/news',
     },
   ],
 };
