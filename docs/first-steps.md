@@ -2,7 +2,7 @@
 
 👋 Hey, welcome to [Nillion](https://docs.nillion.com/).
 
-This page will help you take your first steps as a Nillion developer. Once you have completed them, fill out the form to claim your prize 🎉
+This page will help you take your first steps (~30 mins) as a Nillion developer. Once you have completed them, fill out the form to claim your $20 prize 🎉
 
 1. Star & fork either the [Python](https://github.com/NillionNetwork/nillion-python-starter) or [JavaScript](https://github.com/NillionNetwork/scaffold-nillion) quickstart repos (bonus points for both)
     
@@ -11,8 +11,6 @@ This page will help you take your first steps as a Nillion developer. Once you h
 2. Follow at least one path (Python or JavaScript) in the [Developer Quickstart](/quickstart)
     
     🚨 Make sure you [enable telemetry](/nillion-sdk-and-tools#installation) as you install the Nillion SDK
-    
-    🐛 Notice a bug or have an issue while running through a quickstart? [Report it here](https://github.com/orgs/NillionNetwork/discussions/categories/bugs)
     
 3. Once you have completed the quickstart, add at least one new [nada program](/nada-lang-programs) to your repo (bonus points for creativity, but make sure it compiles and runs)
     - Python quickstart: add your nada program in your repo's [programs](https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs) folder
