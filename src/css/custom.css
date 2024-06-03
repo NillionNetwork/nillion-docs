@@ -69,3 +69,7 @@ h4 {
 .navbar .navbar__item {
   color: white !important;
 }
+
+.navbar__title {
+  font-size: 30px;
+}

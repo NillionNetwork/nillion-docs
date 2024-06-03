@@ -36,7 +36,7 @@ const sidebars = {
     'high-value-data',
     'multi-party-computation',
     'nillions-mpc-protocol',
-
+    'network',
     {
       type: 'html',
       className: 'sidebar-title',
@@ -240,6 +240,19 @@ const sidebars = {
       className: 'sidebar-title',
       value: 'Resources',
       defaultStyle: true,
+    },
+    {
+      type: 'category',
+      label: 'Testnet Guides',
+      link: {
+        type: 'doc',
+        id: 'testnet-guides',
+      },
+      items: [
+        'guide-testnet-connect',
+        'guide-testnet-faucet',
+        'guide-testnet-tx',
+      ],
     },
     'showcase',
     'community-and-support',

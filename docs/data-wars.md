@@ -1,6 +1,6 @@
 # Data Wars: Community Ranks
 
-This is not the allowlist you are looking you're looking for.
+This is not the allowlist you are looking you're looking for. Join the multi-week [Nillion bootcamp](https://zealy.io/cw/nillion) to be fully onboarded into the Nil Army. Every week you will have the potential to be whitelisted for the upcoming Nillion Blindfolded PFP NFT release.
 
 ![An image from the static](/img/data-wars.png)
 
