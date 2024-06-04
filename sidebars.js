@@ -241,6 +241,7 @@ const sidebars = {
       value: 'Resources',
       defaultStyle: true,
     },
+    'showcase',
     {
       type: 'category',
       label: 'Testnet Guides',
@@ -254,7 +255,6 @@ const sidebars = {
         'guide-testnet-tx',
       ],
     },
-    'showcase',
     'community-and-support',
     'data-wars',
     'nucleus-builders-program',
