@@ -20,4 +20,4 @@ This page will help you take your first steps (~30 mins) as a Nillion developer.
     - [Join our Discord server](https://discord.gg/yJhaH6gv)
     - [Follow us on Twitter](https://x.com/nillionnetwork)
 
-5. Fill out [this Deform](https://app.deform.cc/form/5197be84-8f6b-4f93-9222-6f9face7976e) to claim your prize 🎉
+5. Fill out [this Deform](https://app.deform.cc/form/8017cfb9-06ef-4dd9-9d88-9eea7734f9d8) to claim your prize 🎉
