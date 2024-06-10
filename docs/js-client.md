@@ -33,7 +33,7 @@ pnpm add @nillion/nillion-client-js-browser
 
 ## Usage
 
-### Asyncronously Import JavaScript Client
+### Asynchronously Import JavaScript Client
 
 <Tabs>
 
@@ -44,7 +44,7 @@ const [nillion, setNillion] = useState(null);
 // run once on mount
 useEffect(() => {
     const importNillion = async () => {
-        // asyncronously import Nillion JavaScript Client
+        // asynchronously import Nillion JavaScript Client
         const nillionPackage = await import('@nillion/nillion-client-js-browser');
         // set nillion state variable
         setNillion(nillionPackage);
@@ -131,7 +131,7 @@ function App() {
     // state variable for NillionClient
     const [nillionClient, setNillionClient] = useState(null);
   
-    // Asyncronously Import JavaScript Client package
+    // Asynchronously Import JavaScript Client package
     useEffect(() => {
         const importNillion = async () => {
             const nillionPackage = await import('@nillion/nillion-client-js-browser');
