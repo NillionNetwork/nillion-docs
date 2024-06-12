@@ -100,7 +100,7 @@ To build all the programs in the project, you can run
 nada build
 ```
 
-Note: this will only build the programs specified in the `nada-project.toml` file. Visit the section [Add a new program to the project](#add-a-new-program-to-the-project) for more information.
+Note: this will only build the programs specified in the `nada-project.toml` file. Visit the section [Add a new program to the project](#add-a-new-nada-program-to-the-project) for more information.
 
 Also you can specify which program to build by passing the program name as an argument
 
