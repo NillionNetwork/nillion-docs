@@ -131,7 +131,7 @@ Open the Nillion [Python Client Reference](/python-client-reference) doc in anot
 
 #### 1. Initialize NillionClient, connecting to nillion-devnet
 
-The first step was completed for you. The script uses a `create_nillion_client` helper file to create the instance of `nillion.NillionClient` used throught the script
+The first step was completed for you. The script uses a `create_nillion_client` helper file to create the instance of `nillion.NillionClient` used throughout the script
 
 <Tabs>
   <TabItem value="todo-1" label="Todo #1" default>
