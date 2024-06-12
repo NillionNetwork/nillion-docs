@@ -473,7 +473,7 @@ same interpreter.
   - **connection_mode** ([_ConnectionMode_](#py_nillion_client.ConnectionMode)) – How to connect to the network, either directly (indicating a listen address), through a relay server or as a dialer client.
   - **user_key** ([_UserKey_](#py_nillion_client.UserKey)) – User credentials to use.
   - **payments_config** ([_PaymentsConfig_](#py_nillion_client.PaymentsConfig)) – The payments configuration to use.
-  - **whitelist** (_list_ _of_ _str_ _,_ _optional_) – A list of peer ids to connecto to/from.
+  - **whitelist** (_list_ _of_ _str_ _,_ _optional_) – A list of peer ids to connect to/from.
 - **Returns:**
   Instance of the NillionClient and an event receiver channel used to retrieve computation results.
 - **Return type:**
@@ -1791,7 +1791,7 @@ public variables used by the corresponding Nada program.
 - **Return type:**
   [PublicVariables](#py_nillion_client.PublicVariables)
 - **Raises:**
-  **ValueError** – invalid public variable type: Raises an error when a secret variabel element is included inside
+  **ValueError** – invalid public variable type: Raises an error when a secret variable element is included inside
   the public_variables dictionary.
 
 #### Example
@@ -2129,7 +2129,7 @@ secrets used by the corresponding Nada program that are not stored.
 - **Return type:**
   [Secrets](#py_nillion_client.Secrets)
 - **Raises:**
-  **ValueError** – invalid public variable type: Raises an error when a public variabel element is included inside
+  **ValueError** – invalid public variable type: Raises an error when a public variable element is included inside
   the secrets dictionary.
 
 #### Example
