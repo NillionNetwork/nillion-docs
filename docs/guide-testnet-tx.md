@@ -35,7 +35,7 @@ Follow the [Using the Faucet](/guide-testnet-faucet) guide to request NIL testne
 
     5. Click "Next."
 
-    6. Confirm transaction by reviewing details to make sure the receipient's wallet address, amount, and memo are correct.
+    6. Confirm transaction by reviewing details to make sure the recipient's wallet address, amount, and memo are correct.
 
     7. Click "Approve" to send the transaction, and wait for a success message to appear.
 
@@ -51,7 +51,7 @@ Use an explorer to find your transaction:
 
 1. Open a Nillion Testnet block explorer and paste your Nillion wallet address into the search bar.
 
-2. Find "Transactions" and click into the latest transaction.
+2. Find "Transactions" and click on the latest transaction.
 
 3. Look at the transaction details to see the onchain record of the NIL you just sent.
 

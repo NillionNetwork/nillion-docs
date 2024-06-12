@@ -56,7 +56,7 @@ Before you use [Scaffold-Nillion](https://github.com/NillionNetwork/scaffold-nil
 - [pidof](https://formulae.brew.sh/formula/pidof)
 - [grep](https://formulae.brew.sh/formula/grep)
 
-### Install MetaMask Flask and to store a Nillion user key in MetaMask Snaps
+### Install MetaMask Flask and store a Nillion user key in MetaMask Snaps
 
 1. Install the [MetaMask Flask browser extension](https://docs.metamask.io/snaps/get-started/install-flask/) that will let you work with experimental snaps.
 2. Create a new test wallet in MetaMask Flask
