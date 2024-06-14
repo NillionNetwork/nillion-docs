@@ -17,7 +17,7 @@ This page will help you take your first steps (~30 mins) as a Nillion developer.
     - JavaScript quickstart: add your program in your repo's [next-project-programs/src](https://github.com/NillionNetwork/scaffold-nillion/tree/main/packages/nillion/next-project-programs/src) folder
 
 4. Join our community:
-    - [Join our Discord server](https://discord.gg/yJhaH6gv)
+    - [Join our Discord server](https://discord.com/invite/nillionnetwork)
     - [Follow us on Twitter](https://x.com/nillionnetwork)
 
 5. Fill out [this form](https://forms.gle/TXhKmEjjrRhFYtf48) to claim your prize 🎉
