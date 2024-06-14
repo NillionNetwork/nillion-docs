@@ -5,7 +5,7 @@ This telemetry is opt-in, by default we don't collect any data. If you want to h
 you can enable telemetry by running the following command:
 
 ```bash
-nilup instrumentation enable --wallet <your-wallet-address>
+nilup instrumentation enable --wallet quest-<your-wallet-address>
 ```
 The wallet address is optional.
 
