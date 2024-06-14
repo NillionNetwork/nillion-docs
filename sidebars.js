@@ -228,7 +228,7 @@ const sidebars = {
     {
       type: 'link',
       label: 'Builder Bounties',
-      href: 'https://www.notion.so/nillion/Nillion-Builder-Bounties-5a040992ab5f4af4a9e3c43906e70590?pvs=4',
+      href: 'https://github.com/NillionNetwork/builder-bounties',
     },
     {
       type: 'link',
