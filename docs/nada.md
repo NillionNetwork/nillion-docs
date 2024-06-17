@@ -58,7 +58,7 @@ version = "<version>"
 
 This will ensure that when you call nada or any other Nillion SDK command, it will use the version specified in that file.
 
-### Set up virtual environment
+### Set up a virtual environment
 
 1. Create a python [virtual environment](https://docs.python.org/3/library/venv.html)
 
