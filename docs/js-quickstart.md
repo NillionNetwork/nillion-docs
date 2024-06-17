@@ -72,7 +72,7 @@ cd scaffold-nillion
 yarn install
 ```
 
-### 2. Run a local ethereum network in the first terminal:
+### 2. Run a local Ethereum network in the first terminal:
 
 ```
 yarn chain
@@ -80,7 +80,7 @@ yarn chain
 
 This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development.
 
-### 3. Open a second terminal and deploy the test ethereum contract:
+### 3. Open a second terminal and deploy the test Ethereum contract:
 
 ```
 yarn deploy
