@@ -207,7 +207,7 @@ Use the [`FinalResult.value()`](#py_nillion_client.FinalResult.value) method to
 obtain the wrapped value.
 
 - **Returns:**
-  The [`FinalResult`](#py_nillion_client.FinalResult) class containing the final result
+  The [`FinalResult`](#py_nillion_client.FinalResult) class contains the final result
   of the computation. Use the [`FinalResult.value()`](#py_nillion_client.FinalResult.value) method to
   obtain the wrapped value.
 - **Return type:**
@@ -665,7 +665,7 @@ Returns the SDK client’s instance party ID, which can be used
 by the client to create program bindings ([`ProgramBindings`](#py_nillion_client.ProgramBindings),
 check examples).
 
-Effectively, the party ID is equivalent to the the Peer ID
+Effectively, the party ID is equivalent to the Peer ID
 used within libp2p for inter-node communication. It is a hash
 generated from the public key of the node’s key-pair ([`NodeKey`](#py_nillion_client.NodeKey)). Not to
 be confused with the [`user_id`](#py_nillion_client.NillionClient.user_id) which is generated from the
@@ -777,7 +777,7 @@ Store secrets in the Nillion Network.
   str
 - **Raises:**
   **TypeError** – When using bindings, the input party name provided (e.g. “InputPartyName”) must
-  match the input party name in the Nada program. Othersiwe, we get a TypeError.
+  match the input party name in the Nada program. Otherwise, we get a TypeError.
 
 #### Example
 
