@@ -17,7 +17,7 @@ Follow the [Using the Faucet](/guide-testnet-faucet) guide to request NIL testne
 
 ### 1. Open Keplr and check your NIL balance
 
-    1. Open Keplr and find the "Search for asset or chain" searchbar on the Home tab.
+    1. Open Keplr and find the "Search for asset or chain" search bar on the Home tab.
 
     2. Type in "NIL" to filter for your available balance of NIL.
 
@@ -35,7 +35,7 @@ Follow the [Using the Faucet](/guide-testnet-faucet) guide to request NIL testne
 
     5. Click "Next."
 
-    6. Confirm transaction by reviewing details to make sure the recipient's wallet address, amount, and memo are correct.
+    6. Confirm the transaction by reviewing details to make sure the recipient's wallet address, amount, and memo are correct.
 
     7. Click "Approve" to send the transaction, and wait for a success message to appear.
 
