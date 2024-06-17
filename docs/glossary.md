@@ -24,7 +24,7 @@ A Linear Secret Sharing Scheme is a cryptography method where a secret is divide
 
 #### Masked factors
 
-Masked factors are the protect factors in the Sum of Products. Masked factors are the one-time mask raised to the power of the masked exponent multiplied by the factor.
+Masked factors are the protective factors in the Sum of Products. Masked factors are the one-time mask raised to the power of the masked exponent multiplied by the factor.
 
 #### One-time mask
 
