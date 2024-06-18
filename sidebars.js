@@ -219,6 +219,56 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: 'Nada AI Toolkit',
+      link: {
+        type: 'doc',
+        id: 'nada-ai-intro',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Nada Numpy',
+          link: {
+            type: 'doc',
+            id: 'nada-numpy-hello-world',
+          },
+          items: [
+            {
+              type: 'doc',
+              label: 'Nada Rationals',
+              id: 'nada-numpy-rationals',
+            },
+            {
+              type: 'doc',
+              label: 'Dot Product',
+              id: 'nada-numpy-dot-product',
+            },
+            {
+              type: 'doc',
+              label: 'Matrix Multiplication',
+              id: 'nada-numpy-matrix-multiplication',
+            },
+            {
+              type: 'doc',
+              label: 'Nada Numpy Array Operators',
+              id: 'nada-numpy-operators',
+            },
+            {
+              type: 'doc',
+              label: 'Nada Numpy Array Functions',
+              id: 'nada-numpy-array-functions',
+            },
+          ]
+        },
+        {
+          type: 'doc',
+          label: 'Nada AI',
+          id: 'nada-ai-hello-world',
+        }
+      ],
+    },
     'limitations',
     {
       type: 'link',
