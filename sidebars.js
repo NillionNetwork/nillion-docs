@@ -224,7 +224,7 @@ const sidebars = {
       label: 'Nada AI Toolkit',
       link: {
         type: 'doc',
-        id: 'nada-ai-intro',
+        id: 'nada-ai-toolkit',
       },
       items: [
         {
@@ -232,7 +232,7 @@ const sidebars = {
           label: 'Nada Numpy',
           link: {
             type: 'doc',
-            id: 'nada-numpy-hello-world',
+            id: 'nada-numpy-introduction',
           },
           items: [
             {
@@ -263,10 +263,30 @@ const sidebars = {
           ]
         },
         {
-          type: 'doc',
+          type: 'category',
           label: 'Nada AI',
-          id: 'nada-ai-hello-world',
-        }
+          link: {
+            type: 'doc',
+            id: 'nada-ai-introduction',
+          },
+          items: [
+            {
+              type: 'doc',
+              label: 'Nada AI Linear Model Tutorial',
+              id: 'nada-ai-linear-model',
+            },
+            {
+              type: 'doc',
+              label: 'Nada AI Deep Learning Tutorial',
+              id: 'nada-ai-neural-network',
+            },
+            {
+              type: 'doc',
+              label: 'Nada AI Reference',
+              id: 'nada-ai-reference',
+            },
+          ]
+        },
       ],
     },
     'limitations',

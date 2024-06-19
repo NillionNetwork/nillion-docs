@@ -60,3 +60,6 @@
 | `size`       | `array.size`                                 | Number of elements in the array.                    |
 | `strides`    | `array.strides`                              | Strides of the array.                              |
 | `T`          | `array.T`                                    | Transposed view of the array.                       |
+
+
+For more examples, please visit our [Github Repository Examples](https://github.com/NillionNetwork/nada-algebra/tree/main/examples).
