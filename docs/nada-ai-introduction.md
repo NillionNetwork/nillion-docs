@@ -14,6 +14,14 @@ In this tutorial series, you'll dive into creating your own privacy-preserving A
 
 Explore our [GitHub Repository Examples](https://github.com/NillionNetwork/nada-ai/tree/main/examples) for hands-on learning and insights.
 
+### Supported Models
+
+* **Multilayer Perceptron**: With the following layers available: `Linear`, `Conv2d`, `AvgPooling2d`, `DotProductSimilarity`, `ReLU`, `Flatten`.
+* **Linear Regression Model**: Linear model.
+* **Logistic Regression Model**: Linear model implementation with cleartext sigmoid and potential multiclass classification.
+* **Prophet**: Time series forecasting model.
+
+
 ### Important Considerations and Limitations
 
 *Nada AI is currently in active development. Please note:*
