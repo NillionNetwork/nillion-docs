@@ -126,3 +126,5 @@ stored_secret = nillion.Secrets(na_client.array(A, "A"))
 ```
 
 And that’s it! You’ve successfully created, built, and integrated a Nada Numpy program with the Nillion Network.
+
+For more examples, please visit our [Github Repository Examples](https://github.com/NillionNetwork/nada-algebra/tree/main/examples).

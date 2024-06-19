@@ -4,39 +4,63 @@ This tutorial shows how to use Nada Numpy Rational datatypes to work with fixed-
 
 ## Notions
 
-This tutorial uses fixed-point numbers as it is the only available way to use Fixed-Point numbers in Nada. The representation of a fixed-point number uses integer places to represent decimal digits. Thus, every number is multiplied by a scaling factor, that we refer to as `SCALE` ($\Delta = 2^{16}$) or `LOG_SCALE` in its logarithmic notation ($log_2\Delta = 16$). In a nutshell, this means we will use 16 bits to represent decimals.
+This tutorial uses fixed-point numbers as it is the only available way to use Fixed-Point numbers in Nada. The representation of a fixed-point number uses integer places to represent decimal digits. Thus, every number is multiplied by a scaling factor, that we refer to as `SCALE`, generally chosen to be a power of 2 where the exponent represents the number of bits. In a nutshell, `SCALE` is going to reserve a number of bits for the exponent.
 
-If we want to input a variable `a = float(3.2)`, we need to first encode it. For that, we will define a new variable `a'` which is going to be the scaled version. In this case, the scaling factor (to simplify) is going to be 3 bits so, $log_2\Delta = 3$ and $\Delta = 2^3 = 8$. With the following formula, we compute the encoded value:
+If we want to input a variable `a = float(3.2)`, we need to first encode it. For that, we will define a new variable `a'` which is going to be the scaled version. In this case, the scaling factor (to simplify) is going to be 3 bits so our scale would be `SCALE = 2 ** 3 # 8`. By multiplying our variable `a` with `SCALE` we obtain the encoded value. To decode, we just need to make the division by the scale.
 
-<!--$$ a' = round(a * \Delta) = round(a * 2^{log_{2}\Delta}) = 3.2 \cdot 2^3 = 3.2 \cdot 8 = 26 $$-->
-$$ a' = round(a * \Delta) = 3.2 \cdot 2^3 = 3.2 \cdot 8 = 26 $$ 
 
-Thus, to introduce a value with 3 bits of precision, we would be inputting 26 instead of 3.2.
+```python
+BITS = 3
+SCALE = 2 ** BITS2 #8
+a = float(3.2)
+
+# Encoding
+a_encoded = round(a * SCALE) # round(3.2 * 8) = 26
+
+# Decoding
+a_decoded == a_encoded / SCALE # 26 / 8 = 3.25 
+```
+
+Thus, to introduce a value with 3 bits of precision, we would be inputting 26 instead of 3.2. Note that, the larger the `BITS` precission, the better result we would obtain when decoding. 
+
+:::tip
+
+Nada Numpy uses a default value of 16 bits for decimal scale. If you want to change it, you can do so with:
+
+```python
+na.set_log_scale(BITS)
+```
+:::
+
 
 ## Example
 
 ```python
 from nada_dsl import *
 
-# Step 0: Nada Numpy is imported with this line
 import nada_numpy as na
 
 
 def nada_main():
-    # Step 1: We use Nada Numpy wrapper to create "Party0", "Party1" and "Party2"
+    # We define the number of parties
     parties = na.parties(3)
 
-    # Step 2: Party0 creates an array of dimension (3, ) with name "A"
-    a = na.array([3], parties[0], "A", SecretInteger)
+    # We use na.SecretRational to create a secret rational number for party 0
+    a = na.secret_rational("my_input_0", parties[0])
 
-    # Step 3: Party1 creates an array of dimension (3, ) with name "B"
-    b = na.array([3], parties[1], "B", SecretInteger)
+    # We use na.SecretRational to create a secret rational number for party 1
+    b = na.secret_rational("my_input_1", parties[1])
 
-    # Step 4: The result is of computing the dot product between the two
-    result = a.dot(b)
+    # This is a compile time rational number
+    c = na.rational(1.2)
 
-    # Step 5: We can use result.output() to produce the output for Party2 and variable name "my_output"
-    return na.output(result, parties[1], "my_output")
+    # The formula below does operations on rational numbers and returns a rational number
+    # It's easy to see that (a + b - c) is both on numerator and denominator, so the end result is b
+    out_0 = ((a + b - c) * b) / (a + b - c)
+
+    return [
+        Output(out_0.value, "my_output_0", parties[2]),
+    ]
 ```
 
 Let’s break this down step-by-step.
@@ -71,7 +95,7 @@ This line creates a list of three parties named: `Party0`, `Party1`, and `Party2
 Now, let’s define our inputs. We’ll create two secret rational numbers using `na.SecretRational`. This function allows us to define rational numbers with a specific owner and name.
 
 ```python
-    a = na.SecretRational("my_input_0", parties[0])
+    a = na.secret_rational("my_input_0", parties[0])
 ```
 
 This line creates a secret rational number `a` owned by `Party0`, named `“my_input_0”`.
@@ -79,7 +103,7 @@ This line creates a secret rational number `a` owned by `Party0`, named `“my_i
 Similarly, we define the second secret rational number `b`:
 
 ```python
-    b = na.SecretRational("my_input_1", parties[1])
+    b = na.secret_rational("my_input_1", parties[1])
 ```
 
 This secret rational number is owned by `Party1`, named `“my_input_1”`.
@@ -87,7 +111,7 @@ This secret rational number is owned by `Party1`, named `“my_input_1”`.
 We also define a compile-time rational number `c`:
 
 ```python
-    c = na.Rational(1.2)
+    c = na.rational(1.2)
 ```
 
 This line creates a compile-time rational number `c` with a value of 1.2.
@@ -130,3 +154,6 @@ python3 main.py
 ```
 
 And that’s it! You’ve successfully created, built, and integrated a Nada Numpy Rational numbers program.
+
+
+For more examples, please visit our [Github Repository Examples](https://github.com/NillionNetwork/nada-algebra/tree/main/examples).

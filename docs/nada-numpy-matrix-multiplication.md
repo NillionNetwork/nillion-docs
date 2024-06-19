@@ -103,3 +103,5 @@ stored_secret = nillion.Secrets(na_client.array(A, "A"))
 ```
 
 That’s it! You’ve successfully created, built, and integrated a Nada Numpy program with the Nillion Network, focusing on matrix multiplication with the `@` operator.
+
+For more examples, please visit our [Github Repository Examples](https://github.com/NillionNetwork/nada-algebra/tree/main/examples).
