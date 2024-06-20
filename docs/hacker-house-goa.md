@@ -11,7 +11,7 @@ The 50 best tasks that are submitted will be awarded a $20 prize 🎉 Good luck!
 Follow the steps below to complete the task:
 
 1. Join our community:
-    - [Join our Discord server](https://discord.gg/yJhaH6gv)
+    - [Join our Discord server](https://discord.gg/nillionnetwork)
       - Make sure you join the `developers-sdk` channel
       - Once you fill out the form at the end of this task, we will add you to a dedicated `hacker-house-goa` Discord channel too.
     - [Follow us on Twitter](https://x.com/nillionnetwork)
