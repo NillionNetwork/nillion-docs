@@ -1,9 +1,5 @@
 # How to retrieve a secret with the JavaScript Client
 
-Status: Approved
-Assigned: Joshua Nwankwo
-Due date: June 6, 2024
-
 Nillion is a blind compute network designed to securely process data without revealing the underlying information. It enables secure multi-party computations, allowing different parties to collaboratively perform computations on private data while keeping the data itself concealed. 
 
 In this tutorial, you will learn how to retrieve a secret stored on Nillion using Nillion's JavaScript client.
@@ -119,8 +115,8 @@ Below is a diagram of the env file and where you can find the values.
 
 ![env values](../../static/img/env.png "environmental varriables")
 
-- REACT_APP_Nillion_NODEKEY_TEXT_PARTY_1: You can get this by running the following command: Nillion node-key-gen <filename>, the file is going to get generated and save to your root directory.
-- REACT_APP_Nillion_USERKEY_TEXT_PARTY_1: You can get this by running the following command: Nillion user-key-gen <filename>, the file is going to get generated and save to your root directory.
+- REACT_APP_Nillion_NODEKEY_TEXT_PARTY_1: You can get this by running the following command: Nillion node-key-gen `filename`, the file is going to get generated and save to your root directory.
+- REACT_APP_Nillion_USERKEY_TEXT_PARTY_1: You can get this by running the following command: Nillion user-key-gen `filename`, the file is going to get generated and save to your root directory.
 - REACT_APP_Nillion_WEBSOCKETS: This can be found in your terminal once your Nillion Devnet is up and running, you can reference the image above to see exactly where it is.
 - REACT_APP_Nillion_CLUSTER_ID: You can find this in your terminal too once your Nillion is up and running, also reference the diagram above to see exactly where it is.
 - REACT_APP_Nillion_BLOCKCHAIN_RPC_ENDPOINT: Just like the two mentioned values above, this one two can be found in your terminal, also reference the above diagram to see exactly where.
