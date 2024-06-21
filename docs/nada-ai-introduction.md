@@ -1,6 +1,6 @@
-# Introducing Nada AI
+# Nada AI
 
-Welcome to Nada AI, a cutting-edge Machine Learning framework inspired by SKLearn and PyTorch, designed to seamlessly integrate model-building capabilities into Nada DSL. With Nada AI, effortlessly import AI models into the Nillion ecosystem for inference, leveraging the robust foundation of [Nada Numpy](./nada-numpy-introduction).
+[nada-ai](https://github.com/NillionNetwork/nada-ai/) is a cutting-edge Machine Learning framework inspired by SKLearn and PyTorch, designed to seamlessly integrate model-building capabilities into Nada DSL. With Nada AI, effortlessly import AI models into the Nillion ecosystem for inference, leveraging the robust foundation of [Nada Numpy](./nada-numpy-introduction).
 
 Nada AI boasts a strongly-typed interface, utilizing root families (`Integer`, `UnsignedInteger`, `Rational`, and `SecretBoolean`). This ensures strict type enforcement at the library level, guaranteeing compliance with Nada DSL rules.
 
@@ -16,17 +16,16 @@ Explore our [GitHub Repository Examples](https://github.com/NillionNetwork/nada-
 
 ### Supported Models
 
-* **Multilayer Perceptron**: With the following layers available: `Linear`, `Conv2d`, `AvgPooling2d`, `DotProductSimilarity`, `ReLU`, `Flatten`.
-* **Linear Regression Model**: Linear model.
-* **Logistic Regression Model**: Linear model implementation with cleartext sigmoid and potential multiclass classification.
-* **Prophet**: Time series forecasting model.
-
+- **Multilayer Perceptron**: With the following layers available: `Linear`, `Conv2d`, `AvgPooling2d`, `DotProductSimilarity`, `ReLU`, `Flatten`.
+- **Linear Regression Model**: Linear model.
+- **Logistic Regression Model**: Linear model implementation with cleartext sigmoid and potential multiclass classification.
+- **Prophet**: Time series forecasting model.
 
 ### Important Considerations and Limitations
 
-*Nada AI is currently in active development. Please note:*
+_Nada AI is currently in active development. Please note:_
 
-- *AI training is **not** supported at this time. Both MPC and AI training are computationally intensive tasks requiring specific setups for efficcient use. The current roadmap includes support for Federated Learning and other training procedures for privacy-preserving AI training.*
-- *The described workloads have been tested on the Nillion devnet tool. Due to high demand, running large models on the Nillion Testnet or Mainnet may not always be possible. For specific use cases or if you wish to run models on the Testnet or Mainnet, please contact us [here](https://app.deform.cc/form/51a162ff-4ffb-4d9b-86ec-249f087a332f/?page_number=0).*
+- _AI training is **not** supported at this time. Both MPC and AI training are computationally intensive tasks requiring specific setups for efficcient use. The current roadmap includes support for Federated Learning and other training procedures for privacy-preserving AI training._
+- _The described workloads have been tested on the Nillion devnet tool. Due to high demand, running large models on the Nillion Testnet or Mainnet may not always be possible. For specific use cases or if you wish to run models on the Testnet or Mainnet, please contact us [here](https://app.deform.cc/form/51a162ff-4ffb-4d9b-86ec-249f087a332f/?page_number=0)._
 
 Embark on your journey with Nada AI and revolutionize your approach to privacy-preserving machine learning!

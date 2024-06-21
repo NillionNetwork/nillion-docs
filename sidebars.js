@@ -217,75 +217,95 @@ const sidebars = {
             },
           ],
         },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Nada AI Toolkit',
-      link: {
-        type: 'doc',
-        id: 'nada-ai-toolkit',
-      },
-      items: [
         {
           type: 'category',
-          label: 'Nada Numpy',
+          label: 'Nada Libraries',
           link: {
             type: 'doc',
-            id: 'nada-numpy-introduction',
+            id: 'nada-libraries',
           },
           items: [
             {
-              type: 'doc',
-              label: 'Nada Rationals',
-              id: 'nada-numpy-rationals',
+              type: 'category',
+              label: 'nada-numpy',
+              link: {
+                type: 'doc',
+                id: 'nada-numpy-introduction',
+              },
+              items: [
+                {
+                  type: 'doc',
+                  label: 'Nada Rationals',
+                  id: 'nada-numpy-rationals',
+                },
+                {
+                  type: 'doc',
+                  label: 'Dot Product',
+                  id: 'nada-numpy-dot-product',
+                },
+                {
+                  type: 'doc',
+                  label: 'Matrix Multiplication',
+                  id: 'nada-numpy-matrix-multiplication',
+                },
+                {
+                  type: 'doc',
+                  label: 'Nada Numpy Array Operators',
+                  id: 'nada-numpy-operators',
+                },
+                {
+                  type: 'doc',
+                  label: 'Nada Numpy Array Functions',
+                  id: 'nada-numpy-array-functions',
+                },
+                {
+                  type: 'link',
+                  label: 'nada-numpy library',
+                  href: 'https://github.com/NillionNetwork/nada-numpy/',
+                },
+                {
+                  type: 'link',
+                  label: 'nada-numpy examples',
+                  href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples',
+                },
+              ],
             },
             {
-              type: 'doc',
-              label: 'Dot Product',
-              id: 'nada-numpy-dot-product',
+              type: 'category',
+              label: 'nada-ai',
+              link: {
+                type: 'doc',
+                id: 'nada-ai-introduction',
+              },
+              items: [
+                {
+                  type: 'doc',
+                  label: 'Nada AI Linear Model Tutorial',
+                  id: 'nada-ai-linear-model',
+                },
+                {
+                  type: 'doc',
+                  label: 'Nada AI Deep Learning Tutorial',
+                  id: 'nada-ai-neural-network',
+                },
+                {
+                  type: 'doc',
+                  label: 'Nada AI Reference',
+                  id: 'nada-ai-reference',
+                },
+                {
+                  type: 'link',
+                  label: 'nada-ai library',
+                  href: 'https://github.com/NillionNetwork/nada-ai/',
+                },
+                {
+                  type: 'link',
+                  label: 'nada-ai examples',
+                  href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples',
+                },
+              ],
             },
-            {
-              type: 'doc',
-              label: 'Matrix Multiplication',
-              id: 'nada-numpy-matrix-multiplication',
-            },
-            {
-              type: 'doc',
-              label: 'Nada Numpy Array Operators',
-              id: 'nada-numpy-operators',
-            },
-            {
-              type: 'doc',
-              label: 'Nada Numpy Array Functions',
-              id: 'nada-numpy-array-functions',
-            },
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Nada AI',
-          link: {
-            type: 'doc',
-            id: 'nada-ai-introduction',
-          },
-          items: [
-            {
-              type: 'doc',
-              label: 'Nada AI Linear Model Tutorial',
-              id: 'nada-ai-linear-model',
-            },
-            {
-              type: 'doc',
-              label: 'Nada AI Deep Learning Tutorial',
-              id: 'nada-ai-neural-network',
-            },
-            {
-              type: 'doc',
-              label: 'Nada AI Reference',
-              id: 'nada-ai-reference',
-            },
-          ]
+          ],
         },
       ],
     },
