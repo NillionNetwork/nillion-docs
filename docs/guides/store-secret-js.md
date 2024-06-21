@@ -36,7 +36,7 @@ This will spin up a network of Nillion nodes locally on your machine.
 
 In this guide we’re going to be working with React Typescript. So install and set your react typescript project, you can do that by running the following command:
 
-// npx create-react-app <project-name>  --template typescript
+// npx create-react-app `project-name`  --template typescript
 
 After the project creation, please go ahead and delete the boilerplate code because we’re note going to be needing them.
 
@@ -129,8 +129,8 @@ Below is a diagram of the env file and where you can find the values.
 
 ![Enviromental values](../../static/img/env.png "Example of Nillion's environmental variables")
 
-- REACT_APP_Nillion_NODEKEY_TEXT_PARTY_1: You can get this by running the following command: Nillion node-key-gen <filename>, the file is going to get generated and save to your root directory.
-- REACT_APP_Nillion_USERKEY_TEXT_PARTY_1: You can get this by running the following command: Nillion user-key-gen <filename>, the file is going to get generated and save to your root directory.
+- REACT_APP_Nillion_NODEKEY_TEXT_PARTY_1: You can get this by running the following command: Nillion node-key-gen `filename`, the file is going to get generated and save to your root directory.
+- REACT_APP_Nillion_USERKEY_TEXT_PARTY_1: You can get this by running the following command: Nillion user-key-gen `filename`, the file is going to get generated and save to your root directory.
 - REACT_APP_Nillion_WEBSOCKETS: This can be found in your terminal once your Nillion Devnet is up and running, you can reference the image above to see exactly where it is.
 - REACT_APP_Nillion_CLUSTER_ID: You can find this in your terminal too once your Nillion is up and running, also reference the diagram above to see exactly where it is.
 - REACT_APP_Nillion_BLOCKCHAIN_RPC_ENDPOINT: Just like the two mentioned values above, this one two can be found in your terminal, also reference the above diagram to see exactly where.
