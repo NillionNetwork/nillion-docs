@@ -10,6 +10,8 @@ The `nillion-devnet` tool creates a Nillion network devnet that you can interact
 
 <FoundryInstallation/>
 
+**Note**: `nillion-devnet` runs on port `61391`. If you have another program running on that port, you can kill that program with `kill -9 $(lsof -t -i:61391)`.
+
 ### Run Devnet
 
 ```bash
