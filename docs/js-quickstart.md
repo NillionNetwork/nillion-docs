@@ -2,7 +2,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import SdkInstallation from './\_sdk-installation.mdx';
-import FoundryInstallation from './\_foundry-installation.mdx';
 import QuickstartIntro from './\_quickstart-intro.mdx';
 import QuickstartNadaComplete from './\_quickstart-write-nada-complete.mdx';
 import QuickstartNada from './\_quickstart-write-nada.mdx';
@@ -48,13 +47,6 @@ Before you use [Scaffold-Nillion](https://github.com/NillionNetwork/scaffold-nil
     yarn -v
     ```
 - [Git](https://git-scm.com/downloads)
-
-- anvil tool from [foundry](https://book.getfoundry.sh/getting-started/installation), which can be installed with:
-
-  <FoundryInstallation/>
-
-- [pidof](https://formulae.brew.sh/formula/pidof)
-- [grep](https://formulae.brew.sh/formula/grep)
 
 ### Install MetaMask Flask and store a Nillion user key in MetaMask Snaps
 
