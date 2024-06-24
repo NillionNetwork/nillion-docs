@@ -25,7 +25,7 @@ Explore our [GitHub Repository Examples](https://github.com/NillionNetwork/nada-
 
 _Nada AI is currently in active development. Please note:_
 
-- _AI training is **not** supported at this time. Both MPC and AI training are computationally intensive tasks requiring specific setups for efficcient use. The current roadmap includes support for Federated Learning and other training procedures for privacy-preserving AI training._
+- _AI training is **not** supported at this time. Both MPC and AI training are computationally intensive tasks requiring specific setups for efficient use. The current roadmap includes support for Federated Learning and other training procedures for privacy-preserving AI training._
 - _The described workloads have been tested on the Nillion devnet tool. Due to high demand, running large models on the Nillion Testnet or Mainnet may not always be possible. For specific use cases or if you wish to run models on the Testnet or Mainnet, please contact us [here](https://app.deform.cc/form/51a162ff-4ffb-4d9b-86ec-249f087a332f/?page_number=0)._
 
 Embark on your journey with Nada AI and revolutionize your approach to privacy-preserving machine learning!
