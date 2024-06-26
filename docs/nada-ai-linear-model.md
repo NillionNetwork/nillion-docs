@@ -79,6 +79,7 @@ nada init nada-linear-regression
 This sets up your environment. We'll create a program that performs linear regression inference. Here’s the complete code to place in `src/main.py`:
 
 ```python
+from nada_dsl import *
 import nada_numpy as na
 from nada_ai.linear_model import LinearRegression
 
@@ -101,7 +102,7 @@ def nada_main():
     result = my_model.forward(my_input)
 
     # Step 6: Produce the output for User with the variable name "my_output"
-    return result.output(user, "my_output")
+    return na.output(result, user, "my_output")
 ```
 
 Now, let's break down each section one step at a time.
@@ -163,7 +164,7 @@ This line computes the result of the linear regression inference.
 
 As a final step, we have to determine what our outputs of the computation will be. In this case, `User` receives `my_output` as a result of the computation.
 ```python
-    return result.output(user, "my_output")
+    return na.output(result, user, "my_output")
 ```
 This line specifies that `User` will receive the output named `"my_output"`.
 

@@ -247,7 +247,7 @@ This line computes the result of the MLP inference.
 As a final step, we determine the output of the computation. In this case, `User` receives `my_output` as a result of the computation.
 
 ```python
-return result.output(user, "my_output")
+return na.output(result, user, "my_output")
 ```
 This line specifies that `User` will receive the output named `"my_output"`.
 

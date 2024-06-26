@@ -77,7 +77,7 @@ This computes the matrix product of `A` and `B`.
 
 Produce the output for `Party2` with the variable name `"my_output"` using `na.output`:
 ```python
-    return na.output(result, parties[2], "my_output")
+    return result.output(parties[2], "my_output")
 ```
 This line specifies that `Party2` will receive the output named `"my_output"`.
 
