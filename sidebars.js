@@ -78,7 +78,7 @@ const sidebars = {
           },
           items: [
             'python-quickstart',
-            'python-client-reference',
+            // 'python-client-reference', // temporarily hide until update
             {
               type: 'category',
               label: 'Python Client Examples',
@@ -156,12 +156,7 @@ const sidebars = {
                 id: 'js-client-examples',
               },
               collapsed: false,
-              items: [
-                'store-secrets-js',
-                'retrieve-secret-js',
-                'compute-js',
-                'get-user-key-from-snap',
-              ],
+              items: ['store-secrets-js', 'retrieve-secret-js', 'compute-js'],
             },
           ],
         },

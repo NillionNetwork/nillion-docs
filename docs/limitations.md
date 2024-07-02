@@ -78,11 +78,3 @@ The Nada compiler will throw an error as `inc2` does not have access to `inc`.
 
 - Currently you should not use 0 as an input value as it may leak other secrets. We are working on fixing this.
 - Ensure that your programs do not attempt to divide by 0, this is not supported in our language currently.
-
-## Authentication in scaffold-nillion
-
-- We have not yet implemented a proper authentication solution. Currently in the JavaScript Quickstart [Scaffold-Nillion repo](https://github.com/NillionNetwork/scaffold-nillion) we are using an experimental [MetaMask Snap](https://metamask.io/snaps/), [nillion-user-key-manager](https://www.npmjs.com/package/nillion-user-key-manager), which is installable [here](https://nillion-snap-site.vercel.app/), as a temporary mechanism to allow a user to generate a Nillion user key, and then locally store their user key for use in Nillion apps, which require a user key for client initialization. We do not recommend doing this in a production environment.
-
-```
-
-```
