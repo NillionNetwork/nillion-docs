@@ -215,6 +215,11 @@ const sidebars = {
               label: 'More Example Programs',
               href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs',
             },
+            {
+              type: 'doc',
+              label: 'Debugging',
+              id: 'nada-debugging',
+            },
           ],
         },
         {
