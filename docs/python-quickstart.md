@@ -42,12 +42,8 @@ The [Nillion Python Starter repo](https://github.com/NillionNetwork/nillion-pyth
    
    :::
 
-4. Create a copy of the `.env` file
-```bash
-cp .env.sample .env
-```
 
-5. Create and activate a virtual environment
+4. Create and activate a virtual environment
    ```bash
    python3 -m venv .venv
    source venv/bin/activate
