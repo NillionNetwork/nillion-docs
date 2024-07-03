@@ -39,14 +39,16 @@ The [Nillion Python Starter repo](https://github.com/NillionNetwork/nillion-pyth
    python3 --version
    python3 -m pip --version
    ```
-   
-   :::
-
 
 4. Create and activate a virtual environment
    ```bash
    python3 -m venv .venv
-   source venv/bin/activate
+   source .venv/bin/activate
+   ```
+
+5. Intall the requirements
+   ```bash
+   pip install -r requirements.txt
    ```
 
 You now have everything we need to start your Nillion developer journey. We will work in the `quickstart` directory, however, if you ever get stuck, you can see a fully completed version of the quickstart in the `quickstart_complete` directory.
@@ -221,6 +223,7 @@ nillion-devnet
 ```
 
 All configurations of the devnet you will need are written to the following environment file `/Users/<user>/.config/nillion/nillion-devnet.env`
+You need to leave the devnet running in the background while you run your program in the next section.
 
 ### Using the Python client to run your program
 
