@@ -4,7 +4,7 @@
 
 This page will help you take your first steps (~30 mins) as a Nillion developer. Once you have completed them, fill out the form for your chance to claim your $20 prize - each week we will review the submissions and pick the best to recieve a prize 🎉
 
-1. Star & fork either the [Python](https://github.com/NillionNetwork/nillion-python-starter) or [JavaScript](https://github.com/NillionNetwork/scaffold-nillion) quickstart repos (bonus points for both)
+1. Star & fork either the [Python](https://github.com/NillionNetwork/nillion-python-starter) or [JavaScript](https://github.com/NillionNetwork/cra-nillion) quickstart repos (bonus points for both)
     
     🚨 Add the topic `nillion-nada` to this repo so we can find it easily 
     
@@ -14,7 +14,7 @@ This page will help you take your first steps (~30 mins) as a Nillion developer.
     
 3. Once you have completed the quickstart, add at least one new [nada program](/nada-lang-programs) to your repo (bonus points for creativity, but make sure it compiles and runs)
     - Python quickstart: add your nada program in your repo's [programs](https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs) folder
-    - JavaScript quickstart: add your program in your repo's [next-project-programs/src](https://github.com/NillionNetwork/scaffold-nillion/tree/main/packages/nillion/next-project-programs/src) folder
+    - JavaScript quickstart: add your program in your repo's [public/programs](https://github.com/NillionNetwork/cra-nillion/tree/main/public/programs) folder
 
 4. Join our community:
     - [Join our Discord server](https://discord.com/invite/nillionnetwork)

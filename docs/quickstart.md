@@ -16,7 +16,7 @@ Welcome to Nillion's developer quickstarts. Get started with our Python or JavaS
 
 The Python Quickstart uses [nillion-python-starter](https://github.com/NillionNetwork/nillion-python-starter) to connect to your local Nillion network with the Nillion [Python Client](/python-client). This quickstart is ideal for developers interested in connecting backends to Nillion.
 
-The JavaScript Quickstart uses [scaffold-nillion](https://github.com/NillionNetwork/scaffold-nillion), a NextJS starter repo, to connect to your local Nillion network with the Nillion [JavaScript Client](/js-client). This quickstart is ideal for developers interested in creating frontends or web apps on Nillion.
+The JavaScript Quickstart uses [cra-nillion](https://github.com/NillionNetwork/cra-nillion), a Create React App starter repo, to connect to your local Nillion network with the Nillion [JavaScript Client](/js-client). This quickstart is ideal for developers interested in creating frontends or web apps on Nillion.
 
 <LinkButton text="🐍 Python Quickstart" link="/python-quickstart"/>
 

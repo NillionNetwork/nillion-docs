@@ -1,3 +1,5 @@
+import VenvSetup from './\_nada-venv-setup.mdx';
+
 # nada
 
 `nada` is the tool to manage Nada projects. It can:
@@ -59,6 +61,8 @@ version = "<version>"
 This will ensure that when you call nada or any other Nillion SDK command, it will use the version specified in that file.
 
 ### Set up virtual environment
+
+<VenvSetup/>
 
 1. Create a python [virtual environment](https://docs.python.org/3/library/venv.html)
 

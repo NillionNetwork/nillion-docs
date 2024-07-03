@@ -16,7 +16,7 @@ Follow the steps below to complete the task:
       - Once you fill out the form at the end of this task, we will add you to a dedicated `hacker-house-goa` Discord channel too.
     - [Follow us on Twitter](https://x.com/nillionnetwork)
 
-2. Star & fork either the [Python](https://github.com/NillionNetwork/nillion-python-starter) or [JavaScript](https://github.com/NillionNetwork/scaffold-nillion) quickstart repos (bonus points for both)
+2. Star & fork either the [Python](https://github.com/NillionNetwork/nillion-python-starter) or [JavaScript](https://github.com/NillionNetwork/cra-nillion) quickstart repos (bonus points for both)
     
     🚨 Add the topic `nillion-nada` to this repo so we can find it easily 
     
@@ -26,7 +26,7 @@ Follow the steps below to complete the task:
     
 4. Once you have completed the quickstart, add at least one new [nada program](/nada-lang-programs) to your repo (bonus points for creativity, but make sure it compiles and runs)
     - Python quickstart: add your nada program in your repo's [programs](https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs) folder.
-    - JavaScript quickstart: add your program in your repo's [next-project-programs/src](https://github.com/NillionNetwork/scaffold-nillion/tree/main/packages/nillion/next-project-programs/src) folder.
+    - JavaScript quickstart: add your program in your repo's [public/programs](https://github.com/NillionNetwork/cra-nillion/tree/main/public/programs) folder
     - The Nillion team will review all your new nada programs and award $20 prizes to the best 50. 
 
 5. Fill out [this form](https://forms.gle/8mWZyvdirzc66B679) to complete the initial Nillion task for Hacker House Goa.
