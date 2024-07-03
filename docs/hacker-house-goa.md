@@ -25,7 +25,7 @@ Follow the steps below to complete the task:
     🚨 Make sure you [enable telemetry](/nillion-sdk-and-tools#installation) as you install the Nillion SDK. Start your telemetry identifier with `hacker-house-goa` so we can identify you
     
 4. Once you have completed the quickstart, add at least one new [nada program](/nada-lang-programs) to your repo (bonus points for creativity, but make sure it compiles and runs)
-    - Python quickstart: add your nada program in your repo's [programs](https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs) folder.
+    - Python quickstart: add your nada program in your repo's programs folder.
     - JavaScript quickstart: add your program in your repo's [public/programs](https://github.com/NillionNetwork/cra-nillion/tree/main/public/programs) folder
     - The Nillion team will review all your new nada programs and award $20 prizes to the best 50. 
 
