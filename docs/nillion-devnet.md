@@ -1,16 +1,6 @@
-import FoundryInstallation from './\_foundry-installation.mdx';
-
 # nillion-devnet
 
 The `nillion-devnet` tool creates a Nillion network devnet that you can interact with while you keep the process running.
-
-### Pre-req: Install Foundry
-
-[Foundry](https://book.getfoundry.sh/getting-started/installation) is a portable and modular toolkit for Ethereum development. Running a local devnet uses Foundry's `anvil` tool under the hood, so you need to have Foundry installed.
-
-<FoundryInstallation/>
-
-**Note**: `nillion-devnet` runs on port `61391`. If you have another program running on that port, you can kill that program with `kill -9 $(lsof -t -i:61391)`.
 
 ### Run Devnet
 

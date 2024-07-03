@@ -78,7 +78,7 @@ const sidebars = {
           },
           items: [
             'python-quickstart',
-            'python-client-reference',
+            // 'python-client-reference', // temporarily hide until update
             {
               type: 'category',
               label: 'Python Client Examples',
@@ -156,12 +156,7 @@ const sidebars = {
                 id: 'js-client-examples',
               },
               collapsed: false,
-              items: [
-                'store-secrets-js',
-                'retrieve-secret-js',
-                'compute-js',
-                'get-user-key-from-snap',
-              ],
+              items: ['store-secrets-js', 'retrieve-secret-js', 'compute-js'],
             },
           ],
         },
@@ -214,6 +209,11 @@ const sidebars = {
               type: 'link',
               label: 'More Example Programs',
               href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs',
+            },
+            {
+              type: 'doc',
+              label: 'Debugging',
+              id: 'nada-debugging',
             },
           ],
         },

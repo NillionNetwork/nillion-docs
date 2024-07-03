@@ -20,7 +20,7 @@ Follow the steps below to complete the task:
     
     🚨 Add the topic `nillion-nada` to this repo so we can find it easily 
     
-3. [Head to this Google Colab and complete the initial Nillion task](https://colab.research.google.com/drive/1Um3FgMHpH6FVn10qyMycz-EaBo9B2bt1?usp=sharing)
+3. [Head to this Google Colab and complete the initial Nillion task](https://colab.research.google.com/drive/1EyFyLwAmwh1EoZkgCz7BWF0pIaXmCg2G?usp=sharing)
    - All instructions are in the Google Colab, make sure you read them carefully, and follow the steps in order.
    - There is a $20 prize for the best 50 new nada programs that are written in step 9.
 

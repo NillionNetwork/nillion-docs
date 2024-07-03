@@ -4,118 +4,92 @@ import TabItem from '@theme/TabItem';
 
 # JavaScript Client
 
-[@nillion/nillion-client-js-browser](https://www.npmjs.com/package/@nillion/nillion-client-js-browser) is a JavaScript client for building on top of the Nillion Network. It can be used to manage Nada programs, store and retrieve secrets, and run computations.
+The `@nillion/client-web` npm package is a JavaScript client for building on top of the Nillion Network. It can be used to manage Nada programs, store and retrieve secrets, and run computations.
 
 ## Installation
 
-Install the [JavaScript Client](https://www.npmjs.com/package/@nillion/nillion-client-js-browser) package in your browser application.
+Install the [JavaScript Client](https://www.npmjs.com/package/@nillion/client-web) package in your browser application.
 
 <Tabs>
 
   <TabItem value="yarn" label="yarn" default>
 ```bash
-yarn add @nillion/nillion-client-js-browser
+yarn add @nillion/client-web
 ```
   </TabItem>
 
   <TabItem value="npm" label="npm">
 ```bash
-npm i @nillion/nillion-client-js-browser
+npm i @nillion/client-web
 ```
   </TabItem>
 
   <TabItem value="pnpm" label="pnpm">
 ```bash
-pnpm add @nillion/nillion-client-js-browser
+pnpm add @nillion/client-web
 ```
   </TabItem>
 </Tabs>
 
 ## Usage
 
-### Asynchronously Import JavaScript Client
-
-<Tabs>
-
-  <TabItem value="react" label="ReactJS" default>
-```js
-// create state variable for Nillion JavaScript Client
-const [nillion, setNillion] = useState(null);
-// run once on mount
-useEffect(() => {
-    const importNillion = async () => {
-        // asynchronously import Nillion JavaScript Client
-        const nillionPackage = await import('@nillion/nillion-client-js-browser');
-        // set nillion state variable
-        setNillion(nillionPackage);
-    };
-    importNillion();
-}, []);
-
-````
-  </TabItem>
-
-<TabItem value="vanilla" label="Vanilla JS">
-```html
-<script type="module">
-    import * as nillion from "./node_modules/@nillion/nillion-client-js-browser/nillion_client_js_browser.js";
-</script>
-````
-
-</TabItem>
-</Tabs>
-
-### Import JavaScript Client Types
+### Import JavaScript Client
 
 ```js
-import type * as NillionTypes from "@nillion/nillion-client-js-browser/nillion_client_js_browser.d.ts";
+import * as nillion from '@nillion/client-web';
 ```
 
-### Set COOP and COEP Headers
+### Set Headers and set up proxy for nilchain
 
-The JavaScript Client makes use of browser web-workers. To make your app cross-origin isolated, you'll need to set these headers:
+The JavaScript Client makes use of browser web-workers. To make your app cross-origin isolated, you'll need to set COOP and COEP headers:
 
 ```
 Cross-Origin-Embedder-Policy: require-corp
 Cross-Origin-Opener-Policy: same-origin
 ```
 
-
 <Tabs>
 
 <TabItem value="React" label="ReactJS" default>
 
-Manually configure proxy requests based on the [ReactJS Guide](https://create-react-app.dev/docs/proxying-api-requests-in-development/#configuring-the-proxy-manually)
+Add headers and create a nilchain proxy in your [webpack.config.js](https://github.com/NillionNetwork/cra-nillion/blob/main/webpack.config.js)
 
-1. Install `http-proxy-middleware` using npm or Yarn:
-
-    ```bash
-    npm install http-proxy-middleware --save
-    ```
-
-    ```bash
-    yarn add http-proxy-middleware
-    ```
-
-2. Create a src/setupProxy.js file and place the following contents in it:
-
-    ```js
-    module.exports = function (app) {
-        app.use(function (req, res, next) {
-            res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
-            res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
-            next();
-        });
-    };
-    ```
+```js
+module.exports = {
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'require-corp',
+      'Cross-Origin-Opener-Policy': 'same-origin',
+    },
+    hot: true,
+    client: {
+      overlay: false,
+    },
+    historyApiFallback: true,
+    proxy: [
+      {
+        context: ['/nilchain-proxy'],
+        target: process.env.REACT_APP_NILLION_NILCHAIN_JSON_RPC,
+        pathRewrite: { '^/nilchain-proxy': '' },
+        changeOrigin: true,
+        secure: false,
+      },
+    ],
+  },
+};
+```
 
 </TabItem>
 </Tabs>
 
-
 For more information, check out
+
 - https://developer.chrome.com/blog/enabling-shared-array-buffer/
 - https://web.dev/articles/coop-coep
+- https://webpack.js.org/configuration/dev-server/
 
 ### Initialize NillionClient with JavaScript Client
 
@@ -123,81 +97,40 @@ For more information, check out
 
 <TabItem value="app" label="App.js" default>
 ```js
-import { useState, useEffect } from 'react';
+import * as nillion from '@nillion/client-web';
+import React, { useState, useEffect } from 'react';
 
-function App() {
-    // state variable for Nillion JavaScript Client Library
-    const [nillion, setNillion] = useState(null);
-    // state variable for NillionClient
-    const [nillionClient, setNillionClient] = useState(null);
-  
-    // Asynchronously Import JavaScript Client package
-    useEffect(() => {
-        const importNillion = async () => {
-            const nillionPackage = await import('@nillion/nillion-client-js-browser');
-            setNillion(nillionPackage);
-        };
-        importNillion();
-    }, []);
+const App: React.FC = () => {
+  const [nillionClient, setNillionClient] = useState(null);
+  const userKeySeed = 'my-userkey-seed';
+  const nodeKeySeed = `my-nodekey-seed-${Math.floor(Math.random() * 10) + 1}`;
 
-    // Initialize NillionClient, connecting to Nillion Network
-    useEffect(() => {
-        const initializeNillionClient = async () => {
-            await nillion.default();
-            const node_key = nillion.NodeKey.from_base58(
-                process.env.REACT_APP_NILLION_NODEKEY_TEXT_PARTY_1
-            );
-            const user_key = nillion.UserKey.from_base58(
-                process.env.REACT_APP_NILLION_USERKEY_TEXT_PARTY_1
-            );
-            const bootnodes_web = [process.env.REACT_APP_NILLION_WEBSOCKETS];
-            const paymentsConfig = {
-                rpc_endpoint: process.env.REACT_APP_NILLION_BLOCKCHAIN_RPC_ENDPOINT,
-                smart_contract_addresses: {
-                blinding_factors_manager:
-                    process.env.REACT_APP_NILLION_BLINDING_FACTORS_MANAGER_SC_ADDRESS,
-                    payments: process.env.REACT_APP_NILLION_PAYMENTS_SC_ADDRESS,
-                },
-                signer: {
-                    wallet: {
-                        chain_id: parseInt(process.env.REACT_APP_NILLION_CHAIN_ID || 0),
-                        private_key: process.env.REACT_APP_NILLION_WALLET_PRIVATE_KEY,
-                    },
-                },
-            };    
-            // create new instance of NillionClient
-            const client = new nillion.NillionClient(
-                user_key,
-                node_key,
-                bootnodes_web,
-                paymentsConfig
-            );
-            // set state access to nillionClient
-            setNillionClient(client);
-        };
-        // initialize client if it doesn't exist yet
-        if (nillion && !nillionClient) {
-            initializeNillionClient();
-        }
-  }, [nillion, nillionClient]);
+  const initializeNewClient = async () => {
+    if (userKey) {
+      await nillion.default();
+      const uk = nillion.UserKey.from_base58(userKey);
+      const nodeKey = nillion.NodeKey.from_seed(nodeKeySeed);
+      const userKey = nillion.UserKey.from_seed(nodeKeySeed);
+      const newClient = new nillion.NillionClient(userkey, nodeKey, process.env.REACT_APP_NILLION_BOOTNODE_WEBSOCKET);
+      setNillionClient(newClient);
+    }
+  };
 
-  if (nillionClient) {
-    const userId = nillionClient.user_id;
-    console.log(userId);
-    // Add your Nillion logic here: use nillionClient to
-    // store programs
-    // store, retrieve, update, and delete secrets
-    // compute on programs with secrets
-  }
+  useEffect(() => {
+    initializeNewClient();
+  }, []);
 
   return (
     <div className="App">
-      YOUR APP HERE
+      <h1>YOUR APP HERE</h1>
+      User ID: {nillionClient ?  nillionClient.user_id : 'Not set - Nillion Client has not been initialized'  }
     </div>
   );
-}
+};
 
 export default App;
+
+
 ````
 </TabItem>
 
@@ -206,15 +139,13 @@ export default App;
 Populate the .env with your Nillion Network config - here's an example of a .env file populated with a local [nillion-devnet](/nillion-devnet) configuration
 
 ```txt
-REACT_APP_NILLION_NODEKEY_TEXT_PARTY_1=23jhTcC5mAT9Hbzt3vaCUNTk5VBR7zQbvz9h34mve2a8vQvWGGXth4BQzDFetYdULZvjaET2Gc6smFn7i75YFpNH8My9d
-REACT_APP_NILLION_USERKEY_TEXT_PARTY_1=54cAoGSZZ5VDRPcpQSH27wLzgtN2mAt4LkPb436hUuDuS765UZyHfN2JxqqTLuWJThgVDDqEH1cHBVbqfcbCuLbJ
-REACT_APP_NILLION_WEBSOCKETS=/ip4/127.0.0.1/tcp/50356/ws/p2p/12D3KooWNQTeFoEFHLp46RVG3ydUSZ9neeoAL44DSRYjExWLsRQ4
-REACT_APP_NILLION_CLUSTER_ID=18d71351-b5d9-4d8d-bbcd-cdcc615badab
-REACT_APP_NILLION_BLOCKCHAIN_RPC_ENDPOINT=http://localhost:33279
-REACT_APP_NILLION_BLINDING_FACTORS_MANAGER_SC_ADDRESS=a513e6e4b8f2a923d98304ec87f64353c4d5c853
-REACT_APP_NILLION_PAYMENTS_SC_ADDRESS=5fc8d32690cc91d4c39d9d3abcbd16989f875707
-REACT_APP_NILLION_CHAIN_ID=31337
-REACT_APP_NILLION_WALLET_PRIVATE_KEY=abcdefg
+# replace with values from nillion-devnet
+
+REACT_APP_NILLION_CLUSTER_ID=
+REACT_APP_NILLION_BOOTNODE_WEBSOCKET=
+REACT_APP_NILLION_NILCHAIN_JSON_RPC=
+REACT_APP_NILLION_NILCHAIN_PRIVATE_KEY=
+REACT_APP_API_BASE_PATH=/nilchain-proxy
 ```
 
 </TabItem>
@@ -223,3 +154,4 @@ REACT_APP_NILLION_WALLET_PRIVATE_KEY=abcdefg
 ## Resources
 
 <DocCardList/>
+````
