@@ -10,6 +10,10 @@ The initial task should take 30-45 minutes and will help you get started with Ni
 
 The 50 best tasks that are submitted will be awarded a $20 prize 🎉 Good luck!
 
+First, we recommend you watch the following introduction video to learn about what Nillion does.
+
+<IframeVideo videoSrc="https://www.loom.com/share/c6b7c57f167b44ffb110f552e1c8c943?sid=2d3aaa9a-b5cd-4262-84ee-9f4d743c7283"/>
+
 Follow the steps below to complete the task:
 
 1. Join our community:
