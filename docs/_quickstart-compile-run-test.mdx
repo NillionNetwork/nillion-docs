@@ -1,0 +1,59 @@
+Use the <strong>[`nada`](/nada)</strong> tool to compile, run and test the program we have just written. More information about the nada tool can be found [here](https://docs.nillion.com/nada).
+
+1. Add your program to `nada-project.toml` config file
+
+   For the nada tool to know about our program, we need to add the following to the to the `nada-project.toml` config file.
+   ```bash
+   [[programs]]
+   path = "src/secret_addition.py"
+   name = "secret_addition"
+   prime_size = 128
+   ```
+
+2. Run the `nada build` command to compile programs.
+   ```bash
+   nada build
+   ```
+
+   This will compile all programs listed in the nada-project.toml file. You will see the binary files (.nada.bin) outputted to the `target/` directory.
+
+3. Generate test
+   ```bash
+   nada generate-test --test-name secret_addition_test secret_addition
+   ```
+
+   This uses the nada tool to generate a set of test values, that will be stored in `tests/`. Here secret_addition_test is the name of the test, and secret_addition is the name of the program we want to test. You will notice that the test file (`tests/secret_addition_test.yaml`) is automatically populated with `3`s everywhere by default. Later, for the test to pass, we will have to change the output from `3` to the correct output.
+
+4. Run the program with test values
+   ```bash
+   nada run secret_addition_test
+   ```
+   
+   Now we run the program. This uses the inputs defined in the test file (tests/secret_addition_test.yaml) and runs the program and prints the result. Make note of the result, we will need it next.
+
+5. Test the program
+   ```bash
+   nada test secret_addition_test
+   ```
+   
+   Finally, we test the program. If you run the above command without altering the default values (`3`s) in the test file (`tests/secret_addition_test.yaml`), the test will fail because the expected test output doesn't match the resulting output. Modify the value of `my_output` in the test file and re-test the program.
+
+    <strong>Modify test values in `secret_addition_test.yaml`</strong>
+   ```bash
+    ---
+    program: secret_addition
+    inputs:
+    my_int1:
+        SecretInteger: "3"
+    my_int2:
+        SecretInteger: "3"
+    expected_outputs:
+    my_output:
+        SecretInteger: "6"
+   ```
+
+   <strong>Re-run test</strong>
+
+   ```bash
+   nada test secret_addition_test
+   ```

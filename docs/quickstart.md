@@ -4,20 +4,21 @@ import IframeVideo from '@site/src/components/IframeVideo/index';
 import LinkButton from '@site/src/components/LinkButton/index';
 import SdkInstallation from './\_sdk-installation.mdx';
 
-# Developer Quickstart
+# Blind App Quickstart
 
-Welcome to Nillion's developer quickstarts. Get started with our Python or JavaScript clients - after finishing each one, you will have:
-1. Installed the [Nillion SDK](http://docs.nillion.com/nillion-sdk-and-tools)
-2. Set up your developer environment
-3. Written your first nada program
-4. Run the program against the local nillion devnet with your chosen client
+## What is a blind app?
 
-# Choose your path: Python or JavaScript
+A blind app runs blind computation on Nillion using one or more privacy-preserving [Nada](/nada-lang) programs. Nada programs compute on secret integers without ever seeing the underlying input values, making them ideal for sensitive data operations.
 
-The Python Quickstart uses [nillion-python-starter](https://github.com/NillionNetwork/nillion-python-starter) to connect to your local Nillion network with the Nillion [Python Client](/python-client). This quickstart is ideal for developers interested in connecting backends to Nillion.
+## Start building blind apps on Nillion
 
-The JavaScript Quickstart uses [cra-nillion](https://github.com/NillionNetwork/cra-nillion), a Create React App starter repo, to connect to your local Nillion network with the Nillion [JavaScript Client](/js-client). This quickstart is ideal for developers interested in creating frontends or web apps on Nillion.
+:::info
+This Blind App Quickstart is ideal for developers interested in creating frontends or fullstack web apps on Nillion. If you want to connect a backend to Nillion, [check out the Python Quickstart](/python-quickstart)
+:::
 
-<LinkButton text="🐍 Python Quickstart" link="/python-quickstart"/>
+Build your first blind application on Nillion. Follow the steps in this blind app quickstart to
 
-<LinkButton text="🦆 JavaScript Quickstart"link="/js-quickstart"/>
+1. [Install the Nillion SDK](/quickstart-install)
+2. [Create a Nada project](/quickstart-nada) and write your first Nada program
+3. [Build a blind app](/quickstart-blind-app) with the [cra-nillion](https://github.com/NillionNetwork/cra-nillion) starter repo (based on Create React App) and run your app locally on the [nillion-devnet](/nillion-devnet)
+4. [Deploy your blind app to the Nillion Testnet](/quickstart-testnet) so the world can try it

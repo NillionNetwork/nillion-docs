@@ -8,106 +8,23 @@ import QuickstartNada from './\_quickstart-write-nada.mdx';
 import VenvSetup from './\_nada-venv-setup.mdx';
 import UnderstandingProgram from './\_understanding-first-nada-program.mdx';
 import CompileRunTest from './\_quickstart-compile-run-test.mdx';
-import JsHeaders from './\_js-headers-proxy.mdx';
 
-# JavaScript Developer Quickstart
-
-Welcome to the JavaScript Quickstart. By the end of this guide, you will have:
-
-1. Installed the Nillion SDK and set up your dev environment
-2. Written, compiled, and tested your first nada program using the `nada` tool
-3. Plugged your nada program into your first 'blind app' with starter code in cra-nillion
-4. Connected your blind app to your local nillion-devnet to run it locally
-
-Once you have finished, explore other demo pages in the `cra-nillion` repo to continue your Nillion developer journey!
-
-## Install the Nillion SDK tools
-
-<SdkInstallation/>
-
-## Create a new folder for your quickstart
-
-Create `quickstart`, a folder to hold your quickstart project - by the end of the quickstart, the folder will contain 2 subfolders - one for your nada project and one for the cloned cra-nillion starter repo
-
-```
-mkdir quickstart
-```
-
-## Create a new Nada project
-
-```
-cd quickstart
-nada init nada_quickstart_programs
-```
-
-This will create a directory called `nada_quickstart_programs`, which is your Nada project. You can read more about [the file structure of this new Nada project here](/nada#create-a-new-project)
-
-### Set up virtual environment
+# Build a Blind App with the cra-nillion starter repo
 
 :::info
 
-We're still in the JavaScript Quickstart, but in order to run the Nada program we're about to write, you'll need [python3](https://www.python.org/downloads/) version 3.11 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed
+This is the 3rd step in the Blind App Quickstart. Before starting this guide,
 
-- Confirm that you have python3 (version >=3.11) and pip installed
-  `   python3 --version
-  python3 -m pip --version
-`
-  :::
+1. [Install the Nillion SDK](/quickstart-install)
+2. [Create a Nada project](/quickstart-nada) and write your first Nada program
 
-Change directories into your new Nada project
+:::
 
-```
-cd nada_quickstart_programs
-```
-
-<VenvSetup/>
-
-### Your first program
-
-The code for the finished program is below - it is a simple program that has one party and adds two secret integer inputs together.
-
-```python
-from nada_dsl import *
-
-def nada_main():
-
-    party1 = Party(name="Party1")
-
-    my_int1 = SecretInteger(Input(name="my_int1", party=party1))
-
-    my_int2 = SecretInteger(Input(name="my_int2", party=party1))
-
-    new_int = my_int1 + my_int2
-
-    return [Output(new_int, "my_output", party1)]
-```
-
-Now we will write it from scratch, explaining how it works as we go. Once we have written the program, we will use the `nada` tool to run and test it.
-
-1. From the `nada_quickstart_programs` Nada project, cd into the `src` folder and create a program file:
-   ```bash
-   cd src
-   touch secret_addition.py
-   ```
-2. Write or copy the program above into this file
-
-### Understanding the program you have just written
-
-<UnderstandingProgram/>
-
-## Compile, run and test your program
-
-Make sure you are in the `quickstart/nada_quickstart_programs` directory.
-
-<CompileRunTest/>
-
-Well done! You've just written and tested your first Nada program! Now we'll hook this up to a blind app, which will be able to compute with the `secret_addition` Nada program on secret inputs.
+The [cra-nillion Starter Repo](https://github.com/NillionNetwork/cra-nillion) repo is a Create React App which has everything you need to start building your blind app.
 
 ## Clone the CRA-Nillion JavaScript starter repo
 
-The [cra-nillion Starter Repo](https://github.com/NillionNetwork/cra-nillion) repo is a Create React App which has everything you need to start building your blind app. Clone the repo:
-
-Make sure you are in the root of the `quickstart` directory.
+Make sure you are in the root of the `quickstart` directory. Clone the repo into your `quickstart` directory.
 
 ```bash
 git clone https://github.com/NillionNetwork/cra-nillion.git
@@ -118,8 +35,7 @@ git clone https://github.com/NillionNetwork/cra-nillion.git
 :::info
 
 Before you use [cra-nillion](https://github.com/NillionNetwork/cra-nillion), check that you have [Node (>= v18.17)](https://nodejs.org/en/download/) installed by running
-`   node -v
-  `
+`node -v`
 :::
 
 ```
@@ -291,20 +207,16 @@ Now your cra-nillion app can use the nada program and the nada program binaries 
 https://github.com/NillionNetwork/cra-nillion/blob/main/src/ComputePage.tsx#L13
 ```
 
-## Run the Blind Computation Demo
-
-Go back to the Blind App on http://localhost:8080/compute and run through the steps on the page to test out the full blind computation flow.
-
-## Keep exploring
-
-You've successfully build your first blind app by writing a Nada program, storing the program on the network, storing secrets on the network, and running compute against secrets. Keep exploring by
-
-- reading about [Nillion concepts](/concepts) and the [Nada Language](nada-lang)
-- learning how to interact with and manage programs, secrets, and permissions on the Nillion Network with [Nillion Client](/js-client)
-- challenging yourself to create a page that solves the [millionaires problem](/multi-party-computation#classic-scenario-the-millionaires-problem)
-
 :::tip
 
 Open the Nillion [JavaScript Client Reference](https://nillion.pub/nillion-js-reference/) doc in another tab to search for available Nillion Client classes while working with cra-nillion.
 
 :::
+
+## Run the Blind Computation Demo
+
+Go back to the Blind App on http://localhost:8080/compute and run through the steps on the page to test out the full blind computation flow.
+
+## Next steps
+
+🚀 Woohoo! You've successfully built your first local blind app by writing a Nada program, storing the program on the network, storing secrets on the network, and running compute against secrets. Next, [deploy your blind app to the Nillion Network Testnet](/quickstart-testnet) so anyone in the world can try it.
