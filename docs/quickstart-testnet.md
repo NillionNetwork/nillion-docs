@@ -11,8 +11,8 @@ Update your .env values to point at the Nillion Testnet
 ```
 # testnet .env file
 
-REACT_APP_NILLION_CLUSTER_ID=3272dd62-b126-466e-92f2-69fcc2c62ab6
-REACT_APP_NILLION_BOOTNODE_WEBSOCKET=/dns/node-1.testnet-nucleus.nillion-network.nilogy.xyz/tcp/14211/wss/p2p/12D3KooWFH5doiPHBJa8cgx7B2zzD7z7DbyKzRJPmsTZFHFT5zyc
+REACT_APP_NILLION_CLUSTER_ID=b13880d3-dde8-4a75-a171-8a1a9d985e6c
+REACT_APP_NILLION_BOOTNODE_WEBSOCKET=/dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14211/wss/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
 REACT_APP_NILLION_NILCHAIN_JSON_RPC=http://65.109.222.111:26657
 REACT_APP_NILLION_NILCHAIN_REST_API=http://65.109.222.111:26657
 REACT_APP_NILLION_NILCHAIN_CHAIN_ID=nillion-chain-testnet-1
