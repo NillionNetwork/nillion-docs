@@ -5,21 +5,26 @@ import BlockExplorers from './\_testnet_block_explorers.mdx';
 
 # Nillion Network
 
-![Nillion's dual network architecture diagram](/img/dual-architecture.png)
+The **Nillion Network** allows developers to build applications and services that leverage privacy-enhancing technologies (PETs) such as secure multi-party computation (MPC) to perform blind computations over private user data (without requiring that data to be revealed to the network or to other users).
 
 ## Dual Network Architecture
 
-The Nillion Network has a Dual Network Architecture: **the Coordination Layer and the Petnet.**
+![Nillion's dual network architecture diagram](/img/dual-architecture.png)
 
-[NilChain](https://github.com/NillionNetwork/nilchain) is the Coordination Layer for the Nillion Network. It coordinates payments for blind computations and storage operations performed on the network.
+The Nillion Network consists of two parallel, interdependent networks: a **Coordination Layer** and an **Orchestration Layer**.
 
-The Petnet harnesses privacy-enhancing technologies (PETs) including [Nillion's MPC Protocol](/nillions-mpc-protocol) to secure distributed secrets and perform blind computation. It operates without a global shared state or consensus on order, focusing instead on decentralizing trust for high value data across the network using clusters of nodes.
+* The **[NilChain](https://github.com/NillionNetwork/nilchain)** network coordinates payments for storage operations and blind computations performed on the network.
+* The **Petnet** harnesses PETs such as MPC to protect data at rest and to enable blind computations that can operate on that data.
 
-## Testnet
+The Nillion Network operates without a global shared state or consensus on order. Instead, its design is oriented around supporting storage of private high-value data and computation over that data while decentralizing trust among the nodes in the network.
 
-### Nillion Testnet (Coordination Layer)
+## Live Testnet
 
-The Nillion Testnet is live! Follow our [Testnet Guides](/testnet-guides) to create a wallet connected to the Nillion Testnet, use the Nillion Testnet Faucet, and send Testnet NIL tokens.
+Consistent with the dual network architecture described above, the **Nillion Network testnet** (or simply **Nillion testnet**) consists of two interdependent testnet instances: the **NilChain testnet** and the **Petnet testnet**.
+
+### NilChain Testnet
+
+The NilChain testnet is live! Follow our [Testnet Guides](/testnet-guides) to create a wallet connected to the Nillion testnet, use the testnet faucet, and send NIL testnet tokens.
 
     <Tabs>
         <TabItem value="wallets" label="Supported wallets" default>
@@ -39,7 +44,7 @@ The Nillion Testnet is live! Follow our [Testnet Guides](/testnet-guides) to cre
 
         <TabItem value="chaininfo" label="chain-info.json" default>
 
-        Nillion Testnet chain info
+        NilChain testnet chain info:
 
         ```json reference showGithubLink
         https://github.com/chainapsis/keplr-chain-registry/blob/main/cosmos/nillion-chain-testnet.json
@@ -49,6 +54,10 @@ The Nillion Testnet is live! Follow our [Testnet Guides](/testnet-guides) to cre
         </TabItem>
     </Tabs>
 
-### 🔜 Petnet Testnet
+### Petnet Testnet
 
-The Petnet Testnet is in private beta. Today builders can use the [Nillion SDK](/nillion-sdk-and-tools) to connect their blind applications to a local [nillion-devnet](/nillion-devnet). Upon Petnet Testnet integration with the Coordination Layer in [Phase 2 of Nillion Network deployment](https://nillion.com/news/589/), builders will be able to connect their blind applications to the Nillion Network Testnet, making them accessible to the whole community.
+The Petnet testnet is also live! Builders can now [build their blind applications](/quickstart) and then [connect them to the Petnet testnet](/network-configuration) to make them accessible to the whole community.
+
+## Local Devnet
+
+Builders that prefer to work locally can use the [Nillion SDK](/nillion-sdk-and-tools) to connect their blind applications to a local instance of the [nillion-devnet](/nillion-devnet). Builders have the option to connect these applications to the Petnet testnet once they are ready.

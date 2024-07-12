@@ -1,7 +1,7 @@
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import BlockExplorers from './\_testnet_block_explorers.mdx';
 
-# Sending NIL tokens
+# Sending NIL Tokens
 
 Send a transaction on the Nillion Testnet and find the onchain record of the transaction on a block explorer.
 
