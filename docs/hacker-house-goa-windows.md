@@ -4,7 +4,7 @@ import IframeVideo from '@site/src/components/IframeVideo/index';
 
 👋 Hey, welcome to [Nillion](https://docs.nillion.com/). We are really pleased to have you start your journey with us.
 
-This page describes the initial Nillion task for Hacker House Goa for Windows users. If you are on MacOS or Linux, head over to [this page](https://docs.nillion.com/hacker-house). 
+This page describes the initial Nillion task for Hacker House Goa for Windows users. If you are on MacOS or Linux, head over to [this page](https://docs.nillion.com/hacker-house-goa). 
 
 The initial task should take 30-45 minutes and will help you get started with Nillion. Join our social channels, and start working with our SDK. If you have any questions, feel free to ask them on the discord channel.
 
