@@ -1,3 +1,5 @@
+import IframeVideo from '@site/src/components/IframeVideo/index';
+
 # Hacker house - initial Nillion task - MacOS & Linux
 
 👋 Hey, welcome to [Nillion](https://docs.nillion.com/). We are really pleased to have you start your journey with us.
@@ -17,14 +19,14 @@ Follow the steps below to complete the task:
      - Once you fill out the form at the end of this task, we will add you to a dedicated `hacker-house-goa` Discord channel too.
    - [Follow us on Twitter](https://x.com/nillionnetwork)
 
-2. Star & fork either the [Python](https://github.com/NillionNetwork/nillion-python-starter) or [JavaScript](https://github.com/NillionNetwork/cra-nillion) quickstart repos (bonus points for both)
-
-   🚨 Add the topic `nillion-nada` to this repo so we can find it easily
-
-3. Follow at least one of the quickstarts: [Python Quickstart](/python-quickstart) or [JavaScript Blind App Quickstart](/quickstart)
-
-   🚨 Make sure you [enable telemetry](/nillion-sdk-and-tools#installation) as you install the Nillion SDK. Start your telemetry identifier with `hacker-house-goa` so we can identify you
-
+2. Star & fork the [Python](https://github.com/NillionNetwork/nillion-python-starter) quickstart repo & the [JavaScript Quickstart repo](https://github.com/NillionNetwork/cra-nillion/).
+    
+    🚨 Add the topic `nillion-nada` to this repo so we can find it easily 
+    
+3. Follow at least one of the quickstarts (Python or JavaScript) in the [Developer Quickstart](/quickstart)
+    
+    🚨 Make sure you [enable telemetry](/nillion-sdk-and-tools#installation) as you install the Nillion SDK. Start your telemetry identifier with `hacker-house-goa` so we can identify you
+    
 4. Once you have completed the quickstart, add at least one new [nada program](/nada-lang-programs) to your repo (bonus points for creativity, but make sure it compiles and runs)
 
    - Python quickstart: add your nada program in your repo's programs folder.
