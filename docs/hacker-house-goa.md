@@ -22,7 +22,7 @@ Follow the steps below to complete the task:
       - Once you fill out the form at the end of this task, we will add you to a dedicated `hacker-house-goa` Discord channel too.
     - [Follow us on Twitter](https://x.com/nillionnetwork)
 
-2. Star & fork either the [Python](https://github.com/NillionNetwork/nillion-python-starter) or [JavaScript](https://github.com/NillionNetwork/cra-nillion) quickstart repos (bonus points for both)
+2. Star & fork the [Python](https://github.com/NillionNetwork/nillion-python-starter) quickstart repo & the [JavaScript Quickstart repo](https://github.com/NillionNetwork/cra-nillion/).
     
     🚨 Add the topic `nillion-nada` to this repo so we can find it easily 
     
