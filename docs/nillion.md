@@ -4,7 +4,7 @@ The `nillion` tool is a command line version of the Nillion Client. We refer to 
 
 The nillion tool can be used to generate user keys, generate node keys, store secrets, retrieve a secret, store a program, compute on a program, get cluster information, check the preprocessing pool status, and display node and user ids from keys.
 
-nillion can be run against the Nillion Network or against a local cluster spun up with nillion-devnet. If nillion is running against your local cluster, use the cluster id, bootnodes, smart contract addresses, chain id, rpc url endpoint values that are [local cluster outputs](nillion-devnet#local-cluster-outputs) as nillion options.
+nillion can be run against the Nillion Network or against a local cluster spun up with nillion-devnet. If nillion is running against your local cluster, use the cluster id, bootnodes, smart contract addresses, chain id, rpc url endpoint values that are [local cluster outputs](/nillion-devnet#devnet-outputs) as nillion options.
 
 ## Installation
 

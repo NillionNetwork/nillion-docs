@@ -168,7 +168,7 @@ You should edit the test file to change the inputs and the expected outputs.
 
 ### Run a program
 
-To `run` a program using nada you need a test file, visit the [Generate a test file](#Generate-a-test-file) section to see how to generate it.
+To `run` a program using nada you need a test file, visit the [Generate a test file](/nada#generate-a-test-file) section to see how to generate it.
 
 #### Run in normal mode
 
@@ -280,7 +280,7 @@ addr(2) rty(SecretInteger) = Addition addr(0) addr(1)
 
 ### Test a program
 
-To `test` a program using `nada` you need a test file, visit the [Generate a test file](#Generate-a-test-file) section to see how to generate it.
+To `test` a program using `nada` you need a test file, visit the [Generate a test file](/nada#generate-a-test-file) section to see how to generate it.
 
 #### Test in normal mode
 
@@ -300,7 +300,7 @@ This will run the program associated with that test file and check if the output
 
 #### Test in debug mode
 
-You can also run a test in debug mode, to know more about debug mode visit the [Run in debug mode](#Run-in-debug-mode) section.
+You can also run a test in debug mode, to know more about debug mode visit the [Run in debug mode](/nada#run-in-debug-mode) section.
 To run a test in debug mode you can run
 
 ```
