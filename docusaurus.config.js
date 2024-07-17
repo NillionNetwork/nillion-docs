@@ -38,7 +38,15 @@ const config = {
       async: false,
     },
   ],
-
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'google-site-verification',
+        content: 'AaBcABcNNZ4eaHnfCCOfrhzAWLWI7IpKLePjkSBMGp4',
+      },
+    },
+  ],
   presets: [
     [
       'classic',
