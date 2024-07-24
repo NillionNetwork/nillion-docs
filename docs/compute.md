@@ -20,14 +20,14 @@ The addition_simple example is a single party compute example that adds two secr
   <TabItem value="client" label="Client code" default>
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_single_party_compute/addition_simple.py#L14-L100
+https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_single_party_compute/addition_simple.py#L14-L131
 ```
 
   </TabItem>
   <TabItem value="readme" label="Nada program" default>
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/main/programs/addition_simple.py
+https://github.com/NillionNetwork/python-examples/blob/main/examples_and_tutorials/nada_programs/src/addition_simple.py
 
 ```
 

@@ -2,8 +2,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import SdkInstallation from './\_sdk-installation.mdx';
-import QuickstartNadaComplete from './\_quickstart-write-nada-complete.mdx';
-import QuickstartNada from './\_quickstart-write-nada.mdx';
 
 # Python Developer Quickstart
 

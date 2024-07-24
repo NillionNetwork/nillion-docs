@@ -3,8 +3,6 @@ import TabItem from '@theme/TabItem';
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import SdkInstallation from './\_sdk-installation.mdx';
 import QuickstartIntro from './\_quickstart-intro.mdx';
-import QuickstartNadaComplete from './\_quickstart-write-nada-complete.mdx';
-import QuickstartNada from './\_quickstart-write-nada.mdx';
 import VenvSetup from './\_nada-venv-setup.mdx';
 import UnderstandingProgram from './\_understanding-first-nada-program.mdx';
 import CompileRunTest from './\_quickstart-compile-run-test.mdx';
