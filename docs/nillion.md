@@ -15,49 +15,67 @@ Follow instructions to [install the Nillion SDK and Tools](/nillion-sdk-and-tool
 ```bash
 Usage: nillion [OPTIONS] -b <BOOTNODES> <COMMAND>
 Commands:
-  store-secrets              Store secrets in the network
-  retrieve-secret            Retrieve a secret from the network
+  store-values               Store values in the network
+  retrieve-value             Retrieve a value from the network
   store-program              Store a program in the network
   compute                    Perform a computation in the network
   cluster-information        Fetch the cluster's information
+  delete-values              Delete values from the network
   preprocessing-pool-status  Fetch the preprocessing pool status for a cluster
   inspect-ids                Display the node/user ids derived from the provided keys
   shell-completions          Generate shell completions
   node-key-gen               Generate Node keys
   user-key-gen               Generate User keys
+  retrieve-permissions       Retrieve permissions for stored secrets
+  set-permissions            Set permissions on a stored secrets
   help                       Print this message or the help of the given subcommand(s)
 
 Options:
       --user-key <USER_KEY>
           The user key in base58
+
       --user-key-seed <USER_KEY_SEED>
           The seed to be used to derive user key
+
   -u, --user-key-path <USER_KEY_PATH>
           The path to the file that contains the user key in base58
+
       --node-key <NODE_KEY>
           The node key in base58
+
       --node-key-seed <NODE_KEY_SEED>
           The seed to be used to derive node key
+
   -n, --node-key-path <NODE_KEY_PATH>
           The path to the file that contains the node key in base58
+
   -b <BOOTNODES>
-          A list of bootnodes to connect to
+          A list of bootnodes to connect to.
+
+          This needs to use libp2p multiaddress format.
+
+  -w <WEBSOCKET_BOOTNODES>
+          A list of websocket bootnode addresses to connect to.
+
+          This needs to use libp2p multiaddress format.
+
   -l, --listen-address <LISTEN_ADDRESS>
-          The address to listen on
-      --payments-rpc-endpoint <RPC_ENDPOINT>
-          RPC endpoint URL
-      --payments-sc-address <PAYMENTS_SC_ADDRESS>
-          Payments smart contract address
-      --blinding-factors-manager-sc-address <BLINDING_FACTORS_MANAGER_SC_ADDRESS>
-          Blinding factors manager smart contract address
-      --payments-private-key <PRIVATE_KEY>
-          Wallet signer private key
-      --payments-chain-id <CHAIN_ID>
-          Wallet signer chain ID
-      --blockchain-config-path <BLOCKCHAIN_CONFIG_PATH>
-          Path to a configuration file containing the blockchain configurations
+          The address to listen on.
+
+          If none is provided, the client will be expected to dial all of its peers (not receive incoming connections).
+
+      --nilchain-rpc-endpoint <NILCHAIN_RPC_ENDPOINT>
+          The nilchain RPC endpoint
+
+      --nilchain-private-key <NILCHAIN_PRIVATE_KEY>
+          The nilchain payments private key
+
+      --gas-price <GAS_PRICE>
+          The gas price to use, in unil units
+
   -h, --help
-          Print help (see more with '--help')
+          Print help (see a summary with '-h')
+
   -V, --version
           Print version
 ```
@@ -72,6 +90,15 @@ Generate a Nillion [user key](concepts.md#user-key) and store it in a file
 nillion user-key-gen <FILENAME>
 ```
 
+```
+Arguments:
+  <FILENAME>  key filename
+
+Options:
+  -s, --seed <SEED>  seed to generate the key
+  -h, --help         Print help
+```
+
 ## Generate node key with nillion
 
 Generate a Nillion [node key](concepts.md#node-key) and store it in a file
@@ -82,50 +109,114 @@ Generate a Nillion [node key](concepts.md#node-key) and store it in a file
 nillion node-key-gen <FILENAME>
 ```
 
-## Store secrets with nillion
+```
+Arguments:
+  <FILENAME>  key filename
 
-Store secrets from a secrets file or by passing them into the command directly.
+Options:
+  -s, --seed <SEED>  seed to generate the key
+  -h, --help         Print help
+```
 
-### store-secrets usage
+## Store values with nillion
+
+Store values in the network
+
+### store-values usage
 
 ```bash
-nillion --user-key <YOUR_USER_KEY> \
-	--node-key <YOUR_NODE_KEY> \
-	-b <BOOTNODES> \
-	--payments-private-key <PRIVATE_KEY> \
-	--payments-chain-id <CHAIN_ID> \
-	--payments-rpc-endpoint <BLOCKCHAIN_RPC_ENDPOINT> \
-	--payments-sc-address <PAYMENTS_SC_ADDRESS> \
-	--blinding-factors-manager-sc-address <BLINDING_FACTORS_MANAGER_SC_ADDRESS> \
-  store-secrets \
-  [OPTIONS] \
-  --cluster-id <CLUSTER_ID> \
-  --dealer-name <DEALER_NAME> \
-  [PROGRAM_ID]
+nillion \
+    -b <YOUR_BOOTNODE> \
+    --nilchain-private-key <YOUR_PRIVATE_KEY> \
+    --nilchain-rpc-endpoint <YOUR_RPC_ENDPOINT> \
+    --node-key-seed <YOUR_NODE_KEY_SEED> \
+    --user-key-seed <YOUR_USER_KEY_SEED> \
+    store-values \
+    --secret-integer <name>=<value> \
+    --cluster-id <YOUR_CLUSTER_ID> \
+    --ttl-days <NUM_DAYS>
 ```
 
 ```bash
-# Arguments:
+Arguments:
   [PROGRAM_ID]
           The program id that the store is for, if any
 
 Options:
-      --int-secret <INTEGER_SECRETS>
-          An integer secret.
+  -i, --public-integer <INTEGERS>
+          An integer public variable.
 
           These must follow the pattern `<name>=<value>`.
 
-          [aliases: i]
-
-      --uint-secret <UNSIGNED_INTEGER_SECRETS>
-          An unsigned integer secret.
+      --public-unsigned-integer <UNSIGNED_INTEGERS>
+          An unsigned integer public variable.
 
           These must follow the pattern `<name>=<value>`.
 
           [aliases: ui]
 
-      --secrets-path <SECRETS_PATH>
+      --secret-integer <SECRET_INTEGERS>
+          An integer secret.
+
+          These must follow the pattern `<name>=<value>`.
+
+          [aliases: si]
+
+      --secret-unsigned-integer <SECRET_UNSIGNED_INTEGERS>
+          An unsigned integer secret.
+
+          These must follow the pattern `<name>=<value>`.
+
+          [aliases: sui]
+
+      --array-public-integer <ARRAY_INTEGERS>
+          An array of integer public variables
+
+          The expected pattern is `<name>=<comma-separated-value>`.
+
+          Example: array1=1,2,3
+
+          [aliases: ai]
+
+      --array-public-unsigned-integer <ARRAY_UNSIGNED_INTEGERS>
+          An array of unsigned integer public variables
+
+          The expected pattern is `<name>=<comma-separated-value>`.
+
+          Example: array1=1,2,3
+
+          [aliases: aui]
+
+      --array-secret-integer <ARRAY_SECRET_INTEGERS>
+          An array of integer secrets
+
+          The expected pattern is `<name>=<comma-separated-value>`.
+
+          Example: array1=1,2,3
+
+          [aliases: asi]
+
+      --array-secret-unsigned-integer <ARRAY_SECRET_UNSIGNED_INTEGERS>
+          An array of unsigned integer secrets
+
+          The expected pattern is `<name>=<comma-separated-value>`.
+
+          Example: array1=1,2,3
+
+          [aliases: asui]
+
+      --secret-blob <SECRET_BLOBS>
+          A blob secret.
+
+          These must follow the pattern `<name>=<value>` and the value must be encoded in base64.
+
+          [aliases: sb]
+
+      --nada-values-path <NADA_VALUES_PATH>
           A path to load secrets from
+
+  -t, --ttl-days <TTL_DAYS>
+          The time to live for the values in days
 
   -c, --cluster-id <CLUSTER_ID>
           The cluster id to perform the operation on
@@ -133,41 +224,27 @@ Options:
       --authorize-user-execution <AUTHORIZE_USER_EXECUTION>
           Give execution access to this user on the secret we're uploading
 
-      --dealer-name <DEALER_NAME>
-          Dealer name is used by the program to identify the input owners
-
   -h, --help
           Print help (see a summary with '-h')
 ```
 
-### Example secrets file
+## Retrieve a value with nillion
 
-```
-# Secrets file with 2 secrets of type SecretInteger
-integers:
-  my_secret1: 6
-  my_secret2: 4
-```
-
-## Retrieve a secret with nillion
-
-Retrieve a secret by store id and secret id
+Retrieve a value from the network
 
 ### retrieve-secret usage
 
 ```bash
-nillion --user-key <YOUR_USER_KEY> \
-	--node-key <YOUR_NODE_KEY> \
-	-b <BOOTNODES> \
-	--payments-private-key <PRIVATE_KEY> \
-	--payments-chain-id <CHAIN_ID> \
-	--payments-rpc-endpoint <BLOCKCHAIN_RPC_ENDPOINT> \
-	--payments-sc-address <PAYMENTS_SC_ADDRESS> \
-	--blinding-factors-manager-sc-address <BLINDING_FACTORS_MANAGER_SC_ADDRESS> \
-  retrieve-secret \
-  --cluster-id <CLUSTER_ID> \
-  --store-id <STORE_ID> \
-  --secret-id <SECRET_ID>
+nillion \
+    -b <YOUR_BOOTNODE> \
+    --nilchain-private-key <YOUR_PRIVATE_KEY> \
+    --nilchain-rpc-endpoint <YOUR_RPC_ENDPOINT> \
+    --node-key-seed <YOUR_NODE_KEY_SEED> \
+    --user-key-seed <YOUR_USER_KEY_SEED> \
+    retrieve-value \
+    --cluster-id <YOUR_CLUSTER_ID> \
+    --secret-id <YOUR_SECRET_NAME> \
+    --store-id <YOUR_STORE_ID>
 ```
 
 ```bash
@@ -185,18 +262,15 @@ Name and store a compiled Nada program on the network.
 ### store-program usage
 
 ```bash
-nillion --user-key <YOUR_USER_KEY> \
-	--node-key <YOUR_NODE_KEY> \
-	-b <BOOTNODES> \
-	--payments-private-key <PRIVATE_KEY> \
-	--payments-chain-id <CHAIN_ID> \
-	--payments-rpc-endpoint <BLOCKCHAIN_RPC_ENDPOINT> \
-	--payments-sc-address <PAYMENTS_SC_ADDRESS> \
-	--blinding-factors-manager-sc-address <BLINDING_FACTORS_MANAGER_SC_ADDRESS> \
-  store-program \
-  --cluster-id <CLUSTER_ID> \
-  <PROGRAM_PATH> \
-  <PROGRAM_NAME>
+nillion \
+    -b <YOUR_BOOTNODE> \
+    --nilchain-private-key <YOUR_PRIVATE_KEY> \
+    --nilchain-rpc-endpoint <YOUR_RPC_ENDPOINT> \
+    --node-key-seed <YOUR_NODE_KEY_SEED> \
+    --user-key-seed <YOUR_USER_KEY_SEED> \
+    store-program \
+    --cluster-id <CLUSTER_ID> \
+    <PROGRAM_PATH> <PROGRAM_NAME>
 ```
 
 ```bash
@@ -212,14 +286,12 @@ Compute on a stored program by program id with stored secrets, secrets and publi
 ### compute usage
 
 ```bash
-nillion --user-key <YOUR_USER_KEY> \
-	--node-key <YOUR_NODE_KEY> \
-	-b <BOOTNODES> \
-	--payments-private-key <PRIVATE_KEY> \
-	--payments-chain-id <CHAIN_ID> \
-	--payments-rpc-endpoint <BLOCKCHAIN_RPC_ENDPOINT> \
-	--payments-sc-address <PAYMENTS_SC_ADDRESS> \
-	--blinding-factors-manager-sc-address <BLINDING_FACTORS_MANAGER_SC_ADDRESS> \
+nillion \
+    -b <YOUR_BOOTNODE> \
+    --nilchain-private-key <YOUR_PRIVATE_KEY> \
+    --nilchain-rpc-endpoint <YOUR_RPC_ENDPOINT> \
+    --node-key-seed <YOUR_NODE_KEY_SEED> \
+    --user-key-seed <YOUR_USER_KEY_SEED> \
   compute \
   [OPTIONS] \
   --cluster-id <CLUSTER_ID> \
@@ -287,15 +359,6 @@ Options:
           Print help (see a summary with '-h')
 ```
 
-### Example public variables file
-
-```
-# Public variables file with 2 public variables of type PublicVariableInteger
-integers:
-  my_public_variable1: 20
-  my_public_variable2: 12
-```
-
 ## Get cluster information with nillion
 
 Get info about the cluster
@@ -303,16 +366,14 @@ Get info about the cluster
 ### cluster-information usage
 
 ```bash
-nillion --user-key <YOUR_USER_KEY> \
-	--node-key <YOUR_NODE_KEY> \
-	-b <BOOTNODES> \
-	--payments-private-key <PRIVATE_KEY> \
-	--payments-chain-id <CHAIN_ID> \
-	--payments-rpc-endpoint <BLOCKCHAIN_RPC_ENDPOINT> \
-	--payments-sc-address <PAYMENTS_SC_ADDRESS> \
-	--blinding-factors-manager-sc-address <BLINDING_FACTORS_MANAGER_SC_ADDRESS> \
+nillion \
+    -b <YOUR_BOOTNODE> \
+    --nilchain-private-key <YOUR_PRIVATE_KEY> \
+    --nilchain-rpc-endpoint <YOUR_RPC_ENDPOINT> \
+    --node-key-seed <YOUR_NODE_KEY_SEED> \
+    --user-key-seed <YOUR_USER_KEY_SEED> \
   cluster-information \
-  <CLUSTER_ID>
+  --cluster-id <CLUSTER_ID> \
 
 Arguments:
   <CLUSTER_ID>  The cluster id to query for
@@ -328,16 +389,14 @@ Fetch the preprocessing pool status for a cluster
 ### preprocessing-pool-status usage
 
 ```bash
-nillion --user-key <YOUR_USER_KEY> \
-	--node-key <YOUR_NODE_KEY> \
-	-b <BOOTNODES> \
-	--payments-private-key <PRIVATE_KEY> \
-	--payments-chain-id <CHAIN_ID> \
-	--payments-rpc-endpoint <BLOCKCHAIN_RPC_ENDPOINT> \
-	--payments-sc-address <PAYMENTS_SC_ADDRESS> \
-	--blinding-factors-manager-sc-address <BLINDING_FACTORS_MANAGER_SC_ADDRESS> \
+nillion \
+    -b <YOUR_BOOTNODE> \
+    --nilchain-private-key <YOUR_PRIVATE_KEY> \
+    --nilchain-rpc-endpoint <YOUR_RPC_ENDPOINT> \
+    --node-key-seed <YOUR_NODE_KEY_SEED> \
+    --user-key-seed <YOUR_USER_KEY_SEED> \
   preprocessing-pool-status \
-  <CLUSTER_ID>
+  --cluster-id <CLUSTER_ID> \
 
 Arguments:
   <CLUSTER_ID>  The cluster id to query for
@@ -353,15 +412,14 @@ Check the peer id of the node and the user id of the user.
 ### inspect-ids usage
 
 ```bash
-nillion --user-key <YOUR_USER_KEY> \
-	--node-key <YOUR_NODE_KEY> \
-	-b <BOOTNODES> \
-	--payments-private-key <PRIVATE_KEY> \
-	--payments-chain-id <CHAIN_ID> \
-	--payments-rpc-endpoint <BLOCKCHAIN_RPC_ENDPOINT> \
-	--payments-sc-address <PAYMENTS_SC_ADDRESS> \
-	--blinding-factors-manager-sc-address <BLINDING_FACTORS_MANAGER_SC_ADDRESS> \
+nillion \
+    -b <YOUR_BOOTNODE> \
+    --nilchain-private-key <YOUR_PRIVATE_KEY> \
+    --nilchain-rpc-endpoint <YOUR_RPC_ENDPOINT> \
+    --node-key-seed <YOUR_NODE_KEY_SEED> \
+    --user-key-seed <YOUR_USER_KEY_SEED> \
   inspect-ids
+    --cluster-id <CLUSTER_ID> \
 
 Options:
   -h, --help  Print help
