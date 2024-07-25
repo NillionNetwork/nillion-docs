@@ -333,6 +333,11 @@ const sidebars = {
             },
           ],
         },
+        {
+          type: 'link',
+          label: 'Nada by Example',
+          href: '/nada-by-example',
+        },
       ],
     },
     'limitations',
@@ -408,6 +413,51 @@ const sidebars = {
       href: 'https://nillion.com/news',
     },
   ],
+  nadaByExampleSidebar: [
+    {
+      type: 'html',
+      className: 'sidebar-title',
+      value: 'Nada by Example',
+      defaultStyle: true,
+    },
+    'nada-by-example',
+    'nada-by-example/hello-world',
+    'nada-by-example/debugging',
+    {
+      type: 'link',
+      label: 'Nada Language Docs',
+      href: 'https://docs.nillion.com/nada-lang',
+    },
+    {
+      type: 'html',
+      className: 'sidebar-title',
+      value: 'Nada Operations',
+      defaultStyle: true,
+    },
+    'nada-by-example/addition',
+    'nada-by-example/subtraction',
+    'nada-by-example/multiplication',
+    'nada-by-example/division',
+    'nada-by-example/power',
+    'nada-by-example/modulo',
+    'nada-by-example/shift-left',
+    'nada-by-example/shift-right',
+    'nada-by-example/probabilistic-truncation',
+    'nada-by-example/comparison',
+    'nada-by-example/equality',
+    'nada-by-example/if-else',
+    'nada-by-example/reveal',
+    {
+      type: 'html',
+      className: 'sidebar-title',
+      value: 'Programming with Nada',
+      defaultStyle: true,
+    },
+    'nada-by-example/list-comprehensions',
+    'nada-by-example/helper-function',
+    'nada-by-example/for-loop',
+    
+  ]
 };
 
 export default sidebars;
