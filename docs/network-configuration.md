@@ -1,18 +1,29 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import NetworkTable from '@site/src/components/Networks/index';
+import {PythonTestnetEnv, ReactTestnetEnv} from '@site/src/components/Networks/TestnetEnv';
+
 # Network Configuration
 
 ## Testnet
 
 Use the Testnet configuration to connect to the integrated Nillion Testnet. Check out [Testnet wallet and faucet guides here](/testnet-guides).
 
-| Config                        | Value                                                                                                                        |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| NILLION_CLUSTER_ID            | b13880d3-dde8-4a75-a171-8a1a9d985e6c                                                                                         |
-| NILLION_BOOTNODE_MULTIADDRESS | /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye     |
-| NILLION_BOOTNODE_WEBSOCKET    | /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14211/wss/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye |
-| NILLION_NILCHAIN_CHAIN_ID     | nillion-chain-testnet-1                                                                                                      |
-| NILLION_NILCHAIN_JSON_RPC     | http://65.109.222.111:26657                                                                                                  |
-| NILLION_NILCHAIN_REST_API     | http://65.109.222.111:26657                                                                                                  |
-| NILLION_NILCHAIN_GRPC         | 65.109.228.73:9090                                                                                                           |
+<Tabs>
+
+<TabItem value="table" label="Network Table" default>
+<NetworkTable/>
+</TabItem>
+
+<TabItem value="python" label="Python .env">
+<PythonTestnetEnv/>
+</TabItem>
+
+<TabItem value="react" label="React .env">
+<ReactTestnetEnv/>
+</TabItem>
+
+</Tabs>
 
 ## Local Devnet
 
