@@ -421,13 +421,17 @@ const sidebars = {
       value: 'Nada by Example',
       defaultStyle: true,
     },
-    'nada-by-example',
+    {
+      type: 'doc',
+      label: 'Introduction',
+      id: 'nada-by-example',
+    },
     'nada-by-example/hello-world',
     'nada-by-example/debugging',
     {
-      type: 'link',
-      label: 'Nada Language Docs',
-      href: 'https://docs.nillion.com/nada-lang',
+      type: 'doc',
+      label: 'Local Setup Quickstart',
+      id: 'nada-by-example-quickstart',
     },
     {
       type: 'html',

@@ -1116,7 +1116,7 @@ Returns the SDK client’s instance party ID, which can be used
 by the client to create program bindings (`ProgramBindings`,
 check examples).
 
-Effectively, the party ID is equivalent to the the Peer ID
+Effectively, the party ID is equivalent to the Peer ID
 used within libp2p for inter-node communication. It is a hash
 generated from the public key of the node’s key-pair (`NodeKey`). Not to
 be confused with the `user_id()` which is generated from the
@@ -1362,7 +1362,7 @@ Store values in the Nillion Network.
   str
 * **Raises:**
   **TypeError** – When using bindings, the input party name provided (e.g. “InputPartyName”) must
-      match the input party name in the Nada program. Otherwise, we get a TypeError.
+  match the input party name in the Nada program. Otherwise, we get a TypeError.
 
 ### Example
 

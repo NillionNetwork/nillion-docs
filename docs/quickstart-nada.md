@@ -1,6 +1,7 @@
 import VenvSetup from './\_nada-venv-setup.mdx';
 import UnderstandingProgram from './\_understanding-first-nada-program.mdx';
 import CompileRunTest from './\_quickstart-compile-run-test.mdx';
+import PythonVersionInfo from './\_python-version-info.mdx';
 
 # Create a Nada project and write your first Nada program
 
@@ -20,16 +21,7 @@ nada init nada_quickstart_programs
 
 The Nillion Network leverages Nada, our MPC language, for defining MPC programs. Our initial implementation of Nada comes in the form of Nada, a Python DSL (Domain Specific Language).
 
-:::info
-
-You'll need [python3](https://www.python.org/downloads/) version 3.11 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed to import the nada_dsl dependency. Before setting up your Python virtual environment, confirm that you have python3 (version >=3.11) and pip installed
-
-```
-python3 --version
-python3 -m pip --version
-```
-
-:::
+<PythonVersionInfo/>
 
 0. Change directories into your new nada project directory
 
