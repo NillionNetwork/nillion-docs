@@ -57,4 +57,8 @@ ubuntu
 
 <SdkInstallation />
 
-🎉 Great work! You've set up a WSL environment and installed Nillion. Before running a nillion command like `nillion-devnet` or `nada`, make sure you are in a WSL environment by first running `ubuntu`
+🎉 Great work! You've set up a WSL environment and installed Nillion within that environment. Before running a nillion command like `nillion-devnet`, `nada`, or `pynadac` make sure you are in a WSL environment by first running ubuntu:
+
+```
+ubuntu
+```
