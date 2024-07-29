@@ -8,7 +8,7 @@ The protocol workflow is split into 2 phases:
 
 The pre-processing phase prepares for the network to securely handle the high value data so that future computations can be performed without revealing individual inputs.
 
-The point of pre-processing is to generate and distribute [shares](glossary.md#share) (masks) for each [factor and term](glossary.md#factors-and-terms) in the sum of products expression using standard MPC techniques.
+The point of pre-processing is to generate and distribute [shares](glossary.md#share) (masks) for each [factor and term](/glossary#sum-of-products-sop---factors-and-terms-) in the sum of products expression using standard MPC techniques.
 
 Pre-processing is independent of input values. This phase only depends on the number of inputs (factors and terms) so that the appropriate number of shares are created ahead of computation. &#x20;
 

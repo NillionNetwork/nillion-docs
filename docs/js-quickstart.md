@@ -2,183 +2,300 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import SdkInstallation from './\_sdk-installation.mdx';
-import FoundryInstallation from './\_foundry-installation.mdx';
 import QuickstartIntro from './\_quickstart-intro.mdx';
-import QuickstartNadaComplete from './\_quickstart-write-nada-complete.mdx';
-import QuickstartNada from './\_quickstart-write-nada.mdx';
+import VenvSetup from './\_nada-venv-setup.mdx';
+import UnderstandingProgram from './\_understanding-first-nada-program.mdx';
+import CompileRunTest from './\_quickstart-compile-run-test.mdx';
+import JsHeaders from './\_js-headers-proxy.mdx';
 
 # JavaScript Developer Quickstart
 
-<QuickstartIntro/>
+Welcome to the JavaScript Quickstart. By the end of this guide, you will have:
+
+1. Installed the Nillion SDK and set up your dev environment
+2. Written, compiled, and tested your first nada program using the `nada` tool
+3. Plugged your nada program into your first 'blind app' with starter code in cra-nillion
+4. Connected your blind app to your local nillion-devnet to run it locally
+
+Once you have finished, explore other demo pages in the `cra-nillion` repo to continue your Nillion developer journey!
 
 ## Install the Nillion SDK tools
 
 <SdkInstallation/>
 
-## Clone the Scaffold-Nillion JavaScript starter repo
+## Create a new folder for your quickstart
 
-The [Scaffold-Nillion Starter Repo](https://github.com/NillionNetwork/scaffold-nillion) repo has everything you need to start building. Clone the repo:
+Create `quickstart`, a folder to hold your quickstart project - by the end of the quickstart, the folder will contain 2 subfolders - one for your nada project and one for the cloned cra-nillion starter repo
+
+```
+mkdir quickstart
+```
+
+## Create a new Nada project
+
+```
+cd quickstart
+nada init nada_quickstart_programs
+```
+
+This will create a directory called `nada_quickstart_programs`, which is your Nada project. You can read more about [the file structure of this new Nada project here](/nada#create-a-new-project)
+
+### Set up virtual environment
+
+:::info
+
+We're still in the JavaScript Quickstart, but in order to run the Nada program we're about to write, you'll need [python3](https://www.python.org/downloads/) version 3.11 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed
+
+- Confirm that you have python3 (version >=3.11) and pip installed
+  `   python3 --version
+  python3 -m pip --version
+`
+  :::
+
+Change directories into your new Nada project
+
+```
+cd nada_quickstart_programs
+```
+
+<VenvSetup/>
+
+### Your first program
+
+The code for the finished program is below - it is a simple program that has one party and adds two secret integer inputs together.
+
+```python
+from nada_dsl import *
+
+def nada_main():
+
+    party1 = Party(name="Party1")
+
+    my_int1 = SecretInteger(Input(name="my_int1", party=party1))
+
+    my_int2 = SecretInteger(Input(name="my_int2", party=party1))
+
+    new_int = my_int1 + my_int2
+
+    return [Output(new_int, "my_output", party1)]
+```
+
+Now we will write it from scratch, explaining how it works as we go. Once we have written the program, we will use the `nada` tool to run and test it.
+
+1. From the `nada_quickstart_programs` Nada project, cd into the `src` folder and create a program file:
+   ```bash
+   cd src
+   touch secret_addition.py
+   ```
+2. Write or copy the program above into this file
+
+### Understanding the program you have just written
+
+<UnderstandingProgram/>
+
+## Compile, run and test your program
+
+Make sure you are in the `quickstart/nada_quickstart_programs` directory.
+
+<CompileRunTest/>
+
+Well done! You've just written and tested your first Nada program! Now we'll hook this up to a blind app, which will be able to compute with the `secret_addition` Nada program on secret inputs.
+
+## Clone the CRA-Nillion JavaScript starter repo
+
+The [cra-nillion Starter Repo](https://github.com/NillionNetwork/cra-nillion) repo is a Create React App which has everything you need to start building your blind app. Clone the repo:
+
+Make sure you are in the root of the `quickstart` directory.
 
 ```bash
-git clone https://github.com/NillionNetwork/scaffold-nillion.git
+git clone https://github.com/NillionNetwork/cra-nillion.git
 ```
 
-### Install repo dependencies
-
-Before you use [Scaffold-Nillion](https://github.com/NillionNetwork/scaffold-nillion), you need to install the following:
-
-- [Node (>= v18.17)](https://nodejs.org/en/download/)
-
-  - Check version with
-    ```
-    node -v
-    ```
-
-- [python3](https://www.python.org/downloads/) version 3.11 or higher with a working [pip](https://pip.pypa.io/en/stable/getting-started/) installed
-
-  - Confirm that you have python3 (version >=3.11) and pip installed:
-    ```
-    python3 --version
-    python3 -m pip --version
-    ```
-
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-  - Check version with
-    ```
-    yarn -v
-    ```
-- [Git](https://git-scm.com/downloads)
-
-- anvil tool from [foundry](https://book.getfoundry.sh/getting-started/installation), which can be installed with:
-
-  <FoundryInstallation/>
-
-- [pidof](https://formulae.brew.sh/formula/pidof)
-- [grep](https://formulae.brew.sh/formula/grep)
-
-### Install MetaMask Flask and store a Nillion user key in MetaMask Snaps
-
-1. Install the [MetaMask Flask browser extension](https://docs.metamask.io/snaps/get-started/install-flask/) that will let you work with experimental snaps.
-2. Create a new test wallet in MetaMask Flask
-3. Temporarily disable any other wallet browser extensions (Classic MetaMask, Rainbow Wallet, etc.) while using MetaMask Flask
-4. [Visit the Nillion Key Management UI](https://nillion-snap-site.vercel.app/) to generate a user key and store it in MetaMask Snaps - this saves your user key within MetaMask so it can be used by other Nillion web apps
-
-## Run the starter
-
-### 1. Enter the scaffold-nillion folder
+### Install repo dependencies and run the starter
 
 ```
-cd scaffold-nillion
-yarn install
+cd cra-nillion
+npm i
+npm start
 ```
 
-### 2. Run a local Ethereum network in the first terminal:
+Open http://localhost:8080/ to see your cra-nillion starter app running locally at port 8080
 
-```
-yarn chain
-```
+![CRA nillion no cluster](/img/cra-nillion-no-cluster.png)
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development.
+For this Quickstart, we'll focus on the Nillion Operations page and the Nillion Blind Computation Demo page.
 
-### 3. Open a second terminal and deploy the test Ethereum contract:
+## Connect the blind app to nillion-devnet
 
-```
-yarn deploy
-```
+In the screenshot of cra-nillion, you'll notice that cluster id and other configuration variables needed to connect to the Nillion Network are not set, so it's not possible to connect NillionClient.
 
-This command deploys a test smart contract to the local network.
+### Spin up a local Nillion devnet
 
-### 4. Open a third terminal to run the Nillion devnet:
+Open a second terminal and run the devnet using any seed (the example uses "my-seed") so the cluster id, websockets, and other environment variables stay constant even when you restart nillion-devnet.
 
-This bootstraps [nillion-devnet](/nillion-devnet), a local network of nodes and adds cluster info to your NextJS app .env file
-
-```
-yarn nillion-devnet
+```shell
+nillion-devnet --seed my-seed
 ```
 
-### 5. Open another terminal to create and activate a python virtual environment for Nada program development
+You will see an output like this:
 
 ```
-cd packages/nillion && bash create-venv.sh && source .venv/bin/activate
+nillion-devnet --seed my-seed
+ℹ️ cluster id is 222257f5-f3ce-4b80-bdbc-0a51f6050996
+ℹ️ using 256 bit prime
+ℹ️ storing state in /var/folders/1_/2yw8krkx5q5dn2jbhx69s4_r0000gn/T/.tmpU00Jbm (62.14Gbs available)
+🏃 starting nilchain node in: /var/folders/1_/2yw8krkx5q5dn2jbhx69s4_r0000gn/T/.tmpU00Jbm/nillion-chain
+⛓  nilchain JSON RPC available at http://127.0.0.1:48102
+⛓  nilchain gRPC available at localhost:26649
+🏃 starting node 12D3KooWMGxv3uv4QrGFF7bbzxmTJThbtiZkHXAgo3nVrMutz6QN
+⏳ waiting until bootnode is up...
+🏃 starting node 12D3KooWKkbCcG2ujvJhHe5AiXznS9iFmzzy1jRgUTJEhk4vjF7q
+🏃 starting node 12D3KooWMgLTrRAtP9HcUYTtsZNf27z5uKt3xJKXsSS2ohhPGnAm
+👛 funding nilchain keys
+📝 nillion CLI configuration written to /Users/steph/Library/Application Support/nillion.nillion/config.yaml
+🌄 environment file written to /Users/steph/Library/Application Support/nillion.nillion/nillion-devnet.env
 ```
 
-The [nada tool](https://docs.nillion.com/nada) was used to initiate a project inside of packages/nillion/next-project-programs. Create a new Nada program `tiny_secret_addition.py` in next-project-programs/src
+Copy the path printed after "🌄 environment file written to" and open the file
 
 ```
-cd next-project-programs
-touch src/tiny_secret_addition.py
+vim "/Users/steph/Library/Application Support/nillion.nillion/nillion-devnet.env"
 ```
 
-## Write a Nada program
+This file has the nillion-devnet generated values for cluster id, websocket, json rpc, and private key. You'll need to put these in your local .env in one of the next steps so that your cra-nillion demo app connects to the nillion-devnet.
 
-<QuickstartNadaComplete/>
+Keep the nillion-devnet running in this terminal.
 
-<QuickstartNada/>
+### Create .env file
 
-## Compile the Nada program
+Make sure you are in the `quickstart/cra-nillion` directory.
 
-Add the program path, name, and a prime size to your [nada-project.toml file](https://github.com/NillionNetwork/scaffold-nillion/blob/main/packages/nillion/next-project-programs/nada-project.toml)
+Copy the up the .env.example file to a new .env and set up these variables to match the nillion environment file.
 
-```toml
-[[programs]]
-path = "src/tiny_secret_addition.py"
-name = "tiny_secret_addition"
-prime_size = 128
+```shell
+cp .env.example .env
 ```
 
-Run the build command from the next-project-programs folder to build all programs added to the nada-project.toml file, creating nada.bin files for each Nada program.
+Update your newly created .env with environment variables outout in your terminal by nillion-devnet
 
 ```
-nada build
+REACT_APP_NILLION_CLUSTER_ID=
+REACT_APP_NILLION_BOOTNODE_WEBSOCKET=
+REACT_APP_NILLION_NILCHAIN_JSON_RPC=
+REACT_APP_NILLION_NILCHAIN_PRIVATE_KEY=
+REACT_APP_API_BASE_PATH=/nilchain-proxy
 ```
 
-Copy the `tiny_secret_addition.nada.bin` program binary file into nextjs public programs folder for eventual use in your web app.
+Restart the cra-nillion app process
 
 ```
-cp target/tiny_secret_addition.nada.bin ../../nextjs/public/programs
+npm start
 ```
 
-Copy the `tiny_secret_addition.py` program file into nextjs public programs folder for eventual use in your web app.
+Now the Cluster ID field should be populated with the nillion-devnet cluster id value you set in REACT_APP_NILLION_CLUSTER_ID.
+
+![CRA nillion with cluster](/img/cra-nillion-with-cluster.png)
+
+## Try out the Operations Page
+
+1. Generate User Key - generates a new user key / user id pair
+2. Connect with User Key - sets the user key and connects to NillionClient via the Nillion JavaScript Client
+3. Hide Nillion User Key and Node Key Connection Info - toggle button to show/hide user and node key options
+4. Perform Nillion Operations
+
+To perform an operation (store secret, retrieve secret, update secret, store program, compute), you follow the same pattern:
+
+1. Get quote for the operation
+2. Pay quote for the operation and get a payment receipt. On your local nillion-devnet, payments for operations are sent to the local nilchain at REACT_APP_NILLION_NILCHAIN_JSON_RPC are funded by REACT_APP_NILLION_NILCHAIN_PRIVATE_KEY
+3. Perform the operation with the payment receipt as a parameter
+
+   ![CRA nillion operations](/img/cra-nillion-operations.png)
+
+## Hook up your secret_addition.py nada program to your first blind app
+
+Now that you understand how Nillion operations work, let's update the Nillion Blind Computation Demo page to use the Nada program you created.
+
+Navigate to the Blind Computation Demo page: http://localhost:8080/compute
+
+The code for Blind Computation Demo page [lives in ComputePage.tsx](https://github.com/NillionNetwork/cra-nillion/blob/main/src/ComputePage.tsx)
 
 ```
-cp src/tiny_secret_addition.py ../../nextjs/public/programs
+const outputName = 'my_output';
+const partyName = 'Party1';
 ```
 
-Now the NextJs app has the Nada program and binaries in the `nextjs/public/programs` folder, where the program can be stored using the JavaScript Client.
+Notice that the ComputePage sets `outputName` which matches the the output name set in secret_addition.py. The ComputePage sets `partyName` which matches the the party name set in secret_addition.py. There are 2 `StoreSecretForm` components on ComputePage, with secretName set to `my_int1` and `my_int2` which matches the the secret names set in secret_addition.py.
 
-## Spin up the NextJs Web App
+<Tabs>
+<TabItem value="helpers" label="secret_addition.py" default>
+```
+from nada_dsl import *
 
-Open one more terminal to start your NextJS web app from the root directory, scaffold-nillion
+def nada_main():
+
+    party1 = Party(name="Party1")
+
+    my_int1 = SecretInteger(Input(name="my_int1", party=party1))
+
+    my_int2 = SecretInteger(Input(name="my_int2", party=party1))
+
+    new_int = my_int1 + my_int2
+
+    return [Output(new_int, "my_output", party1)]
+
+````
+</TabItem>
+
+<TabItem value="compute" label="ComputePage.tsx" >
+```ts reference showGithubLink
+https://github.com/NillionNetwork/cra-nillion/blob/main/src/ComputePage.tsx
+````
+
+</TabItem>
+
+</Tabs>
+
+### Update programName
+
+In order to run blind computation on your `secret_addition.py` Nada program, you'll need to make a few updates:
+
+1. Open a new terminal and navigate to the root `quickstart` folder. List the contents of the folder
 
 ```
-yarn start
+ls
 ```
 
-Open your app on: [http://localhost:3000](http://localhost:3000)
+You should see cra-nillion and nada_quickstart_programs folders.
 
-- Visit the Nillion Blind Computation page to try out the Blind Computation Demo: [http://localhost:3000/nillion-compute](http://localhost:3000/nillion-compute)
-- Edit the code for this page in `packages/nextjs/app/nillion-compute/page.tsx` to set the programName to "tiny_secret_addition". Now the page will store and compute with the `tiny_secret_addition.py` program you wrote.
-  ```ts
-  const [programName] = useState<string>('tiny_secret_addition');
-  ```
+2. Copy your secret_addition.py and secret_addition.nada.bin files nada_quickstart_programs into cra-nillion
 
-## Complete the TODOs in the Hello World page to hook up a working Nillion store and retrieve example
+```
+cp nada_quickstart_programs/src/secret_addition.py cra-nillion/public/programs
+cp nada_quickstart_programs/target/secret_addition.nada.bin cra-nillion/public/programs
+```
 
-- Visit the Nillion Hello World page: [http://localhost:3000/nillion-hello-world](http://localhost:3000/nillion-hello-world)
-- Notice that the buttons and functionality for this page are not hooked up yet.
-- Edit the code for this page in `packages/nextjs/app/nillion-hello-world/page.tsx` to complete each of the 🎯 TODOs to get the page working
-- Need a hint on how to get something working? Take a look at the completed `packages/nextjs/app/nillion-hello-world-complete/page.tsx` page
+Now your cra-nillion app can use the nada program and the nada program binaries in store program operations.
 
-:::tip
+3. Update programName to `secret_addition` so the cra-nillion repo reads your Nada program.
 
-Open the Nillion [JavaScript Client Reference](https://nillion.pub/nillion-js-reference/) doc in another tab to search for available classes while completing the 🎯 TODOs.
+```ts reference showGithubLink
+https://github.com/NillionNetwork/cra-nillion/blob/main/src/ComputePage.tsx#L13
+```
 
-:::
+## Run the Blind Computation Demo
+
+Go back to the Blind App on http://localhost:8080/compute and run through the steps on the page to test out the full blind computation flow.
 
 ## Keep exploring
 
-You've successfully written your first single party Nada program, stored the program on the network, stored secrets on the network, and run compute against secrets. Keep exploring by
+You've successfully build your first blind app by writing a Nada program, storing the program on the network, storing secrets on the network, and running compute against secrets. Keep exploring by
 
 - reading about [Nillion concepts](/concepts) and the [Nada Language](nada-lang)
 - learning how to interact with and manage programs, secrets, and permissions on the Nillion Network with [Nillion Client](/js-client)
 - challenging yourself to create a page that solves the [millionaires problem](/multi-party-computation#classic-scenario-the-millionaires-problem)
+
+:::tip
+
+Open the Nillion [JavaScript Client Reference](https://nillion.pub/nillion-js-reference/) doc in another tab to search for available Nillion Client classes while working with cra-nillion.
+
+:::

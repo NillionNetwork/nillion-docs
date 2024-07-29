@@ -18,7 +18,7 @@
     "@docusaurus/preset-classic": "3.3.2",
     "@docusaurus/theme-search-algolia": "^3.3.2",
     "@mdx-js/react": "^3.0.0",
-    "ag-grid-react": "^31.2.1",
+    "ag-grid-react": "^32.0.1",
     "clsx": "^2.0.0",
     "docusaurus-theme-github-codeblock": "^2.0.2",
     "dotenv": "^16.4.4",

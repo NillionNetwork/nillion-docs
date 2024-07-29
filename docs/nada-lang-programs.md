@@ -50,7 +50,7 @@ https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/nada_fn
 Lastly, below is an example with two parties:
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nillion-python-starter/blob/main/programs/less_or_equal_than.py
+https://github.com/NillionNetwork/python-examples/blob/main/examples_and_tutorials/nada_programs/src/addition_simple_multi_party.py
 ```
 
 For more examples visit our [`programs directory`](https://github.com/nillion-oss/nillion-python-starter/blob/main/programs).

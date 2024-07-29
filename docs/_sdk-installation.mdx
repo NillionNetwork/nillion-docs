@@ -1,35 +1,38 @@
-1. Install [nilup](/nilup) the [Nillion SDK tool](/nillion-sdk-and-tools#nillion-sdk-tools) installer and version manager. Binaries are available for [Linux and macOS platforms](/limitations#platforms)
+#### 1. Install [nilup](/nilup), the [Nillion SDK tool](/nillion-sdk-and-tools#nillion-sdk-tools) installer and version manager.
 
-   _For the security-conscious, please download the `install.sh` script, so that you can inspect how
-   it works, before piping it to `bash`._
+:::info
+Nillion SDK binaries are available for [Linux and macOS platforms](/limitations#platforms). For Windows installation, make sure to follow our [Windows developer environment setup](/installation#windows-guide) guide ahead of installing binaries.
+:::
+_For the security-conscious, please download the `install.sh` script, so that you can inspect how
+it works, before piping it to `bash`._
 
-   ```bash
-   curl https://nilup.nilogy.xyz/install.sh | bash
-   ```
+```bash
+curl https://nilup.nilogy.xyz/install.sh | bash
+```
 
-   Confirm global `nilup` tool installation
+Close your terminal. Open a new terminal and confirm global `nilup` tool installation
 
-   ```bash
-   nilup -V
-   ```
+```bash
+nilup -V
+```
 
-2. Use [nilup](/nilup) to install the latest version of the Nillion SDK.
+#### 2. Use [nilup](/nilup) to install the latest version of the Nillion SDK.
 
-   ```bash
-   nilup install latest
-   nilup use latest
-   nilup init
-   ```
+```bash
+nilup install latest
+nilup use latest
+nilup init
+```
 
-   Optionally enable `nilup` telemetry, providing your Ethereum wallet address. We collect this data to understand how the software is used, and to better assist you in case of issues.In doing this, you consent to the collection of telemetry data by the Nillion Network. While we will not collect any personal information, we still recommend using a new wallet address that cannot be linked to your identity by any third party.
-   For more information, check out our [privacy policy](https://nillion.com/privacy/).
+Optionally enable `nilup` telemetry, providing your Ethereum wallet address. We collect this data to understand how the software is used, and to better assist you in case of issues.In doing this, you consent to the collection of telemetry data by the Nillion Network. While we will not collect any personal information, we still recommend using a new wallet address that cannot be linked to your identity by any third party.
+For more information, check out our [privacy policy](https://nillion.com/privacy/).
 
-   ```bash
-   nilup instrumentation enable --wallet quest-<your-eth-wallet-address>
-   ```
+```bash
+nilup instrumentation enable --wallet <your-eth-wallet-address>
+```
 
-   Confirm global Nillion tool installation
+Close your terminal. Open a new terminal and confirm global Nillion tool installation with
 
-   ```bash
-   nillion -V
-   ```
+```bash
+nillion -V
+```

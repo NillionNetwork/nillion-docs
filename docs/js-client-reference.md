@@ -1,6 +1,6 @@
 # JavaScript Client Reference
 
-# @nillion/nillion-client-js-browser
+# @nillion/client-web
 
 > Javascript Nillion Client
 

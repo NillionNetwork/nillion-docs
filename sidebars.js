@@ -22,9 +22,34 @@ const sidebars = {
     },
     'welcome',
     {
-      type: 'doc',
-      label: 'Developer Quickstart',
-      id: 'quickstart',
+      type: 'category',
+      label: 'Developer Quickstart: Build a Blind App',
+      link: {
+        type: 'doc',
+        id: 'quickstart',
+      },
+      items: [
+        {
+          type: 'doc',
+          label: '1. Install Nillion',
+          id: 'quickstart-install',
+        },
+        {
+          type: 'doc',
+          label: '2. Create a Nada project',
+          id: 'quickstart-nada',
+        },
+        {
+          type: 'doc',
+          label: '3. Build a Blind App',
+          id: 'quickstart-blind-app',
+        },
+        {
+          type: 'doc',
+          label: '4. Deploy to the Testnet',
+          id: 'quickstart-testnet',
+        },
+      ],
     },
     {
       type: 'html',
@@ -44,6 +69,7 @@ const sidebars = {
       defaultStyle: true,
     },
     'concepts',
+    'network-configuration',
     {
       type: 'category',
       label: 'Nillion SDK and Tools',
@@ -52,6 +78,7 @@ const sidebars = {
         id: 'nillion-sdk-and-tools',
       },
       items: [
+        'installation',
         'nilup',
         'nillion',
         'nillion-devnet',
@@ -101,7 +128,7 @@ const sidebars = {
                     {
                       type: 'link',
                       label: 'Permissions Examples',
-                      href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/examples_and_tutorials/core_concept_permissions',
+                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_permissions',
                     },
                   ],
                 },
@@ -116,17 +143,17 @@ const sidebars = {
                     {
                       type: 'link',
                       label: 'Single Party Examples',
-                      href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/examples_and_tutorials/core_concept_single_party_compute',
+                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_single_party_compute',
                     },
                     {
                       type: 'link',
                       label: 'Multi Party Examples',
-                      href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/examples_and_tutorials/core_concept_multi_party_compute',
+                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_multi_party_compute',
                     },
                     {
                       type: 'link',
                       label: 'Millionaires Problem',
-                      href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/examples_and_tutorials/millionaires_problem_example',
+                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/millionaires_problem_example',
                     },
                   ],
                 },
@@ -156,12 +183,7 @@ const sidebars = {
                 id: 'js-client-examples',
               },
               collapsed: false,
-              items: [
-                'store-secrets-js',
-                'retrieve-secret-js',
-                'compute-js',
-                'get-user-key-from-snap',
-              ],
+              items: ['store-secrets-js', 'retrieve-secret-js', 'compute-js'],
             },
           ],
         },
@@ -214,6 +236,101 @@ const sidebars = {
               type: 'link',
               label: 'More Example Programs',
               href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs',
+            },
+            {
+              type: 'doc',
+              label: 'Debugging',
+              id: 'nada-debugging',
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Nada Libraries',
+          link: {
+            type: 'doc',
+            id: 'nada-libraries',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'nada-numpy',
+              link: {
+                type: 'doc',
+                id: 'nada-numpy-introduction',
+              },
+              items: [
+                {
+                  type: 'doc',
+                  label: 'Nada Rationals',
+                  id: 'nada-numpy-rationals',
+                },
+                {
+                  type: 'doc',
+                  label: 'Dot Product',
+                  id: 'nada-numpy-dot-product',
+                },
+                {
+                  type: 'doc',
+                  label: 'Matrix Multiplication',
+                  id: 'nada-numpy-matrix-multiplication',
+                },
+                {
+                  type: 'doc',
+                  label: 'Nada Numpy Array Operators',
+                  id: 'nada-numpy-operators',
+                },
+                {
+                  type: 'doc',
+                  label: 'Nada Numpy Array Functions',
+                  id: 'nada-numpy-array-functions',
+                },
+                {
+                  type: 'link',
+                  label: 'nada-numpy library',
+                  href: 'https://github.com/NillionNetwork/nada-numpy/',
+                },
+                {
+                  type: 'link',
+                  label: 'nada-numpy examples',
+                  href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples',
+                },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'nada-ai',
+              link: {
+                type: 'doc',
+                id: 'nada-ai-introduction',
+              },
+              items: [
+                {
+                  type: 'doc',
+                  label: 'Nada AI Linear Model Tutorial',
+                  id: 'nada-ai-linear-model',
+                },
+                {
+                  type: 'doc',
+                  label: 'Nada AI Deep Learning Tutorial',
+                  id: 'nada-ai-neural-network',
+                },
+                {
+                  type: 'doc',
+                  label: 'Nada AI Reference',
+                  id: 'nada-ai-reference',
+                },
+                {
+                  type: 'link',
+                  label: 'nada-ai library',
+                  href: 'https://github.com/NillionNetwork/nada-ai/',
+                },
+                {
+                  type: 'link',
+                  label: 'nada-ai examples',
+                  href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples',
+                },
+              ],
             },
           ],
         },
