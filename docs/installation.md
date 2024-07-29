@@ -8,11 +8,11 @@ import SdkInstallation from './\_sdk-installation.mdx';
 
 ## Windows Guide
 
-Today Nillion SDK binaries are available for Mac and Linux. In order to install Nillion on a Windows machine, you'll need to first complete a 5 minute WSL developer environment setup.
+Today Nillion SDK binaries are available for Mac and Linux. In order to install Nillion on a Windows machine, you'll need to first complete a 5 minute WSL developer environment setup. Follow the steps below to install WSL, set up your WSL developer environment, and install and use Nillion Linux binaries from a Windows machine.
 
-### WSL (Windows Subsystem for Linux) developer environment setup
+### WSL developer environment setup
 
-The Windows Subsystem for Linux (WSL) lets developers install a Linux distribution (such as Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, etc) and use Linux applications, utilities, and Bash command-line tools directly on Windows, unmodified, without the overhead of a traditional virtual machine or dualboot setup. [Follow the WSL installation](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#get-started) steps below
+The [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) (WSL) lets developers install a Linux distribution and use Linux applications, utilities, and Bash command-line tools including the [Nillion SDK and tools](/nillion-sdk-and-tools) on a Windows machine.
 
 #### 1. Run the install command
 
