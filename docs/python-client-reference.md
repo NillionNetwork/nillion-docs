@@ -1251,7 +1251,6 @@ updated_store_id = await client.update_permissions(args.cluster_id, store_id, pe
 ```
 
 
-
 #### retrieve_permissions(cluster_id, store_id, receipt)
 
 Retrieve permissions for a group of secrets in the Nillion Network
@@ -1363,7 +1362,7 @@ Store values in the Nillion Network.
   str
 * **Raises:**
   **TypeError** – When using bindings, the input party name provided (e.g. “InputPartyName”) must
-      match the input party name in the Nada program. Othersiwe, we get a TypeError.
+      match the input party name in the Nada program. Otherwise, we get a TypeError.
 
 ### Example
 
