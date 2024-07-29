@@ -152,7 +152,7 @@ const sidebars = {
                     },
                     {
                       type: 'link',
-                      label: 'Millionaires Problem',
+                      label: 'Millionaires' Problem',
                       href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/millionaires_problem_example',
                     },
                   ],

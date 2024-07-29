@@ -113,6 +113,13 @@ git clone https://github.com/NillionNetwork/cra-nillion.git
 
 ### Install repo dependencies and run the starter
 
+:::info
+
+Before you use [cra-nillion](https://github.com/NillionNetwork/cra-nillion), check that you have [Node (>= v18.17)](https://nodejs.org/en/download/) installed by running
+`   node -v
+  `
+:::
+
 ```
 cd cra-nillion
 npm i
@@ -292,7 +299,7 @@ You've successfully build your first blind app by writing a Nada program, storin
 
 - reading about [Nillion concepts](/concepts) and the [Nada Language](nada-lang)
 - learning how to interact with and manage programs, secrets, and permissions on the Nillion Network with [Nillion Client](/js-client)
-- challenging yourself to create a page that solves the [millionaires problem](/multi-party-computation#classic-scenario-the-millionaires-problem)
+- challenging yourself to create a page that solves the [Millionaires' Problem](/multi-party-computation#classic-scenario-the-millionaires-problem)
 
 :::tip
 
