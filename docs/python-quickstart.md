@@ -227,7 +227,7 @@ You need to leave the devnet running in the background while you run your progra
 
 In this section, we will use the python client run a computation on the local devnet. 
 
-We will write the following code in the `quickstart/client_code/secret_addition.py` file. You can [view the completed code here](https://github.com/NillionNetwork/nillion-python-starter/blob/main/quickstart_complete/client_code/secret_addition_complete.py), feel free to refer back to it whenever you need.
+We will write the following code within the `quickstart/client_code` directory in the `run_my_first_program.py` [file here](https://github.com/NillionNetwork/nillion-python-starter/blob/main/quickstart/client_code/run_my_first_program.py). You can [view the completed client code here](https://github.com/NillionNetwork/nillion-python-starter/blob/main/quickstart_complete/client_code/secret_addition_complete.py), feel free to refer back to it whenever you need.
 
 1. Import the packages and helper functions we will be using
     
