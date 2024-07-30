@@ -233,11 +233,6 @@ const sidebars = {
               id: 'nada-lang-tutorial-lists-and-iteration',
             },
             {
-              type: 'link',
-              label: 'More Example Programs',
-              href: 'https://github.com/NillionNetwork/nillion-python-starter/tree/main/programs',
-            },
-            {
               type: 'doc',
               label: 'Debugging',
               id: 'nada-debugging',
@@ -434,6 +429,16 @@ const sidebars = {
       id: 'nada-by-example-quickstart',
     },
     {
+      type: 'link',
+      label: 'Ask a Nada Question',
+      href: 'https://github.com/orgs/NillionNetwork/discussions/categories/q-a',
+    },
+    {
+      type: 'link',
+      label: 'Report a Bug',
+      href: 'https://github.com/orgs/NillionNetwork/discussions/categories/bugs',
+    },
+    {
       type: 'html',
       className: 'sidebar-title',
       value: 'Nada Program Examples',
@@ -446,7 +451,6 @@ const sidebars = {
         type: 'doc',
         id: 'nada-by-example/nada-operations',
       },
-      collapsed: false,
       items: [
         'nada-by-example/addition',
         'nada-by-example/subtraction',
@@ -463,16 +467,81 @@ const sidebars = {
         'nada-by-example/reveal',
       ]
     },
-    {
-      type: 'html',
-      className: 'sidebar-title',
-      value: 'Programming with Nada',
-      defaultStyle: true,
-    },
     'nada-by-example/list-comprehensions',
     'nada-by-example/helper-function',
     'nada-by-example/for-loop',
-    
+    {
+      type: 'html',
+      className: 'sidebar-title',
+      value: 'Examples with Nada Libraries',
+      defaultStyle: true,
+    },
+    {
+      type: 'category',
+      label: 'Nada Numpy',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          type: 'link',
+          label: 'Dot product',
+          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/dot_product',
+        },
+        {
+          type: 'link',
+          label: 'Matrix multiplication',
+          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/matrix_multiplication',
+        },
+        {
+          type: 'link',
+          label: 'Broadcasting',
+          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/broadcasting',
+        },
+        {
+          type: 'link',
+          label: 'Rational numbers',
+          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/rational_numbers',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Nada AI',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        {
+          type: 'link',
+          label: 'Linear regression',
+          href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/linear_regression',
+        },
+        {
+          type: 'link',
+          label: 'Neural network',
+          href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/neural_net',
+        },
+        {
+          type: 'link',
+          label: 'Complex model',
+          href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/complex_model',
+        },
+        {
+          type: 'link',
+          label: 'Time series',
+          href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/time_series',
+        },
+        {
+          type: 'link',
+          label: 'Spam detection',
+          href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/spam_detection',
+        },
+        {
+          type: 'link',
+          label: 'Convolutional Neural Network',
+          href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/conv_net',
+        }
+      ],
+    },
   ]
 };
 
