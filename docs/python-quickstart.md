@@ -227,7 +227,7 @@ You need to leave the devnet running in the background while you run your progra
 
 In this section, we will use the python client run a computation on the local devnet. 
 
-We will write the following code in the `quickstart/client_code/secret_addition.py` file. You can [view the completed code here](https://github.com/NillionNetwork/nillion-python-starter/blob/update-quickstart-july-release/quickstart_complete/client_code/secret_addition_complete.py), feel free to refer back to it whenever you need.
+We will write the following code within the `quickstart/client_code` directory in the `run_my_first_program.py` [file here](https://github.com/NillionNetwork/nillion-python-starter/blob/main/quickstart/client_code/run_my_first_program.py). You can [view the completed client code here](https://github.com/NillionNetwork/nillion-python-starter/blob/main/quickstart_complete/client_code/secret_addition_complete.py), feel free to refer back to it whenever you need.
 
 1. Import the packages and helper functions we will be using
     
@@ -286,7 +286,7 @@ We will write the following code in the `quickstart/client_code/secret_addition.
     ```python
     # 3. Pay for and store the program
     # Set the program name and path to the compiled program
-    program_name = "secret_addition_complete"
+    program_name = "secret_addition"
     program_mir_path = f"../nada_quickstart_programs/target/{program_name}.nada.bin"
 
     # Create payments config, client and wallet

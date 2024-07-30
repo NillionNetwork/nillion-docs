@@ -21,7 +21,7 @@ The [Nillion SDK tool](/nillion-sdk-and-tools) binaries can be installed with [`
 - Linux (ARM chip)
 - Linux (Intel/AMD chip)
 
-Binaries are not yet available for Windows.
+If you are on a Windows machine, follow our [Windows guide](/installation#windows-guide) to set up a WSL developer environment and install Linux binaries.
 
 ## Nillion Clients
 

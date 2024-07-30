@@ -78,6 +78,7 @@ const sidebars = {
         id: 'nillion-sdk-and-tools',
       },
       items: [
+        'installation',
         'nilup',
         'nillion',
         'nillion-devnet',

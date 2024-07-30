@@ -60,7 +60,7 @@ version = "<version>"
 
 This will ensure that when you call nada or any other Nillion SDK command, it will use the version specified in that file.
 
-### Set up virtual environment
+### Set up a virtual environment
 
 <VenvSetup/>
 

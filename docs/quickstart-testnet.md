@@ -1,5 +1,6 @@
 import JsHeaders from './\_js-headers-proxy.mdx';
 import IframeVideo from '@site/src/components/IframeVideo/index';
+import {ReactTestnetEnv} from '@site/src/components/Networks/TestnetEnv';
 
 # Deploy your blind app to the Nillion Testnet
 
@@ -9,18 +10,7 @@ Your blind app is currently running locally against the nillion-devnet. Let's co
 
 Update your .env values to point at the Nillion Testnet
 
-```
-REACT_APP_API_BASE_PATH=/nilchain-proxy
-
-# testnet .env file
-
-REACT_APP_NILLION_CLUSTER_ID=b13880d3-dde8-4a75-a171-8a1a9d985e6c
-REACT_APP_NILLION_BOOTNODE_WEBSOCKET=/dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14211/wss/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
-REACT_APP_NILLION_NILCHAIN_JSON_RPC=http://65.109.222.111:26657
-REACT_APP_NILLION_NILCHAIN_REST_API=http://65.109.222.111:26657
-REACT_APP_NILLION_NILCHAIN_CHAIN_ID=nillion-chain-testnet-1
-REACT_APP_NILLION_NILCHAIN_PRIVATE_KEY=YOUR-NIL-FUNDED-PRIVATE-KEY
-```
+<ReactTestnetEnv/>
 
 The `REACT_APP_NILLION_NILCHAIN_PRIVATE_KEY` private key value above should correspond to an address you've funded with Testnet NIL.
 
@@ -66,4 +56,4 @@ https://github.com/NillionNetwork/cra-nillion/blob/main/vercel.json
 
 - reading about [Nillion concepts](/concepts) and the [Nada Language](nada-lang)
 - learning how to interact with and manage programs, secrets, and permissions on the Nillion Network with [Nillion Client](/js-client)
-- challenging yourself to create a page that solves the [millionaires problem](/multi-party-computation#classic-scenario-the-millionaires-problem)
+- challenging yourself to create a page that solves the [Millionaires Problem](/multi-party-computation#classic-scenario-the-millionaires-problem)

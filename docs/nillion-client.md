@@ -22,7 +22,7 @@ There are 3 Nillion Clients - a Python, JavaScript, and CLI Client. Each Nillion
 
 #### **Run a stored program**
 
-`compute` runs a stored Nada program by `program_id` against stored secrets by `store_id` and `secret_name` and/or secrets provided by the user when running `compute`. A user needs permissions to compute on stored secrets for a specific program.
+`compute` runs a stored Nada program by `program_id` against stored secrets by `store_id` and `secret_name` and/or secrets provided by the user when running `compute`. A user needs permission to compute on stored secrets for a specific program.
 
 `compute` returns the program result from the network
 
