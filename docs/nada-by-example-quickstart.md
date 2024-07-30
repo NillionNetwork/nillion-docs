@@ -175,3 +175,7 @@ addition_test: PASS
 ```
 
 Testing the addition program with `addition_test` results in a PASS because the expected_outputs `sum` output matches the run result.
+
+## Keep exploring examples
+
+🥳 You're all set up to run and test any example in [nada-by-example](https://github.com/NillionNetwork/nada-by-example). Keep exploring what's possible with Nada by running the rest of the programs in the repo.
