@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # Debugging
 
-If you come from a Python background, you might be used to using print statements to debug your code. Today, Nada programs do not support print statements, and compilation will fail if any are included. The best way to debug a Nada program is to raise a Python exception.
+If you come from a Python background, you might be used to using print statements to debug your code. Today, Nada programs do not support print statements, and compilation will fail if any are included. The best way to debug a Nada program is to raise a Python exception. Check out other [best practices and Nada debugging techniques, documented here](/nada-debugging).
 
 ## Debugging by raising exceptions
 

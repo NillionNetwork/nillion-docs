@@ -484,7 +484,7 @@ const sidebars = {
       items: [
         {
           type: 'link',
-          label: 'Dot product',
+          label: 'Dot Product',
           href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/dot_product',
         },
         {
@@ -499,7 +499,7 @@ const sidebars = {
         },
         {
           type: 'link',
-          label: 'Rational numbers',
+          label: 'Rational Numbers',
           href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/rational_numbers',
         },
       ],
@@ -512,27 +512,27 @@ const sidebars = {
       items: [
         {
           type: 'link',
-          label: 'Linear regression',
+          label: 'Linear Regression',
           href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/linear_regression',
         },
         {
           type: 'link',
-          label: 'Neural network',
+          label: 'Neural Network',
           href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/neural_net',
         },
         {
           type: 'link',
-          label: 'Complex model',
+          label: 'Complex Model',
           href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/complex_model',
         },
         {
           type: 'link',
-          label: 'Time series',
+          label: 'Time Series',
           href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/time_series',
         },
         {
           type: 'link',
-          label: 'Spam detection',
+          label: 'Spam Detection',
           href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/spam_detection',
         },
         {

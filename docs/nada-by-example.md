@@ -2,7 +2,7 @@
 displayed_sidebar: nadaByExampleSidebar
 ---
 
-# Intro to Nada by Example
+# Nada by Example
 
 Welcome to **Nada by Example**, an introduction to the Nada language with reference examples from the [nada-by-example](https://github.com/NillionNetwork/nada-by-example) repo. Nada is a Python-based language for defining MPC (Multi-Party Compute) programs on the [Nillion Network](/network). 
 
