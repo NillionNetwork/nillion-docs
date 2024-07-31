@@ -8,7 +8,7 @@ In this tutorial, we’ll explore the capabilities of Nada AI to create a simple
 
 First things first, let’s get Nada Numpy installed on your system. It’s as easy as running:
 ```bash
-pip install nada-ai
+pip install --upgrade nada-ai
 ```
 
 ## Defining our Multi-Layer Perceptron Model

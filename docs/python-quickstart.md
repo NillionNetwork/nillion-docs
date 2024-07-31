@@ -46,7 +46,7 @@ The [Nillion Python Starter repo](https://github.com/NillionNetwork/nillion-pyth
 
 5. Intall the requirements
    ```bash
-   pip install -r requirements.txt
+   pip install --upgrade -r requirements.txt
    ```
 
 You now have everything we need to start your Nillion developer journey. We will work in the `quickstart` directory, however, if you ever get stuck, you can see a fully completed version of the quickstart in the `quickstart_complete` directory.
