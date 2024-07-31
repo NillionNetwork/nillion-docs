@@ -84,4 +84,4 @@ SecretInteger(inner=<nada_dsl.operations.Addition object at 0x104ba5e20>)
 
 ## Next steps
 
-🐛 Now that you've learned to debug, you're ready play with Nada programs. Move on to the next section where you will set up a local environment and run and test Nada programs locally following the [Nada by Example Local Setup Quickstart](/nada-by-example-quickstart).
+🐛 Now that you've learned to debug, you're ready play with Nada programs. Move on to the next section where you will set up a local environment and run and test Nada programs locally following the [Nada by Example Local Setup Guide](/nada-by-example-quickstart).

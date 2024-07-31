@@ -22,7 +22,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition.py
 
 <TabItem value="test" label="Test file">
 
-You can auto-generate a test file like this one for any nada program with the [nada tool](/nada#generate-a-test-file). A test file verifies that the program works as expected. It provides test inputs and defines the expected outputs given the inputs. You'll learn how to run programs and test programs as part of the [Local Setup Quickstart](/nada-by-example-quickstart)
+You can auto-generate a test file like this one for any nada program with the [nada tool](/nada#generate-a-test-file). A test file verifies that the program works as expected. It provides test inputs and defines the expected outputs given the inputs. You'll learn how to run programs and test programs as part of the [Local Setup Guide](/nada-by-example-quickstart)
 
 ```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_test.yaml

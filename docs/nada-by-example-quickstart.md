@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PythonVersionInfo from './\_python-version-info.mdx';
 
-# Nada by Example Local Setup Quickstart
+# Nada by Example Local Setup Guide
 
 All examples for "Nada by Example" live in the [nada-by-example](https://github.com/NillionNetwork/nada-by-example) Github repo. Nada programs are in [`nada-by-example/src/`](https://github.com/NillionNetwork/nada-by-example/tree/main/src) and tests are in [`nada-by-example/tests`](https://github.com/NillionNetwork/nada-by-example/tree/main/tests). After you complete local repo setup following the instructions below, you can run an example from the repo locally.
 
