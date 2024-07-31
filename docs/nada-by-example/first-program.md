@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # Your First Nada Program
 
-Welcome to your first Nada program example! This example is an addition program that will help you understand the basics of writing a Nada program and introduce key concepts such as a `Party`, `Input`, `SecretInteger`, `Operation`, and `Output`.
+Welcome to your first Nada program example! This example is an addition program that is meant to help you understand the basics of writing a Nada program and introduce key concepts such as a `Party`, `Input`, `SecretInteger`, `Operation`, and `Output`.
 
 This addition program in Nada demonstrates how to handle secret inputs from multiple parties, perform a computation (addition), and produce an output for another party.
 
@@ -54,8 +54,8 @@ An `Input` is a value provided to a Nada program by a specific party. Inputs are
 
 The addition program has two `SecretInteger` typed `Input`: 
 
-1. `num_1` provided by Alice
-2. `num_2` provided by Bob.
+1. `num_1` input by Alice
+2. `num_2` input by Bob.
 
 ```python reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition.py#L7-L8

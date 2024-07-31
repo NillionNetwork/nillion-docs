@@ -1,15 +1,14 @@
+import NadaDataTypesTable from './\_data-types-table.mdx';
+
 # Data Types
 
 Overview of the primitive and the compound Nada data types.
 
 ## Primitive Data Types
 
-| `Public`                | `Secret`                | `Literals`        |
-| ----------------------- | ----------------------- | ----------------- |
-| `PublicInteger`         | `SecretInteger`         | `Integer`         |
-| `PublicUnsignedInteger` | `SecretUnsignedInteger` | `UnsignedInteger` |
+<NadaDataTypesTable/>
 
-`Public` and `Secret` data types can be used to specify user inputs as:
+`Secret` and `Public` data types can be used to specify user inputs as:
 
 ```python
 a = SecretInteger(Input(name="a", party=party1))

@@ -18,5 +18,3 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_test.
 ```
 </TabItem>
 </Tabs>
-
-

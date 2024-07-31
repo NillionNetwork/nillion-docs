@@ -446,6 +446,19 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Primitive Data Types',
+      link: {
+        type: 'doc',
+        id: 'nada-by-example/nada-data-types',
+      },
+      items: [
+        'nada-by-example/secret-data-type',
+        'nada-by-example/public-data-type',
+        'nada-by-example/literal-data-type',
+      ]
+    },
+    {
+      type: 'category',
       label: 'Nada Operations',
       link: {
         type: 'doc',
