@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 When programming in Nada, keep this phrase in mind: Think Big, Code Small. Read about the "Think Big, Code Small" philosophy with [Nada best practices and more debugging tips here](/nada-debugging).
 
-# Debugging with print()
+## Debugging with print()
 
 When developing and debugging Nada programs, it can be helpful to inspect the values and types of variables at various points in your code. You can do this by adding Python `print()` statements, then running the file directly.
 
