@@ -3,9 +3,11 @@ import TabItem from '@theme/TabItem';
 
 # Debugging
 
-When developing and debugging Nada programs, it can be helpful to inspect the values and types of variables at various points in your code. You can do this by adding Python `print()` statements, then running the file directly.
+When programming in Nada, keep this phrase in mind: Think Big, Code Small. Read about the "Think Big, Code Small" philosphy with [Nada best practices and more debugging tips here](/nada-debugging).
 
-## Debugging with print()
+# Debugging with print()
+
+When developing and debugging Nada programs, it can be helpful to inspect the values and types of variables at various points in your code. You can do this by adding Python `print()` statements, then running the file directly.
 
 
 ### 1. Include a Python main block
@@ -47,7 +49,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/debug.py
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/debug_test.yaml
 ```
 </TabItem>

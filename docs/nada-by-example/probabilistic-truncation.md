@@ -13,7 +13,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/probabilistic_tr
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/probabilistic_truncation_test.yaml
 ```
 </TabItem>

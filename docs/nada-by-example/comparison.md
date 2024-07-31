@@ -14,7 +14,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/comparison_lt.py
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/comparison_lt_test.yaml
 ```
 </TabItem>
@@ -31,7 +31,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/comparison_lte.p
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/comparison_lte_test.yaml
 ```
 </TabItem>
@@ -48,7 +48,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/comparison_gt.py
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/comparison_gt_test.yaml
 ```
 </TabItem>
@@ -65,7 +65,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/comparison_gte.p
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/comparison_gte_test.yaml
 ```
 </TabItem>

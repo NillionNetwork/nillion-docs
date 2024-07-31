@@ -13,7 +13,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/modulo.py
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/modulo_test.yaml
 ```
 </TabItem>

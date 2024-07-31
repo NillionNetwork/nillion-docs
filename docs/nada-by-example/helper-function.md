@@ -13,7 +13,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/list_comprehensi
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/list_comprehensions_with_helper_test.yaml
 ```
 </TabItem>

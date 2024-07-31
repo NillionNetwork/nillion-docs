@@ -14,7 +14,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/if_else_public.p
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/if_else_public_test.yaml
 ```
 </TabItem>
@@ -31,7 +31,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/if_else_private.
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/if_else_private_test.yaml
 ```
 </TabItem>

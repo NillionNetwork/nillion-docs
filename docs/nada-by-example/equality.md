@@ -14,7 +14,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/equality.py
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/equality_test.yaml
 ```
 </TabItem>
@@ -31,7 +31,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/equality_public.
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/equality_public_test.yaml
 ```
 </TabItem>

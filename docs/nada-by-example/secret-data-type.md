@@ -18,7 +18,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/multiplication.p
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/multiplication_test.yaml
 ```
 </TabItem>
@@ -37,7 +37,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition_unsigne
 </TabItem>
 
 <TabItem value="test" label="Test file">
-```python reference showGithubLink
+```yaml reference showGithubLink
 https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_unsigned_test.yaml
 ```
 </TabItem>
