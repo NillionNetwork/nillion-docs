@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # Debugging
 
-When programming in Nada, keep this phrase in mind: Think Big, Code Small. Read about the "Think Big, Code Small" philosphy with [Nada best practices and more debugging tips here](/nada-debugging).
+When programming in Nada, keep this phrase in mind: Think Big, Code Small. Read about the "Think Big, Code Small" philosophy with [Nada best practices and more debugging tips here](/nada-debugging).
 
 # Debugging with print()
 
