@@ -11,7 +11,7 @@ In this tutorial, we’ll explore the capabilities of Nada Numpy together. Befor
 First things first, let’s get Nada Numpy installed on your system. It’s as easy as running:
 
 ```bash
-pip install nada-numpy
+pip install --upgrade nada-numpy
 ```
 
 ## Writing a Nada-Numpy program

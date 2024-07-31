@@ -79,7 +79,7 @@ source .venv/bin/activate
 3. Install [nada-dsl](https://pypi.org/project/nada-dsl/)
 
 ```
-pip install nada-dsl
+pip install --upgrade nada-dsl
 ```
 
 ### Add a new Nada program to the project

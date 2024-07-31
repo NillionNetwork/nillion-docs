@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Install the [py-nillion-client](https://pypi.org/project/py-nillion-client/) PyPi package in an existing Python application
 
 ```bash
-pip install py-nillion-client
+pip install --upgrade py-nillion-client
 ```
 
 ## Usage
