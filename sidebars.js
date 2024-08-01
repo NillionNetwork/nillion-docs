@@ -54,7 +54,7 @@ const sidebars = {
     {
       type: 'html',
       className: 'sidebar-title',
-      value: 'About',
+      value: 'Learn',
       defaultStyle: true,
     },
     'what-is-nillion',
@@ -62,13 +62,14 @@ const sidebars = {
     'multi-party-computation',
     'nillions-mpc-protocol',
     'network',
+    'concepts',
     {
       type: 'html',
       className: 'sidebar-title',
       value: 'Build',
       defaultStyle: true,
     },
-    'concepts',
+    'start-building',
     'network-configuration',
     {
       type: 'category',
