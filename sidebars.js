@@ -434,11 +434,6 @@ const sidebars = {
       href: 'https://github.com/orgs/NillionNetwork/discussions/categories/q-a',
     },
     {
-      type: 'link',
-      label: 'Report a Bug',
-      href: 'https://github.com/orgs/NillionNetwork/discussions/categories/bugs',
-    },
-    {
       type: 'html',
       className: 'sidebar-title',
       value: 'Nada Program Examples',
@@ -486,6 +481,11 @@ const sidebars = {
     'nada-by-example/reduce',
     'nada-by-example/voting',
     {
+      type: 'link',
+      label: 'Request an Example',
+      href: 'https://github.com/NillionNetwork/nada-by-example/issues/new/choose',
+    },
+    {
       type: 'html',
       className: 'sidebar-title',
       value: 'Examples with Nada Libraries',
@@ -493,37 +493,13 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Nada Numpy',
-      collapsible: true,
-      collapsed: false,
-      items: [
-        {
-          type: 'link',
-          label: 'Dot Product',
-          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/dot_product',
-        },
-        {
-          type: 'link',
-          label: 'Matrix multiplication',
-          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/matrix_multiplication',
-        },
-        {
-          type: 'link',
-          label: 'Broadcasting',
-          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/broadcasting',
-        },
-        {
-          type: 'link',
-          label: 'Rational Numbers',
-          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/rational_numbers',
-        },
-      ],
-    },
-    {
-      type: 'category',
       label: 'Nada AI',
       collapsible: true,
       collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'nada-by-example/nada-ai',
+      },
       items: [
         {
           type: 'link',
@@ -555,6 +531,38 @@ const sidebars = {
           label: 'Convolutional Neural Network',
           href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/conv_net',
         }
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Nada Numpy',
+      collapsible: true,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'nada-by-example/nada-numpy',
+      },
+      items: [
+        {
+          type: 'link',
+          label: 'Dot Product',
+          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/dot_product',
+        },
+        {
+          type: 'link',
+          label: 'Matrix Multiplication',
+          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/matrix_multiplication',
+        },
+        {
+          type: 'link',
+          label: 'Broadcasting',
+          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/broadcasting',
+        },
+        {
+          type: 'link',
+          label: 'Rational Numbers',
+          href: 'https://github.com/NillionNetwork/nada-numpy/tree/main/examples/rational_numbers',
+        },
       ],
     },
   ]
