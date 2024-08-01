@@ -79,6 +79,18 @@ const config = {
         },
         items: [
           {
+            type: 'doc',
+            position: 'left',
+            docId: 'welcome',
+            label: 'Docs',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'nada-by-example',
+            label: 'Nada by Example',
+          },
+          {
             href: 'https://github.com/NillionNetwork',
             label: 'GitHub',
             position: 'right',
