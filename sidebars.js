@@ -426,7 +426,7 @@ const sidebars = {
     'nada-by-example/debugging',
     {
       type: 'doc',
-      label: 'Local Setup Guide',
+      label: 'Run Examples: Local Setup Guide',
       id: 'nada-by-example-quickstart',
     },
     {
