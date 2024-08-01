@@ -480,6 +480,7 @@ const sidebars = {
     'nada-by-example/for-loop',
     'nada-by-example/reduce',
     'nada-by-example/voting',
+    'nada-by-example/r-p-s',
     {
       type: 'link',
       label: 'Request an Example',
