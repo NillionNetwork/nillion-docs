@@ -7,6 +7,19 @@ import PythonVersionInfo from './\_python-version-info.mdx';
 
 The <strong>[`nada`](/nada)</strong> tool is used to create a new Nada project, compile all programs in the project, run Nada programs, and generate tests for Nada programs.
 
+:::info
+
+Before starting this guide, [Install the Nillion SDK](/installation)
+
+Confirm installation:
+
+```
+nillion -V
+```
+
+:::
+
+
 ## Create a new Nada project
 
 Create a `quickstart` directory. Inside of `quickstart`, use the <strong>[`nada`](/nada)</strong> tool to create a new nada project named "nada_quickstart_programs" by running
