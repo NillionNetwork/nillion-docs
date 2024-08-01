@@ -483,6 +483,8 @@ const sidebars = {
     'nada-by-example/list-comprehensions',
     'nada-by-example/helper-function',
     'nada-by-example/for-loop',
+    'nada-by-example/reduce',
+    'nada-by-example/voting',
     {
       type: 'html',
       className: 'sidebar-title',
