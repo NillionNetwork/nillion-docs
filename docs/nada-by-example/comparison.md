@@ -2,6 +2,7 @@
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TestProgram from '@site/src/components/TestProgram/index';
 
 ## Less than `<`
 
@@ -20,6 +21,8 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/comparison_lt_
 </TabItem>
 </Tabs>
 
+<TestProgram programName="comparison_lt"/>
+
 ## Less than or equal to `<=`
 
 <Tabs>
@@ -37,6 +40,8 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/comparison_lte
 </TabItem>
 </Tabs>
 
+<TestProgram programName="comparison_lte"/>
+
 ## Greater than `>`
 
 <Tabs>
@@ -53,6 +58,8 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/comparison_gt_
 ```
 </TabItem>
 </Tabs>
+
+<TestProgram programName="comparison_gt"/>
 
 ## Greater than or equal to `>=`
 
@@ -72,4 +79,5 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/comparison_gte
 </Tabs>
 
 
+<TestProgram programName="comparison_gte"/>
 

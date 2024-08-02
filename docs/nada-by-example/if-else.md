@@ -2,6 +2,7 @@
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TestProgram from '@site/src/components/TestProgram/index';
 
 ## If / Else with a public condition
 
@@ -20,6 +21,8 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/if_else_public
 </TabItem>
 </Tabs>
 
+<TestProgram programName="if_else_public"/>
+
 ## If / Else with a private condition
 
 <Tabs>
@@ -36,3 +39,5 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/if_else_privat
 ```
 </TabItem>
 </Tabs>
+
+<TestProgram programName="if_else_private"/>

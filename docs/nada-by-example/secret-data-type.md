@@ -1,5 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TestProgram from '@site/src/components/TestProgram/index';
 
 # Secret
 
@@ -24,6 +25,8 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/multiplication
 </TabItem>
 </Tabs>
 
+<TestProgram programName="multiplication" />
+
 ## SecretUnsignedInteger
 
 `SecretUnsignedInteger` represents a user input secret unsigned integer value. This value can be zero or a positive integer.
@@ -42,3 +45,5 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_unsig
 ```
 </TabItem>
 </Tabs>
+
+<TestProgram programName="addition_unsigned" />

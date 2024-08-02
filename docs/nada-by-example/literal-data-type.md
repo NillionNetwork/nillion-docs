@@ -1,5 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TestProgram from '@site/src/components/TestProgram/index';
 
 # Literals
 
@@ -24,6 +25,8 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_liter
 </TabItem>
 </Tabs>
 
+<TestProgram programName="addition_literal"/>
+
 ## UnsignedInteger
 
 `UnsignedInteger` represents a literal unsigned integer value. This value can be zero or a positive integer.
@@ -42,3 +45,5 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_liter
 ```
 </TabItem>
 </Tabs>
+
+<TestProgram programName="addition_literal_unsigned"/>

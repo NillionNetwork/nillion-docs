@@ -86,4 +86,4 @@ In this example, you learned how to use Nada to create a multiplication program 
 
 The power of Nada lies in its ability to compute on secret inputs without revealing the underlying data to any party involved. This makes Nada programs perfect for applications requiring high levels of privacy and security.
 
-Continue learning and experimenting with Nada by **learning how to debug a Nada program** in the next section.
+Start experimenting with Nada by **learning how to run Nada by Example programs** in the next section.

@@ -423,12 +423,12 @@ const sidebars = {
       id: 'nada-by-example',
     },
     'nada-by-example/first-program',
-    'nada-by-example/debugging',
     {
       type: 'doc',
-      label: 'Run Examples: Local Setup Guide',
+      label: 'How to Run Examples',
       id: 'nada-by-example-quickstart',
     },
+    'nada-by-example/debugging',
     {
       type: 'link',
       label: 'Ask a Nada Question',

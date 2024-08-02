@@ -2,7 +2,7 @@
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
+import TestProgram from '@site/src/components/TestProgram/index';
 
 <Tabs>
 
@@ -18,3 +18,5 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_test.
 ```
 </TabItem>
 </Tabs>
+
+<TestProgram programName="addition"/>

@@ -2,7 +2,7 @@
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
+import TestProgram from '@site/src/components/TestProgram/index';
 
 <Tabs>
 
@@ -19,4 +19,4 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/list_comprehen
 </TabItem>
 </Tabs>
 
-
+<TestProgram programName="list_comprehensions"/>

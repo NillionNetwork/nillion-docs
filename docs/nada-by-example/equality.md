@@ -2,6 +2,7 @@
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import TestProgram from '@site/src/components/TestProgram/index';
 
 ## Private equality `==`
 
@@ -20,6 +21,8 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/equality_test.
 </TabItem>
 </Tabs>
 
+<TestProgram programName="equality"/>
+
 ## Public output equality `==`
 
 <Tabs>
@@ -36,3 +39,5 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/equality_publi
 ```
 </TabItem>
 </Tabs>
+
+<TestProgram programName="equality_public"/>

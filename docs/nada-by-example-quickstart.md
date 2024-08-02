@@ -5,18 +5,29 @@ displayed_sidebar: nadaByExampleSidebar
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PythonVersionInfo from './\_python-version-info.mdx';
+import IframeVideo from '@site/src/components/IframeVideo/index';
 
-# Nada by Example Local Setup Guide
+# How to Run Nada by Example 
 
-All examples for "Nada by Example" live in the [nada-by-example](https://github.com/NillionNetwork/nada-by-example) Github repo. Nada programs are in [`nada-by-example/src/`](https://github.com/NillionNetwork/nada-by-example/tree/main/src) and tests are in [`nada-by-example/tests`](https://github.com/NillionNetwork/nada-by-example/tree/main/tests). After you complete local repo setup following the instructions below, you can run an example from the repo locally.
+## Setup options
 
-:::tip
+All examples for "Nada by Example" live in the [nada-by-example](https://github.com/NillionNetwork/nada-by-example) Github repo. Nada programs are in [`nada-by-example/src/`](https://github.com/NillionNetwork/nada-by-example/tree/main/src) and tests are in [`nada-by-example/tests`](https://github.com/NillionNetwork/nada-by-example/tree/main/tests). To run examples, there are 2 setup options:
 
-The [nada-by-example](https://github.com/NillionNetwork/nada-by-example) repo is a Nada project created with Nillion's [nada](/nada) tool. You can run all existing `nada` commands found in the [nada tool docs](/nada) to compile programs, get program requirements, run a program, and test a program.
-:::
+- Option 1: _Recommended_ - [1 click setup with Gitpod](/nada-by-example-quickstart#1-click-setup-with-gitpod)
+- Option 2: [Follow the Local Setup Guide](/nada-by-example-quickstart#local-setup-guide) to clone the repo and install dependencies
+
+### 1 Click Setup with Gitpod
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/oceans404/nada-by-example)
+
+Click the button above to open the Nada by Example repo in Gitpod. Then skip ahead to the [run and test an example](/nada-by-example-quickstart#how-to-run-and-test-an-example-program) section to learn how to run and test a Nada program.
+
+<IframeVideo videoSrc="https://www.loom.com/embed/4395eeed66934142ba0feaf68a43534a?sid=785f1cc2-881a-4c30-8d96-07007251bd6b"/>
 
 
-## Repo setup instructions
+### Local Setup Guide
+
+Complete local repo setup following the instructions below to run an example from the repo locally.
 
 Install Nillion, clone the nada-by-example repo, and set up a developer environment for your local nada-by-example repo.
 
@@ -80,6 +91,11 @@ nada build
 ✅ Great work! Now that you've set up the nada-by-example repo, you can run any example.
 
 ## How to run and test an example program
+
+:::tip
+
+The [nada-by-example](https://github.com/NillionNetwork/nada-by-example) repo is a Nada project created with Nillion's [nada](/nada) tool. You can run all existing `nada` commands found in the [nada tool docs](/nada) to compile programs, get program requirements, run a program, and test a program.
+:::
 
 Every Nada program example has a corresponding test file. Programs are in [`nada-by-example/src/`](https://github.com/NillionNetwork/nada-by-example/tree/main/src) and test files are in [`nada-by-example/tests`](https://github.com/NillionNetwork/nada-by-example/tree/main/tests). Running a program uses the inputs specified in the test file. Testing a program uses the inputs specified in the test file and also checks the outputs against the `expected_outputs` specified in the test file.
 
