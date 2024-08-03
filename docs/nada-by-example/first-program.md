@@ -82,7 +82,7 @@ The addition program returns one output, the sum to Charlie. Charlie can see the
 
 ## Wrap up
 
-In this example, you learned how to use Nada to create a multiplication program that performs blind computation. By defining Party, Input, SecretInteger, performing an Operation, and specifying Output, you can compute on secret inputs from multiple users. This ensures that sensitive data remains confidential throughout the computation process.
+In this example, you learned how to use Nada to create an addition program that performs blind computation. By defining Party, Input, SecretInteger, performing an Operation, and specifying Output, you can compute on secret inputs from multiple users. This ensures that sensitive data remains confidential throughout the computation process.
 
 The power of Nada lies in its ability to compute on secret inputs without revealing the underlying data to any party involved. This makes Nada programs perfect for applications requiring high levels of privacy and security.
 
