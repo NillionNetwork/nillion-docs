@@ -1243,7 +1243,7 @@
     "@docsearch/css" "3.6.0"
     algoliasearch "^4.19.1"
 
-"@docusaurus/core@3.3.2":
+"@docusaurus/core@3.3.2", "@docusaurus/core@3.x":
   version "3.3.2"
   resolved "https://registry.npmjs.org/@docusaurus/core/-/core-3.3.2.tgz"
   integrity sha512-PzKMydKI3IU1LmeZQDi+ut5RSuilbXnA8QdowGeJEgU8EJjmx3rBHNT1LxQxOVqNEwpWi/csLwd9bn7rUjggPA==
@@ -3970,6 +3970,11 @@ dns-packet@^5.2.2:
   integrity sha512-l4gcSouhcgIKRvyy99RNVOgxXiicE+2jZoNmaNmZ6JXiGajBOJAesk1OBlJuM5k2c+eudGdLxDqXuPCKIj6kpw==
   dependencies:
     "@leichtgewicht/ip-codec" "^2.0.1"
+
+docusaurus-pushfeedback@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/docusaurus-pushfeedback/-/docusaurus-pushfeedback-1.0.1.tgz"
+  integrity sha512-pD9RvbKKivQmIcGrXfDD+UMlavK0yAt/OhhUG/pz8sdfgSU0Hx5AmlEc/xJAsEYj78aVSWX3SV6/XXoksudjDg==
 
 docusaurus-theme-github-codeblock@^2.0.2:
   version "2.0.2"
