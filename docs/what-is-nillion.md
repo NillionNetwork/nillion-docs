@@ -10,4 +10,4 @@ Traditional challenges of handling high value data include
 
 Nillion addresses these challenges by leveraging privacy enhancing technologies (PETs) including Multi-Party Computation (MPC). These PETs enable users to securely store high value data on Nillion's peer-to-peer network of nodes, and allow for computations to be executed on the masked data itself. This eliminates the traditional need to decrypt data ahead of computation, enhancing the high value data's security.
 
-High value data stored in the Nillion Network can be computed on while staying hidden, unlocking new use cases and verticals; early Nillion builders from our community are building things like tooling for private predictive LLMs and secure storage and compute solutions for healthcare, passwords, and trading data.
+High value data stored in the Nillion Network can be computed on while staying hidden, unlocking new use cases and verticals; early Nillion builders from our community are building things like tooling for private predictive AI and secure storage and compute solutions for healthcare, passwords, and trading data.
