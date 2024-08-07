@@ -8,7 +8,7 @@ Nada AI boasts a strongly-typed interface, utilizing root families (`Integer`, `
 
 Choosing blind computing involves certain trade-offs compared to traditional computing. While you gain enhanced privacy, there are added computational overheads and capacity constraints.
 
-**Currently, Nada-AI does not support Large Language Models (LLMs)**. However, we are actively working on integrating this capability into our platform. In the meantime, we recommend the following [3-phase blind AI/ML workflow](/nada-ai-introduction#discover-the-power-of-privacy-preserving-ai) with the [models we do support](/nada-ai-introduction#supported-models):
+**Currently, Nada-AI does not support Large Language Models (LLMs)**. However, we are actively working on integrating this capability into our platform. In the meantime, follow our [3-phase workflow](/nada-ai-introduction#discover-the-power-of-privacy-preserving-ai) with a [supported model](/nada-ai-introduction#supported-models) to build a blind AI project with Nada:
 
 ### Discover the Power of Privacy-Preserving AI
 
