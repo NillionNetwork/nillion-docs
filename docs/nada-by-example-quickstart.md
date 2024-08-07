@@ -18,7 +18,7 @@ All examples for "Nada by Example" live in the [nada-by-example](https://github.
 
 ### 1 Click Setup with Gitpod
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/oceans404/nada-by-example)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/nillionnetwork/nada-by-example)
 
 Click the button above to open the Nada by Example repo in Gitpod. Then skip ahead to the [run and test an example](/nada-by-example-quickstart#how-to-run-and-test-an-example-program) section to learn how to run and test a Nada program.
 

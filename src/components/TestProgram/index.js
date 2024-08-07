@@ -8,7 +8,7 @@ const TestProgram = ({ programName, testFileName }) => {
 
       <h4>1. Open "Nada by Example"</h4>
       <a
-        href="https://gitpod.io/#https://github.com/oceans404/nada-by-example"
+        href="https://gitpod.io/#https://github.com/nillionnetwork/nada-by-example"
         target="_blank"
       >
         <img

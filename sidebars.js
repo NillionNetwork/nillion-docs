@@ -480,12 +480,13 @@ const sidebars = {
     'nada-by-example/helper-function',
     'nada-by-example/for-loop',
     'nada-by-example/reduce',
+    'nada-by-example/random-number',
     'nada-by-example/voting',
     'nada-by-example/r-p-s',
     {
       type: 'link',
       label: 'Request an Example',
-      href: 'https://github.com/NillionNetwork/nada-by-example/issues/new/choose',
+      href: 'https://github.com/nillionnetwork/nada-by-example/issues/new/choose',
     },
     {
       type: 'html',
