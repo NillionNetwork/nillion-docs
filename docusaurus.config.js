@@ -136,6 +136,7 @@ const config = {
               hideEmail: true,
               sendButtonText: 'Send to the Nillion team',
               buttonStyle: "dark",
+              hideScreenshotButton: true
           }
       ]
     ],
