@@ -4,6 +4,12 @@
 
 Nada AI boasts a strongly-typed interface, utilizing root families (`Integer`, `UnsignedInteger`, `Rational`, and `SecretBoolean`). This ensures strict type enforcement at the library level, guaranteeing compliance with Nada DSL rules.
 
+### LLMs and Nada AI
+
+Choosing blind computing involves certain trade-offs compared to traditional computing. While you gain enhanced privacy, there are added computational overheads and capacity constraints.
+
+**Currently, Nada-AI does not support Large Language Models (LLMs)**. However, we are actively working on integrating this capability into our platform. In the meantime, follow our [3-phase workflow](/nada-ai-introduction#discover-the-power-of-privacy-preserving-ai) with a [supported model](/nada-ai-introduction#supported-models) to build a blind AI project with Nada:
+
 ### Discover the Power of Privacy-Preserving AI
 
 In this tutorial series, you'll dive into creating your own privacy-preserving AI models for inference. Developing a model with Nillion involves three distinct phases:
