@@ -96,15 +96,15 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://www.nillhub.com',
-            label: 'Forum',
+            href: 'https://github.com/orgs/NillionNetwork/discussions',
+            label: 'Discussions',
             position: 'right',
           },
         ],
       },
-      footer: {
-        copyright: `Copyright © ${new Date().getFullYear()} Nillion`,
-      },
+      // footer: {
+      //   copyright: `Copyright © ${new Date().getFullYear()} Nillion`,
+      // },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
