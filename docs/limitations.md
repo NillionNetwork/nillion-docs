@@ -74,7 +74,12 @@ def inc2(a: SecretInteger) -> SecretInteger:
 
 The Nada compiler will throw an error as `inc2` does not have access to `inc`.
 
-### Zeros (as inputs, and divide by 0)
+### Zeros
 
-- Currently you should not use 0 as an input value as it may leak other secrets. We are working on fixing this.
 - Ensure that your programs do not attempt to divide by 0, this is not supported in our language currently.
+
+## Run a testnet node
+
+Developers can run a local Nillion Network node with the [nillion-devnet](/nillion-devnet) tool.
+
+Today, running a Nillion Network Testnet node is permissioned. We plan to transition to a permissionless model in the future, allowing the public to participate as node operators. When this changes, you’ll hear about it on our [Twitter](https://twitter.com/nillionnetwork) and [Discord](https://discord.com/invite/nillionnetwork). Follow us to stay updated.
