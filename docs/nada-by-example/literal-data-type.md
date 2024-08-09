@@ -47,3 +47,24 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_liter
 </Tabs>
 
 <TestProgram programName="addition_literal_unsigned"/>
+
+## Boolean
+
+`Boolean` represents a literal boolean value defined within the program rather than provided by a party. This value can be true or false.
+
+<Tabs>
+
+<TabItem value="program" label="Nada program" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/src/literal_boolean.py
+```
+</TabItem>
+
+<TabItem value="test" label="Test file">
+```yaml reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/tests/literal_boolean_test.yaml
+```
+</TabItem>
+</Tabs>
+
+<TestProgram programName="literal_boolean" />
