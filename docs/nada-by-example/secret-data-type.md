@@ -47,3 +47,24 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_unsig
 </Tabs>
 
 <TestProgram programName="addition_unsigned" />
+
+## SecretBoolean
+
+`SecretBoolean` represents a user input secret boolean value. This value can be true or false.
+
+<Tabs>
+
+<TabItem value="program" label="Nada program" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/src/secret_conditional.py
+```
+</TabItem>
+
+<TabItem value="test" label="Test file">
+```yaml reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/tests/secret_conditional_test.yaml
+```
+</TabItem>
+</Tabs>
+
+<TestProgram programName="secret_conditional" />

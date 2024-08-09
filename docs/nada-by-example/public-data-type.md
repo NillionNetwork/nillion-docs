@@ -47,3 +47,24 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_publi
 </Tabs>
 
 <TestProgram programName="addition_public_unsigned"/>
+
+## PublicBoolean
+
+`PublicBoolean` represents a user input public boolean value. This value can be true or false.
+
+<Tabs>
+
+<TabItem value="program" label="Nada program" default>
+```python reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/src/public_conditional.py
+```
+</TabItem>
+
+<TabItem value="test" label="Test file">
+```yaml reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/tests/public_conditional_test.yaml
+```
+</TabItem>
+</Tabs>
+
+<TestProgram programName="public_conditional" />
