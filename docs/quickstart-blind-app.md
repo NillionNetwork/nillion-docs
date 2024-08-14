@@ -205,7 +205,7 @@ Now your cra-nillion app can use the nada program and the nada program binaries 
 3. Update programName to `secret_addition` so the cra-nillion repo reads your Nada program.
 
 ```ts
-// const programName = 'addition_simple';
+// const programName = 'addition_simple'; <-- Change the string
 const programName = "secret_addition";
 ```
 
