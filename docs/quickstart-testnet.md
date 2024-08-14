@@ -8,7 +8,7 @@ Your blind app is currently running locally against the nillion-devnet. Let's co
 
 ## Update your .env file and test locally
 
-Update your .env values to point at the Nillion Testnet
+Update your `.env` values to point at the Nillion Testnet
 
 <ReactTestnetEnv/>
 
