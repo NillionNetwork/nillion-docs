@@ -7,7 +7,7 @@ import VenvSetup from './\_nada-venv-setup.mdx';
 import UnderstandingProgram from './\_understanding-first-nada-program.mdx';
 import CompileRunTest from './\_quickstart-compile-run-test.mdx';
 
-# Build a Blind App with the cra-nillion starter repo
+# Build a Blind App
 
 :::info
 
@@ -18,7 +18,24 @@ This is the 3rd step in the Blind App Quickstart. Before starting this guide,
 
 :::
 
-The [cra-nillion Starter Repo](https://github.com/NillionNetwork/cra-nillion) repo is a Create React App which has everything you need to start building your blind app.
+### Setting up a new project
+
+There are two pathways to creating a nillion starter repo.
+
+**1. Template Approach**
+
+Use our out-of-the-box react app by cloning our `cra-nillion` repository.
+
+OR
+
+**2. New Project**
+
+Create a brand new React / Nextjs app from scratch.
+
+<Tabs>
+
+<TabItem value="cra-nillion-template" label="Template" default>
+    The [cra-nillion Starter Repo](https://github.com/NillionNetwork/cra-nillion) repo is a Create React App which has everything you need to start building your blind app.
 
 ## Clone the CRA-Nillion JavaScript starter repo
 
@@ -218,6 +235,90 @@ Open the Nillion [JavaScript Client Reference](https://nillion.pub/nillion-js-re
 ## Run the Blind Computation Demo
 
 Go back to the Blind App on http://localhost:8080/compute and run through the steps on the page to test out the full blind computation flow.
+</TabItem>
+
+<TabItem value="new-project" label="New project" default>
+
+    <Tabs>
+
+        <TabItem value="nextjs-app" label="NextJS (App Router)" default>
+
+            ## Installation of a new Next (App router) app
+            Let's get started with the Next application.
+
+            - `npx create-next-app@latest nillion-app` and select `yes` when it asks to use the app router option.
+
+            ### Install repo dependencies
+
+            Then add the below packages to your fresh React / Next.js app.
+
+            <Tabs>
+                <TabItem value="npm" label="npm" default>
+                ```shell
+                npm i -D @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                ```
+                </TabItem>
+                <TabItem value="yarn" label="yarn" default>
+                ```shell
+                yarn add --dev @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                ```
+                </TabItem>
+            </Tabs>
+
+        </TabItem>
+
+        <TabItem value="nextjs-pages" label="NextJS (Pages Router)" default>
+
+            ## Installation of a new Next (Pages router) app
+            Let's get started with the Next application.
+            - `npx create-next-app@latest nillion-app` and select `no` when it asks to use the app router option.
+
+            ### Install repo dependencies
+
+            Then add the below packages to your fresh React / Next.js app.
+
+            <Tabs>
+                <TabItem value="npm" label="npm" default>
+                ```shell
+                npm i -D @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                ```
+                </TabItem>
+                <TabItem value="yarn" label="yarn" default>
+                ```shell
+                yarn add --dev @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                ```
+                </TabItem>
+            </Tabs>
+
+
+        </TabItem>
+        <TabItem value="react" label="React" default>
+
+            ## Installation of a new React app
+            - `npx create-react-app@latest nillion-app` and XXX
+
+            ### Install repo dependencies
+
+            Then add the below packages to your fresh React / Next.js app.
+
+            <Tabs>
+                <TabItem value="npm" label="npm" default>
+                ```shell
+                npm i -D @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                ```
+                </TabItem>
+                <TabItem value="yarn" label="yarn" default>
+                ```shell
+                yarn add --dev @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                ```
+                </TabItem>
+            </Tabs>
+        </TabItem>
+    </Tabs>
+
+</TabItem>
+
+</Tabs>
 
 ## Next steps
 
