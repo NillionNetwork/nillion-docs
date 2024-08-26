@@ -6,6 +6,7 @@ import QuickstartIntro from './\_quickstart-intro.mdx';
 import VenvSetup from './\_nada-venv-setup.mdx';
 import UnderstandingProgram from './\_understanding-first-nada-program.mdx';
 import CompileRunTest from './\_quickstart-compile-run-test.mdx';
+import Divider from './components/Divider.js';
 
 # Build a Blind App
 
@@ -241,12 +242,13 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
 
     <Tabs>
 
-        <TabItem value="nextjs-app" label="NextJS (App Router)" default>
+        <!-- <TabItem value="nextjs-app" label="NextJS (App Router)" default>
 
             ## Installation of a new Next (App router) app
             Let's get started with the Next application.
 
-            - `npx create-next-app@latest nillion-app` and select `yes` when it asks to use the app router option.
+            - `npx create-next-app@latest nillion-app`
+            - Select `yes` when it asks to use the app router option.
 
             ### Install repo dependencies
 
@@ -255,23 +257,24 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
             <Tabs>
                 <TabItem value="npm" label="npm" default>
                 ```shell
-                npm i -D @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                npm install @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
                 ```
                 </TabItem>
                 <TabItem value="yarn" label="yarn" default>
                 ```shell
-                yarn add --dev @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                yarn add @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
                 ```
                 </TabItem>
             </Tabs>
 
-        </TabItem>
+        </TabItem> -->
 
         <TabItem value="nextjs-pages" label="NextJS (Pages Router)" default>
 
             ## Installation of a new Next (Pages router) app
             Let's get started with the Next application.
-            - `npx create-next-app@latest nillion-app` and select `no` when it asks to use the app router option.
+            - `npx create-next-app@latest nillion-app`
+            -  Select `no` when it asks to use the app router option.
 
             ### Install repo dependencies
 
@@ -280,19 +283,537 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
             <Tabs>
                 <TabItem value="npm" label="npm" default>
                 ```shell
-                npm i -D @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                npm i @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
                 ```
                 </TabItem>
                 <TabItem value="yarn" label="yarn" default>
                 ```shell
-                yarn add --dev @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                yarn add @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
                 ```
                 </TabItem>
             </Tabs>
 
+            ### Update your `next.config.mjs`.
+
+            This is necessary to help adjust the HTTP Headers, allows the use of browser web-workers and provide access to the nilchain.
+
+            ``` typescript
+            /** @type {import("next").NextConfig} */
+            const nextConfig = {
+            webpack: (
+                config,
+                { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
+            ) => {
+                config.resolve.fallback = {
+                crypto: false,
+                stream: false,
+                buffer: false,
+                vm: false,
+                };
+
+                config.module.rules.push({
+                test: /\.wasm$/,
+                type: "asset/resource",
+                });
+
+                return config;
+            },
+            async headers() {
+                return [
+                {
+                    source: "/:path*",
+                    headers: [
+                    { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+                    { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+                    ],
+                },
+                ];
+            },
+            async rewrites() {
+                return [
+                {
+                    source: "/nilchain",
+                    destination: "http://127.0.0.1:48102/",
+                },
+                ];
+            },
+            };
+            export default nextConfig;
+            ```
+
+        ### Create the `NillionClient` in your `_app.tsx`
+        This step will help you initialize the NillionClientProvider over your application.
+
+        The configurations can be referenced here.
+
+        What the client does is ...
+
+        ```typescript
+        import * as React from "react";
+        import { NamedNetwork } from "@nillion/client-core";
+        import { createSignerFromKey } from "@nillion/client-payments";
+        import { NillionClientProvider } from "@nillion/client-react-hooks";
+        import { NillionClient } from "@nillion/client-vms";
+        import type { AppProps } from "next/app";
+        import "../styles/globals.css";
+
+        export const client = NillionClient.create({
+            network: NamedNetwork.enum.Devnet,
+            overrides: async () => {
+                const signer = await createSignerFromKey(
+                process.env.NEXT_PUBLIC_NILLION_NILCHAIN_PRIVATE_KEY!
+            );
+            return {
+            signer,
+                endpoint: process.env.NEXT_PUBLIC_NILLION_ENDPOINT,
+                cluster: process.env.NEXT_PUBLIC_NILLION_CLUSTER_ID,
+                bootnodes: [process.env.NEXT_PUBLIC_NILLION_BOOTNODE_WEBSOCKET],
+                chain: process.env.NEXT_PUBLIC_CHAIN,
+                userSeed: process.env.NEXT_PUBLIC_NILLION_USER_SEED,
+                nodeSeed: Math.random().toString(),
+                };
+            },
+        });
+
+        export default function App({ Component, pageProps }: AppProps) {
+            return (
+                <NillionClientProvider client={client}>
+                    <Component {...pageProps} />
+                </NillionClientProvider>
+            );
+        }
+
+        ```
+
+        We have provided some ENV environments, copy this into a new `.env`.
+
+        ```
+        // DevNet
+        NEXT_PUBLIC_NILLION_CLUSTER_ID="9e68173f-9c23-4acc-ba81-4f079b639964"
+        NEXT_PUBLIC_NILLION_BOOTNODE_WEBSOCKET="/ip4/127.0.0.1/tcp/54936/ws/p2p/12D3KooWMvw1hEqm7EWSDEyqTb6pNetUVkepahKY6hixuAuMZfJS"
+        NEXT_PUBLIC_NILLION_ENDPOINT=http://localhost:3000/nilchain
+        NEXT_PUBLIC_API_BASE_PATH=/nilchain-proxy
+        NEXT_PUBLIC_CHAIN="nillion-chain-devnet"
+        NEXT_PUBLIC_NILLION_USER_SEED="nillion-devnet"
+        NEXT_PUBLIC_NILLION_NILCHAIN_PRIVATE_KEY="9a975f567428d054f2bf3092812e6c42f901ce07d9711bc77ee2cd81101f42c5"
+        ```
+
+        These configurations represent:
+        - Network: The type of network we want to interact with
+        - Signer: The account / private key that facilitates the signing of transactions
+        - Endpoint:
+        - Cluster: The cluster we
+        - Bootnodes: X
+        - Chain: X
+        - UserSeed: X
+        - nodeSeed: X
+
+        ### Update your app.tsx
+
+        ```ts reference showGithubLink
+        https://github.com/NillionNetwork/client-ts/blob/main/examples/nextjs/src/pages/index.tsx
+        ```
+
+        ### Initializing the `nillion-devnet`
+        In order to interact with the nillion developer network (devnet), we will use need to spin up the local development cluster with nilup.
+        The nilchain spawned with `nillion-devnet` does not support CORS. The recommended workaround is proxy requests to nilchain for local development.
+
+        In a separate terminal, run `nillion-devnet` and Allow connections to pass if prompted. The following below should be the output you see.
+
+        ```
+            nillion-app % nillion-devnet
+            ℹ️ cluster id is 9e68173f-9c23-4acc-ba81-4f079b639964
+            ℹ️ using 256 bit prime
+            ℹ️ storing state in /var/folders/f4/cqlsh9k167vcx1swjlh_6pp80000gn/T/.tmpd3wwtD (123.08Gbs available)
+            🏃 starting nilchain node in: /var/folders/f4/cqlsh9k167vcx1swjlh_6pp80000gn/T/.tmpd3wwtD/nillion-chain
+            ⛓  nilchain JSON RPC available at http://127.0.0.1:48102
+            ⛓  nilchain REST API available at http://localhost:26650
+            ⛓  nilchain gRPC available at localhost:26649
+            🏃 starting node 12D3KooWMvw1hEqm7EWSDEyqTb6pNetUVkepahKY6hixuAuMZfJS
+            ⏳ waiting until bootnode is up...
+            🏃 starting node 12D3KooWAiwGZUwSUaT2bYVxGS8jmfMrfsanZYkHwH3uL7WJPsFq
+            🏃 starting node 12D3KooWM3hsAswc7ZT6VpwQ1TCZU4GCYY55nLhcsxCcfjuixW57
+            👛 funding nilchain keys
+            📝 nillion CLI configuration written to /Users/XXX/.config/nillion/nillion-cli.yaml
+            🌄 environment file written to /Users/XXX/.config/nillion/nillion-devnet.env
+        ```
+
+        ### Interact with your app
+        42 is a SecretInteger we have hard coded to store. Feel free to press the `store` button and then it should pass with a success.
+
+        Amazing - you have interacted with a Nada based app on your front end! 🥳
+
+        <Divider/>
+
+        ## Hook up your secret_addition.py Nada program to your first blind app
+
+        Now we want to complete the full-stack Nada application experience and connect the secret_addition program we wrote earlier.
+
+        In nillion-app - create `programs` directory in public.
+
+        ```
+        cp nada_quickstart_programs/src/secret_addition.py nillion-app/public/programs
+        cp nada_quickstart_programs/target/secret_addition.nada.bin nillion-app/public/programs
+        ```
+
+        Then in `pages`, add a new directory called `compute` to have a separate page for the compute page.
+
+        Also we need to add one utility file to our app so create a directory called `utils` and add a file called `transformNadaProgramToUint8Array.ts`. This will be explained in the next section.
+
+        ``` typescript
+        export const transformNadaProgramToUint8Array = async (
+            publicProgramPath: string // `./programs/${programName}.nada.bin`
+        ): Promise<Uint8Array> => {
+            try {
+            const response = await fetch(publicProgramPath);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch program: ${response.statusText}`);
+            }
+
+            const arrayBuffer = await response.arrayBuffer();
+            return new Uint8Array(arrayBuffer);
+            } catch (error) {
+            console.error('Error fetching and transforming program:', error);
+            throw error;
+            }
+        };
+        ```
+
+        Your currently directory tree should be looking like:
+
+        ```
+        ...
+
+        ├── pages
+        │   ├── _app.tsx
+        │   ├── _document.tsx
+        │   ├── api
+        │   │   └── hello.ts
+        │   ├── compute
+        │   │   └── index.tsx
+        │   └── index.tsx
+        ├── postcss.config.mjs
+        ├── public
+        │   ├── favicon.ico
+        │   ├── next.svg
+        │   ├── programs
+        │   │   ├── secret_addition.nada.bin
+        │   │   └── secret_addition.py
+        │   └── vercel.svg
+        ├── styles
+        │   └── globals.css
+        ├── tailwind.config.ts
+        ├── tsconfig.json
+        └── utils
+            └── transformNadaProgramToUint8Array.ts
+        ```
+
+        ## Using the Hooks
+
+        We will now be using the react-hooks from the `@nillion/client-react-hooks` to store programs, store values and use the respective program (i.e. secret_addition).
+
+        Copy the following snippet into your XXX / `compute/index.tsx` page. We will be going through each section.
+
+        We are using several hooks:
+        - `useNillion`: Access to the Nillion ClientProvider we added in previosuly.
+        - `useStoreProgram`: Store our program with Nada
+        - `useStoreValue`: Store values with Nada
+        - `useRunProgram`: Run the Nada Program
+        - `useFetchProgramOutput`: Fetch the Program Output / computation.
+
+        The `useStates` are for storing the data values that we want to parse through into the
+        - `selectedProgramCode`: This is to grab the Nada Code Snippet from secret_additon
+        - `secretValue1`: The secret value we want to input
+        - `secretValue2`:The secret value we want to input
+        - `programID`: The Nada program ID
+        - `secretValue1ID`: The ID after we stored the secret value 1
+        - `secretValue2ID`: The ID after we stored the secret value 2
+        - `computeID`: The response ID we receive after running the program
+        - `computeResult`: The result of the computation from the program
+
+        The constants relate the Nada program we wrote:
+        - `PARTY_NAME`: Name of the party
+        - `PROGRAM_NAME`: Name of the program
+
+        ***Functions***
+
+        - The first `useEffect` allows us to fetch the Nada Program Code to display in our rendering.
+
+        - The `handleStoreProgram` function allows us to store the Program which takes in two arguments:
+            - `name`: ProgramName | string;
+            - `program`: Uint8Array;
+
+        The programName is a string and in our constants that was mentioned previously
+
+        The program binary is related to the .nada.bin file we copied in our `public` folder and is processed in the `transformNadaProgramToUint8Array.ts` file we added in `utils`.
+
+        - The `handleUseProgram` function allows us to use the stored program
+
+
+        ```typescript
+        import * as React from "react";
+        import {
+        useRunProgram,
+        useStoreValue,
+        useStoreProgram,
+        useNillion,
+        useFetchProgramOutput,
+        } from "@nillion/client-react-hooks";
+        import { useEffect, useState } from "react";
+        import {
+        ProgramId,
+        PartyName,
+        Permissions,
+        PartyId,
+        StoreId,
+        ProgramBindings,
+        NadaValues,
+        NadaValue,
+        NamedValue,
+        } from "@nillion/client-core";
+        import { transformNadaProgramToUint8Array } from "@/utils/transformNadaProgramToUint8Array";
+
+        export default function Compute() {
+        // Use of Nillion Hooks
+        const client = useNillion();
+        const storeProgram = useStoreProgram();
+        const storeValue = useStoreValue();
+        const runProgram = useRunProgram();
+        const fetchProgram = useFetchProgramOutput({
+            id: computeID,
+        });
+
+        // UseStates
+        const [selectedProgramCode, setSelectedProgramCode] = useState("");
+        const [secretValue1, setSecretValue1] = useState<number>(0);
+        const [secretValue2, setSecretValue2] = useState<number>(0);
+        const [programID, setProgramID] = useState<ProgramId>();
+        const [secretValue1ID, setSecretValue1ID] = useState<StoreId>();
+        const [secretValue2ID, setSecretValue2ID] = useState<StoreId>();
+        const [computeResult, setComputeResult] = useState<any | null>(null);
+        const [computeID, setComputeID] = useState<any | null>(null);
+
+        // Other CONSTS
+        const PARTY_NAME = "Party1" as PartyName;
+        const PROGRAM_NAME = "secret_addition";
+
+        // Fetch Nada Program Code.
+        useEffect(() => {
+            const fetchProgramCode = async () => {
+            const response = await fetch(`./programs/secret_addition.py`);
+            const text = await response.text();
+            setSelectedProgramCode(text);
+            };
+            fetchProgramCode();
+        }, [selectedProgramCode]);
+
+
+        // Action to store Program with Nada
+        const handleStoreProgram = async () => {
+            try {
+            const programBinary = await transformNadaProgramToUint8Array(
+                `./programs/${PROGRAM_NAME}.nada.bin`
+            );
+            const result = await storeProgram.mutateAsync({
+                name: PROGRAM_NAME,
+                program: programBinary,
+            });
+            setProgramID(result!);
+            } catch (error) {
+            console.log("error", error);
+            }
+        };
+
+                // Action to handle storing secret integer 1
+        const handleStoreSecretInteger1 = async () => {
+            try {
+            const permissions = Permissions.create().allowCompute(
+                client.vm.userId,
+                programID as ProgramId
+            );
+
+            const result = await storeValue.mutateAsync({
+                values: {
+                mySecretInt: secretValue1,
+                },
+                ttl: 3600,
+                permissions,
+            });
+            setSecretValue1ID(result);
+            } catch (error) {
+            console.error("Error storing SecretInteger:", error);
+            }
+        };
+
+        // Action to handle storing secret integer 2
+        const handleStoreSecretInteger2 = async () => {
+            try {
+            const permissions = Permissions.create().allowCompute(
+                client.vm.userId,
+                programID as ProgramId
+            );
+            const result = await storeValue.mutateAsync({
+                values: {
+                mySecretInt: secretValue2,
+                },
+                ttl: 3600,
+                permissions,
+            });
+            console.log("Stored SecretInteger2:", result);
+            setSecretValue2ID(result);
+            } catch (error) {
+            console.error("Error storing SecretInteger2:", error);
+            }
+        };
+
+        // Handle using the secret_addition Program
+        const handleUseProgram = async () => {
+            try {
+            // Bindings
+            const bindings = ProgramBindings.create(programID!);
+            bindings.addInputParty(
+                PARTY_NAME as PartyName,
+                client.vm.partyId as PartyId
+            );
+            bindings.addOutputParty(
+                PARTY_NAME as PartyName,
+                client.vm.partyId as PartyId
+            );
+
+            const values = NadaValues.create()
+                .insert(
+                NamedValue.parse("my_int1"),
+                NadaValue.createSecretInteger(secretValue1)
+                )
+                .insert(
+                NamedValue.parse("my_int2"),
+                NadaValue.createSecretInteger(secretValue2)
+                );
+
+            const res = await runProgram.mutateAsync({
+                bindings: bindings,
+                values,
+                storeIds: [],
+            });
+
+            setComputeID(res);
+            } catch (error) {
+            console.error("Error executing program:", error);
+            throw error;
+            }
+        };
+
+        // Fetch the new compute result
+        useEffect(() => {
+            if (fetchProgram.data) {
+            setComputeResult(fetchProgram.data.my_output.toString());
+            }
+        }, [fetchProgram.data]);
+
+        return (
+            <div className="flex flex-col justify-center min-h-screen p-8">
+            {/* Store Programs Section */}
+            <div className="mt-4">
+                <h3 className="text-lg font-semibold mb-2">Program Code:</h3>
+                <div className="border-2 border-gray-300 rounded-lg p-4 max-h-60 overflow-y-auto bg-white">
+                <pre className="whitespace-pre-wrap break-words">
+                    <code>{selectedProgramCode}</code>
+                </pre>
+                </div>
+                <button
+                onClick={() => handleStoreProgram()}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2 inline-block"
+                >
+                Store Program
+                </button>
+            </div>
+
+            {programID && (
+                <div className="mt-4">
+                <p className="text-sm text-gray-600">Program ID: {programID}</p>
+                </div>
+            )}
+
+            <div className="border-t border-gray-300 my-4"></div>
+
+            {/* Store Secrets Section */}
+            <div>
+                <h3 className="text-lg font-semibold mb-2 text-left">Store Secret:</h3>
+                <p> Store your int_1</p>
+                <input
+                placeholder="Enter your secret value"
+                value={secretValue1}
+                onChange={(e) => setSecretValue1(Number(e.target.value))}
+                className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
+                />
+                <button
+                onClick={() => handleStoreSecretInteger1()}
+                className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
+                >
+                Store Secret
+                </button>
+
+                {secretValue1ID && (
+                <div className="mt-4">
+                    <p className="text-sm text-gray-600">
+                    Secret Value 1 ID: {secretValue1ID}
+                    </p>
+                </div>
+                )}
+
+                <p> Store your int_2</p>
+                <input
+                placeholder="Enter your secret value"
+                value={secretValue2}
+                onChange={(e) => setSecretValue2(Number(e.target.value))}
+                className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
+                />
+                <button
+                onClick={() => handleStoreSecretInteger2()}
+                className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
+                >
+                Store Secret
+                </button>
+
+                {secretValue2ID && (
+                <div className="mt-4">
+                    <p className="text-sm text-gray-600">
+                    Secret Value 2 ID: {secretValue2ID}
+                    </p>
+                </div>
+                )}
+            </div>
+
+            <div className="border-t border-gray-300 my-4"></div>
+
+            {/* Compute Section */}
+            <div>
+                <h3 className="text-lg font-semibold mb-2 text-left">Compute:</h3>
+                <button
+                onClick={() => handleUseProgram()}
+                className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
+                >
+                Compute
+                </button>
+                {computeResult && (
+                <div className="mt-4">
+                    <p className="text-sm text-gray-600">
+                    Compute Result: {computeResult}
+                    </p>
+                </div>
+                )}
+            </div>
+            </div>
+        );
+        }
+
+        ```
+
+
 
         </TabItem>
-        <TabItem value="react" label="React" default>
+
+        <!-- <TabItem value="react" label="React" default>
 
             ## Installation of a new React app
             - `npx create-react-app@latest nillion-app` and XXX
@@ -304,16 +825,17 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
             <Tabs>
                 <TabItem value="npm" label="npm" default>
                 ```shell
-                npm i -D @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                npm i @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
                 ```
                 </TabItem>
                 <TabItem value="yarn" label="yarn" default>
                 ```shell
-                yarn add --dev @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
+                yarn add @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
                 ```
                 </TabItem>
             </Tabs>
-        </TabItem>
+        </TabItem> -->
+
     </Tabs>
 
 </TabItem>
