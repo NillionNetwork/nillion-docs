@@ -6,7 +6,7 @@ import QuickstartIntro from './\_quickstart-intro.mdx';
 import VenvSetup from './\_nada-venv-setup.mdx';
 import UnderstandingProgram from './\_understanding-first-nada-program.mdx';
 import CompileRunTest from './\_quickstart-compile-run-test.mdx';
-import Divider from './components/Divider.js';
+import Divider from '../src/components/Divider.js';
 
 # Build a Blind App
 
@@ -242,39 +242,14 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
 
     <Tabs>
 
-        <!-- <TabItem value="nextjs-app" label="NextJS (App Router)" default>
 
-            ## Installation of a new Next (App router) app
+        <TabItem value="nextjs-setup" label="NextJS" default>
+
+            ## Installation of a new NextJS App
             Let's get started with the Next application.
-
             - `npx create-next-app@latest nillion-app`
             - Select `yes` when it asks to use the app router option.
-
-            ### Install repo dependencies
-
-            Then add the below packages to your fresh React / Next.js app.
-
-            <Tabs>
-                <TabItem value="npm" label="npm" default>
-                ```shell
-                npm install @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
-                ```
-                </TabItem>
-                <TabItem value="yarn" label="yarn" default>
-                ```shell
-                yarn add @nillion/client-core@latest @nillion/client-vms@latest @nillion/client-react-hooks@latest
-                ```
-                </TabItem>
-            </Tabs>
-
-        </TabItem> -->
-
-        <TabItem value="nextjs-pages" label="NextJS (Pages Router)" default>
-
-            ## Installation of a new Next (Pages router) app
-            Let's get started with the Next application.
-            - `npx create-next-app@latest nillion-app`
-            -  Select `no` when it asks to use the app router option.
+            - Select `no` when it asks to use the pages router option.
 
             ### Install repo dependencies
 
@@ -341,49 +316,97 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
             export default nextConfig;
             ```
 
-        ### Create the `NillionClient` in your `_app.tsx`
+        ### Create the `NillionClient`
         This step will help you initialize the NillionClientProvider over your application.
 
-        The configurations can be referenced here.
+        Note: If network: `NamedNetwork.enum.Devnet` is provided, then we don't need to specify bootnodes, cluster or chain since these values are copied from the partial config.
 
-        What the client does is ...
+        The configurations can be referenced [here.](https://github.com/NillionNetwork/client-ts/blob/main/packages/client-core/src/configs.ts)
 
-        ```typescript
-        import * as React from "react";
-        import { NamedNetwork } from "@nillion/client-core";
-        import { createSignerFromKey } from "@nillion/client-payments";
-        import { NillionClientProvider } from "@nillion/client-react-hooks";
-        import { NillionClient } from "@nillion/client-vms";
-        import type { AppProps } from "next/app";
-        import "../styles/globals.css";
+        <Tabs>
+            <TabItem value="nextjs-app-config" label="NextJS ( App Router)" default>
 
-        export const client = NillionClient.create({
-            network: NamedNetwork.enum.Devnet,
-            overrides: async () => {
-                const signer = await createSignerFromKey(
-                process.env.NEXT_PUBLIC_NILLION_NILCHAIN_PRIVATE_KEY!
-            );
-            return {
-            signer,
-                endpoint: process.env.NEXT_PUBLIC_NILLION_ENDPOINT,
-                cluster: process.env.NEXT_PUBLIC_NILLION_CLUSTER_ID,
-                bootnodes: [process.env.NEXT_PUBLIC_NILLION_BOOTNODE_WEBSOCKET],
-                chain: process.env.NEXT_PUBLIC_CHAIN,
-                userSeed: process.env.NEXT_PUBLIC_NILLION_USER_SEED,
-                nodeSeed: Math.random().toString(),
-                };
-            },
-        });
+            ``` typescript
+                //page.tsx
+                “use client”;
 
-        export default function App({ Component, pageProps }: AppProps) {
-            return (
-                <NillionClientProvider client={client}>
-                    <Component {...pageProps} />
-                </NillionClientProvider>
-            );
-        }
+                import Home from “../components/Home”;
+                import { NamedNetwork } from “@nillion/client-core”;
+                import { NillionClientProvider } from “@nillion/client-react-hooks”;
+                import { NillionClient } from “@nillion/client-vms”;
+                import { createSignerFromKey } from “@nillion/client-payments”;
+                const client = NillionClient.create({
+                network: NamedNetwork.enum.Devnet,
+                overrides: async () => {
+                    // first account when running `nillion-devnet` with default seed
+                    const signer = await createSignerFromKey(
+                    “9a975f567428d054f2bf3092812e6c42f901ce07d9711bc77ee2cd81101f42c5”
+                    );
+                    return {
+                    endpoint: “http://localhost:8080/nilchain”,
+                    signer,
+                    userSeed: “nillion-devnet”,
+                    nodeSeed: Math.random().toString(),
+                    bootnodes: [
+                        “/ip4/127.0.0.1/tcp/54936/ws/p2p/12D3KooWMvw1hEqm7EWSDEyqTb6pNetUVkepahKY6hixuAuMZfJS”,
+                    ],
+                    cluster: “9e68173f-9c23-4acc-ba81-4f079b639964”,
+                    chain: “nillion-chain-devnet”,
+                    };
+                },
+                });
+                export default function App() {
+                return (
+                    <NillionClientProvider client={client}>
+                        <Home />
+                    </NillionClientProvider>
+                );
+                }
 
-        ```
+            ```
+            </TabItem>
+
+                <TabItem value="nextjs-pages-config" label="NextJS (Pages Router)" default>
+                ``` typescript
+                    //index.tsx
+
+                    import * as React from "react";
+                    import { NamedNetwork } from "@nillion/client-core";
+                    import { createSignerFromKey } from "@nillion/client-payments";
+                    import { NillionClientProvider } from "@nillion/client-react-hooks";
+                    import { NillionClient } from "@nillion/client-vms";
+                    import type { AppProps } from "next/app";
+                    import "../styles/globals.css";
+
+                    export const client = NillionClient.create({
+                        network: NamedNetwork.enum.Devnet,
+                        overrides: async () => {
+                            const signer = await createSignerFromKey(
+                            process.env.NEXT_PUBLIC_NILLION_NILCHAIN_PRIVATE_KEY!
+                        );
+                        return {
+                        signer,
+                            endpoint: process.env.NEXT_PUBLIC_NILLION_ENDPOINT,
+                            cluster: process.env.NEXT_PUBLIC_NILLION_CLUSTER_ID,
+                            bootnodes: [process.env.NEXT_PUBLIC_NILLION_BOOTNODE_WEBSOCKET],
+                            chain: process.env.NEXT_PUBLIC_CHAIN,
+                            userSeed: process.env.NEXT_PUBLIC_NILLION_USER_SEED,
+                            nodeSeed: Math.random().toString(),
+                            };
+                        },
+                    });
+
+                    export default function App({ Component, pageProps }: AppProps) {
+                        return (
+                            <NillionClientProvider client={client}>
+                                <Component {...pageProps} />
+                            </NillionClientProvider>
+                        );
+                    }
+                ```
+            </TabItem>
+        </Tabs>
+
 
         We have provided some ENV environments, copy this into a new `.env`.
 
@@ -398,27 +421,23 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
         NEXT_PUBLIC_NILLION_NILCHAIN_PRIVATE_KEY="9a975f567428d054f2bf3092812e6c42f901ce07d9711bc77ee2cd81101f42c5"
         ```
 
-        These configurations represent:
-        - Network: The type of network we want to interact with
-        - Signer: The account / private key that facilitates the signing of transactions
-        - Endpoint:
-        - Cluster: The cluster we
-        - Bootnodes: X
-        - Chain: X
-        - UserSeed: X
-        - nodeSeed: X
-
         ### Update your app.tsx
+
+        :::info
+
+        For App Router applications - do this in your `components/Home.tsx`
+
+        :::
 
         ```ts reference showGithubLink
         https://github.com/NillionNetwork/client-ts/blob/main/examples/nextjs/src/pages/index.tsx
         ```
 
         ### Initializing the `nillion-devnet`
-        In order to interact with the nillion developer network (devnet), we will use need to spin up the local development cluster with nilup.
+        In order to interact with the nillion developer network (devnet), we will use need to spin up the local development cluster with `nilup`.
         The nilchain spawned with `nillion-devnet` does not support CORS. The recommended workaround is proxy requests to nilchain for local development.
 
-        In a separate terminal, run `nillion-devnet` and Allow connections to pass if prompted. The following below should be the output you see.
+        In a separate terminal, run `nillion-devnet` and allow connections to pass if prompted. The following below should be the output you see.
 
         ```
             nillion-app % nillion-devnet
@@ -449,7 +468,12 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
 
         Now we want to complete the full-stack Nada application experience and connect the secret_addition program we wrote earlier.
 
-        In nillion-app - create `programs` directory in public.
+        This is what our application will look like:
+
+        ![Blind App Example](/img/blind-app-example.png)
+
+
+        In your nextjs directory - create `programs` directory in public.
 
         ```
         cp nada_quickstart_programs/src/secret_addition.py nillion-app/public/programs
@@ -481,38 +505,66 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
 
         Your currently directory tree should be looking like:
 
-        ```
-        ...
 
-        ├── pages
-        │   ├── _app.tsx
-        │   ├── _document.tsx
-        │   ├── api
-        │   │   └── hello.ts
-        │   ├── compute
-        │   │   └── index.tsx
-        │   └── index.tsx
-        ├── postcss.config.mjs
-        ├── public
-        │   ├── favicon.ico
-        │   ├── next.svg
-        │   ├── programs
-        │   │   ├── secret_addition.nada.bin
-        │   │   └── secret_addition.py
-        │   └── vercel.svg
-        ├── styles
-        │   └── globals.css
-        ├── tailwind.config.ts
-        ├── tsconfig.json
-        └── utils
-            └── transformNadaProgramToUint8Array.ts
-        ```
+        <Tabs>
+            <TabItem value="next-app-tree" label="App Router" default>
+                ```
+                ├── app
+                │   ├── layout.tsx
+                │   ├── page.tsx
+                │   ├── compute
+                │   │   └── page.tsx
+                ├── postcss.config.mjs
+                ├── public
+                │   ├── favicon.ico
+                │   ├── next.svg
+                │   ├── programs
+                │   │   ├── secret_addition.nada.bin
+                │   │   └── secret_addition.py
+                │   └── vercel.svg
+                ├── styles
+                │   └── globals.css
+                ├── tailwind.config.ts
+                ├── tsconfig.json
+                └── utils
+                    └── transformNadaProgramToUint8Array.ts
+                ```
+            </TabItem>
+            <TabItem value="next-pages-tree" label="Pages Router" default>
+                ```
+                ├── pages
+                │   ├── _app.tsx
+                │   ├── _document.tsx
+                │   ├── api
+                │   │   └── hello.ts
+                │   ├── compute
+                │   │   └── index.tsx
+                │   └── index.tsx
+                ├── postcss.config.mjs
+                ├── public
+                │   ├── favicon.ico
+                │   ├── next.svg
+                │   ├── programs
+                │   │   ├── secret_addition.nada.bin
+                │   │   └── secret_addition.py
+                │   └── vercel.svg
+                ├── styles
+                │   └── globals.css
+                ├── tailwind.config.ts
+                ├── tsconfig.json
+                └── utils
+                    └── transformNadaProgramToUint8Array.ts
+                ```
+            </TabItem>
+
+        </Tabs>
+
 
         ## Using the Hooks
 
         We will now be using the react-hooks from the `@nillion/client-react-hooks` to store programs, store values and use the respective program (i.e. secret_addition).
 
-        Copy the following snippet into your XXX / `compute/index.tsx` page. We will be going through each section.
+        Copy the following snippet into your `compute/page.tsx` / `compute/index.tsx` page. We will be going through each section.
 
         We are using several hooks:
         - `useNillion`: Access to the Nillion ClientProvider we added in previosuly.
@@ -542,13 +594,26 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
         - The `handleStoreProgram` function allows us to store the Program which takes in two arguments:
             - `name`: ProgramName | string;
             - `program`: Uint8Array;
+            - The programName is a string and in our constants that was mentioned previously
+            - The program binary is related to the .nada.bin file we copied in our `public` folder and is processed in the `transformNadaProgramToUint8Array.ts` file we added in `utils`.
 
-        The programName is a string and in our constants that was mentioned previously
+        - The `handleStoreSecretInteger1` & `handleStoreSecretInteger2` function allows us to store the secret integer values with Nada. It takes in the `value` you want to store wih ttl for time and permissions for allowing the user to compute to the program.
 
-        The program binary is related to the .nada.bin file we copied in our `public` folder and is processed in the `transformNadaProgramToUint8Array.ts` file we added in `utils`.
+        - The `handleUseProgram` function allows us to use the stored program and takes in several arguments:
+            - bindings: Association to the program with regards to the `programID`and who is the `inputParty` and `OutputParty`
+            - values: NadaValues of what you are parsing through
+            - storeIds: The storeIDs of previous storedValues.
 
-        - The `handleUseProgram` function allows us to use the stored program
+        - The last UseEffect is for fetching the computeResult via the `useFetchProgramOutput` react hook.
 
+        ***Rendering***
+
+        The rendering uses tailwind and divided into several sections. Feel free to adjust the styles and approach.
+
+        1. The Program Code + Storing it with Nada
+        2. Store Secret Integer 1
+        3. Store Secret Integer 2
+        4. Compute the Result of above integers.
 
         ```typescript
         import * as React from "react";
@@ -624,7 +689,7 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
             }
         };
 
-                // Action to handle storing secret integer 1
+        // Action to handle storing secret integer 1
         const handleStoreSecretInteger1 = async () => {
             try {
             const permissions = Permissions.create().allowCompute(
@@ -716,21 +781,21 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
             <div className="mt-4">
                 <h3 className="text-lg font-semibold mb-2">Program Code:</h3>
                 <div className="border-2 border-gray-300 rounded-lg p-4 max-h-60 overflow-y-auto bg-white">
-                <pre className="whitespace-pre-wrap break-words">
-                    <code>{selectedProgramCode}</code>
-                </pre>
+                    <pre className="whitespace-pre-wrap break-words">
+                        <code>{selectedProgramCode}</code>
+                    </pre>
                 </div>
                 <button
                 onClick={() => handleStoreProgram()}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2 inline-block"
                 >
-                Store Program
+                    Store Program
                 </button>
             </div>
 
             {programID && (
                 <div className="mt-4">
-                <p className="text-sm text-gray-600">Program ID: {programID}</p>
+                    <p className="text-sm text-gray-600">Program ID: {programID}</p>
                 </div>
             )}
 
@@ -741,44 +806,44 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
                 <h3 className="text-lg font-semibold mb-2 text-left">Store Secret:</h3>
                 <p> Store your int_1</p>
                 <input
-                placeholder="Enter your secret value"
-                value={secretValue1}
-                onChange={(e) => setSecretValue1(Number(e.target.value))}
-                className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
+                    placeholder="Enter your secret value"
+                    value={secretValue1}
+                    onChange={(e) => setSecretValue1(Number(e.target.value))}
+                    className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
                 />
                 <button
-                onClick={() => handleStoreSecretInteger1()}
-                className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
+                    onClick={() => handleStoreSecretInteger1()}
+                    className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
                 >
-                Store Secret
+                    Store Secret
                 </button>
 
                 {secretValue1ID && (
                 <div className="mt-4">
                     <p className="text-sm text-gray-600">
-                    Secret Value 1 ID: {secretValue1ID}
+                        Secret Value 1 ID: {secretValue1ID}
                     </p>
                 </div>
                 )}
 
                 <p> Store your int_2</p>
                 <input
-                placeholder="Enter your secret value"
-                value={secretValue2}
-                onChange={(e) => setSecretValue2(Number(e.target.value))}
-                className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
+                    placeholder="Enter your secret value"
+                    value={secretValue2}
+                    onChange={(e) => setSecretValue2(Number(e.target.value))}
+                    className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
                 />
                 <button
-                onClick={() => handleStoreSecretInteger2()}
-                className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
+                    onClick={() => handleStoreSecretInteger2()}
+                    className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
                 >
-                Store Secret
+                    Store Secret
                 </button>
 
                 {secretValue2ID && (
                 <div className="mt-4">
                     <p className="text-sm text-gray-600">
-                    Secret Value 2 ID: {secretValue2ID}
+                        Secret Value 2 ID: {secretValue2ID}
                     </p>
                 </div>
                 )}
@@ -790,24 +855,26 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
             <div>
                 <h3 className="text-lg font-semibold mb-2 text-left">Compute:</h3>
                 <button
-                onClick={() => handleUseProgram()}
-                className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
+                    onClick={() => handleUseProgram()}
+                    className="bg-blue-500 mb-4 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out mt-2"
                 >
-                Compute
+                    Compute
                 </button>
                 {computeResult && (
                 <div className="mt-4">
                     <p className="text-sm text-gray-600">
-                    Compute Result: {computeResult}
+                        Compute Result: {computeResult}
                     </p>
                 </div>
                 )}
             </div>
-            </div>
+        </div>
         );
         }
 
         ```
+
+        And that's it - you have successfully created a full-stack app with Nada Programs and Next.js app! Go to the next section to deploy to the testnet.
 
 
 

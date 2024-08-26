@@ -10,6 +10,8 @@ Your blind app is currently running locally against the nillion-devnet. Let's co
 
 Update your `.env` values to point at the Nillion Testnet
 
+Note: for Next apps, change the prefix to `NEXT_PUBLIC_`
+
 <ReactTestnetEnv/>
 
 The `REACT_APP_NILLION_NILCHAIN_PRIVATE_KEY` private key value above should correspond to an address you've funded with Testnet NIL.
@@ -34,15 +36,17 @@ Test the configuration locally against your blind app to make sure the full blin
 
 ## Commit your project to Github
 
-Commit your repo to Github and tag your Github repo with `nillion-nada` so the rest of the Nillion community can find it.
+Commit your repo to Github from your React/Next.js folder and tag your Github repo with `nillion-nada` so the rest of the Nillion community can find it.
 
 ## Host your blind app with Vercel
 
-1. Follow the https://vercel.com/docs/getting-started-with-vercel/import guide to import your Github project to Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fhello-world)
+
+1. Use the above deploy button + use the https://vercel.com/docs/getting-started-with-vercel/import guide to import your Github project to Vercel
 
 2. Follow the https://vercel.com/docs/projects/environment-variables guide to add all Testnet environment variables
 
-3. Set up the vercel.json file with headers and proxy rewrites
+3. Set up the `vercel.json` file with headers and proxy rewrites
 
 ```json reference showGithubLink
 https://github.com/NillionNetwork/cra-nillion/blob/main/vercel.json
