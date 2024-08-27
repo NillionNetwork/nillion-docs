@@ -92,19 +92,11 @@ const config = {
           },
           {
             href: 'https://github.com/NillionNetwork',
-            label: 'GitHub',
-            position: 'right',
-          },
-          {
-            href: 'https://github.com/orgs/NillionNetwork/discussions',
-            label: 'Discussions',
+            className: 'header-github',
             position: 'right',
           },
         ],
       },
-      // footer: {
-      //   copyright: `Copyright © ${new Date().getFullYear()} Nillion`,
-      // },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
