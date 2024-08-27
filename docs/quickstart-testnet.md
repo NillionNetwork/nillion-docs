@@ -40,11 +40,11 @@ Commit your repo to Github from your React/Next.js folder and tag your Github re
 
 ## Host your blind app with Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fhello-world)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
-1. Use the above deploy button + use the https://vercel.com/docs/getting-started-with-vercel/import guide to import your Github project to Vercel
+1. Use the above deploy button + import your repository.
 
-2. Follow the https://vercel.com/docs/projects/environment-variables guide to add all Testnet environment variables
+2. Follow the https://vercel.com/docs/projects/environment-variables guide to add all Testnet environment variables. A shortcut is to copy and paste from .env and into their textbox.
 
 3. Set up the `vercel.json` file with headers and proxy rewrites
 

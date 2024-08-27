@@ -874,10 +874,6 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
 
         ```
 
-        And that's it - you have successfully created a full-stack app with Nada Programs and Next.js app! Go to the next section to deploy to the testnet.
-
-
-
         </TabItem>
 
         <!-- <TabItem value="react" label="React" default>
