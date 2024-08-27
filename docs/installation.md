@@ -1,64 +1,76 @@
 import SdkInstallation from './\_sdk-installation.mdx';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Install Nillion SDK and Tools
 
-## Mac and Linux Guide
+<Tabs>
+    <TabItem value="mac-linux-guide" label="Mac and Linux" default>
+        ## Mac and Linux Guide
 
-<SdkInstallation/>
+        <SdkInstallation/>
 
-## Windows Guide
+    </TabItem>
 
-Today Nillion SDK binaries are available for Mac and Linux. In order to install Nillion on a Windows machine, you'll need to first complete a 5 minute WSL developer environment setup. Follow the steps below to install WSL, set up your WSL developer environment, and install and use Nillion Linux binaries from a Windows machine.
+    <TabItem value="windows-guide" label="Windows" default>
+        ## Windows Guide
 
-### WSL developer environment setup
+        Today Nillion SDK binaries are available for Mac and Linux. In order to install Nillion on a Windows machine, you'll need to first complete a 5 minute WSL developer environment setup. Follow the steps below to install WSL, set up your WSL developer environment, and install and use Nillion Linux binaries from a Windows machine.
 
-The [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) (WSL) lets developers install a Linux distribution and use Linux applications, utilities, and Bash command-line tools including the [Nillion SDK and tools](/nillion-sdk-and-tools) on a Windows machine.
+        ### WSL developer environment setup
 
-#### 1. Run the install command
+        The [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) (WSL) lets developers install a Linux distribution and use Linux applications, utilities, and Bash command-line tools including the [Nillion SDK and tools](/nillion-sdk-and-tools) on a Windows machine.
 
-From your terminal, install WSL
+        #### 1. Run the install command
 
-```
-wsl --install
-```
+        From your terminal, install WSL
 
-This downloads and installs the Ubuntu Linux distribution.
+        ```
+        wsl --install
+        ```
 
-#### 2. Restart your computer
+        This downloads and installs the Ubuntu Linux distribution.
 
-A reboot is required after installing Ubuntu.
+        #### 2. Restart your computer
 
-#### 3. After restarting, open Ubuntu and create an account
+        A reboot is required after installing Ubuntu.
 
-To open an Ubuntu terminal, search for the app from Start. Open Ubuntu and follow the prompts to set up your Linux username and password.
+        #### 3. After restarting, open Ubuntu and create an account
 
-#### 4. Update and upgrade packages
+        To open an Ubuntu terminal, search for the app from Start. Open Ubuntu and follow the prompts to set up your Linux username and password.
 
-```
-sudo apt update && sudo apt upgrade
-```
+        #### 4. Update and upgrade packages
 
-#### 5. Install the Visual Studio Code Remote Development Extension
+        ```
+        sudo apt update && sudo apt upgrade
+        ```
 
-Visual Studio Code Remote Development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment. [Install the Visual Studio Code Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
+        #### 5. Install the Visual Studio Code Remote Development Extension
 
-#### 6. Open a new Ubuntu terminal and Install Nillion
+        Visual Studio Code Remote Development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment. [Install the Visual Studio Code Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
 
-Now that your WSL development environment is set up, you can install the Nillion SDK and Tools.
+        #### 6. Open a new Ubuntu terminal and Install Nillion
 
-:::info
-Make sure to install Nillion within **a new Ubuntu terminal.** Either open a Ubuntu terminal, or from your Windows PowerShell terminal, first run Ubuntu:
+        Now that your WSL development environment is set up, you can install the Nillion SDK and Tools.
 
-```
-ubuntu
-```
+        :::info
+        Make sure to install Nillion within **a new Ubuntu terminal.** Either open a Ubuntu terminal, or from your Windows PowerShell terminal, first run Ubuntu:
 
-:::
+        ```
+        ubuntu
+        ```
 
-<SdkInstallation />
+        :::
 
-🎉 Great work! You've set up a WSL environment and installed Nillion within that environment. Before running a nillion command like `nillion-devnet`, `nada`, or `pynadac` make sure you are in a WSL environment by first running ubuntu:
+        <SdkInstallation />
 
-```
-ubuntu
-```
+        🎉 Great work! You've set up a WSL environment and installed Nillion within that environment. Before running a nillion command like `nillion-devnet`, `nada`, or `pynadac` make sure you are in a WSL environment by first running ubuntu:
+
+        ```
+        ubuntu
+        ```
+
+
+    </TabItem>
+
+</Tabs>
