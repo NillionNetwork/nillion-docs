@@ -126,20 +126,77 @@ const config = {
           hideable: true,
         },
       },
+      footer: {
+        links: [
+          {
+            title: 'Community',
+            items: [
+              {
+                type: 'link',
+                label: 'Discord',
+                href: 'https://discord.com/invite/nillionnetwork',
+              },
+              {
+                type: 'link',
+                label: 'X (formerly Twitter)',
+                href: 'https://twitter.com/nillionnetwork',
+              },
+            ],
+          },
+          {
+            title: 'Builders',
+            items: [
+              {
+                type: 'link',
+                label: 'Github Discussions',
+                href: 'https://github.com/orgs/NillionNetwork/discussions',
+              },
+              {
+                type: 'link',
+                label: 'Builder Bounties',
+                href: 'https://github.com/NillionNetwork/builder-bounties',
+              },
+              {
+                type: 'link',
+                label: 'Report a Bug',
+                href: 'https://github.com/orgs/NillionNetwork/discussions/categories/bugs',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                type: 'link',
+                label: 'Website',
+                href: 'https://nillion.com',
+              },
+              {
+                type: 'link',
+                label: 'Blog',
+                href: 'https://nillion.com/news',
+              },
+            ],
+          },
+        ],
+        copyright: `${new Date().getFullYear()} Nillion. All Rights Reserved.`,
+      },
     }),
-    plugins: [
-      [
-          'docusaurus-pushfeedback',{
-              project: '0zdbombk5w',
-              modalTitle: 'Nillion Docs Feedback',
-              messagePlaceholder: 'Let us know how we can improve this page of the Nillion docs.',
-              hideEmail: true,
-              sendButtonText: 'Send to the Nillion team',
-              buttonStyle: "dark",
-              hideScreenshotButton: true
-          }
-      ]
+  plugins: [
+    [
+      'docusaurus-pushfeedback',
+      {
+        project: '0zdbombk5w',
+        modalTitle: 'Nillion Docs Feedback',
+        messagePlaceholder:
+          'Let us know how we can improve this page of the Nillion docs.',
+        hideEmail: true,
+        sendButtonText: 'Send to the Nillion team',
+        buttonStyle: 'dark',
+        hideScreenshotButton: true,
+      },
     ],
+  ],
 };
 
 export default config;

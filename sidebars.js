@@ -339,21 +339,6 @@ const sidebars = {
     },
     'limitations',
     {
-      type: 'link',
-      label: 'Builder Discussions',
-      href: 'https://github.com/orgs/NillionNetwork/discussions',
-    },
-    {
-      type: 'link',
-      label: 'Builder Bounties',
-      href: 'https://github.com/NillionNetwork/builder-bounties',
-    },
-    {
-      type: 'link',
-      label: 'Report a Bug',
-      href: 'https://github.com/orgs/NillionNetwork/discussions/categories/bugs',
-    },
-    {
       type: 'html',
       className: 'sidebar-title',
       value: 'Resources',
@@ -378,37 +363,6 @@ const sidebars = {
     'nucleus-builders-program',
     'technical-reports-and-demos',
     'glossary',
-    {
-      type: 'html',
-      className: 'sidebar-title',
-      value: 'Links',
-      defaultStyle: true,
-    },
-    {
-      type: 'link',
-      label: 'Website',
-      href: 'https://nillion.com',
-    },
-    {
-      type: 'link',
-      label: 'X (formerly Twitter)',
-      href: 'https://twitter.com/nillionnetwork',
-    },
-    {
-      type: 'link',
-      label: 'Discord',
-      href: 'https://discord.com/invite/nillionnetwork',
-    },
-    {
-      type: 'link',
-      label: 'Github',
-      href: 'https://github.com/NillionNetwork',
-    },
-    {
-      type: 'link',
-      label: 'Blog',
-      href: 'https://nillion.com/news',
-    },
   ],
   nadaByExampleSidebar: [
     {
@@ -451,7 +405,7 @@ const sidebars = {
         'nada-by-example/secret-data-type',
         'nada-by-example/public-data-type',
         'nada-by-example/literal-data-type',
-      ]
+      ],
     },
     {
       type: 'category',
@@ -474,7 +428,7 @@ const sidebars = {
         'nada-by-example/equality',
         'nada-by-example/if-else',
         'nada-by-example/reveal',
-      ]
+      ],
     },
     'nada-by-example/list-comprehensions',
     'nada-by-example/helper-function',
@@ -535,7 +489,7 @@ const sidebars = {
           type: 'link',
           label: 'Convolutional Neural Network',
           href: 'https://github.com/NillionNetwork/nada-ai/tree/main/examples/conv_net',
-        }
+        },
       ],
     },
     {
@@ -570,7 +524,7 @@ const sidebars = {
         },
       ],
     },
-  ]
+  ],
 };
 
 export default sidebars;
