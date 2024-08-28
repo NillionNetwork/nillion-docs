@@ -1,0 +1,72 @@
+.card {
+  display: inline-block;
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.3s ease;
+  border: 1px solid #333;
+  width: 49%;
+  box-sizing: border-box;
+  margin-top: 1em;
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.card:hover {
+  border-color: #0000ff;
+  text-decoration: none;
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+}
+
+.iconWrapper {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.textContent {
+  flex-grow: 1;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0 0 4px 0;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #a0a0a0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-theme='light'] .card .name {
+  color: #333333;
+}
+
+[data-theme='light'] .card .description {
+  color: #666666;
+}
