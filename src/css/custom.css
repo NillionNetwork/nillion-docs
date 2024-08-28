@@ -96,5 +96,5 @@ h4 {
 }
 
 [data-theme='dark'] .sidebar-title {
-  text-decoration: underline;
+  border-bottom: solid rgb(96, 103, 112) 1px;
 }
