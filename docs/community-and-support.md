@@ -19,5 +19,5 @@ Got a suggestion for improving the docs? Let us know by [creating a Github Issue
 ### How to open a support ticket
 
 1. Join our [Discord](https://discord.com/invite/nillionnetwork)
-2. Visit the [#support-ticket](https://discord.com/channels/905926225120338000/927874817355563018) channel
+2. Visit the #support-ticket Discord channel
 3. Create a ticket (General support or Partnership request)

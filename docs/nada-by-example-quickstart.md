@@ -7,26 +7,28 @@ import TabItem from '@theme/TabItem';
 import PythonVersionInfo from './\_python-version-info.mdx';
 import IframeVideo from '@site/src/components/IframeVideo/index';
 
-# How to Run Nada by Example 
+# How to Run Nada by Example
 
 ## Setup options
 
 All examples for "Nada by Example" live in the [nada-by-example](https://github.com/NillionNetwork/nada-by-example) Github repo. Nada programs are in [`nada-by-example/src/`](https://github.com/NillionNetwork/nada-by-example/tree/main/src) and tests are in [`nada-by-example/tests`](https://github.com/NillionNetwork/nada-by-example/tree/main/tests). To run examples, there are 2 setup options:
 
-- Option 1: _Recommended_ - [1 click setup with Gitpod](/nada-by-example-quickstart#1-click-setup-with-gitpod)
-- Option 2: [Follow the Local Setup Guide](/nada-by-example-quickstart#local-setup-guide) to clone the repo and install dependencies
+1.  _Recommended_ - 1 Click Gitpod Setup
+2.  Local Machine Setup
 
-### 1 Click Setup with Gitpod
+<Tabs>
+
+<TabItem value="gitpod" label="1 Click Gitpod Setup" default>
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/nillionnetwork/nada-by-example)
 
-Click the button above to open the Nada by Example repo in Gitpod. Then skip ahead to the [run and test an example](/nada-by-example-quickstart#how-to-run-and-test-an-example-program) section to learn how to run and test a Nada program.
+Click the button above to open the Nada by Example repo in Gitpod. Then follow the [run and test an example](/nada-by-example-quickstart#how-to-run-and-test-an-example-program) section to learn how to run and test a Nada program.
 
 <IframeVideo videoSrc="https://www.loom.com/embed/4395eeed66934142ba0feaf68a43534a?sid=785f1cc2-881a-4c30-8d96-07007251bd6b"/>
 
+</TabItem>
 
-### Local Setup Guide
-
+<TabItem value="local" label="Local Machine Setup">
 Complete local repo setup following the instructions below to run an example from the repo locally.
 
 Install Nillion, clone the nada-by-example repo, and set up a developer environment for your local nada-by-example repo.
@@ -87,8 +89,9 @@ nada build
 
 `nada build` is a [nada tool command](/nada#build-compile-a-program) that compiles programs to create one compiled binary (.nada.bin) file per program listed in the [nada-project.toml file](https://github.com/NillionNetwork/nada-by-example/blob/main/nada-project.toml) in the target/ directory.
 
-
 ✅ Great work! Now that you've set up the nada-by-example repo, you can run any example.
+</TabItem>
+</Tabs>
 
 ## How to run and test an example program
 
@@ -98,7 +101,6 @@ The [nada-by-example](https://github.com/NillionNetwork/nada-by-example) repo is
 :::
 
 Every Nada program example has a corresponding test file. Programs are in [`nada-by-example/src/`](https://github.com/NillionNetwork/nada-by-example/tree/main/src) and test files are in [`nada-by-example/tests`](https://github.com/NillionNetwork/nada-by-example/tree/main/tests). Running a program uses the inputs specified in the test file. Testing a program uses the inputs specified in the test file and also checks the outputs against the `expected_outputs` specified in the test file.
-
 
 Run any program with the inputs specified in the test file with [`nada run`](/nada#run-a-program)
 
@@ -112,8 +114,7 @@ Test any program with the inputs and outputs specified in the test file with [`n
 nada test <test-file-name>
 ```
 
-
-### Run the addition example 
+### Run the addition example
 
 Here is the Nada program and test file for the addition example. The program is [src/addition.py](https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition.py) and the test file is [tests/addition_test.yaml](https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_test.yaml)
 
@@ -155,7 +156,7 @@ Outputs: {
 }
 ```
 
-### Test the addition example 
+### Test the addition example
 
 Here is the Nada program and test file for the addition example. The program is [src/addition.py](https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition.py) and the test file is [tests/addition_test.yaml](https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_test.yaml)
 
@@ -192,7 +193,7 @@ addition_test: PASS
 
 Testing the addition program with `addition_test` results in a PASS because the expected_outputs `sum` output matches the run result.
 
-### Add a new test for the addition example 
+### Add a new test for the addition example
 
 Use the [nada tool](/nada#generate-a-test-file) to add a new test file named "addition_test_2" for the addition example.
 
@@ -217,13 +218,12 @@ Update the values in the test file to anything you want, for example:
 program: addition
 inputs:
   num_1:
-    SecretInteger: "100"
+    SecretInteger: '100'
   num_2:
-    SecretInteger: "10"
+    SecretInteger: '10'
 expected_outputs:
   sum:
-    SecretInteger: "110"
-
+    SecretInteger: '110'
 ```
 
 #### Run addition with your new test
