@@ -31,7 +31,7 @@ Developers can use Nillion to build secure, [high value data](high-value-data.md
         href="./what-is-nillion"
         name="Learn"
         icon="img/book_emoji.png"
-        description="Nillion is a secure computation "
+        description="Nillion is a secure computation that ... "
             />
 <LargeCard
     href="./quickstart"
