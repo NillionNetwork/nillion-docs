@@ -194,7 +194,6 @@ const sidebars = {
         'nada-run',
       ],
     },
-    'network-configuration',
     {
       type: 'category',
       label: 'Nada Language',
@@ -337,6 +336,7 @@ const sidebars = {
         },
       ],
     },
+    'network-configuration',
     'limitations',
     {
       type: 'html',
