@@ -416,6 +416,7 @@ We will write the following code within the `quickstart/client_code` directory i
    
    ```bash
    cd client_code
+   mv run_my_first_program.py secret_addition.py
    python3 secret_addition.py
    ```
    
