@@ -416,6 +416,7 @@ We will write the following code within the `quickstart/client_code` directory i
    
    ```bash
    cd client_code
+   mv run_my_first_program.py secret_addition.py
    python3 secret_addition.py
    ```
    
@@ -434,4 +435,4 @@ Congratulations, you've successfully written your first single party Nada progra
   - Tutorials:
     - [Voting schemes](https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/voting_tutorial)
     - [Millionaire's tutorial](https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/millionaires_problem_example)
-      <IframeVideo videoSrc="https://www.loom.com/embed/d77604f001be4293b1b0c72c67620071?sid=d8dba7d7-0643-47cf-bf44-8b8b33c18cd6"/>import Tabs from '@theme/Tabs';
+      <IframeVideo videoSrc="https://www.loom.com/embed/d77604f001be4293b1b0c72c67620071?sid=d8dba7d7-0643-47cf-bf44-8b8b33c18cd6"/>

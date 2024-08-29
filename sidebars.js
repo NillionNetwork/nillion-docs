@@ -70,25 +70,6 @@ const sidebars = {
       defaultStyle: true,
     },
     'start-building',
-    'network-configuration',
-    {
-      type: 'category',
-      label: 'Nillion SDK and Tools',
-      link: {
-        type: 'doc',
-        id: 'nillion-sdk-and-tools',
-      },
-      items: [
-        'installation',
-        'nilup',
-        'nillion',
-        'nillion-devnet',
-        'node-key2peerid',
-        'nada',
-        'pynadac',
-        'nada-run',
-      ],
-    },
     {
       type: 'category',
       label: 'Nillion Clients',
@@ -193,6 +174,24 @@ const sidebars = {
           label: 'CLI Client',
           id: 'nillion',
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Nillion SDK and Tools',
+      link: {
+        type: 'doc',
+        id: 'nillion-sdk-and-tools',
+      },
+      items: [
+        'installation',
+        'nilup',
+        'nillion',
+        'nillion-devnet',
+        'node-key2peerid',
+        'nada',
+        'pynadac',
+        'nada-run',
       ],
     },
     {
@@ -337,6 +336,7 @@ const sidebars = {
         },
       ],
     },
+    'network-configuration',
     'limitations',
     {
       type: 'html',
