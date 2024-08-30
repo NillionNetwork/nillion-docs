@@ -44,7 +44,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition.py#L4-L
 
 ### Inputs
 
-An `Input` is a value provided to a Nada program by a specific party. Inputs are wrapped with one of the following `Public` or `Secret` data types:
+An `Input` is a value provided to a Nada program by a specific party. Inputs are wrapped with one of the following `Public` or `Secret` modes:
 
 | `Public`                | `Secret`                | 
 | ----------------------- | ----------------------- |
@@ -62,7 +62,7 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition.py#L7-L
 
 ### Operations
 
-An operation is a computation performed on inputs to produce a result. In Nada, operations can be performed on both public and secret data types. Check out the full list of available [Nada operations here](/nada-by-example/nada-operations).
+An operation is a computation performed on inputs to produce a result. In Nada, operations can be performed on both public and secret modes. Check out the full list of available [Nada operations here](/nada-by-example/nada-operations).
 
 The addition program involves one operation, addition, to sum the 2 secret inputs.
 

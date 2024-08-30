@@ -60,6 +60,7 @@ module.exports = [
       'nada-by-example/probabilistic-truncation',
       'nada-by-example/comparison',
       'nada-by-example/equality',
+      'nada-by-example/not',
       'nada-by-example/if-else',
       'nada-by-example/reveal',
     ],
