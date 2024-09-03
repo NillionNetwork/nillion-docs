@@ -98,3 +98,10 @@ h4 {
 [data-theme='dark'] .sidebar-title {
   border-bottom: solid rgb(96, 103, 112) 1px;
 }
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
