@@ -2,6 +2,10 @@ import ProjectsTable from '@site/src/components/ProjectsTable/index';
 
 # Awesome Projects
 
+:::info
+Some showcase examples use older Nillion SDK versions. For the latest code and approaches, refer to the [Javascript](./js-quickstart) + [Python](./python-client) Clients.
+:::
+
 A showcase of open source projects built on Nillion by the community
 
 <ProjectsTable/>
