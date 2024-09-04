@@ -316,6 +316,11 @@ const sidebars = {
                 },
               ],
             },
+            {
+              type: 'doc',
+              label: 'nada-test',
+              id: 'nada-test',
+            },
           ],
         },
         {
