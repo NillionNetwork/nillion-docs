@@ -71,6 +71,7 @@ module.exports = [
   'nada-by-example/reduce',
   'nada-by-example/random-number',
   'nada-by-example/linear-scan',
+  'nada-by-example/shuffle',
   'nada-by-example/square-root',
   'nada-by-example/cube-root',
   'nada-by-example/arg-max',
