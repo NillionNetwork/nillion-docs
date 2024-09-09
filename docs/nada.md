@@ -1,4 +1,6 @@
 import VenvSetup from './\_nada-venv-setup.mdx';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # nada
 
@@ -16,6 +18,23 @@ import VenvSetup from './\_nada-venv-setup.mdx';
 - Install the [Nillion SDK](/nillion-sdk-and-tools#installation) to access the `nada` tool
 
 ## Usage
+
+```
+Usage: nada <COMMAND>
+
+Commands:
+  init                  Create a new nada project
+  build                 Build a program
+  run                   Run a program using the inputs from a test case
+  test                  Run tests
+  benchmark             Benchmark one or multiple programs
+  generate-test         Generate a test for a program with example values
+  program-requirements  Get requirements for program
+  shell-completions     Generate shell completions
+  list-protocols        List Protocols (instructions) in JSON format
+  publish               Publish a nada program
+  help                  Print this message or the help of the given subcommand(s)
+```
 
 ### Create a new project
 
@@ -306,3 +325,94 @@ To run a test in debug mode you can run
 ```
 nada test --debug <test-name>
 ```
+
+### Get a benchmark summary for a program
+
+The Nada CLI benchmarking tool lets you test your programs and track their performance across multiple runs. It gives you a summary that includes:
+
+- Duration: The time taken to run the test.
+- Rounds: The number of protocol rounds (if applicable).
+- Round Data: The amount of data exchanged during each protocol round.
+- Preprocessing Elements: Any preprocessing steps or elements used before the main protocol execution.
+- Local Protocols: The number of local operations executed.
+- Online Protocols: Information about the online protocol steps (if applicable).
+
+This helps developers fine-tune their programs by showing where time is spent and how much data is transmitted during each protocol round.
+
+#### Usage
+
+```
+Usage: nada benchmark [OPTIONS] [TESTS]...
+
+Arguments:
+  [TESTS]...  Names of the tests to use to benchmark the programs, if not specified benchmark all tests
+
+Options:
+      --run-count <RUN_COUNT>  How many times each test should be run [default: 1]
+      --metrics-round-size     Measure protocol round size. Sizes are in bytes
+  -h, --help                   Print help
+```
+
+#### Example benchmarking
+
+<Tabs>
+
+<TabItem value="benchmark" label="Benchmark">
+
+```bash
+nada benchmark list_scan_linear_test
+Running...
+████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ 1/1
+
+╭───────────────────────┬─────────────────┬────────┬────────────┬────────────────────────┬─────────────────┬──────────────────╮
+│ Benchmark summary                                                                                                           │
+├───────────────────────┼─────────────────┼────────┼────────────┼────────────────────────┼─────────────────┼──────────────────┤
+│ Test                  │ Duration        │ Rounds │ Round data │ Preprocessing elements │ Local protocols │ Online protocols │
+├───────────────────────┼─────────────────┼────────┼────────────┼────────────────────────┼─────────────────┼──────────────────┤
+│ list_scan_linear_test │ 4ms 959us 141ns │ 46     │ 24kB       │ 22                     │ 2               │ 2                │
+├───────────────────────┼─────────────────┼────────┼────────────┼────────────────────────┼─────────────────┼──────────────────┤
+│ 1 run(s) per protocol                                                                                                       │
+╰───────────────────────┴─────────────────┴────────┴────────────┴────────────────────────┴─────────────────┴──────────────────╯
+
+╭───────────────────────┬─────────┬───────────────────────╮
+│ Preprocessing elements                                  │
+├───────────────────────┼─────────┼───────────────────────┤
+│ Test                  │ compare │ equals integer secret │
+├───────────────────────┼─────────┼───────────────────────┤
+│ list_scan_linear_test │ 2       │ 20                    │
+╰───────────────────────┴─────────┴───────────────────────╯
+
+╭───────────────────────┬───────────┬───────┬───────────────────────┬───────────┬───────╮
+│ Local protocols                                                                       │
+├───────────────────────┼───────────┼───────┼───────────────────────┼───────────┼───────┤
+│ Addition                                  │ IfElsePublicBranches                      │
+├───────────────────────┼───────────┼───────┼───────────────────────┼───────────┼───────┤
+│ Test                  │ Duration  │ Calls │ Test                  │ Duration  │ Calls │
+├───────────────────────┼───────────┼───────┼───────────────────────┼───────────┼───────┤
+│ list_scan_linear_test │ 6us 624ns │ 20    │ list_scan_linear_test │ 5us 216ns │ 20    │
+╰───────────────────────┴───────────┴───────┴───────────────────────┴───────────┴───────╯
+
+╭───────────────────────┬─────────────┬───────┬────────┬────────────┬───────────────────────┬────────────┬───────┬────────┬────────────╮
+│ Online protocols                                                                                                                     │
+├───────────────────────┼─────────────┼───────┼────────┼────────────┼───────────────────────┼────────────┼───────┼────────┼────────────┤
+│ EqualsSecret                                                      │ LessThanShares                                                   │
+├───────────────────────┼─────────────┼───────┼────────┼────────────┼───────────────────────┼────────────┼───────┼────────┼────────────┤
+│ Test                  │ Duration    │ Calls │ Rounds │ Round data │ Test                  │ Duration   │ Calls │ Rounds │ Round data │
+├───────────────────────┼─────────────┼───────┼────────┼────────────┼───────────────────────┼────────────┼───────┼────────┼────────────┤
+│ list_scan_linear_test │ 455us 890ns │ 20    │ 40     │ 19kB       │ list_scan_linear_test │ 158us 16ns │ 2     │ 6      │ 5kB        │
+╰───────────────────────┴─────────────┴───────┴────────┴────────────┴───────────────────────┴────────────┴───────┴────────┴────────────╯
+```
+</TabItem>
+
+<TabItem value="program" label="Nada program">
+```python reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/src/list_scan_linear.py
+```
+</TabItem>
+
+<TabItem value="test" label="Test file">
+```yaml reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/tests/list_scan_linear_test.yaml
+```
+</TabItem>
+</Tabs>
