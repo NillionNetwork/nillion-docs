@@ -18,3 +18,30 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+.smallCustomButton {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 32px;
+  padding: 15px;
+  width: 25%;
+  align-items: center;
+  font-weight: 400;
+  background: rgb(0, 33, 245);
+  color: white !important;
+}
+
+@media screen and (max-width: 768px) {
+  .smallCustomButton {
+    width: 50%;
+  }
+}
+
+.smallCustomButton:hover {
+  cursor: pointer;
+  text-decoration: none;
+}

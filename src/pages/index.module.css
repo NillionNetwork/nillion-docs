@@ -9,7 +9,11 @@
   color: var(--ifm-font-color-base);
 }
 
-/* index.module.css */
+@media screen and (max-width: 768px) {
+  .main {
+    padding-bottom: 4em;
+  }
+}
 
 .heroBanner {
   padding: 4rem 2rem;
@@ -55,7 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%; /* Adjust this value to control the overall size */
+  width: 30%;
 }
 
 .spinningImage {
@@ -84,7 +88,7 @@
   }
 
   .heroImageContainer {
-    width: 50%; /* Adjust for mobile view */
+    width: 50%;
     margin-top: 2rem;
   }
 }
@@ -205,8 +209,4 @@
   .featureItem {
     flex: 0 1 100%;
   }
-}
-
-.homepage-no-feedback .feedback-fish-button {
-  display: none !important;
 }

@@ -100,3 +100,19 @@ h4 {
 [data-theme="dark"] .sidebar-title {
   border-bottom: solid rgb(96, 103, 112) 1px;
 }
+
+@media (min-width: 768px) {
+  .main-wrapper .container {
+    padding-left: 2em;
+  }
+}
+
+.theme-doc-sidebar-menu.menu__list {
+  padding-top: 1em !important;
+  padding-bottom: 3em !important;
+}
+
+.theme-doc-sidebar-menu .menu__list {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}

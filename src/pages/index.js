@@ -3,9 +3,11 @@ import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import Link from "@docusaurus/Link";
+import LinkButton from "../components/LinkButton";
 
 function HeroSection() {
   const { siteConfig } = useDocusaurusContext();
+
   return (
     <header className={styles.heroBanner}>
       <div className={styles.heroContent}>
@@ -18,11 +20,7 @@ function HeroSection() {
           high value data in the same way that blockchains decentralized
           transactions.
         </p>
-        <div className={styles.heroButtons}>
-          <Link className="button button--primary button--lg" to="./quickstart">
-            Get Started
-          </Link>
-        </div>
+        <LinkButton text="Get Started" link="/quickstart" small={true} />
       </div>
       <div className={styles.heroImageContainer}>
         <img
@@ -85,7 +83,7 @@ export default function Home() {
       title="Home"
       description="Nillion Builder Docs - Humanity's first blind computer"
       noFooter={true}
-      wrapperClassName="homepage-no-feedback"
+      wrapperClassName="homepage"
     >
       <main className={styles.main}>
         <HeroSection />
