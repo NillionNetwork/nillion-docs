@@ -8,7 +8,7 @@ const InstallToCreateTracking = () => {
     const handlePrevClick = () => {
       safary.track({
         eventType: "custom",
-        eventName: "quickstart_install_previous",
+        eventName: "quickstart_install_nillion",
         parameters: {
           fromPage: "Install Nillion",
           toPage: "Blind App Quickstart",
@@ -19,7 +19,7 @@ const InstallToCreateTracking = () => {
     const handleNextClick = () => {
       safary.track({
         eventType: "custom",
-        eventName: "quickstart_install_next",
+        eventName: "quickstart_install_nillion",
         parameters: {
           fromPage: "Install Nillion",
           toPage: "Create a Nada project",
