@@ -88,9 +88,14 @@
   }
 
   .heroImageContainer {
-    width: 50%;
+    width: 30%;
     margin-top: 2rem;
   }
+
+  .heroBanner {
+    gap: 0rem;
+  }
+
 }
 
 .features {
@@ -191,11 +196,11 @@
   }
 
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
   }
 
   .heroSubtitle {
-    font-size: 2rem;
+    font-size: 1.25rem;
   }
 
   .heroDescription {
@@ -208,5 +213,22 @@
 
   .featureItem {
     flex: 0 1 100%;
+    padding: 1.5rem;
+  }
+
+  .heroImageContainer{
+    margin: 0px;
+  }
+
+  .heroBanner {
+    gap: 0rem;
+  }
+
+  .heroContent {
+    margin-bottom: 0.5rem;
+  }
+  
+  .getStartedButton {
+    display: none;
   }
 }

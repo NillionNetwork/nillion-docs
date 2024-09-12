@@ -78,18 +78,24 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          {
-            type: 'doc',
-            position: 'left',
-            docId: 'welcome',
-            label: 'Docs',
-          },
-          {
-            type: 'doc',
-            position: 'left',
-            docId: 'nada-by-example',
-            label: 'Nada by Example',
-          },
+          // {
+          //   type: 'doc',
+          //   position: 'left',
+          //   docId: 'what-is-nillion',
+          //   label: 'Learn',
+          // },
+          // {
+          //   type: 'doc',
+          //   position: 'left',
+          //   docId: 'start-building',
+          //   label: 'Build',
+          // },
+          // {   
+          //   type: 'doc',
+          //   position: 'left',
+          //   docId: 'community-and-support',
+          //   label: 'Community',
+          // },
           {
             href: 'https://github.com/NillionNetwork',
             className: 'header-github',

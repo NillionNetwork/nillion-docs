@@ -20,7 +20,9 @@ function HeroSection() {
           high value data in the same way that blockchains decentralized
           transactions.
         </p>
-        <LinkButton text="Get Started" link="/quickstart" small={true} />
+        <div className={styles.getStartedButton}>
+          <LinkButton text="Get Started" link="/quickstart" small={true} />
+        </div>
       </div>
       <div className={styles.heroImageContainer}>
         <img
