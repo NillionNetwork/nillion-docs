@@ -1,25 +1,43 @@
 import VenvSetup from './\_nada-venv-setup.mdx';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # nada
 
-`nada` is the tool to manage Nada projects. It can:
+Use the `nada` CLI tool to manage Nada projects. It can:
 
-- Create a new project,
-- Compile Nada programs,
-- Get `program-requirements`, the runtime requirements of the preprocessing elements of a program,
-- Run Nada programs (also in `debug` mode),
-- Test a program (also in `debug` mode),
-- Generate a test from a program.
-
-## Requirements
-
-- Install the [Nillion SDK](/nillion-sdk-and-tools#installation) to access the `nada` tool
+- Create a new Nada project
+- Compile Nada programs
+- Get program-requirements, the runtime requirements of the preprocessing elements of a program
+- Generate test files for Nada programs
+- Run Nada programs
+- Test Nada programs
+- Get benchmark summaries of Nada program tests to measure performance
 
 ## Usage
 
-### Create a new project
+Install the [Nillion SDK](/nillion-sdk-and-tools#installation) to use the `nada` tool
 
-You can create a new nada project by running
+```
+Usage: nada <COMMAND>
+
+Commands:
+  init                  Create a new nada project
+  build                 Build a program
+  run                   Run a program using the inputs from a test case
+  test                  Run tests
+  benchmark             Benchmark one or multiple programs
+  generate-test         Generate a test for a program with example values
+  program-requirements  Get requirements for program
+  shell-completions     Generate shell completions
+  list-protocols        List Protocols (instructions) in JSON format
+  publish               Publish a nada program
+  help                  Print this message or the help of the given subcommand(s)
+```
+
+## Create a new project
+
+You can create a new Nada project by running
 
 ```
 nada init <project-name>
@@ -96,7 +114,7 @@ name = "my_program"
 prime_size = 128
 ```
 
-### Build (compile) a program
+## Build (compile) a program
 
 To build all the programs in the project, you can run
 
@@ -115,7 +133,7 @@ nada build <program-name>
 The `build` command will produce a `<program name>.nada.bin` file in the `target` directory.
 You can use this file to upload and run it on the Nillion Network.
 
-### Get program requirements
+## Get program requirements
 
 The `program-requirements` command prints the runtime requirements of the preprocessing elements of a specific program.
 
@@ -152,7 +170,7 @@ Requirements:
 }
 ```
 
-### Generate a test file
+## Generate a test file
 
 To be able to `run` or `test` programs we need a test file with the inputs and expected outputs.
 `nada` has the ability to generate a test file with example values for you.
@@ -166,7 +184,7 @@ It will generate a test file with the name `<test-name>.yaml` in the `tests` dir
 
 You should edit the test file to change the inputs and the expected outputs.
 
-### Run a program
+## Run a program
 
 To `run` a program using nada you need a test file, visit the [Generate a test file](/nada#generate-a-test-file) section to see how to generate it.
 
@@ -180,7 +198,7 @@ nada run <test-name>
 
 It will run the program associated with that test file and print the output. Similarly to the [nada-run](nada-run.md) tool, it executes a Nada program using the Nada VM with the cryptographic algorithms but without the peer-to-peer (p2p) network.
 
-#### Run in debug mode
+### Run in debug mode
 
 `nada` has the ability to run a program in debug mode.
 In this mode, all operations are computed in plain text, so you can inspect the intermediary values.
@@ -194,7 +212,140 @@ nada run --debug <test-name>
 
 This will run the program associated with that test file and print all operations, values and the output.
 
-#### Run and get protocols model text file
+<Tabs>
+
+<TabItem value="debug" label="Debug in plain text">
+
+```
+(.venv) ➜  nada-by-example git:(main) ✗ nada run --debug addition_test
+Running program 'addition' with inputs from test case addition_test
+Building ...
+Running ...
+Header:
+    Party: Alice id(0)   # party_alice = Party(name="Alice")  -> addition.py:4
+     Inputs:
+      iaddr(0) rty(SecretInteger) = Input(num_1)                                                          # num_1 = SecretInteger(Input(name="num_1", party=party_alice))  -> addition.py:7
+     Outputs:
+
+    Party: Bob id(1)   # party_bob = Party(name="Bob")  -> addition.py:5
+     Inputs:
+      iaddr(1) rty(SecretInteger) = Input(num_2)                                                          # num_2 = SecretInteger(Input(name="num_2", party=party_bob))  -> addition.py:8
+     Outputs:
+
+    Party: Charlie id(2)   # party_charlie = Party(name="Charlie")  -> addition.py:6
+     Inputs:
+     Outputs:
+      oaddr(0) rty(SecretInteger) = Output(sum) addr(2)                                                   #   -> addition.py:10
+
+    Literals:
+
+
+    Loading Literals:
+
+    Loading Inputs:
+
+    Computing:
+addr(0) rty(SecretInteger) = Load iaddr(0)                                                          # num_1 = SecretInteger(Input(name="num_1", party=party_alice))  -> addition.py:7
+      SecretInteger(30 mod 340282366920938463463374607429104828419)
+addr(1) rty(SecretInteger) = Load iaddr(1)                                                          # num_2 = SecretInteger(Input(name="num_2", party=party_bob))  -> addition.py:8
+      SecretInteger(10 mod 340282366920938463463374607429104828419)
+addr(2) rty(SecretInteger) = Addition addr(0) addr(1)                                               # sum = num_1 + num_2  -> addition.py:9
+      SecretInteger(40 mod 340282366920938463463374607429104828419) = SecretInteger(30 mod 340282366920938463463374607429104828419) + SecretInteger(10 mod 340282366920938463463374607429104828419)
+
+    Loading Outputs:
+oaddr(0) rty(SecretInteger) = Output(sum) addr(2)                                                   #   -> addition.py:10
+      SecretInteger(NadaInt(40))
+
+
+Program ran!
+Outputs: {
+    "sum": SecretInteger(
+        NadaInt(
+            40,
+        ),
+    ),
+}
+```
+
+</TabItem>
+
+<TabItem value="program" label="Nada program">
+```python reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition.py
+```
+</TabItem>
+
+<TabItem value="test" label="Test file">
+```yaml reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_test.yaml
+```
+</TabItem>
+</Tabs>
+
+
+### Run and get metrics
+
+Run a program with the --metrics flag to retrieve detailed execution metrics of your program. You can specify the format for the metrics output using the following values:
+
+- text: Outputs metrics in a human-readable format directly to the console.
+- json: Outputs metrics in JSON format and saves it to a metrics.json file.
+- yaml: Outputs metrics in YAML format and saves it to a metrics.yaml file.
+
+#### Example metrics usage
+
+The following command runs the addition_test program and outputs detailed performance metrics in text format:
+
+```
+nada run addition_test --metrics text
+```
+
+<Tabs>
+
+<TabItem value="metrics" label="Metrics">
+
+```
+(.venv) ➜  nada-by-example git:(main) ✗ nada run addition_test --metrics text
+Running program 'addition' with inputs from test case addition_test
+Building ...
+Running ...
+Program ran!
+Preprocessing elements:
+
+Execution metrics:
+	Total duration: 1ms 160us 150ns
+	Total rounds: 0
+
+	Local protocols: (execution order)
+		Addition:
+			calls: 1
+			total duration: 114us 383ns (min: 292ns, max: 570us 208ns)
+	Online protocols: (execution order)
+
+Outputs: {
+    "sum": SecretInteger(
+        NadaInt(
+            40,
+        ),
+    ),
+}
+```
+
+</TabItem>
+
+<TabItem value="program" label="Nada program">
+```python reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition.py
+```
+</TabItem>
+
+<TabItem value="test" label="Test file">
+```yaml reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_test.yaml
+```
+</TabItem>
+</Tabs>
+
+### Run and get protocols model text file
 
 To execute a program and have a protocols model text file `<test-name>.nada.protocols.txt` generated for your program, run with `-protocols-text` or `-p`
 
@@ -241,7 +392,7 @@ Outputs:
 addr(4): my_output
 ```
 
-#### Run and get bytecode in text format
+### Run and get bytecode in text format
 
 To execute a program and have a bytecode text file `<test-name>.nada.bytecode.txt` generated for your program, run with `-bytecode-text` or `-b`
 
@@ -278,7 +429,7 @@ addr(1) rty(SecretInteger) = Load iaddr(1)                                      
 addr(2) rty(SecretInteger) = Addition addr(0) addr(1)
 ```
 
-### Test a program
+## Test a program
 
 To `test` a program using `nada` you need a test file, visit the [Generate a test file](/nada#generate-a-test-file) section to see how to generate it.
 
@@ -306,3 +457,94 @@ To run a test in debug mode you can run
 ```
 nada test --debug <test-name>
 ```
+
+## Get a benchmark summary for a program
+
+The Nada CLI benchmarking tool lets you test your programs and track their performance across multiple runs. It gives you a summary that includes:
+
+- Duration: The time taken to run the test.
+- Rounds: The number of protocol rounds (if applicable).
+- Round Data: The amount of data exchanged during each protocol round.
+- Preprocessing Elements: Any preprocessing steps or elements used before the main protocol execution.
+- Local Protocols: The number of local operations executed.
+- Online Protocols: Information about the online protocol steps (if applicable).
+
+This helps developers fine-tune their programs by showing where time is spent and how much data is transmitted during each protocol round.
+
+### Usage
+
+```
+Usage: nada benchmark [OPTIONS] [TESTS]...
+
+Arguments:
+  [TESTS]...  Names of the tests to use to benchmark the programs, if not specified benchmark all tests
+
+Options:
+      --run-count <RUN_COUNT>  How many times each test should be run [default: 1]
+      --metrics-round-size     Measure protocol round size. Sizes are in bytes
+  -h, --help                   Print help
+```
+
+### Example benchmarking
+
+<Tabs>
+
+<TabItem value="benchmark" label="Benchmark">
+
+```bash
+nada benchmark list_scan_linear_test
+Running...
+████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ 1/1
+
+╭───────────────────────┬─────────────────┬────────┬────────────┬────────────────────────┬─────────────────┬──────────────────╮
+│ Benchmark summary                                                                                                           │
+├───────────────────────┼─────────────────┼────────┼────────────┼────────────────────────┼─────────────────┼──────────────────┤
+│ Test                  │ Duration        │ Rounds │ Round data │ Preprocessing elements │ Local protocols │ Online protocols │
+├───────────────────────┼─────────────────┼────────┼────────────┼────────────────────────┼─────────────────┼──────────────────┤
+│ list_scan_linear_test │ 4ms 959us 141ns │ 46     │ 24kB       │ 22                     │ 2               │ 2                │
+├───────────────────────┼─────────────────┼────────┼────────────┼────────────────────────┼─────────────────┼──────────────────┤
+│ 1 run(s) per protocol                                                                                                       │
+╰───────────────────────┴─────────────────┴────────┴────────────┴────────────────────────┴─────────────────┴──────────────────╯
+
+╭───────────────────────┬─────────┬───────────────────────╮
+│ Preprocessing elements                                  │
+├───────────────────────┼─────────┼───────────────────────┤
+│ Test                  │ compare │ equals integer secret │
+├───────────────────────┼─────────┼───────────────────────┤
+│ list_scan_linear_test │ 2       │ 20                    │
+╰───────────────────────┴─────────┴───────────────────────╯
+
+╭───────────────────────┬───────────┬───────┬───────────────────────┬───────────┬───────╮
+│ Local protocols                                                                       │
+├───────────────────────┼───────────┼───────┼───────────────────────┼───────────┼───────┤
+│ Addition                                  │ IfElsePublicBranches                      │
+├───────────────────────┼───────────┼───────┼───────────────────────┼───────────┼───────┤
+│ Test                  │ Duration  │ Calls │ Test                  │ Duration  │ Calls │
+├───────────────────────┼───────────┼───────┼───────────────────────┼───────────┼───────┤
+│ list_scan_linear_test │ 6us 624ns │ 20    │ list_scan_linear_test │ 5us 216ns │ 20    │
+╰───────────────────────┴───────────┴───────┴───────────────────────┴───────────┴───────╯
+
+╭───────────────────────┬─────────────┬───────┬────────┬────────────┬───────────────────────┬────────────┬───────┬────────┬────────────╮
+│ Online protocols                                                                                                                     │
+├───────────────────────┼─────────────┼───────┼────────┼────────────┼───────────────────────┼────────────┼───────┼────────┼────────────┤
+│ EqualsSecret                                                      │ LessThanShares                                                   │
+├───────────────────────┼─────────────┼───────┼────────┼────────────┼───────────────────────┼────────────┼───────┼────────┼────────────┤
+│ Test                  │ Duration    │ Calls │ Rounds │ Round data │ Test                  │ Duration   │ Calls │ Rounds │ Round data │
+├───────────────────────┼─────────────┼───────┼────────┼────────────┼───────────────────────┼────────────┼───────┼────────┼────────────┤
+│ list_scan_linear_test │ 455us 890ns │ 20    │ 40     │ 19kB       │ list_scan_linear_test │ 158us 16ns │ 2     │ 6      │ 5kB        │
+╰───────────────────────┴─────────────┴───────┴────────┴────────────┴───────────────────────┴────────────┴───────┴────────┴────────────╯
+```
+</TabItem>
+
+<TabItem value="program" label="Nada program">
+```python reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/src/list_scan_linear.py
+```
+</TabItem>
+
+<TabItem value="test" label="Test file">
+```yaml reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/tests/list_scan_linear_test.yaml
+```
+</TabItem>
+</Tabs>
