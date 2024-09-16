@@ -107,6 +107,7 @@ h4 {
   }
 }
 
+/* Add more padding to sidebars */
 .theme-doc-sidebar-menu.menu__list {
   padding-top: 1em !important;
   padding-bottom: 3em !important;

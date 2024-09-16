@@ -73,7 +73,7 @@ function FeaturesSection() {
   return (
     <section className={styles.features}>
       {features.map((props, idx) => (
-        <FeatureItem {...props} />
+        <FeatureItem key={idx} {...props} />
       ))}
     </section>
   );
