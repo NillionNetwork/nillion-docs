@@ -71,6 +71,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        respectPrefersColorScheme: true,
+      },
       image: 'img/nillion-banner.jpeg',
       navbar: {
         logo: {

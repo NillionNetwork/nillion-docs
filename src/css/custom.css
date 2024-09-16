@@ -64,14 +64,18 @@ h4 {
   font-family: "TWKEverett";
 }
 
-.navbar {
-  background: rgb(0, 33, 245);
-}
-
 .navbar .clean-btn svg,
 .navbar .navbar__title,
 .navbar .navbar__item {
   color: white !important;
+}
+[data-theme="light"] .navbar .navbar__item  {
+  color: white !important;
+  filter: invert(0.8);
+}
+
+[data-theme="light"] .navbar .clean-btn svg {
+  filter: invert(0.8);
 }
 
 .navbar__title {
@@ -94,7 +98,7 @@ h4 {
 /* Dark mode css */
 
 [data-theme="dark"] .header-github:hover {
-  filter: invert(0.8);
+  filter: invert(1);
 }
 
 [data-theme="dark"] .sidebar-title {
