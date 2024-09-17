@@ -28,7 +28,7 @@ export const NetworkConfig = {
     },
     nilchain_grpc: {
       name: 'NILLION_NILCHAIN_GRPC',
-      value: '65.109.228.73:9090',
+      value: 'https://testnet-nillion-grpc.lavenderfive.com',
     },
   },
 };

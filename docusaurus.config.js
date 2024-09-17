@@ -37,6 +37,14 @@ const config = {
       src: '/js/piwik.js',
       async: false,
     },
+    {
+      src: 'https://tag.safary.club/stag-0.1.11.js',
+      async: true,
+      'data-name': 'safary-sdk',
+      'data-product-id': 'prd_rbwHhyTvxR',
+      integrity: 'sha256-FcvJgRCaJFszFBKv8MGIbUcmHlVuHp7LX8zGgjfvvGs=',
+      crossOrigin: 'anonymous',
+    },
   ],
   headTags: [
     {

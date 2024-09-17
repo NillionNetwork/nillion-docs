@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
     </TabItem>
 
-    <TabItem value="windows-guide" label="Windows" default>
+    <TabItem value="windows-guide" label="Windows">
         ## Windows Guide
 
         Today Nillion SDK binaries are available for Mac and Linux. In order to install Nillion on a Windows machine, you'll need to first complete a 5 minute WSL developer environment setup. Follow the steps below to install WSL, set up your WSL developer environment, and install and use Nillion Linux binaries from a Windows machine.
@@ -62,14 +62,18 @@ import TabItem from '@theme/TabItem';
 
         :::
 
+        <div className="divider"/>
+        ### Installation
+
+
         <SdkInstallation />
+
 
         🎉 Great work! You've set up a WSL environment and installed Nillion within that environment. Before running a nillion command like `nillion-devnet`, `nada`, or `pynadac` make sure you are in a WSL environment by first running ubuntu:
 
         ```
         ubuntu
         ```
-
 
     </TabItem>
 
