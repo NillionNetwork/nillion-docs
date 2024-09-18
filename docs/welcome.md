@@ -1,7 +1,3 @@
----
-slug: /
----
-
 import LinkButton from '@site/src/components/LinkButton/index';
 
 # Welcome to Nillion's Docs

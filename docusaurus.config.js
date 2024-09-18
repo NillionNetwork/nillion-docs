@@ -79,6 +79,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        respectPrefersColorScheme: true,
+      },
       image: 'img/nillion-banner.jpeg',
       navbar: {
         logo: {
@@ -89,14 +93,20 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'welcome',
-            label: 'Docs',
+            docId: 'what-is-nillion',
+            label: 'Learn',
           },
           {
             type: 'doc',
             position: 'left',
-            docId: 'nada-by-example',
-            label: 'Nada by Example',
+            docId: 'start-building',
+            label: 'Build',
+          },
+          {   
+            type: 'doc',
+            position: 'left',
+            docId: 'community-and-support',
+            label: 'Community',
           },
           {
             href: 'https://github.com/NillionNetwork',
