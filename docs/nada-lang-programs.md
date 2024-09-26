@@ -42,7 +42,7 @@ The program [`tiny_addition.py`](https://github.com/nillion-oss/nillion-python-s
 Next, let's see an example of our ternary operation:
 
 ```python reference showGithubLink
-https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/nada_fn_max.py
+https://github.com/NillionNetwork/python-examples/blob/main/examples_and_tutorials/nada_programs/src/nada_fn_max.py
 ```
 
 ### Multiple parties in Nada
