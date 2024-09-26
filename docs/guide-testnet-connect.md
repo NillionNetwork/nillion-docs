@@ -3,7 +3,7 @@ import SupportedWallets from './\_testnet_supported_wallets.mdx';
 
 # Creating a Nillion Wallet
 
-Create a Nillion wallet to connect to the [Nillion Testnet](/network#nillion-testnet-coordination-layer) and access your assets.
+Create a Nillion wallet to connect to the [Nillion Testnet](/network) and access your assets.
 
 ## Supported Wallets
 
