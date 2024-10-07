@@ -22,6 +22,10 @@ Information-theoretic security is a measure of security that doesn't depend on c
 
 A Linear Secret Sharing Scheme is a cryptography method where a secret is divided into multiple parts, known as shares. These shares are distributed among participants in such a way that only specific groups of shares can reconstruct the secret. The key property of LSSS is linearity, meaning that any linear combination of valid shares forms another valid share. This allows for flexibility in constructing access structures, determining which sets of participants can together reconstruct the secret.
 
+#### Local Protocol
+
+A Local Protocol is a cryptographic operation performed by nodes during the calculation of a program without the need for communication between them.
+
 #### Masked factors
 
 Masked factors are the protective factors in the Sum of Products. Masked factors are the one-time mask raised to the power of the masked exponent multiplied by the factor.
@@ -29,6 +33,14 @@ Masked factors are the protective factors in the Sum of Products. Masked factors
 #### One-time mask
 
 The one-time mask is the multiplicative mask that protects a factor.&#x20;
+
+#### Online Protocol
+
+An Online Protocol is a cryptographic operation performed by nodes during the calculation of a program in which the communication between them is necessary for correct completion.
+
+#### Preprocessing Elements
+
+The preprocessing elements are masks that will be distributed between the nodes as fragments named shares, and they will be used by online protocols during their execution. These masks have been precalculated and made available to nodes by a preprocessor, whose purpose is that nodes have preprocessing elements available at any moment.
 
 #### Privacy-enhancing technologies (PETs)
 
