@@ -39,18 +39,18 @@ The step in the Execution Plan in which a protocol was executed.
 
 #### Local Protocols
 
-The number of local protocol executed.
+The number of [local protocol](/glossary#Local-Protocol) executed.
 
 #### Number of Communication rounds
 Number of times that a specific protocol's instance exchanged data during its execution.
 
 #### Online Protocols
 
-The number of online protocols executed.
+The number of [online protocols](/glossary#Online-Protocol) executed.
 
 #### Preprocessing elements
 
-Number of preprocessing element used by the protocols during the execution.
+Number of [preprocessing elements](/glossary#Preprocessing-elements) used by the protocols during the execution.
 
 #### Round message size
 
@@ -70,4 +70,4 @@ The number of times that the nodes have exchanged data between them during the p
 
 #### Used preprocessing elements
 
-The amount of preprocessing elements that a protocol was used by during its execution. It also reports the amount of each type of preprocessing element that was needed.
+The amount of [preprocessing elements](/glossary#preprocessing-elements) that a protocol was used by during its execution. It also reports the amount of each type of preprocessing element that was needed.

@@ -8,7 +8,7 @@ Use the `nada` CLI tool to manage Nada projects. It can:
 
 - Create a new Nada project
 - Compile Nada programs
-- Get program-requirements, the runtime requirements of the preprocessing elements of a program
+- Get program-requirements, the runtime requirements of the [preprocessing elements](/glossary#preprocessing-elements) of a program
 - Generate test files for Nada programs
 - Run Nada programs
 - Test Nada programs
@@ -135,7 +135,7 @@ You can use this file to upload and run it on the Nillion Network.
 
 ## Get program requirements
 
-The `program-requirements` command prints the runtime requirements of the preprocessing elements of a specific program.
+The `program-requirements` command prints the runtime requirements of the [preprocessing elements](/glossary#preprocessing-elements) of a specific program.
 
 ```
 nada program-requirements <program-name>
