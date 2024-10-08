@@ -13,6 +13,9 @@ layout:
 ---
 
 # Nada Metrics
+The Nillion VM is able to calculate a number of useful execution metrics.
+
+The list below describes the available program execution metrics. 
 
 #### Count of Communication Rounds
 Number of times that a specific instance of protocol exchanged data during its execution.

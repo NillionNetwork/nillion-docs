@@ -14,7 +14,7 @@ layout:
 
 # Nada Execution Plan
 
-A Nada Program is at the end a sequence of instructions (protocols) that will be executed by the nodes. However, these instructions are not executed in the order that they appear in the program, they are reorganized in an early stage according to the dependencies between them. The purpose of this process is to minimize the number of communication rounds. The result of this reorganization is named Execution Plan, this plan specifies the way that how the program will be executed.
+A Nada Program is made of a sequence of instructions (protocols) that to be executed by the nodes. However, these instructions are not executed in the order that they appear in the program, they are reorganized in an early stage according to the dependencies between them. The purpose of this process is to minimize the number of communication rounds. The result of this reorganization is called the Execution Plan for the program. The Execution Plan specifies the way that how the program will be executed inside the NilVM in each Nillion node.
 
 `nada` provides different ways to print the execution plan of a program. For instance, when we execute the command `nada run`  with the flag `--metrics-execution-plan`. The result will be a set of metrics that are ordered following the Execution Plan.
 

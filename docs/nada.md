@@ -446,22 +446,20 @@ Here is the generated protocols model text file for the 3 Party addition program
 
 ```
 Literals:
+
+
 Inputs:
-
-
-iaddr(0): A (ref 0) (sizeof: 1)
-iaddr(1): B (ref 0) (sizeof: 1)
+iaddr(0): A (sizeof: 1)
+iaddr(1): B (sizeof: 1)
 
 
 Outputs:
-addr(4): my_output
+addr(2) (ShamirShareInteger): my_output
 
 
 Execution plan:
 Execution step 0 [Local]:
-    rty(ShamirShareInteger) = P2S iaddr(0)                                                              # result = a + b  -> main.py:10
-    rty(ShamirShareInteger) = P2S iaddr(1)                                                              # result = a + b  -> main.py:10
-    rty(ShamirShareInteger) = ADD addr(2) addr(3)                                                       # result = a + b  -> main.py:10
+	addr(2) - rty(ShamirShareInteger) = "ADD" iaddr(0) iaddr(1)                                         # result = a + b  -> main.py:11
 Execution step 0 [Online]:
 
 ```
@@ -534,7 +532,7 @@ nada test --debug <test-name>
 
 ## Get a benchmark summary for a program
 
-The Nada CLI benchmarking tool lets you test your programs and track their performance across multiple runs. It gives you a report that includes a summary of the metrics of the executions for each program. Visit the [Nada Metrics](/nada-metrics) section for more information about them.
+The Nada CLI benchmarking tool lets you run multiple programs and track their performance across multiple runs. It gives you a report that includes a summary of the metrics of the executions for each program. Visit the [Nada Metrics](/nada-metrics) section for more information about them.
 
 This helps developers fine-tune their programs by showing where time is spent and how much data is transmitted during each protocol round.
 

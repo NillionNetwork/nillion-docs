@@ -40,7 +40,11 @@ An Online Protocol is a cryptographic operation performed by nodes during the ca
 
 #### Preprocessing Elements
 
-The preprocessing elements are masks that will be distributed between the nodes as fragments named shares, and they will be used by online protocols during their execution. These masks have been precalculated and made available to nodes by a preprocessor, whose purpose is that nodes have preprocessing elements available at any moment.
+Preprocessing refers to a computation that is executed before one is given the inputs to a certain computation task. Preprocessing can be used to speed up some cryptographic systems but also to speed up cryptanalytic attacks. In the case of Nillion preprocessing is used to improve the performance of the execution of online protocols.
+
+Each online protocol requires a different amount and type of preprocessing elements. A "preprocessing service" inside each node is responsible for calculating these preprocessing elements and makes them available to the Nillion VM. The "preprocessing service" will try to make sure that there are enough available preprocessing elements in the node at any time.
+
+Computing these preprocessing elements usually requires an MPC protocol. This is because there needs to be some syncrhonisation in the way these elements are created and used by the nodes.
 
 #### Privacy-enhancing technologies (PETs)
 
