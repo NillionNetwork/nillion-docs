@@ -194,7 +194,7 @@ const sidebars = {
             {
               type: 'doc',
               label: 'Nada Execution Plan',
-              id: 'nada-execution-plan.md'
+              id: 'nada-execution-plan'
             },
           ]
         },
