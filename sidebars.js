@@ -178,7 +178,26 @@ const sidebars = {
         'nillion',
         'nillion-devnet',
         'node-key2peerid',
-        'nada',
+        {
+          type: 'category',
+          label: 'nada',
+          link: {
+            type: 'doc',
+            id: 'nada'
+          },
+          items: [
+            {
+              type: 'doc',
+              label: 'Nada Metrics',
+              id: 'nada-metrics',
+            },
+            {
+              type: 'doc',
+              label: 'Nada Execution Plan',
+              id: 'nada-execution-plan'
+            },
+          ]
+        },
         'pynadac',
         'nada-run',
       ],

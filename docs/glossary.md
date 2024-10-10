@@ -22,6 +22,10 @@ Information-theoretic security is a measure of security that doesn't depend on c
 
 A Linear Secret Sharing Scheme is a cryptography method where a secret is divided into multiple parts, known as shares. These shares are distributed among participants in such a way that only specific groups of shares can reconstruct the secret. The key property of LSSS is linearity, meaning that any linear combination of valid shares forms another valid share. This allows for flexibility in constructing access structures, determining which sets of participants can together reconstruct the secret.
 
+#### Local Protocol
+
+A Local Protocol is a cryptographic operation performed by nodes during the calculation of a program without the need for communication between them.
+
 #### Masked factors
 
 Masked factors are the protective factors in the Sum of Products. Masked factors are the one-time mask raised to the power of the masked exponent multiplied by the factor.
@@ -29,6 +33,18 @@ Masked factors are the protective factors in the Sum of Products. Masked factors
 #### One-time mask
 
 The one-time mask is the multiplicative mask that protects a factor.&#x20;
+
+#### Online Protocol
+
+An Online Protocol is a cryptographic operation performed by nodes during the calculation of a program in which the communication between them is necessary for correct completion.
+
+#### Preprocessing Elements
+
+Preprocessing refers to a computation that is executed before one is given the inputs to a certain computation task. Preprocessing can be used to speed up some cryptographic systems but also to speed up cryptanalytic attacks. In the case of Nillion preprocessing is used to improve the performance of the execution of online protocols.
+
+Each online protocol requires a different amount and type of preprocessing elements. A "preprocessing service" inside each node is responsible for calculating these preprocessing elements and makes them available to the Nillion VM. The "preprocessing service" will try to make sure that there are enough available preprocessing elements in the node at any time.
+
+Computing these preprocessing elements usually requires an MPC protocol. This is because there needs to be some syncrhonisation in the way these elements are created and used by the nodes.
 
 #### Privacy-enhancing technologies (PETs)
 

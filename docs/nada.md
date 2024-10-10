@@ -8,7 +8,7 @@ Use the `nada` CLI tool to manage Nada projects. It can:
 
 - Create a new Nada project
 - Compile Nada programs
-- Get program-requirements, the runtime requirements of the preprocessing elements of a program
+- Get program-requirements, the runtime requirements of the [preprocessing elements](/glossary#preprocessing-elements) of a program
 - Generate test files for Nada programs
 - Run Nada programs
 - Test Nada programs
@@ -135,7 +135,7 @@ You can use this file to upload and run it on the Nillion Network.
 
 ## Get program requirements
 
-The `program-requirements` command prints the runtime requirements of the preprocessing elements of a specific program.
+The `program-requirements` command prints the runtime requirements of the [preprocessing elements](/glossary#preprocessing-elements) of a specific program.
 
 ```
 nada program-requirements <program-name>
@@ -291,6 +291,8 @@ Run a program with the --metrics flag to retrieve detailed execution metrics of 
 - json: Outputs metrics in JSON format and saves it to a metrics.json file.
 - yaml: Outputs metrics in YAML format and saves it to a metrics.yaml file.
 
+For detailed information on the metrics reported, pleas, visit the [Nada Metrics](/nada-metrics) section.
+
 #### Example metrics usage
 
 The following command runs the addition_test program and outputs detailed performance metrics in text format:
@@ -345,6 +347,76 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_test.
 </TabItem>
 </Tabs>
 
+### Run and get metrics on the execution plan
+
+To get detailed metrics on the program execution, including information on each protocol instance execution, we can use the flag `--metrics-execution-plan` in addition to the command we see in the [Run and get metrics](/nada#run-and-get-metrics) section.
+
+The result report includes the following information:
+- The summary of metrics on the program execution.
+- The detailed metrics on the protocol execution (instructions). This information is organized following the Execution Plan. If you want to know more about the execution plan, you can visit the [Execution Plan](/nada-execution-plan) section.
+
+#### Example metrics on execution plan usage
+
+The following command runs the addition_test program and outputs detailed performance metrics in text format:
+
+```
+nada run addition_test --metrics text --metrics-execution-plan
+```
+
+<Tabs>
+
+<TabItem value="metrics" label="Metrics">
+
+```
+Summary:
+Preprocessing elements:
+
+Execution metrics:
+	Execution duration: 
+		431us 35ns
+
+	Compute duration: 
+		total duration: 28us 894ns (min: 10us 701ns, max: 90us 242ns)
+
+	Total rounds: 0
+
+	Local protocols: (execution order)
+		Addition:
+			calls: 1
+			total duration: 16us 630ns (min: 6us 459ns, max: 49us 994ns)
+
+	Online protocols: (execution order)
+
+
+Execution Plan:
+Step #0:
+
+	Count of communication rounds: 0
+
+	Protocols:
+		addr(2) - Addition:
+			Execution step: 0
+			Total duration: 16us 630ns
+			Number of communication rounds: 0
+			Total message size: 0
+
+```
+
+</TabItem>
+
+<TabItem value="program" label="Nada program">
+```python reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/src/addition.py
+```
+</TabItem>
+
+<TabItem value="test" label="Test file">
+```yaml reference showGithubLink
+https://github.com/NillionNetwork/nada-by-example/blob/main/tests/addition_test.yaml
+```
+</TabItem>
+</Tabs>
+
 ### Run and get protocols model text file
 
 To execute a program and have a protocols model text file `<test-name>.nada.protocols.txt` generated for your program, run with `-protocols-text` or `-p`
@@ -373,23 +445,23 @@ def nada_main():
 Here is the generated protocols model text file for the 3 Party addition program above:
 
 ```
-Inputs:
-
-iaddr(0): A (ref 0) (sizeof: 1)
-iaddr(1): B (ref 0) (sizeof: 1)
-
-
 Literals:
 
 
-Protocols:
-rty(ShamirShareInteger) = P2S iaddr(0)                                                              # result = a + b  -> main.py:10
-rty(ShamirShareInteger) = P2S iaddr(1)                                                              # result = a + b  -> main.py:10
-rty(ShamirShareInteger) = ADD addr(2) addr(3)                                                       # result = a + b  -> main.py:10
+Inputs:
+iaddr(0): A (sizeof: 1)
+iaddr(1): B (sizeof: 1)
 
 
 Outputs:
-addr(4): my_output
+addr(2) (ShamirShareInteger): my_output
+
+
+Execution plan:
+Execution step 0 [Local]:
+	addr(2) - rty(ShamirShareInteger) = "ADD" iaddr(0) iaddr(1)                                         # result = a + b  -> main.py:11
+Execution step 0 [Online]:
+
 ```
 
 ### Run and get bytecode in text format
@@ -460,14 +532,7 @@ nada test --debug <test-name>
 
 ## Get a benchmark summary for a program
 
-The Nada CLI benchmarking tool lets you test your programs and track their performance across multiple runs. It gives you a summary that includes:
-
-- Duration: The time taken to run the test.
-- Rounds: The number of protocol rounds (if applicable).
-- Round Data: The amount of data exchanged during each protocol round.
-- Preprocessing Elements: Any preprocessing steps or elements used before the main protocol execution.
-- Local Protocols: The number of local operations executed.
-- Online Protocols: Information about the online protocol steps (if applicable).
+The Nada CLI benchmarking tool lets you run multiple programs and track their performance across multiple runs. It gives you a report that includes a summary of the metrics of the executions for each program. Visit the [Nada Metrics](/nada-metrics) section for more information about them.
 
 This helps developers fine-tune their programs by showing where time is spent and how much data is transmitted during each protocol round.
 
@@ -480,9 +545,9 @@ Arguments:
   [TESTS]...  Names of the tests to use to benchmark the programs, if not specified benchmark all tests
 
 Options:
-      --run-count <RUN_COUNT>  How many times each test should be run [default: 1]
-      --metrics-round-size     Measure protocol round size. Sizes are in bytes
-  -h, --help                   Print help
+      --run-count <RUN_COUNT>      How many times each test should be run [default: 1]
+      --message-size-calculation   Measure protocol round size. Sizes are in bytes
+  -h, --help                       Print help
 ```
 
 ### Example benchmarking
@@ -496,15 +561,15 @@ nada benchmark list_scan_linear_test
 Running...
 ████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████ 1/1
 
-╭───────────────────────┬─────────────────┬────────┬────────────┬────────────────────────┬─────────────────┬──────────────────╮
-│ Benchmark summary                                                                                                           │
-├───────────────────────┼─────────────────┼────────┼────────────┼────────────────────────┼─────────────────┼──────────────────┤
-│ Test                  │ Duration        │ Rounds │ Round data │ Preprocessing elements │ Local protocols │ Online protocols │
-├───────────────────────┼─────────────────┼────────┼────────────┼────────────────────────┼─────────────────┼──────────────────┤
-│ list_scan_linear_test │ 4ms 959us 141ns │ 46     │ 24kB       │ 22                     │ 2               │ 2                │
-├───────────────────────┼─────────────────┼────────┼────────────┼────────────────────────┼─────────────────┼──────────────────┤
-│ 1 run(s) per protocol                                                                                                       │
-╰───────────────────────┴─────────────────┴────────┴────────────┴────────────────────────┴─────────────────┴──────────────────╯
+╭────────┬─────────────────┬──────────────────┬────────┬────────────────────┬────────────────────────┬─────────────────┬──────────────────╮
+│ Benchmark summary                                                                                                                       │
+├────────┼─────────────────┼──────────────────┼────────┼────────────────────┼────────────────────────┼─────────────────┼──────────────────┤
+│ Test   │ Total Duration  │ Compute Duration │ Rounds │ Total message size │ Preprocessing elements │ Local protocols │ Online protocols │
+├────────┼─────────────────┼──────────────────┼────────┼────────────────────┼────────────────────────┼─────────────────┼──────────────────┤
+│ test01 │ 4ms 453us 487ns │ 250us 291ns      │ 46     │ 24kB               │ 22                     │ 2               │ 2                │
+├────────┼─────────────────┼──────────────────┼────────┼────────────────────┼────────────────────────┼─────────────────┼──────────────────┤
+│ 1 run(s) per protocol                                                                                                                   │
+╰────────┴─────────────────┴──────────────────┴────────┴────────────────────┴────────────────────────┴─────────────────┴──────────────────╯
 
 ╭───────────────────────┬─────────┬───────────────────────╮
 │ Preprocessing elements                                  │
