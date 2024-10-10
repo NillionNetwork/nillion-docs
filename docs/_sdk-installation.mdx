@@ -10,21 +10,15 @@ it works, before piping it to `bash`._
 curl https://nilup.nilogy.xyz/install.sh | bash
 ```
 
-Close your terminal. Open a new terminal and confirm global `nilup` tool installation
+The install script installs `nilup` and the latest version of the SDK. Close your terminal. Open a
+new terminal and confirm both `nilup` and `nillion` are installed:
 
 ```bash
-nilup -V
+nilup -V; nillion -V
 
 // Your output should be similar to the below
 nilup 22c84830fff3c86beec27a8cb6353d45e7bfb8a4
-```
-
-#### 2. Use [nilup](/nilup) to install the latest version of the Nillion SDK.
-
-```bash
-nilup install latest
-nilup use latest
-nilup init
+tools-config 22c84830fff3c86beec27a8cb6353d45e7bfb8a4
 ```
 
 Optionally enable `nilup` telemetry, providing your Ethereum wallet address. We collect this data to understand how the software is used, and to better assist you in case of issues. In doing this, you consent to the collection of telemetry data by the Nillion Network. While we will not collect any personal information, we still recommend using a new wallet address that cannot be linked to your identity by any third party.
@@ -32,13 +26,4 @@ For more information, check out our [privacy policy](https://nillion.com/privacy
 
 ```bash
 nilup instrumentation enable --wallet <your-eth-wallet-address>
-```
-
-Close your terminal. Open a new terminal and confirm global Nillion tool installation with
-
-```bash
-nillion -V
-
-// Your output should be similar to the below
-nilup 22c84830fff3c86beec27a8cb6353d45e7bfb8a4
 ```
