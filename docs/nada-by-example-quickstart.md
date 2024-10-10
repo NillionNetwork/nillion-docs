@@ -49,7 +49,9 @@ curl https://nilup.nilogy.xyz/install.sh | bash
 
 #### 2. Use the latest version of the Nillion SDK
 
-Install and use the `latest` version of the Nillion SDK and tools.
+If you ran the `install.sh` script above, then it installed `nilup` and the latest version of the
+SDK for you. If you did not, then install and use the `latest` version of the Nillion SDK and tools
+by running:
 
 ```
 nilup install latest
