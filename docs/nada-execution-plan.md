@@ -96,5 +96,5 @@ https://github.com/NillionNetwork/nada-by-example/blob/main/src/comparison_gte.p
 </Tabs>
 
 Looking at the resulting file, we can see that the Execution Plan organizes the protocols into Execution Steps. This is the group of protocols that can be executed in parallel, because all their inputs have been resolved in some previous step. The steps are divided into two stages:
-- Local: The [local protocols](/glossary#Local-Protocol) that are contained in the Execution Step. They are executed before the online protocols.
-- Online: Once the local protocols have been executed, the [online protocols](/glossary#Online-Protocol) of the step can be executed.
+- Local: The [local protocols](/glossary#local-protocol) that are contained in the Execution Step. They are executed before the online protocols.
+- Online: Once the local protocols have been executed, the [online protocols](/glossary#online-protocol) of the step can be executed.
