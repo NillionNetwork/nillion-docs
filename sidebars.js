@@ -350,6 +350,7 @@ const sidebars = {
       ],
     },
     'network-configuration',
+    'ai-vm',
     'limitations',
     {
       type: 'html',
