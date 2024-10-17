@@ -350,7 +350,6 @@ const sidebars = {
       ],
     },
     'network-configuration',
-    'ai-vm',
     {type: 'category',
       label: 'Nillion AIVM',
       link: {
