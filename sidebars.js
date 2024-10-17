@@ -351,6 +351,16 @@ const sidebars = {
     },
     'network-configuration',
     'ai-vm',
+    {type: 'category',
+      label: 'Nillion AIVM',
+      link: {
+        type: 'doc',
+        id: 'aivm',
+      },
+      items: [
+        'aivm-reference',
+      ],
+    },
     'limitations',
     {
       type: 'html',

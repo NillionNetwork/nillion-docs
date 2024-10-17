@@ -50,7 +50,9 @@ aivm-devnet
 This command starts a persistent process that manages the secure computation infrastructure. To stop the network, use `CTRL`+`C`.
 
 ::: info
+
 **Note**: Ensure `aivm-devnet` is running before proceeding with the following examples.
+
 :::
 
 ## Performing Secure Inference
