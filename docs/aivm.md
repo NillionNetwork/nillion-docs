@@ -34,7 +34,7 @@ AIVM currently supports the following pre-trained models for specific learning t
 Installing Nillion AIVM is straightforward:
 
 ```shell
-pip install nillion-aivm
+pip install "nillion-aivm[examples]"
 ```
 
 This command installs all necessary dependencies for performing secure inference on AIVM.
