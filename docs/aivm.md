@@ -33,9 +33,31 @@ AIVM currently supports the following pre-trained models for specific learning t
 
 Installing Nillion AIVM is straightforward:
 
-```shell
-pip install "nillion-aivm[examples]"
-```
+1. Create a virtual environment:
+
+   ```bash
+   python3 -m venv .venv
+   ```
+
+2. Activate the virtual environment:
+
+   On Linux/macOS:
+
+   ```bash
+   source .venv/bin/activate
+   ```
+
+   On Windows:
+
+   ```bash
+   .\venv\Scripts\activate
+   ```
+
+3. Install the package:
+
+   ```bash
+   pip install "nillion-aivm[examples]"
+   ```
 
 This command installs all necessary dependencies for performing secure inference on AIVM.
 
