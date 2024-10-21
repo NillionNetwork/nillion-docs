@@ -71,10 +71,10 @@ aivm-devnet
 
 This command starts a persistent process that manages the secure computation infrastructure. To stop the network, use `CTRL`+`C`.
 
-::: info
-
+:::info
 **Note**: Ensure `aivm-devnet` is running before proceeding with the following examples.
 
+If you get stuck on this with VSCode, ensure the correct venv is selected. If it asks to pip install your packages / no pip is found, you can use `pip install ipykernel -U --force-reinstall` to install it.
 :::
 
 ## Performing Secure Inference

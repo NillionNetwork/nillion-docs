@@ -1,4 +1,4 @@
-# AIVM API Reference
+# API Reference
 
 This document provides detailed information about all available functions and classes in the AIVM client library.
 
