@@ -165,6 +165,6 @@ Custom models must meet these requirements:
 Now you can check out the [examples](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples) folder and get started with your own fine-tuned nd custom models.
 
 You can try:
-- LeNet5 for digit classification.
-- BertTiny for spam detection.
-- BertTiny for tweet sentiment.
+- LeNet5 for digit classification
+- BertTiny for spam detection
+- BertTiny for tweet sentiment
