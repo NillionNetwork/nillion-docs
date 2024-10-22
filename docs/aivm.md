@@ -1,9 +1,10 @@
 # Nillion AIVM
 
 ::: warning
-Nillion AIVM is currently in early development. While functional, it may contain bugs and is not recommended for deployment in production or critical systems.
+[Nillion AIVM](https://github.com/NillionNetwork/nillion-aivm) is currently in early development. While functional, it may contain bugs and is not recommended for deployment in production or critical systems.
 ::: 
-Nillion AIVM is a secure inference platform for Deep Learning models based on Multi-Party Computation (MPC). It enables private model inference and custom model deployment while maintaining data confidentiality throughout the computation process. This documentation covers installation, supported models, and usage instructions.
+
+[Nillion AIVM](https://github.com/NillionNetwork/nillion-aivm) is a secure inference platform for Deep Learning models based on Multi-Party Computation (MPC). It enables private model inference and custom model deployment while maintaining data confidentiality throughout the computation process. This documentation covers installation, supported models, and usage instructions.
 
 ## Supported Models
 
@@ -14,7 +15,7 @@ AIVM currently supports the following pre-trained models for specific learning t
   - Binary classification for detecting spam messages
   - Input: Text string
   - Output: Binary classification (spam/not spam)
-- Movie Sentiment Analysis
+- Movie Rating Sentiment Analysis
   - Sentiment analysis for movie reviews
   - Input: Text string
   - Output: Sentiment score (-1 to 1)
@@ -78,6 +79,8 @@ If you get stuck on this with VSCode, ensure the correct venv is selected. If it
 :::
 
 ## Performing Secure Inference
+
+**For additional usage, refer to the [examples](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples) folder, which demonstrates how to set up private inference workflows using AIVM.**
 
 ### Basic Usage
 
