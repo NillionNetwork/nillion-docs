@@ -80,8 +80,6 @@ If you get stuck on this with VSCode, ensure the correct venv is selected. If it
 
 ## Performing Secure Inference
 
-**For additional usage, refer to the [examples](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples) folder, which demonstrates how to set up private inference workflows using AIVM.**
-
 ### Basic Usage
 
 1. First, import the AIVM client and check available models:
@@ -162,3 +160,11 @@ Custom models must meet these requirements:
 :::info
 **Note**: Custom model names must be unique within your AIVM instance.
 ::: 
+
+### Next Steps
+Now you can check out the [examples](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples) folder and get started with your own fine-tuned nd custom models.
+
+You can try:
+- LeNet5 for digit classification.
+- BertTiny for spam detection.
+- BertTiny for tweet sentiment.
