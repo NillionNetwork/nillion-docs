@@ -1,6 +1,6 @@
 # Nillion AIVM
 
-::: warning
+:::warning
 [Nillion AIVM](https://github.com/NillionNetwork/nillion-aivm) is currently in early development. While functional, it may contain bugs and is not recommended for deployment in production or critical systems.
 ::: 
 
