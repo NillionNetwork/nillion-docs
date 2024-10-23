@@ -2192,9 +2192,9 @@ print("Are the secret integers the same? ", sec_integer_1 == sec_integer_2)
 &gt;&gt;&gt; Are the secret integers the same?  False
 ```
 
-#### WARNING
+:::warning
 Providing zero as `SecretInteger` leaks information.
-
+:::
 
 
 #### value
@@ -2255,9 +2255,9 @@ print("Are the secret unsigned integers the same? ", sec_uinteger_1 == sec_uinte
 &gt;&gt;&gt; Are the secret unsigned integers the same?  False
 ```
 
-#### WARNING
+:::warning
 Providing zero as `SecretUnsignedInteger` leaks information.
-
+:::
 
 
 #### value
