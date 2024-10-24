@@ -16,10 +16,12 @@ AIVM currently supports the following pre-trained models for specific learning t
   - Input: Text string
   - Output: Binary classification (spam/not spam)
 - [Movie Rating Sentiment Analysis](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/3a-upload-your-bert-tiny-model.ipynb)
+  - [Training Script](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/2a-fine-tuning-bert-tiny.ipynb)
   - Sentiment analysis for movie reviews
   - Input: Text string
   - Output: Sentiment score (-1 to 1) for positive and negative
 - [Tweet Sentiment Analysis](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/3c-upload-your-bert-tiny-for-tweet-sentiment.ipynb)
+  - [Training Script](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/2c-fine-tuning-bert-tiny-tweet-dataset.ipynb)
   - Sentiment analysis for tweets in
   - Input: Text string
   - Output: Sentiment score (-1 to 1) for positive, neutral and negative
@@ -30,6 +32,7 @@ AIVM currently supports the following pre-trained models for specific learning t
   - Input: 28x28 grayscale image
   - Output: Digit classification (0-9)
 - [Cats vs Dogs Classification](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/3b-upload-your-lenet5-model.ipynb)
+  - [Training Script](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/2b-fine-tuning-lenet5.ipynb)
   - Binary image classification
   - Input: 28x28 grayscale image
   - Output: Binary classification (cat/dog)
@@ -86,7 +89,7 @@ If you get stuck on this with VSCode, ensure the correct venv is selected. If it
 
 ### Using Docker
 
-You can choose to use Docker for deploying AIVM. For that, you *must have a working Docker installation*. The only required command is:
+You can choose to use Docker for deploying AIVM. For that, you **must have a working Docker installation**. The only required command is:
 
 ```shell
 docker run -it -p 50050:50050 nillion/aivm-devnet

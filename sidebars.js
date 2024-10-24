@@ -358,6 +358,7 @@ const sidebars = {
       },
       items: [
         'aivm-reference',
+        'aivm-supported-models',
       ],
     },
     'limitations',
