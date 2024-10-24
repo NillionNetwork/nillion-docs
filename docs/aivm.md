@@ -18,7 +18,7 @@ AIVM currently supports the following pre-trained models for specific learning t
   - Handwritten Digit Recognition (MNIST)
   - Cats vs Dogs Classification
 
-We also have real-life project examples using these models including a Discord Bot for sentiment analysis and hotdog image detection can be found. 
+We also have real-life project examples using these models including a Discord Bot for sentiment analysis and hotdog image detection.
 
 More information on the supported models and project ideas can be found [here](./aivm-supported-models.md)
 
