@@ -8,29 +8,35 @@
 
 ## Supported Models
 
-AIVM currently supports the following pre-trained models for specific learning tasks. You can either utilize these existing models or deploy your own custom-trained versions:
+AIVM currently supports the following pre-trained models for specific learning tasks. You can either utilize these existing models or use the [training scripts](https://github.com/NillionNetwork/nillion-aivm/examples) to produce your own custom-trained versions:
 
 ### BertTiny
-- SMS Spam Classification
+- [SMS Spam Classification](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/1-getting-started.ipynb)
   - Binary classification for detecting spam messages
   - Input: Text string
   - Output: Binary classification (spam/not spam)
-- Movie Rating Sentiment Analysis
+- [Movie Rating Sentiment Analysis](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/3a-upload-your-bert-tiny-model.ipynb)
   - Sentiment analysis for movie reviews
   - Input: Text string
-  - Output: Sentiment score (-1 to 1)
+  - Output: Sentiment score (-1 to 1) for positive and negative
+- [Tweet Sentiment Analysis](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/3c-upload-your-bert-tiny-for-tweet-sentiment.ipynb)
+  - Sentiment analysis for tweets in
+  - Input: Text string
+  - Output: Sentiment score (-1 to 1) for positive, neutral and negative
 
 ### LeNet5
-- Handwritten Digit Recognition (MNIST)
+- [Handwritten Digit Recognition (MNIST)](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/1-getting-started.ipynb)
   - Classification of handwritten digits
   - Input: 28x28 grayscale image
   - Output: Digit classification (0-9)
-- Cats vs Dogs Classification
+- [Cats vs Dogs Classification](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/3b-upload-your-lenet5-model.ipynb)
   - Binary image classification
   - Input: 28x28 grayscale image
   - Output: Binary classification (cat/dog)
 
 ## Installation
+
+### Recommended Installation
 
 Installing Nillion AIVM is straightforward:
 
@@ -60,9 +66,9 @@ Installing Nillion AIVM is straightforward:
    pip install "nillion-aivm[examples]"
    ```
 
-This command installs all necessary dependencies for performing secure inference on AIVM.
+This command installs all necessary dependencies for performing secure inference on AIVM. You can now check the  [examples to test Nillion AIVM](https://github.com/NillionNetwork/nillion-aivm)
 
-### Starting the Development Network
+#### Starting the Development Network
 
 Launch the AIVM development network with:
 
@@ -78,6 +84,14 @@ This command starts a persistent process that manages the secure computation inf
 If you get stuck on this with VSCode, ensure the correct venv is selected. If it asks to pip install your packages / no pip is found, you can use `pip install ipykernel -U --force-reinstall` to install it.
 :::
 
+### Using Docker
+
+You can choose to use Docker for deploying AIVM. For that, you *must have a working Docker installation*. The only required command is:
+
+```shell
+docker run -it -p 50050:50050 nillion/aivm-devnet
+```
+
 ## Performing Secure Inference
 
 ### Basic Usage
@@ -92,20 +106,37 @@ available_models = aic.get_supported_models()
 print(available_models)
 ```
 
-2. Prepare your input data. Here's an example using PyTorch to generate a random input:
+2. Prepare your input data. Here's an example using PyTorch to load an MNIST dataset input:
 
 ```python
+# Load the libraries
 import torch
+import torchvision.datasets as dset
+import torchvision.transforms as transforms
 
-# Create a sample input (e.g., for LeNet5 MNIST)
-random_input = torch.randn((1, 1, 28, 28))  # Batch size 1, 1 channel, 28x28 pixels
+# Define the required transformations for MNIST dataset
+trans = transforms.Compose(
+    [
+        transforms.ToTensor(),                # Transform to tensor
+        transforms.Resize((28, 28)),          # Resize to (28 x 28)
+        transforms.Normalize((0.5,), (1.0,)), # Normalize the image
+    ]
+)
+# Load the dataset
+dataset = dset.MNIST(
+    root="/tmp/mnist", train=True, transform=trans, download=True
+) 
+
+# Get entry #20 of the dataset
+inputs, _ =  dataset[20]
+inputs = inputs.reshape(1, 1, 28, 28)
 ```
 
 3. Encrypt your input using the appropriate Cryptensor:
 
 ```python
 # Encrypt the input
-encrypted_input = aic.LeNet5Cryptensor(random_input)
+encrypted_input = aic.LeNet5Cryptensor(inputs)
 ```
 
 4. Perform secure inference:
