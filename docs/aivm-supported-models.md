@@ -3,6 +3,7 @@
 AIVM currently supports the following pre-trained models for specific learning tasks. You can either utilize these existing models or use the [training scripts](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples) to produce your own custom-trained versions:
 
 ## BertTiny
+
 - [SMS Spam Classification](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/1-getting-started.ipynb)
   - Binary classification for detecting spam messages
   - Input: Text string
@@ -19,6 +20,7 @@ AIVM currently supports the following pre-trained models for specific learning t
   - Output: Sentiment score (-1 to 1) for positive, neutral and negative
 
 ## LeNet5
+
 - [Handwritten Digit Recognition (MNIST)](https://github.com/NillionNetwork/nillion-aivm/blob/main/examples/1-getting-started.ipynb)
   - Classification of handwritten digits
   - Input: 28x28 grayscale image
@@ -32,4 +34,4 @@ AIVM currently supports the following pre-trained models for specific learning t
 ## Project Ideas
 
 - [Nillion AIVM Discord bot for message sentiment analysis](https://github.com/NillionNetwork/aivm-discord-bot)
-- [Nillion AIVM Slack not for hotdog image detection](https://github.com/tom-todo-repo)
+- [Nillion AIVM Slack not for hotdog image detection](https://github.com/crypblizz8/hotdog_or_not_aivm)
