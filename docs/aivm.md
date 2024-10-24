@@ -37,6 +37,12 @@ AIVM currently supports the following pre-trained models for specific learning t
   - Input: 28x28 grayscale image
   - Output: Binary classification (cat/dog)
 
+
+## Project Ideas
+
+- [Nillion AIVM Discord bot for message sentiment analysis](https://github.com/NillionNetwork/aivm-discord-bot)
+- [Nillion AIVM Slack not for hotdog image detection](https://github.com/tom-todo-repo)
+
 ## Installation
 
 ### Recommended Installation
@@ -87,13 +93,15 @@ This command starts a persistent process that manages the secure computation inf
 If you get stuck on this with VSCode, ensure the correct venv is selected. If it asks to pip install your packages / no pip is found, you can use `pip install ipykernel -U --force-reinstall` to install it.
 :::
 
-### Using Docker
+### Using Docker to deploy `aivm-devnet`
 
-You can choose to use Docker for deploying AIVM. For that, you **must have a working Docker installation**. The only required command is:
+You can choose to use Docker for deploying `aivm-devnet`. For that, you **must have a working Docker installation**. The only required command is:
 
 ```shell
 docker run -it -p 50050:50050 nillion/aivm-devnet
 ```
+
+This commands forwards port 50050 from the Docker to your local machine, which is the port used to connect with the cluster.
 
 ## Performing Secure Inference
 

@@ -28,3 +28,8 @@ AIVM currently supports the following pre-trained models for specific learning t
   - Binary image classification
   - Input: 28x28 grayscale image
   - Output: Binary classification (cat/dog)
+
+## Project Ideas
+
+- [Nillion AIVM Discord bot for message sentiment analysis](https://github.com/NillionNetwork/aivm-discord-bot)
+- [Nillion AIVM Slack not for hotdog image detection](https://github.com/tom-todo-repo)
