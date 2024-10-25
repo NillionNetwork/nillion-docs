@@ -30,6 +30,9 @@ Note: For the hackathon, you are required to install, run the development networ
 - 2a-fine-tuning-bert-tiny.ipynb
 - 2b-fine-tuning-lenet5.ipynb
 - 2c-fine-tuning-bert-tiny-tweet-dataset.ipynb
+
+^^ Use [Google Collab](https://colab.research.google.com/) for these examples
+
 - 3a-upload-your-bert-tiny-model.ipynb
 - 3b-upload-your-lenet5-model.ipynb
 - 3c-upload-your-bert-tiny-for-tweet-sentiment.ipynb
@@ -42,6 +45,12 @@ If you are on Windows, we recommend using [WSL setting](https://docs.nillion.com
 :::
 
 Installing Nillion AIVM is straightforward:
+
+0. Git clone
+
+```
+git clone https://github.com/NillionNetwork/nillion-aivm
+```
 
 1. Create a virtual environment:
 
