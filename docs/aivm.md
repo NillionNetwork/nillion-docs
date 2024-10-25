@@ -37,6 +37,10 @@ Note: For the hackathon, you are required to install, run the development networ
 
 ### Recommended Installation
 
+:::info
+If you are on Windows, we recommend using [WSL setting](https://docs.nillion.com/installation#windows-guide) - check this guide + use ubuntu.
+:::
+
 Installing Nillion AIVM is straightforward:
 
 1. Create a virtual environment:
