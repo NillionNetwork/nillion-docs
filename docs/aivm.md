@@ -2,7 +2,7 @@
 
 :::warning
 [Nillion AIVM](https://github.com/NillionNetwork/nillion-aivm) is currently in early development. While functional, it may contain bugs and is not recommended for deployment in production or critical systems.
-::: 
+:::
 
 [Nillion AIVM](https://github.com/NillionNetwork/nillion-aivm) is a secure inference platform for Deep Learning models based on Multi-Party Computation (MPC). It enables private model inference and custom model deployment while maintaining data confidentiality throughout the computation process. This documentation covers installation, supported models, and usage instructions.
 
@@ -22,7 +22,18 @@ We also have real-life project examples using these models including a Discord B
 
 More information on the supported models and project ideas can be found [here](./aivm-supported-models.md)
 
-## Installation
+## Installation / Quickstart
+
+:::info
+Note: For the Encode Hackathon, you are required to install, run the development network. Then try one of the [examples:](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples)
+
+- 2a-fine-tuning-bert-tiny.ipynb
+- 2b-fine-tuning-lenet5.ipynb
+- 2c-fine-tuning-bert-tiny-tweet-dataset.ipynb
+- 3a-upload-your-bert-tiny-model.ipynb
+- 3b-upload-your-lenet5-model.ipynb
+- 3c-upload-your-bert-tiny-for-tweet-sentiment.ipynb
+  :::
 
 ### Recommended Installation
 
@@ -54,7 +65,7 @@ Installing Nillion AIVM is straightforward:
    pip install "nillion-aivm[examples]"
    ```
 
-This command installs all necessary dependencies for performing secure inference on AIVM. You can now check the  [examples to test Nillion AIVM](https://github.com/NillionNetwork/nillion-aivm)
+This command installs all necessary dependencies for performing secure inference on AIVM. You can now check the [examples to test Nillion AIVM](https://github.com/NillionNetwork/nillion-aivm)
 
 #### Starting the Development Network
 
@@ -115,7 +126,7 @@ trans = transforms.Compose(
 # Load the dataset
 dataset = dset.MNIST(
     root="/tmp/mnist", train=True, transform=trans, download=True
-) 
+)
 
 # Get entry #20 of the dataset
 inputs, _ =  dataset[20]
@@ -173,6 +184,7 @@ result = aic.get_prediction(private_lenet5_input, "MyCustomLeNet5")
 ### Model Requirements
 
 Custom models must meet these requirements:
+
 - Follow the exact architecture of either BertTiny or LeNet5
 - Be trained using PyTorch
 - Use the same input dimensions as the original architectures
@@ -180,12 +192,14 @@ Custom models must meet these requirements:
 
 :::info
 **Note**: Custom model names must be unique within your AIVM instance.
-::: 
+:::
 
 ### Next Steps
+
 Now you can check out the [examples](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples) folder and get started with your own fine-tuned nd custom models.
 
 You can try:
+
 - LeNet5 for digit classification
 - BertTiny for spam detection
 - BertTiny for tweet sentiment
