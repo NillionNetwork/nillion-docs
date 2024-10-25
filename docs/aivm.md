@@ -25,7 +25,7 @@ More information on the supported models and project ideas can be found [here](.
 ## Installation / Quickstart
 
 :::info
-Note: For the Encode Hackathon, you are required to install, run the development network. Then try one of the [examples:](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples)
+Note: For the hackathon, you are required to install, run the development network. Then try run one of the [examples:](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples)
 
 - 2a-fine-tuning-bert-tiny.ipynb
 - 2b-fine-tuning-lenet5.ipynb
