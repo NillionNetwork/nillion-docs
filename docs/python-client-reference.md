@@ -854,7 +854,7 @@ import py_nillion_client as nillion
 
 sec_uinteger = nillion.SecretUnsignedInteger(1)
 sec_integer = nillion.SecretInteger(1)
-sec_array = nillion.SecretArray([
+sec_array = nillion.Array([
     nillion.SecretInteger(1),
     nillion.SecretInteger(2),
 ])
