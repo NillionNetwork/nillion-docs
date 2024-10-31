@@ -11,7 +11,7 @@ If we want to input a variable `a = float(3.2)`, we need to first encode it. For
 
 ```python
 BITS = 3
-SCALE = 2 ** BITS2 #8
+SCALE = 2 ** BITS #8
 a = float(3.2)
 
 # Encoding
@@ -21,7 +21,7 @@ a_encoded = round(a * SCALE) # round(3.2 * 8) = 26
 a_decoded == a_encoded / SCALE # 26 / 8 = 3.25 
 ```
 
-Thus, to introduce a value with 3 bits of precision, we would be inputting 26 instead of 3.2. Note that, the larger the `BITS` precission, the better result we would obtain when decoding. 
+Thus, to introduce a value with 3 bits of precision, we would be inputting 26 instead of 3.2. Note that, the larger the `BITS` precision, the better result we would obtain when decoding. 
 
 :::tip
 
