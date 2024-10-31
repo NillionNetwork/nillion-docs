@@ -31,7 +31,7 @@ Run the program with Python to print any print() statements to the terminal.
 python3 src/[program_name].py
 ```
 
-### 4. Remove print() statments before compiling a Nada program
+### 4. Remove print() statements before compiling a Nada program
 
 Make sure to comment out or remove all print statements before compiling Nada programs, as Nada compilation will fail if any print statements are included.
 
