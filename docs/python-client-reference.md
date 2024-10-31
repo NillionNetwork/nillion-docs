@@ -503,7 +503,7 @@ different modes:
 Specifies the client should connect in dialer mode.
 
 In this mode the client only allows outgoing connections, so no need to
-listen or open a port. This mode prohibits this client from recieving results,
+listen or open a port. This mode prohibits this client from receiving results,
 as an output party, from the network.
 
 * **Return type:**
@@ -523,7 +523,7 @@ Specifies a socket address structure for a listening client connection.
 
 This mode is suited for clients that are backend services.
 
-You allow incoming and outgoing connections, they are done directly so you have to listen and have the port open to receive incoming connections. This option is faster than relay as it avoids the extra hop, but requires to have the port open / have port forwarding in NATs and firewalls. This mode requires that the client’s IPv4 address is addressible on the internet.
+You allow incoming and outgoing connections, they are done directly so you have to listen and have the port open to receive incoming connections. This option is faster than relay as it avoids the extra hop, but requires to have the port open / have port forwarding in NATs and firewalls. This mode requires that the client’s IPv4 address is addressable on the internet.
 
 * **Parameters:**
   **str** – Socket address structure.
@@ -552,8 +552,8 @@ You allow incoming and outgoing connection but the incoming are established via
 a node in the network (the relayer) so that you don’t need to listen and open a port.
 This is slower than direct because it adds another hop in the connection but allows to
 bypass NATs and Firewalls. Also this option adds more load to the p2p network of the
-nodes becasue they have to do the relay increasing the incoming and outgoing traffic
-+ processing of secure connections.
+nodes because they have to do the relay, increasing the incoming and outgoing traffic
+and processing of secure connections.
 
 * **Return type:**
   ConnectionMode
@@ -928,7 +928,7 @@ same interpreter.
   * **bootnodes** (*list* *of* *str*) – A list of nodes belonging to the network (other may be discovered later).
   * **connection_mode** (*ConnectionMode*) – How to connect to the network, either directly (indicating a listen address), through a relay server or as a dialer client.
   * **user_key** (*UserKey*) – User credentials to use.
-  * **whitelist** (*list* *of* *str* *,* *optional*) – A list of peer ids to connecto to/from.
+  * **whitelist** (*list* *of* *str* *,* *optional*) – A list of peer ids to connect to/from.
 * **Returns:**
   Instance of the NillionClient and an event receiver channel used to retrieve computation results.
 * **Return type:**
@@ -989,8 +989,7 @@ Note: This method does not directly output the result of the Nada
 program. Instead, it returns a computation UUID. To obtain the result,
 you’ll need to fetch it separately. The UUID, in conjunction with the
 event provided by the corresponding NillionClient instance channel,
-allows you to retrieve the computation results. Please refer to the e
-xample below for clarification.
+allows you to retrieve the computation results. Please refer to the example below for clarification.
 
 * **Parameters:**
   * **cluster_id** (*str*) – UUID of the targeted preprocessing cluster
