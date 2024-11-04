@@ -6,7 +6,61 @@ Install the Nillion SDK, including the <strong>`nada`</strong> tool you'll use t
 
 ## Use nilup to install the Nillion SDK
 
-<SdkInstallation/>
+
+:::info
+Nillion SDK binaries are available for [Linux and macOS platforms](/limitations#platforms). For Windows installation, make sure to follow our [Windows developer environment setup](/installation#windows-guide) guide ahead of installing binaries.
+
+Prerequisties:
+- Python (>= 3.10) 
+- Node (>= v18.17)
+:::
+
+We have made this a simpler process with our NPX tool: `create-nillion-app`. 
+
+In one command it installs:
+- Nillion SDK
+- A NextJS app
+- Python / Nada folders to use Nada programs
+
+# Getting Started
+
+1. Run `npx @nillion/create-nillion-app` and then follow the CLI instructions
+2. Name your directory (i.e. `my_blind_app`)
+3. Wait until CLI completes
+
+Your shell should look like this:
+
+![CNA Shell](/img/cna_terminal.png)
+
+Your tree should look like this:
+
+```
+.
+├── README.md
+├── app
+│   ├── components
+│   ├── home
+│   ├── layout.tsx
+│   ├── lib
+│   └── page.tsx
+├── nada
+│   ├── .venv
+│   ├── nada-project.toml
+│   ├── requirements.txt
+│   ├── src
+│   └── target
+│   └── tests
+├── next.config.mjs
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── next.svg
+│   └── vercel.svg
+└── tsconfig.json
+```
+
 
 ## Next steps
 

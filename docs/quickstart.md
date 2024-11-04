@@ -3,12 +3,21 @@ import TabItem from '@theme/TabItem';
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import LinkButton from '@site/src/components/LinkButton/index';
 import SdkInstallation from './\_sdk-installation.mdx';
+import ThemedImage from '@theme/ThemedImage';
 
 # Blind App Quickstart
 
 ## What is a blind app?
 
 A blind app runs blind computation on Nillion using one or more privacy-preserving [Nada](/nada-lang) programs. Nada programs compute on secret integers without ever seeing the underlying input values, making them ideal for sensitive data operations.
+
+<ThemedImage
+  alt="Nillion Quickstart Demo"
+  sources={{
+    light: '/img/nillion_quickstart_demo_light.png',
+    dark: '/img/nillion_quickstart_demo_dark.png',
+  }}
+/>
 
 ## Start building blind apps on Nillion
 
