@@ -2,7 +2,13 @@ import JsHeaders from './\_js-headers-proxy.mdx';
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import {ReactTestnetEnv} from '@site/src/components/Networks/TestnetEnv';
 
-### Create a Nillion Wallet
+# Deploying to the testnet
+
+Deploying your application to the testnet involves several steps
+- Ensure you have a Nillion (Keplr Wallet) address
+- TODO: ADD other steps when finalized...
+
+# Create a Nillion Wallet
 
 Follow the [Creating a Nillion Wallet guide](/guide-testnet-connect) to create your Nillion wallet. Note that when you create your wallet, you need to use the "Sign up with Google" option rather than "Use recovery phrase" option because Keplr only exposes the private key of wallets created when you "Sign up with Google." This may be useful for development debugging.
 
