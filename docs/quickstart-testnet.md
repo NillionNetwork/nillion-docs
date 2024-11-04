@@ -2,23 +2,11 @@ import JsHeaders from './\_js-headers-proxy.mdx';
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import {ReactTestnetEnv} from '@site/src/components/Networks/TestnetEnv';
 
-# Deploy your blind app to the Nillion Testnet
+### Create a Nillion Wallet
 
-Your blind app is currently running locally against the nillion-devnet. Let's configure environment variables to point at the Nillion Testnet. That way anyone can play with your blind app once it's deployed.
+Follow the [Creating a Nillion Wallet guide](/guide-testnet-connect) to create your Nillion wallet. Note that when you create your wallet, you need to use the "Sign up with Google" option rather than "Use recovery phrase" option because Keplr only exposes the private key of wallets created when you "Sign up with Google." This may be useful for development debugging.
 
-## Update your .env file and test locally
-
-Update your `.env` values to point at the Nillion Testnet
-
-<ReactTestnetEnv/>
-
-The `REACT_APP_NILLION_NILCHAIN_PRIVATE_KEY` private key value above should correspond to an address you've funded with Testnet NIL.
-
-### Create a Nillion Wallet and get the private Key
-
-Follow the [Creating a Nillion Wallet guide](/guide-testnet-connect) to create your Nillion wallet. Note that when you create your wallet, you need to use the "Sign up with Google" option rather than "Use recovery phrase" option because Keplr only exposes the private key of wallets created when you "Sign up with Google."
-
-Here's how to get the `REACT_APP_NILLION_NILCHAIN_PRIVATE_KEY` value from a Nillion wallet created with a Google account:
+Here's how to get the `NILCHAIN_PRIVATE_KEY` value from a Nillion wallet created with a Google account:
 
 <IframeVideo videoSrc="https://www.loom.com/embed/0f9949a990ee497195a39e02b280f2c7?sid=f53b62d2-6820-4780-98b1-5b3049b00709"/>
 

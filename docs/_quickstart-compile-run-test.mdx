@@ -29,31 +29,11 @@ Use the <strong>[`nada`](/nada)</strong> tool to compile, run and test the progr
    nada run secret_addition_test
    ```
    
-   Now we run the program. This uses the inputs defined in the test file (tests/secret_addition_test.yaml) and runs the program and prints the result. Make note of the result, we will need it next.
+   Now we run the program. This uses the inputs defined in the test file (tests/secret_addition_test.yaml) and runs the program and prints the result. 
 
 5. Test the program
    ```bash
    nada test secret_addition_test
    ```
    
-   Finally, we test the program. If you run the above command without altering the default values (`3`s) in the test file (`tests/secret_addition_test.yaml`), the test will fail because the expected test output doesn't match the resulting output. Modify the value of `my_output` in the test file and re-test the program.
-
-    <strong>Modify test values in `secret_addition_test.yaml`</strong>
-```
----
-program: secret_addition
-inputs:
-   my_int1:
-      SecretInteger: "3"
-   my_int2:
-      SecretInteger: "3"
-expected_outputs:
-   my_output:
-      SecretInteger: "6"
-```
-
-   <strong>Re-run test</strong>
-
-   ```bash
-   nada test secret_addition_test
-   ```
+Finally, we test the program and it should pass! 
