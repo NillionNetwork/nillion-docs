@@ -131,6 +131,14 @@ const config = {
         indexName: 'nillion_docs',
         searchPagePasitemapth: 'search',
       },
+      announcementBar: {
+        id: 'older_client_version',
+        content:
+          'These docs are for the older versioned JS + Python Client.',
+        backgroundColor: '#4B4A96',
+        textColor: '#fff',
+        isCloseable: true,
+      },
       docs: {
         sidebar: {
           hideable: true,
