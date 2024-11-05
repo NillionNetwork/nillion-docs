@@ -44,7 +44,7 @@ The [Nillion Python Starter repo](https://github.com/NillionNetwork/nillion-pyth
    source .venv/bin/activate
    ```
 
-5. Intall the requirements
+5. Install the requirements
    ```bash
    pip install --upgrade -r requirements.txt
    ```
@@ -430,7 +430,7 @@ Congratulations, you've successfully written your first single party Nada progra
   - Examples:
     - [single party examples](https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_single_party_compute)
     - [multi-party examples](https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_multi_party_compute)
-    - [storing and retrieving intergers and blobs](https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_store_and_retrieve_secrets)
+    - [storing and retrieving integers and blobs](https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_store_and_retrieve_secrets)
     - [using permissions](https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_permissions)
   - Tutorials:
     - [Voting schemes](https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/voting_tutorial)
