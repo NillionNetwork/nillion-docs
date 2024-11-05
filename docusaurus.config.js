@@ -134,7 +134,7 @@ const config = {
       announcementBar: {
         id: 'older_client_version',
         content:
-          'These docs are for the older versioned JS + Python Client.',
+          'These docs are for the older <a target="_blank" rel="noopener noreferrer" href="../js-client"> JS Client</a> and <a target="_blank" rel="noopener noreferrer" href="../python-client"> Python Client</a>',
         backgroundColor: '#4B4A96',
         textColor: '#fff',
         isCloseable: true,
