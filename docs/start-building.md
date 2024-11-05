@@ -8,7 +8,7 @@ The [Nada Quickstart](/quickstart-nada) will teach you how to create a Nada proj
 
 ## Build a Blind App
 
-This [Blind App Quickstart](/quickstart) is ideal for developers interested in **building frontends or fullstack web apps** on Nillion. This quickstart will guide you through writing a Nada program, storing the program on the Nillion Netowrk, and creating a blind web app lets you store secrets and run your Nada program in the browser.
+This [Blind App Quickstart](/quickstart) is ideal for developers interested in **building frontends or fullstack web apps** on Nillion. This quickstart will guide you through writing a Nada program, storing the program on the Nillion Network, and creating a blind web app lets you store secrets and run your Nada program in the browser.
 
 ## Connect a backend to Nillion
 
