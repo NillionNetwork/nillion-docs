@@ -120,7 +120,7 @@ Finally, we need to produce the output. Since `NadaArray` is not a base Nada typ
     return res.output(parties[2], "my_output")
 ```
 
-In this case, we'll be invoking `res.output(parties[2], "my_output")` establishing that the output party will be `Party2`and the name of the output variable will be `"my_output"`.
+In this case, we'll be invoking `res.output(parties[2], "my_output")` establishing that the output party will be `Party2` and the name of the output variable will be `"my_output"`.
 
 With everything in place, we can build and test our program:
 
@@ -130,7 +130,7 @@ nada build
 
 ## Using Nada Numpy with Nillion Network
 
-After completing the program writing, we can upload it and interact with it in the network with the ease provided by Nada Numpy. For that, we use the Python Nillion Client. We can use the same complete code as for other examples. The only difference is how Nada Numpy allows to easily include arrays in our uploads to the Nillion Networ with the Nada Numpy client. We add the link to the [complete code](https://github.com/NillionNetwork/nada-algebra/blob/main/examples/broadcasting/main.py).
+After completing the program writing, we can upload it and interact with it in the network with the ease provided by Nada Numpy. For that, we use the Python Nillion Client. We can use the same complete code as for other examples. The only difference is how Nada Numpy allows to easily include arrays in our uploads to the Nillion Network with the Nada Numpy client. We add the link to the [complete code](https://github.com/NillionNetwork/nada-algebra/blob/main/examples/broadcasting/main.py).
 
 First, import the necessary modules:
 
