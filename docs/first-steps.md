@@ -2,7 +2,7 @@
 
 👋 Hey, welcome to [Nillion](https://docs.nillion.com/).
 
-This page will help you take your first steps (~30 mins) as a Nillion developer. Once you have completed them, fill out the form for your chance to claim your $20 prize - each week we will review the submissions and pick the best to recieve a prize 🎉
+This page will help you take your first steps (~30 mins) as a Nillion developer. Once you have completed them, fill out the form for your chance to claim your $20 prize - each week we will review the submissions and pick the best to receive a prize 🎉
 
 1. Star & fork either the [Python](https://github.com/NillionNetwork/nillion-python-starter) or [JavaScript](https://github.com/NillionNetwork/cra-nillion) quickstart repos (bonus points for both)
 
