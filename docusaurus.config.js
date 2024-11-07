@@ -45,6 +45,16 @@ const config = {
       integrity: 'sha256-FcvJgRCaJFszFBKv8MGIbUcmHlVuHp7LX8zGgjfvvGs=',
       crossOrigin: 'anonymous',
     },
+    {
+      src: 'https://cloud.umami.is/script.js',
+      defer: true,
+      'data-website-id': '94defefb-94a4-4706-9ec8-7a7333f484c1',
+    },
+    {
+      src: 'https://plausible.io/js/script.tagged-events.js',
+      defer: true,
+      'data-domain': 'docs.nillion.com',
+    },
   ],
   headTags: [
     {
