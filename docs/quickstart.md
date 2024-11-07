@@ -19,7 +19,7 @@ A blind app runs blind computation on Nillion using one or more privacy-preservi
         dark: '/img/nillion_quickstart_demo_dark.png',
       }}
   />
-  <p>This is an output of [Create Nillion App](https://github.com/NillionNetwork/create-nillion-app) boilerplate</p>
+  <p>This is an output for the [Create Nillion App](https://github.com/NillionNetwork/create-nillion-app) boilerplate</p>
 </div>
 
 ## Start building blind apps on Nillion
