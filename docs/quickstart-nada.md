@@ -11,38 +11,37 @@ The <strong>[`nada`](/nada)</strong> tool is used to create a new Nada project, 
 
 Before starting this guide, [Install the Nillion SDK](/installation)
 
-Confirm installation:
+- Confirm installation:
 
-```
-nillion -V
-```
+    ```
+    nillion --version
+    ```
+
+- Ensure you have a .venv folder inside `nada`
+- Check your tree in the previous step.
 
 :::
 
 
-## Create a new Nada project
+## Create a new first Nada program
 
-Create a `quickstart` directory. Inside of `quickstart`, use the <strong>[`nada`](/nada)</strong> tool to create a new nada project named "nada_quickstart_programs" by running
+0. Change directories into your new `nada` directory
 
-```
-mkdir quickstart
-cd quickstart
-nada init nada_quickstart_programs
-```
+    ```
+    cd nada
+    ```
 
-## Set up a Python virtual environment and install nada-dsl
+1. Activate the python virtual environment
 
-The Nillion Network leverages Nada, our MPC language, for defining MPC programs. Our initial implementation of Nada comes in the form of Nada, a Python DSL (Domain Specific Language).
+    ```
+    source .venv/bin/activate
+    ```
 
-<PythonVersionInfo/>
+2. Install [nada-dsl](https://pypi.org/project/nada-dsl/) from pypi
 
-0. Change directories into your new nada project directory
-
-   ```
-   cd nada_quickstart_programs
-   ```
-
-<VenvSetup/>
+    ```
+    pip install --upgrade nada-dsl
+    ```
 
 ## Write your first Nada program
 
