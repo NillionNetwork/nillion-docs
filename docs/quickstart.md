@@ -11,13 +11,16 @@ import ThemedImage from '@theme/ThemedImage';
 
 A blind app runs blind computation on Nillion using one or more privacy-preserving [Nada](/nada-lang) programs. Nada programs compute on secret integers without ever seeing the underlying input values, making them ideal for sensitive data operations.
 
-<ThemedImage
-  alt="Nillion Quickstart Demo"
-  sources={{
-    light: '/img/nillion_quickstart_demo_light.png',
-    dark: '/img/nillion_quickstart_demo_dark.png',
-  }}
-/>
+<div style={{ textAlign: 'center' }}>
+  <ThemedImage
+    alt="Nillion Quickstart Demo"
+    sources={{
+        light: '/img/nillion_quickstart_demo_light.png',
+        dark: '/img/nillion_quickstart_demo_dark.png',
+      }}
+  />
+  <p>This is an output of [Create Nillion App](https://github.com/NillionNetwork/create-nillion-app) boilerplate</p>
+</div>
 
 ## Start building blind apps on Nillion
 
@@ -27,7 +30,7 @@ This Blind App Quickstart is ideal for developers interested in creating fronten
 
 Build your first blind application on Nillion. Follow the steps in this blind app quickstart to
 
-1. [Install the Nillion SDK](/quickstart-install)
+1. [Install the Nillion SDK](/quickstart-install) via [create-nillion-app](https://github.com/NillionNetwork/create-nillion-app)
 2. [Create a Nada project](/quickstart-nada) and write your first Nada program
-3. [Build a blind app](/quickstart-blind-app) with the [cra-nillion](https://github.com/NillionNetwork/cra-nillion) starter repo (based on Create React App) and run your app locally on the [nillion-devnet](/nillion-devnet)
+3. [Build a blind app](/quickstart-blind-app) with the boilerplate repo from the CLI and run the local `nillion-devnet`.
 4. [Deploy your blind app to the Nillion Testnet](/quickstart-testnet) so the world can try it

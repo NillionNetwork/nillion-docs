@@ -76,7 +76,7 @@ nillion-devnet --seed my-seed
 🌄 environment file written to /Users/XXX/Library/Application Support/nillion.nillion/nillion-devnet.env
 ```
 
-Refresh your page and you should now be able to press the `Login` button and it should turn into `Log Out`.
+Refresh your page and you should now be able to press the `Login` button and it should turn into `Log Out`. Ensure you are on the `Devnet` Tab.
 
 Now you can interact with the local devnet and `Store a Secrete Integer` and `Fetch the Value`. 
 

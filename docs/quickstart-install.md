@@ -2,29 +2,35 @@ import SdkInstallation from './\_sdk-installation.mdx';
 
 # Install Nillion
 
-Install the Nillion SDK, including the <strong>`nada`</strong> tool you'll use to create a Nada project and the <strong>`nillion-devnet`</strong> tool you'll use to spin up a local Nillion network.
+Install the Nillion SDK in one command. This includes the <strong>`nada`</strong> directory to create a Nada project and the <strong>`nillion-devnet`</strong> to  interact with a local Nillion network.
 
-## Use nilup to install the Nillion SDK
-
+## One line `create-nillion-app` installation
 
 :::info
 Nillion SDK binaries are available for [Linux and macOS platforms](/limitations#platforms). For Windows installation, make sure to follow our [Windows developer environment setup](/installation#windows-guide) guide ahead of installing binaries.
 
 Prerequisties:
-- Python (>= 3.10) 
-- Node (>= v18.17)
-:::
 
-We have made this a simpler process with our NPX tool: `create-nillion-app`. 
+- Python (>= 3.10)
+- Node (>= v18.17)
+  :::
+
+We have made this a simpler process with our NPX tool: `create-nillion-app`.
 
 In one command it installs:
+
 - Nillion SDK
 - A NextJS app
 - Python / Nada folders to use Nada programs
 
 # Getting Started
 
-1. Run `npx @nillion/create-nillion-app` and then follow the CLI instructions
+1. Run the following command the follow the CLI instructions
+
+```
+npx @nillion/create-nillion-app
+``` 
+
 2. Name your directory (i.e. `my_blind_app`)
 3. Wait until CLI completes
 
@@ -60,7 +66,6 @@ Your tree should look like this:
 │   └── vercel.svg
 └── tsconfig.json
 ```
-
 
 ## Next steps
 
