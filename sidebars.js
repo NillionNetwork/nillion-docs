@@ -183,7 +183,7 @@ const sidebars = {
           label: 'nada',
           link: {
             type: 'doc',
-            id: 'nada'
+            id: 'nada',
           },
           items: [
             {
@@ -194,9 +194,9 @@ const sidebars = {
             {
               type: 'doc',
               label: 'Nada Execution Plan',
-              id: 'nada-execution-plan'
+              id: 'nada-execution-plan',
             },
-          ]
+          ],
         },
         'pynadac',
         'nada-run',
@@ -350,15 +350,28 @@ const sidebars = {
       ],
     },
     'network-configuration',
-    {type: 'category',
+    {
+      type: 'category',
       label: 'Nillion AIVM',
       link: {
         type: 'doc',
         id: 'aivm',
       },
+      items: ['aivm-reference', 'aivm-supported-models'],
+    },
+    {
+      type: 'category',
+      label: 'Nillion Storage APIs',
+      link: {
+        type: 'doc',
+        id: 'storage-apis',
+      },
       items: [
-        'aivm-reference',
-        'aivm-supported-models',
+        {
+          type: 'link',
+          label: 'API Reference',
+          href: 'https://nillion-storage-apis-v0.onrender.com/docs',
+        },
       ],
     },
     'limitations',
