@@ -140,12 +140,7 @@ const sidebars = {
             id: 'js-client',
           },
           items: [
-            'js-quickstart',
-            {
-              type: 'link',
-              label: 'JavaScript Client Reference',
-              href: 'https://nillion.pub/nillion-js-reference',
-            },
+            'js-client-hooks',
             {
               type: 'category',
               label: 'JavaScript Client Examples',
@@ -183,7 +178,7 @@ const sidebars = {
           label: 'nada',
           link: {
             type: 'doc',
-            id: 'nada'
+            id: 'nada',
           },
           items: [
             {
@@ -194,9 +189,9 @@ const sidebars = {
             {
               type: 'doc',
               label: 'Nada Execution Plan',
-              id: 'nada-execution-plan'
+              id: 'nada-execution-plan',
             },
-          ]
+          ],
         },
         'pynadac',
         'nada-run',
@@ -350,16 +345,14 @@ const sidebars = {
       ],
     },
     'network-configuration',
-    {type: 'category',
+    {
+      type: 'category',
       label: 'Nillion AIVM',
       link: {
         type: 'doc',
         id: 'aivm',
       },
-      items: [
-        'aivm-reference',
-        'aivm-supported-models',
-      ],
+      items: ['aivm-reference', 'aivm-supported-models'],
     },
     'limitations',
     {
