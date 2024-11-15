@@ -140,21 +140,15 @@ const sidebars = {
             id: 'js-client',
           },
           items: [
-            'js-quickstart',
             {
               type: 'link',
-              label: 'JavaScript Client Reference',
-              href: 'https://nillion.pub/nillion-js-reference',
+              label: 'create-nillion-app',
+              href: 'https://github.com/NillionNetwork/create-nillion-app',
             },
             {
-              type: 'category',
-              label: 'JavaScript Client Examples',
-              link: {
-                type: 'doc',
-                id: 'js-client-examples',
-              },
-              collapsed: false,
-              items: ['store-secrets-js', 'retrieve-secret-js', 'compute-js'],
+              type: 'link',
+              label: 'client-ts',
+              href: 'https://github.com/NillionNetwork/client-ts',
             },
           ],
         },
