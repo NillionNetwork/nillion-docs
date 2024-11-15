@@ -1,7 +1,3 @@
-import DocCardList from '@theme/DocCardList';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import JsHeaders from './\_js-headers-proxy.mdx';
 import ThemedImage from '@theme/ThemedImage';
 
 # Nillion TypeScript Client
