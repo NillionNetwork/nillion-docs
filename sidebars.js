@@ -368,6 +368,11 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: 'link',
+      label: 'Nada Program Uploader',
+      href: 'https://nada-program-uploader.vercel.app',
+    },
     'limitations',
     {
       type: 'html',

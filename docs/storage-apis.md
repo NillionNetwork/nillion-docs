@@ -4,10 +4,10 @@ import UserIdChecker from '@site/src/components/Tools/checkUserIdFromSeed';
 
 # Nillion Storage APIs
 
-The Nillion Storage APIs provide a simple HTTP interface for storing and retrieving secrets on the Nillion Network Testnet, with built-in management of store IDs and secret names.
+The Nillion Storage APIs provide a simple HTTP interface for storing and retrieving secrets on the Nillion Network Testnet with built-in management of store IDs and secret names.
 
 :::info
-The Storage APIs are suitable for quick hackathon projects. If you need lower-level control or want to handle store ID management yourself, check out our [Python Client](/python-client) for backend applications and [Javascript Client](https://github.com/NillionNetwork/client-ts) for frontend applications.
+The Storage APIs are suitable for quick hackathon projects and proof of concepts. If you need lower-level control or want to handle store ID management yourself, check out our [Python Client](/python-client) for backend applications and [Javascript Client](https://github.com/NillionNetwork/client-ts) for frontend applications.
 :::
 
 ## Overview
