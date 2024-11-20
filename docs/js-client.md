@@ -3,9 +3,9 @@ import DocCardList from '@theme/DocCardList';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Nillion TypeScript Client
+# TypeScript Client
 
-The Nillion TypeScript client client-ts provides libraries for interacting with Nillion blind compute networks. This client is structured as a monorepo containing multiple packages to support different use cases and environments.
+The TypeScript client `client-ts` provides libraries for interacting with Nillion blind compute networks. This client is structured as a monorepo containing multiple packages to support different use cases and environments.
 
 ## Quick Start
 
