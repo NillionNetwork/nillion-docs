@@ -1,6 +1,6 @@
 # Values
 
-There are three main values hooks:
+Storage and retreival of values are available via:
 - [useNilStoreValues](#usenilstorevalues)
 - [useNilRetrieveValues](#usenilretrievevalues)
 - [useNilDeleteValues](#usenildeletevalues)
