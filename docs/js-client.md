@@ -60,6 +60,43 @@ pnpm add @nillion/client-wasm @nillion/client-vms @nillion/client-react-hooks
 
 TODO:
 
+```typescript
+  import { useEffect, useState } from "react";
+  import { NillionProvider, createClient } from "@nillion/client-react-hooks";
+  import type { VmClient } from "@nillion/client-vms";
+
+  const [client, setClient] = useState<VmClient>();
+
+  useEffect(() => {
+    const init = async () => {
+      const client = await createClient("devnet");
+      setClient(client);
+    };
+    void init();
+  }, []);
+
+  if (!client) {
+    return <div>Loading...</div>;
+  }  const [client, setClient] = useState<VmClient>();
+
+  useEffect(() => {
+    const init = async () => {
+      const client = await createClient("devnet");
+      setClient(client);
+    };
+    void init();
+  }, []);
+
+  if (!client) {
+    return <div>Loading...</div>;
+  }
+
+  ...
+    <NillionProvider client={client}>
+      ...
+    </NillionProvider>
+```
+
 ## Resources
 
 <DocCardList/>
