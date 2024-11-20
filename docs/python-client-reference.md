@@ -2,8 +2,6 @@
 
 Nillion client.
 
-<a id="nillion_client.Array"></a>
-
 ### *class* nillion_client.Array(value)
 
 This is a [`Array`](#nillion_client.Array) class used to
@@ -36,8 +34,6 @@ print("The length of the array is: ", len(secret_array))
 >>> The length of the array is: 2
 ```
 
-<a id="nillion_client.Array.value"></a>
-
 #### value
 
 Getter method for the value inside a
@@ -58,8 +54,6 @@ print("My secret array: \n", secret_array.value)
 >>> My secret array:
 >>>  [SecretInteger(1), SecretInteger(2)]
 ```
-
-<a id="nillion_client.Boolean"></a>
 
 ### *class* nillion_client.Boolean(value)
 
@@ -87,17 +81,11 @@ print("Are the public booleans the same? ", pub_boolean_1 == pub_boolean_2)
 >>> Are the public booleans the same?  False
 ```
 
-<a id="nillion_client.Boolean.value"></a>
-
 #### value
-
-<a id="nillion_client.ComputeId"></a>
 
 ### nillion_client.ComputeId
 
 alias of `UUID`
-
-<a id="nillion_client.EcdsaDigestMessage"></a>
 
 ### *class* nillion_client.EcdsaDigestMessage(value)
 
@@ -130,8 +118,6 @@ print("Are these blobs the same?", gm_blob == ready_blob)
 >>> Are these blobs the same?  False
 ```
 
-<a id="nillion_client.EcdsaDigestMessage.value"></a>
-
 #### value
 
 Getter and setter for the value inside a
@@ -157,8 +143,6 @@ print("Blob is now: ", blob.value)
 >>> Blob is:  bytearray(b'gm, builder!')
 >>> Blob is now:  bytearray(b'ready to build!')
 ```
-
-<a id="nillion_client.EcdsaPrivateKey"></a>
 
 ### *class* nillion_client.EcdsaPrivateKey(value)
 
@@ -192,8 +176,6 @@ print("Are these ecdsa private keys the same?", pk1 == pk2)
 >>> Are these ecdsa private keys the same?  False
 ```
 
-<a id="nillion_client.EcdsaPrivateKey.value"></a>
-
 #### value
 
 Getter and setter for the value inside a
@@ -220,8 +202,6 @@ print("Ecdsa private key is now: ", ecdsa_pk.value)
 >>> Ecdsa private key is now:  bytearray(b'these are good random 32 bytes!!')
 ```
 
-<a id="nillion_client.EcdsaSignature"></a>
-
 ### *class* nillion_client.EcdsaSignature(value)
 
 This is a [`EcdsaSignature`](#nillion_client.EcdsaSignature) class used to
@@ -247,8 +227,6 @@ s = bytearray(os.urandom(32))
 sig = EcdsaSignature((r, s))
 ```
 
-<a id="nillion_client.EcdsaSignature.value"></a>
-
 #### value
 
 Getter for the r inside a
@@ -271,13 +249,9 @@ signature = EcdsaSignature((r, s))
 print("Ecdsa signature is: ", signature.value)
 ```
 
-<a id="nillion_client.InputPartyBinding"></a>
-
 ### *class* nillion_client.InputPartyBinding(party_name, user)
 
 Represents the binding of a named input party in a program to a user id
-
-<a id="nillion_client.InputPartyBinding.from_proto"></a>
 
 #### *static* from_proto(proto)
 
@@ -286,11 +260,7 @@ Constructs an instance from its protobuf representation
 * **Return type:**
   [`InputPartyBinding`](#nillion_client.InputPartyBinding)
 
-<a id="nillion_client.InputPartyBinding.party_name"></a>
-
 #### party_name *: `str`*
-
-<a id="nillion_client.InputPartyBinding.to_proto"></a>
 
 #### to_proto()
 
@@ -299,11 +269,7 @@ Converts an instance to its protobuf representation
 * **Return type:**
   `InputPartyBinding`
 
-<a id="nillion_client.InputPartyBinding.user"></a>
-
 #### user *: [`UserId`](#nillion_client.UserId)*
-
-<a id="nillion_client.Integer"></a>
 
 ### *class* nillion_client.Integer(value)
 
@@ -332,42 +298,26 @@ print("Are the public integers the same? ", pub_integer_1 == pub_integer_2)
 >>> Are the public integers the same?  False
 ```
 
-<a id="nillion_client.Integer.value"></a>
-
 #### value
-
-<a id="nillion_client.InternalError"></a>
 
 ### *exception* nillion_client.InternalError
 
 Exception raised for internal errors in the library.
 
-<a id="nillion_client.InternalError.args"></a>
-
 #### args
-
-<a id="nillion_client.InternalError.with_traceback"></a>
 
 #### with_traceback()
 
 Exception.with_traceback(tb) –
 set self._\_traceback_\_ to tb and return self.
 
-<a id="nillion_client.Network"></a>
-
 ### *class* nillion_client.Network(chain_id, chain_grpc_endpoint, nilvm_grpc_endpoint)
 
 The network class contains network settings for the VmClient.
 
-<a id="nillion_client.Network.chain_grpc_endpoint"></a>
-
 #### chain_grpc_endpoint *: `str`*
 
-<a id="nillion_client.Network.chain_id"></a>
-
 #### chain_id *: `str`*
-
-<a id="nillion_client.Network.devnet"></a>
 
 #### *classmethod* devnet(nilvm_grpc_endpoint, chain_grpc_endpoint)
 
@@ -390,8 +340,6 @@ config = Network.devnet(
 )
 ```
 
-<a id="nillion_client.Network.from_config"></a>
-
 #### *classmethod* from_config(network_name)
 
 Load a network configuration from the filesystem.
@@ -410,17 +358,11 @@ pre-existing network configurations, like the one dumped by nillion-devnet when 
 config = Network.from_config("devnet")
 ```
 
-<a id="nillion_client.Network.nilvm_grpc_endpoint"></a>
-
 #### nilvm_grpc_endpoint *: `str`*
-
-<a id="nillion_client.NilChainPayer"></a>
 
 ### *class* nillion_client.NilChainPayer(network, wallet_private_key, gas_limit, wallet_prefix='nillion', query_timeout_seconds=30)
 
 A payer that uses the nilchain to perform payments.
-
-<a id="nillion_client.NilChainPayer.prepare_msg"></a>
 
 #### *static* prepare_msg(resource, address, amount)
 
@@ -432,8 +374,6 @@ Create a MsgPayFor transaction.
   * **amount** (`int`) – The amount of unil that needs to be paid.
 * **Return type:**
   `MsgPayFor`
-
-<a id="nillion_client.NilChainPayer.submit_payment"></a>
 
 #### *async* submit_payment(amount, resource, gas_limit=None)
 
@@ -448,42 +388,36 @@ This must submit a MsgPayFor transaction in nilchain using the given resource as
 * **Return type:**
   `str`
 
-<a id="nillion_client.NilChainPayer.wallet_address"></a>
-
 #### *property* wallet_address *: str*
 
 Get the address associated with the payer’s wallet.
-
-<a id="nillion_client.NilChainPrivateKey"></a>
 
 ### nillion_client.NilChainPrivateKey
 
 alias of `PrivateKey`
 
-<a id="nillion_client.NotFoundError"></a>
-
 ### *exception* nillion_client.NotFoundError
 
 Exception raised when values are not found.
 
-<a id="nillion_client.NotFoundError.args"></a>
+
 
 #### args
 
-<a id="nillion_client.NotFoundError.with_traceback"></a>
+
 
 #### with_traceback()
 
 Exception.with_traceback(tb) –
 set self._\_traceback_\_ to tb and return self.
 
-<a id="nillion_client.OutputPartyBinding"></a>
+
 
 ### *class* nillion_client.OutputPartyBinding(party_name, users)
 
 Represents the binding of a named output party in a program to a user id
 
-<a id="nillion_client.OutputPartyBinding.from_proto"></a>
+
 
 #### *static* from_proto(proto)
 
@@ -492,11 +426,11 @@ Constructs an instance from its protobuf representation
 * **Return type:**
   [`OutputPartyBinding`](#nillion_client.OutputPartyBinding)
 
-<a id="nillion_client.OutputPartyBinding.party_name"></a>
+
 
 #### party_name *: `str`*
 
-<a id="nillion_client.OutputPartyBinding.to_proto"></a>
+
 
 #### to_proto()
 
@@ -505,17 +439,17 @@ Converts an instance to its protobuf representation
 * **Return type:**
   `OutputPartyBinding`
 
-<a id="nillion_client.OutputPartyBinding.users"></a>
+
 
 #### users *: `List`[[`UserId`](#nillion_client.UserId)]*
 
-<a id="nillion_client.Payer"></a>
+
 
 ### *class* nillion_client.Payer
 
 An abstraction over the mechanism to perform payments for operations in the Nillion network.
 
-<a id="nillion_client.Payer.prepare_msg"></a>
+
 
 #### *static* prepare_msg(resource, address, amount)
 
@@ -528,7 +462,7 @@ Create a MsgPayFor transaction.
 * **Return type:**
   `MsgPayFor`
 
-<a id="nillion_client.Payer.submit_payment"></a>
+
 
 #### *abstract async* submit_payment(amount, resource, gas_limit=None)
 
@@ -543,30 +477,30 @@ This must submit a MsgPayFor transaction in nilchain using the given resource as
 * **Return type:**
   `str`
 
-<a id="nillion_client.PermissionDeniedError"></a>
+
 
 ### *exception* nillion_client.PermissionDeniedError
 
 Exception raised a permission to run an operation has been denied.
 
-<a id="nillion_client.PermissionDeniedError.args"></a>
+
 
 #### args
 
-<a id="nillion_client.PermissionDeniedError.with_traceback"></a>
+
 
 #### with_traceback()
 
 Exception.with_traceback(tb) –
 set self._\_traceback_\_ to tb and return self.
 
-<a id="nillion_client.Permissions"></a>
+
 
 ### *class* nillion_client.Permissions(owner, retrieve=<factory>, update=<factory>, delete=<factory>, compute=<factory>)
 
 The permissions associated with a set of stored values.
 
-<a id="nillion_client.Permissions.allow_compute"></a>
+
 
 #### allow_compute(user_id, program_id)
 
@@ -575,7 +509,7 @@ Allow a user to use these values on an execution of the given program id.
 * **Return type:**
   [`Permissions`](#nillion_client.Permissions)
 
-<a id="nillion_client.Permissions.allow_delete"></a>
+
 
 #### allow_delete(user_id)
 
@@ -584,7 +518,7 @@ Allow a user to delete these values.
 * **Return type:**
   [`Permissions`](#nillion_client.Permissions)
 
-<a id="nillion_client.Permissions.allow_retrieve"></a>
+
 
 #### allow_retrieve(user_id)
 
@@ -593,7 +527,7 @@ Allow a user to retrieve these values.
 * **Return type:**
   [`Permissions`](#nillion_client.Permissions)
 
-<a id="nillion_client.Permissions.allow_update"></a>
+
 
 #### allow_update(user_id)
 
@@ -602,11 +536,11 @@ Allow a user to update these values.
 * **Return type:**
   [`Permissions`](#nillion_client.Permissions)
 
-<a id="nillion_client.Permissions.compute"></a>
+
 
 #### compute *: `ComputePermissions`*
 
-<a id="nillion_client.Permissions.defaults_for_user"></a>
+
 
 #### *classmethod* defaults_for_user(user_id)
 
@@ -615,11 +549,11 @@ Returns a Permissions object with update, retrieve and delete permissions for a 
 * **Return type:**
   [`Permissions`](#nillion_client.Permissions)
 
-<a id="nillion_client.Permissions.delete"></a>
+
 
 #### delete *: `Set`[[`UserId`](#nillion_client.UserId)]*
 
-<a id="nillion_client.Permissions.from_proto"></a>
+
 
 #### *classmethod* from_proto(proto)
 
@@ -628,15 +562,15 @@ Create a Permissions instance from a ProtoPermissions message.
 * **Return type:**
   [`Permissions`](#nillion_client.Permissions)
 
-<a id="nillion_client.Permissions.owner"></a>
+
 
 #### owner *: [`UserId`](#nillion_client.UserId)*
 
-<a id="nillion_client.Permissions.retrieve"></a>
+
 
 #### retrieve *: `Set`[[`UserId`](#nillion_client.UserId)]*
 
-<a id="nillion_client.Permissions.to_proto"></a>
+
 
 #### to_proto()
 
@@ -645,39 +579,39 @@ Convert this Permissions instance to a ProtoPermissions message.
 * **Return type:**
   `Permissions`
 
-<a id="nillion_client.Permissions.update"></a>
+
 
 #### update *: `Set`[[`UserId`](#nillion_client.UserId)]*
 
-<a id="nillion_client.PermissionsDelta"></a>
+
 
 ### *class* nillion_client.PermissionsDelta(retrieve=<factory>, update=<factory>, delete=<factory>, compute=<factory>)
 
 A delta of permission grants/revokes to be applied
 
-<a id="nillion_client.PermissionsDelta.compute"></a>
+
 
 #### compute *: `ComputePermissionCommand`*
 
-<a id="nillion_client.PermissionsDelta.delete"></a>
+
 
 #### delete *: `PermissionCommand`*
 
-<a id="nillion_client.PermissionsDelta.retrieve"></a>
+
 
 #### retrieve *: `PermissionCommand`*
 
-<a id="nillion_client.PermissionsDelta.update"></a>
+
 
 #### update *: `PermissionCommand`*
 
-<a id="nillion_client.PreprocessingElement"></a>
+
 
 ### *class* nillion_client.PreprocessingElement(value: int)
 
 A preprocessing element.
 
-<a id="nillion_client.PreprocessingElement.as_integer_ratio"></a>
+
 
 #### as_integer_ratio()
 
@@ -695,7 +629,7 @@ and with a positive denominator.
 (0, 1)
 ```
 
-<a id="nillion_client.PreprocessingElement.bit_count"></a>
+
 
 #### bit_count()
 
@@ -710,7 +644,7 @@ Also known as the population count.
 3
 ```
 
-<a id="nillion_client.PreprocessingElement.bit_length"></a>
+
 
 #### bit_length()
 
@@ -723,19 +657,19 @@ Number of bits necessary to represent self in binary.
 6
 ```
 
-<a id="nillion_client.PreprocessingElement.conjugate"></a>
+
 
 #### conjugate()
 
 Returns self, the complex conjugate of any int.
 
-<a id="nillion_client.PreprocessingElement.denominator"></a>
+
 
 #### denominator
 
 the denominator of a rational number in lowest terms
 
-<a id="nillion_client.PreprocessingElement.from_bytes"></a>
+
 
 #### from_bytes(byteorder, \*, signed=False)
 
@@ -762,7 +696,7 @@ byteorder
 signed
 : Indicates whether two’s complement is used to represent the integer.
 
-<a id="nillion_client.PreprocessingElement.from_string"></a>
+
 
 #### *classmethod* from_string()
 
@@ -775,29 +709,29 @@ Return the value which corresponds to the string name.
 * **Return type:**
   `Self`
 
-<a id="nillion_client.PreprocessingElement.imag"></a>
+
 
 #### imag
 
 the imaginary part of a complex number
 
-<a id="nillion_client.PreprocessingElement.name"></a>
+
 
 #### name *: `Optional`[`str`]*
 
-<a id="nillion_client.PreprocessingElement.numerator"></a>
+
 
 #### numerator
 
 the numerator of a rational number in lowest terms
 
-<a id="nillion_client.PreprocessingElement.real"></a>
+
 
 #### real
 
 the real part of a complex number
 
-<a id="nillion_client.PreprocessingElement.to_bytes"></a>
+
 
 #### to_bytes(length, byteorder, \*, signed=False)
 
@@ -824,7 +758,7 @@ signed
   If signed is False and a negative integer is given, an OverflowError
   is raised.
 
-<a id="nillion_client.PreprocessingElement.try_value"></a>
+
 
 #### *classmethod* try_value()
 
@@ -838,59 +772,59 @@ Return the value which corresponds to the value.
 * **Return type:**
   `Enum`
 
-<a id="nillion_client.PreprocessingElement.value"></a>
+
 
 #### value *: `int`*
 
-<a id="nillion_client.PrivateKey"></a>
+
 
 ### *class* nillion_client.PrivateKey(privkey=None, raw=True)
 
-<a id="nillion_client.PrivateKey.deserialize"></a>
+
 
 #### deserialize(privkey_ser)
 
-<a id="nillion_client.PrivateKey.ecdsa_deserialize"></a>
+
 
 #### ecdsa_deserialize(ser_sig)
 
-<a id="nillion_client.PrivateKey.ecdsa_deserialize_compact"></a>
+
 
 #### ecdsa_deserialize_compact(ser_sig)
 
-<a id="nillion_client.PrivateKey.ecdsa_recover"></a>
+
 
 #### ecdsa_recover(msg, recover_sig, raw=False, digest=<built-in function openssl_sha256>)
 
-<a id="nillion_client.PrivateKey.ecdsa_recoverable_convert"></a>
+
 
 #### ecdsa_recoverable_convert(recover_sig)
 
-<a id="nillion_client.PrivateKey.ecdsa_recoverable_deserialize"></a>
+
 
 #### ecdsa_recoverable_deserialize(ser_sig, rec_id)
 
-<a id="nillion_client.PrivateKey.ecdsa_recoverable_serialize"></a>
+
 
 #### ecdsa_recoverable_serialize(recover_sig)
 
-<a id="nillion_client.PrivateKey.ecdsa_serialize"></a>
+
 
 #### ecdsa_serialize(raw_sig)
 
-<a id="nillion_client.PrivateKey.ecdsa_serialize_compact"></a>
+
 
 #### ecdsa_serialize_compact(raw_sig)
 
-<a id="nillion_client.PrivateKey.ecdsa_sign"></a>
+
 
 #### ecdsa_sign(msg, raw=False, digest=<built-in function openssl_sha256>, custom_nonce=None)
 
-<a id="nillion_client.PrivateKey.ecdsa_sign_recoverable"></a>
+
 
 #### ecdsa_sign_recoverable(msg, raw=False, digest=<built-in function openssl_sha256>)
 
-<a id="nillion_client.PrivateKey.ecdsa_signature_normalize"></a>
+
 
 #### ecdsa_signature_normalize(raw_sig, check_only=False)
 
@@ -902,39 +836,39 @@ not previously normalized or False if signature was already
 normalized), and the normalized signature. When check_only is True,
 the normalized signature returned is always None.
 
-<a id="nillion_client.PrivateKey.schnorr_sign"></a>
+
 
 #### schnorr_sign(msg, bip340tag, raw=False)
 
-<a id="nillion_client.PrivateKey.serialize"></a>
+
 
 #### serialize()
 
-<a id="nillion_client.PrivateKey.set_raw_privkey"></a>
+
 
 #### set_raw_privkey(privkey)
 
-<a id="nillion_client.PrivateKey.tweak_add"></a>
+
 
 #### tweak_add(scalar)
 
 Tweak the current private key by adding a 32 byte scalar
 to it and return a new raw private key composed of 32 bytes.
 
-<a id="nillion_client.PrivateKey.tweak_mul"></a>
+
 
 #### tweak_mul(scalar)
 
 Tweak the current private key by multiplying it by a 32 byte scalar
 and return a new raw private key composed of 32 bytes.
 
-<a id="nillion_client.ProgramId"></a>
+
 
 ### nillion_client.ProgramId
 
 alias of `str`
 
-<a id="nillion_client.SecretBlob"></a>
+
 
 ### *class* nillion_client.SecretBlob(value)
 
@@ -967,7 +901,7 @@ print("Are these blobs the same?", gm_blob == ready_blob)
 >>> Are these blobs the same?  False
 ```
 
-<a id="nillion_client.SecretBlob.value"></a>
+
 
 #### value
 
@@ -995,7 +929,7 @@ print("Blob is now: ", blob.value)
 >>> Blob is now:  bytearray(b'ready to build!')
 ```
 
-<a id="nillion_client.SecretBoolean"></a>
+
 
 ### *class* nillion_client.SecretBoolean(value)
 
@@ -1024,11 +958,11 @@ print("Are the secret booleans the same? ", sec_bool_1 == sec_bool_2)
 >>> Are the secret booleans the same?  False
 ```
 
-<a id="nillion_client.SecretBoolean.value"></a>
+
 
 #### value
 
-<a id="nillion_client.SecretInteger"></a>
+
 
 ### *class* nillion_client.SecretInteger(value)
 
@@ -1056,11 +990,11 @@ print("Are the secret integers the same? ", sec_integer_1 == sec_integer_2)
 >>> Are the secret integers the same?  False
 ```
 
-<a id="nillion_client.SecretInteger.value"></a>
+
 
 #### value
 
-<a id="nillion_client.SecretUnsignedInteger"></a>
+
 
 ### *class* nillion_client.SecretUnsignedInteger(value)
 
@@ -1091,11 +1025,11 @@ print("Are the secret unsigned integers the same? ", sec_uinteger_1 == sec_uinte
 >>> Are the secret unsigned integers the same?  False
 ```
 
-<a id="nillion_client.SecretUnsignedInteger.value"></a>
+
 
 #### value
 
-<a id="nillion_client.UnsignedInteger"></a>
+
 
 ### *class* nillion_client.UnsignedInteger(value)
 
@@ -1126,11 +1060,11 @@ print("Are the public unsigned integers the same? ", pub_uinteger_1 == pub_uinte
 >>> Are the public unsigned integers the same?  False
 ```
 
-<a id="nillion_client.UnsignedInteger.value"></a>
+
 
 #### value
 
-<a id="nillion_client.UserId"></a>
+
 
 ### *class* nillion_client.UserId(contents)
 
@@ -1139,11 +1073,11 @@ A user identifier.
 User identifiers are derived from the public key used for authentication when performing operations in the
 network. User identifiers are non sensitive and can be shared with other users.
 
-<a id="nillion_client.UserId.contents"></a>
+
 
 #### contents *: `bytes`*
 
-<a id="nillion_client.UserId.from_proto"></a>
+
 
 #### *classmethod* from_proto(proto)
 
@@ -1152,7 +1086,7 @@ Create a user identifier instance from its protobuf representation.
 * **Return type:**
   [`UserId`](#nillion_client.UserId)
 
-<a id="nillion_client.UserId.from_public_key"></a>
+
 
 #### *static* from_public_key(public_key)
 
@@ -1174,7 +1108,7 @@ private_key = secp256k1.PrivateKey()
 user = UserId.from_public_key(private_key.pubkey)
 ```
 
-<a id="nillion_client.UserId.parse"></a>
+
 
 #### *static* parse(hex_bytes)
 
@@ -1193,7 +1127,7 @@ Parse a user identifier from a hex encoded string.
 user = UserId.parse("3113a1170de795e4b725b84d1e0b4cfd9ec58ce9")
 ```
 
-<a id="nillion_client.UserId.to_proto"></a>
+
 
 #### to_proto()
 
@@ -1202,13 +1136,13 @@ Convert a user identifier to its protobuf representation.
 * **Return type:**
   `UserId`
 
-<a id="nillion_client.ValuesId"></a>
+
 
 ### nillion_client.ValuesId
 
 alias of `UUID`
 
-<a id="nillion_client.VmClient"></a>
+
 
 ### *class* nillion_client.VmClient(key, network, payer, \_raise_if_called=True)
 
@@ -1241,19 +1175,19 @@ chain_client = NilChainPayer(
 client = await VmClient.create(private_key, network, payer)
 ```
 
-<a id="nillion_client.VmClient.close"></a>
+
 
 #### close()
 
 Closes the client and releases all resources associated with it.
 
-<a id="nillion_client.VmClient.cluster"></a>
+
 
 #### cluster *: `Cluster`*
 
 The cluster definition that this client is using.
 
-<a id="nillion_client.VmClient.compute"></a>
+
 
 #### compute(program_id, input_bindings, output_bindings, values, value_ids=None)
 
@@ -1306,7 +1240,7 @@ compute_id = await client.compute(
 results = await client.retrieve_compute_results(compute_id).invoke()
 ```
 
-<a id="nillion_client.VmClient.create"></a>
+
 
 #### *async classmethod* create(key, network, payer)
 
@@ -1325,7 +1259,7 @@ Create a new Nillion client.
 client = await VmClient.create(private_key, network, payer)
 ```
 
-<a id="nillion_client.VmClient.delete_values"></a>
+
 
 #### delete_values(values_id)
 
@@ -1346,7 +1280,7 @@ This operation requires the user to have “delete” permissions on the given v
 await client.delete_values(values_id).invoke()
 ```
 
-<a id="nillion_client.VmClient.get_payment_receipt"></a>
+
 
 #### *async* get_payment_receipt(signed_quote, tx_hash)
 
@@ -1360,7 +1294,7 @@ Request to get a payment receipt for a paid operation.
 * **Returns:**
   A signed receipt that can be used to prove to all nodes that the payment was made.
 
-<a id="nillion_client.VmClient.invoke_compute"></a>
+
 
 #### *async* invoke_compute(receipt, input_bindings, output_bindings, values, value_ids=None)
 
@@ -1410,7 +1344,7 @@ results = await client.retrieve_compute_results(receipt, compute_id).invoke()
 users should use generally use [`VmClient.compute()`](#nillion_client.VmClient.compute) unless the API provided by
 that function doesn’t satisfy their use cases.
 
-<a id="nillion_client.VmClient.invoke_delete_values"></a>
+
 
 #### *async* invoke_delete_values(values_id)
 
@@ -1432,7 +1366,7 @@ await client.delete_values(receipt, values_id).invoke()
 users should use generally use [`VmClient.delete_values()`](#nillion_client.VmClient.delete_values) unless the API provided by
 that function doesn’t satisfy their use cases.
 
-<a id="nillion_client.VmClient.invoke_overwrite_permissions"></a>
+
 
 #### *async* invoke_overwrite_permissions(receipt, permissions)
 
@@ -1454,7 +1388,7 @@ await client.overwrite_permissions(receipt, values_id, permissions).invoke()
 users should use generally use [`VmClient.overwrite_permissions()`](#nillion_client.VmClient.overwrite_permissions) unless the API provided by
 that function doesn’t satisfy their use cases.
 
-<a id="nillion_client.VmClient.invoke_pool_status"></a>
+
 
 #### *async* invoke_pool_status(receipt)
 
@@ -1466,7 +1400,7 @@ Invokes a preprocessing pool status operation in the network.
 * **Return type:**
   `List`[`PreprocessingOffsets`]
 
-<a id="nillion_client.VmClient.invoke_retrieve_compute_results"></a>
+
 
 #### *async* invoke_retrieve_compute_results(compute_id)
 
@@ -1490,7 +1424,7 @@ results = await client.retrieve_compute_results(receipt, compute_id).invoke()
 users should use generally use [`VmClient.retrieve_compute_results()`](#nillion_client.VmClient.retrieve_compute_results) unless the API provided by
 that function doesn’t satisfy their use cases.
 
-<a id="nillion_client.VmClient.invoke_retrieve_permissions"></a>
+
 
 #### *async* invoke_retrieve_permissions(receipt)
 
@@ -1514,7 +1448,7 @@ await client.retrieve_permissions(receipt, values_id).invoke()
 users should use generally use [`VmClient.retrieve_permissions()`](#nillion_client.VmClient.retrieve_permissions) unless the API provided by
 that function doesn’t satisfy their use cases.
 
-<a id="nillion_client.VmClient.invoke_retrieve_values"></a>
+
 
 #### *async* invoke_retrieve_values(receipt)
 
@@ -1538,7 +1472,7 @@ await client.retrieve_values(receipt, values_id).invoke()
 users should use generally use [`VmClient.retrieve_values()`](#nillion_client.VmClient.retrieve_values) unless the API provided by
 that function doesn’t satisfy their use cases.
 
-<a id="nillion_client.VmClient.invoke_store_program"></a>
+
 
 #### *async* invoke_store_program(receipt, program)
 
@@ -1564,7 +1498,7 @@ await client.store_program(receipt, program_name="my-test-program", program=cont
 users should use generally use [`VmClient.store_program()`](#nillion_client.VmClient.store_program) unless the API provided by
 that function doesn’t satisfy their use cases.
 
-<a id="nillion_client.VmClient.invoke_store_values"></a>
+
 
 #### *async* invoke_store_values(receipt, values, permissions=None, update_identifier=None)
 
@@ -1597,7 +1531,7 @@ await client.store_values(receipt, values, ttl_days=1).invoke()
 users should use generally use [`VmClient.store_values()`](#nillion_client.VmClient.store_values) unless the API provided by that function
 doesn’t satisfy their use cases.
 
-<a id="nillion_client.VmClient.invoke_update_permissions"></a>
+
 
 #### *async* invoke_update_permissions(receipt, delta)
 
@@ -1620,13 +1554,13 @@ await client.update_permissions(receipt, values_id, delta).invoke()
 users should use generally use [`VmClient.update_permissions()`](#nillion_client.VmClient.update_permissions) unless the API provided by
 that function doesn’t satisfy their use cases.
 
-<a id="nillion_client.VmClient.network"></a>
+
 
 #### network *: [`Network`](#nillion_client.Network)*
 
 The network used by this client.
 
-<a id="nillion_client.VmClient.overwrite_permissions"></a>
+
 
 #### overwrite_permissions(values_id, permissions)
 
@@ -1647,7 +1581,7 @@ permissions = Permissions.default_for_user(user_id)
 await client.overwrite_permissions(values_id, permissions).invoke()
 ```
 
-<a id="nillion_client.VmClient.pool_status"></a>
+
 
 #### pool_status()
 
@@ -1664,7 +1598,7 @@ Fetch the preprocessing pool status.
 offsets = await client.pool_status(compute_id)
 ```
 
-<a id="nillion_client.VmClient.request_quote"></a>
+
 
 #### *async* request_quote(operation)
 
@@ -1676,7 +1610,7 @@ for the action they’re trying to perform, such as [`VmClient.store_values()`](
 * **Return type:**
   `SignedQuote`
 
-<a id="nillion_client.VmClient.retrieve_compute_results"></a>
+
 
 #### retrieve_compute_results(compute_id)
 
@@ -1702,7 +1636,7 @@ based on the configured bindings.
 results = await client.retrieve_compute_results(compute_id).invoke()
 ```
 
-<a id="nillion_client.VmClient.retrieve_permissions"></a>
+
 
 #### retrieve_permissions(values_id)
 
@@ -1723,7 +1657,7 @@ This operation requires the user to have “retrieve” permissions on the given
 await client.retrieve_permissions(values_id).invoke()
 ```
 
-<a id="nillion_client.VmClient.retrieve_values"></a>
+
 
 #### retrieve_values(values_id)
 
@@ -1745,7 +1679,7 @@ This operation requires the user to have “retrieve” permissions on the given
 await client.retrieve_values(values_id).invoke()
 ```
 
-<a id="nillion_client.VmClient.store_program"></a>
+
 
 #### store_program(program_name, program)
 
@@ -1770,7 +1704,7 @@ contents = open("/tmp/program.nada.bin", "rb").read()
 await client.store_program(program_name="my-test-program", program=contents).invoke()
 ```
 
-<a id="nillion_client.VmClient.store_values"></a>
+
 
 #### store_values(values, ttl_days, permissions=None, update_identifier=None)
 
@@ -1800,7 +1734,7 @@ values = {
 await client.store_values(values, ttl_days=1).invoke()
 ```
 
-<a id="nillion_client.VmClient.update_permissions"></a>
+
 
 #### update_permissions(values_id, delta)
 
@@ -1824,7 +1758,7 @@ delta = PermissionsDelta(retrieve=PermissionCommand(grant=set([other_user_id])))
 await client.update_permissions(values_id, delta).invoke()
 ```
 
-<a id="nillion_client.VmClient.user_id"></a>
+
 
 #### user_id *: [`UserId`](#nillion_client.UserId)*
 
