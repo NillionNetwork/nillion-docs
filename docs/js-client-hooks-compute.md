@@ -11,14 +11,14 @@ Note: in order to use these functions, you (as the developer) should have create
 
 To store a program, you would have computed a `XXX.nada.bin` file after you built a successful nada program. You will need to upload this file via the FileReader to upload the program. The `mutation.execute({ name, program })` part should automatically take in your program + name.
 
-```ts reference showGithubLink
+```tsx reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/store-program.tsx
 ```
 
 ### useNilInvokeCompute
 To invoke a program, you pass in the `programId` of the program you have uploaded with considerations of the inputs you want to provide in your `options`. `computeTimeValues` with respect to `name` and `value` are what you want to adjust. 
 
-```
+```tsx
 const options = {
       programId,
       inputBindings: [{ party: "Party1", user: client.id }],
@@ -37,14 +37,14 @@ const options = {
     };
 ```
 
-```ts reference showGithubLink
+```tsx reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/invoke-compute.tsx
 ```
 
 ### useNilRetrieveComputeResults
 To retrive, you simply pass in the `id` from the previous invocation.
 
-```ts reference showGithubLink
+```tsx reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/retrieve-compute-results.tsx
 ```
 

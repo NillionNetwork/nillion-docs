@@ -112,7 +112,7 @@ export default function Home() {
 ### Updating our next.config.ts
 We also want to update our `next.config.ts` to be able to interact with the Nillion WASM client, hence the overrides. So replace your empty config with the following settings.
 
-```ts reference showGithubLink
+```tsx reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/next.config.mjs
 ```
 
