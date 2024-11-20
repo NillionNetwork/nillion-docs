@@ -5,8 +5,11 @@ There are some auxiliary hooks that you may use:
 - [useNillion](#usenillion)
 
 ### useNilPoolStatus
-//TODO: Waiting on team response.
-Pool Status refers to the preprocessing pool's status
+Pool Status refers to the preprocessing pool's status. A simple call to the hook should provide their status.
+
+```ts reference showGithubLink
+https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/pool-status.tsx
+```
 
 ### useNillion
 This hook gives all access to the aforementioned properties of all of hooks.
