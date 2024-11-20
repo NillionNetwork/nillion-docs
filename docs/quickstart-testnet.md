@@ -37,6 +37,10 @@ In the CNA boilerplate, we have created tabs to switch between the `devnet` and 
 2. Try to `Store Secret Integer` and wait for the Keplr Popup to occur. 
 3. This should then allow you pay and interact with the Testnet for the other modules. 
 
+## Store Nada Programs on the Testnet
+
+Need to store your Nada programs on the Testnet? Check out our [Nada Program Uploader](https://nada-program-uploader.vercel.app/), a simple UI for uploading your program and obtaining its program ID. Just connect your wallet, upload your program, and get the program ID for your testnet deployment.
+
 ## Commit your project to Github
 
 Commit your repo to Github and tag your Github repo with `nillion-cna` so the rest of the Nillion community can find it.

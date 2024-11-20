@@ -1,25 +1,32 @@
+import ThemedImage from '@theme/ThemedImage';
 import DocCardList from '@theme/DocCardList';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import JsHeaders from './\_js-headers-proxy.mdx';
 
-# JavaScript Client
+# Nillion TypeScript Client
 
-The JavaScript client for building on top of the Nillion Network is built on several packages.
+The Nillion TypeScript client client-ts provides libraries for interacting with Nillion blind compute networks. This client is structured as a monorepo containing multiple packages to support different use cases and environments.
 
-- `@nillion/client-react-hooks`: React hooks built on _@nillion/client-vms_ and _@tanstack/react-query_
-- `@nillion/client-vms`: Primary gRPC client combining payments and network operations into a simple API (supports web and Node.js)
-- `@nillion/client-wasm`: Utility functions exported from Rust to WebAssembly
+## Quick Start
 
-They can be used to manage Nada programs, store and retrieve secrets, and run computations.
+The fastest way to get started with Nillion is using the create-nillion-app cli tool, which spins up a working Next.js app
 
-:::info
-Refer to the [Quickstart Guide](./quickstart-install) to quickly installs the Nillion SDK + the Javascript Client with a Next.js boilerplate
-:::
+```bash
+npx create-nillion-app@latest
+```
 
-## Installation
+<div style={{ textAlign: 'center' }}>
+  <ThemedImage
+    alt="Nillion Quickstart Demo"
+    sources={{
+        light: '/img/nillion_quickstart_demo_light.png',
+        dark: '/img/nillion_quickstart_demo_dark.png',
+      }}
+  />
+  <p>For more detailed information on building with create-nillion-app, check out our [Quickstart Guide](/quickstart).</p>
+</div>
 
-If you prefer to do a manual installation of the JS packages, follow the below guidelines.
+## Manual Installation
 
 ### Install Nillion SDK
 
@@ -97,7 +104,22 @@ TODO:
     </NillionProvider>
 ```
 
+# Package Overview
+
+The Nillion client is composed of three main packages:
+
+### @nillion/client-react-hooks
+
+React hooks built on top of @nillion/client-vms and integrated with @tanstack/react-query for seamless React application development.
+
+### @nillion/client-vms
+
+The primary gRPC client that combines payments and network operations into a simple API. This package supports both web browsers and Node.js environments.
+
+### @nillion/client-wasm
+
+A collection of utility functions exported from Rust to WebAssembly, providing core functionality for the Nillion ecosystem.
+
 ## Resources
 
 <DocCardList/>
-````

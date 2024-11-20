@@ -53,5 +53,13 @@
     "githubRepo": "https://github.com/csalvador58/ethglobal_nillion_health",
     "description": "blind computation between healthcare datasets",
     "tags": ["ai", "healthcare"]
+  },
+  {
+    "project": "IPFS Storage Bridge",
+    "website": "https://github.com/wwwehr/nillion-ipfs-store",
+    "githubRepo": "https://github.com/wwwehr/nillion-ipfs-store",
+    "discussions": "https://github.com/orgs/NillionNetwork/discussions/147",
+    "description": "encrypt, store file(s) to IPFS, save encryption keys to Nillion network",
+    "tags": ["depin"]
   }
 ]

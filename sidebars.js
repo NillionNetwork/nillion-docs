@@ -141,16 +141,16 @@ const sidebars = {
           },
           items: [
             'js-client-hooks',
-            {
-              type: 'category',
-              label: 'JavaScript Client Examples',
-              link: {
-                type: 'doc',
-                id: 'js-client-examples',
-              },
-              collapsed: false,
-              items: ['store-secrets-js', 'retrieve-secret-js', 'compute-js'],
-            },
+            // {
+            //   type: 'link',
+            //   label: 'create-nillion-app',
+            //   href: 'https://github.com/NillionNetwork/create-nillion-app',
+            // },
+            // {
+            //   type: 'link',
+            //   label: 'client-ts',
+            //   href: 'https://github.com/NillionNetwork/client-ts',
+            // },
           ],
         },
         {
@@ -353,6 +353,26 @@ const sidebars = {
         id: 'aivm',
       },
       items: ['aivm-reference', 'aivm-supported-models'],
+    },
+    {
+      type: 'category',
+      label: 'Nillion Storage APIs',
+      link: {
+        type: 'doc',
+        id: 'storage-apis',
+      },
+      items: [
+        {
+          type: 'link',
+          label: 'API Reference',
+          href: 'https://nillion-storage-apis-v0.onrender.com/docs',
+        },
+      ],
+    },
+    {
+      type: 'link',
+      label: 'Nada Program Uploader',
+      href: 'https://nada-program-uploader.vercel.app',
     },
     'limitations',
     {
