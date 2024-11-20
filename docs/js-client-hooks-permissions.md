@@ -3,12 +3,14 @@
 Permissions allow the developer to adjust who is able to interact with the storage.
 
 ### useNilRetrievePermissions
+
 This is used to query the `id` and what permissions are available. Simply pass in the relevant `id` 
 ```ts reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/retrieve-permissions.tsx
 ```
 
 ### useNilUpdatePermissions
+
 To update your permissions for a storage value, you can use these various [functions](https://github.com/NillionNetwork/client-ts/blob/8ddf2914ceccca10a3fe9466b429fe496b38cfd8/client-vms/src/vm/operation/update-permissions.ts#L161) with the `UpdatePermissionsBuilder` builder
 
 ```ts
@@ -24,7 +26,8 @@ https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/compon
 ```
 
 ### useNilOverwritePermissions
-To overwrite  your permissions for a storage value, you can use these various [functions](export class ValuesPermissionsBuilder {) with the `ValuesPermissionsBuilder` builder. In the below example, it overwrites it to the static `default`.
+
+To overwrite  your permissions for a storage value, you can use these various [functions](https://github.com/NillionNetwork/client-ts/blob/main/client-vms/src/types/values-permissions.ts#L72) with the `ValuesPermissionsBuilder` builder. In the below example, it overwrites it to the static `default.
 
 ```ts reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/overwrite-permissions.tsx
