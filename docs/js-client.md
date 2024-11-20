@@ -40,7 +40,11 @@ Then ensure that you can run the `nillion-devnet` command in a separate terminal
 
 ### Install the JavaScript Client
 
-Install the following packages in your browser application (i.e. React / Nextjs)
+Install the following packages in your browser application (i.e. React / Nextjs). The Nillion client is composed of three main packages:
+
+- **_@nillion/client-wasm_**: Collection of utility functions exported from Rust to WebAssembly, providing core functionality for the Nillion ecosystem.
+- **_@nillion/client-vms_**: Primary gRPC client that combines payments and network operations into a simple API. This package supports both web browsers and Node.js environments.
+- **_@nillion/client-react-hooks_**: React hooks built on top of @nillion/client-vms and integrated with @tanstack/react-query for seamless React application development.
 
 <Tabs>
 
@@ -112,22 +116,8 @@ We also want to update our `next.config.ts` to be able to interact with the Nill
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/next.config.mjs
 ```
 
-# Package Overview
 
-The Nillion client is composed of three main packages:
-
-### @nillion/client-react-hooks
-
-React hooks built on top of @nillion/client-vms and integrated with @tanstack/react-query for seamless React application development.
-
-### @nillion/client-vms
-
-The primary gRPC client that combines payments and network operations into a simple API. This package supports both web browsers and Node.js environments.
-
-### @nillion/client-wasm
-
-A collection of utility functions exported from Rust to WebAssembly, providing core functionality for the Nillion ecosystem.
-
-## Resources
+## Next Steps
+Now you can interact with the Nillion devnet and use the React hooks to do various storage and compute actions with the network.
 
 <DocCardList/>

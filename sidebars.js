@@ -140,7 +140,21 @@ const sidebars = {
             id: 'js-client',
           },
           items: [
-            'js-client-hooks',
+            {
+              type: 'category',
+              label: 'Hooks',
+              link: {
+                type: 'doc',
+                id: 'js-client-hooks',
+              },
+              collapsed: true,
+              items: [
+                'js-client-hooks-values',
+                'js-client-hooks-compute',
+                'js-client-hooks-permissions',
+                'js-client-hooks-other',
+              ],
+            }
             // {
             //   type: 'link',
             //   label: 'create-nillion-app',
