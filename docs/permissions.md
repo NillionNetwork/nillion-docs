@@ -1,4 +1,4 @@
-import DocCardList from '@theme/DocCardList';
+<!-- import DocCardList from '@theme/DocCardList';
 
 # Permissions
 
@@ -13,4 +13,4 @@ Permissions examples demonstrated modifying the permissions of secrets. Check ou
 - revoking permissions to read a secret
 - checking that permissions were revoked
 
-<DocCardList/>
+<DocCardList/> -->
