@@ -5,6 +5,7 @@ Permissions allow the developer to adjust who is able to interact with the stora
 ### useNilRetrievePermissions
 
 This is used to query the `id` and what permissions are available. Simply pass in the relevant `id` 
+
 ```tsx reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/retrieve-permissions.tsx
 ```

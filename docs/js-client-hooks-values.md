@@ -18,7 +18,7 @@ https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/compon
 ### useNilRetrieveValues
 Retreiving only requires one argument: `id` . This `id` comes from a previous stored value (i.e after you call `useNilStoreValues`).
 
-``` ts
+``` tsx
 // i.e. 31d8ab8d-dced-494b-99cc-bd34f1d80b26
 const options = { id };
 ```
