@@ -76,7 +76,7 @@ const sidebars = {
           },
           items: [
             'python-quickstart',
-            'python-client-reference',
+            'python-client-reference'
           ],
         },
         {
