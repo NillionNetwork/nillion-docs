@@ -78,57 +78,9 @@ const sidebars = {
             'python-quickstart',
             'python-client-reference',
             {
-              type: 'category',
-              label: 'Python Client Examples',
-              link: {
-                type: 'doc',
-                id: 'python-client-examples',
-              },
-              collapsed: false,
-              items: [
-                'store-secrets',
-                'retrieve-secret',
-                {
-                  type: 'category',
-                  label: 'Permissions',
-                  link: {
-                    type: 'doc',
-                    id: 'permissions',
-                  },
-                  items: [
-                    {
-                      type: 'link',
-                      label: 'Permissions Examples',
-                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_permissions',
-                    },
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Compute',
-                  link: {
-                    type: 'doc',
-                    id: 'compute',
-                  },
-                  items: [
-                    {
-                      type: 'link',
-                      label: 'Single Party Examples',
-                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_single_party_compute',
-                    },
-                    {
-                      type: 'link',
-                      label: 'Multi Party Examples',
-                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_multi_party_compute',
-                    },
-                    {
-                      type: 'link',
-                      label: 'Millionaires Problem',
-                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/millionaires_problem_example',
-                    },
-                  ],
-                },
-              ],
+              type: 'link',
+              label: 'Client Examples',
+              href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials',
             },
           ],
         },
