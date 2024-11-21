@@ -24,7 +24,7 @@ export const NetworkConfig = {
     },
     nilchain_rest_api: {
       name: 'NILLION_NILCHAIN_REST_API',
-      value: 'https://api.testnet.nilchain-rpc-proxy.nilogy.xyz',
+      value: 'http://api.testnet.nilchain-rpc-proxy.nilogy.xyz',
     },
     nilchain_grpc: {
       name: 'NILLION_NILCHAIN_GRPC',
