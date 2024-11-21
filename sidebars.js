@@ -76,7 +76,12 @@ const sidebars = {
           },
           items: [
             'python-quickstart',
-            'python-client-reference'
+            'python-client-reference',
+            {
+              type: 'link',
+              label: 'Client Examples',
+              href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials',
+            },
           ],
         },
         {
