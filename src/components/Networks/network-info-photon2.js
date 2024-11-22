@@ -7,7 +7,7 @@ export const NetworkConfig = {
     bootnode: {
       name: 'NILLION_BOOTNODE_MULTIADDRESS',
       value:
-        'https://node-1.photon2.nillion-network-nilogy.xyz:14311',
+        'https://node-1.photon2.nillion-network.nilogy.xyz:14311',
     },
     websocket: {
       name: 'NILLION_BOOTNODE_WEBSOCKET',
