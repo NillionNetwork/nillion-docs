@@ -42,7 +42,7 @@ https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/compon
 ```
 
 ### useNilRetrieveComputeResults
-To retrive, you simply pass in the `id` from the previous invocation.
+To retrieve, you simply pass in the `id` from the previous invocation.
 
 ```tsx reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/retrieve-compute-results.tsx

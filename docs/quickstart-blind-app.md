@@ -87,7 +87,7 @@ We want to now interact with the `secret_addition` Nada program we created in th
 
 1. Upload your program from your `nada/src/target/secret_addition.nada.bin`
 2. Copy the `programID` and use it in the `Invoke Compute` section
-3. Copy the `computeResultID` and use it in the `Retrive Compute Results` section
+3. Copy the `computeResultID` and use it in the `Retrieve Compute Results` section
 
 <ThemedImage
   alt="CNA Output"
