@@ -1,6 +1,6 @@
 import React from 'react';
 import { CodeSnippet } from './CodeSnippet';
-import { NetworkConfig } from './network-info';
+import { NetworkConfig } from './network-info-photon2.js';
 
 const generateEnvSnippet = (networkConfig, prefix = '') => {
   const lines = [];
@@ -23,6 +23,7 @@ const pythonNetworkConfig = {
   },
 };
 // not needed for python
+delete pythonNetworkConfig.cluster_id;
 delete pythonNetworkConfig.websocket;
 delete pythonNetworkConfig.nilchain_json_rpc;
 delete pythonNetworkConfig.nilchain_rest_api;
@@ -39,6 +40,8 @@ const jsNetworkConfig = {
   },
 };
 // not needed for js
+delete jsNetworkConfig.cluster_id;
+delete jsNetworkConfig.websocket;
 delete jsNetworkConfig.bootnode;
 delete jsNetworkConfig.nilchain_grpc;
 

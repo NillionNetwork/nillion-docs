@@ -191,7 +191,7 @@ Now we will use the `nada` tool to compile, run and test the program we have jus
    nada generate-test --test-name secret_addition_test secret_addition
    ```
 
-   This uses the nada tool to generate a test, that will be stored in tests. Here secret_addition_test is the name of the test, and secret_addition is the name of the program we want to test. You will notice that the test file (`tests/secret_addition_test.yaml`) is automatically populated with `3`s everywhere by default. Later, for the test to pass, we will have to change the output from `3` to the correct output.
+   This uses the nada tool to generate a test, that will be stored in tests. Here secret_addition_test is the name of the test, and secret_addition is the name of the program we want to test.
 
 4. Run the program
    ```bash
@@ -205,7 +205,7 @@ Now we will use the `nada` tool to compile, run and test the program we have jus
    nada test secret_addition_test
    ```
    
-   Finally, we test the program. If you run the above command without altering the default values (`3`s) in the test file (`tests/secret_addition_test.yaml`), the test will fail.
+   Finally, we test the program.
 
 ## Connect to the devnet and run your program
 We have written and tested our nada program, now we need to run it against the local devnet. In this section we will:
@@ -229,20 +229,24 @@ In this section, we will use the python client run a computation on the local de
 
 We will write the following code within the `quickstart/client_code` directory in the `run_my_first_program.py` [file here](https://github.com/NillionNetwork/nillion-python-starter/blob/main/quickstart/client_code/run_my_first_program.py). You can [view the completed client code here](https://github.com/NillionNetwork/nillion-python-starter/blob/main/quickstart_complete/client_code/secret_addition_complete.py), feel free to refer back to it whenever you need.
 
-1. Import the packages and helper functions we will be using
+1. Import the packages we will be using
     
    ```python
    import asyncio
-   import py_nillion_client as nillion
    import os
    
-   from py_nillion_client import NodeKey, UserKey
+   from nillion_client import (
+      InputPartyBinding,
+      Network,
+      NilChainPayer,
+      NilChainPrivateKey,
+      OutputPartyBinding,
+      Permissions,
+      SecretInteger,
+      VmClient,
+      PrivateKey,
+   )
    from dotenv import load_dotenv
-   from nillion_python_helpers import get_quote_and_pay, create_nillion_client, create_payments_config
-   
-   from cosmpy.aerial.client import LedgerClient
-   from cosmpy.aerial.wallet import LocalWallet
-   from cosmpy.crypto.keypairs import PrivateKey
    
    home = os.getenv("HOME")
    load_dotenv(f"{home}/.config/nillion/nillion-devnet.env")
@@ -250,160 +254,113 @@ We will write the following code within the `quickstart/client_code` directory i
    async def main():
    ```
     
-    Here the `cosmpy` imports will help us interact with the local chain, the helper functions help abstract away some of the technical details when using the python client, and finally we load the `.env` file containing the configs of the local devnet.
+    Here the `nillion-client` imports will help us interact with the local chain and abstract away some of the technical details when using the python client, and finally we load the `.env` file containing the configs of the local devnet.
     
-2. Obtain the local devnet configs and create a user & node key from a seed
-    
-    ```python
-    # 1. Initial setup
-    # 1.1. Get cluster_id, grpc_endpoint, & chain_id from the .env file
-    cluster_id = os.getenv("NILLION_CLUSTER_ID")
-    grpc_endpoint = os.getenv("NILLION_NILCHAIN_GRPC")
-    chain_id = os.getenv("NILLION_NILCHAIN_CHAIN_ID")
-    # 1.2 pick a seed and generate user and node keys
-    seed = "my_seed"
-    userkey = UserKey.from_seed(seed)
-    nodekey = NodeKey.from_seed(seed)
-    ```
-    
-    Here we first obtain the `cluster_id`, `grpc_endpoint` & `chain_id` from the local environment. Then we choose a seed and obtain a user and node key using the `from_seed` method.
-    
-3. Initialise a Nillion client & obtain user and party ids
+2. Obtain the local devnet config and create a user, payment config & node key, then initialize the client.
     
     ```python
-    # 2. Initialize NillionClient against nillion-devnet
-    # Create Nillion Client for user
-    client = create_nillion_client(userkey, nodekey)
-    
-    party_id = client.party_id
-    user_id = client.user_id
-    ```
-    
-    Here we use the `create_nillion_client` helper to create the client that will act on behalf of the party and obtain the party and user ids which identify the party.
-    
-4. Pay for and store a program
-    
-    ```python
-    # 3. Pay for and store the program
-    # Set the program name and path to the compiled program
-    program_name = "secret_addition"
-    program_mir_path = f"../nada_quickstart_programs/target/{program_name}.nada.bin"
+    # 2. Initial setup, Initialize NillionClient against nillion-devnet
+    # Use the devnet configuration generated by `nillion-devnet`
+    network = Network.from_config("devnet")
 
-    # Create payments config, client and wallet
-    payments_config = create_payments_config(chain_id, grpc_endpoint)
-    payments_client = LedgerClient(payments_config)
-    payments_wallet = LocalWallet(
-        PrivateKey(bytes.fromhex(os.getenv("NILLION_NILCHAIN_PRIVATE_KEY_0"))),
-        prefix="nillion",
+    # Create payments config and set up Nillion wallet with a private key to pay for operations
+    nilchain_key: str = os.getenv("NILLION_NILCHAIN_PRIVATE_KEY_0")  # type: ignore
+    payer = NilChainPayer(
+        network,
+        wallet_private_key=NilChainPrivateKey(bytes.fromhex(nilchain_key)),
+        gas_limit=10000000,
     )
 
-    # Pay to store the program and obtain a receipt of the payment
-    receipt_store_program = await get_quote_and_pay(
-        client,
-        nillion.Operation.store_program(program_mir_path),
-        payments_wallet,
-        payments_client,
-        cluster_id,
-    )
-
-    # Store the program
-    action_id = await client.store_program(
-        cluster_id, program_name, program_mir_path, receipt_store_program
-    )
-
-    # Create a variable for the program_id, which is the {user_id}/{program_name}. We will need this later
-    program_id = f"{user_id}/{program_name}"
-    print("Stored program. action_id:", action_id)
-    print("Stored program_id:", program_id)
-    ```
-    
-    We first construct the path to the compiled program. Then we create the payments config, client and wallet - we use `cosmpy` to do this along with a number of parameters of the devnet. Next we use the `pay` helper function to pay for storing the program - you will see the operation (`store_program`) is an input parameter. When this function is called, a quote for storing the program is asked for and received before the payment is made. Look at the `pay` function here to understand the precise flow in more detail. Finally we store the program (ensuring we provide a valid receipt) and then construct the `program_id` as we will need this later. Note: program ids always follow the same structure.
-    
-5. Pay for and store a secret
-    
-    ```python
-    # 4. Create the 1st secret, add permissions, pay for and store it in the network
-    # Create a secret named "my_int1" with any value, ex: 500
-    new_secret = nillion.NadaValues(
-        {
-            "my_int1": nillion.SecretInteger(500),
-        }
-    )
-
-    # Set the input party for the secret
-    # The party name needs to match the party name that is storing "my_int1" in the program
+    # Use a random key to identify ourselves
+    signing_key = PrivateKey()
+    client = await VmClient.create(signing_key, network, payer)
     party_name = "Party1"
-
-    # Set permissions for the client to compute on the program
-    permissions = nillion.Permissions.default_for_user(client.user_id)
-    permissions.add_compute_permissions({client.user_id: {program_id}})
-
-    # Pay for and store the secret in the network and print the returned store_id
-    receipt_store = await get_quote_and_pay(
-        client,
-        nillion.Operation.store_values(new_secret, ttl_days=5),
-        payments_wallet,
-        payments_client,
-        cluster_id,
-    )
-    # Store a secret
-    store_id = await client.store_values(
-        cluster_id, new_secret, permissions, receipt_store
-    )
-    print(f"Computing using program {program_id}")
-    print(f"Use secret store_id: {store_id}")
+    program_name = "secret_addition_complete"
+    program_mir_path = f"../nada_quickstart_programs/target/{program_name}.nada.bin"
     ```
     
-    First we create a secret object, making sure the name of the secret (`my_int1`) matches the name of the secret in the program. Then we create compute permissions; even if a party is computing on its own secret it still needs to grant permissions. Finally we pay for the storage and obtain a receipt, and finally we pass the receipt and permissions to the `store_values` method which stores the secret in the network.
+    Here we load the network config created by `nillion-devnet`, then setup payment config and initialize the NillionClient.
     
-6. Pay for and action the computation
+3. Store a program
     
     ```python
-    # 5. Create compute bindings to set input and output parties, add a computation time secret and pay for & run the computation
-    compute_bindings = nillion.ProgramBindings(program_id)
-    compute_bindings.add_input_party(party_name, party_id)
-    compute_bindings.add_output_party(party_name, party_id)
+    # 3. Store the program
+    print("-----STORE PROGRAM")
 
-    # Add my_int2, the 2nd secret at computation time
-    computation_time_secrets = nillion.NadaValues({"my_int2": nillion.SecretInteger(10)})
+    # Store program
+    program_mir = open(program_mir_path, "rb").read()
+    program_id = await client.store_program(program_name, program_mir).invoke()
 
-    # Pay for the compute
-    receipt_compute = await get_quote_and_pay(
-        client,
-        nillion.Operation.compute(program_id, computation_time_secrets),
-        payments_wallet,
-        payments_client,
-        cluster_id,
-    )
-
-    # Compute on the secret
-    compute_id = await client.compute(
-        cluster_id,
-        compute_bindings,
-        [store_id],
-        computation_time_secrets,
-        receipt_compute,
-    )
+    # Print details about stored program
+    print(f"Stored program_id: {program_id}")
     ```
     
-    Before running a computation, we have to create bindings which set the input and output parties for the program - in this case, this is all the same party, `Party1`. We then add a computation time secret which will act as the second input to the program (`my_int2`). As above we then pay for an run the computation. Note that we must provide the `program_id` and `computation_time_secrets` to the `pay` function, this is so a quote can be correctly generated. When running the computation, the receipt is checked to ensure it is valid for that particular computation and the provided inputs.
+    Here we store the program and construct the `program_id` as we will need this later. Note: program ids always follow the same structure.
     
-7. Return the result of the computation
+4. Store a secret
+    
+    ```python
+    # 4. Create the 1st secret, add permissions and store it in the network
+    print("-----STORE SECRETS")
+
+    # Create a secret
+    values = {
+        "my_int1": SecretInteger(500),
+    }
+
+    # Create a permissions object to attach to the stored secret
+    permissions = Permissions.defaults_for_user(client.user_id).allow_compute(
+        client.user_id, program_id
+    )
+
+    # Store a secret
+    values_id = await client.store_values(
+        values, ttl_days=5, permissions=permissions
+    ).invoke()
+    ```
+    
+    First we create a secret object, making sure the name of the secret (`my_int1`) matches the name of the secret in the program. Then we create compute permissions; even if a party is computing on its own secret it still needs to grant permissions. Finally we pass the permissions to the `store_values` method which stores the secret in the network.
+    
+5. Setup and action the computation
+    
+    ```python
+    # 5. Create compute bindings to set input and output parties, add a computation time secret & run the computation
+    print("-----COMPUTE")
+
+    # Bind the parties in the computation to the client to set input and output parties
+    input_bindings = [InputPartyBinding(party_name, client.user_id)]
+    output_bindings = [OutputPartyBinding(party_name, [client.user_id])]
+
+    # Create a computation time secret to use
+    compute_time_values = {"my_int2": SecretInteger(10)}
+
+    # Compute, passing in the compute time values as well as the previously uploaded value.
+    print(f"Invoking computation using program {program_id} and values id {values_id}")
+    compute_id = await client.compute(
+        program_id,
+        input_bindings,
+        output_bindings,
+        values=compute_time_values,
+        value_ids=[values_id],
+    ).invoke()
+    ```
+    
+    Before running a computation, we have to create bindings which set the input and output parties for the program - in this case, this is all the same party, `Party1`. We then add a computation time secret which will act as the second input to the program (`my_int2`).
+    
+6. Return the result of the computation
     
     ```python
     # 6. Return the computation result
     print(f"The computation was sent to the network. compute_id: {compute_id}")
-    while True:
-        compute_event = await client.next_compute_event()
-        if isinstance(compute_event, nillion.ComputeFinishedEvent):
-            print(f"✅  Compute complete for compute_id {compute_event.uuid}")
-            print(f"🖥️  The result is {compute_event.result.value}")
-            return compute_event.result.value
+    result = await client.retrieve_compute_results(compute_id).invoke()
+    print(f"✅  Compute complete for compute_id {compute_id}")
+    print(f"🖥️  The result is {result}")
+    return result
     ```
     
     Finally we return the result of the computation. Here we await for the next event to be available in the network, and then print the result.
 
-8. Run the completed python script
+7. Run the completed python script
 
    Ensure you can run the script by putting the following at the end:
    

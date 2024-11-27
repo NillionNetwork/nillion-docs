@@ -7,11 +7,17 @@ import {PythonTestnetEnv, ReactTestnetEnv} from '@site/src/components/Networks/T
 
 ## Testnet
 
+:::info
+- If your SDK >= 0.7.0, you will be using `photon2`.
+- If your SDK =< 0.6.0, you will be using `photon1`. 
+:::
+
 Use the Testnet configuration to connect to the integrated Nillion Testnet. Check out [Testnet wallet and faucet guides here](/testnet-guides).
 
 <Tabs>
 
-<TabItem value="table" label="Network Table" default>
+
+<TabItem value="photon" label="Network" default>
 <NetworkTable/>
 </TabItem>
 

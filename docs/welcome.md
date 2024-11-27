@@ -17,4 +17,4 @@ Developers can use Nillion to build secure, [high value data](high-value-data.md
 <br/>
 <LinkButton text="Learn about Nillion" link="/what-is-nillion"/>
 
-<LinkButton text="Build a Blind App"link="/quickstart"/>
+<LinkButton text="Build a Blind App" link="/quickstart"/>

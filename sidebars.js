@@ -78,57 +78,9 @@ const sidebars = {
             'python-quickstart',
             'python-client-reference',
             {
-              type: 'category',
-              label: 'Python Client Examples',
-              link: {
-                type: 'doc',
-                id: 'python-client-examples',
-              },
-              collapsed: false,
-              items: [
-                'store-secrets',
-                'retrieve-secret',
-                {
-                  type: 'category',
-                  label: 'Permissions',
-                  link: {
-                    type: 'doc',
-                    id: 'permissions',
-                  },
-                  items: [
-                    {
-                      type: 'link',
-                      label: 'Permissions Examples',
-                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_permissions',
-                    },
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'Compute',
-                  link: {
-                    type: 'doc',
-                    id: 'compute',
-                  },
-                  items: [
-                    {
-                      type: 'link',
-                      label: 'Single Party Examples',
-                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_single_party_compute',
-                    },
-                    {
-                      type: 'link',
-                      label: 'Multi Party Examples',
-                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/core_concept_multi_party_compute',
-                    },
-                    {
-                      type: 'link',
-                      label: 'Millionaires Problem',
-                      href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials/millionaires_problem_example',
-                    },
-                  ],
-                },
-              ],
+              type: 'link',
+              label: 'Client Examples',
+              href: 'https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials',
             },
           ],
         },
@@ -140,22 +92,31 @@ const sidebars = {
             id: 'js-client',
           },
           items: [
-            'js-quickstart',
-            {
-              type: 'link',
-              label: 'JavaScript Client Reference',
-              href: 'https://nillion.pub/nillion-js-reference',
-            },
             {
               type: 'category',
-              label: 'JavaScript Client Examples',
+              label: 'Hooks',
               link: {
                 type: 'doc',
-                id: 'js-client-examples',
+                id: 'js-client-hooks',
               },
-              collapsed: false,
-              items: ['store-secrets-js', 'retrieve-secret-js', 'compute-js'],
-            },
+              collapsed: true,
+              items: [
+                'js-client-hooks-values',
+                'js-client-hooks-compute',
+                'js-client-hooks-permissions',
+                'js-client-hooks-other',
+              ],
+            }
+            // {
+            //   type: 'link',
+            //   label: 'create-nillion-app',
+            //   href: 'https://github.com/NillionNetwork/create-nillion-app',
+            // },
+            // {
+            //   type: 'link',
+            //   label: 'client-ts',
+            //   href: 'https://github.com/NillionNetwork/client-ts',
+            // },
           ],
         },
         {
@@ -183,7 +144,7 @@ const sidebars = {
           label: 'nada',
           link: {
             type: 'doc',
-            id: 'nada'
+            id: 'nada',
           },
           items: [
             {
@@ -194,9 +155,9 @@ const sidebars = {
             {
               type: 'doc',
               label: 'Nada Execution Plan',
-              id: 'nada-execution-plan'
+              id: 'nada-execution-plan',
             },
-          ]
+          ],
         },
         'pynadac',
         'nada-run',
@@ -350,16 +311,34 @@ const sidebars = {
       ],
     },
     'network-configuration',
-    {type: 'category',
+    {
+      type: 'category',
       label: 'Nillion AIVM',
       link: {
         type: 'doc',
         id: 'aivm',
       },
+      items: ['aivm-reference', 'aivm-supported-models'],
+    },
+    {
+      type: 'category',
+      label: 'Nillion Storage APIs',
+      link: {
+        type: 'doc',
+        id: 'storage-apis',
+      },
       items: [
-        'aivm-reference',
-        'aivm-supported-models',
+        {
+          type: 'link',
+          label: 'API Reference',
+          href: 'https://nillion-storage-apis-v0.onrender.com/docs',
+        },
       ],
+    },
+    {
+      type: 'link',
+      label: 'Nada Program Uploader',
+      href: 'https://nada-program-uploader.vercel.app',
     },
     'limitations',
     {

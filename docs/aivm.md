@@ -209,7 +209,7 @@ Custom models must meet these requirements:
 
 ### Next Steps
 
-Now you can check out the [examples](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples) folder and get started with your own fine-tuned nd custom models.
+Now you can check out the [examples](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples) folder and get started with your own fine-tuned and custom models.
 
 You can try:
 

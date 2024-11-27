@@ -14,7 +14,7 @@ The Nillion Network leverages [Nada](/nada-lang) for defining programs. We are d
 
 ## Nada AI
 
-[nada-ai](/nada-ai-introduction) is a Python library for performing ML/AI tasks using Nada DSL and the Nillion Network. It offers an intuitive interface and seamless integration with ML frameworks like PyTorch and Sci-kit learn. Key Features include
+[nada-ai](/nada-ai-introduction) is a Python library for performing ML/AI tasks using Nada DSL and the Nillion Network. It offers an intuitive interface and seamless integration with ML frameworks like PyTorch and Scikit-learn. Key Features include
 
 - Exporting Model State: Integrates with models from existing ML frameworks, making it easy to export them to the Nillion network for use in Nada programs.
 - AI Modules: Provides a PyTorch-like interface to create ML models in Nada by stacking pre-built common components, with the option to create custom components.

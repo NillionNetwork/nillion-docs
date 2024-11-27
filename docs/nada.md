@@ -291,7 +291,7 @@ Run a program with the --metrics flag to retrieve detailed execution metrics of 
 - json: Outputs metrics in JSON format and saves it to a metrics.json file.
 - yaml: Outputs metrics in YAML format and saves it to a metrics.yaml file.
 
-For detailed information on the metrics reported, pleas, visit the [Nada Metrics](/nada-metrics) section.
+For detailed information on the metrics reported, please, visit the [Nada Metrics](/nada-metrics) section.
 
 #### Example metrics usage
 

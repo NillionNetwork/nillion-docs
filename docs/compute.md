@@ -1,4 +1,4 @@
-import Tabs from '@theme/Tabs';
+<!-- import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DocCardList from '@theme/DocCardList';
 
@@ -80,4 +80,4 @@ https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutoria
 ```
 
   </TabItem>
-</Tabs>
+</Tabs> -->
