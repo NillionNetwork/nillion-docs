@@ -26,7 +26,7 @@ The [`tiny_addition.py`](https://github.com/nillion-oss/nillion-python-starter/b
 
 <table><thead><tr><th width="162">Input name</th><th width="145">Input type</th><th>Party name</th></tr></thead><tbody><tr><td>`my_secret_1`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td></tr><tr><td>`my_secret_2`</td><td>`SecretInteger`</td><td>`Nilla 🐶`</td></tr></tbody></table>
 
-The program [`tiny_addition.py`](https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py) returns an [Output](concepts.md#outputs) to a [Party](concepts.md#party). Only that party sees the output because it it of type `SecretInteger`.
+The program [`tiny_addition.py`](https://github.com/nillion-oss/nillion-python-starter/blob/main/programs/tiny_secret_addition_complete.py) returns an [Output](concepts.md#outputs) to a [Party](concepts.md#party). Only that party sees the output because it of type `SecretInteger`.
 
 <table>
   <thead>
