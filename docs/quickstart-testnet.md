@@ -28,13 +28,20 @@ Test the configuration locally against your blind app to make sure the full blin
 In the CNA boilerplate, we have created tabs to switch between the `devnet` and `testnet`. Switch to the `devnet` tab.
 
 0. Ensure your Nillion account is working with Keplr + funded testnet NIL.
-1. In your `ClientProvider.tsx`, switch the network to `photon`.
-```
+1. In your `LoginButton.tsx`, change the network settings
+```ts
     ...
-    <NillionProvider network="photon">{children}</NillionProvider>
+    const NETWORK: NetworkType = "testnet"; // devnet or testnet  <-- Change here.
+
+    ...
+    const client = await createClient({
+        network: NETWORK,
+        seed: "example-user-seed",
+        keplr: window.keplr,
+    });
     ...
 ```
-2. Try to `Store Secret Integer` and wait for the Keplr Popup to occur. 
+2. Try to `Store Value` and wait for the Keplr Popup to occur. 
 3. This should then allow you pay and interact with the Testnet for the other modules. 
 
 ## Store Nada Programs on the Testnet
@@ -49,7 +56,7 @@ Commit your repo to Github and tag your Github repo with `nillion-cna` so the re
 
 1. Follow the [Vercel Import Guide](https://vercel.com/docs/getting-started-with-vercel/import) to import your Github project to Vercel + deploy
 
-2. Test it with the local `nillion-devnet` and with Keplr Wallet when you toggle your network to `photon`.
+2. Test it with the local `devnet` and with Keplr Wallet when you toggle your network to `testnet`.
 
 3. Share your live link on [Nillion's Github Discussions Show and Tell Forum](https://github.com/orgs/NillionNetwork/discussions/categories/show-and-tell)
 

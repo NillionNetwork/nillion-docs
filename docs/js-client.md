@@ -91,7 +91,9 @@ export default function Home() {
 
   useEffect(() => {
     const init = async () => {
-      const client = await createClient("devnet");
+      const client = await createClient({
+        network: "devnet",
+      });
       setClient(client);
     };
     void init();
@@ -119,5 +121,7 @@ https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/next.confi
 
 ## Next Steps
 Now you can interact with the Nillion devnet and use the React hooks to do various storage and compute actions with the network.
+
+And once you are ready for testnet, you can follow these [testnet instructions.](./quickstart-testnet.md)
 
 <DocCardList/>

@@ -61,24 +61,24 @@ You will see an output like this:
 
 ```
 nillion-devnet --seed my-seed
-ℹ️ cluster id is 222257f5-f3ce-4b80-bdbc-0a51f6050996
+ℹ️ cluster id is 9e68173f-9c23-4acc-ba81-4f079b639964
 ℹ️ using 256 bit prime
-ℹ️ storing state in /var/folders/1_/2yw8krkx5q5dn2jbhx69s4_r0000gn/T/.tmpU00Jbm (62.14Gbs available)
-🏃 starting nilchain node in: /var/folders/1_/2yw8krkx5q5dn2jbhx69s4_r0000gn/T/.tmpU00Jbm/nillion-chain
+ℹ️ storing state in /var/folders/cw/s6ql88rx5f14x47ytdm6946w0000gn/T/.tmpHx5e5P (295.61Gbs available)
+🏃 starting nilchain node in: /var/folders/cw/s6ql88rx5f14x47ytdm6946w0000gn/T/.tmpHx5e5P/nillion-chain
 ⛓  nilchain JSON RPC available at http://127.0.0.1:48102
-⛓  nilchain gRPC available at localhost:26649
-🏃 starting node 12D3KooWMGxv3uv4QrGFF7bbzxmTJThbtiZkHXAgo3nVrMutz6QN
-⏳ waiting until bootnode is up...
-🏃 starting node 12D3KooWKkbCcG2ujvJhHe5AiXznS9iFmzzy1jRgUTJEhk4vjF7q
-🏃 starting node 12D3KooWMgLTrRAtP9HcUYTtsZNf27z5uKt3xJKXsSS2ohhPGnAm
+⛓  nilchain REST API available at http://localhost:26650
+⛓  nilchain gRPC available at http://localhost:26649
+🏃 starting node 1
+🏃 starting node 2
+🏃 starting node 3
 👛 funding nilchain keys
-📝 nillion CLI configuration written to /Users/steph/Library/Application Support/nillion.nillion/config.yaml
-🌄 environment file written to /Users/XXX/Library/Application Support/nillion.nillion/nillion-devnet.env
+📝 network configuration written to /Users/XXX/.config/nillion/networks/devnet.yaml
+🌄 environment file written to /Users/XXX/.config/nillion/nillion-devnet.env
 ```
 
 Refresh your page and you should now be able to press the `Login` button and it should turn into `Log Out`. Ensure you are on the `Devnet` Tab.
 
-Now you can interact with the local devnet and `Store a Secrete Integer` and `Fetch the Value`. 
+Now you can interact with the local devnet and `Store Values`,  `Retrieve Values`, `Update Values` and `Delete Values`, 
 
 
 # Interacting with our Nada Program
@@ -86,8 +86,8 @@ Now you can interact with the local devnet and `Store a Secrete Integer` and `Fe
 We want to now interact with the `secret_addition` Nada program we created in the previous step. So let's interact with the other module boxes. 
 
 1. Upload your program from your `nada/src/target/secret_addition.nada.bin`
-2. Copy the `programID` and use it in the `Compute` section
-3. Copy the `computeOutputID` and use it in the `Compute Output` section
+2. Copy the `programID` and use it in the `Invoke Compute` section
+3. Copy the `computeResultID` and use it in the `Retrieve Compute Results` section
 
 <ThemedImage
   alt="CNA Output"
