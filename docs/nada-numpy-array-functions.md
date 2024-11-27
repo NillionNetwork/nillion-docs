@@ -12,7 +12,7 @@
 | `dot`           | `other: NadaArray`                                          | Compute the dot product between two `NadaArray` objects.                    |
 | `hstack`        | `other: NadaArray`                                          | Horizontally stack two `NadaArray` objects.                                 |
 | `vstack`        | `other: NadaArray`                                          | Vertically stack two `NadaArray` objects.                                   |
-| `reveal`        |                                                            | Reveal the elements of the array.                                           |
+| `to_public`        |                                                            | Reveal the elements of the array.                                           |
 | `apply`         | `func: Callable[[Any], Any]`                                | Apply a Python function element-wise to the array.                          |
 | `mean`          | `axis=None, dtype=None, out=None`                           | Compute the mean along the specified axis.                                  |
 | `output`        | `party: Party, prefix: str`                                 | Generate a list of Output objects for each element in the `NadaArray`.      |
