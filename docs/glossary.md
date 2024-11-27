@@ -16,7 +16,7 @@ layout:
 
 #### Information-theoretic security (ITS)
 
-Information-theoretic security is a measure of security that doesn't depend on computational hardness assumptions. ITS guarantees security even against adversaries with unlimited computational power. This type of security is achieved by ensuring that the information required to break the encryption is not present in the cipher text. A classic example of ITS is a one-time pad cipher, which is provably unbreakable as long as the key is truly random, never reused, and kept secret.
+Information-theoretic security is a measure of security that doesn't depend on computational hardness assumptions. ITS guarantees security even against adversaries with unlimited computational power. This type of security is achieved by ensuring that the information required to break the encryption is not present in the ciphertext. A classic example of ITS is a one-time pad cipher, which is provably unbreakable as long as the key is truly random, never reused, and kept secret.
 
 #### Linear Secret Sharing Scheme (LSSS)
 
@@ -44,7 +44,7 @@ Preprocessing refers to a computation that is executed before one is given the i
 
 Each online protocol requires a different amount and type of preprocessing elements. A "preprocessing service" inside each node is responsible for calculating these preprocessing elements and makes them available to the Nillion VM. The "preprocessing service" will try to make sure that there are enough available preprocessing elements in the node at any time.
 
-Computing these preprocessing elements usually requires an MPC protocol. This is because there needs to be some syncrhonisation in the way these elements are created and used by the nodes.
+Computing these preprocessing elements usually requires an MPC protocol. This is because there needs to be some synchronisation in the way these elements are created and used by the nodes.
 
 #### Privacy-enhancing technologies (PETs)
 
