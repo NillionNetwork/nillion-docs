@@ -42,9 +42,9 @@ An Online Protocol is a cryptographic operation performed by nodes during the ca
 
 Preprocessing refers to a computation that is executed before one is given the inputs to a certain computation task. Preprocessing can be used to speed up some cryptographic systems but also to speed up cryptanalytic attacks. In the case of Nillion preprocessing is used to improve the performance of the execution of online protocols.
 
-Each online protocol requires a different amount and type of preprocessing elements. A "preprocessing service" inside each node is responsible for calculating these preprocessing elements and makes them available to the Nillion VM. The "preprocessing service" will try to make sure that there are enough available preprocessing elements in the node at any time.
+Each online protocol requires a different amount and type of preprocessing elements. A "preprocessing service" inside each node is responsible for calculating these preprocessing elements and making them available to the Nillion VM. The "preprocessing service" will try to make sure that there are enough available preprocessing elements in the node at any time.
 
-Computing these preprocessing elements usually requires an MPC protocol. This is because there needs to be some synchronisation in the way these elements are created and used by the nodes.
+Computing these preprocessing elements usually requires an MPC protocol. This is because there needs to be some synchronization in the way these elements are created and used by the nodes.
 
 #### Privacy-enhancing technologies (PETs)
 
@@ -56,7 +56,7 @@ The share is the result that a node obtains by multiplying all the masked factor
 
 #### Sum of Products (SoP)
 
-Sum of Products is a mathematical expression of addition of several numbers that have been multiplied.
+Sum of Products is a mathematical expression of the addition of several numbers that have been multiplied.
 
 ```python
 # Example of a Sum of Products

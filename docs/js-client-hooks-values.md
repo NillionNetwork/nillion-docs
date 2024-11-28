@@ -1,6 +1,6 @@
 # Values
 
-Storage and retreival of values are available via:
+Storage and retrieval of values are available via:
 - [useNilStoreValues](#usenilstorevalues)
 - [useNilRetrieveValues](#usenilretrievevalues)
 - [useNilDeleteValues](#usenildeletevalues)
@@ -16,7 +16,7 @@ https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/compon
 ```
 
 ### useNilRetrieveValues
-Retreiving only requires one argument: `id` . This `id` comes from a previous stored value (i.e after you call `useNilStoreValues`).
+Retrieving only requires one argument: `id` . This `id` comes from a previously stored value (i.e after you call `useNilStoreValues`).
 
 ``` tsx
 // i.e. 31d8ab8d-dced-494b-99cc-bd34f1d80b26
