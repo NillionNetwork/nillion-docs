@@ -20,6 +20,6 @@ This page will help you take your first steps (~30 mins) as a Nillion developer.
 4. Join our community:
 
    - [Join our Discord server](https://discord.com/invite/nillionnetwork)
-   - [Follow us on Twitter](https://x.com/nillionnetwork)
+   - [Follow us on X](https://x.com/nillionnetwork)
 
 5. Fill out [this form](https://forms.gle/TXhKmEjjrRhFYtf48) to claim your prize 🎉
