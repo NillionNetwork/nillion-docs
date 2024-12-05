@@ -256,7 +256,7 @@ We will write the following code within the `quickstart/client_code` directory i
     
     Here the `nillion-client` imports will help us interact with the local chain and abstract away some of the technical details when using the python client, and finally we load the `.env` file containing the configs of the local devnet.
     
-2. Obtain the local devnet config and create a user, payment config & node key, then initialize the client.
+2. Obtain the local devnet config and create a user, payment config & node key, then initialize the client and topup the balance.
     
     ```python
     # 2. Initial setup, Initialize NillionClient against nillion-devnet
@@ -277,9 +277,14 @@ We will write the following code within the `quickstart/client_code` directory i
     party_name = "Party1"
     program_name = "secret_addition_complete"
     program_mir_path = f"../nada_quickstart_programs/target/{program_name}.nada.bin"
+   
+   # Adding funds to the client balance so the upcoming operations can be paid for
+    funds_amount = 1000
+    print(f"💰  Adding some funds to the client balance: {funds_amount} uNIL")
+    await client.add_funds(funds_amount)
     ```
     
-    Here we load the network config created by `nillion-devnet`, then setup payment config and initialize the NillionClient.
+    Here we load the network config created by `nillion-devnet`, then setup payment config and initialize the NillionClient. Finally we are adding some funds to pay for the operations coming next.
     
 3. Store a program
     
@@ -355,10 +360,13 @@ We will write the following code within the `quickstart/client_code` directory i
     result = await client.retrieve_compute_results(compute_id).invoke()
     print(f"✅  Compute complete for compute_id {compute_id}")
     print(f"🖥️  The result is {result}")
+    balance = await client.balance()
+    print(f"💰  Final client balance: {balance.balance} uNIL")
+    client.close()
     return result
     ```
     
-    Finally we return the result of the computation. Here we await for the next event to be available in the network, and then print the result.
+    Finally we return the result of the computation. Here we await for the next event to be available in the network, and then print the result and remaining balance.
 
 7. Run the completed python script
 

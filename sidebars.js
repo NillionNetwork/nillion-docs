@@ -77,6 +77,7 @@ const sidebars = {
           items: [
             'python-quickstart',
             'python-client-reference',
+            'threshold-signatures',
             {
               type: 'link',
               label: 'Client Examples',
@@ -106,7 +107,7 @@ const sidebars = {
                 'js-client-hooks-permissions',
                 'js-client-hooks-other',
               ],
-            }
+            },
             // {
             //   type: 'link',
             //   label: 'create-nillion-app',

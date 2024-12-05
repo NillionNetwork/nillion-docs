@@ -20,7 +20,7 @@ getting the length of the array.
   [Array](#nillion_client.Array)
 * **Raises:**
   **ValueError** – invalid secret type: Raises an error when a public encoded element is included inside a
-      secret array.
+  secret array.
 
 ### Example
 
@@ -743,21 +743,21 @@ Return the integer represented by the given array of bytes.
 
 bytes
 : Holds the array of bytes to convert.  The argument must either
-  support the buffer protocol or be an iterable object producing bytes.
-  Bytes and bytearray are examples of built-in objects that support the
-  buffer protocol.
+support the buffer protocol or be an iterable object producing bytes.
+Bytes and bytearray are examples of built-in objects that support the
+buffer protocol.
 
 byteorder
 : The byte order used to represent the integer.  If byteorder is ‘big’,
-  the most significant byte is at the beginning of the byte array.  If
-  byteorder is ‘little’, the most significant byte is at the end of the
-  byte array.  To request the native byte order of the host system, use
-  <br/>
-  ```
-  `
-  ```
-  <br/>
-  sys.byteorder’ as the byte order value.
+the most significant byte is at the beginning of the byte array.  If
+byteorder is ‘little’, the most significant byte is at the end of the
+byte array.  To request the native byte order of the host system, use
+<br/>
+```
+`
+```
+<br/>
+sys.byteorder’ as the byte order value.
 
 signed
 : Indicates whether two’s complement is used to represent the integer.
@@ -805,24 +805,24 @@ Return an array of bytes representing an integer.
 
 length
 : Length of bytes object to use.  An OverflowError is raised if the
-  integer is not representable with the given number of bytes.
+integer is not representable with the given number of bytes.
 
 byteorder
 : The byte order used to represent the integer.  If byteorder is ‘big’,
-  the most significant byte is at the beginning of the byte array.  If
-  byteorder is ‘little’, the most significant byte is at the end of the
-  byte array.  To request the native byte order of the host system, use
-  <br/>
-  ```
-  `
-  ```
-  <br/>
-  sys.byteorder’ as the byte order value.
+the most significant byte is at the beginning of the byte array.  If
+byteorder is ‘little’, the most significant byte is at the end of the
+byte array.  To request the native byte order of the host system, use
+<br/>
+```
+`
+```
+<br/>
+sys.byteorder’ as the byte order value.
 
 signed
 : Determines whether two’s complement is used to represent the integer.
-  If signed is False and a negative integer is given, an OverflowError
-  is raised.
+If signed is False and a negative integer is given, an OverflowError
+is raised.
 
 <a id="nillion_client.PreprocessingElement.try_value"></a>
 
@@ -1210,7 +1210,7 @@ alias of `UUID`
 
 <a id="nillion_client.VmClient"></a>
 
-### *class* nillion_client.VmClient(key, network, payer, \_raise_if_called=True)
+### *class* nillion_client.VmClient(key, network, payer, payment_mode, \_raise_if_called=True)
 
 A class to interact with the Nillion network.
 
@@ -1240,6 +1240,33 @@ chain_client = NilChainPayer(
 # Finally, create the client
 client = await VmClient.create(private_key, network, payer)
 ```
+
+<a id="nillion_client.VmClient.add_funds"></a>
+
+#### *async* add_funds(amount_unil, target_user=None)
+
+Add funds to a user’s account on the nillion network.
+
+By default this will fund the account tied to the user this client is currently using.
+
+Funds will be automatically used when performing payments unless the payment mode in the client is
+changed.
+
+#### NOTE
+Funds will expire after 30 days regardless of use so don’t add more funds than you intend to use
+in the short term
+
+<a id="nillion_client.VmClient.balance"></a>
+
+#### *async* balance()
+
+Gets the balance associated with the user’s account in the network.
+
+This balance will be preferred when running operations and can be topped up by calling
+[`VmClient.add_funds()`](#nillion_client.VmClient.add_funds).
+
+* **Return type:**
+  `AccountBalanceResponse`
 
 <a id="nillion_client.VmClient.close"></a>
 
@@ -1308,7 +1335,7 @@ results = await client.retrieve_compute_results(compute_id).invoke()
 
 <a id="nillion_client.VmClient.create"></a>
 
-#### *async classmethod* create(key, network, payer)
+#### *async classmethod* create(key, network, payer, payment_mode=PaymentMode.FROM_BALANCE)
 
 Create a new Nillion client.
 
@@ -1354,7 +1381,7 @@ Request to get a payment receipt for a paid operation.
 
 * **Parameters:**
   * **signed_quote** (`SignedQuote`) – The quote to get a payment receipt for.
-  * **tx_hash** – The transaction hash where the payment was made.
+  * **tx_hash** (`str` | `None`) – The transaction hash where the payment was made.
 * **Return type:**
   `SignedReceipt`
 * **Returns:**
@@ -1646,6 +1673,12 @@ This operation requires the user to have “update” permissions on the given v
 permissions = Permissions.default_for_user(user_id)
 await client.overwrite_permissions(values_id, permissions).invoke()
 ```
+
+<a id="nillion_client.VmClient.payment_mode"></a>
+
+#### payment_mode *: `PaymentMode`*
+
+The payment mode to be used.
 
 <a id="nillion_client.VmClient.pool_status"></a>
 
