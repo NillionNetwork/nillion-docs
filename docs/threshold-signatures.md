@@ -100,5 +100,5 @@ public_key.verify(
 To help you get started with Nillion's tECDSA functionality, we provide the following resources:
 
 - **[Nillion Signature Tools](https://nillion-signature-tools.streamlit.app/)**: An interactive web app and developer tool that allows you to experiment with key generation, storage, and signing on the Nillion platform.
-- **[Complete Code Example](https://github.com/NillionNetwork/python-examples/blob/feat/tecdsa-example/examples_and_tutorials/core_concept_single_party_compute/threshold_ecdsa_signature.py)**: A full, end-to-end implementation example demonstrating how to store a private key and use it for threshold ECDSA signing. This example is part of the Nillion Python examples repository.
+- **[Complete Code Example](https://github.com/NillionNetwork/python-examples/blob/main/examples_and_tutorials/core_concept_single_party_compute/threshold_ecdsa_signature.py)**: A full, end-to-end implementation example demonstrating how to store a private key and use it for threshold ECDSA signing. This example is part of the Nillion Python examples repository.
 - **[Python Client Reference](/python-client-reference)**: Detailed API documentation for the Nillion Python client, including the ECDSA-related features and functionality.
