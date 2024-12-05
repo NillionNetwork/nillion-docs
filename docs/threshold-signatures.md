@@ -36,7 +36,7 @@ These predefined identifiers allow you to quickly integrate with Nillion's built
 
 ## Implementation Guide
 
-Check out a complete [tECDSA code example here](https://github.com/NillionNetwork/python-examples/blob/feat/tecdsa-example/examples_and_tutorials/core_concept_single_party_compute/threshold_ecdsa_signature.py).
+Check out a complete [tECDSA code example here](https://github.com/NillionNetwork/python-examples/blob/main/examples_and_tutorials/core_concept_single_party_compute/threshold_ecdsa_signature.py).
 
 ### Storing Your Key
 
