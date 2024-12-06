@@ -3,7 +3,7 @@ import SupportedWallets from './\_testnet_supported_wallets.mdx';
 
 # Creating a Nillion Wallet
 
-Create a Nillion wallet to connect to the [Nillion Testnet](/network) and access your assets.
+Create a Nillion wallet to connect to the [Nillion Testnet](https://github.com/savvar9991/nillion-docs/tree/remove-html-comments/src/components/Networks) and access your assets.
 
 ## Supported Wallets
 
@@ -17,35 +17,35 @@ This guide walks you through downloading a wallet, setting up your wallet, and a
 
 Visit the [Keplr download page](https://www.keplr.app/download) and select your browser to download the Keplr browser extension. We recommend Chrome.
 
-![Download Keplr](/img/download-wallet.png)
+![Download Keplr](/static/img/download-wallet.png)
 
 ### 2. Install the Keplr browser extension
 
 Click "Add to Chrome" to install the Keplr Chrome extension.
 
-![Add extension](/img/add-extension.png)
+![Add extension](/static/img/add-extension.png)
 
 ### 3. Create a new wallet
 
 After Keplr is installed, it will pop open in a new tab. Click "Create a new wallet."
 
-![Create wallet](/img/create-wallet.png)
+![Create wallet](/static/img/create-wallet.png)
 
 ### 4. Create a recovery phrase
 
 Create a wallet using a recovery phrase. Click "Create new recovery phrase."
 
-![Create a wallet with a new recovery phrase](/img/recovery-phrase.png)
+![Create a wallet with a new recovery phrase](/static/img/recovery-phrase.png)
 
 ### 5. Secure your recovery phrase
 
 Follow the steps to show your recovery phrase. Make sure to store your secret recovery phrase securely.
-![Secure phrase](/img/secure-phrase.png)
+![Secure phrase](/static/img/secure-phrase.png)
 
 ### 6. Set a wallet password
 
 Verify your recovery phrase by filling in ordered words. Then name your wallet and set a password. You'll use this password to log into Keplr on this device. To import this wallet for use on another device, you'll need the recovery phrase.
-![Verify](/img/verify-wallet.png)
+![Verify](/static/img/verify-wallet.png)
 
 ### 7. Add Nillion Testnet
 
