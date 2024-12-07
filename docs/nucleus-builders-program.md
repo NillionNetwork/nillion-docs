@@ -24,4 +24,4 @@ We believe in aligning our interests with those of our builders. We offer Nucleu
 
 ### Marketing & Business Support
 
-Your innovation deserves recognition. As part of Nucleus, we help raise awareness of your use cases through a range of marketing initiatives. From AMAs and Twitter Spaces to featured articles and more, we actively promote your projects to the broader community, helping you gain visibility and traction.
+Your innovation deserves recognition. As part of Nucleus, we help raise awareness of your use cases through a range of marketing initiatives. From AMAs and X Spaces to featured articles and more, we actively promote your projects to the broader community, helping you gain visibility and traction.
