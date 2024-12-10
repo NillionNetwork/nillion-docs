@@ -54,7 +54,7 @@ import TabItem from '@theme/TabItem';
         Now that your WSL development environment is set up, you can install the Nillion SDK and Tools.
 
         :::info
-        Make sure to install Nillion within **a new Ubuntu terminal.** Either open a Ubuntu terminal, or from your Windows PowerShell terminal, first run Ubuntu:
+        Make sure to install Nillion within **a new Ubuntu terminal.** Either open an Ubuntu terminal, or from your Windows PowerShell terminal, first run Ubuntu:
 
         ```
         ubuntu
