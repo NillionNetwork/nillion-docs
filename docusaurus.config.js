@@ -159,7 +159,7 @@ const config = {
               {
                 type: 'link',
                 label: 'X (formerly Twitter)',
-                href: 'https://twitter.com/nillionnetwork',
+                href: 'https://x.com/nillionnetwork',
               },
             ],
           },

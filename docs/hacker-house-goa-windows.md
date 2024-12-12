@@ -16,7 +16,7 @@ Follow the steps below to complete the task:
     - [Join our Discord server](https://discord.gg/nillionnetwork)
       - Make sure you join the `developers-sdk` channel.
       - Once you fill out the form at the end of this task, we will add you to a dedicated `hacker-house-goa` Discord channel too.
-    - [Follow us on Twitter](https://x.com/nillionnetwork)
+    - [Follow us on X](https://x.com/nillionnetwork)
 
 2. Star & fork the [Python](https://github.com/NillionNetwork/nillion-python-starter) quickstart repo & the [JavaScript Quickstart repo](https://github.com/NillionNetwork/cra-nillion/).
     
