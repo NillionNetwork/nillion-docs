@@ -12,7 +12,7 @@ The TypeScript client `client-ts` provides libraries for interacting with Nillio
 The fastest way to get started with Nillion is using the create-nillion-app cli tool, which spins up a working Next.js app
 
 ```bash
-npx create-nillion-app@latest
+npx @nillion/create-nillion-app@latest
 ```
 
 <div style={{ textAlign: 'center' }}>
