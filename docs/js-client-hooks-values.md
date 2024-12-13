@@ -1,6 +1,6 @@
 # Values
 
-Storage and retreival of values are available via:
+Storage and retrieval of values are available via:
 - [useNilStoreValues](#usenilstorevalues)
 - [useNilRetrieveValues](#usenilretrievevalues)
 - [useNilDeleteValues](#usenildeletevalues)

@@ -25,7 +25,7 @@ nillion.client.XXX // whatever you want to use from the client.
 
 ```
 
-Below is the source code for refernce
+Below is the source code for reference
 
 ```tsx reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/client-react-hooks/src/use-nillion.ts
