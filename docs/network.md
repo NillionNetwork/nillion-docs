@@ -7,16 +7,18 @@ import BlockExplorers from './\_testnet_block_explorers.mdx';
 
 The **Nillion Network** allows developers to build applications and services that leverage privacy-enhancing technologies (PETs) such as secure multi-party computation (MPC) to perform blind computations over private user data (without requiring that data to be revealed to the network or to other users).
 
-## Dual Network Architecture
+## Network Architecture
 
-![Nillion's dual network architecture diagram](/img/dual-architecture.png)
+![Nillion's network architecture diagram](/img/network_diagram.png)
 
-The Nillion Network consists of two parallel, interdependent networks: a **Coordination Layer** and an **Orchestration Layer**.
+The Nillion Blind Computer is a distributed network tailor-made to make Blind Computation possible. The network is split into two parts: **The Coordination Layer** and **the Petnet** (Privacy Enhancing Technology Network). 
 
-* The **[NilChain](https://github.com/NillionNetwork/nilchain)** network coordinates payments for storage operations and blind computations performed on the network.
-* The **Petnet** harnesses PETs such as MPC to protect data at rest and to enable blind computations that can operate on that data.
+### The Coordination Layer
 
-The Nillion Network operates without a global shared state or consensus on order. Instead, its design is oriented around supporting storage of private high-value data and computation over that data while decentralizing trust among the nodes in the network.
+The Coordination Layer is a blockchain that manages shared resources for the whole Nillion Network. It’s built on top of the Cosmos SDK stack and such as rewards, cryptoeconomic stake, and governance, as well as enabling inter-cluster coordination. Since it’s intended purely for coordination purposes, the chain doesn’t have an open execution environment for running smart contracts.
+
+### The Petnet
+The Petnet is made up of separate Clusters of nodes that offer different technologies and products, with the goal of allowing anyone to come and spin up their own Cluster. App developers can then choose from existing Clusters or create their own to tailor their specific infrastructure and security needs. Nodes looking to form a new Cluster for general use can compete for user adoption across many axes including number of nodes, price, reputation, performance, cryptoeconomic security, jurisdiction, and hardware-based security. Developers then have the power to pick their own point on the tradeoff space and decide what matters to them – keeping them in control.
 
 ## Live Testnet
 
