@@ -13,7 +13,7 @@ The **Nillion Network** allows developers to build applications and services tha
 
 The Nillion Blind Computer is a distributed network tailor-made to make Blind Computation possible. The network is split into two parts: The **Petnet** (Privacy Enhancing Technology Network) and **nilchain**.
 
-### The Petnet
+### Petnet
 
 The Petnet is made up of separate clusters of nodes that offer different technologies and products, with the goal of allowing anyone to come and spin up their own cluster. App developers can then choose from existing clusters or create their own to tailor their specific infrastructure and security needs. Nodes looking to form a new cluster for general use can compete for user adoption across many axes including number of nodes, price, reputation, performance, cryptoeconomic security, jurisdiction, and hardware-based security. Developers then have the power to pick their own point on the tradeoff space and decide what matters to them – keeping them in control.
 
