@@ -11,23 +11,23 @@ The **Nillion Network** allows developers to build applications and services tha
 
 ![Nillion's network architecture diagram](/img/network_diagram.png)
 
-The Nillion Blind Computer is a distributed network tailor-made to make Blind Computation possible. The network is split into two parts: The **Petnet** (Privacy Enhancing Technology Network) and **nilchain**.
+The Nillion Blind Computer is a distributed network tailor-made to make Blind Computation possible. The network is split into two parts: The **Petnet** (Privacy Enhancing Technology Network) and **nilChain**.
 
 ### Petnet
 
 The Petnet is made up of separate clusters of nodes that offer different technologies and products, with the goal of allowing anyone to come and spin up their own cluster. App developers can then choose from existing clusters or create their own to tailor their specific infrastructure and security needs. Nodes looking to form a new cluster for general use can compete for user adoption across many axes including number of nodes, price, reputation, performance, cryptoeconomic security, jurisdiction, and hardware-based security. Developers then have the power to pick their own point on the tradeoff space and decide what matters to them – keeping them in control.
 
-### nilchain
+### nilChain
 
-The nilchain is a blockchain that manages shared resources for the whole Nillion Network. It’s built on top of the Cosmos SDK stack and such as rewards, cryptoeconomic stake, and governance, as well as enabling inter-cluster coordination. Since it’s intended purely for coordination purposes, the chain doesn’t have an open execution environment for running smart contracts.
+The nilChain is a blockchain that manages shared resources for the whole Nillion Network. It’s built on top of the Cosmos SDK stack and such as rewards, cryptoeconomic stake, and governance, as well as enabling inter-cluster coordination. Since it’s intended purely for coordination purposes, the chain doesn’t have an open execution environment for running smart contracts.
 
 ## Live Testnet
 
-Consistent with the dual network architecture described above, the **Nillion Network testnet** (or simply **Nillion testnet**) consists of two interdependent testnet instances: the **nilchain testnet** and the **Petnet testnet**.
+Consistent with the dual network architecture described above, the **Nillion Network testnet** (or simply **Nillion testnet**) consists of two interdependent testnet instances: the **nilChain testnet** and the **Petnet testnet**.
 
-### nilchain Testnet
+### nilChain Testnet
 
-The nilchain testnet is live! Follow our [Testnet Guides](/testnet-guides) to create a wallet connected to the Nillion testnet, use the testnet faucet, and send NIL testnet tokens.
+The nilChain testnet is live! Follow our [Testnet Guides](/testnet-guides) to create a wallet connected to the Nillion testnet, use the testnet faucet, and send NIL testnet tokens.
 
     <Tabs>
         <TabItem value="wallets" label="Supported wallets" default>

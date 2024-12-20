@@ -4,7 +4,7 @@ import DocCardList from '@theme/DocCardList';
 
 Nillion has a [four-phase strategy](https://nillion.com/news/589/) for deploying the [Nillion Network](/network).
 
-During [Phase 1: Genesis Sprint](https://nillion.com/news/589/), it became possible to interact with the [NilChain testnet](/network#nilchain-testnet) (also known as the [Coordination Layer](/network#dual-network-architecture)) using NIL testnet tokens. Follow the guides below to create a wallet connected to the NilChain testnet, to use the Testnet Faucet, and to send NIL tokens on the NilChain testnet.
+During [Phase 1: Genesis Sprint](https://nillion.com/news/589/), it became possible to interact with the [nilChain testnet](/network#nilchain-testnet) using NIL testnet tokens. Follow the guides below to create a wallet connected to the nilChain testnet, to use the Testnet Faucet, and to send NIL tokens on the nilChain testnet.
 
 <DocCardList/>
 
