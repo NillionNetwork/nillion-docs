@@ -183,7 +183,7 @@ Copy the up the .env.example file to a new .env and set up these variables to ma
 cp .env.example .env
 ```
 
-Update your newly created .env with environment variables outout in your terminal by nillion-devnet
+Update your newly created .env with environment variables output in your terminal by nillion-devnet
 
 ```
 REACT_APP_NILLION_CLUSTER_ID=
@@ -231,7 +231,7 @@ const outputName = 'my_output';
 const partyName = 'Party1';
 ```
 
-Notice that the ComputePage sets `outputName` which matches the the output name set in secret_addition.py. The ComputePage sets `partyName` which matches the the party name set in secret_addition.py. There are 2 `StoreSecretForm` components on ComputePage, with secretName set to `my_int1` and `my_int2` which matches the the secret names set in secret_addition.py.
+Notice that the ComputePage sets `outputName` which matches the output name set in secret_addition.py. The ComputePage sets `partyName` which matches the the party name set in secret_addition.py. There are 2 `StoreSecretForm` components on ComputePage, with secretName set to `my_int1` and `my_int2` which matches the the secret names set in secret_addition.py.
 
 <Tabs>
 <TabItem value="helpers" label="secret_addition.py" default>
@@ -295,7 +295,7 @@ Go back to the Blind App on http://localhost:8080/compute and run through the st
 
 ## Keep exploring
 
-You've successfully build your first blind app by writing a Nada program, storing the program on the network, storing secrets on the network, and running compute against secrets. Keep exploring by
+You've successfully built your first blind app by writing a Nada program, storing the program on the network, storing secrets on the network, and running compute against secrets. Keep exploring by
 
 - reading about [Nillion concepts](/concepts) and the [Nada Language](nada-lang)
 - learning how to interact with and manage programs, secrets, and permissions on the Nillion Network with [Nillion Client](/js-client)
