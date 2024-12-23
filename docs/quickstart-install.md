@@ -9,7 +9,7 @@ Install the Nillion SDK in one command. This includes the <strong>`nada`</strong
 :::info
 Nillion SDK binaries are available for [Linux and macOS platforms](/limitations#platforms). For Windows installation, make sure to follow our [Windows developer environment setup](/installation#windows-guide) guide ahead of installing binaries.
 
-Prerequisties:
+Prerequisites:
 
 - Python (>= 3.10)
 - Node (>= v18.17)
