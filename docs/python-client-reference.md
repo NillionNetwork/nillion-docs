@@ -377,7 +377,7 @@ By default the devnet starts without any SSL configuration so all of the tls_\* 
 
 * **Parameters:**
   * **nilvm_grpc_endpoint** (`str`) – The Nillion network bootnode endpoint.
-  * **chain_grpc_endpoint** (`str`) – The nilchain gRPC endpoint.
+  * **chain_grpc_endpoint** (`str`) – The nilChain gRPC endpoint.
 * **Return type:**
   [`Network`](#nillion_client.Network)
 
@@ -418,7 +418,7 @@ config = Network.from_config("devnet")
 
 ### *class* nillion_client.NilChainPayer(network, wallet_private_key, gas_limit, wallet_prefix='nillion', query_timeout_seconds=30)
 
-A payer that uses the nilchain to perform payments.
+A payer that uses the nilChain to perform payments.
 
 <a id="nillion_client.NilChainPayer.prepare_msg"></a>
 
@@ -439,7 +439,7 @@ Create a MsgPayFor transaction.
 
 Submits a payment to the chain.
 
-This must submit a MsgPayFor transaction in nilchain using the given resource as a parameter.
+This must submit a MsgPayFor transaction in nilChain using the given resource as a parameter.
 
 * **Parameters:**
   * **amount** (`int`) – The amount of unil that needs to be paid.
@@ -534,7 +534,7 @@ Create a MsgPayFor transaction.
 
 Submits a payment to the chain.
 
-This must submit a MsgPayFor transaction in nilchain using the given resource as a parameter.
+This must submit a MsgPayFor transaction in nilChain using the given resource as a parameter.
 
 * **Parameters:**
   * **amount** (`int`) – The amount of unil that needs to be paid.
