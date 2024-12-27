@@ -1,10 +1,25 @@
-# API Reference
+# AIVM API Reference
 
-This document provides detailed information about all available functions and classes in the AIVM client library.
+The AI Virtual Machine (AIVM) is a secure computation environment for running machine learning models. It enables privacy-preserving inference by processing encrypted inputs without exposing the underlying data.
 
-## Functions
+## Requirements
 
-### Model Management
+Before using the AIVM client library, ensure you have:
+- Python 3.7 or higher
+- PyTorch 1.8.0 or higher
+- AIVM client library installed (`pip install aivm-client`)
+
+## Supported Model Types
+
+The AIVM currently supports two types of models:
+- **LeNet5**: For image classification tasks
+- **BertTiny**: For text classification and analysis
+
+## API Reference
+
+### Functions
+
+#### Model Management
 
 #### `upload_model(model_path, model_name, model_type)`
 Uploads a custom model to the AIVM server.
@@ -186,3 +201,52 @@ spam_prediction = aic.get_prediction(encrypted_text, "BertTinySpam")
 aic.upload_lenet5_model("path/to/custom_lenet.pth", "MyCustomLeNet")
 aic.upload_bert_tiny_model("path/to/custom_bert.pth", "MyCustomBert")
 ```
+
+## Security Best Practices
+
+When working with the AIVM client, follow these security guidelines:
+
+1. **Model Protection**
+   - Keep your model files secure and use proper access controls
+   - Regularly update models to patch potential vulnerabilities
+   - Use unique model names to prevent conflicts
+
+2. **Input Validation**
+   - Always validate input dimensions before encryption
+   - Ensure input data is properly normalized
+   - Handle edge cases appropriately
+
+3. **Error Handling**
+   - Implement proper error handling for failed predictions
+   - Log errors without exposing sensitive information
+   - Have fallback mechanisms for critical applications
+
+## Troubleshooting
+
+Common issues and their solutions:
+
+1. **Connection Issues**
+   ```python
+   ConnectionError: Failed to connect to AIVM server
+   ```
+   - Check if the AIVM server is running
+   - Verify network connectivity
+   - Ensure proper authentication credentials
+
+2. **Model Loading Errors**
+   ```python
+   ValueError: Unsupported model type
+   ```
+   - Verify the model format matches supported types
+   - Check if the model file is corrupted
+   - Ensure model compatibility with current AIVM version
+
+3. **Memory Issues**
+   ```python
+   RuntimeError: CUDA out of memory
+   ```
+   - Reduce batch size
+   - Free unused tensors
+   - Consider using CPU fallback for large models
+
+For additional support, please refer to our [GitHub issues](https://github.com/NillionNetwork/aivm-client/issues) or contact the development team.
