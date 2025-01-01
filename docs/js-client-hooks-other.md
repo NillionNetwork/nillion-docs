@@ -1,8 +1,9 @@
 # Other
 
 There are some auxiliary hooks that you may use:
-- [useNilPoolStatus](#usenilpoolstatus)
-- [useNillion](#usenillion)
+- [Other](#other)
+    - [useNilPoolStatus](#usenilpoolstatus)
+    - [useNillion](#usenillion)
 
 ### useNilPoolStatus
 Pool Status refers to the preprocessing pool's status. A simple call to the hook should provide their status.
@@ -25,7 +26,7 @@ nillion.client.XXX // whatever you want to use from the client.
 
 ```
 
-Below is the source code for refernce
+Below is the source code for reference
 
 ```tsx reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/client-react-hooks/src/use-nillion.ts

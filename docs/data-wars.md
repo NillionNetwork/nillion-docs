@@ -50,7 +50,7 @@ The rule applies for memes and art as well. We cherish originality. Craft your u
 
 Don’t create based on what you assume we want to see - create what resonates with you.
 
-If you are a photographer then take photos, if you’re a musician then create music, if you’re a writer then create lore. If you don’t currently do anything then learn something new. Spend some time with the rest of the community to learn a new skill and use Nilions ideas, visions, and beliefs as cues to create something amazing and impactful.
+If you are a photographer then take photos, if you’re a musician then create music, if you’re a writer then create lore. If you don’t currently do anything then learn something new. Spend some time with the rest of the community to learn a new skill and use Nillion's ideas, visions, and beliefs as cues to create something amazing and impactful.
 
 #### Scribe Classes
 
