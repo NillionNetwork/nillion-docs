@@ -14,12 +14,12 @@ Options:
           [default: 3]
 
   -c, --cluster-id <CLUSTER_ID>
-          The uuid of the cluster.
+          The UUID of the cluster.
 
-          A random uuid will be used if none is provided, honoring the --seed parameter.
+          A random UUID will be generated if none is provided, respecting the --seed parameter.
 
   -d, --state-directory <STATE_DIRECTORY>
-          The directory where the node's states is stored.
+          The directory where the nodes' state is stored.
 
           A temporary directory will be used if none is provided.
 
@@ -29,7 +29,7 @@ Options:
           If none is provided, node keys and the cluster id will be randomized.
 
   -p, --prime-bits <PRIME_BITS>
-          The number of bits in the prime number to be used
+          The number of bits for the prime number to be used.
 
           [default: 256]
 
@@ -52,7 +52,7 @@ Running a local devnet outputs values you can use to run nillion against your lo
 - devnet id
 - blockchain node endpoint
 - node ids
-- wallet keys: 14 private keys written to a file
+- Wallet keys: 14 private keys are written to a file in the specified directory or a temporary one.
 - payment configuration (blockchain info) written to a file
   - blockchain_rpc_endpoint
   - chain_id
@@ -61,7 +61,7 @@ Running a local devnet outputs values you can use to run nillion against your lo
 - bootnode
 - websocket
 
-### Spin down local devnet
+### Stop the local devnet
 
 To stop the local devnet, run
 
