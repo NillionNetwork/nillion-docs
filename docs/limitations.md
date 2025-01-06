@@ -82,4 +82,4 @@ The Nada compiler will throw an error as `inc2` does not have access to `inc`.
 
 Developers can run a local Nillion Network node with the [nillion-devnet](/nillion-devnet) tool.
 
-Today, running a Nillion Network Testnet node is permissioned. We plan to transition to a permissionless model in the future, allowing the public to participate as node operators. When this changes, you’ll hear about it on our [Twitter](https://twitter.com/nillionnetwork) and [Discord](https://discord.com/invite/nillionnetwork). Follow us to stay updated.
+Today, running a Nillion Network Testnet node is permissioned. We plan to transition to a permissionless model in the future, allowing the public to participate as node operators. When this changes, you’ll hear about it on our [X](https://x.com/nillionnetwork) and [Discord](https://discord.com/invite/nillionnetwork). Follow us to stay updated.

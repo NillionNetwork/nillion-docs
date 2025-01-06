@@ -76,7 +76,7 @@ If you are someone who likes to dive into the code and make improvements/find bu
 
 ## Raid
 
-Share on Twitter or to your Telegram groups or wherever you are most active. Add some personality and describe what you’re sharing and where people can find more.
+Share on X or to your Telegram groups or wherever you are most active. Add some personality and describe what you’re sharing and where people can find more.
 
 Share your posts with the community and we will all jump in and engage.
 
