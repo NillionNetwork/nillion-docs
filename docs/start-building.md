@@ -2,7 +2,7 @@
 
 Start building on Nillion with one of our developer quickstart guides.
 
-## Write a Nada Program
+<!-- ## Write a Nada Program
 
 The [Nada Quickstart](/quickstart-nada) will teach you how to create a Nada project and write your first privacy-preserving Nada program. The [Nada by Example Portal](/nada-by-example) is an introduction to Nada with lots of example programs for your reference.
 
@@ -17,4 +17,4 @@ If you want to **connect a backend** to Nillion, check out the Nillion [Python Q
 
 ## Write a privacy-preserving Blind AI Nada program
 
-To write privacy-preserving AI programs, check out our [Nada AI](/nada-by-example/nada-ai) examples, tutorials, and Google Colab links.
+To write privacy-preserving AI programs, check out our [Nada AI](/nada-by-example/nada-ai) examples, tutorials, and Google Colab links. -->
