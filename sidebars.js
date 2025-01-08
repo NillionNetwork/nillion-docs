@@ -129,6 +129,28 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'SecretVault & SecretDataAnalytics',
+      link: {
+        type: 'doc',
+        id: 'secretvault-secretdataanalytics',
+      },
+      items: [
+            'secretvault-secretdataanalytics-quickstart',
+            'secretvault-secretdataanalytics-applying',
+            'secretvault-secretdataanalytics-self-registering',
+            'secretvault-secretdataanalytics-generate-tokens',
+            'secretvault-secretdataanalytics-encryption',
+            'secretvault-secretdataanalytics-upload-retrieve',
+            'secretvault-secretdataanalytics-api-ref',
+            {
+              type: 'link',
+              label: '7. End-to-end example',
+              href: 'https://github.com/NillionNetwork/',
+            },
+          ],
+    },
+    {
+      type: 'category',
       label: 'Nillion SDK and Tools',
       link: {
         type: 'doc',
