@@ -323,6 +323,25 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'NilDB API',
+      items: [
+        // 'nildb/api/nildb-api-info',
+        'nildb/api/get-health-status',
+        'nildb/api/get-node-details',
+        'nildb/api/list-the-organizations-queries',
+        'nildb/api/list-the-organizations-schemas',
+        'nildb/api/delete-data-records-that-match-a-given-filter',
+        'nildb/api/execute-the-specified-query',
+        'nildb/api/remove-all-documents-in-a-schema-collection',
+        'nildb/api/retrieve-an-organizations-account-details',
+        // 'nildb/api/retrieve-data-from-the-specified-schema-collection',
+        'nildb/api/retrieve-recently-added-documents-from-a-schema-collection',
+        // 'nildb/api/update-documents-within-a-schema-collection',
+        'nildb/api/upload-data-to-the-specified-schema-collection',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Nillion Storage APIs',
       link: {
         type: 'doc',

@@ -73,6 +73,8 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
+          docRootComponent: '@theme/DocRoot',
+          docItemComponent: '@theme/ApiItem',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -85,7 +87,10 @@ const config = {
       }),
     ],
   ],
-  themes: ['docusaurus-theme-github-codeblock'],
+  themes: [
+    'docusaurus-theme-openapi-docs',
+    'docusaurus-theme-github-codeblock',
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -112,7 +117,7 @@ const config = {
             docId: 'start-building',
             label: 'Build',
           },
-          {   
+          {
             type: 'doc',
             position: 'left',
             docId: 'community-and-support',
@@ -214,6 +219,23 @@ const config = {
         sendButtonText: 'Send to the Nillion team',
         buttonStyle: 'dark',
         hideScreenshotButton: true,
+      },
+    ],
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: 'api',
+        docsPluginId: 'classic',
+        config: {
+          nildbapi: {
+            specPath: 'apispec/nildb.yaml',
+            outputDir: 'docs/nildb/api',
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+            },
+          },
+          // You can add more API specs here
+        },
       },
     ],
   ],

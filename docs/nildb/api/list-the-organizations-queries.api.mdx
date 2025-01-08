@@ -1,0 +1,63 @@
+---
+id: list-the-organizations-queries
+title: "List the organization's queries"
+description: "List the organization's queries"
+sidebar_label: "List the organization's queries"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1V9ty2zYQ/RUMX5rM6GK7TqbRm1O7HfcySSd2+tBoPBCxouCAAAOAjmiN/r27S1KiRMVqx+2LSALY+znY1SoJkJZexyqZ/LVK7r9GfE7X00ESZRbwPfmjBF8luOAhFM4GwNVVcnZyQg8FIfW6iNrZZJLcLEDINHWljd8F8QUFNZ4eJKmzEWwkAVkURqeSBMb3gaRWSUgXkEt6i1UBqMfN7iGNCZn8UmoPivxQMkpyo/CuAB917QevbiWl97JCQR0h531pzLs5h7ave1fPnVb9eC5EafUD+IBaKnrHkIRWGIqea/Bi7ryIGDNZG6HKxkSIXtsMv3E/lxh2UpaoHvd1NHTg9vb6MlkPkrvUg4ygOgH0ZTFCGEadAy72080a8FPQiRBlXoxYc1moZ2o2MkRRq9lRvt4tyx1HtomkY3q6DfjSpWWOaXsrA6B7TxfaSvbIfbXg8dmgY5A8SK/lzGC9eihgkUPlC1QlRKFVWEACZCUa9btZWbf2DmJaQYrOe2l0ANUFwIvL68uXws0ZBagAVQnnM2n1I1flACZgiWnkpCitJlabScTUWoj0blDmFErroXw0cZmZ5Zv58vzN9+bM/wDz114ZL8tzFZRNyeUtcfo+Y7kwPehPfUikzhjMNUGlhq2uGVohU2WWechqHBW6AKNtP0X7cF53K3LQhVZ9W1zh8WJAJImt3KCHBKmUJh3SvN8psbPwDSJ3scN7u2jugaWW7/MCbJmTjs0Cfs8YgjPnDEiqJiE7ma73+LKvizjSQp+vz49NwEexf8D/9jL713HUd+FxZzu35VHX/o9krnvpuiDPtzmb0oENLvs0txukwRKbWQtjOo3UneNDCYkot4JTQnytI+zgr9c4dlNBTk73vORFdv78UDP8iNeFqjmFfMOspRACERK8d/4/a4scRKOyX53wjAbAVG3uNjbAvd0riiE6XrZOAfebxoFeEn7T2ERQRy2PTSTIDJ5Ku7TVLs03KD3WwVP05SC6G6uHaErQ6oDvirxM2pqe9sP5XdclxFi0faACi1/+vGG+H4ibm0KnG+zMRDnEhcMKJhlwLDIu8GMsCz1+OB1vz2EHowmEU1J6g2cWMRZhMh5jv1CzIZVgKF+dqFGQVs3ccoRYGqamDBH8Zg3PuqwaLavHXqk3CjjH3zShHnLzLBOk4GkTWVnCs0yQgoR42s60H4hCNTx4st0ggKy3swV9z0D6+nbil59ahlB1901dCOz6Q9zB8YK5gGW++nD26vWvQprMod1Fzj1WlriFHS+lcUjgDFI4bWMYfbIkXMjKOKlEjjEimjBWBZNPdii0jBNxHUJJ11bczl60B8tiIq6WhfZ7U5944SF1OQ5ZCtRLOipLNRE30iO+mKdHphi2HMJE/GhwXKL5/dh5hr22c8d5bSiEJbp8Ky7eX9PAhritU3YyOhudERcLF2Iu7XZm+wdMOdy9IizjuDBSW9LLmFo1LMLWV2iyf4o/rR5ExQKN0+5qNcM59Nab9ZqWuXnQv57tQMP/gVAApKKZEKn3GSoqfZpCEXkWNSXfX/v3NqFvQ+2frwg9BIOO43tQ6951ePl1dKObfOLGfQaLrg4aJyJ9c1dc/w3g5cbT
+sidebar_class_name: "get api-method"
+info_path: nildb/api/nildb-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the organization's queries"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/queries"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List the organization's queries
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The account's queries","content":{"application/json":{"schema":{"type":"object","required":["data"],"properties":{"data":{"type":"array","items":{"allOf":[{"type":"object","properties":{"_id":{"description":"A universally unique identifier for the item.","type":"string","format":"uuid","title":"UUID"},"_created":{"type":"string","format":"date-time","description":"The creation timestamp."},"_updated":{"type":"string","format":"date-time","description":"The last update timestamp."}},"required":["_id","_created","_updated"],"title":"DocumentBase"},{"type":"object","required":["name","owner","schema","variables"],"properties":{"name":{"description":"A user friendly query name","type":"string"},"owner":{"description":"The decentralised identifier (DID) of the owning organization","type":"string","example":"did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc"},"schema":{"description":"The starting schema collection for this query's aggregation pipeline","type":"string","format":"uuid"},"variables":{"description":"The query's required runtime variables","type":"object","additionalProperties":{"oneOf":[{"type":"object","required":["type","description"],"properties":{"type":{"type":"string","enum":["string","number","boolean","date"]},"description":{"type":"string"}},"title":"QueryVariable"},{"type":"object","required":["type","description","items"],"properties":{"type":{"type":"string","enum":["array"]},"description":{"type":"string"},"items":{"type":"object","required":["type"],"properties":{"type":{"type":"string","enum":["string","number","boolean","date"]}}}},"title":"QueryArrayVariable"}]}},"pipeline":{"description":"An query's execution pipline defined as an array of objects","type":"array","items":{"type":"object"}}}}],"title":"Query"}}}}}}},"400":{"description":"Validation or processing errors","content":{"application/json":{"schema":{"type":"object","required":["ts","errors"],"properties":{"ts":{"type":"string","format":"date-time","description":"The time of the error according to the node."},"errors":{"description":"List of error messages","type":"array","items":{"anyOf":[{"type":"string"},{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"}}}]}}},"title":"Error"}}}},"401":{"description":"Missing or invalid JWT"}}}
+>
+  
+</StatusCodes>
+
+
+      

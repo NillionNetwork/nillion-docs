@@ -1,0 +1,63 @@
+---
+id: retrieve-an-organizations-account-details
+title: "Retrieve an organization's account details"
+description: "Retrieve an organization's account details"
+sidebar_label: "Retrieve an organization's account details"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVktvGzcQ/ivEXpIAlmSrTtDsza3dwk2LFo3dHmIjoJajFR0uyZBDVbKw/70z3NXDlmqnSC+9SOSQnNf3zcyuighVChqXRflhVdz9hfR/294eFSjrSOvirKpcshgLkgWI3tkIdLAqxsfH/KcgVkF71M4WZXE1A+FCLa2+lyx6EYXsFAgFKLWJxVFROYtgkV9L742u8tXRXWQVqyJWM2gkr3DpgZS6yR1UWLD9z0kHUOzXR61I8jFfof8qgETIouRVv/RpQtrfwZLWVjZ8sVPOXnxOEDTkuHxwHgLqLjDWfDCwPpJIoVTkf5BGR1BCK9roqYYgXp5fnr8i3b3jEYO2Ne1hIRtvWKS0Kq02JUJEC8hrQxZOINkA6d7gojaLt9PF6dtvzDh8C9M3QZkg06mKylZFuw55m52tEZsazoxUjba038WhuG13knTg8dSFRiI7SDcGqClZ7U4uv/jFNuV7T9oehEMHa1j28n4mKMko3FR0VyjbUeBMopiAcbYW6GirNzTbJl+GIBl4jdAcVJysnkOI0pglr4kPu1BSeKSYRPR8eADSTfgpZSaixgzw9fXledG2W349ERJfWf5fImq3kr4nsJCkp4cawR9UHCpTj/qBoAKrIEayIyAEF/6zLoCsqVe5V8gYv5C3RweKnQ8YI85YNpDxCEqvEQJhnYIhs7d3YC8JP/c4d+8byoCsIT4BqLTLX6e5Ez+ukP00PIy1Il8OVlZv9cBZ294+QPWCvdxgerIfzi+6g5Bi0XbOAIuf/rzKZH948XcgEzCnjmmfnwYN4MwRmEUNOSyJM9qMpNej+clo3XO5dUNgduf0pGDo0gzRx3I0oiaqJgOGYyBfH6thlFZN3GJIvBpUJkWEsJHRXVcvh4vl/R7sGwU53/9oQs0b81UmWMHTJuqU4KtMsIKCx/h6vL/ncuqokof8hg1sfT0XeT8BGSCQpFv8sK4WRvqxqTNB825AJyJlYnBRXLwfv37zTkhTO7I7a3LbkYmOqA9VPEwEWOWdJlCHN5Yfe7k0TirRUIzELIpVQXljB0JLLMVljIkeUX/kkoxIk5TPYOFLcbHwOnRdZnMoXgaoXNOQFVCv+KpMqhRXMhDBcs0+M7+z5RhL8b3RdPLiuXl/Y3MJaDt1Oa99ORFE59+Js98uKW3M2y5lx8PxcJwHpYvYyNzquqn476rmARAbMBEWOPJG0vwnE5leq76i6LvAa3blhH7kzkfdjBzh49VqIiNcB9O2LM6ziT8G6YkMWk44qA/8GTEDqYghXIafeM7zOADPtUs9IeW+9rifMxM3df7jBTOJKbHj+SPa7fZAaoo7usnNfOPKfQJLrh71TiDvi9zS/gYpKcGM
+sidebar_class_name: "get api-method"
+info_path: nildb/api/nildb-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve an organization's account details"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/accounts"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve an organization's account details
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The organization's account details","content":{"application/json":{"schema":{"type":"object","required":["_id","_type","_created","_updated","publicKey","name","schemas","queries"],"properties":{"_id":{"description":"The accounts decentralised identifier (DID)","type":"string","example":"did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc"},"_type":{"type":"string","enum":["admin","organization"]},"_created":{"type":"string","format":"date-time"},"_updated":{"type":"string","format":"date-time"},"publicKey":{"type":"string"},"name":{"type":"string"},"schemas":{"description":"A list of schema ids that belong to this account","type":"array","items":{"description":"A universally unique identifier for the item.","type":"string","format":"uuid","title":"UUID"}},"queries":{"description":"A list of query ids that belong to this account","type":"array","items":{"description":"A universally unique identifier for the item.","type":"string","format":"uuid","title":"UUID"}}},"title":"Account"}}}},"400":{"description":"Validation or processing errors","content":{"application/json":{"schema":{"type":"object","required":["ts","errors"],"properties":{"ts":{"type":"string","format":"date-time","description":"The time of the error according to the node."},"errors":{"description":"List of error messages","type":"array","items":{"anyOf":[{"type":"string"},{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"}}}]}}},"title":"Error"}}}},"401":{"description":"Missing or invalid JWT"}}}
+>
+  
+</StatusCodes>
+
+
+      
