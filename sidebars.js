@@ -3,43 +3,43 @@ const nadaByExampleSidebar = require('./sidebar-nada-by-example');
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   nillionSidebar: [
-    {
-      type: 'html',
-      className: 'sidebar-title',
-      value: 'Welcome',
-      defaultStyle: true,
-    },
-    'welcome',
-    {
-      type: 'category',
-      label: 'Developer Quickstart: Build a Blind App',
-      link: {
-        type: 'doc',
-        id: 'quickstart',
-      },
-      items: [
-        {
-          type: 'doc',
-          label: '1. Install Nillion',
-          id: 'quickstart-install',
-        },
-        {
-          type: 'doc',
-          label: '2. Create a Nada project',
-          id: 'quickstart-nada',
-        },
-        {
-          type: 'doc',
-          label: '3. Build a Blind App',
-          id: 'quickstart-blind-app',
-        },
-        {
-          type: 'doc',
-          label: '4. Deploy to the Testnet',
-          id: 'quickstart-testnet',
-        },
-      ],
-    },
+    // {
+    //   type: 'html',
+    //   className: 'sidebar-title',
+    //   value: 'Welcome',
+    //   defaultStyle: true,
+    // },
+    // 'welcome',
+    // {
+    //   type: 'category',
+    //   label: 'Developer Quickstart: Build a Blind App',
+    //   link: {
+    //     type: 'doc',
+    //     id: 'quickstart',
+    //   },
+    //   items: [
+    //     {
+    //       type: 'doc',
+    //       label: '1. Install Nillion',
+    //       id: 'quickstart-install',
+    //     },
+    //     {
+    //       type: 'doc',
+    //       label: '2. Create a Nada project',
+    //       id: 'quickstart-nada',
+    //     },
+    //     {
+    //       type: 'doc',
+    //       label: '3. Build a Blind App',
+    //       id: 'quickstart-blind-app',
+    //     },
+    //     {
+    //       type: 'doc',
+    //       label: '4. Deploy to the Testnet',
+    //       id: 'quickstart-testnet',
+    //     },
+    //   ],
+    // },
     {
       type: 'html',
       className: 'sidebar-title',
