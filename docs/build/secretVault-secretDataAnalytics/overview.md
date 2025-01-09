@@ -1,8 +1,8 @@
 # Overview
 
-Securely store you and your users data with SecretVault + run secure queries and computations on them with SecretDataAnalytics.
+Securely store your data with SecretVault + run secure queries and computations on them with SecretDataAnalytics.
 
-[ADD MORE INFO]
+This is built ontop of our Blind Modules, NilDB and NilQL which facilate database storage and querying to the encrypted data.
 
 # Getting Started
 
@@ -22,7 +22,7 @@ In order to use SecretVault/SecretDataAnalytics with your own schemas and querie
 Our requirements are to:
 
 - Provide details on how you're planning to use them and your goals.
-- Provide detailed representation of the schemas and queries you'll need in JSON schema format. Please make sure they are valid by using toosl like [JSON Schema Validator](https://www.jsonschemavalidator.net/).
+- Provide detailed representation of the schemas and queries you'll need in JSON schema format. Please make sure they are valid by using tools like [JSON Schema Validator](https://www.jsonschemavalidator.net/).
 
 You will hear back from us if your applications is approved or feedback is required, and you can then proceed with registering.
 
