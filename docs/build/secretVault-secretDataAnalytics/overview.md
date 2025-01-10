@@ -1,8 +1,11 @@
 # Overview
 
-Securely store your data with SecretVault + run secure queries and computations on them with SecretDataAnalytics.
+Securely store your data with **SecretVault** + run secure queries and computations on them with **SecretDataAnalytics**.
 
-This is built ontop of our Blind Modules, NilDB and NilQL which facilate database storage and querying to the encrypted data.
+- **SecretVault**: Use Nillion's encryption libraries to secret share your data across our decentralised network of nodes to store and retrieve it using Nillion's easy to use RESTful API
+- **SecretDataAnalytics**: Run encrypted queries across your data stored in the SecretVault using our easy to use RESTful API, with Nillion's decryption libraries to reconstruct the result.
+
+![alt text](image.png)
 
 # Getting Started
 
@@ -29,7 +32,7 @@ You will hear back from us if your applications is approved or feedback is requi
 # Self-Registering
 
 1. After your application is approved, you will receive a link from us to self-register your org
-2. **[TEMP]** This is temporarily hosted here https://secret-vault-registration.replit.app/ for visibility and testing. This should not be in the final docs, as only approved orgs/builders should be able to register. We do not want that page to be public.
+2. **[TEMP]** This is temporarily hosted here XXX for visibility and testing. This should not be in the final docs, as only approved orgs/builders should be able to register. We do not want that page to be public.
 3. Here you'll be able to choose a name for your org and select the SecretVault/SecretDataAnalytics nodes that you'd like to deploy to.
 4. You will receive and be prompted to securely store your newly created **Credentials** in the form of:
    - A DID (Decentralized Identifier)

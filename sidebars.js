@@ -143,7 +143,7 @@ const sidebars = {
         {
           type: 'link',
           label: 'Examples',
-          href: 'https://github.com/NillionNetwork/nil-examples',
+          href: 'https://github.com/NillionNetwork/nil-examples/tree/main/nildb',
         },
       ],
     },
