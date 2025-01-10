@@ -5,7 +5,7 @@ Securely store your data with **SecretVault** + run secure queries and computati
 - **SecretVault**: Use Nillion's encryption libraries to secret share your data across our decentralised network of nodes to store and retrieve it using Nillion's easy to use RESTful API
 - **SecretDataAnalytics**: Run encrypted queries across your data stored in the SecretVault using our easy to use RESTful API, with Nillion's decryption libraries to reconstruct the result.
 
-![alt text](image.png)
+![alt text](/img/nildb_diagram.png)
 
 # Getting Started
 
