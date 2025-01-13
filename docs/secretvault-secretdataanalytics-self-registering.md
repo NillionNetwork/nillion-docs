@@ -1,8 +1,7 @@
-
 # 2. Self-Registering
 
 1. After your application is approved, you will receive a link from us to self-register your org
-2. **[TEMP]** This is temporarily hosted here https://secret-vault-registration.replit.app/ for visibility and testing. This should not be in the final docs, as only approved orgs/builders should be able to register. We do not want that page to be public.
+2. **[TEMP]** This is temporarily hosted here XXX for visibility and testing. This should not be in the final docs, as only approved orgs/builders should be able to register. We do not want that page to be public.
 3. Here you'll be able to choose a name for your org and select the SecretVault/SecretDataAnalytics nodes that you'd like to deploy to.
 4. You will receive and be prompted to securely store your newly created **Credentials** in the form of:
    - A DID (Decentralized Identifier)
