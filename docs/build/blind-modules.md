@@ -8,12 +8,19 @@ Links to other parts of the Blind Module can be access here:
 
 NilVM:
 
-- Nillion Clients
-- Nillion SDK & Tools
-- Nada Language
+- Add
+
+<!-- - [Nada Quickstart](../quickstart-old)
+- [Nillion Clients](../nillion-client)
+- [Nillion SDK & Tools](../nillion-sdk-and-tools)
+- [Nada Language](../nada-lang)
   - Nada by Example
-- Nada Program Uploader
+- [Nada Program Uploader](https://nada-program-uploader.vercel.app/) -->
 
 NILDB
 
+- Coming soon.
+
 NILAI
+
+- Coming soon.

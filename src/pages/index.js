@@ -21,7 +21,7 @@ function HeroSection() {
           transactions.
         </p>
         <div className={styles.getStartedButton}>
-          <LinkButton text='Get Started' link='/start-building' small={true} />
+          <LinkButton text='Get Started' link='/quickstart' small={true} />
         </div>
       </div>
       <div className={styles.heroImageContainer}>

@@ -112,12 +112,12 @@ const config = {
             docId: 'start-building',
             label: 'Build',
           },
-          {
-            type: 'doc',
-            position: 'left',
-            docId: 'community-and-support',
-            label: 'API',
-          },
+          // {
+          //   type: 'doc',
+          //   position: 'left',
+          //   docId: 'community-and-support',
+          //   label: 'API',
+          // },
           {
             type: 'doc',
             position: 'left',
