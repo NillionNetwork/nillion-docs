@@ -7,6 +7,10 @@ Securely store your data with **SecretVault** + run secure queries and computati
 
 ![alt text](/img/nildb_diagram.png)
 
+:::info
+The API page will be integrated into the documentation page shortly.
+:::
+
 # Getting Started
 
 Let's get started with SecretVault and SecretDataAnalytics in a few steps!

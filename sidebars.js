@@ -139,7 +139,11 @@ const sidebars = {
         'build/secretVault-secretDataAnalytics/generate-tokens',
         'build/secretVault-secretDataAnalytics/encryption',
         'build/secretVault-secretDataAnalytics/upload-retrieve',
-        'build/secretVault-secretDataAnalytics/nildb-api-ref',
+        {
+          type: 'link',
+          label: 'API Reference',
+          href: 'https://nildb-a50d.nillion.network/api/v1/openapi/docs/',
+        },
         {
           type: 'link',
           label: 'Examples',
