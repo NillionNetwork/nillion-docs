@@ -42,7 +42,7 @@ const sidebars = {
       label: 'SecretLLM',
       link: {
         type: 'doc',
-        id: 'build/secretLLM/overview',
+        id: 'build/secretLlm/overview',
       },
       items: [],
     },
