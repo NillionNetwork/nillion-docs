@@ -20,10 +20,6 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-:::info
-On the next nilQL release, base64 ops will be handled in the library itself, hence this example should be edited at that time
-:::
-
 <Tabs>
   <TabItem value="python" label="Python">
 
