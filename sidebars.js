@@ -147,7 +147,7 @@ const sidebars = {
         {
           type: 'link',
           label: 'Examples',
-          href: 'https://github.com/NillionNetwork/nil-examples/tree/main/nildb',
+          href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb',
         },
       ],
     },
