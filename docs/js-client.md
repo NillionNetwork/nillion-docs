@@ -124,4 +124,4 @@ Now you can interact with the Nillion devnet and use the React hooks to do vario
 
 And once you are ready for testnet, you can follow these [testnet instructions.](./quickstart-testnet.md)
 
-<DocCardList/>
+<!-- <DocCardList/> -->

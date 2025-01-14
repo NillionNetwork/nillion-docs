@@ -18,4 +18,4 @@ The Nada language is:
 
 ## Nada Language Components
 
-<DocCardList />
+<!-- <DocCardList /> -->

@@ -4,7 +4,7 @@ import DocCardList from '@theme/DocCardList';
 
 There are 3 Nillion Clients - a Python, JavaScript, and CLI Client. Each Nillion Client provides APIs that you can use for generating user and node keys, and managing programs, secrets, and permissions on the Nillion Network.
 
-<DocCardList/>
+<!-- <DocCardList/> -->
 
 ### NillionClient
 

@@ -45,13 +45,6 @@ const sidebars = {
         id: 'build/secretLLM/overview',
       },
       items: [],
-      // items: [
-      //   {
-      //     type: 'doc',
-      //     label: 'Overview',
-      //     id: 'build/secretLLM/overview',
-      //   },
-      // ],
     },
     {
       type: 'category',
@@ -61,14 +54,6 @@ const sidebars = {
         id: 'build/secretSigning/overview',
       },
       items: [],
-
-      // items: [
-      //   {
-      //     type: 'doc',
-      //     label: 'Overview',
-      //     id: 'build/secretVault-secretData/overview',
-      //   },
-      // ],
     },
     'build/blind-modules',
     {
