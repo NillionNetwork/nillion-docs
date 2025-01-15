@@ -47,7 +47,7 @@
 .features {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 1rem;
   width: 100%;
   max-width: 1200px;
@@ -67,6 +67,7 @@
   color: var(--ifm-font-color-base) !important;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  margin-right: 1rem;
 }
 
 .featureItem:hover {

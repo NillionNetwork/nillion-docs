@@ -1,6 +1,13 @@
-# Start Building
+---
+displayed_sidebar: nilVmSidebar
+---
 
-Start building on Nillion with one of our developer quickstart guides.
+import FeatureSection from '@site/src/components/Features/FeatureSection/index';
+import { nilVMCards } from '@site/src/utils/nilVMCards';
+
+# Building with nilVM
+
+<FeatureSection data={nilVMCards} />
 
 <!-- ## Write a Nada Program
 

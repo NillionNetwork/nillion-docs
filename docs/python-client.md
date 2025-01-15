@@ -4,4 +4,4 @@ import TabItem from '@theme/TabItem';
 
 # Python Client
 
-<!-- <DocCardList/> -->
+<DocCardList/>

@@ -6,35 +6,9 @@ Currently, there are three Blind Modules: nilVM, nilDB & nilAI.
 
 ## nilVM
 
-//TODO: Add More Info ❗️
-
-The core functionality provided by nilVM is its signature functionality, which manifests in the SecretSigning SDK. nilVM is accessed using our Python or TypeScript clients and includes the nada programming language.
+The core functionality provided by nilVM is its signature functionality, which manifests in the [SecretSigning SDK](/build/secretSigning/overview). nilVM can be accessed using our [Python](/python-client) or [TypeScript](/js-client) clients and includes the [Nada programming language](/nada-lang). Check out full nilVM docs including older [nilVM Quickstarts](/start-building).
 
 The network underlying nilVM has [XXX security - getting info on this].
-
-Some useful links:
-
-- [Nada Quickstart](../quickstart-old)
-- Clients
-
-  - [Nillion Client](../nillion-client)
-  - Python Client
-    - [Quickstart](../python-quickstart.md)
-    - [Client Reference](../python-client-reference.md)
-    - [Threshold Signatures](../threshold-signatures.md)
-    - [Examples](https://github.com/NillionNetwork/python-examples/tree/main/examples_and_tutorials)
-  - Javascript Client
-
-    - [Overview](../js-client)
-    - Hooks ([Values](../js-client-hooks-values), [Compute](../js-client-hooks-compute), [Permissions](../js-client-hooks-permissions), [Other](../js-client-hooks-other))
-
-  - [CLI Clients](../nillion)
-
-- [Nillion SDK & Tools](../nillion-sdk-and-tools)
-- Nada Language
-  - [Nada by Example](../nada-by-example)
-- [Network Configuration](../network-configuration)
-- [Nada Program Uploader](https://nada-program-uploader.vercel.app/)
 
 ## nilDB
 

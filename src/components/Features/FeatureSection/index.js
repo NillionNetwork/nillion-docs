@@ -1,6 +1,5 @@
 import styles from './index.module.css';
 import Link from '@docusaurus/Link';
-import { QuickStartFeatures } from '@site/src/utils/FeatureCards';
 
 function FeatureItem({ title, description, href, icon, disabled }) {
   if (disabled) {

@@ -1,20 +1,11 @@
 const nadaByExampleSidebar = require('./sidebar-nada-by-example');
+const nilVmSidebar = require('./sidebar-nilvm');
+const { learnSidebar } = require('./sidebar-learn');
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   nillionSidebar: [
-    {
-      type: 'html',
-      className: 'sidebar-title',
-      value: 'Learn',
-      defaultStyle: true,
-    },
-    'what-is-nillion',
-    'network',
-    'high-value-data',
-    'multi-party-computation',
-    'nillions-mpc-protocol',
-    'concepts',
+    ...learnSidebar,
     {
       type: 'html',
       className: 'sidebar-title',
@@ -87,6 +78,7 @@ const sidebars = {
     'community-and-support',
   ],
   nadaByExampleSidebar,
+  nilVmSidebar,
 };
 
 export default sidebars;
