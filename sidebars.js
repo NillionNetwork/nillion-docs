@@ -27,15 +27,9 @@ const sidebars = {
       label: 'SecretVault & SecretData',
       link: {
         type: 'doc',
-        id: 'build/secretVault-secretData/overview',
+        id: 'build/secretVault-secretDataAnalytics/overview',
       },
-      items: [
-        {
-          type: 'doc',
-          label: 'Overview',
-          id: 'build/secretVault-secretData/overview',
-        },
-      ],
+      items: [],
     },
     {
       type: 'category',
