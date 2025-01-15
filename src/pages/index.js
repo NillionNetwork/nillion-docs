@@ -59,7 +59,7 @@ function FeaturesSection() {
       description:
         'Start building on Nillion with one of our developer quickstart guides. Create fullstack Python and JavaScript applications with Nada.',
       icon: '👷',
-      href: './start-building',
+      href: './quickstart',
     },
     {
       title: 'Community',

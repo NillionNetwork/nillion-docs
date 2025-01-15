@@ -109,7 +109,7 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'start-building',
+            docId: 'quickstart',
             label: 'Build',
           },
           // {
