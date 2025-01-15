@@ -4,12 +4,7 @@ info:
   version: 0.2.2
 
 servers:
-  - url: https://nildb-a50d.nillion.network
-    description: nildb-a50d
-  - url: https://nildb-dvml.nillion.network
-    description: nildb-dvml
-  - url: https://nildb-guue.nillion.network
-    description: nildb-guue
+  - url: https://nildb-demo.nillion.network
 
 components:
   securitySchemes:
