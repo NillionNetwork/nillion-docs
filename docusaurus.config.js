@@ -94,6 +94,17 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      devServer: {
+        proxy: {
+          '/api': {
+            target: 'https://nildb-a50d.nillion.network',
+            changeOrigin: true,
+            pathRewrite: {
+              '^/api': '',
+            },
+          },
+        },
+      },
       colorMode: {
         defaultMode: 'dark',
         respectPrefersColorScheme: true,
@@ -230,14 +241,44 @@ const config = {
           nildbapi: {
             specPath: 'apispec/nildb-two.yaml',
             outputDir: 'docs/nildb/api',
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-            },
+            sidebarOptions: { groupPathsBy: 'tag' },
           },
-          // You can add more API specs here
         },
       },
     ],
+    // [
+    //   'docusaurus-plugin-openapi-docs',
+    //   {
+    //     id: 'api',
+    //     docsPluginId: 'classic',
+    //     config: {
+    //       nildbapi: {
+    //         specPath: 'apispec/nildb-two.yaml',
+    //         outputDir: 'docs/nildb/api',
+    //         sidebarOptions: {
+    //           groupPathsBy: 'tag',
+    //         },
+    //       },
+    //       // You can add more API specs here
+    //     },
+    //   },
+    // ],
+    // [
+    //   'docusaurus-plugin-openapi-docs',
+    //   {
+    //     id: 'test-api',
+    //     docsPluginId: 'classic',
+    //     config: {
+    //       testAPI: {
+    //         specPath: 'apispec/test.yaml',
+    //         outputDir: 'docs/nildb/api',
+    //         sidebarOptions: {
+    //           groupPathsBy: 'tag',
+    //         },
+    //       },
+    //     },
+    //   },
+    // ],
   ],
 };
 

@@ -324,6 +324,10 @@ const sidebars = {
       type: 'category',
       label: 'NilDB API',
       items: [
+        // 'nildb/api/get-post-by-id',
+        // 'nildb/api/get-posts',
+        // 'nildb/test-api',
+
         // 'nildb/api/nildb-api-info',
         'nildb/api/get-health-status',
         'nildb/api/get-node-details',
