@@ -30,7 +30,7 @@ npx @nillion/create-nillion-app@latest
 
 ### Install Nillion SDK
 
-If you have not already, in your shell/terminal run the following command to install the Nillion SDK. 
+If you have not already, in your shell/terminal run the following command to install the Nillion SDK.
 
 ```bash
 curl https://nilup.nilogy.xyz/install.sh | bash
@@ -68,23 +68,25 @@ pnpm add @nillion/client-wasm @nillion/client-vms @nillion/client-react-hooks
 </Tabs>
 
 ## Usage
-This is the barebones initialization needed to start the NillionProvider. You must be running `nillion-devnet` in another terminal to be able to interact with this. 
+
+This is the barebones initialization needed to start the NillionProvider. You must be running `nillion-devnet` in another terminal to be able to interact with this.
 
 The approach we take is to:
+
 1. Import NillionProvider + createClient
 2. Set the client when mounted with UseEffect
 3. Initialized!
 
-*Please note this is based on Next.js so can differ.* 
+_Please note this is based on Next.js so can differ._
 
 ```typescript
 // page.tsx
 
-"use client";
+'use client';
 
-import { NillionProvider, createClient } from "@nillion/client-react-hooks";
-import type { VmClient } from "@nillion/client-vms";
-import { useEffect, useState } from "react";
+import { NillionProvider, createClient } from '@nillion/client-react-hooks';
+import type { VmClient } from '@nillion/client-vms';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [client, setClient] = useState<VmClient>();
@@ -92,7 +94,7 @@ export default function Home() {
   useEffect(() => {
     const init = async () => {
       const client = await createClient({
-        network: "devnet",
+        network: 'devnet',
       });
       setClient(client);
     };
@@ -103,25 +105,22 @@ export default function Home() {
     return <div>Loading...</div>;
   }
 
-  return (
-    <NillionProvider client={client}>
-      ...
-    </NillionProvider>
-  );
+  return <NillionProvider client={client}>...</NillionProvider>;
 }
-
 ```
+
 ### Updating our next.config.ts
+
 We also want to update our `next.config.ts` to be able to interact with the Nillion WASM client, hence the overrides. So replace your empty config with the following settings.
 
 ```tsx reference showGithubLink
 https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/next.config.mjs
 ```
 
-
 ## Next Steps
+
 Now you can interact with the Nillion devnet and use the React hooks to do various storage and compute actions with the network.
 
 And once you are ready for testnet, you can follow these [testnet instructions.](./quickstart-testnet.md)
 
-<DocCardList/>
+<!-- <DocCardList/> -->
