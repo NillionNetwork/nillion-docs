@@ -93,10 +93,10 @@ components:
         _id:
           description: The accounts decentralised identifier (DID)
           type: string
-          example: "did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc"
+          example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
         _type:
           type: string
-          enum: [ "admin", "organization" ]
+          enum: ['admin', 'organization']
         _created:
           type: string
           format: date-time
@@ -134,7 +134,7 @@ components:
             owner:
               description: The decentralised identifier (DID) of the owning organization
               type: string
-              example: "did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc"
+              example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
             keys:
               description: The schema's keys which must be unique within the associated schema collection (e.g. primary keys)
               type: array
@@ -159,7 +159,7 @@ components:
             owner:
               description: The decentralised identifier (DID) of the owning organization
               type: string
-              example: "did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc"
+              example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
             schema:
               description: The starting schema collection for this query's aggregation pipeline
               type: string
@@ -185,7 +185,7 @@ components:
       properties:
         type:
           type: string
-          enum: [ 'string', 'number', 'boolean', 'date' ]
+          enum: ['string', 'number', 'boolean', 'date']
         description:
           type: string
 
@@ -198,7 +198,7 @@ components:
       properties:
         type:
           type: string
-          enum: [ 'array' ]
+          enum: ['array']
         description:
           type: string
         items:
@@ -208,7 +208,7 @@ components:
           properties:
             type:
               type: string
-              enum: [ 'string', 'number', 'boolean', 'date' ]
+              enum: ['string', 'number', 'boolean', 'date']
 
     DataDocument:
       allOf:
@@ -292,7 +292,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Query"
+                      $ref: '#/components/schemas/Query'
         '400':
           description: Validation or processing errors
           content:
@@ -304,7 +304,7 @@ paths:
 
   /api/v1/queries/execute:
     post:
-      summary: "Execute the specified query"
+      summary: 'Execute the specified query'
       security:
         - jwt: []
       tags:
@@ -643,7 +643,7 @@ paths:
             text/plain:
               schema:
                 type: string
-                example: "OK"
+                example: 'OK'
 
   /about:
     get:
@@ -670,7 +670,7 @@ paths:
                     type: string
                     format: date-time
                     description: Timestamp when the node was started
-                    example: "2024-12-16T09:38:04.095Z"
+                    example: '2024-12-16T09:38:04.095Z'
                   build:
                     type: object
                     required:
@@ -682,25 +682,25 @@ paths:
                         type: string
                         format: date-time
                         description: Build timestamp
-                        example: "2024-12-24T23:59:59Z"
+                        example: '2024-12-24T23:59:59Z'
                       commit:
                         type: string
                         description: Git commit hash or identifier
-                        example: "c0401ee26ece3f7155fd788848baf122cdd702ed"
+                        example: 'c0401ee26ece3f7155fd788848baf122cdd702ed'
                       version:
                         type: string
                         description: Node's api version
-                        example: "0.2.2"
+                        example: '0.2.2'
                   did:
                     type: string
                     description: Decentralized Identifier (DID) of the node
-                    example: "did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc"
+                    example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
                   publicKey:
                     type: string
                     description: Public key of the node
-                    example: "02d1f198df9a64ffa27c293861bace8c80bd6b1e150e008267f7f94eae9e6c380c"
+                    example: '02d1f198df9a64ffa27c293861bace8c80bd6b1e150e008267f7f94eae9e6c380c'
                   url:
                     type: string
                     format: uri
                     description: URL where the node can be reached
-                    example: "http://localhost:8080"
+                    example: 'http://localhost:8080'
