@@ -243,6 +243,11 @@ const config = {
             outputDir: 'docs/nildb/api',
             sidebarOptions: { groupPathsBy: 'tag' },
           },
+          testAPI: {
+            specPath: 'apispec/test.yaml',
+            outputDir: 'docs/fakeapi/api',
+            sidebarOptions: { groupPathsBy: 'tag' },
+          },
         },
       },
     ],
@@ -260,22 +265,6 @@ const config = {
     //         },
     //       },
     //       // You can add more API specs here
-    //     },
-    //   },
-    // ],
-    // [
-    //   'docusaurus-plugin-openapi-docs',
-    //   {
-    //     id: 'test-api',
-    //     docsPluginId: 'classic',
-    //     config: {
-    //       testAPI: {
-    //         specPath: 'apispec/test.yaml',
-    //         outputDir: 'docs/nildb/api',
-    //         sidebarOptions: {
-    //           groupPathsBy: 'tag',
-    //         },
-    //       },
     //     },
     //   },
     // ],

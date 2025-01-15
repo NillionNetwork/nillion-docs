@@ -343,6 +343,11 @@ const sidebars = {
         'nildb/api/upload-data-to-the-specified-schema-collection',
       ],
     },
+    {
+      type: 'category',
+      label: 'Fake API',
+      items: ['fakeapi/api/get-post-by-id', 'fakeapi/api/get-posts'],
+    },
     // {
     //   type: 'category',
     //   label: 'Nillion Storage APIs',
