@@ -21,10 +21,7 @@ To make it easier for you, we have a publicly available shared organization with
 
 # Access
 
-:::info
-
-If you are on this page, you can skip this step.
-:::
+//TODO: Provide Form ❗️❗️❗️
 
 In order to use SecretVault/SecretDataAnalytics with your own schemas and queries, please fill in this form.
 
