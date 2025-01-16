@@ -11,13 +11,12 @@ Securely store your data with **SecretVault** + run secure queries and computati
 The API page will be integrated into the documentation page shortly.
 :::
 
-# Getting Started
+# Try them out in a demo environment
 
-Let's get started with SecretVault and SecretDataAnalytics in a few steps!
+Before diving down in the full details and guides on how to access and then build using SecretVault and SecretDataAnalytics, why not get a taste of them in action first?
 
-To make it easier for you, we have a publicly available shared organization with a pre-defined schema and queries that anyone can use to securely store and then query some test data. This is accessible here with an OpenAPI Swagger interface for `/data/create` and `/data/read`.
-
-`queries/execute` is for more advanced cross-schema queries.
+- You can try out **SecretVault** in our demo node under a publicly shared organization. Upload some data [here](../../api/nildb/upload-data-to-the-specified-schema-collection) :arrow_upper_right:.
+- Then use **SecretDataAnalytics** in the same fashion [here](../../api/nildb/execute-the-specified-query) :bar_chart: to retrieve some insights from the common SecretVault collection where you and other users have uploaded your test data.
 
 # Access
 
