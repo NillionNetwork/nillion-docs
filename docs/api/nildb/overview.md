@@ -9,6 +9,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
 
 :::
 
+NILDB API has several endpoints you may interface with:
 
 - [Health](./get-health-status.api.mdx)
 - [About](./get-node-details.api.mdx)
