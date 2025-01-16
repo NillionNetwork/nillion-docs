@@ -1,0 +1,71 @@
+---
+id: execute-the-specified-query
+title: "Execute the specified query"
+description: "Execute the specified query"
+sidebar_label: "Execute the specified query"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVVFv4zYM/iuCXnYD4qRN29zmt941A7rbcLc12x56fWAsOlFrSzpJThME+e8jZadN6qLDgOtDKlEUyY/89HkrAxaN13Ej89utvH+M9P9udzeQERaB1vKPBv1GksHjtwZD/GAV+W7TVntUMo++wYEsrIloIh+Bc5UuIGprRvfBGraFYok18CpuHMpc2vk9FlEODgLdSq3IsAKvYV5h4KzOW4c+atrRXTqnX4Wh8NpxfAo0W6L4xkWKptFKRCtwTZgiUqguV4hemwXtS+troBolu8rdYa5e3E+4ESuoGhQOtA8cuAkogFb7jD8E4RsTdY3iOdDgBcJd+mOcwVkT2lTjk5O3kLQIyCroVlNxm75LfxVE6Hc1Wf9fNa9DPH8N1d9QaZWKFdYLylxgCDQOgd5bH74XtMiRupA9hDEcXO+zgcrDjMdIxn4T0nxtmcaeEggoCusVYyBSsNlYhUPmU1dArwm/6RA5Rnu/pg7A4pAr4D1saKsj1uk6mM3nMr3J46p3g34bjrEWVEsfLdXWZX3lbLe7S/OLOlZsn3KVcj/T0z6c33U7QsKizYoHLH79ZybZ/9hx2j7F1KTgsNClRtXSSnJFcWlpetLZkIBAXNJuBE6PVqcjdiNQo+f3HNCvkPtLfWl8Rb7LGF3IRyOjKzXPFNZ2SMuKsg8NxkfrHySr2V7lbphLbZ+S1j21guNwgnRO+zmCR0+WdvHLnioM8yXIS3F1fZXRCQlEIgWBnd6MLyafBFQLS3mXtSiZNw0dkV4QwakLaJSz2sQw/Gr4soNNZUGJuiGuaFNUjcL8q8mEhpiL6xAaugQx8TFEqB2f4drlYrp22rdP7OlQvPNY2LqmLKh+ZFdoVC5m4BcYE2GFwoKq8TS+QJG14tJoPl68IzzpCo05Fx8rTSekdf/ln+bPr/bP50/FdE21VLgXb3lWwk8X5eQ8u3h/+j47v5iMs/lZWWTj4ufJWTmZQAkTeazLHFWb0qZpdQylGV99EJdfrtmXGNEO4mQ4Ho6Z6synGpJ6GEjzfJuIR/N84kTEdRy5CrThmIlv246jt6RUmnOf0k/HU9afjqnEuCVTmvy22zkE/MtXux2b24z0jX3GmL64dAFBEeOY2g9ILvJjK4vZjKthd/oWsVS8lEiWhPbGZVGgi2/63h28ui+fb5jM8+6LXifhkB4eWVrpN5e0sKkr6cUk21ZWYBZNEhLZxuQBMbUPWvfi+RwKGSnbQYXUnuQxsw9oqEWDDkrkvUy69C9rIPp2
+sidebar_class_name: "post api-method"
+info_path: nildb/api/nildb-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Execute the specified query"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/queries/execute"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Execute the specified query
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["id","variables"],"properties":{"id":{"description":"The query uuid to execute","type":"string","format":"uuid"},"variables":{"description":"Key value pairs to use as the query's runtime variables","type":"object"}}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The query execution result","content":{"application/json":{"schema":{"type":"object","required":["data"],"properties":{"data":{"description":"The query execution result","type":"object"}}}}}},"400":{"description":"Validation or processing errors","content":{"application/json":{"schema":{"type":"object","required":["ts","errors"],"properties":{"ts":{"type":"string","format":"date-time","description":"The time of the error according to the node."},"errors":{"description":"List of error messages","type":"array","items":{"anyOf":[{"type":"string"},{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"}}}]}}},"title":"Error"}}}},"401":{"description":"Missing or invalid JWT"}}}
+>
+  
+</StatusCodes>
+
+
+      

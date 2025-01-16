@@ -73,6 +73,8 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
+          docRootComponent: '@theme/DocRoot',
+          docItemComponent: '@theme/ApiItem',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -85,10 +87,24 @@ const config = {
       }),
     ],
   ],
-  themes: ['docusaurus-theme-github-codeblock'],
+  themes: [
+    'docusaurus-theme-openapi-docs',
+    'docusaurus-theme-github-codeblock',
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      devServer: {
+        proxy: {
+          '/api': {
+            target: 'https://nildb-a50d.nillion.network',
+            changeOrigin: true,
+            pathRewrite: {
+              '^/api': '',
+            },
+          },
+        },
+      },
       colorMode: {
         defaultMode: 'dark',
         respectPrefersColorScheme: true,
@@ -223,6 +239,42 @@ const config = {
         hideScreenshotButton: true,
       },
     ],
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: 'api',
+        docsPluginId: 'classic',
+        config: {
+          nildbapi: {
+            specPath: 'apispec/nildb-two.yaml',
+            outputDir: 'docs/nildb/api',
+            sidebarOptions: { groupPathsBy: 'tag' },
+          },
+          testAPI: {
+            specPath: 'apispec/test.yaml',
+            outputDir: 'docs/fakeapi/api',
+            sidebarOptions: { groupPathsBy: 'tag' },
+          },
+        },
+      },
+    ],
+    // [
+    //   'docusaurus-plugin-openapi-docs',
+    //   {
+    //     id: 'api',
+    //     docsPluginId: 'classic',
+    //     config: {
+    //       nildbapi: {
+    //         specPath: 'apispec/nildb-two.yaml',
+    //         outputDir: 'docs/nildb/api',
+    //         sidebarOptions: {
+    //           groupPathsBy: 'tag',
+    //         },
+    //       },
+    //       // You can add more API specs here
+    //     },
+    //   },
+    // ],
   ],
 };
 

@@ -1,0 +1,63 @@
+---
+id: list-the-organizations-schemas
+title: "List the organization's schemas"
+description: "List the organization's schemas"
+sidebar_label: "List the organization's schemas"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVttuIzcM/RVBL00Ax07SdNGdt2ydFukFLbBJ+7AbBLJEe5RopFldYnuN+feSmhnfkSzQ+mV0oUge8pD0igeQyeu45MWnFX+aR/w+NA8DHsUs4JqPRRQc9x5C7WwAPFzxy/Nz+igI0us6amd5we9KYM7PhNVfBR19F1iQJVQi8AGXzkawkV6JujZaZpHRU6CnK94K0ioua0BlbvIEMnKy+yVpD4p8UZ0vtXc1+KhbZ/Lp5qXwXizxoY5Q5XthzJ/TDG9f966eR60OQV2zZPUL+IBalrT+koBphVD0VINnU+dZROBkbYgqOxMhem1nuMf7SiBsnhKqx3sdDQnc39+OeTPgj9KDiKC2ABy+RYRwFnUFeHgY86wBt4wkQhRVPcyaU63+o2YjQmStmh3lzW5aHjOyNZIt0w8bwGMnU4Vh+yACoHuvJ9qK7JGbW/D4fYYlcagjyQEBsvSxzAVKkNdgFeaufc061bsRaXpbR0mtQKLjXhgdQG0n/2R8Oz5lbpoZgApQ1U4FHOEDLDCEOSBKq8JqU0QMq4VIa4NvLiBZD+mriYuZWbyfLq7ef28u/Y8wfeeV8SJdqaCsJJdzWI563GLFAiQRNi+1LFmVMJkT6Dk817HUNnsuQnBSU8L6IElnDGaFSHUCw9mQ1V5Xwi+zvtMNrINa2wtrM9iq7EM3qfp7k4liGx17wTBnwlFZo79IVawubDw+u6MtysQ1xC1PN151lGqaZot/H1s/mvY34FfHWtjfrXEyhHWNLJMQAmUVvHf+f+tjkTR1Kg/YHI8E8psrli56QmYDTEjpvCIMXeCsU5AbROfAQRB+10gU1NG+x6oPYgbhlaQLu9xtsOuqeqvlSvTlCG0GvLN6jFLNQ85fn9cb8pL3Ob04hPOHblOIWLTN7GK//nOXuXkEd3xtiFUQS4cZ5DPIWEQscTMStR69XIw2ckhWGhk5JMkblCljrEMxGmGRq8mZgsoNu3ofYu3PnX/mRNZ+GGeytiHKI3kdBdLTd0LaT0D43CLbxc89SwjhPr5rhu3qDG+w1jIfEOrNx8sf3v3GhJk5tFtWeZ6JhFfY42RuCdg9a4dlF4afLT2uxdI4odp+oq00SUHx2Z4x7CAFuw0h4SMRNwOD7mBRF+xmUWu/N6rYiQfpKpwMCtQpiYqkCnYnPMY4c/WN9psth1Cwnww2+oj5eks+p17bqctx7WiE2Rh/YNd/3WLYKHdtyM6Hl8NL4mPtQqyE3Uybb2DLTvTXGYywiKPaCG1Jb2bHqmPSJ2wpmuxfrIdd7g8lGqfb1WqCw/Pem6ahY+zinv624fJFeC0mBAT/vOEDEIqGGdIPGzalXkqoibLI/5RreL93EfvW9P7lhthDNNhyfI9q2/WODWBLN7qZJe7cM1h0ddA5EWnPc/n+C/ljn1g=
+sidebar_class_name: "get api-method"
+info_path: nildb/api/nildb-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List the organization's schemas"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/schemas"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List the organization's schemas
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The organization's schemas","content":{"application/json":{"schema":{"type":"object","required":["data"],"properties":{"data":{"type":"array","items":{"allOf":[{"type":"object","properties":{"_id":{"description":"A universally unique identifier for the item.","type":"string","format":"uuid","title":"UUID"},"_created":{"type":"string","format":"date-time","description":"The creation timestamp."},"_updated":{"type":"string","format":"date-time","description":"The last update timestamp."}},"required":["_id","_created","_updated"],"title":"DocumentBase"},{"type":"object","required":["name","owner","keys","schema"],"properties":{"name":{"description":"A user friendly schema name","type":"string"},"owner":{"description":"The decentralised identifier (DID) of the owning organization","type":"string","example":"did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc"},"keys":{"description":"The schema's keys which must be unique within the associated schema collection (e.g. primary keys)","type":"array","items":{"type":"string"}},"schema":{"description":"The json schema used to validate data before insertion into the schema collection","type":"object"}}}],"title":"Schema"}}}}}}},"400":{"description":"Validation or processing errors","content":{"application/json":{"schema":{"type":"object","required":["ts","errors"],"properties":{"ts":{"type":"string","format":"date-time","description":"The time of the error according to the node."},"errors":{"description":"List of error messages","type":"array","items":{"anyOf":[{"type":"string"},{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"}}}]}}},"title":"Error"}}}},"401":{"description":"Missing or invalid JWT"}}}
+>
+  
+</StatusCodes>
+
+
+      

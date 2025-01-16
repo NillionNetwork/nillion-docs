@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: Test API
+  version: 1.0.0
+  description: A test API using JSONPlaceholder (which has CORS enabled)
+
+servers:
+  - url: https://jsonplaceholder.typicode.com
+    description: Test Server
+
+paths:
+  /posts:
+    get:
+      summary: Get all posts
+      description: Retrieve a list of posts
+      operationId: getPosts
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    body:
+                      type: string
+                    userId:
+                      type: integer
+
+  /posts/{id}:
+    get:
+      summary: Get a post by ID
+      description: Retrieve a specific post by its ID
+      operationId: getPostById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: The post ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  body:
+                    type: string
+                  userId:
+                    type: integer
