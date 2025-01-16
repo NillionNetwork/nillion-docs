@@ -7,10 +7,6 @@ Securely store your data with **SecretVault** + run secure queries and computati
 
 ![alt text](/img/nildb_diagram.png)
 
-:::info
-Feel free to access the API page for NilDB to interact with the SDK
-:::
-
 # Try them out in a demo environment
 
 Before diving down in the full details and guides on how to access and then build using SecretVault and SecretDataAnalytics, why not get a taste of them in action first?
