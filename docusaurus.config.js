@@ -6,6 +6,7 @@
 
 import { themes as prismThemes } from 'prism-react-renderer';
 import 'dotenv/config';
+// const { apiSidebar } = require('./sidebar-api');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -128,12 +129,12 @@ const config = {
             docId: 'quickstart',
             label: 'Build',
           },
-          // {
-          //   type: 'doc',
-          //   position: 'left',
-          //   docId: 'community-and-support',
-          //   label: 'API',
-          // },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'api/overview',
+            label: 'API',
+          },
           {
             type: 'doc',
             position: 'left',
@@ -250,31 +251,15 @@ const config = {
             outputDir: 'docs/nildb/api',
             sidebarOptions: { groupPathsBy: 'tag' },
           },
-          testAPI: {
-            specPath: 'apispec/test.yaml',
-            outputDir: 'docs/fakeapi/api',
-            sidebarOptions: { groupPathsBy: 'tag' },
-          },
+          // Placeholder: for future APIs
+          // testAPI: {
+          //   specPath: 'apispec/test.yaml',
+          //   outputDir: 'docs/fakeapi/api',
+          //   sidebarOptions: { groupPathsBy: 'tag' },
+          // },
         },
       },
     ],
-    // [
-    //   'docusaurus-plugin-openapi-docs',
-    //   {
-    //     id: 'api',
-    //     docsPluginId: 'classic',
-    //     config: {
-    //       nildbapi: {
-    //         specPath: 'apispec/nildb-two.yaml',
-    //         outputDir: 'docs/nildb/api',
-    //         sidebarOptions: {
-    //           groupPathsBy: 'tag',
-    //         },
-    //       },
-    //       // You can add more API specs here
-    //     },
-    //   },
-    // ],
   ],
 };
 
