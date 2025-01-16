@@ -1,0 +1,702 @@
+openapi: 3.0.0
+info:
+  title: nilDB API
+  version: 0.2.2
+
+servers:
+  - url: https://nildb-demo.nillion.network
+
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        A DID-JWT using the ES256K algorithm for authenticated endpoints.
+        JWT payload must include:
+        - iat: Issued at timestamp
+        - exp: Expiration timestamp (recommended)
+        - aud: Target node decentralised identifier (DID)
+        - iss: Client's decentralised identifier (DID)
+
+  schemas:
+    Error:
+      type: object
+      required:
+        - ts
+        - errors
+      properties:
+        ts:
+          type: string
+          format: date-time
+          description: The time of the error according to the node.
+        errors:
+          description: List of error messages
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: object
+                properties:
+                  code:
+                    type: string
+                  message:
+                    type: string
+
+    UUID:
+      description: A universally unique identifier for the item.
+      type: string
+      format: uuid
+
+    Filter:
+      type: object
+      description: An object representing filter criteria for queries.
+      additionalProperties:
+        type: object
+        description: A flexible object allowing any key-value pairs, where values can be of any type.
+
+    DocumentBase:
+      type: object
+      properties:
+        _id:
+          $ref: '#/components/schemas/UUID'
+        _created:
+          type: string
+          format: date-time
+          description: The creation timestamp.
+        _updated:
+          type: string
+          format: date-time
+          description: The last update timestamp.
+      required:
+        - _id
+        - _created
+        - _updated
+
+    Account:
+      type: object
+      required:
+        - _id
+        - _type
+        - _created
+        - _updated
+        - publicKey
+        - name
+        - schemas
+        - queries
+      properties:
+        _id:
+          description: The accounts decentralised identifier (DID)
+          type: string
+          example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
+        _type:
+          type: string
+          enum: ['admin', 'organization']
+        _created:
+          type: string
+          format: date-time
+        _updated:
+          type: string
+          format: date-time
+        publicKey:
+          type: string
+        name:
+          type: string
+        schemas:
+          description: A list of schema ids that belong to this account
+          type: array
+          items:
+            $ref: '#/components/schemas/UUID'
+        queries:
+          description: A list of query ids that belong to this account
+          type: array
+          items:
+            $ref: '#/components/schemas/UUID'
+
+    Schema:
+      allOf:
+        - $ref: '#/components/schemas/DocumentBase'
+        - type: object
+          required:
+            - name
+            - owner
+            - keys
+            - schema
+          properties:
+            name:
+              description: A user friendly schema name
+              type: string
+            owner:
+              description: The decentralised identifier (DID) of the owning organization
+              type: string
+              example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
+            keys:
+              description: The schema's keys which must be unique within the associated schema collection (e.g. primary keys)
+              type: array
+              items:
+                type: string
+            schema:
+              description: The json schema used to validate data before insertion into the schema collection
+              type: object
+    Query:
+      allOf:
+        - $ref: '#/components/schemas/DocumentBase'
+        - type: object
+          required:
+            - name
+            - owner
+            - schema
+            - variables
+          properties:
+            name:
+              description: A user friendly query name
+              type: string
+            owner:
+              description: The decentralised identifier (DID) of the owning organization
+              type: string
+              example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
+            schema:
+              description: The starting schema collection for this query's aggregation pipeline
+              type: string
+              format: uuid
+            variables:
+              description: The query's required runtime variables
+              type: object
+              additionalProperties:
+                oneOf:
+                  - $ref: '#/components/schemas/QueryVariable'
+                  - $ref: '#/components/schemas/QueryArrayVariable'
+            pipeline:
+              description: An query's execution pipline defined as an array of objects
+              type: array
+              items:
+                type: object
+
+    QueryVariable:
+      type: object
+      required:
+        - type
+        - description
+      properties:
+        type:
+          type: string
+          enum: ['string', 'number', 'boolean', 'date']
+        description:
+          type: string
+
+    QueryArrayVariable:
+      type: object
+      required:
+        - type
+        - description
+        - items
+      properties:
+        type:
+          type: string
+          enum: ['array']
+        description:
+          type: string
+        items:
+          type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum: ['string', 'number', 'boolean', 'date']
+
+    DataDocument:
+      allOf:
+        - $ref: '#/components/schemas/DocumentBase'
+        - type: object
+          additionalProperties: true
+          description: The document's additional properties. Schema dependent.
+
+paths:
+  /api/v1/accounts:
+    get:
+      summary: Retrieve an organization's account details
+      security:
+        - jwt: []
+      tags:
+        - Accounts
+      responses:
+        '200':
+          description: The organization's account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '401':
+          description: Missing or invalid JWT
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/v1/schemas:
+    get:
+      summary: "List the organization's schemas"
+      security:
+        - jwt: []
+      tags:
+        - Data
+      responses:
+        '200':
+          description: "The organization's schemas"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Schema'
+
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing or invalid JWT
+
+  /api/v1/queries:
+    get:
+      summary: "List the organization's queries"
+      security:
+        - jwt: []
+      tags:
+        - Query
+      responses:
+        '200':
+          description: "The account's queries"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Query'
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing or invalid JWT
+
+  /api/v1/queries/execute:
+    post:
+      summary: 'Execute the specified query'
+      security:
+        - jwt: []
+      tags:
+        - Query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+                - variables
+              properties:
+                id:
+                  description: The query uuid to execute
+                  type: string
+                  format: uuid
+                variables:
+                  description: Key value pairs to use as the query's runtime variables
+                  type: object
+      responses:
+        '200':
+          description: The query execution result
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    description: The query execution result
+                    type: object
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing or invalid JWT
+
+  /api/v1/data/create:
+    post:
+      summary: Upload data to the specified schema collection
+      security:
+        - jwt: []
+      tags:
+        - Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - schema
+                - data
+              properties:
+                schema:
+                  description: The schema's uuid used to validate data
+                  type: string
+                  format: uuid
+                data:
+                  type: array
+                  items:
+                    type: object
+                    additionalProperties:
+                      description: An object whose shape matches the targeted schema. `_id` and schema `keys` are required.
+                      type: object
+      responses:
+        '200':
+          description: The outcome of the data upload operation. The operation can be partially successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - created
+                  - errors
+                properties:
+                  created:
+                    description: The uuids from successfully created documents
+                    type: array
+                    items:
+                      - $ref: '#/components/schemas/UUID'
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - error
+                        - document
+                      properties:
+                        error:
+                          type: string
+                        document:
+                          type: object
+
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing or invalid JWT
+
+  /api/v1/data/read:
+    post:
+      summary: Retrieve data from the specified schema collection that matches the provided filter
+      security:
+        - jwt: []
+      tags:
+        - Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - schema
+                - filter
+              properties:
+                schema:
+                  $ref: '#/components/schemas/UUID'
+                filter:
+                  $ref: '#/components/schemas/Filter'
+      responses:
+        '200':
+          description: Data documents that match the provided filter. Pagenation is not supported.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      - $ref: '#/components/schemas/DataDocument'
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing or invalid JWT
+
+  /api/v1/data/update:
+    post:
+      summary: Update documents within a schema collection that match the given filter
+      security:
+        - jwt: []
+      tags:
+        - Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - schema
+                - filter
+                - update
+              properties:
+                schema:
+                  $ref: '#/components/schemas/UUID'
+                filter:
+                  $ref: '#/components/schemas/Filter'
+                update:
+                  additionalProperties:
+                    type: object
+                    description: A flexible object allowing any key-value pairs, where values can be of any type.
+      responses:
+        '200':
+          description: The result of the update operation
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - matched
+                      - updated
+                    properties:
+                      matched:
+                        type: number
+                      updated:
+                        type: number
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing or invalid JWT
+
+  /api/v1/data/tail:
+    post:
+      summary: Retrieve recently added documents from a schema collection
+      security:
+        - jwt: []
+      tags:
+        - Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - schema
+              properties:
+                schema:
+                  $ref: '#/components/schemas/UUID'
+      responses:
+        '200':
+          description: The last 25 latest documents added to the schema collection
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      - $ref: '#/components/schemas/DataDocument'
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing or invalid JWT
+
+  /api/v1/data/delete:
+    post:
+      summary: Delete data records that match a given filter
+      security:
+        - jwt: []
+      tags:
+        - Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                schema:
+                  $ref: '#/components/schemas/UUID'
+                filter:
+                  $ref: '#/components/schemas/Filter'
+      responses:
+        '200':
+          description: The number of documents removed
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: number
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing or invalid JWT
+
+  /api/v1/data/flush:
+    post:
+      summary: Remove all documents in a schema collection
+      security:
+        - jwt: []
+      tags:
+        - Data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - data
+              properties:
+                data:
+                  type: object
+                  properties:
+                    schema:
+                      $ref: '#/components/schemas/UUID'
+      responses:
+        '200':
+          description: The total documents removed
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: number
+        '400':
+          description: Validation or processing errors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Missing or invalid JWT
+
+  /health:
+    get:
+      summary: Check service health status
+      description: Returns 200 OK if the service is healthy
+      operationId: getHealthStatus
+      tags:
+        - System
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 'OK'
+
+  /about:
+    get:
+      summary: Retrieve node details
+      description: Returns information about the node including its DID, public key and build details
+      operationId: getNodeDetails
+      tags:
+        - System
+      responses:
+        '200':
+          description: Successful response with node details
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - started
+                  - build
+                  - did
+                  - publicKey
+                  - url
+                properties:
+                  started:
+                    type: string
+                    format: date-time
+                    description: Timestamp when the node was started
+                    example: '2024-12-16T09:38:04.095Z'
+                  build:
+                    type: object
+                    required:
+                      - time
+                      - commit
+                      - version
+                    properties:
+                      time:
+                        type: string
+                        format: date-time
+                        description: Build timestamp
+                        example: '2024-12-24T23:59:59Z'
+                      commit:
+                        type: string
+                        description: Git commit hash or identifier
+                        example: 'c0401ee26ece3f7155fd788848baf122cdd702ed'
+                      version:
+                        type: string
+                        description: Node's api version
+                        example: '0.2.2'
+                  did:
+                    type: string
+                    description: Decentralized Identifier (DID) of the node
+                    example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
+                  publicKey:
+                    type: string
+                    description: Public key of the node
+                    example: '02d1f198df9a64ffa27c293861bace8c80bd6b1e150e008267f7f94eae9e6c380c'
+                  url:
+                    type: string
+                    format: uri
+                    description: URL where the node can be reached
+                    example: 'http://localhost:8080'

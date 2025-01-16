@@ -1,9 +1,9 @@
-import React from "react";
-import Layout from "@theme/Layout";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import styles from "./index.module.css";
-import Link from "@docusaurus/Link";
-import LinkButton from "../components/LinkButton";
+import React from 'react';
+import Layout from '@theme/Layout';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import styles from './index.module.css';
+import Link from '@docusaurus/Link';
+import LinkButton from '../components/LinkButton';
 
 function HeroSection() {
   const { siteConfig } = useDocusaurusContext();
@@ -21,13 +21,13 @@ function HeroSection() {
           transactions.
         </p>
         <div className={styles.getStartedButton}>
-          <LinkButton text="Get Started" link="/quickstart" small={true} />
+          <LinkButton text='Get Started' link='/quickstart' small={true} />
         </div>
       </div>
       <div className={styles.heroImageContainer}>
         <img
-          src="https://nillion.com/wp-content/themes/nillion/assets/images/index/web-summit.svg"
-          alt="Nillion Network Illustration"
+          src='https://nillion.com/wp-content/themes/nillion/assets/images/index/web-summit.svg'
+          alt='Nillion Network Illustration'
           className={styles.spinningImage}
         />
       </div>
@@ -48,25 +48,24 @@ function FeatureItem({ title, description, href, icon }) {
 function FeaturesSection() {
   const features = [
     {
-      title: "Learn",
+      title: 'Learn',
       description:
-        "Nillion is a secure computation network that decentralizes trust for high value data in the same way that blockchains decentralized transactions.",
-      icon: "🎓",
-      href: "./what-is-nillion",
+        'Nillion is a secure computation network that decentralizes trust for high value data in the same way that blockchains decentralized transactions.',
+      icon: '🎓',
+      href: './what-is-nillion',
     },
     {
-      title: "Build",
-      description:
-        "Start building on Nillion with one of our developer quickstart guides. Create fullstack Python and JavaScript applications with Nada.",
-      icon: "👷",
-      href: "./start-building",
+      title: 'Build',
+      description: 'Start building on Nillion with one of our developer SDKs.',
+      icon: '👷',
+      href: './quickstart',
     },
     {
-      title: "Community",
+      title: 'Community',
       description:
-        "Join the Nillion community to connect, collaborate, and contribute to the future of blind computation.",
-      icon: "🌐",
-      href: "./community-and-support",
+        'Join the Nillion community to connect, collaborate, and contribute to the future of blind computation.',
+      icon: '🌐',
+      href: './community-and-support',
     },
   ];
 
@@ -82,10 +81,10 @@ function FeaturesSection() {
 export default function Home() {
   return (
     <Layout
-      title="Home"
+      title='Home'
       description="Nillion Builder Docs - Humanity's first blind computer"
       noFooter={true}
-      wrapperClassName="homepage"
+      wrapperClassName='homepage'
     >
       <main className={styles.main}>
         <HeroSection />

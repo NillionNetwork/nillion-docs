@@ -20,4 +20,4 @@ The Nillion Network leverages [Nada](/nada-lang) for defining programs. We are d
 - AI Modules: Provides a PyTorch-like interface to create ML models in Nada by stacking pre-built common components, with the option to create custom components.
 - Importing Model State: Easily import an exported model state from the Nillion network for use in a Nada program.
 
-<DocCardList />
+<!-- <DocCardList /> -->

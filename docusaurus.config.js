@@ -6,6 +6,7 @@
 
 import { themes as prismThemes } from 'prism-react-renderer';
 import 'dotenv/config';
+// const { apiSidebar } = require('./sidebar-api');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -73,6 +74,8 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
+          docRootComponent: '@theme/DocRoot',
+          docItemComponent: '@theme/ApiItem',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -85,10 +88,24 @@ const config = {
       }),
     ],
   ],
-  themes: ['docusaurus-theme-github-codeblock'],
+  themes: [
+    'docusaurus-theme-openapi-docs',
+    'docusaurus-theme-github-codeblock',
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      devServer: {
+        proxy: {
+          '/api': {
+            target: 'https://nildb-a50d.nillion.network',
+            changeOrigin: true,
+            pathRewrite: {
+              '^/api': '',
+            },
+          },
+        },
+      },
       colorMode: {
         defaultMode: 'dark',
         respectPrefersColorScheme: true,
@@ -109,15 +126,22 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'start-building',
+            docId: 'quickstart',
             label: 'Build',
           },
-          {   
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'api/overview',
+            label: 'API',
+          },
+          {
             type: 'doc',
             position: 'left',
             docId: 'community-and-support',
             label: 'Community',
           },
+
           {
             href: 'https://github.com/NillionNetwork',
             className: 'header-github',
@@ -214,6 +238,26 @@ const config = {
         sendButtonText: 'Send to the Nillion team',
         buttonStyle: 'dark',
         hideScreenshotButton: true,
+      },
+    ],
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: 'api',
+        docsPluginId: 'classic',
+        config: {
+          nildbapi: {
+            specPath: 'apispec/nildb-api.yaml',
+            outputDir: 'docs/api/nildb',
+            sidebarOptions: { groupPathsBy: 'tag' },
+          },
+          // Placeholder: for future APIs
+          // testAPI: {
+          //   specPath: 'apispec/test.yaml',
+          //   outputDir: 'docs/fakeapi/api',
+          //   sidebarOptions: { groupPathsBy: 'tag' },
+          // },
+        },
       },
     ],
   ],
