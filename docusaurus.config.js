@@ -247,8 +247,8 @@ const config = {
         docsPluginId: 'classic',
         config: {
           nildbapi: {
-            specPath: 'apispec/nildb-two.yaml',
-            outputDir: 'docs/nildb/api',
+            specPath: 'apispec/nildb-api.yaml',
+            outputDir: 'docs/api/nildb',
             sidebarOptions: { groupPathsBy: 'tag' },
           },
           // Placeholder: for future APIs

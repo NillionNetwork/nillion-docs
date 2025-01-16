@@ -19,9 +19,9 @@ const buildSidebar = [
       'build/secretVault-secretDataAnalytics/encryption',
       'build/secretVault-secretDataAnalytics/upload-retrieve',
       {
-        type: 'link',
+        type: 'doc',
         label: 'API Reference',
-        href: 'https://nildb-a50d.nillion.network/api/v1/openapi/docs/',
+        id: 'api/nildb/overview',
       },
       {
         type: 'link',

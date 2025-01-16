@@ -4,7 +4,7 @@ const sidebar: SidebarsConfig = {
   apisidebar: [
     {
       type: "doc",
-      id: "nildb/api/nildb-api",
+      id: "api/nildb/nildb-api",
     },
     {
       type: "category",
@@ -12,7 +12,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "nildb/api/retrieve-an-organizations-account-details",
+          id: "api/nildb/retrieve-an-organizations-account-details",
           label: "Retrieve an organization's account details",
           className: "api-method get",
         },
@@ -24,43 +24,43 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "nildb/api/list-the-organizations-schemas",
+          id: "api/nildb/list-the-organizations-schemas",
           label: "List the organization's schemas",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "nildb/api/upload-data-to-the-specified-schema-collection",
+          id: "api/nildb/upload-data-to-the-specified-schema-collection",
           label: "Upload data to the specified schema collection",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "nildb/api/retrieve-data-from-the-specified-schema-collection-that-matches-the-provided-filter",
+          id: "api/nildb/retrieve-data-from-the-specified-schema-collection-that-matches-the-provided-filter",
           label: "Retrieve data from the specified schema collection that matches the provided filter",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "nildb/api/update-documents-within-a-schema-collection-that-match-the-given-filter",
+          id: "api/nildb/update-documents-within-a-schema-collection-that-match-the-given-filter",
           label: "Update documents within a schema collection that match the given filter",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "nildb/api/retrieve-recently-added-documents-from-a-schema-collection",
+          id: "api/nildb/retrieve-recently-added-documents-from-a-schema-collection",
           label: "Retrieve recently added documents from a schema collection",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "nildb/api/delete-data-records-that-match-a-given-filter",
+          id: "api/nildb/delete-data-records-that-match-a-given-filter",
           label: "Delete data records that match a given filter",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "nildb/api/remove-all-documents-in-a-schema-collection",
+          id: "api/nildb/remove-all-documents-in-a-schema-collection",
           label: "Remove all documents in a schema collection",
           className: "api-method post",
         },
@@ -72,13 +72,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "nildb/api/list-the-organizations-queries",
+          id: "api/nildb/list-the-organizations-queries",
           label: "List the organization's queries",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "nildb/api/execute-the-specified-query",
+          id: "api/nildb/execute-the-specified-query",
           label: "Execute the specified query",
           className: "api-method post",
         },
@@ -90,13 +90,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "nildb/api/get-health-status",
+          id: "api/nildb/get-health-status",
           label: "Check service health status",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "nildb/api/get-node-details",
+          id: "api/nildb/get-node-details",
           label: "Retrieve node details",
           className: "api-method get",
         },
