@@ -8,8 +8,8 @@ const learnSidebar = [
   'what-is-nillion',
   'learn/use-cases',
   'learn/architecture',
-  'learn/products',
-  'learn/protocol',
+  //'learn/products',
+  'learn/protocols',
 ];
 
 module.exports = {
