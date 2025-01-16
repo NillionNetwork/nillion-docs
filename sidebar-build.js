@@ -5,7 +5,11 @@ const buildSidebar = [
     value: 'Build',
     defaultStyle: true,
   },
-  'quickstart',
+  {
+    type: 'doc',
+    label: 'Getting Started',
+    id: 'quickstart',
+  },
   {
     type: 'category',
     label: 'SecretVault & SecretDataAnalytics',
@@ -15,6 +19,7 @@ const buildSidebar = [
         label: 'Overview',
         id: 'build/secretVault-secretDataAnalytics/overview',
       },
+      'build/secretVault-secretDataAnalytics/access',
       'build/secretVault-secretDataAnalytics/generate-tokens',
       'build/secretVault-secretDataAnalytics/encryption',
       'build/secretVault-secretDataAnalytics/upload-retrieve',

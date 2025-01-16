@@ -19,6 +19,7 @@ components:
         - exp: Expiration timestamp (recommended)
         - aud: Target node decentralised identifier (DID)
         - iss: Client's decentralised identifier (DID)
+
   schemas:
     Error:
       type: object
@@ -218,6 +219,14 @@ paths:
       summary: Retrieve an organization's account details
       security:
         - jwt: []
+      parameters:
+        - in: header
+          name: Authorization
+          required: true
+          schema:
+            type: string
+          example: 'Bearer eyJhbGciOiJIUzI1NiIs...'
+          description: 'Test token available for development'
       tags:
         - Accounts
       responses:
