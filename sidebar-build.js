@@ -54,6 +54,11 @@ const buildSidebar = [
     items: [],
   },
   'build/blind-modules',
+  {
+    type: 'doc',
+    label: 'Evolution of nilVM',
+    id: 'start-building',
+  },
 ];
 
 module.exports = {
