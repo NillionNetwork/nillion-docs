@@ -1,7 +1,7 @@
 export const apiCards = [
   {
     title: 'nilDB',
-    description: `nilDB enables secret information to be secret shared and stored by nodes of the network`,
+    description: `nilDB is a Nillion blind module that is used to support the SecretVault & SecretDataAnalytics SDKs`,
     icon: '🔐',
     href: './nildb/overview',
   },
