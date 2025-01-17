@@ -4,11 +4,12 @@ import TabItem from '@theme/TabItem';
 # Generating API tokens
 
 1. In order to access the endpoints of SecretVault/SecretDataAnalytics, you will require a set of Bearer tokens for authorization - one for each node in your setup.
-2. Those can be generated programmatically using the information from your Credentials and Cluster Config
+2. Those can be generated programmatically using the information from your `Credentials` and `Cluster Config`.
 3. Specifically you'll be able to generate them with just the following information using the code below:
    - Your private key
    - Your DID
    - The target node's DID
+4. We're encouraging generation during runtime with short TTL for these tokens, but it's up to you if you want to manually rotate them on longer intervals.
 
 <Tabs>
   <TabItem value="python" label="Python">
