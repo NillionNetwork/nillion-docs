@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 
 1. To apply encryption to your data, they are to be secret shared across your selected nodes.
 2. This is to be done with **nilQL**, a library for working with encrypted data within nilDB queries and replies, available in [Python](https://pypi.org/project/nilql/#description) and [TypeScript](https://www.npmjs.com/package/@nillion/nilql).
-3. You can find an example on using nilQL to encrypt/decrypt data below
+3. You can find an example on using nilQL to encrypt/decrypt data below.
 
 <Tabs>
   <TabItem value="python" label="Python">
