@@ -40,7 +40,7 @@ const buildSidebar = [
     label: 'SecretLLM',
     link: {
       type: 'doc',
-      id: 'build/secretSigning/overview',
+      id: 'build/secretLlm/overview',
     },
     items: [
       {
