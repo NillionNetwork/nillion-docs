@@ -12,7 +12,7 @@ nilVM can be accessed using our [Python](/python-client) or [TypeScript](/js-cli
 
 ## nilDB
 
-nilDB is Nillion's secure database offering, enabling secret information to be secret shared and stored by nodes of the network (currently 3 nodes).
+nilDB is Nillion's secure database offering, enabling data to be secret shared and stored by nodes of the network (currently 3 nodes).
 nilDB is the Blind Module that underpins the [SecretVault and SecretDataAnalytics SDKs.](./secretVault-secretDataAnalytics/overview.md)
 
 These SDKs are accessed via an easy-to-use RESTful API with endpoints to create (upload) data and retrieve it. Developers can use our nilQL libraries to secret share data on the client side before using our RESTful API to send the shares to the nodes.
