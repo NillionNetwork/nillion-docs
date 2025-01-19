@@ -431,7 +431,7 @@ paths:
                   $ref: '#/components/schemas/Filter'
       responses:
         '200':
-          description: Data documents that match the provided filter. Pagenation is not supported.
+          description: Data documents that match the provided filter. Pagination is not supported.
           content:
             application/json:
               schema:
