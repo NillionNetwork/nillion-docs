@@ -1,7 +1,7 @@
 # Overview
 
 :::note
-These API docs are setup against a demo nilDB node, https://nildb-demo.nillion.network. This node isn't open for registration.
+These API docs are setup against a demo nilDB node, **nildb-demo**. This node isn't open for registration.
 :::
 
 :::info
