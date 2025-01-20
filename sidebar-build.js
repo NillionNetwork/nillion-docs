@@ -22,7 +22,10 @@ const buildSidebar = [
       'build/secretVault-secretDataAnalytics/access',
       'build/secretVault-secretDataAnalytics/generate-tokens',
       'build/secretVault-secretDataAnalytics/encryption',
+      'build/secretVault-secretDataAnalytics/create-schema',
       'build/secretVault-secretDataAnalytics/upload-retrieve',
+      'build/secretVault-secretDataAnalytics/create-query',
+      'build/secretVault-secretDataAnalytics/query',
       {
         type: 'doc',
         label: 'API Reference',
