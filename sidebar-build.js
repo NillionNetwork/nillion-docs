@@ -19,6 +19,7 @@ const buildSidebar = [
         label: 'Overview',
         id: 'build/secretVault-secretDataAnalytics/overview',
       },
+      'build/secret-vault',
       'build/secretVault-secretDataAnalytics/access',
       'build/secretVault-secretDataAnalytics/generate-tokens',
       'build/secretVault-secretDataAnalytics/encryption',
