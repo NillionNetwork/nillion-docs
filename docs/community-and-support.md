@@ -17,4 +17,4 @@ Got a suggestion for improving the docs? Let us know by [creating a Github Issue
 
 ### Status Page
 
-We have a [Status page](https://status.nillion.com/) that illustrates the upkeep time of our Nillion Services. We also recommened subscribing to updates to keep informed.
+We have a [Status page](https://status.nillion.com/) that illustrates the upkeep time of our Nillion Services.
