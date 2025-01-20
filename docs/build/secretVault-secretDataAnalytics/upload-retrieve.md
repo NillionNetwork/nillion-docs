@@ -28,7 +28,7 @@ import TabItem from '@theme/TabItem';
 ```
 </details>
 
-3. ♻️ Note that the response on `POST /data/create` will consist of two sections, `data` and `errors`, where any issues with data ingestion will be described even if the communication with the node resulted in a `200` status response. You can check out an example below that showcases both instances:
+3. ♻️ Note that the response on `POST /data/create` will consist of two sections, `created` and `errors`, where any issues with data ingestion will be described even if the communication with the node resulted in a `200` status response. You can check out an example below that showcases both instances:
 
 <details>
 <summary>Example `POST /data/create` Response</summary>
