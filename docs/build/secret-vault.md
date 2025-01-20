@@ -2,7 +2,7 @@
 
 ## What is SecretVault
 
-Nillion's SecretVault is a decentralized storage system that keeps sensitive data secret by storing encrypted shares across multiple nodes in a nilDB cluster. Each SecretVault node stores one share of the encrypted data, ensuring no single node can reveal the original value.
+Nillion's SecretVault is a decentralized storage system that keeps sensitive data secret by storing encrypted shares across a cluster of [nilDB nodes](/learn/architecture). Each nilDB node stores a separate share of the encrypted data, ensuring no single node can reveal the original value.
 
 This approach offers stronger security than traditional databases where all data sits in one place. Because SecretVault splits sensitive data between nodes, a breach of any single node only reveals a useless share. You need to combine multiple shares to reconstruct and decrypt the original data.
 
@@ -15,9 +15,9 @@ This approach offers stronger security than traditional databases where all data
 
 Using SecretVault starts with creating an organization and defining the structure of your data collections. After the setup, you can securely store and retrieve data from SecretVault.
 
-### 1. Create an Organization
+### 1. Register an Organization
 
-Set up an organization to get organization credentials and a dedicated cluster of nodes where your data is securely stored.
+Register an organization to get your organization credentials and node details for the cluster of nilDB nodes where your data is securely stored.
 
 ### 2. Define a Collection
 
@@ -29,17 +29,19 @@ Currently, schemas cannot be created directly by users. To set up a custom colle
 
 ### 3. Store Records
 
-Encrypt private data fields with nilQL. Upload the record to all nodes in your collection. Plaintext fields are stored identically across all nodes, while encrypted fields are split into unique shares, with each node holding one share to keep data secure.
+First, encrypt any private data fields with nilQL.
+
+Then upload the record to all nodes in your cluster to store the record. Plaintext fields are stored identically across all nodes, while encrypted fields are split into unique shares, with each node holding one share to keep data secure.
 
 ### 4. Retrieve Records
 
-Read or retrieve a record by fetching the data from all nodes in the cluster. Decrypt private data fields with nilQL to recombine shares from all nodes and reconstruct the original data.
+Read or retrieve a record by fetching the data from all nodes in your cluster. Decrypt private data fields with nilQL to recombine shares from all nodes and reconstruct the original data.
 
 ## SecretVault Key Terms
 
 ### Organization
 
-Your root entity in SecretVault. When created, receives organization credentials and a dedicated cluster of nodes for storage.
+Your root entity in SecretVault. When created, receives organization credentials and details (endpoints and dids) for the cluster of nodes for storage.
 
 ### Cluster
 
