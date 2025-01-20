@@ -163,11 +163,11 @@ if __name__ == "__main__":
     # Node info acquired on the Access step of the docs
     node_urls = ["https://node1.example.com", "https://node2.example.com", "https://node3.example.com"]
     # Tokens acquired on the Generate Tokens step of the docs
-    admin_node_jwts = ["jwt_token_1", "jwt_token_2", "jwt_token_3"]
+    node_jwts = ["jwt_token_1", "jwt_token_2", "jwt_token_3"]
     # Example given on step 4
     schema_payload = {}
 
-    create_schema(node_urls, admin_node_jwts, schema_payload)
+    create_schema(node_urls, node_jwts, schema_payload)
 
 ```
 
