@@ -1,5 +1,9 @@
 # Overview
 
+:::note
+These API docs are setup against a demo nilDB node, **nildb-demo**. This node isn't open for registration.
+:::
+
 :::info
 You may use this test Bearer token we have created for development
 
