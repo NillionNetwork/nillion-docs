@@ -7,7 +7,15 @@
   - Subscribe to [Nillion Official Announcements](https://t.me/nillionofficialannouncements) to stay up to date with the latest Nillion news
   - Join [MPC 👀](https://t.me/Multipartycomputation), a broader community group for discussing MPC developments, papers, and implementation examples.
 
-### Developer questions and technical discussions
+### Support
+
+If you like to open a ticket, you can do so via our [Discord ticket link](https://discord.com/channels/905926225120338000/927874817355563018)
+
+---
+
+# Developers
+
+### Technical discussions and questions
 
 Nillion's [Github Discussions](https://github.com/orgs/NillionNetwork/discussions?discussions_q=) forum is our central developer hub for technical discussions related to Nillion. Builders can use Github discussions to share ideas, ask questions, showcase their projects, and stay updated on the latest news and announcements from the Nillion team.
 
