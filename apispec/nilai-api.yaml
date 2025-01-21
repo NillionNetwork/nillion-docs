@@ -1,5 +1,5 @@
 ---
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: NilAI
   description: |2
@@ -37,6 +37,11 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   version: 0.1.0
+
+servers:
+  - url: https://nilai.sandbox.nilogy.xyz
+    description: Sandbox environment
+
 paths:
   '/v1/health':
     get:
@@ -70,7 +75,18 @@ paths:
           content:
             application/json:
               schema:
-                '$ref': '#/components/schemas/HealthCheckResponse'
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: 'ok'
+                  uptime:
+                    type: string
+                    example: '3600'
+                required:
+                  - status
+                  - uptime
+
   '/v1/usage':
     get:
       tags:
