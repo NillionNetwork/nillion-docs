@@ -1,0 +1,111 @@
+---
+id: chat-completion-v-1-chat-completions-post
+title: "Chat Completion"
+description: "Generate a chat completion response from the AI model."
+sidebar_label: "Chat Completion"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: api/nilai/nilai
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Chat Completion"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/chat/completions"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generate a chat completion response from the AI model.
+
+- **req**: Chat completion request containing messages and model specifications
+- **user**: Authenticated user information (through HTTP Bearer header)
+- **Returns**: Full chat response with model output, usage statistics, and cryptographic signature
+
+### Request Requirements
+- Must include non-empty list of messages
+- Must specify a model
+- Supports multiple message formats (system, user, assistant)
+
+### Response Components
+- Model-generated text completion
+- Token usage metrics
+- Cryptographically signed response for verification
+
+### Processing Steps
+1. Validate input request parameters
+2. Prepare messages for model processing
+3. Generate AI model response
+4. Track and update token usage
+5. Cryptographically sign the response
+
+### Potential HTTP Errors
+- **400 Bad Request**:
+  - Missing messages list
+  - No model specified
+- **500 Internal Server Error**:
+  - Model fails to generate a response
+
+### Example
+```python
+# Generate a chat completion
+request = ChatRequest(
+    model="Llama-3.2-1B-Instruct",
+    messages=[
+        \{"role": "system", "content": "You are a helpful assistant"\},
+        \{"role": "user", "content": "Hello, who are you?"\}
+    ]
+)
+response = await chat_completion(request, user)
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"default":{"model":"Llama-3.2-1B-Instruct","messages":[{"role":"system","content":"You are a helpful assistant."},{"role":"user","content":"What is your name?"}],"temperature":0.2,"top_p":0.95,"max_tokens":2048,"stream":false},"properties":{"model":{"type":"string","title":"Model"},"messages":{"items":{"properties":{"role":{"type":"string","title":"Role"},"content":{"type":"string","title":"Content"}},"type":"object","required":["role","content"],"title":"Message"},"type":"array","title":"Messages"},"temperature":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Temperature","default":0.2},"top_p":{"anyOf":[{"type":"number"},{"type":"null"}],"title":"Top P","default":0.95},"max_tokens":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Max Tokens","default":2048},"stream":{"anyOf":[{"type":"boolean"},{"type":"null"}],"title":"Stream","default":false}},"type":"object","required":["model","messages"],"title":"ChatRequest"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,72 @@
+---
+id: get-usage-v-1-usage-get
+title: "Get Usage"
+description: "Retrieve the current token usage for the authenticated user."
+sidebar_label: "Get Usage"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVl1PIzcU/Sve4WF3UTID+4hUdVNKaaqKRU1WVbVB4ExuMgbHdm1PQhrx33uuPYTA8rBaqW/lIfjjfvuce2dbRLkIxcmX4nOQCyquesWMQu2Vi8qa4qT4g6JXtCIRGxJ16z2ZKKK9IyNa1hBz69OdbPFroqplpBnuyJcTMzF9cXjIm8PDEzH4SkQoA/2lZGfiXWy8bReN+HU8vhQ/kfQQaEjOyL/PhhBM601gWylcESJUAyyGXRxs9m3oQqytCe0y5cLBHBwciLN7uXSaJubm5sZtYsM3B+IxzfBqbtouFjTrK5OsT0y+/UHItVRRLChep5N3fPs+WS56hXXkU2LDGeq4E7peHXcLHEHMU3CIkvAI2+LD0RH/e/4Eo7auKYR5qxFmFoYeUosoJotL5zQXFeLVbWCdbRHqhpaSV85zJFFlD9ihHtcpy3QQN47gRMHagjwMRxU1n1wmSTHOkg/skQvHXr5F/XQnvWci2ij1t2iPWXCnyJpZ0k5vqc5l+7tVnmYM3ec5vRboC89XT44y7B/4r1cEAsJV3MDotmAUZhBie/UAnSUBLt1jwqSTscGmWh1X6UGLJwMjrn4u+L6ZXcJNjI7Fkxj20yzAMTAjkmQX4IXSg2HxkpYTMzBiMBRLOyMtALuVMgvhtIzMJ+HsmlAcMd2IFBL1mApzNWP6obBcoTZCpcy0EGcybMTgcihOtWKGn5Pp0MsCf8pEeka/sK1PgiDDhtcoPj/Jj+Lck4zC0Dq8EX/ZVtTScFOwzO5aar0BUZJR9ApRZzdaTb30GzZ224aIizmtRVD8fiA3uVA+8vYXcPEy8VX8DKJqBnVIXJvK0DCHhwbtQOvE2E+ODEfZubQgrVMOfrIIlI10qr+77iOg5Okxc8rZdR5zuBPzqt5TXn0l+GXDSVUZpaUqgzSzqb0vsbOLTXm/+afqTJRMVNHHm2UPfSvKKq/7j96Q2372v8mVHCUMVGPAKC+/sxjGLXfF+NiFFK3VoXo9xf7itershfGfVYjrwqzJ6H9Zm8E8Ykh05oHnHgf2Fkk1csU4Q9ME8OatqRnLjPznwIsNMLuUd2j86OTELADOuR95WUexVrHJiB9mkqERl+LCgneeoGdamOTScjsiALhBOhpxvJkYbjrkl+HTfJQ1O953uWvEU4KHXSuHN2a9kcuO9HzPbketc9Zzv0E/VxqXtzZQWcspOob9uG8J3QNzgHg+PJkaOIkuIz6URzDRer0XxXq9LmW6Lq1fVJ1uqH4fnp5djM76rAObK2Ard52j8jgfORsist9zc04xz+SXrWr7NKn+/5j47o+Jbm5Euo8Vurwy/ArpNbfdHPpSrI75hR8/4xo8EZ9ut2gJ9Nnrhwc+Bkw9zzcsV9IrOeUhg/EGhVScNPruaMPIwWeHY+CtpG7Z+1ffGc+G4vnZGLL8cnuDrhtsvccFW++upNns2UaYSSKNfITa64JIFYQjzOd/ARokyU0=
+sidebar_class_name: "get api-method"
+info_path: api/nilai/nilai
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get Usage"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/usage"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the current token usage for the authenticated user.
+
+- **user**: Authenticated user information (through HTTP Bearer header)
+- **Returns**: Usage statistics for the user's token consumption
+
+### Example
+```python
+# Retrieves token usage for the logged-in user
+usage = await get_usage(user)
+```
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"prompt_tokens":{"type":"integer","title":"Prompt Tokens"},"completion_tokens":{"type":"integer","title":"Completion Tokens"},"total_tokens":{"type":"integer","title":"Total Tokens"}},"type":"object","required":["prompt_tokens","completion_tokens","total_tokens"],"title":"Usage"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      
