@@ -13,7 +13,7 @@ This approach offers stronger security than traditional databases where all data
 
 ## How to use SecretVault
 
-Using SecretVault starts with creating an organization and defining the structure of your data collections. After the setup, you can securely store and retrieve data from SecretVault.
+Use [nilDB APIs](/api/nildb/overview) to use SecretVault. First complete setup by registering an organization and defining the structure of your data collections. After setup, you can securely store, retrieve, and query data from SecretVault.
 
 ### 1. Register an Organization
 
