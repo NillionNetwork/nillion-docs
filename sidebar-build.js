@@ -7,17 +7,18 @@ const buildSidebar = [
   },
   {
     type: 'doc',
-    label: 'Getting Started',
+    label: 'Start Building',
     id: 'quickstart',
   },
   'build/blind-modules',
   {
     type: 'category',
     label: 'nilQL',
-    items: [
-      'build/secretVault-secretDataAnalytics/generate-tokens',
-      'build/secretVault-secretDataAnalytics/encryption',
-    ],
+    link: {
+      type: 'doc',
+      id: 'build/nilQL',
+    },
+    items: ['build/secretVault-secretDataAnalytics/encryption'],
   },
 
   {
@@ -53,12 +54,12 @@ const buildSidebar = [
           {
             type: 'doc',
             label: '3. Store Records',
-            id: 'build/secretVault-secretDataAnalytics/upload-retrieve',
+            id: 'build/secretVault-secretDataAnalytics/upload',
           },
           {
             type: 'doc',
             label: '4. Retrieve Records',
-            id: 'build/secretVault-secretDataAnalytics/upload-retrieve',
+            id: 'build/secretVault-secretDataAnalytics/retrieve',
           },
           {
             type: 'doc',
@@ -67,6 +68,7 @@ const buildSidebar = [
           },
         ],
       },
+      'build/secretVault-secretDataAnalytics/generate-tokens',
       {
         type: 'link',
         label: 'SecretVault Examples',
@@ -102,7 +104,7 @@ const buildSidebar = [
           {
             type: 'doc',
             label: 'API Reference',
-            id: 'api/nildb/list-the-organizations-queries',
+            id: 'api/nildb/overview',
           },
         ],
       },

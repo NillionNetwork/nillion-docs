@@ -37,7 +37,7 @@ Then upload the record to all nodes in your cluster to store the record. Plainte
 
 Read or retrieve a record by fetching the data from all nodes in your cluster. Decrypt private data fields with nilQL to recombine shares from all nodes and reconstruct the original data.
 
-## SecretVault Key Terms
+## SecretVault Key Concepts
 
 ### Organization
 
