@@ -28,13 +28,13 @@ Retrieve records from a collection by calling the [Read Data endpoint](../../api
 </details>
 
 <details>
-<summary>Full Code Sample</summary>
+<summary>Code Sample</summary>
 
 <Tabs>
   <TabItem value="python" label="Python">
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/nil-examples/blob/main/nildb/secretvault_python/nildb_api.py
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L34-L59
 ```
 
 </TabItem> 

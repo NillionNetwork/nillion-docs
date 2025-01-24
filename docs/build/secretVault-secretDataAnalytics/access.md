@@ -1,5 +1,7 @@
 # Register an Organization
 
+[temp] This is for the public/demo/test node cluster. If you're interested for more, please fill in this [form](https://forms.gle/Um3xLwMKyKPyAP9i6).
+
 ### Create an Organization
 
 Use the [SecretVault Organization Portal](https://secret-vault-registration.replit.app/) to get started by registering an organization, your root entity in SecretVault. Choose a name for your org and select the nilDB nodes you'd like your org to use.

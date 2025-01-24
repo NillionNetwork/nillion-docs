@@ -68,3 +68,26 @@ Upload to all nodes using each node's [Upload/Create Data endpoint](/api/nildb/u
 ```
 
 </details>
+
+<details>
+<summary>Code Sample</summary>
+
+<Tabs>
+  <TabItem value="python" label="Python">
+
+```python reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L9-L32
+```
+
+</TabItem> 
+<TabItem value="typescript" label="TypeScript">
+
+```TypeScript
+// placeholder
+```
+
+</TabItem>
+
+</Tabs>
+
+</details>

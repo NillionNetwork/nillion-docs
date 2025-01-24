@@ -10,7 +10,7 @@ module.exports = [
     type: 'category',
     label: 'NilDB API',
     items: [
-      'api/nildb/overview',
+      // 'api/nildb/overview',
       {
         type: 'category',
         label: 'System',

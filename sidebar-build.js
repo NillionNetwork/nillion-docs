@@ -11,15 +11,6 @@ const buildSidebar = [
     id: 'quickstart',
   },
   'build/blind-modules',
-  {
-    type: 'category',
-    label: 'nilQL',
-    link: {
-      type: 'doc',
-      id: 'build/nilQL',
-    },
-    items: ['build/secretVault-secretDataAnalytics/encryption'],
-  },
 
   {
     type: 'category',
@@ -38,6 +29,10 @@ const buildSidebar = [
       {
         type: 'category',
         label: 'Build with SecretVault APIs',
+        link: {
+          type: 'doc',
+          id: 'build/secretVault-secretDataAnalytics/build',
+        },
         collapsible: false,
 
         items: [
@@ -64,7 +59,7 @@ const buildSidebar = [
           {
             type: 'doc',
             label: 'API Reference',
-            id: 'api/nildb/overview',
+            id: 'api/nildb/get-node-details',
           },
         ],
       },
@@ -104,12 +99,23 @@ const buildSidebar = [
           {
             type: 'doc',
             label: 'API Reference',
-            id: 'api/nildb/overview',
+            id: 'api/nildb/get-node-details',
           },
         ],
       },
     ],
   },
+
+  {
+    type: 'category',
+    label: 'nilQL',
+    link: {
+      type: 'doc',
+      id: 'build/nilQL',
+    },
+    items: ['build/secretVault-secretDataAnalytics/encryption'],
+  },
+
   // {
   //   type: 'category',
   //   label: 'SecretVault & SecretDataAnalytics',

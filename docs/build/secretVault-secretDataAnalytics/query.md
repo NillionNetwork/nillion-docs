@@ -31,41 +31,8 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="python" label="Python">
 
-```python
-"""NilDB API integration"""
-import requests
-from typing import Dict, List, Optional
-
-class NilDBAPI:
-    def __init__(self, node_config: Dict):
-        self.nodes = node_config
-
-    def query_execute(self, node_name: str, query_id: str, variables: Optional[dict] = None) -> List[Dict]:
-        """Execute a query on the specified node with advanced filtering."""
-        try:
-            node = self.nodes[node_name]
-            headers = {
-                'Authorization': f'Bearer {node["jwt"]}',
-                'Content-Type': 'application/json'
-            }
-
-            payload = {
-                "id": query_id,
-                "variables": variables if variables is not None else {}
-            }
-
-            response = requests.post(
-                f"{node['url']}/queries/execute",
-                headers=headers,
-                json=payload
-            )
-
-            if response.status_code == 200:
-                return response.json().get("data", [])
-            return []
-        except Exception as e:
-            print(f"Error executing query on {node_name}: {str(e)}")
-            return []
+```python reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/abc713f1c2ae78fe4d997b5883fd943af10ce773/nildb/secretvault_python/nildb_api.py#L61-L79
 ```
 
 </TabItem> 
