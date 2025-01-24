@@ -1,6 +1,6 @@
 # Register an Organization
 
-[temp] This is for the public/demo/test node cluster. If you're interested for more, please fill in this [form](https://forms.gle/Um3xLwMKyKPyAP9i6).
+Following this guide will register your organization in our public/demo node cluster. If you're interested in more options, please fill in this [form](https://forms.gle/Um3xLwMKyKPyAP9i6).
 
 ### Create an Organization
 
