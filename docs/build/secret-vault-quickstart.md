@@ -160,7 +160,7 @@ const data = [
 - Read data from all nodes and recombine shares to decrypt the years_in_web3 field
 
 ```js reference showGithubLink
-https://github.com/oceans404/nillion-sv-example/blob/main/index.js#L34-L68
+https://github.com/oceans404/nillion-sv-example/blob/main/index.js#L34-L70
 ```
 
 #### 5. Run the script
