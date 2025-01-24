@@ -8,7 +8,7 @@ module.exports = [
   'api/overview',
   {
     type: 'category',
-    label: 'NilDB API',
+    label: 'nilDB API',
     items: [
       'api/nildb/overview',
       {
@@ -45,7 +45,7 @@ module.exports = [
   },
   {
     type: 'category',
-    label: 'NilAI API',
+    label: 'nilAI API',
     items: [
       'api/nilai/overview',
       'api/nilai/chat-completion-v-1-chat-completions-post',

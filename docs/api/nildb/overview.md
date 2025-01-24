@@ -9,9 +9,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
 
 :::
 
-NILDB API has several endpoints you may interface with:
+nilDB API has several endpoints you may interface with:
 
 - System
+
   - [Health](./get-health-status.api.mdx)
   - [About](./get-node-details.api.mdx)
   - [Accounts](./retrieve-an-organizations-account-details.api.mdx)

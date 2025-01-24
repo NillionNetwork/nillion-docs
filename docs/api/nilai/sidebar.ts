@@ -13,7 +13,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "api/nilai/get-attestation-v-1-attestation-report-get",
-          label: "Get Attestation",
+          label: "Attestation",
           className: "api-method get",
         },
       ],
@@ -25,7 +25,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "api/nilai/chat-completion-v-1-chat-completions-post",
-          label: "Chat Completion",
+          label: "Chat",
           className: "api-method post",
         },
       ],
@@ -37,7 +37,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "api/nilai/health-check-v-1-health-get",
-          label: "Health Check",
+          label: "Health",
           className: "api-method get",
         },
       ],
@@ -49,7 +49,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "api/nilai/get-models-v-1-models-get",
-          label: "Get Models",
+          label: "Models",
           className: "api-method get",
         },
       ],
@@ -61,7 +61,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "api/nilai/get-usage-v-1-usage-get",
-          label: "Get Usage",
+          label: "Usage",
           className: "api-method get",
         },
       ],

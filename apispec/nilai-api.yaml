@@ -47,7 +47,7 @@ paths:
     get:
       tags:
         - Health
-      summary: Health Check
+      summary: Health
       description: |-
         Perform a system health check.
 
@@ -91,7 +91,7 @@ paths:
     get:
       tags:
         - Usage
-      summary: Get Usage
+      summary: Usage
       description: |-
         Retrieve the current token usage for the authenticated user.
 
@@ -117,7 +117,7 @@ paths:
     get:
       tags:
         - Attestation
-      summary: Get Attestation
+      summary: Attestation
       description: |-
         Generate a cryptographic attestation report.
 
@@ -145,7 +145,7 @@ paths:
     get:
       tags:
         - Model
-      summary: Get Models
+      summary: Models
       description: |-
         List all available models in the system.
 
@@ -174,7 +174,7 @@ paths:
     post:
       tags:
         - Chat
-      summary: Chat Completion
+      summary: Chat
       description: |-
         Generate a chat completion response from the AI model.
 
