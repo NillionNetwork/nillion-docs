@@ -87,48 +87,15 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="python" label="Python">
 
-```python
-import requests
-
-def create_query(node_urls: list = None, node_jwts: list = None, payload: dict={}) -> None:
-    """Create a query in the specified nodes."""
-    for i, (url, jwt) in enumerate(zip(node_urls, node_jwts)):
-        try:
-            headers = {
-                'Authorization': f'Bearer {jwt}',
-                'Content-Type': 'application/json'
-            }
-
-            response = requests.post(
-                f"{url}/queries",
-                headers=headers,
-                json=payload if payload is not None else {}
-            )
-            
-            if response.status_code == 200:
-                print(f"Query created successfully in {url}.")
-            else:
-                print(f"Failed to create query in {url}: {response.status_code} {response.text}")
-
-        except Exception as e:
-            print(f"Error creating query in {url}: {str(e)}")
-
-if __name__ == "__main__":
-    # Node info acquired on the Access step of the docs
-    node_urls = ["https://node1.example.com", "https://node2.example.com", "https://node3.example.com"]
-    # Tokens acquired on the Generate Tokens step of the docs
-    node_jwts = ["jwt_token_1", "jwt_token_2", "jwt_token_3"]
-    # Example given on step 3
-    query_payload = {}
-
-    create_query(node_urls, node_jwts, query_payload)
+```python reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L111-L129
 ```
 
 </TabItem> 
 <TabItem value="typescript" label="TypeScript">
 
 ```TypeScript
-// placeholder
+// coming soon
 ```
 </TabItem> 
 </Tabs>

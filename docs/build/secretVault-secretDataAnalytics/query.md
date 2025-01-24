@@ -32,14 +32,14 @@ import TabItem from '@theme/TabItem';
   <TabItem value="python" label="Python">
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/abc713f1c2ae78fe4d997b5883fd943af10ce773/nildb/secretvault_python/nildb_api.py#L61-L79
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L61-L79
 ```
 
 </TabItem> 
 <TabItem value="typescript" label="TypeScript">
 
 ```TypeScript
-// placeholder
+// coming soon
 ```
 </TabItem> 
 </Tabs>

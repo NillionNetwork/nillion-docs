@@ -85,7 +85,7 @@ Decide on a collection name and generate a UUID4 for the Collection ID (use iden
 Then use the Create Schema endpoint to upload your JSON schema to each node in your organization using [valid API tokens](/build/secretVault-secretDataAnalytics/generate-tokens) for each node.
 
 <details>
-<summary>Example payload for creating a schema</summary>
+<summary>Example `POST /schema` Payload</summary>
 
 ```json
 {
@@ -129,54 +129,20 @@ Then use the Create Schema endpoint to upload your JSON schema to each node in y
 </details>
 
 <details>
-<summary>Example `POST /schemas` Request</summary>
+<summary>Code Sample</summary>
 
 <Tabs>
   <TabItem value="python" label="Python">
 
-```python
-import requests
-
-def create_schema(node_urls: list = None, node_jwts: list = None, payload: dict = None) -> None:
-    """Create a schema in the specified nodes."""
-    for i, (url, jwt) in enumerate(zip(node_urls, node_jwts)):
-        try:
-            headers = {
-                'Authorization': f'Bearer {jwt}',
-                'Content-Type': 'application/json'
-            }
-
-            response = requests.post(
-                f"{url}/schemas",
-                headers=headers,
-                json=payload if payload is not None else {}
-            )
-
-            if response.status_code == 200:
-                print(f"Schema created successfully in {url}.")
-            else:
-                print(f"Failed to create schema in {url}: {response.status_code} {response.text}")
-
-        except Exception as e:
-            print(f"Error creating schema in {url}: {str(e)}")
-
-if __name__ == "__main__":
-    # Node info acquired on the Access step of the docs
-    node_urls = ["https://node1.example.com", "https://node2.example.com", "https://node3.example.com"]
-    # Tokens acquired on the Generate Tokens step of the docs
-    node_jwts = ["jwt_token_1", "jwt_token_2", "jwt_token_3"]
-    # Example given on step 4
-    schema_payload = {}
-
-    create_schema(node_urls, node_jwts, schema_payload)
-
+```python reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L88-L109
 ```
 
 </TabItem> 
 <TabItem value="typescript" label="TypeScript">
 
 ```TypeScript
-// placeholder
+// coming soon
 ```
 
 </TabItem> 

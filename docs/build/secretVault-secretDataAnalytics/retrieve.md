@@ -41,7 +41,7 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 <TabItem value="typescript" label="TypeScript">
 
 ```TypeScript
-// placeholder
+// coming soon
 ```
 
 </TabItem>

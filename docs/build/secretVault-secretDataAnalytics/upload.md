@@ -17,6 +17,10 @@ Before storing:
 - Make sure data matches your Collection's JSON Schema
 - Generate and include a unique \_id (UUIDv4) for each record
 
+:::note
+You can include up to 10k records in a `POST /data/create` request, and the total JSON body size can be up to 17MB
+:::
+
 <details>
 <summary>Example `POST /data/create` Payload</summary>
 
@@ -83,7 +87,7 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 <TabItem value="typescript" label="TypeScript">
 
 ```TypeScript
-// placeholder
+// coming soon
 ```
 
 </TabItem>
