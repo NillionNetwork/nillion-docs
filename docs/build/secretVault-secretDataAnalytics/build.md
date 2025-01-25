@@ -1,5 +1,5 @@
 # Build with Secret Vault APIs
 
-![SecretVault Organization Portal](/img/sv-sda-flow.jpg)
+![SecretVault Registration Portal](/img/sv-sda-flow.jpg)
 
 
