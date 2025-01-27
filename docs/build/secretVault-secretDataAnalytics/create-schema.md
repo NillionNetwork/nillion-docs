@@ -151,4 +151,4 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 </Tabs>
 </details>
 
-Schema collections are immutable. If you need to make changes to your schema, use the /delete API endpoint to delete your current schema, then redo this step to re-create your updated schema.
+Schema collections are immutable. If you need to make changes to your schema, use the `DELETE /schema` API endpoint to delete your current schema, then redo this step to re-create your updated schema.
