@@ -20,10 +20,10 @@ import TabItem from '@theme/TabItem';
 
 </details>
 
+3. 🏁 You can now use the `POST /queries` endpoint to retrieve the results - check out the [Execute Queries endpoint](../../api/nildb/add-a-new-query.api.mdx) page for details. You can find an example below:
 
-3. 🏁 You can now use the `POST /queries/execute` endpoint to retrieve the results - check out the [Execute Queries endpoint](../../api/nildb/execute-the-specified-query.api.mdx) page for details. You can find an example below:
-    - 1️⃣ Node info acquisition details can be found on the [Access](access.md) page
-    - 2️⃣ Token acquisition details can be found on the [Generatin API Tokens](generate-tokens.md) page
+   - 1️⃣ Node info acquisition details can be found on the [Access](access.md) page
+   - 2️⃣ Token acquisition details can be found on the [Generatin API Tokens](generate-tokens.md) page
 
 <details>
 <summary>Code Sample</summary>
@@ -41,6 +41,7 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 ```TypeScript
 // coming soon
 ```
+
 </TabItem> 
 </Tabs>
 </details>
