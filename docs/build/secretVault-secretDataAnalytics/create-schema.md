@@ -82,6 +82,8 @@ Make sure you know your Organization DID, which you found out when you [register
 
 Decide on a collection name and generate a UUID4 for the Collection ID (use identical UUID across all Cluster nodes).
 
+Select which fields should act as primary keys / unique identifiers (`_id` should always be included).
+
 Then use the Create Schema endpoint to upload your JSON schema to each node in your organization using [valid API tokens](/build/secretVault-secretDataAnalytics/generate-tokens) for each node.
 
 <details>
