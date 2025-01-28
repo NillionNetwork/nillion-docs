@@ -7,10 +7,9 @@ export const QuickStartFeatures = [
   },
   {
     title: 'SecretLLM',
-    description: 'Coming Soon',
+    description: 'Chat with private AI LLMs',
     icon: '💬',
-    disabled: true,
-    // href: './start-building',
+    href: './build/secretLlm/usage',
   },
   {
     title: 'SecretSigning',

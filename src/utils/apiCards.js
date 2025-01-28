@@ -7,8 +7,8 @@ export const apiCards = [
   },
   {
     title: 'nilAI',
-    description: `XXXX`,
-    icon: '🔐',
+    description: `nilAI is a Nillion blind module allowing for LLMs to run securely inside TEEs`,
+    icon: '💻',
     href: './nilai/overview',
   },
 ];
