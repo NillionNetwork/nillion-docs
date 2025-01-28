@@ -88,7 +88,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="python" label="Python">
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L111-L129
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L113-L136
 ```
 
 </TabItem> 

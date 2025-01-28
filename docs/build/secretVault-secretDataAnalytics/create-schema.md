@@ -78,8 +78,6 @@ Use a [JSON Schema validator tool](https://www.jsonschemavalidator.net/) to make
 
 ### 3. Use the Create Schema API to Create your Schema and Collection
 
-Make sure you know your Organization DID, which you found out when you [registered your organization](/build/secretVault-secretDataAnalytics/access).
-
 Decide on a collection name and generate a UUID4 for the Collection ID (use identical UUID across all Cluster nodes).
 
 Select which fields should act as primary keys / unique identifiers (`_id` should always be included).
@@ -92,7 +90,6 @@ Then use the Create Schema endpoint to upload your JSON schema to each node in y
 ```json
 {
   "_id": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
-  "owner": "did:nil:testnet:nillion1lng3uvz65frtv4jnrxyn2zn7xhyzujXXXXXXXX",
   "name": "My services",
   "keys": ["_id"],
   "schema": {
@@ -137,7 +134,10 @@ Then use the Create Schema endpoint to upload your JSON schema to each node in y
   <TabItem value="python" label="Python">
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L88-L109
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L88-L111
+```
+```python reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/collection.py#L7-L28
 ```
 
 </TabItem> 
