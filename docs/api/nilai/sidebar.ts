@@ -25,7 +25,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "api/nilai/chat-completion-v-1-chat-completions-post",
-          label: "Chat",
+          label: "Chat Completion",
           className: "api-method post",
         },
       ],
