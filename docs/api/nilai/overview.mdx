@@ -1,49 +1,5 @@
 # Overview
 
-nilAI is a secure inference service for large language models (LLMs) leveraging trusted execution environments (TEEs). By running entirely within TEEs, nilAI ensures robust data privacy and protection, making it ideal for sensitive applications. It provides cutting-edge capabilities alongside strong security features, including:
-
-- OpenAI-compatible API.
-- Integration with NVIDIA Confidential Computing.
-- State-of-the-art models.
-- Privacy-preserving operations enabled by TEEs.
-
-## Usage Guidelines
-
-Getting started with nilAI is straightforward and involves just two steps:
-
-1. Query the `/v1/models` endpoint using your preferred programming language or client.
-2. Select one of the available models and use its name to query the `/v1/chat/completions` endpoint.
-
-Since nilAI offers OpenAI API compatibility, you can seamlessly use libraries like `openai` to interact with the service.
-
-Here is an example in Python for querying the `Llama-3.1-8B` model:
-
-```python
-from openai import OpenAI
-
-# Initialize the OpenAI client
-client = OpenAI(
-    # Replace <node> with the specific node identifier
-    base_url="https://nilai-<node>.nillion.network/v1/", 
-    api_key="YOUR_API_KEY"
-)
-
-# Send a chat completion request
-response = client.chat.completions.create(
-    model="meta-llama/Llama-3.1-8B-Instruct",
-    messages=[
-        {
-            "role": "system",
-            "content": "You are a helpful assistant."
-        },
-        {
-            "role": "user",
-            "content": "What is your name?"
-        }
-    ],
-    stream=False
-)
-```
 nilAI API has several endpoints you may interface with:
 
 - [Chat](./chat-completion-v-1-chat-completions-post)

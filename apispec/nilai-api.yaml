@@ -82,6 +82,11 @@ paths:
         - Usage
       summary: Usage
       description: |-
+
+        :::info
+            Feel free to use the `Nillion2025` as a test Bearer Token
+        :::
+
         Retrieve the current token usage for the authenticated user.
 
         - **user**: Authenticated user information (through HTTP Bearer header)
@@ -108,6 +113,11 @@ paths:
         - Attestation
       summary: Attestation
       description: |-
+
+        :::info
+            Feel free to use the `Nillion2025` as a test Bearer Token
+        :::
+
         Generate a cryptographic attestation report.
 
         - **user**: Authenticated user information (through HTTP Bearer header)
@@ -136,6 +146,11 @@ paths:
         - Model
       summary: Models
       description: |-
+
+        :::info
+            Feel free to use the `Nillion2025` as a test Bearer Token
+        :::
+
         List all available models in the system.
 
         - **user**: Authenticated user information (through HTTP Bearer header)
