@@ -194,36 +194,22 @@ paths:
           - No model specified
         - **500 Internal Server Error**:
           - Model fails to generate a response
-
-        ### Example
-        ```python
-        # Generate a chat completion
-        request = ChatRequest(
-            model="meta-llama/Llama-3.2-1B-Instruct",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant"},
-                {"role": "user", "content": "Hello, who are you?"}
-            ]
-        )
-        response = await chat_completion(request, user)
       operationId: chat_completion_v1_chat_completions_post
       requestBody:
         content:
           application/json:
             schema:
-              '$ref': '#/components/schemas/ChatRequest'
-              default:
-                model: meta-llama/Llama-3.2-1B-Instruct
-                messages:
-                  - content: You are a helpful assistant.
-                    role: system
-                  - content: What is your name?
-                    role: user
-                temperature: 0.2
-                top_p: 0.95
-                max_tokens: 2048
-                stream: false
-                nilrag: {}
+              allOf:
+                - $ref: '#/components/schemas/ChatRequest'
+                - example:
+                    model: 'meta-llama/Llama-3.2-1B-Instruct'
+                    messages:
+                      [
+                        {
+                          role: 'system',
+                          content: 'You are a helpful assistant',
+                        },
+                      ]
       responses:
         '200':
           description: Successful Response
