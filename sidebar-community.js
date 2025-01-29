@@ -19,6 +19,11 @@ const communitySidebar = [
       'guide-testnet-tx',
     ],
   },
+  {
+    type: 'link',
+    label: 'Status Page',
+    href: 'https://status.nillion.com/',
+  },
 ];
 
 module.exports = {

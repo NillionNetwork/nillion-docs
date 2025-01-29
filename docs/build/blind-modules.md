@@ -4,18 +4,20 @@ Blind Modules are the core technology Nillion is building. As a developer or end
 
 Currently, there are three Blind Modules: nilVM, nilDB & nilAI.
 
+![Nillion's network architecture diagram](/img/network_diagram.png)
+
 ## nilVM
 
-The core functionality provided by nilVM is its signature functionality, which manifests in the [SecretSigning SDK](/build/secretSigning/overview).
+The core functionality provided by nilVM is its signature functionality, which manifests in [SecretSigning](/threshold-signatures).
 
 nilVM can be accessed using our [Python](/python-client) or [TypeScript](/js-client) clients and includes the [Nada programming language](/nada-lang). Check out full nilVM docs including older [nilVM Quickstarts](/start-building).
 
 ## nilDB
 
 nilDB is Nillion's secure database offering, enabling data to be secret shared and stored by nodes of the network (currently 3 nodes).
-nilDB is the Blind Module that underpins the [SecretVault and SecretDataAnalytics SDKs.](./secretVault-secretDataAnalytics/overview.md)
+nilDB is the Blind Module that underpins Nillion's SecretVault and SecretDataAnalytics products.
 
-These SDKs are accessed via an easy-to-use RESTful API with endpoints to create (upload) data and retrieve it. Developers can use our nilQL libraries to secret share data on the client side before using our RESTful API to send the shares to the nodes.
+[SecretVault](./secret-vault) and [SecretDataAnalytics](./secret-data-analytics) data are accessed via an easy-to-use RESTful API with endpoints to create (upload) data, retrieve, and query data. Developers can use our nilQL libraries to secret share data on the client side before using our RESTful API to send the shares to the nodes.
 
 ## nilAI
 
