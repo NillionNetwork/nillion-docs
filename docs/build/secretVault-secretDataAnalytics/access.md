@@ -1,7 +1,7 @@
 # Register an Organization
 
 :::info
-When using the [SecretVault Registration Portal](https://sv-sda-registration.replit.app/) to create your org, it will use the public demo node cluster. you'll be using the public demo node cluster by default. For production usage, please complete our [access form](https://forms.gle/Um3xLwMKyKPyAP9i6) to request allowlist access to the testnet node cluster.
+When using the [SecretVault Registration Portal](https://sv-sda-registration.replit.app/) to create your org, it will use the public demo node cluster. You'll be using the public demo node cluster by default. For production usage, please complete our [access form](https://forms.gle/Um3xLwMKyKPyAP9i6) to request allowlist access to the testnet node cluster.
 :::
 
 ### Create an Organization
