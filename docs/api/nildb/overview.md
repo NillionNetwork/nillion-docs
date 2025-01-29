@@ -13,7 +13,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
 
 :::
 
-nilDB API has several endpoints you may interface with:
+NILDB API has several endpoints you may interface with:
 
 - System
 
