@@ -69,7 +69,7 @@ if __name__ == "__main__":
 ```
 
 </TabItem> 
-<TabItem value="javascript" label="Javascript (Node)">
+<TabItem value="javascript" label="JavaScript (from scratch)">
 
 ```JavaScript
 // generate.js
@@ -120,6 +120,34 @@ if (require.main === module) {
 module.exports = { createJwt };
 ```
 
+</TabItem>
+
+<TabItem value="wrapper" label="JavaScript (with wrapper)">
+
+### Install nillion-sv-wrappers
+
+```bash
+npm i nillion-sv-wrappers
+```
+
+### Run the generateApiTokens script
+
+```bash
+node generateApiTokens.js
+```
+
+<Tabs>
+  <TabItem value="generateApiTokens" label="generateApiTokens.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/generateApiTokens.js
+```
+</TabItem>
+  <TabItem value="orgConfig" label="orgConfig.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/orgConfig.js
+```
+</TabItem>
+</Tabs>
 </TabItem>
 
 </Tabs>

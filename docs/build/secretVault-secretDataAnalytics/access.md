@@ -1,24 +1,57 @@
-# Access
+# Register an Organization
 
-In order to use SecretVault/SecretDataAnalytics with your own schemas and queries, please fill in this [form.](https://forms.gle/Um3xLwMKyKPyAP9i6)
+:::info
+When using the [SecretVault Registration Portal](https://sv-sda-registration.replit.app/) to create your org, it will use the public demo node cluster. you'll be using the public demo node cluster by default. For production usage, please complete our [access form](https://forms.gle/Um3xLwMKyKPyAP9i6) to request allowlist access to the testnet node cluster.
+:::
 
-Our requirements are to:
+### Create an Organization
 
-- Provide details on how you're planning to use them and your goals.
-- Provide detailed representation of the schemas and queries you'll need in JSON schema format. Please make sure they are valid by using tools like [JSON Schema Validator](https://www.jsonschemavalidator.net/).
+Use the [SecretVault Registration Portal](https://sv-sda-registration.replit.app/) to get started by registering an organization, your root entity in SecretVault.
 
-You will hear back from us if your applications is approved or feedback is required, and you can then proceed with registering.
+1. Access the SecretVault Registration Portal
+2. Register your organization by providing a name
+3. Select your preferred nilDB nodes - this defaults to the cluster config of demo nodes
 
-# Self-Registering
+![SecretVault Registration Portal](/img/sv-org-portal.png)
 
-1. After your application is approved, you will receive a link from us to self-register your org.
-2. Here you'll be able to choose a name for your org and select the SecretVault/SecretDataAnalytics nodes that you'd like to deploy to.
-3. You will receive and be prompted to securely store your newly created **Credentials** in the form of:
-   - A DID (Decentralized Identifier)
-   - A private/public keypair
-4. Please note that you are solely responsible for keeping your credentials safe and available. We will not be able to retrieve/regenerate them for you, and you will very likely not be able to access your data without these.
-5. You will also get a **Cluster Config** describing the nodes that you picked in the form of each nodes:
-   - URL
-   - DID (Decentralized Identifier)
-   - Public key
-6. At this stage you should forward us your new DID (from your Credentials), so we can move ahead with registering your schemas and queries as you described them in your application. You can review them using the GET `/schemas` and GET `/queries` endpoints (detailed information in the [API Reference](../../api/nildb/overview) page).
+### Store your Organization's credentials
+
+After registration, you'll receive:
+
+- Organization credentials (your organization's DID and public/private key pair)
+- Cluster configuration for your selected nodes
+
+**Important: Copy these credentials and store them securely. Your organization credentials cannot be retrieved or regenerated, and you won't be able to access your SecretVault data without them.** If you select "Returning Organization" from the portal, you will only be able to see the cluster configuration details for your organization by DID.
+
+    ![SecretVault Organization Config](/img/sv-org-config.png)
+
+## Public Demo Node Cluster Configuration
+
+The following nodes are available in the public demo cluster configuration. Each node provides its connection details and a Swagger UI (API docs) where you can explore and test the node's API endpoints.
+
+### Demo node 1: [nildb-zy8u](https://nildb-zy8u.nillion.network/api/v1/openapi/docs/)
+
+```
+URL: https://nildb-zy8u.nillion.network
+DID: did:nil:testnet:nillion1fnhettvcrsfu8zkd5zms4d820l0ct226c3zy8u
+Public Key: 037a2183c3f786a3505470aa4169f50f1d267b816dc596b26405a539f2aa579469
+API docs: https://nildb-zy8u.nillion.network/api/v1/openapi/docs/
+```
+
+### Demo node 2: [nildb-rl5g](https://nildb-rl5g.nillion.network/api/v1/openapi/docs/)
+
+```
+URL: https://nildb-rl5g.nillion.network
+DID: did:nil:testnet:nillion14x47xx85de0rg9dqunsdxg8jh82nvkax3jrl5g
+Public Key: 037782d481c4f119c88e5fc2cd17b3ca13ea7383992d09857e9ee43b51cd7f5a18
+API docs: https://nildb-rl5g.nillion.network/api/v1/openapi/docs/
+```
+
+### Demo node 3: [nildb-lpjp](https://nildb-lpjp.nillion.network/api/v1/openapi/docs/)
+
+```
+URL: https://nildb-lpjp.nillion.network
+DID: did:nil:testnet:nillion167pglv9k7m4gj05rwj520a46tulkff332vlpjp
+Public Key: 03fda649d577a9a28d6486f9dcaa839a4719b99364348e2815280f74df4ec62894
+API docs: https://nildb-lpjp.nillion.network/api/v1/openapi/docs/
+```
