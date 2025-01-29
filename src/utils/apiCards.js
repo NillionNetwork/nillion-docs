@@ -9,6 +9,6 @@ export const apiCards = [
     title: 'nilAI',
     description: `nilAI is a Nillion blind module allowing for LLMs to run securely inside TEEs`,
     icon: '💻',
-    href: './nilai/overview',
+    href: './nilai/chat-completion-v-1-chat-completions-post',
   },
 ];
