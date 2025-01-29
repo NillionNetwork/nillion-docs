@@ -10,6 +10,8 @@ Developers can use nilQL as a general-purpose encryption/decryption library for 
 
 ### With SecretVault and SecretDataAnalytics
 
+You can interact with SecretVault and SecretDataAnalytics either directly through nilQL or using the optional [nillion-sv-wrappers](https://github.com/NillionNetwork/nillion-sv-wrappers) package:
+
 - Use nilQL to encrypt record field values with your organization's private key before storage in a [SecretVault](/build/secret-vault) collection
 - Store the encrypted shares of record field values across your organization's nilDB nodes
 - Query nilQL encrypted data that has been stored in SecretVault to perform secure operations on nilQL encrypted data via [SecretDataAnalytics](/build/secret-data-analytics) APIs
@@ -18,6 +20,7 @@ Developers can use nilQL as a general-purpose encryption/decryption library for 
 
 - [nilql-ts](https://github.com/NillionNetwork/nilql-ts): TypeScript library for web and Node.js environments
 - [nilql-py](https://github.com/NillionNetwork/nilql-py): Python library for server-side applications
+- [nillion-sv-wrappers](https://github.com/NillionNetwork/nillion-sv-wrappers): an NPM package wrapper providing simplified integration with nilQL, SecretVault, and SecretDataAnalytics
 
 ## Supported Operations
 

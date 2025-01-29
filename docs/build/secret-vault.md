@@ -13,7 +13,7 @@ This approach offers stronger security than traditional databases where all data
 
 ## How to use SecretVault
 
-Use [nilDB APIs](/api/nildb/overview) to use SecretVault. First complete setup by registering an organization and defining the structure of your data collections. After setup, you can securely store, retrieve, and query data from SecretVault.
+Interact with [nilDB APIs](/api/overview) or the [nillion-sv-wrappers](https://github.com/NillionNetwork/nillion-sv-wrappers) helper package shown in the [Quickstart](/build/secret-vault-quickstart) to use SecretVault. First complete setup by registering an organization and defining the structure of your data collections. After setup, you can securely store, retrieve, and query data from SecretVault.
 
 ### 1. Register an Organization
 
@@ -22,10 +22,6 @@ Register an organization to get your organization credentials and node details f
 ### 2. Define a Collection
 
 Organize your data into a collection, defined by a JSON schema that specifies fields, data types, and validation rules. Once created, the schema cannot be changed.
-
-:::info
-Currently, schemas cannot be created directly by users. To set up a custom collection and schema for your organization, please contact the Nillion team by filling out [this access form](/build/secretVault-secretDataAnalytics/access).
-:::
 
 ### 3. Store Records
 

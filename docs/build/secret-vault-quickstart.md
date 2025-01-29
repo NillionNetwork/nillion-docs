@@ -1,6 +1,8 @@
 # SecretVault Quickstart
 
-In this 15-minute guide, you'll build a privacy-preserving Web3 experience survey using Node.js and SecretVault. The project will encrypt personal data (name and years_in_web3) while keeping survey ratings in plaintext.
+[SecretVault](/build/secret-vault) lets you store sensitive data securely by encrypting and splitting it across multiple nodes. While regular fields remain readable, private information is protected through encryption - making it perfect for applications that need to balance data accessibility with privacy.
+
+**In this 15-minute quickstart, you'll build a privacy-preserving data collection for a Web3 experience survey** using Node.js and SecretVault. The project will encrypt personal data (`name` and `years_in_web3` fields) while keeping the `responses` array of survey ratings in plaintext.
 
 ![Web3 Experience Survey](/img/survey.png)
 
@@ -49,15 +51,12 @@ cd sv-quickstart
 
 ```bash
 npm init es6
-npm i nillion-sv-wrappers uuid
+npm i nillion-sv-wrappers
 ```
 
 :::info
-
-- [nillion-sv-wrappers](https://github.com/NillionNetwork/nillion-sv-wrappers) is a JavaScript npm package with wrappers for simplifying usage of Nillion's Secret Vault and the nilQL encryption and decryption library.
-
-- uuid is used to generate unique ids for each record uploaded to SecretVault.
-  :::
+[nillion-sv-wrappers](https://github.com/NillionNetwork/nillion-sv-wrappers) is a JavaScript npm package with wrappers for simplifying usage of Nillion's Secret Vault and the nilQL encryption and decryption library.
+:::
 
 ### 2. Set your SecretVault Organization Config
 
@@ -179,13 +178,12 @@ Mark the name and years_in_web3 fields with `$allot` to signal to nilQL that the
 ```javascript
 const data = [
   {
-    _id: uuidv4(),
-    name: { $allot: 'Vitalik Buterin' }, // will be encrypted to a $share
-    years_in_web3: { $allot: 8 }, // will be encrypted to a $share
-    responses: [
+    name: { $allot: 'Vitalik Buterin' }, // name will be encrypted to a $share
+    years_in_web3: { $allot: 8 }, // years_in_web3 will be encrypted to a $share
+    responses: [ 
       { rating: 5, question_number: 1 },
       { rating: 3, question_number: 2 },
-    ],
+    ], // responses will be stored in plaintext
   },
 ];
 ```
@@ -197,7 +195,7 @@ const data = [
 - Read data from all nodes and recombine shares to decrypt the years_in_web3 field
 
 ```js reference showGithubLink
-https://github.com/oceans404/nillion-sv-example/blob/main/index.js#L33-L70
+https://github.com/oceans404/nillion-sv-example/blob/main/index.js#L30-L67
 ```
 
 #### 5. Run the script

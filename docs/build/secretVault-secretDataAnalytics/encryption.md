@@ -20,7 +20,7 @@ Install nilQL using your preferred package manager:
     pip install nilql
   ```
   </TabItem>
-  <TabItem value="javascript" label="Javascript">
+  <TabItem value="javascript" label="JavaScript">
   Install [nilql-ts](https://github.com/NillionNetwork/nilql-ts), the TypeScript library for web and Node.js environments
   ```
     pnpm install @nillion/nilql
@@ -38,7 +38,7 @@ https://github.com/NillionNetwork/nil-examples/blob/main/nildb/secretvault_pytho
 ```
 
 </TabItem> 
-<TabItem value="typescript" label="TypeScript">
+<TabItem value="typescript" label="JavaScript">
 
 ```tsx reference showGithubLink
 https://github.com/NillionNetwork/nil-examples/blob/main/nildb/secretvault_nextjs/app/lib/encryption.ts
@@ -56,16 +56,16 @@ To encrypt data for use within SecretVault and SecretDataAnalytics, you'll need 
 const cluster = {
   nodes: [
     {
-      'url': '',
-      'jwt': ''
+      'url': 'https://nildb-zy8u.nillion.network',
+      'jwt': 'YOUR_API_TOKEN_FOR_nildb-zy8u'
     },
     {
-      'url': '',
-      'jwt': ''
+      'url': 'https://nildb-rl5g.nillion.network',
+      'jwt': 'YOUR_API_TOKEN_FOR_nildb-rl5g'
     },
     {
-      'url': '',
-      'jwt': ''
+      'url': 'https://nildb-lpjp.nillion.network',
+      'jwt': 'YOUR_API_TOKEN_FOR_nildb-lpjp'
     }
   ]
 }

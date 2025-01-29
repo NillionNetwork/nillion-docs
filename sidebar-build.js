@@ -34,7 +34,6 @@ const buildSidebar = [
           id: 'build/secretVault-secretDataAnalytics/build',
         },
         collapsible: false,
-
         items: [
           {
             type: 'doc',
@@ -68,6 +67,11 @@ const buildSidebar = [
         type: 'link',
         label: 'SecretVault Examples',
         href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb',
+      },
+      {
+        type: 'link',
+        label: 'SecretVaultWrapper JS Examples',
+        href: 'https://github.com/NillionNetwork/nillion-sv-wrappers/tree/main/examples',
       },
     ],
   },
