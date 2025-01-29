@@ -1,0 +1,77 @@
+---
+id: get-models-v-1-models-get
+title: "Models"
+description: ":::info"
+sidebar_label: "Models"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVlFv2zYQ/itX9WFtYMtJgKGYgWH1mjRzkaTFnHUY6qKhZdpiIpMaSdnRDP/3fUdKie2meRjQt+UhlqiPd98d777jOvFi7pL+p+TCTGWRfO4kU+kyq0qvjE76yVj3+32lZ2asCX9vpSxoZqUkb6hy+MklXV+qogD8+PD4x2sSjgR56Tz9KoWVlq7MrdTBzhg/5wpfRFGQWApViEkhacGuHSkdrLnaeblIGdulgwM4sQcHfRpU+Ki9yoSXU3ZtiWnZhWCm9MLn1lTznH67uvrQes6lmEr7Mhr6XfrKase2TlTGm4Stycy+IsKenz9/Tqd3YlEWcqyvr6/L2ueG1wlmrJJL6ajgSB7d3wT0M4mVUJ7m0n+JSy+Y98tgMekkppQ2sB9OkekH1JflUfuERQCtdKXRTuKg1snx4SH/7B7TqMoy6dysKkAwgrEvM9ojZwwXZVlw7gDv3Tjes05clsuF4CeFjAfjpWVSXkVXasr/fV1KuHCIW89h1Stf8AJYbzqJFgv5FOqSvwO3lNap6Pdb0I8NZLNXhN/ecbIFwy6BGjH2qQ2DiAAW2ZCcpSfA5w0EaGcqmz0JHkUEY6uyNBZV+mUmBWquyWWb4l0DwDcLwlpRbxtszaDpGjObB7SZ3Mgs1sbflbJyyj0czuIh1btpvE/PQ+z3cT1K+vMDlyAOF9KLqfDiCc5t7dGZ9HQRu+DjUfuERYSw4SiczCqrfA3W64RbNnYsXj9v4HchwbRpCpgvhc/x0lse9WJfMGFpOc5goLIFPufel67f62l0o+qKV69+SnUUplRLvzL2NtlXt5HQ04m5I6mXyhq94GZh/y29EXdIPL9tkveHyC6ZS4DhfRIBHCGLU0C2faCKwfArAmM90DQYRuUgjglFQWUhPEsblWYlcbY0qSlQkh1CT8/UlJVQFHhZlJXHljSKFp0KV9Pgw5DeFAoYpFw3GsOAPwWWGuHGwQcgVLfmZ3Q+V9QvdGZRAKTlyj2jv0xFmdCEyjEstBmEu4aeBaMSOp9FN4WaWFZTGLupWN9pJlfkFOsnQc5Ll7aq+tZY+hDUlE4gowXrjQuKOBEuZ4Udaud5QPAweF9KzSwbl8aOdalK+IkQbNaiVN37z10QCp7ayGWMrvEY6Y71o/se4uoq2imm1MU64Xoy8zq9q//pNSZSFlPq4syih66htBefu603xLYd/TsMjFGogd4Vyig+/sdk6HJxn4zXDSVvTOF6j4fYnT+WnS0a3y1DnBfumlj9+7kZzDzmdWMe9dxhYj8gqFwsuc4w2FB4s0rHwV3sF57PUbMLcYuxjIEruQtQ5wrjz4rM00r5PFb8MDYZhmVKlwZ9ZzG2ha5gklPLaspXlxzhFODxbMzCCSsL9342ijt3pSboC/qwGbfwxl0fp2LSXIzYbSPngGHmKtarG+NkmokJFMO83ra0O50aU4NSQGXoOD2EiV3BW61WqQifU2PnvWav650P35xejk67vGd7AieH6VFcKo3ziH7LzUWrr3sT+P4q8f+N8DveCJux4uWd72EIqHCrCYe9bobgp2R5BGAzBjGqchwhL6/XkAz5hy02G15GGVuernhcCquYTBiu2BBSEObmray5snB1LLkwl6KowlTfvyvujOSz06vmLrE1CJvB12kf2Hp7R9D1lm3QDIhQAqDaaUh4focj3A7+BY11aLQ=
+sidebar_class_name: "get api-method"
+info_path: api/nilai/nilai
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Models"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/models"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+
+:::info
+    Feel free to use the `Nillion2025` as a test Bearer Token
+:::
+
+List all available models in the system.
+
+- **user**: Authenticated user information (through HTTP Bearer header)
+- **Returns**: Dictionary of available models
+
+### Example
+```python
+# Retrieves list of available models
+models = await get_models(user)
+```
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"items":{"properties":{"id":{"type":"string","title":"Id"},"name":{"type":"string","title":"Name"},"version":{"type":"string","title":"Version"},"description":{"type":"string","title":"Description"},"author":{"type":"string","title":"Author"},"license":{"type":"string","title":"License"},"source":{"type":"string","title":"Source"},"supported_features":{"items":{"type":"string"},"type":"array","title":"Supported Features"}},"type":"object","required":["name","version","description","author","license","source","supported_features"],"title":"ModelMetadata"},"type":"array","title":"Response Get Models V1 Models Get"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

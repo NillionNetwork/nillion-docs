@@ -1,0 +1,98 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Usage
+
+Getting started with nilAI is straightforward and involves just two steps:
+
+1. Query the `/v1/models` endpoint using your preferred programming language or client.
+2. Select one of the available models and use its name to query the `/v1/chat/completions` endpoint.
+
+Since nilAI offers OpenAI API compatibility, you can seamlessly use libraries like openai to interact with the service.
+
+---
+
+All of these endpoints are available for testing in our [API section.](../../api/nilai/overview.mdx)
+
+- [Chat Completion:](../../api/nilai/chat-completion-v-1-chat-completions-post.api.mdx) Standard Chat completion endpoint to generate a response from the AI model
+- [Attestation:](../../api/nilai/get-attestation-v-1-attestation-report-get.api.mdx) Generate a cryptographic attestation report.
+- [Health:](../../api/nilai/health-check-v-1-health-get.api.mdx) Check the health status of the NilAI operational status
+- [Models:](../../api/nilai/get-models-v-1-models-get.api.mdx) Get the list of available models running
+- [Usage:](../../api/nilai/get-usage-v-1-usage-get.api.mdx) Track the current usage of tokens with your account
+
+Here is an Python/Node examples for querying the `Llama-3.1-8B` model:
+
+<Tabs>
+
+<TabItem value="python" label="Python" default>
+```python
+from openai import OpenAI
+
+# Initialize the OpenAI client
+
+client = OpenAI( # Replace <node> with the specific node identifier
+    base_url="https://nilai-<node>.nillion.network/v1/",
+    api_key="YOUR_API_KEY"
+)
+
+# Send a chat completion request
+
+response = client.chat.completions.create(
+    model="meta-llama/Llama-3.1-8B-Instruct",
+    messages=[
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "What is your name?"
+        }
+    ],
+    stream=False
+)
+
+````
+</TabItem>
+
+<TabItem value="node" label="Node" default>
+```javascript
+const OpenAI = require('openai');
+
+// Initialize the OpenAI client
+const client = new OpenAI({
+  baseURL: 'https://nilai-<node>.nillion.network/v1/',
+  apiKey: 'YOUR_API_KEY'
+});
+
+// Send a chat completion request
+async function getChatCompletion() {
+  try {
+    const response = await client.chat.completions.create({
+      model: 'meta-llama/Llama-3.1-8B-Instruct',
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a helpful assistant.'
+        },
+        {
+          role: 'user',
+          content: 'What is your name?'
+        }
+      ],
+      stream: false
+    });
+
+    console.log(response);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+// Call the function
+getChatCompletion();
+````
+
+</TabItem>
+
+</Tabs>

@@ -1,0 +1,77 @@
+---
+id: get-usage-v-1-usage-get
+title: "Usage"
+description: ":::info"
+sidebar_label: "Usage"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV21vIjcQ/iu+zYe7i2A3iVSdilT1aC53paoSFIiqKkSJ2R1YJ8bes72QLeK/d8ZeyEKQmjY9qR+aD2Hxzjzz6nmGZeT41Ead6+jK8ilEN60oA5saUTihVdSJRqrT6Qg10SPF8O8zgGQTA8CcZqXFjxzY3bmQEsVPjk6+u2PcMs4cWMd+Am7AsKF+AOVxRvhxCc4ImAfNtDQGlEMwFEE8dIFNtPHveIn/lRMpd5CRLROTfpsdHtKXw8MO6z4TYeSqmXHynr1zudHlNGc/D4f9tTc58AzM+wCEzpRGWcLy8TPrUNUiot34QbBvbe1iqpUtZz455MzBwQE7e+SzQsJI3d3dFZXL6c0BW4dp98Ym9XQKWVsojz5S4e0PjC+4cGwK7tafvKO37z1y1Ip0AcYH1suwMBuh2/lx/YBHKGbAFuglYFWX0cnREX1s13RQpilYOykluhmEUQ9Dc5hMEudFISmpKJ7cW9JZRjbNYcbpqTDkiRPBQqopehK99ZH6Q1cVgIYEIk7BILgTTtLJ6UY6tIWNVi0CxJS+RL3vJRuqTjsuX6I5JMGG4jO3bzNwXEiPwlV1McFLsRsrx7wV2Gq3hYFMpDtBP2nteLFqbY5UKWW0unnyq1tDsv4GsuElLzOhX22CQBqgBjjWVKjpa4Ev10Bb4PeQ/rspuqwh96WIcpRlgs647DeK5UwJrTWkHhPC3jYMQJ/q2j93Y7c9X9Qm36JqKccLmL0W9dSjvDZ94Rr+Zer+JrqBr6XAEhMbPZ8qu2Ni5+7f7Ctu4LQV/bUiC8g2wlU+ZcQIgRDw6w1laAY4uuvBSsa4y/FLMj9O/HCNCMDMwVivXxqJb3PnCttJEiUkF23+4cP3sQpUGCtwC20eol0+HXCVjfUjAzUXRqsZTVwyv/ZuQGM2tFHTx01uyST54sXw+zgIUIBEfV6yzgOycrf3zIGR6irW7bGZzpDKKSa6wIXkjoiTFXoBWAM2rph3CVrEeROREc/iBKXClA5V4sB/7IzbinX7PXYqBVH5F1A1TZHAb9yzu18VdGm8ILJeRc9YT6r8j+wLTiTHFCzsG/a7LlnKFbG/JhpPuZQVMqIHxaWApcGMFGPDTUVg9yXuGpxNYMGsoNIji0Nh4zVBf0bS7XtiZp+QkSX1ofWkOuY2J7LuKeR9KT01XxSgyMvapEZ2LkSBdoIIKiteiPbmdRsd8pbWkUOIrrYY3B2pvXpPcbUF22qm2IY+oX7S0yp+rP5IaoiYGJm1sWbBQluzOAnP7bU1jK0Z/S98zge+B5IhtlF4/IfJUMVsk4yPtUtOa2mT/SG2p/uy03Djm2WI8kK3JnT/bm66E4fbYA2P/dwix95iUDmfU5/hdoSNNylVGubXbuO5HHt2xh9ww8OVDegWYJ/TDDY8dWwhXB46vhcuGW5cMTvXeO8MoJ4qEZJSS1OPluUcw5Hox5uRotkGZmYvJoOguT1q/HzBe1jvbGiNbr3is/rS03syOyiLQhsaZri4CZpX99pCnPIxTgz9sYmE0wMXPqBF8AmqWxBZsJP4CCG2B95isYi5fx1rM01qXZv82js9Ox+ctUkHMWlchqlzFB+Ho0Jbh9E3zFzV43VrTC2f1tH/f4L8d36C1CTk4NElSBlCUUl9ayxrxryO5sfULutfkznWm06XS5wvcGXkakXH2POGmBgf59wIPibGuqZtKyTHk+wDVJsNOSJBWZL1Z79Otuj7y9kwosWZnNmwZs2SrfVDY2vCNaqBjW56Cd8w6GqrdsJn0O80qz8BAmxjOg==
+sidebar_class_name: "get api-method"
+info_path: api/nilai/nilai
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Usage"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/usage"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+
+:::info
+    Feel free to use the `Nillion2025` as a test Bearer Token
+:::
+
+Retrieve the current token usage for the authenticated user.
+
+- **user**: Authenticated user information (through HTTP Bearer header)
+- **Returns**: Usage statistics for the user's token consumption
+
+### Example
+```python
+# Retrieves token usage for the logged-in user
+usage = await get_usage(user)
+```
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"completion_tokens":{"type":"integer","title":"Completion Tokens"},"prompt_tokens":{"type":"integer","title":"Prompt Tokens"},"total_tokens":{"type":"integer","title":"Total Tokens"},"completion_tokens_details":{"anyOf":[{"properties":{"accepted_prediction_tokens":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Accepted Prediction Tokens"},"audio_tokens":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Audio Tokens"},"reasoning_tokens":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Reasoning Tokens"},"rejected_prediction_tokens":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Rejected Prediction Tokens"}},"additionalProperties":true,"type":"object","title":"CompletionTokensDetails"},{"type":"null"}]},"prompt_tokens_details":{"anyOf":[{"properties":{"audio_tokens":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Audio Tokens"},"cached_tokens":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Cached Tokens"}},"additionalProperties":true,"type":"object","title":"PromptTokensDetails"},{"type":"null"}]}},"additionalProperties":true,"type":"object","required":["completion_tokens","prompt_tokens","total_tokens"],"title":"CompletionUsage"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -8,7 +8,7 @@ module.exports = [
   'api/overview',
   {
     type: 'category',
-    label: 'NilDB API',
+    label: 'nilDB API',
     items: [
       // 'api/nildb/overview',
       {
@@ -44,6 +44,18 @@ module.exports = [
           'api/nildb/delete-a-query', // Delete Query
         ],
       },
+    ],
+  },
+  {
+    type: 'category',
+    label: 'nilAI API',
+    items: [
+      'api/nilai/overview',
+      'api/nilai/chat-completion-v-1-chat-completions-post',
+      'api/nilai/get-attestation-v-1-attestation-report-get',
+      'api/nilai/get-models-v-1-models-get',
+      'api/nilai/get-usage-v-1-usage-get',
+      'api/nilai/health-check-v-1-health-get',
     ],
   },
 ];

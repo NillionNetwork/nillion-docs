@@ -19,6 +19,6 @@ nilDB is the Blind Module that underpins Nillion's SecretVault and SecretDataAna
 
 [SecretVault](./secret-vault) and [SecretDataAnalytics](./secret-data-analytics) data are accessed via an easy-to-use RESTful API with endpoints to create (upload) data, retrieve, and query data. Developers can use our nilQL libraries to secret share data on the client side before using our RESTful API to send the shares to the nodes.
 
-## nilAI (Coming Soon)
+## nilAI
 
 nilAI is Nillion's secure AI offering, allowing for LLMs to run securely inside TEEs. nilAI is the Blind Module that underpins the SecretLLM SDK. Like SecretVault & SecretDataAnalytics, this SDK can be accessed via an easy-to-use RESTful API that allows users to infer on models.

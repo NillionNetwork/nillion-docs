@@ -1,5 +1,5 @@
 export const QuickStartFeatures = [
-   {
+  {
     title: 'SecretVault',
     description:
       'Read and write records to an encrypted database using nilDB APIs.',
@@ -19,11 +19,10 @@ export const QuickStartFeatures = [
     icon: '🔏',
     href: './threshold-signatures',
   },
-  // {
-  //   title: 'SecretLLM',
-  //   description: 'Coming Soon',
-  //   icon: '💬',
-  //   disabled: true,
-  //   // href: './start-building',
-  // },
+  {
+    title: 'SecretLLM',
+    description: 'Chat with private AI LLMs',
+    icon: '💬',
+    href: './build/secretLlm/usage',
+  },
 ];

@@ -5,4 +5,10 @@ export const apiCards = [
     icon: '🔐',
     href: './nildb/get-node-details',
   },
+  {
+    title: 'nilAI',
+    description: `nilAI is a Nillion blind module allowing for LLMs to run securely inside TEEs`,
+    icon: '💻',
+    href: './nilai/chat-completion-v-1-chat-completions-post',
+  },
 ];
