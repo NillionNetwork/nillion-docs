@@ -74,7 +74,7 @@ Upload to all nodes using each node's [Upload/Create Data endpoint](/api/nildb/u
 </details>
 
 <details>
-<summary>Code Sample</summary>
+<summary>Code Samples</summary>
 
 <Tabs>
   <TabItem value="python" label="Python">
@@ -86,12 +86,38 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 </TabItem> 
 <TabItem value="typescript" label="TypeScript">
 
-```TypeScript
-// coming soon
+```TypeScript reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs/app/lib/nildb.ts#L24-L52
 ```
 
 </TabItem>
+<TabItem value="wrapper" label="JavaScript (with wrapper)">
 
+### Install nillion-sv-wrappers
+
+```bash
+npm i nillion-sv-wrappers
+```
+
+### Run the readWriteSv script
+
+```bash
+node readWriteSv.js
+```
+
+<Tabs>
+  <TabItem value="readWriteSv" label="readWriteSv.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/readWriteSv.js
+```
+</TabItem>
+  <TabItem value="orgConfig" label="orgConfig.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/orgConfig.js
+```
+</TabItem>
+</Tabs>
+</TabItem>
 </Tabs>
 
 </details>

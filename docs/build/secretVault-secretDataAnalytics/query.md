@@ -26,7 +26,7 @@ import TabItem from '@theme/TabItem';
    - 2️⃣ Token acquisition details can be found on the [Generatin API Tokens](generate-tokens.md) page
 
 <details>
-<summary>Code Sample</summary>
+<summary>Code Samples</summary>
 
 <Tabs>
   <TabItem value="python" label="Python">
@@ -39,7 +39,39 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 <TabItem value="typescript" label="TypeScript">
 
 ```TypeScript
-// coming soon
+  const queryCredentials = async (
+        nodeName: NodeName,
+        query: string,
+        service?: string
+): Promise<Credential[]> => {
+   const node = config[nodeName];
+
+   try {
+      const response = await fetch(`${node.url}/queries/execute`, {
+         method: 'POST',
+         headers: {
+            Authorization: `Bearer ${node.jwt}`,
+            'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({
+            id: query,
+            variables: {
+               service: service,
+            },
+         }),
+      });
+
+      if (!response.ok) {
+         throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = (await response.json()) as NodeResponse<Credential[]>;
+      return result.data || [];
+   } catch (error) {
+      console.error(`Error reading advanced credentials from ${nodeName}:`, error);
+      return [];
+   }
+};
 ```
 
 </TabItem> 

@@ -128,7 +128,7 @@ Then use the Create Schema endpoint to upload your JSON schema to each node in y
 </details>
 
 <details>
-<summary>Code Sample</summary>
+<summary>Code Samples</summary>
 
 <Tabs>
   <TabItem value="python" label="Python">
@@ -137,10 +137,9 @@ Then use the Create Schema endpoint to upload your JSON schema to each node in y
 https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L88-L111
 ```
 ```python reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/collection.py#L7-L28
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/define_collection.py#L12-L38
 ```
-
-</TabItem> 
+</TabItem>
 <TabItem value="typescript" label="TypeScript">
 
 ```TypeScript
@@ -148,6 +147,35 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 ```
 
 </TabItem> 
+<TabItem value="wrapper" label="JavaScript (with wrapper)">
+
+### Install nillion-sv-wrappers
+
+```bash
+npm i nillion-sv-wrappers
+```
+
+### Run the createSchema script
+
+```bash
+node createSchema.js
+```
+
+<Tabs>
+  <TabItem value="createSchema" label="createSchema.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/createSchema.js
+```
+</TabItem>
+  <TabItem value="orgConfig" label="orgConfig.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/orgConfig.js
+```
+</TabItem>
+</Tabs>
+
+</TabItem> 
+
 </Tabs>
 </details>
 
