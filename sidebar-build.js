@@ -149,16 +149,16 @@ const buildSidebar = [
     label: 'SecretLLM',
     link: {
       type: 'doc',
-      id: 'build/secretLlm/overview',
+      id: 'build/secretLLM/overview',
     },
     items: [
       {
         type: 'doc',
         label: 'Overview',
-        id: 'build/secretLlm/overview',
+        id: 'build/secretLLM/overview',
       },
-      'build/secretLlm/access',
-      'build/secretLlm/usage',
+      'build/secretLLM/access',
+      'build/secretLLM/usage',
       {
         type: 'doc',
         label: 'API Reference',
