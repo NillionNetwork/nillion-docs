@@ -23,6 +23,6 @@ export const QuickStartFeatures = [
     title: 'SecretLLM',
     description: 'Chat with private AI LLMs',
     icon: '💬',
-    href: './build/secretLlm/usage',
+    href: './build/secretLLM/usage',
   },
 ];
