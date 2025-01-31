@@ -33,7 +33,7 @@ import TabItem from '@theme/TabItem';
 
 </details>
 
-3. 🧰 Additionally, we'll make our matching target a **variable** (variables can be of type `string`, `number`, `boolean`, `date`, and are referenced in the aggregation using a `##` prefix), and gather a few more things we're going to need before being ready to register the query:
+3. 🧰 Additionally, we'll make our matching target a **variable** (variables can be of type `string`, `number`, `boolean`, `date`, and `array` of the former 4 - they are referenced in the aggregation using a `##` prefix), and gather a few more things we're going to need before being ready to register the query:
    - 1️⃣ Your organization's DID (Decentralized Identifier), obtained during the [Access](access.md) step
    - 2️⃣ A name (description) for your query
    - 3️⃣ The schema we're targeting (by `schema_id`, you can get this via `GET /schemas` - check out the [List Schemas endpoint](../../api/nildb/list-the-organizations-schemas.api.mdx)) page for details
