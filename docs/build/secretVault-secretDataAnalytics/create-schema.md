@@ -19,7 +19,7 @@ Sketch out your data structure to plan the fields and types that will define you
 service = Netflix //string
 username = JohnDoe13 //string
 password = p4$$worD //string
-registred_at = 2022-01-01T00:00:00Z //datetime
+registered_at = 2022-01-01T00:00:00Z //datetime
 ```
 
 </details>
@@ -136,14 +136,16 @@ Then use the Create Schema endpoint to upload your JSON schema to each node in y
 ```python reference showGithubLink
 https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L88-L111
 ```
+
 ```python reference showGithubLink
 https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/define_collection.py#L12-L38
 ```
+
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
-```TypeScript
-// coming soon
+```tsx reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs/app/api/create-schema/route.ts
 ```
 
 </TabItem> 
@@ -174,7 +176,7 @@ https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/orgConf
 </TabItem>
 </Tabs>
 
-</TabItem> 
+</TabItem>
 
 </Tabs>
 </details>
