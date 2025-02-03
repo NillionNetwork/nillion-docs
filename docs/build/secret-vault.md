@@ -6,6 +6,10 @@ Nillion's SecretVault is a decentralized storage system that keeps sensitive dat
 
 This approach offers stronger security than traditional databases where all data sits in one place. Because SecretVault splits sensitive data between nodes, a breach of any single node only reveals a useless share. You need to combine multiple shares to reconstruct and decrypt the original data.
 
+### How it works
+
+![Secret Vault - How it Works](/img/secret-vault-diagram.png)
+
 ### Related Nillion tools
 
 - **nilQL** is the library used to encrypt data into shares before storage in SecretVault and decrypt shares after retrieval
