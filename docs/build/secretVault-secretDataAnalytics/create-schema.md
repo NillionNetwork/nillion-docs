@@ -85,7 +85,7 @@ Select which fields should act as primary keys / unique identifiers (`_id` shoul
 Then use the Create Schema endpoint to upload your JSON schema to each node in your organization using [valid API tokens](/build/secretVault-secretDataAnalytics/generate-tokens) for each node.
 
 <details>
-<summary>Example `POST /schema` Payload</summary>
+<summary>Example `POST /schemas` Payload</summary>
 
 ```json
 {
