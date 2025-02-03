@@ -60,10 +60,11 @@ def create_jwt(secret_key: str = None,
 if __name__ == "__main__":
     secret_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     org_did = "did:nil:testnet:nillionXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    node_ids = [
-        "did:nil:testnet:nillionXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        "did:nil:testnet:nillionXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        "did:nil:testnet:nillionXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    # these are the demo cluster node dids, change them if your config is different
+    node_ids = [ 
+        "did:nil:testnet:nillion1fnhettvcrsfu8zkd5zms4d820l0ct226c3zy8u",
+        "did:nil:testnet:nillion14x47xx85de0rg9dqunsdxg8jh82nvkax3jrl5g",
+        "did:nil:testnet:nillion167pglv9k7m4gj05rwj520a46tulkff332vlpjp"
     ]
     create_jwt(secret_key, org_did, node_ids)
 ```
