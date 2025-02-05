@@ -18,7 +18,7 @@ Before storing:
 - Generate and include a unique \_id (UUIDv4) for each record
 
 :::note
-You can include up to 10k records in a `POST /data/create` request, and the total JSON body size can be up to 17MB
+You can include up to 10k records in a `POST /data/create` request, and the total JSON body size can be up to 16MB
 :::
 
 <details>
