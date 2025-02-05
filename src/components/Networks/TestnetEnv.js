@@ -1,6 +1,6 @@
 import React from 'react';
 import { CodeSnippet } from './CodeSnippet';
-import { NetworkConfig } from './network-info-photon2.js';
+import { NetworkConfig } from './network-info-090.js';
 
 const generateEnvSnippet = (networkConfig, prefix = '') => {
   const lines = [];

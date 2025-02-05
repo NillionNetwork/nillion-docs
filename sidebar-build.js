@@ -119,31 +119,6 @@ const buildSidebar = [
     },
     items: ['build/secretVault-secretDataAnalytics/encryption'],
   },
-
-  // {
-  //   type: 'category',
-  //   label: 'SecretVault & SecretDataAnalytics',
-  //   items: [
-  //     {
-  //       type: 'doc',
-  //       label: 'Overview',
-  //       id: 'build/secretVault-secretDataAnalytics/overview',
-  //     },
-  //     // 'build/secret-vault',
-  //     // 'build/secretVault-secretDataAnalytics/access',
-  //     'build/secretVault-secretDataAnalytics/generate-tokens',
-  //     'build/secretVault-secretDataAnalytics/encryption',
-  //   ],
-  // },
-  {
-    type: 'category',
-    label: 'SecretSigning',
-    link: {
-      type: 'doc',
-      id: 'threshold-signatures',
-    },
-    items: [],
-  },
   {
     type: 'category',
     label: 'SecretLLM',
@@ -170,6 +145,15 @@ const buildSidebar = [
         href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai',
       },
     ],
+  },
+  {
+    type: 'category',
+    label: 'SecretSigning',
+    link: {
+      type: 'doc',
+      id: 'threshold-signatures',
+    },
+    items: [],
   },
   {
     type: 'doc',
