@@ -23,7 +23,7 @@ npx @nillion/create-nillion-app@latest
         dark: '/img/nillion_quickstart_demo_dark.png',
       }}
   />
-  <p>For more detailed information on building with create-nillion-app, check out our [Quickstart Guide](/quickstart).</p>
+  <p>Preview of create-nillion-app</p>
 </div>
 
 ## Manual Installation
@@ -36,7 +36,7 @@ If you have not already, in your shell/terminal run the following command to ins
 curl https://nilup.nilogy.xyz/install.sh | bash
 ```
 
-Then ensure that you can run the `nillion-devnet` command in a separate terminal. Please refer to the [Installation guide](./installation) for further information.
+Then ensure that you can run the `nillion-devnet --seed test` command in a separate terminal. Please refer to the [Installation guide](./installation) for further information.
 
 ### Install the JavaScript Client
 

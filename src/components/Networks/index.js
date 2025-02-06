@@ -4,9 +4,10 @@ import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { NetworkConfig } from './network-info';
 import { NetworkConfig as NetworkConfig2 } from './network-info-photon2.js';
+import { NetworkConfig as NetworkConfig3 } from './network-info-090.js';
 import { CopyIcon } from './CopyIcon';
 
-const transformData = (data1, data2) => {
+const transformData = (data1, data2, data3) => {
   const result = [];
   const processConfig = (config) => {
     const configItems = [];
@@ -20,12 +21,14 @@ const transformData = (data1, data2) => {
 
   const config1Items = processConfig(data1);
   const config2Items = processConfig(data2);
+  const config3Items = processConfig(data3);
 
   config1Items.forEach((item, index) => {
     result.push({
       name: item.name,
       valuePhoton1: item.value,
-      valuePhoton2: config2Items[index]?.value || 'N/A'
+      valuePhoton2: config2Items[index]?.value || 'N/A',
+      valuePhoton3: config3Items[index]?.value || 'N/A',
     });
   });
 
@@ -48,6 +51,12 @@ const columns = [
     minWidth: 250,
   },
   {
+    headerName: 'Network (Latest)',
+    field: 'valuePhoton3',
+    flex: 2,
+    cellRenderer: CopyIconWrapper,
+  },
+  {
     headerName: 'Network (Photon1)',
     field: 'valuePhoton1',
     flex: 2,
@@ -58,21 +67,25 @@ const columns = [
     field: 'valuePhoton2',
     flex: 2,
     cellRenderer: CopyIconWrapper,
-  }
+  },
 ];
 
 const NetworkTable = () => {
-  const configData = transformData(NetworkConfig, NetworkConfig2);
+  const configData = transformData(
+    NetworkConfig,
+    NetworkConfig2,
+    NetworkConfig3
+  );
 
   return (
-    <div 
-      className="ag-theme-alpine"
+    <div
+      className='ag-theme-alpine'
       style={{ height: '100%', width: '100%', fontSize: '12px' }}
     >
       <AgGridReact
         rowData={configData}
         columnDefs={columns}
-        domLayout="autoHeight"
+        domLayout='autoHeight'
         copyHeadersToClipboard
       />
     </div>
