@@ -1,11 +1,13 @@
+import IframeVideo from '@site/src/components/IframeVideo/index';
+
 # SecretVault Quickstart
 
 [SecretVault](/build/secret-vault) lets you store sensitive data securely by encrypting and splitting it across multiple nodes. While regular fields remain readable, private information is protected through encryption - making it perfect for applications that need to balance data accessibility with privacy.
 
 **In this 15-minute quickstart, you'll build a privacy-preserving data collection for a Web3 experience survey** using Node.js and SecretVault. The project will encrypt personal data (`name` and `years_in_web3` fields) while keeping the `responses` array of survey ratings in plaintext.
 
-![Web3 Experience Survey](/img/survey.png)
-
+<IframeVideo videoSrc="https://www.loom.com/embed/ee391ce583ab442db71942565b068e61?sid=c7dd28bb-8920-4451-a88e-6de83a21655f"/>
+<br/>
 :::info
 This guide uses JavaScript (Node.js) and the [nillion-sv-wrappers](https://github.com/NillionNetwork/nillion-sv-wrappers) package for simplicity, but SecretVault can be integrated with any language [using the nilDB APIs directly](/build/secret-vault#how-to-use-secretvault).
 :::
@@ -180,7 +182,7 @@ const data = [
   {
     name: { $allot: 'Vitalik Buterin' }, // name will be encrypted to a $share
     years_in_web3: { $allot: 8 }, // years_in_web3 will be encrypted to a $share
-    responses: [ 
+    responses: [
       { rating: 5, question_number: 1 },
       { rating: 3, question_number: 2 },
     ], // responses will be stored in plaintext
