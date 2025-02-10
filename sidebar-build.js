@@ -127,11 +127,6 @@ const buildSidebar = [
       id: 'build/secretLLM/overview',
     },
     items: [
-      {
-        type: 'doc',
-        label: 'Overview',
-        id: 'build/secretLLM/overview',
-      },
       'build/secretLLM/access',
       'build/secretLLM/usage',
       {
