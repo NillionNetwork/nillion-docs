@@ -73,51 +73,41 @@ const buildSidebar = [
         label: 'SecretVaultWrapper JS Examples',
         href: 'https://github.com/NillionNetwork/nillion-sv-wrappers/tree/main/examples',
       },
-    ],
-  },
-  {
-    type: 'category',
-    label: 'SecretDataAnalytics',
-    link: {
-      type: 'doc',
-      id: 'build/secret-data-analytics',
-    },
-
-    items: [
       {
         type: 'category',
-        label: 'nilDB APIs for SecretDataAnalytics',
-        collapsible: false,
+        label: 'SecretDataAnalytics',
+        link: {
+          type: 'doc',
+          id: 'build/secret-data-analytics',
+        },
 
         items: [
           {
-            type: 'doc',
-            label: 'Create a Query',
-            id: 'build/secretVault-secretDataAnalytics/create-query',
-          },
-          {
-            type: 'doc',
-            label: 'Query Records',
-            id: 'build/secretVault-secretDataAnalytics/query',
-          },
-          {
-            type: 'doc',
-            label: 'API Reference',
-            id: 'api/nildb/get-node-details',
+            type: 'category',
+            label: 'nilDB APIs for SecretDataAnalytics',
+            collapsible: false,
+
+            items: [
+              {
+                type: 'doc',
+                label: 'Create a Query',
+                id: 'build/secretVault-secretDataAnalytics/create-query',
+              },
+              {
+                type: 'doc',
+                label: 'Query Records',
+                id: 'build/secretVault-secretDataAnalytics/query',
+              },
+              {
+                type: 'doc',
+                label: 'API Reference',
+                id: 'api/nildb/get-node-details',
+              },
+            ],
           },
         ],
       },
     ],
-  },
-
-  {
-    type: 'category',
-    label: 'nilQL',
-    link: {
-      type: 'doc',
-      id: 'build/nilQL',
-    },
-    items: ['build/secretVault-secretDataAnalytics/encryption'],
   },
   {
     type: 'category',
@@ -149,6 +139,15 @@ const buildSidebar = [
       id: 'threshold-signatures',
     },
     items: [],
+  },
+  {
+    type: 'category',
+    label: 'nilQL',
+    link: {
+      type: 'doc',
+      id: 'build/nilQL',
+    },
+    items: ['build/secretVault-secretDataAnalytics/encryption'],
   },
   {
     type: 'doc',
