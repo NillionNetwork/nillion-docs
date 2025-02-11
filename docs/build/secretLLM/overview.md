@@ -2,7 +2,7 @@
 
 ## What is SecretLLM
 
-SecretLLM is a set of OpenAI-compatible APIs that run AI models within a TEE. You can use SecretLLM to build new private AI applications or migrate existing ones to run in a secure SecretLLM environment where your data remains private.
+SecretLLM is a set of OpenAI-compatible APIs that run AI models within a Trusted Execution Environment (TEE). You can use SecretLLM to build new private AI applications or migrate existing ones to run in a secure SecretLLM environment where your data remains private.
 
 ## How SecretLLM Works
 
