@@ -1,6 +1,6 @@
 # Access
 
-SecretLLM is currently in private beta. 
+SecretLLM is in private beta. You can try SecretLLM with demo credentials or apply for testnet access. 
 
 ## Demo credentials
 

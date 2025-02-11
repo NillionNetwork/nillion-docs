@@ -1,20 +1,21 @@
 # SecretLLM
 
-SecretLLM is a set of OpenAI-compatible APIs that run AI models within a TEE. Build new AI applications or migrate existing ones to run in a secure SecretLLM environment where your data remains private.
+## What is SecretLLM
+
+SecretLLM is a set of OpenAI-compatible APIs that run AI models within a TEE. You can use SecretLLM to build new private AI applications or migrate existing ones to run in a secure SecretLLM environment where your data remains private.
 
 ## How SecretLLM Works
 
 1. Send your prompt to SecretLLM over HTTPS (just like any secure web request)
-2. Your prompt runs inside a Trusted Execution Environment (TEE) where no one, not even Nillion, can see your data
+2. Your prompt runs inside a Trusted Execution Environment where it is hidden from the cloud provider
 3. Get your result back over HTTPS, complete with a cryptographic signature
 
 ## Available Models
 
-| Model | Parameters | Features | Best For |
-|-------|------------|----------|-----------|
-| meta-llama/Llama-3.2-3B-Instruct | 3B | Chat completion, tool support | Quick responses, simple Q&A, basic chat. Faster inference with lower resource usage. |
-| meta-llama/Llama-3.1-8B-Instruct | 8B | Chat completion, tool support | More complex tasks, detailed responses, code generation. Higher quality but slower inference. |
-
+| Model                            | Parameters | Features                      | Best For                                                                                      |
+| -------------------------------- | ---------- | ----------------------------- | --------------------------------------------------------------------------------------------- |
+| meta-llama/Llama-3.2-3B-Instruct | 3B         | Chat completion, tool support | Quick responses, simple Q&A, basic chat. Faster inference with lower resource usage.          |
+| meta-llama/Llama-3.1-8B-Instruct | 8B         | Chat completion, tool support | More complex tasks, detailed responses, code generation. Higher quality but slower inference. |
 
 For most use cases, start with the 3B model and move to 8B if you need more capability.
 
@@ -22,7 +23,7 @@ For most use cases, start with the 3B model and move to 8B if you need more capa
 
 - **Drop-in Privacy**: Keep your OpenAI-style code, just point it to SecretLLM
 - **Privacy Through TEEs**: All processing happens within a TEE, built on NVIDIA Confidential Computing
-- **Standard Security**: Uses HTTPS for all communication
+- **Standard Security**: HTTPS encryption provides end-to-end protection for all data in transit between your application and the TEE environment
 - **Cryptographic Attestation**: Verify the integrity of your TEE environment through our attestation API
 - **Signed Responses**: Every model response includes a cryptographic signature for verification
 
