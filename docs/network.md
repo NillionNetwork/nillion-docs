@@ -34,7 +34,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilVM Nodes
 
-SecretSigning connects to nilVM nodes to sign messages with stored private keys.
+[SecretSigning](/threshold-signatures) connects to nilVM nodes to sign messages with stored private keys.
 
 <Tabs>
     <TabItem value="nilVM-testnet" label="nilVM Testnet" default>
@@ -82,7 +82,7 @@ SecretSigning connects to nilVM nodes to sign messages with stored private keys.
 
 ### nilDB Nodes
 
-SecretVault and SecretDataAnalytics connect to nilDB nodes to enable storing and querying encrypted data.
+[SecretVault](/build/secret-vault) and [SecretDataAnalytics](/build/secret-data-analytics) connect to nilDB nodes to enable storing and querying encrypted data.
 
 <Tabs>
     <TabItem value="nilDB-demo" label="nilDB Testnet" default>
@@ -129,12 +129,12 @@ SecretVault and SecretDataAnalytics connect to nilDB nodes to enable storing and
 
 ### nilAI Nodes
 
-SecretLLM connnects to a nilAI node to privately run AI models within a TEE.
+[SecretLLM](/build/secretLLM/overview) connnects to a nilAI node to privately run AI models within a TEE.
 
 <Tabs>
     <TabItem value="nilAI-testnet" label="nilAI Testnet" default>
          :::info
-       nilAI Testnet node access is gated by nilAI Testnet-specific allowlisted API keys. [Apply for a nilAI API key](/build/secretLLM/access) to use nilAI Testnet nodes.
+       nilAI Testnet node access is gated by nilAI Testnet-specific allowlisted API keys. [Apply for a nilAI API key](/build/secretLLM/access) or use our [SecretLLM Demo Credentials](/build/secretLLM/access#demo-credentials) to connect to nilAI Testnet nodes.
        :::
 
        ```
