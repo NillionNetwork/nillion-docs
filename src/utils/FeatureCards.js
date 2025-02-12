@@ -7,10 +7,11 @@ export const QuickStartFeatures = [
     href: './build/secret-vault-quickstart',
   },
   {
-    title: 'nilQL',
-    description: 'Encrypt and decrypt data using nilQL.',
-    icon: '🔐',
-    href: './build/nilQL',
+    title: 'SecretLLM',
+    description:
+      'Run OpenAI-compatible LLMs privately in a TEE, without exposing user data.',
+    icon: '💬',
+    href: './build/secretLLM/usage',
   },
   {
     title: 'SecretSigning',
@@ -20,9 +21,9 @@ export const QuickStartFeatures = [
     href: './threshold-signatures',
   },
   {
-    title: 'SecretLLM',
-    description: 'Chat with private AI LLMs',
-    icon: '💬',
-    href: './build/secretLLM/usage',
+    title: 'nilQL',
+    description: 'Encrypt and decrypt data using the nilQL library.',
+    icon: '🔐',
+    href: './build/nilQL',
   },
 ];
