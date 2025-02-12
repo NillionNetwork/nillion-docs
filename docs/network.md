@@ -3,64 +3,150 @@ import TabItem from '@theme/TabItem';
 import SupportedWallets from './\_testnet_supported_wallets.mdx';
 import BlockExplorers from './\_testnet_block_explorers.mdx';
 
-# Nillion Network
+# Network Configuration
 
-The **Nillion Network** allows developers to build applications and services that leverage privacy-enhancing technologies (PETs) such as secure multi-party computation (MPC) to perform blind computations over private user data (without requiring that data to be revealed to the network or to other users).
+## nilChain
 
-## Network Architecture
+Configuration information for connecting to [nilChain](https://github.com/NillionNetwork/nilchain), Nillion's Coordination Layer.
 
-![Nillion's network architecture diagram](/img/network_diagram.png)
+<Tabs>
+    <TabItem value="nilchain-testnet" label="nilChain Testnet" default>
+    ```
+    nilChain Chain ID: nillion-chain-testnet-1
+    nilChain JSON RPC URL: http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
+    nilChain REST API: https://api.testnet.nilchain-rpc-proxy.nilogy.xyz
+    nilChain GRPC URL: https://testnet-nillion-grpc.lavenderfive.com
+    ```
+    </TabItem>
 
-The Nillion Blind Computer is a distributed network tailor-made to make Blind Computation possible. The network is split into two parts: The **Petnet** (Privacy Enhancing Technology Network) and **nilChain**.
+    <TabItem value="nilchain-mainnet" label="nilChain Mainnet" default>
+       ```
+       Coming 🔜
+       ```
+    </TabItem>
 
-### Petnet
+</Tabs>
+<br/>
 
-The Petnet is made up of separate clusters of nodes that offer different technologies and products, with the goal of allowing anyone to come and spin up their own cluster. App developers can then choose from existing clusters or create their own to tailor their specific infrastructure and security needs. Nodes looking to form a new cluster for general use can compete for user adoption across many axes including number of nodes, price, reputation, performance, cryptoeconomic security, jurisdiction, and hardware-based security. Developers then have the power to pick their own point on the tradeoff space and decide what matters to them – keeping them in control.
+---
 
-### nilChain
+## Petnet
 
-The nilChain is a blockchain that manages shared resources for the whole Nillion Network. It’s built on top of the Cosmos SDK stack and such as rewards, cryptoeconomic stake, and governance, as well as enabling inter-cluster coordination. Since it’s intended purely for coordination purposes, the chain doesn’t have an open execution environment for running smart contracts.
+### nilVM Nodes
 
-## Live Testnet
+SecretSigning connects to nilVM nodes to sign messages with stored private keys.
 
-Consistent with the dual network architecture described above, the **Nillion Network testnet** (or simply **Nillion testnet**) consists of two interdependent testnet instances: the **nilChain testnet** and the **Petnet testnet**.
+<Tabs>
+    <TabItem value="nilVM-testnet" label="nilVM Testnet" default>
+    ```
+    # Bootnode Multi Address
+    nilVM GRPC Endpoint: https://node-1.nilvm-testnet-1.nillion-network.testnet.nillion.network:14311
+    ```
+    </TabItem>
 
-### nilChain Testnet
+    <TabItem value="nilVM-mainnet" label="nilVM Mainnet">
+        ```
+       Coming 🔜
+       ```
+    </TabItem>
 
-The nilChain testnet is live! Follow our [Testnet Guides](/testnet-guides) to create a wallet connected to the Nillion testnet, use the testnet faucet, and send NIL testnet tokens.
+    <TabItem value="nilVM-photon" label="🌅 nilVM Photon Testnets (sunsetting soon)">
+       :::warning
 
-    <Tabs>
-        <TabItem value="wallets" label="Supported wallets" default>
+       The original nilVM Photon testnet networks, Photon1 and Photon2, are being sunset. Migrate all blind apps to the latest nilVM Testnet by April 11, 2025.
+       :::
 
-            <SupportedWallets/>
-
-            Wallet Guide: [Creating a Nillion Wallet](guide-testnet-connect)
-
-        </TabItem>
-        <TabItem value="explorers" label="Block explorers">
-
-            <BlockExplorers/>
-
-            Transaction Guide: [Sending NIL and Using a Block Explorer](/guide-testnet-tx#3-look-for-the-transaction-on-a-nillion-block-explorer)
-
-        </TabItem>
-
-        <TabItem value="chaininfo" label="chain-info.json" default>
-
-        nilChain testnet chain info:
-
-        ```json reference showGithubLink
-        https://github.com/chainapsis/keplr-chain-registry/blob/main/cosmos/nillion-chain-testnet.json
+        #### Photon2 Testnet
 
         ```
+        Cluster ID: [no longer needed]
+        Bootnode Multi Address: https://node-1.photon2.nillion-network.nilogy.xyz:14311
+        Bootnode Websocket: [no longer needed]
+        ```
 
-        </TabItem>
-    </Tabs>
+        #### Photon1 Testnet
 
-### Petnet Testnet
+        ```
+        Cluster ID: b13880d3-dde8-4a75-a171-8a1a9d985e6c
+        Bootnode Multi Address: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
+        Bootnode Websocket: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14211/wss/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
+        ```
 
-The Petnet testnet is also live! Builders can now [build their blind applications](/quickstart) and then [connect them to the Petnet testnet](/network-configuration) to make them accessible to the whole community.
 
-## Local Devnet
+    </TabItem>
 
-Builders that prefer to work locally can use the [Nillion SDK](/nillion-sdk-and-tools) to connect their blind applications to a local instance of the [nillion-devnet](/nillion-devnet). Builders have the option to connect these applications to the Petnet testnet once they are ready.
+</Tabs>
+<br/>
+
+---
+
+### nilDB Nodes
+
+SecretVault and SecretDataAnalytics connect to nilDB nodes to enable storing and querying encrypted data.
+
+<Tabs>
+    <TabItem value="nilDB-demo" label="nilDB Testnet" default>
+
+    #### Demo node 1: [nildb-zy8u](https://nildb-zy8u.nillion.network/api/v1/openapi/docs/)
+
+    ```
+    nilDB Node URL: https://nildb-zy8u.nillion.network
+    nilDB Node DID: did:nil:testnet:nillion1fnhettvcrsfu8zkd5zms4d820l0ct226c3zy8u
+    nilDB Node Public Key: 037a2183c3f786a3505470aa4169f50f1d267b816dc596b26405a539f2aa579469
+    API docs: https://nildb-zy8u.nillion.network/api/v1/openapi/docs/
+    ```
+
+    #### Demo node 2: [nildb-rl5g](https://nildb-rl5g.nillion.network/api/v1/openapi/docs/)
+
+    ```
+    nilDB Node URL: https://nildb-rl5g.nillion.network
+    nilDB Node DID: did:nil:testnet:nillion14x47xx85de0rg9dqunsdxg8jh82nvkax3jrl5g
+    nilDB Node Public Key: 037782d481c4f119c88e5fc2cd17b3ca13ea7383992d09857e9ee43b51cd7f5a18
+    API docs: https://nildb-rl5g.nillion.network/api/v1/openapi/docs/
+    ```
+
+    #### Demo node 3: [nildb-lpjp](https://nildb-lpjp.nillion.network/api/v1/openapi/docs/)
+
+    ```
+    nilDB Node URL: https://nildb-lpjp.nillion.network
+    nilDB Node DID: did:nil:testnet:nillion167pglv9k7m4gj05rwj520a46tulkff332vlpjp
+    nilDB Node Public Key: 03fda649d577a9a28d6486f9dcaa839a4719b99364348e2815280f74df4ec62894
+    API docs: https://nildb-lpjp.nillion.network/api/v1/openapi/docs/
+    ```
+
+    </TabItem>
+
+    <TabItem value="nilDB-mainnet" label="nilDB Mainnet" default>
+       ```
+       Coming 🔜
+       ```
+    </TabItem>
+
+</Tabs>
+<br/>
+
+---
+
+### nilAI Nodes
+
+SecretLLM connnects to a nilAI node to privately run AI models within a TEE.
+
+<Tabs>
+    <TabItem value="nilAI-testnet" label="nilAI Testnet" default>
+         :::info
+       nilAI Testnet node access is gated by nilAI Testnet-specific allowlisted API keys. [Apply for a nilAI API key](/build/secretLLM/access) to use nilAI Testnet nodes.
+       :::
+
+       ```
+       nilAI Node URL: https://nilai-a779.nillion.network
+       API docs: https://nilai-a779.nillion.network/docs
+       ```
+    </TabItem>
+
+    <TabItem value="nilAI-mainnet" label="nilAI Mainnet" default>
+        ```
+       Coming 🔜
+        ```
+    </TabItem>
+
+</Tabs>

@@ -11,7 +11,7 @@ const buildSidebar = [
     id: 'quickstart',
   },
   'build/blind-modules',
-
+  'network',
   {
     type: 'category',
     label: 'SecretVault',
