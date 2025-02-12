@@ -11,7 +11,11 @@ const buildSidebar = [
     id: 'quickstart',
   },
   'build/blind-modules',
-
+  {
+    type: 'doc',
+    label: 'Network Configuration',
+    id: 'network',
+  },
   {
     type: 'category',
     label: 'SecretVault',
