@@ -9,7 +9,7 @@ export const QuickStartFeatures = [
   {
     title: 'SecretLLM',
     description:
-      'Run OpenAI-compatible LLMs privately in a TEE, without exposing user data.',
+      'Run OpenAI-compatible LLMs privately in a TEE within a nilAI node, without exposing user data.',
     icon: '💬',
     href: './build/secretLLM/usage',
   },
