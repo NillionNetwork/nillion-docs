@@ -20,6 +20,9 @@ export const QuickStartFeatures = [
     icon: '🔏',
     href: './threshold-signatures',
   },
+];
+
+export const Libraries = [
   {
     title: 'nilQL',
     description: 'Encrypt and decrypt data using the nilQL library.',
