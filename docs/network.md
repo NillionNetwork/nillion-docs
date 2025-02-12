@@ -7,13 +7,15 @@ import BlockExplorers from './\_testnet_block_explorers.mdx';
 
 ## nilChain
 
+Configuration information for connecting to [nilChain](https://github.com/NillionNetwork/nilchain), Nillion's Coordination Layer.
+
 <Tabs>
     <TabItem value="nilchain-testnet" label="nilChain Testnet" default>
     ```
-       nilChain Chain ID: nillion-chain-testnet-1
-       nilChain JSON RPC URL: http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
-       nilChain REST API: https://api.testnet.nilchain-rpc-proxy.nilogy.xyz
-       nilChain GRPC URL: https://testnet-nillion-grpc.lavenderfive.com
+    nilChain Chain ID: nillion-chain-testnet-1
+    nilChain JSON RPC URL: http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
+    nilChain REST API: https://api.testnet.nilchain-rpc-proxy.nilogy.xyz
+    nilChain GRPC URL: https://testnet-nillion-grpc.lavenderfive.com
     ```
     </TabItem>
 
@@ -32,10 +34,13 @@ import BlockExplorers from './\_testnet_block_explorers.mdx';
 
 ### nilVM Nodes
 
+SecretSigning connects to nilVM nodes to sign messages with stored private keys.
+
 <Tabs>
     <TabItem value="nilVM-testnet" label="nilVM Testnet" default>
     ```
-       nilVM GRPC Endpoint (Bootnode): https://node-1.nilvm-testnet-1.nillion-network.testnet.nillion.network:14311
+    # Bootnode Multi Address
+    nilVM GRPC Endpoint: https://node-1.nilvm-testnet-1.nillion-network.testnet.nillion.network:14311
     ```
     </TabItem>
 
@@ -45,11 +50,29 @@ import BlockExplorers from './\_testnet_block_explorers.mdx';
        ```
     </TabItem>
 
-    <TabItem value="nilVM-photon" label="nilVM Photon Testnets (sunset)">
+    <TabItem value="nilVM-photon" label="🌅 nilVM Photon Testnets (sunsetting soon)">
        :::warning
 
-       The original nilVM testnet networks, Photon1 and Photon2, are being sunset. Migrate all blind apps to the latest nilVM Testnet by April 11, 2025.
+       The original nilVM Photon testnet networks, Photon1 and Photon2, are being sunset. Migrate all blind apps to the latest nilVM Testnet by April 11, 2025.
        :::
+
+        #### Photon2 Testnet
+
+        ```
+        Cluster ID: [no longer needed]
+        Bootnode Multi Address: https://node-1.photon2.nillion-network.nilogy.xyz:14311
+        Bootnode Websocket: [no longer needed]
+        ```
+
+        #### Photon1 Testnet
+
+        ```
+        Cluster ID: b13880d3-dde8-4a75-a171-8a1a9d985e6c
+        Bootnode Multi Address: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
+        Bootnode Websocket: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14211/wss/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
+        ```
+
+
     </TabItem>
 
 </Tabs>
@@ -58,6 +81,8 @@ import BlockExplorers from './\_testnet_block_explorers.mdx';
 ---
 
 ### nilDB Nodes
+
+SecretVault and SecretDataAnalytics connect to nilDB nodes to enable storing and querying encrypted data.
 
 <Tabs>
     <TabItem value="nilDB-demo" label="nilDB Demo Cluster" default>
@@ -138,10 +163,12 @@ import BlockExplorers from './\_testnet_block_explorers.mdx';
 
 ### nilAI Nodes
 
+SecretLLM connnects to a nilAI node to privately run AI models within a TEE.
+
 <Tabs>
     <TabItem value="nilAI-testnet" label="nilAI Testnet" default>
          :::info
-       nilAI Testnet node access is gated by nilAI Testnet-specific allowlisted API keys. [Apply for API key](/build/secretLLM/access) to use nilAI Testnet nodes.
+       nilAI Testnet node access is gated by nilAI Testnet-specific allowlisted API keys. [Apply for a nilAI API key](/build/secretLLM/access) to use nilAI Testnet nodes.
        :::
 
        ```
