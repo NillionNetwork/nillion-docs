@@ -12,12 +12,13 @@ SecretLLM is a set of OpenAI-compatible APIs that run AI models within a Trusted
 
 ## Available Models
 
-| Model                            | Parameters | Features                      | Best For                                                                                      |
-| -------------------------------- | ---------- | ----------------------------- | --------------------------------------------------------------------------------------------- |
-| meta-llama/Llama-3.2-3B-Instruct | 3B         | Chat completion, tool support | Quick responses, simple Q&A, basic chat. Faster inference with lower resource usage.          |
-| meta-llama/Llama-3.1-8B-Instruct | 8B         | Chat completion, tool support | More complex tasks, detailed responses, code generation. Higher quality but slower inference. |
+| Model                                    | Parameters | Features                      | Best For                                                                                      | Access                                                                |
+| ---------------------------------------- | ---------- | ----------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| meta-llama/Llama-3.2-3B-Instruct         | 3B         | Chat completion, tool support | Quick responses, simple Q&A, basic chat. Faster inference with lower resource usage.          | Testnet                                                               |
+| meta-llama/Llama-3.1-8B-Instruct         | 8B         | Chat completion, tool support | More complex tasks, detailed responses, code generation. Higher quality but slower inference. | Testnet                                                               |
+| deepseek-ai/DeepSeek-R1-Distill-Qwen-14B | 14B        | Chat completion               | Reasoning and complex tasks that require a long output. Also, slowest of the three            | [Apply for access](/build/secretLLM/access#apply-for-a-nilai-api-key) |
 
-For most use cases, start with the 3B model and move to 8B if you need more capability.
+For most use cases, start with the 3B model and move up if you need more capability.
 
 ## Key Features
 
