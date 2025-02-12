@@ -32,54 +32,6 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ## Petnet
 
-### nilVM Nodes
-
-[SecretSigning](/threshold-signatures) connects to nilVM nodes to sign messages with stored private keys.
-
-<Tabs>
-    <TabItem value="nilVM-testnet" label="nilVM Testnet" default>
-    ```
-    # Bootnode Multi Address
-    nilVM GRPC Endpoint: https://node-1.nilvm-testnet-1.nillion-network.testnet.nillion.network:14311
-    ```
-    </TabItem>
-
-    <TabItem value="nilVM-mainnet" label="nilVM Mainnet">
-        ```
-       Coming 🔜
-       ```
-    </TabItem>
-
-    <TabItem value="nilVM-photon" label="🌅 nilVM Photon Testnets (sunsetting soon)">
-       :::warning
-
-       The original nilVM Photon testnet networks, Photon1 and Photon2, are being sunset. Migrate all blind apps to the latest nilVM Testnet by April 11, 2025.
-       :::
-
-        #### Photon2 Testnet
-
-        ```
-        Cluster ID: [no longer needed]
-        Bootnode Multi Address: https://node-1.photon2.nillion-network.nilogy.xyz:14311
-        Bootnode Websocket: [no longer needed]
-        ```
-
-        #### Photon1 Testnet
-
-        ```
-        Cluster ID: b13880d3-dde8-4a75-a171-8a1a9d985e6c
-        Bootnode Multi Address: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
-        Bootnode Websocket: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14211/wss/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
-        ```
-
-
-    </TabItem>
-
-</Tabs>
-<br/>
-
----
-
 ### nilDB Nodes
 
 [SecretVault](/build/secret-vault) and [SecretDataAnalytics](/build/secret-data-analytics) connect to nilDB nodes to enable storing and querying encrypted data.
@@ -147,6 +99,54 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
         ```
        Coming 🔜
         ```
+    </TabItem>
+
+</Tabs>
+<br/>
+
+---
+
+### nilVM Nodes
+
+[SecretSigning](/threshold-signatures) connects to nilVM nodes to sign messages with stored private keys.
+
+<Tabs>
+    <TabItem value="nilVM-testnet" label="nilVM Testnet" default>
+    ```
+    # Bootnode Multi Address
+    nilVM GRPC Endpoint: https://node-1.nilvm-testnet-1.nillion-network.testnet.nillion.network:14311
+    ```
+    </TabItem>
+
+    <TabItem value="nilVM-mainnet" label="nilVM Mainnet">
+        ```
+       Coming 🔜
+       ```
+    </TabItem>
+
+    <TabItem value="nilVM-photon" label="🌅 nilVM Photon Testnets (sunsetting soon)">
+       :::warning
+
+       The original nilVM Photon testnet networks, Photon1 and Photon2, are being sunset. Migrate all blind apps to the latest nilVM Testnet by April 11, 2025.
+       :::
+
+        #### Photon2 Testnet
+
+        ```
+        Cluster ID: [no longer needed]
+        Bootnode Multi Address: https://node-1.photon2.nillion-network.nilogy.xyz:14311
+        Bootnode Websocket: [no longer needed]
+        ```
+
+        #### Photon1 Testnet
+
+        ```
+        Cluster ID: b13880d3-dde8-4a75-a171-8a1a9d985e6c
+        Bootnode Multi Address: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
+        Bootnode Websocket: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14211/wss/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
+        ```
+
+
     </TabItem>
 
 </Tabs>
