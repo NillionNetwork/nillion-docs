@@ -142,13 +142,33 @@ const buildSidebar = [
   },
   {
     type: 'category',
-    label: 'nilQL',
-    link: {
-      type: 'doc',
-      id: 'build/nilQL',
-    },
-    items: ['build/secretVault-secretDataAnalytics/encryption'],
+    label: 'Libraries',
+    items: [
+      {
+        type: 'category',
+        label: 'nilQL',
+        link: {
+          type: 'doc',
+          id: 'build/nilQL',
+        },
+        collapsible: false,
+        items: [
+          'build/secretVault-secretDataAnalytics/encryption',
+          {
+            type: 'link',
+            label: 'nilql-ts',
+            href: 'https://github.com/NillionNetwork/nilql-ts',
+          },
+          {
+            type: 'link',
+            label: 'nilql-py',
+            href: 'https://github.com/NillionNetwork/nilql-py',
+          },
+        ],
+      },
+    ],
   },
+
   {
     type: 'doc',
     label: 'Evolution of nilVM',

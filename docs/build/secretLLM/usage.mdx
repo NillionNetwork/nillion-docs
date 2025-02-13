@@ -3,26 +3,67 @@ import TabItem from '@theme/TabItem';
 
 # Usage
 
-Once you have a [NilAI API key and node base URL](build/secretLLM/access.md), you can start using SecretLLM with any OpenAI-compatible library.
+Once you have a [nilAI API key](build/secretLLM/access.md), you can start using SecretLLM with any OpenAI-compatible library.
 
 ## Getting Started with SecretLLM
 
 Getting started with SecretLLM is straightforward:
 
-1. Query the [`/v1/models`](/api/nilai/get-models-v-1-models-get) endpoint to check available models
-2. Select a model and use it with the [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) endpoint
+1. Select a [nilAI node url](/network#nilai-nodes)
+2. Query the [`/v1/models`](/api/nilai/get-models-v-1-models-get) endpoint or check [available models](/build/secretLLM/overview#available-models)
+3. Select an available model and use it with the [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) nilAI node endpoint
 
 Since SecretLLM is OpenAI-compatible, you can use any OpenAI library. Here's an example for querying the `Llama-3.1-8B` model:
 
 <Tabs>
 
-<TabItem value="python" label="Python" default>
+<TabItem value="node" label="Node.js" default>
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nodejs/index.js
+```
+
+### Example response from SecretLLM
+
+<details>
+<summary>Signature and Response</summary>
+
+```text
+Signature: MEYCIQCfafKvn1nRmBdFYyxp+mJrRVaTuuN1ME40TRDC4Wg/HAIhAIpm4H2QCqlPmgnOd8/aJXuvWvIAEzKl3ObbbyFMz6iI
+Response: As a fitness coach, I'd say it's not necessarily about which one is better, but rather about balance and moderation. Both salads and pizza can be part of a healthy diet, but it depends on how they're prepared and consumed.
+
+A salad, when made with nutrient-dense ingredients like leafy greens, vegetables, lean proteins, and healthy fats, can be an excellent choice for a healthy meal. It's high in fiber, vitamins, and minerals, and can help support weight loss, improve digestion, and boost energy levels.
+
+On the other hand, pizza, when made with refined flour, processed meats, and high amounts of cheese, can be a less-than-ideal choice. It's high in calories, saturated fat, sodium, and refined carbohydrates, which can lead to weight gain, inflammation, and other health problems.
+
+However, if you're craving pizza, there are ways to make it healthier. Look for options that use:
+
+1. Whole-wheat or cauliflower crust
+2. Lean protein sources like chicken, turkey, or plant-based options
+3. Fresh vegetables like bell peppers, onions, and mushrooms
+4. Low-fat cheese or dairy-free alternatives
+5. Herbs and spices for flavor instead of salt and sugar
+
+In contrast, a salad can be made healthier by:
+
+1. Using a variety of colorful vegetables
+2. Adding lean protein sources like grilled chicken, salmon, or tofu
+3. Incorporating healthy fats like avocado, nuts, or seeds
+4. Using a homemade vinaigrette dressing instead of store-bought
+5. Limiting or avoiding added sugars and refined grains
+
+Ultimately, the better choice between salad and pizza depends on your individual needs and preferences. If you're looking for a quick, easy, and nutritious meal, a salad might be the way to go. But if you're craving something more indulgent, a healthier pizza option can be a better choice.
+
+As a fitness coach, I always recommend balance and variety in your diet. Aim to include a mix of whole, unprocessed foods, and indulge in moderation. Listen to your body and make choices that nourish your mind, body, and soul.
+```
+</details>
+</TabItem>
+<TabItem value="python" label="Python">
 ```python
 from openai import OpenAI
 
 # Initialize the OpenAI client
 
-client = OpenAI( # Replace <node> with the specific node identifier
+client = OpenAI(
     base_url="https://nilai-<node>.nillion.network/v1/",
     api_key="YOUR_API_KEY"
 )
@@ -46,58 +87,4 @@ response = client.chat.completions.create(
 
 ````
 </TabItem>
-
-<TabItem value="node" label="Node" default>
-```javascript
-const OpenAI = require('openai');
-
-// Initialize the OpenAI client
-const client = new OpenAI({
-  baseURL: 'https://nilai-<node>.nillion.network/v1/',
-  apiKey: 'YOUR_API_KEY'
-});
-
-// Send a chat completion request
-async function getChatCompletion() {
-  try {
-    const response = await client.chat.completions.create({
-      model: 'meta-llama/Llama-3.1-8B-Instruct',
-      messages: [
-        {
-          role: 'system',
-          content: 'You are a helpful assistant.'
-        },
-        {
-          role: 'user',
-          content: 'What is your name?'
-        }
-      ],
-      stream: false
-    });
-
-    console.log(response);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-
-// Call the function
-getChatCompletion();
-````
-
-</TabItem>
-
 </Tabs>
-
-
-## SecretLLM Endpoints
-
-SecretLLM provides the following endpoints:
-
-| Name | Endpoint | Description |
-|----------|----------|-------------|
-| Chat | [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) | Generate AI responses |
-| Models | [`/v1/models`](/api/nilai/get-models-v-1-models-get) | List available models |
-| Attestation | [`/v1/attestation/report`](/api/nilai/get-attestation-v-1-attestation-report-get) | Get cryptographic proof of environment |
-| Usage | [`/v1/usage`](/api/nilai/get-usage-v-1-usage-get) | Track your token usage |
-| Health | [`/v1/health`](/api/nilai/health-check-v-1-health-get) | Check service status |

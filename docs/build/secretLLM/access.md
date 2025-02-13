@@ -1,23 +1,10 @@
-# Access
+# Authentication
 
-You can try SecretLLM with demo credentials or create your own API key.
-
-## Demo credentials
-
-You can test the SecretLLM APIs with our demo credentials:
-
-```bash
-NILAI_API_URL=https://nilai-a779.nillion.network
-NILAI_API_KEY=Nillion2025
-```
-
-:::info
-Note: These demo credentials should only be used for testing endpoints or trying out the SecretLLM Quickstart. If you're building an application, please use the below to create your own API Key.
-:::
+SecretLLM provides secure access to the nilAI node API through API key authentication. This guide walks you through the process of creating a nilAI API key.
 
 ## Create an API Key
 
-If you're building a private AI app and need your own API key, use the [SecretLLM Registration Portal](https://nillion.pub/nilai-registration-page/) to create and verify your API key.
+Use the [SecretLLM Registration Portal](https://nillion.pub/nilai-registration-page/) to create and verify your API key.
 
 ![SecretLLM Access Home](/img/nilai_access_home.png)
 

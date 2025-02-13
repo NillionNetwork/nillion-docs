@@ -85,10 +85,6 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 <Tabs>
     <TabItem value="nilAI-testnet" label="nilAI Testnet" default>
-         :::info
-       nilAI Testnet node access is gated by nilAI Testnet-specific allowlisted API keys. [Apply for a nilAI API key](/build/secretLLM/access) or use our [SecretLLM Demo Credentials](/build/secretLLM/access#demo-credentials) to connect to nilAI Testnet nodes.
-       :::
-
        ```
        nilAI Node URL: https://nilai-a779.nillion.network
        API docs: https://nilai-a779.nillion.network/docs
