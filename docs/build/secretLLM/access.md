@@ -12,10 +12,10 @@ NILAI_API_KEY=Nillion2025
 ```
 
 :::info
-Note: These demo credentials should only be used for testing endpoints or trying out the SecretLLM Quickstart. If you're building an application, please use the below to apply for your own API Key.
+Note: These demo credentials should only be used for testing endpoints or trying out the SecretLLM Quickstart. If you're building an application, please use the below to create your own API Key.
 :::
 
-## Apply for a nilAI API Key
+## Create an API Key
 
 If you're building a private AI app and need your own API key, use the [SecretLLM Registration Portal](https://nillion.pub/nilai-registration-page/) to get and verify your API key.
 
