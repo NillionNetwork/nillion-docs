@@ -1,6 +1,6 @@
 # Access
 
-You can try SecretLLM with demo credentials or apply for your own API key.
+You can try SecretLLM with demo credentials or create your own API key.
 
 ## Demo credentials
 
@@ -17,11 +17,11 @@ Note: These demo credentials should only be used for testing endpoints or trying
 
 ## Create an API Key
 
-If you're building a private AI app and need your own API key, use the [SecretLLM Registration Portal](https://nillion.pub/nilai-registration-page/) to get and verify your API key.
+If you're building a private AI app and need your own API key, use the [SecretLLM Registration Portal](https://nillion.pub/nilai-registration-page/) to create and verify your API key.
 
 ![SecretLLM Access Home](/img/nilai_access_home.png)
 
-There are two options to choose from to get an API Key via:
+There are two options to create an API Key via:
 
 1. Keplr
 2. MetaMask
