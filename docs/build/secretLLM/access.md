@@ -1,6 +1,6 @@
 # Access
 
-You can try SecretLLM with demo credentials or apply for your own API key.
+You can try SecretLLM with demo credentials or create your own API key.
 
 ## Demo credentials
 
@@ -12,9 +12,28 @@ NILAI_API_KEY=Nillion2025
 ```
 
 :::info
-Note: These demo credentials should only be used for testing endpoints or trying out the SecretLLM Quickstart. If you're building an application, please use the form below to apply for your own node url and API Key.
+Note: These demo credentials should only be used for testing endpoints or trying out the SecretLLM Quickstart. If you're building an application, please use the below to create your own API Key.
 :::
 
-## Apply for a nilAI API Key
+## Create an API Key
 
-If you're building a private AI app and need your own API key, complete our [SecretLLM access request form](https://docs.google.com/forms/d/e/1FAIpQLScZpuHCVj056yXf9IveJpoVvN4EjcQ59QBGpM-9wXF8NHiH9w/viewform). Our team will review your application. Once approved, you'll receive your own NilAI API key and node URL.
+If you're building a private AI app and need your own API key, use the [SecretLLM Registration Portal](https://nillion.pub/nilai-registration-page/) to create and verify your API key.
+
+![SecretLLM Access Home](/img/nilai_access_home.png)
+
+There are two options to create an API Key via:
+
+1. Keplr
+2. MetaMask
+
+Choose either of the flows. Authenticate and prove the ownership of the account.
+
+![SecretLLM Access MetaMask](/img/nilai_access_metamask.png)
+
+You will then receive an API key which requires verification.
+
+![SecretLLM Access API Key](/img/nilai_access_apikey.png)
+
+You are now able to get started with using your own SecretLLM API Key to build private AI inferred applications.
+
+![SecretLLM Access Final Page](/img/nilai_access_finished.png)
