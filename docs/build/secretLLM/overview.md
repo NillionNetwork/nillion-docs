@@ -42,7 +42,7 @@ SecretLLM provides two layers of cryptographic proof:
 
 ## Getting Started
 
-1. Get access to SecretLLM by obtaining your NilAI API key and node URL
+1. Get access to SecretLLM by obtaining your nilAI API key and node URL
 2. Use your API key to check the `/models` endpoint for available models
 3. Start running private AI using your chosen model
 4. Optionally, verify your environment using the attestation API
