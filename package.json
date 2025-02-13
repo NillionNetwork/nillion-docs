@@ -17,6 +17,7 @@
     "@cookbookdev/docsbot": "^4.17.4",
     "@docusaurus/core": "3.5.2",
     "@docusaurus/preset-classic": "3.5.2",
+    "@docusaurus/theme-mermaid": "^3.5.2",
     "@docusaurus/theme-search-algolia": "3.5.2",
     "@mdx-js/react": "^3.0.0",
     "@reduxjs/toolkit": "^2.5.0",
