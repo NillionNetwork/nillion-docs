@@ -1,9 +1,11 @@
 # Overview
 
-nilAI API has several endpoints you may interface with:
+Each [nilAI node](/network#nilai-nodes) API provides the following endpoints for interfacing with [SecretLLM](/build/secretLLM/overview):
 
-- [Chat](./chat-completion-v-1-chat-completions-post)
-- [Attestation](./get-attestation-v-1-attestation-report-get)
-- [Models](./get-models-v-1-models-get)
-- [Usage](./get-usage-v-1-usage-get)
-- [Health](./health-check-v-1-health-get)
+| Name | Endpoint | Description |
+|----------|----------|-------------|
+| Chat | [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) | Generate AI responses |
+| Models | [`/v1/models`](/api/nilai/get-models-v-1-models-get) | List available models |
+| Attestation | [`/v1/attestation/report`](/api/nilai/get-attestation-v-1-attestation-report-get) | Get cryptographic proof of environment |
+| Usage | [`/v1/usage`](/api/nilai/get-usage-v-1-usage-get) | Track your token usage |
+| Health | [`/v1/health`](/api/nilai/health-check-v-1-health-get) | Check service status |
