@@ -13,3 +13,56 @@ The Petnet nodes support secure storage and computation over data, and these cap
 ## nilChain
 
 The nilChain is a blockchain that manages shared resources for the whole Nillion Network. It's built on top of the Cosmos SDK stack and supports rewards, cryptoeconomic stake, and governance, as well as enabling inter-cluster coordination. Since its main purpose is to enable coordination, the chain does not have an open execution environment for running smart contracts.
+
+### Mermaid Diagram
+
+```mermaid
+graph TD
+    A[Hungry] --> B{Time Available?}
+    B -->|< 30 mins| C[Check Food Delivery]
+    B -->|> 30 mins| D[Check Kitchen]
+
+    C --> E{Delivery Apps}
+    E -->|High Fees| F[Check Direct Restaurant Order]
+    E -->|Good Deals| G[Compare Restaurant Options]
+
+    D --> H{Ingredients Check}
+    H -->|Missing Items| I[Check Grocery Store]
+    H -->|Have Everything| J[Begin Prep]
+
+    I -->|Store Nearby| K[Quick Grocery Run]
+    I -->|Store Far| L[Back to Delivery Apps]
+
+    G --> M{Restaurant Wait Time?}
+    M -->|> 45 mins| N[Too Long - Reconsider]
+    M -->|< 45 mins| O[Place Order]
+
+    J --> P{Recipe Complexity}
+    P -->|Simple| Q[Quick Meal Prep]
+    P -->|Complex| R[Full Cooking Process]
+
+    K --> J
+    N --> D
+
+    O --> S[Track Order]
+    S --> T{Delivery Status}
+    T -->|Delayed| U[Contact Support]
+    T -->|On Time| V[Food Arrives]
+
+    Q --> W[Quick Meal Ready]
+    R --> X[Home Cooked Meal]
+
+    U --> Y[Wait or Cancel?]
+    Y -->|Wait| V
+    Y -->|Cancel| Z[Refund Process]
+    Z --> A
+
+    style A fill:#d4f1f4
+    style B fill:#e1e5f2
+    style O fill:#90EE90
+    style V fill:#90EE90
+    style W fill:#90EE90
+    style X fill:#90EE90
+    style U fill:#ffcccb
+    style Z fill:#ff6961
+```
