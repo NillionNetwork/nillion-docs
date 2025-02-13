@@ -11,7 +11,7 @@ const communitySidebar = [
     label: 'Testnet Guides',
     link: {
       type: 'doc',
-      id: 'testnet-guides',
+      id: 'guide-testnet-connect',
     },
     items: [
       'guide-testnet-connect',
