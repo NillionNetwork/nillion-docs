@@ -33,6 +33,10 @@ const config = {
     locales: ['en'],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+
   scripts: [
     {
       src: '/js/piwik.js',
@@ -91,6 +95,7 @@ const config = {
   themes: [
     'docusaurus-theme-openapi-docs',
     'docusaurus-theme-github-codeblock',
+    '@docusaurus/theme-mermaid',
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
