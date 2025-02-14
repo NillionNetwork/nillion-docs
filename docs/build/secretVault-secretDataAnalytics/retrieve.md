@@ -72,6 +72,33 @@ https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/orgConf
 </TabItem>
 </Tabs>
 </TabItem>
+<TabItem value="wrapper-py" label="Python (with wrapper)">
+
+### Install secretvaults
+
+```bash
+pip install secretvaults
+```
+
+### Run the data_create_read script
+
+```bash
+python3 data_create_read.py
+```
+
+<Tabs>
+  <TabItem value="readWriteSv" label="readWriteSv.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/data_create_read.py
+```
+</TabItem>
+  <TabItem value="orgConfig" label="orgConfig.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/org_config.py
+```
+</TabItem>
+</Tabs>
+</TabItem>
 </Tabs>
 
 </details>

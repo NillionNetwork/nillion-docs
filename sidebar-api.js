@@ -22,12 +22,18 @@ module.exports = [
       },
       {
         type: 'category',
-        label: 'Data',
+        label: 'Schemas',
         items: [
           'api/nildb/list-the-organizations-schemas', // List Schemas
-          'api/nildb/add-a-new-schema', // Add Schema /
-          'api/nildb/delete-a-schema', // Delete Schema /
-          'api/nildb/upload-data-to-the-specified-schema-collection', // Upload /
+          'api/nildb/add-a-new-schema', // Add Schema
+          'api/nildb/delete-a-schema', // Delete Schema
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Data',
+        items: [
+          'api/nildb/upload-data-to-the-specified-schema-collection', // Upload
           'api/nildb/retrieve-data-from-the-specified-schema-collection-that-matches-the-provided-filter', // Read
           'api/nildb/retrieve-recently-added-documents-from-a-schema-collection', // Tail
           'api/nildb/update-documents-within-a-schema-collection-that-match-the-given-filter', // Update

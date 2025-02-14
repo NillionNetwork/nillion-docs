@@ -63,15 +63,21 @@ const buildSidebar = [
         ],
       },
       'build/secretVault-secretDataAnalytics/generate-tokens',
+
       {
         type: 'link',
-        label: 'SecretVault Examples',
-        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb',
+        label: 'JS Wrapper Examples',
+        href: 'https://github.com/NillionNetwork/secretvault-js/tree/main/examples',
       },
       {
         type: 'link',
-        label: 'SecretVaultWrapper JS Examples',
-        href: 'https://github.com/NillionNetwork/nillion-sv-wrappers/tree/main/examples',
+        label: 'Python Wrapper Examples',
+        href: 'https://github.com/NillionNetwork/secretvaults-py/tree/main/examples',
+      },
+      {
+        type: 'link',
+        label: 'Full App Examples',
+        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb',
       },
       {
         type: 'category',

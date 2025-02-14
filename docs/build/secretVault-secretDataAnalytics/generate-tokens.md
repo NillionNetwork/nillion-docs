@@ -103,7 +103,36 @@ https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/generat
 https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/orgConfig.js
 ```
 </TabItem>
-</Tabs>
-</TabItem>
 
+</Tabs>
+
+</TabItem>
+<TabItem value="wrapper-py" label="Python (with wrapper)">
+
+### Install secretvaults
+
+```bash
+pip install secretvaults
+```
+
+### Run the generate_api_tokens script
+
+```bash
+python3 generate_api_tokens.py
+```
+
+<Tabs>
+  <TabItem value="createSchema" label="generate_api_tokens.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/generate_api_tokens.py
+```
+</TabItem>
+  <TabItem value="orgConfig" label="orgConfig.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/org_config.py
+```
+</TabItem>
+</Tabs>
+
+</TabItem>
 </Tabs>

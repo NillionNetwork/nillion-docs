@@ -178,6 +178,35 @@ https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/examples/orgConf
 
 </TabItem>
 
+<TabItem value="wrapper-py" label="Python (with wrapper)">
+
+### Install secretvaults
+
+```bash
+pip install secretvaults
+```
+
+### Run the schema_create script
+
+```bash
+python3 schema_create.py
+```
+
+<Tabs>
+  <TabItem value="createSchema" label="createSchema.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/schema_create.py
+```
+</TabItem>
+  <TabItem value="orgConfig" label="orgConfig.js">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/org_config.py
+```
+</TabItem>
+</Tabs>
+
+</TabItem>
+
 </Tabs>
 </details>
 

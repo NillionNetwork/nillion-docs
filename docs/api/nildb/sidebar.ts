@@ -20,7 +20,7 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Data",
+      label: "Schema",
       items: [
         {
           type: "doc",
@@ -40,6 +40,12 @@ const sidebar: SidebarsConfig = {
           label: "Retrieve data from the specified schema collection that matches the provided filter",
           className: "api-method post",
         },
+      ],
+    },
+    {
+      type: "category",
+      label: "Data",
+      items: [
         {
           type: "doc",
           id: "api/nildb/update-documents-within-a-schema-collection-that-match-the-given-filter",
