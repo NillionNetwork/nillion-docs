@@ -9,14 +9,14 @@ import IframeVideo from '@site/src/components/IframeVideo/index';
 <IframeVideo videoSrc="https://www.loom.com/embed/ee391ce583ab442db71942565b068e61?sid=c7dd28bb-8920-4451-a88e-6de83a21655f"/>
 <br/>
 :::info
-This guide uses JavaScript (Node.js) and the [nillion-sv-wrappers](https://github.com/NillionNetwork/nillion-sv-wrappers) package for simplicity, but SecretVault can be integrated with any language [using the nilDB APIs directly](/build/secret-vault#how-to-use-secretvault).
+This guide uses JavaScript (Node.js) and the JS [nillion-sv-wrappers](https://github.com/NillionNetwork/secretvault-js) package for simplicity, but SecretVault can be integrated with any language [using the nilDB APIs directly](/build/secret-vault#how-to-use-secretvault). The wrapper package is also available in [Python](https://github.com/NillionNetwork/secretvaults-py) via [PyPi](https://pypi.org/project/secretvaults/).
 :::
 
 ## Project Overview
 
 This quickstart will guide you through:
 
-1. Setting up a Node.js project from scratch and installing [nillion-sv-wrappers](https://github.com/NillionNetwork/nillion-sv-wrappers)
+1. Setting up a Node.js project from scratch and installing the JS [nillion-sv-wrappers](https://github.com/NillionNetwork/secretvault-js))
 2. Configuring SecretVault org access
 3. Creating a SecretVault Collection by uploading a schema
 4. Writing and reading encrypted survey data to the collection
@@ -57,7 +57,7 @@ npm i nillion-sv-wrappers
 ```
 
 :::info
-[nillion-sv-wrappers](https://github.com/NillionNetwork/nillion-sv-wrappers) is a JavaScript npm package with wrappers for simplifying usage of Nillion's Secret Vault and the nilQL encryption and decryption library.
+[nillion-sv-wrappers](https://github.com/NillionNetwork/secretvault-js) is a JavaScript npm package with wrappers for simplifying usage of Nillion's Secret Vault and the nilQL encryption and decryption library. A [Python](https://github.com/NillionNetwork/secretvaults-py) version is also available via [PyPi](https://pypi.org/project/secretvaults/).
 :::
 
 ### 2. Set your SecretVault Organization Config

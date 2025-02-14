@@ -75,5 +75,33 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 ```
 
 </TabItem> 
+<TabItem value="wrapper-py" label="Python (with wrapper)">
+
+### Install secretvaults
+
+```bash
+pip install secretvaults
+```
+
+### Run the query_execute script
+
+```bash
+python3 query_execute.py
+```
+
+<Tabs>
+  <TabItem value="createSchema" label="query_execute.py">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/query_execute.py
+```
+</TabItem>
+  <TabItem value="orgConfig" label="org_config.py">
+```javascript reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/org_config.py
+```
+</TabItem>
+</Tabs>
+
+</TabItem>
 </Tabs>
 </details>
