@@ -81,7 +81,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilAI Nodes
 
-[SecretLLM](/build/secretLLM/overview) connnects to a nilAI node to privately run AI models within a TEE.
+[SecretLLM](/build/secretLLM/overview) connects to a nilAI node to privately run AI models within a TEE.
 
 <Tabs>
     <TabItem value="nilAI-testnet" label="nilAI Testnet" default>
