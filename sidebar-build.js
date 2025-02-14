@@ -139,7 +139,7 @@ const buildSidebar = [
   },
   {
     type: 'category',
-    label: 'SecretSigning',
+    label: 'SecretSigner',
     link: {
       type: 'doc',
       id: 'threshold-signatures',
