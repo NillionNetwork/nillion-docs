@@ -14,11 +14,11 @@ export const QuickStartFeatures = [
     href: './build/secretLLM/usage',
   },
   {
-    title: 'SecretSigning',
+    title: 'SecretSigner',
     description:
       'Sign messages and ETH transactions without revealing the private key, which is stored as a secret in nilVM.',
     icon: '🔏',
-    href: './threshold-signatures',
+    href: './build/secretSigner/signing',
   },
 ];
 

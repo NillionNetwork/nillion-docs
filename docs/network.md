@@ -104,7 +104,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilVM Nodes
 
-[SecretSigning](/threshold-signatures) connects to nilVM nodes to sign messages with stored private keys.
+[SecretSigner](/build/secretSigner/overview) connects to nilVM nodes to sign messages with stored private keys.
 
 <Tabs>
     <TabItem value="nilVM-testnet" label="nilVM Testnet" default>
