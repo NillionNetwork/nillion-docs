@@ -10,7 +10,6 @@ const buildSidebar = [
     label: 'Start Building',
     id: 'quickstart',
   },
-  'build/blind-modules',
   'network',
   {
     type: 'category',
@@ -142,9 +141,19 @@ const buildSidebar = [
     label: 'SecretSigner',
     link: {
       type: 'doc',
-      id: 'threshold-signatures',
+      id: 'build/secretSigner/overview',
     },
-    items: [],
+    items: [
+      'build/secretSigner/signers',
+      'build/secretSigner/setup',
+      'build/secretSigner/store-key',
+      'build/secretSigner/signing',
+      {
+        type: 'link',
+        label: 'Examples',
+        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilvm',
+      },
+    ],
   },
   {
     type: 'category',

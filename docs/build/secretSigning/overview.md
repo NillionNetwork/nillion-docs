@@ -1,3 +1,0 @@
-# SecretSigning
-
-Coming soon.

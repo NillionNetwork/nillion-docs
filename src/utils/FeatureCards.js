@@ -18,7 +18,7 @@ export const QuickStartFeatures = [
     description:
       'Sign messages and ETH transactions without revealing the private key, which is stored as a secret in nilVM.',
     icon: '🔏',
-    href: './threshold-signatures',
+    href: './build/secretSigner/signing',
   },
 ];
 

@@ -8,7 +8,7 @@ const learnSidebar = [
   'what-is-nillion',
   'learn/use-cases',
   'learn/architecture',
-  //'learn/products',
+  'build/blind-modules',
   'learn/protocols',
 ];
 
