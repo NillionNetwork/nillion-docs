@@ -39,31 +39,31 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 <Tabs>
     <TabItem value="nilDB-demo" label="nilDB Testnet" default>
 
-    #### Demo node 1: [nildb-zy8u](https://nildb-zy8u.nillion.network/api/v1/openapi/docs/)
+    #### Demo node 1: [nildb-nx8v](https://nildb-nx8v.nillion.network/api/v1/openapi/docs/)
 
     ```
-    nilDB Node URL: https://nildb-zy8u.nillion.network
-    nilDB Node DID: did:nil:testnet:nillion1fnhettvcrsfu8zkd5zms4d820l0ct226c3zy8u
-    nilDB Node Public Key: 037a2183c3f786a3505470aa4169f50f1d267b816dc596b26405a539f2aa579469
+    URL: https://nildb-nx8v.nillion.network
+    DID: did:nil:testnet:nillion1qfrl8nje3nvwh6cryj63mz2y6gsdptvn07nx8v
+    Public Key: 034a2df3bafaca2aa0b70353aa2f05ad129096b60c8a305d115bf605d57bc2588a
+    API docs: https://nildb-nx8v.nillion.network/api/v1/openapi/docs/
+    ```
+
+    #### Demo node 2: [nildb-p3mx](https://nildb-p3mx.nillion.network/api/v1/openapi/docs/)
+
+    ```
+    URL: https://nildb-p3mx.nillion.network
+    DID: did:nil:testnet:nillion1uak7fgsp69kzfhdd6lfqv69fnzh3lprg2mp3mx
+    Public Key: 03d088a7f2c8f2a6e2aa788265c87e22d1501dd1210fa149ff600ac264ada5eb42
     API docs: https://nildb-zy8u.nillion.network/api/v1/openapi/docs/
     ```
 
-    #### Demo node 2: [nildb-rl5g](https://nildb-rl5g.nillion.network/api/v1/openapi/docs/)
+    #### Demo node 3: [nildb-rugk](https://nildb-rugk.nillion.network/api/v1/openapi/docs/)
 
     ```
-    nilDB Node URL: https://nildb-rl5g.nillion.network
-    nilDB Node DID: did:nil:testnet:nillion14x47xx85de0rg9dqunsdxg8jh82nvkax3jrl5g
-    nilDB Node Public Key: 037782d481c4f119c88e5fc2cd17b3ca13ea7383992d09857e9ee43b51cd7f5a18
-    API docs: https://nildb-rl5g.nillion.network/api/v1/openapi/docs/
-    ```
-
-    #### Demo node 3: [nildb-lpjp](https://nildb-lpjp.nillion.network/api/v1/openapi/docs/)
-
-    ```
-    nilDB Node URL: https://nildb-lpjp.nillion.network
-    nilDB Node DID: did:nil:testnet:nillion167pglv9k7m4gj05rwj520a46tulkff332vlpjp
-    nilDB Node Public Key: 03fda649d577a9a28d6486f9dcaa839a4719b99364348e2815280f74df4ec62894
-    API docs: https://nildb-lpjp.nillion.network/api/v1/openapi/docs/
+    URL: https://nildb-rugk.nillion.network
+    DID: did:nil:testnet:nillion1kfremrp2mryxrynx66etjl8s7wazxc3rssrugk
+    Public Key: 02c4a5c6135098dd7ac1186c13d4de466be85f85efc6961e75abc31e4fdac41528
+    API docs: https://nildb-rugk.nillion.network/api/v1/openapi/docs/
     ```
 
     </TabItem>
