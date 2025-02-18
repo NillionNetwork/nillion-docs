@@ -5,8 +5,8 @@
  */
 
 @font-face {
-  font-family: "TWKEverett";
-  src: url("../../static/fonts/TWKEverett-Medium-web.woff") format("woff");
+  font-family: 'TWKEverett';
+  src: url('../../static/fonts/TWKEverett-Medium-web.woff') format('woff');
 }
 
 /* You can override the default Infima variables here. */
@@ -22,11 +22,11 @@
   --ifm-card-primary-grey: #f7f7f7;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --feedback-primary-color: blue;
-  --feedback-font-family: "TWKEverett";
+  --feedback-font-family: 'TWKEverett';
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --ifm-color-primary: #b7d8f7;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -61,7 +61,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "TWKEverett";
+  font-family: 'TWKEverett';
 }
 
 .navbar .clean-btn svg,
@@ -69,12 +69,12 @@ h4 {
 .navbar .navbar__item {
   color: white !important;
 }
-[data-theme="light"] .navbar .navbar__item  {
+[data-theme='light'] .navbar .navbar__item {
   color: white !important;
   filter: invert(0.8);
 }
 
-[data-theme="light"] .navbar .clean-btn svg {
+[data-theme='light'] .navbar .clean-btn svg {
   filter: invert(0.8);
 }
 
@@ -87,7 +87,7 @@ h4 {
 }
 
 .header-github:before {
-  content: "";
+  content: '';
   width: 24px;
   height: 24px;
   display: flex;
@@ -97,11 +97,11 @@ h4 {
 
 /* Dark mode css */
 
-[data-theme="dark"] .header-github:hover {
+[data-theme='dark'] .header-github:hover {
   filter: invert(1);
 }
 
-[data-theme="dark"] .sidebar-title {
+[data-theme='dark'] .sidebar-title {
   border-bottom: solid rgb(96, 103, 112) 1px;
 }
 
@@ -128,3 +128,14 @@ h4 {
   padding-bottom: 0 !important;
 }
 
+/* MERMAID CSS for blind module diagrams */
+.docusaurus-mermaid-container {
+  align-items: center;
+  flex: auto;
+}
+
+.docusaurus-mermaid-container svg {
+  align-items: center;
+  display: block;
+  margin: 0 auto;
+}

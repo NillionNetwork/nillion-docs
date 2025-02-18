@@ -4,13 +4,11 @@ Blind Modules are the core technology Nillion is building. As a developer or end
 
 Currently, there are three Blind Modules: nilVM, nilDB & nilAI.
 
-![Nillion's network architecture diagram](/img/network_diagram.png)
-
 ## nilDB
 
 nilDB is Nillion's secure database solution, enabling data to be stored in an encrypted (via symmetric cryptography or HE) and/or decentralized (via MPC) way. Data is stored on a cluster of network nodes (with the current cluster consisting of three nodes).
 
-```mermaid 
+```mermaid
 graph TD
 
     subgraph CLIENT [" "]
@@ -55,7 +53,7 @@ nilDB is the Blind Module that underpins Nillion's SecretVault and SecretDataAna
 
 nilAI is Nillion's secure AI offering, which runs LLMs securely inside TEEs. nilAI is the Blind Module that underpins [SecretLLM](/build/secretLLM/overview).
 
-```mermaid 
+```mermaid
 graph LR
     linkStyle default interpolate basis
 
@@ -84,8 +82,7 @@ Like SecretVault and SecretDataAnalytics, this SDK can be accessed via an easy-t
 
 The core functionality provided by nilVM is the ability to sign data in a decentralized way using MPC, which can be leveraged using [SecretSigner](/build/secretSigner/overview).
 
-
-```mermaid 
+```mermaid
 graph TD
 
     subgraph NET_L [" "]
@@ -104,7 +101,7 @@ graph TD
     style NET_L fill:#CCCCFF,stroke:#000000
 ```
 
-```mermaid 
+```mermaid
 graph TD
 
     subgraph NET_R [" "]
