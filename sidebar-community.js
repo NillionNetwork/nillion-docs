@@ -8,15 +8,19 @@ const communitySidebar = [
   'community-and-support',
   {
     type: 'category',
-    label: 'Testnet Guides',
-    link: {
-      type: 'doc',
-      id: 'guide-testnet-connect',
-    },
+    label: 'nilChain Guides',
     items: [
-      'guide-testnet-connect',
-      'guide-testnet-faucet',
-      'guide-testnet-tx',
+      'guide-nillion-wallet',
+      'guide-sending-nil',
+      {
+        type: 'category',
+        label: 'Testnet Guides',
+        link: {
+          type: 'doc',
+          id: 'testnet-guides',
+        },
+        items: ['guide-testnet-faucet'],
+      },
     ],
   },
   {

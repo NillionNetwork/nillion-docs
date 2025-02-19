@@ -117,6 +117,6 @@ When your implementation works locally, switch to testnet by:
 
 ### 2. Fund a nilChain Wallet with Testnet NIL
 
-- [Create a Nillion Wallet](/guide-testnet-connect) - make sure to "Sign up with Google" rather than "Use Recovery Phrase" so that you have the option to "View Private Key" for the new Nillion account in Keplr.
+- [Create a Nillion Wallet](/guide-nillion-wallet) - make sure to "Sign up with Google" rather than "Use Recovery Phrase" so that you have the option to "View Private Key" for the new Nillion account in Keplr.
 - Fund the Nillion account with Testnet NIL from the [nilChain Testnet Faucet](/guide-testnet-faucet)
 - Set the funded private key as your nilChain payer to pay for Nillion Testnet operations.
