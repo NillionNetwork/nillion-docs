@@ -126,7 +126,13 @@ module.exports = [
       {
         type: 'category',
         label: 'Built-in Programs',
-        items: ['build/secretSigner/signers'],
+        items: [
+          {
+            type: 'link',
+            label: 'Signature Programs',
+            href: 'https://docs.nillion.com/build/secretSigner/signers',
+          },
+        ],
       },
       {
         type: 'category',
