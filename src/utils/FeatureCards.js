@@ -11,7 +11,7 @@ export const QuickStartFeatures = [
     description:
       'Run OpenAI-compatible LLMs privately in a TEE within a nilAI node, without exposing user data.',
     icon: '💬',
-    href: './build/secretLLM/usage',
+    href: './build/secretLLM/quickstart',
   },
   {
     title: 'SecretSigner',
