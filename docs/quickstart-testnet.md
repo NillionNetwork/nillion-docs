@@ -5,6 +5,7 @@ import {ReactTestnetEnv} from '@site/src/components/Networks/TestnetEnv';
 # Deploying to the Testnet
 
 Deploying your application to the testnet involves several steps
+
 - Ensure you have a Nillion (Keplr Wallet) address
 - Interact with the Testnet
 - Commit your project to Github
@@ -12,7 +13,7 @@ Deploying your application to the testnet involves several steps
 
 # Create a Nillion Wallet
 
-Follow the [Creating a Nillion Wallet guide](/guide-testnet-connect) to create your Nillion wallet. Note that when you create your wallet, you need to use the "Sign up with Google" option rather than "Use recovery phrase" option because Keplr only exposes the private key of wallets created when you "Sign up with Google." This may be useful for development debugging.
+Follow the [Creating a Nillion Wallet guide](/guide-nillion-wallet) to create your Nillion wallet. Note that when you create your wallet, you need to use the "Sign up with Google" option rather than "Use recovery phrase" option because Keplr only exposes the private key of wallets created when you "Sign up with Google." This may be useful for development debugging.
 
 Here's how to get the `NILCHAIN_PRIVATE_KEY` value from a Nillion wallet created with a Google account:
 
@@ -25,10 +26,12 @@ Follow [the Nillion Faucet Guide](/guide-testnet-faucet) to learn how to get Tes
 Test the configuration locally against your blind app to make sure the full blind computation flow is working as expected.
 
 # Interacting with the Testnet
+
 In the CNA boilerplate, we have created tabs to switch between the `devnet` and `testnet`. Switch to the `devnet` tab.
 
 0. Ensure your Nillion account is working with Keplr + funded testnet NIL.
 1. In your `LoginButton.tsx`, change the network settings
+
 ```ts
     ...
     const NETWORK: NetworkType = "testnet"; // devnet or testnet  <-- Change here.
@@ -41,8 +44,9 @@ In the CNA boilerplate, we have created tabs to switch between the `devnet` and 
     });
     ...
 ```
-2. Try to `Store Value` and wait for the Keplr Popup to occur. 
-3. This should then allow you pay and interact with the Testnet for the other modules. 
+
+2. Try to `Store Value` and wait for the Keplr Popup to occur.
+3. This should then allow you pay and interact with the Testnet for the other modules.
 
 ## Store Nada Programs on the Testnet
 

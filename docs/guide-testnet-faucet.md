@@ -1,8 +1,8 @@
 import IframeVideo from '@site/src/components/IframeVideo/index';
 
-# Using the Faucet
+# Testnet Faucet Guide
 
-The [Nillion Testnet Faucet](https://faucet.testnet.nillion.com/) distributes Nillion Testnet NIL tokens. You can use the faucet to request tokens once every 24 hours.
+The [Nillion Testnet Faucet](https://faucet.testnet.nillion.com/) distributes nilChain Testnet NIL tokens. You can use the faucet to request Testnet NIL tokens once every 24 hours.
 
 ## How to use the Nillion Testnet Faucet
 
@@ -10,7 +10,11 @@ This guide walks you through how to get NIL from the Nillion Testnet Faucet.
 
 ### 0. Set up a wallet
 
-Follow the [Creating a Nillion Wallet](/guide-testnet-connect) guide to set up a connected wallet.
+Follow the [Creating a Nillion Wallet](/guide-nillion-wallet) guide to set up a connected wallet. After creating a wallet, you should have a Nillion wallet address similar to this example address:
+
+```
+nillion1jat3ecr8pmd48uxsahyh5nf9qea3gezqtk0sfq
+```
 
 ### 1. Go to the [Nillion Faucet](https://faucet.testnet.nillion.com/) page.
 
@@ -41,6 +45,3 @@ Complete the verification challenge and then click "Continue." The faucet will s
 Open your wallet to see the NIL in your Nillion Testnet wallet.
 
 <IframeVideo videoSrc="https://www.loom.com/embed/93703c126ae74c8a9ff55e5d33063395?sid=aa08c50f-0aff-4d4f-9eca-70cb774736b4"/>
-
-<br/>
-Great work! Your Nillion Testnet wallet is funded with some Testnet NIL. Next make a transaction on the Nillion Testnet by [sending some Testnet NIL](/guide-testnet-tx) to a friend's Nillion Testnet wallet.
