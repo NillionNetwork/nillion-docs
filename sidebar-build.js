@@ -150,6 +150,11 @@ const buildSidebar = [
       'build/secretSigner/signing',
       {
         type: 'link',
+        label: 'Nillion Signature Tools',
+        href: 'https://nillion-signature-tools.streamlit.app',
+      },
+      {
+        type: 'link',
         label: 'Examples',
         href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilvm',
       },

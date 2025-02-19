@@ -14,8 +14,17 @@ When storing the key, compute access is granted to specific Nillion users, allow
 ## Usage
 
 <Tabs>
-    <TabItem value="python" label="Python" default>
+    <TabItem value="python" label="Python Client" default>
+        ## Python Client
+
+        ### Install Nillion Python Client
+
+        ```
+        pip install nillion-client
+        ```
+
         ### Python Client: Store a Private Key
+
         <Tabs>
             <TabItem value="store" label="storePrivateKey.py" default>
                 ```python reference showGithubLink
@@ -46,7 +55,15 @@ When storing the key, compute access is granted to specific Nillion users, allow
 
     </TabItem>
 
-    <TabItem value="js" label="Node.js">
+    <TabItem value="js" label="TypeScript Client">
+        ## TypeScript Client
+
+        ### Install Nillion TypeScript Client
+
+        ```
+        npm i @nillion/client-wasm @nillion/client-vms
+        ```
+
         ### TypeScript Client: Store a Private Key
         <Tabs>
             <TabItem value="store=-js" label="storePrivateKey.js" default>
