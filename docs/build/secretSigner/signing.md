@@ -15,7 +15,15 @@ When signing a message, only the message hash is sent to the network - the origi
 ## Usage
 
 <Tabs>
-    <TabItem value="python" label="Python" default>
+    <TabItem value="python" label="Python Client" default>
+        ## Python Client
+
+        ### Install Nillion Python Client
+
+        ```
+        pip install nillion-client
+        ```
+
         ### Python Client: Sign a Message
         <Tabs>
             <TabItem value="store" label="signWithStoredPrivateKey.py" default>
@@ -47,7 +55,15 @@ When signing a message, only the message hash is sent to the network - the origi
 
     </TabItem>
 
-    <TabItem value="js" label="Node.js">
+    <TabItem value="js" label="TypeScript Client">
+        ## TypeScript Client
+
+        ### Install Nillion TypeScript Client
+
+        ```
+        npm i @nillion/client-wasm @nillion/client-vms
+        ```
+
         ### TypeScript Client: Sign a Message
         <Tabs>
             <TabItem value="store=-js" label="signWithStoredPrivateKey.js" default>
@@ -81,7 +97,7 @@ When signing a message, only the message hash is sent to the network - the origi
 
 Anyone can verify the signature using the same message hash and the public key that corresponds to the private key stored in Nillion. During verification:
 
-- Use the signature (r, s values) returned from SecretSigner
+- Use the signature (r, s) values returned from SecretSigner `tecdsa_signature` output
 - Hash the message using SHA-256
 - Verify using any standard ECDSA verification library
 
