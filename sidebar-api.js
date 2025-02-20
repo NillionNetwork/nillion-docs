@@ -46,6 +46,7 @@ module.exports = [
         label: 'Queries',
         items: [
           'api/nildb/get-queries', // List Query
+          'api/nildb/execute-query', // Execute Query
           'api/nildb/add-query', // Add Query
           'api/nildb/delete-query', // Delete Query
         ],

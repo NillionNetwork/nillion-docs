@@ -41,5 +41,6 @@ NILDB API has several endpoints you may interface with:
 
 - Queries
   - [Get](./get-queries.api.mdx)
+  - [Execute](./execute-query.api.mdx)
   - [Add](./add-query.api.mdx)
   - [Delete](./delete-query.api.mdx)
