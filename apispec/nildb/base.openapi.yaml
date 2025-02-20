@@ -1,0 +1,165 @@
+openapi: 3.0.0
+info:
+  title: nilDB API
+  version: 0.5.0
+  description: |
+    Visit [docs.nillion.com](https://docs.nillion.com) and [github.com/NillionNetwork/nildb](https://github.com/NillionNetwork/nildb) to learn more.
+
+servers:
+  - url: /
+
+tags:
+  - name: Accounts
+    description: Account details
+  - name: Data
+    description: Create, read, update and delete data for specified schemas
+  - name: Query
+    description: Manage and execute queries
+  - name: Schema
+    description: Manage your schemas
+  - name: Node
+    description: Node information
+  - name: Beta
+    description: Features under incubation
+
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        A DID-JWT using the ES256K algorithm for authenticated endpoints.
+        JWT payload must include:
+        - iat: Issued at timestamp
+        - exp: Expiration timestamp (recommended)
+        - aud: Target node decentralised identifier (DID)
+        - iss: Client's decentralised identifier (DID)
+  schemas:
+    UUID:
+      description: A universally unique identifier for the item.
+      type: string
+      format: uuid
+    Filter:
+      type: object
+      minProperties: 1
+      additionalProperties: true
+      description: MongoDB-style query filter
+    DocumentBase:
+      type: object
+      properties:
+        _id:
+          $ref: '#/components/schemas/UUID'
+        _created:
+          type: string
+          format: date-time
+          description: The creation timestamp.
+        _updated:
+          type: string
+          format: date-time
+          description: The last update timestamp.
+      required:
+        - _id
+        - _created
+        - _updated
+    Schema:
+      allOf:
+        - $ref: '#/components/schemas/DocumentBase'
+        - type: object
+          required:
+            - name
+            - owner
+            - schema
+          properties:
+            name:
+              description: A user friendly schema name
+              type: string
+            owner:
+              description: The decentralised identifier (DID) of the owning organization
+              type: string
+              example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
+            schema:
+              description: The json schema used to validate data before insertion into the schema collection
+              type: object
+
+    DataDocument:
+      allOf:
+        - $ref: '#/components/schemas/DocumentBase'
+        - type: object
+          additionalProperties: true
+          description: The document's additional properties. Schema dependent.
+
+    Error:
+      type: object
+      required:
+        - ts
+        - errors
+      properties:
+        ts:
+          type: string
+          format: date-time
+          description: The error's timestamp.
+        errors:
+          description: A list of error messages
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: object
+                properties:
+                  code:
+                    type: string
+                  message:
+                    type: string
+  responses:
+    201:
+      description: Resource created
+    204:
+      description: Resource deleted
+    400:
+      description: Validation or processing errors
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    401:
+      description: Missing or invalid JWT
+    404:
+      description: Resource not found
+    500:
+      description: Internal server error
+
+paths:
+  # Account endpoints
+  /api/v1/accounts:
+    $ref: './accounts.openapi.yaml#/paths/~1api~1v1~1accounts'
+
+  # # Schema endpoints
+  # /api/v1/schemas:
+  #   $ref: './schemas.openapi.yaml#/paths/~1api~1v1~1schemas'
+
+  # # Query endpoints
+  # /api/v1/queries:
+  #   $ref: './queries.openapi.yaml#/paths/~1api~1v1~1queries'
+  # /api/v1/queries/execute:
+  #   $ref: './queries.openapi.yaml#/paths/~1api~1v1~1queries~1execute'
+
+  # # Data endpoints
+  # /api/v1/data/create:
+  #   $ref: './data.openapi.yaml#/paths/~1api~1v1~1data~1create'
+  # /api/v1/data/read:
+  #   $ref: './data.openapi.yaml#/paths/~1api~1v1~1data~1read'
+  # /api/v1/data/update:
+  #   $ref: './data.openapi.yaml#/paths/~1api~1v1~1data~1update'
+  # /api/v1/data/tail:
+  #   $ref: './data.openapi.yaml#/paths/~1api~1v1~1data~1tail'
+  # /api/v1/data/delete:
+  #   $ref: './data.openapi.yaml#/paths/~1api~1v1~1data~1delete'
+  # /api/v1/data/flush:
+  #   $ref: './data.openapi.yaml#/paths/~1api~1v1~1data~1flush'
+
+  # # System endpoints
+  # /health:
+  #   $ref: './system.openapi.yaml#/paths/~1health'
+  # /about:
+  #   $ref: './system.openapi.yaml#/paths/~1about'

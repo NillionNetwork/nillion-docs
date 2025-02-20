@@ -13,4 +13,4 @@ Before diving down in the full details and guides on how to access and then buil
 
 - You can try out **SecretVault** in our demo node under a publicly shared organization. Upload some data [here](../../api/nildb/upload-data-to-the-specified-schema-collection) :arrow_upper_right:.
 
-- Then use **SecretDataAnalytics** in the same fashion [here](../../api/nildb/add-a-new-query) :bar_chart: to retrieve some insights from the common SecretVault collection where you and other users have uploaded your test data.
+- Then use **SecretDataAnalytics** in the same fashion [here](../../api/nildb/add-query) :bar_chart: to retrieve some insights from the common SecretVault collection where you and other users have uploaded your test data.

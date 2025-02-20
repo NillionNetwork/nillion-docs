@@ -1,0 +1,216 @@
+components:
+  schemas:
+    Query:
+      allOf:
+        - $ref: './base.openapi.yaml#/components/schemas/DocumentBase'
+        - type: object
+          required:
+            - name
+            - owner
+            - schema
+            - variables
+          properties:
+            name:
+              description: A user friendly query name
+              type: string
+            owner:
+              description: The decentralised identifier (DID) of the owning organization
+              type: string
+              example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
+            schema:
+              description: The starting schema collection for this query's aggregation pipeline
+              type: string
+              format: uuid
+            variables:
+              description: The query's required runtime variables
+              type: object
+              additionalProperties:
+                oneOf:
+                  - $ref: '#/components/schemas/QueryVariable'
+                  - $ref: '#/components/schemas/QueryArrayVariable'
+            pipeline:
+              description: An query's execution pipline defined as an array of objects
+              type: array
+              items:
+                type: object
+
+    QueryVariable:
+      type: object
+      required:
+        - type
+        - description
+      properties:
+        type:
+          type: string
+          enum: ['string', 'number', 'boolean', 'date']
+        description:
+          type: string
+
+    QueryArrayVariable:
+      type: object
+      required:
+        - type
+        - description
+        - items
+      properties:
+        type:
+          type: string
+          enum: ['array']
+        description:
+          type: string
+        items:
+          type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum: ['string', 'number', 'boolean', 'date']
+
+paths:
+  /api/v1/queries:
+    get:
+      summary: Get queries
+      description: List account queries
+      security:
+        - jwt: []
+      tags:
+        - Query
+      responses:
+        '200':
+          description: "The account's queries"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Query'
+        '400':
+          $ref: './base.openapi.yaml#/components/responses/400'
+        '401':
+          $ref: './base.openapi.yaml#/components/responses/401'
+        '500':
+          $ref: './base.openapi.yaml#/components/responses/500'
+    post:
+      summary: Add query
+      description: Add a new query
+      security:
+        - jwt: []
+      tags:
+        - Query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - _id
+                - name
+                - schema
+                - variables
+                - pipeline
+              properties:
+                _id:
+                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+                name:
+                  type: string
+                schema:
+                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+                variables:
+                  type: object
+                  additionalProperties:
+                    oneOf:
+                      - $ref: '#/components/schemas/QueryVariable'
+                      - $ref: '#/components/schemas/QueryArrayVariable'
+                pipeline:
+                  type: array
+                  items:
+                    type: object
+                    additionalProperties: true
+      responses:
+        '201':
+          $ref: './base.openapi.yaml#/components/responses/201'
+        '400':
+          $ref: './base.openapi.yaml#/components/responses/400'
+        '401':
+          $ref: '../base.openapi.yaml#/components/responses/401'
+        '500':
+          $ref: './base.openapi.yaml#/components/responses/500'
+    delete:
+      summary: Delete query
+      description: Delete a query
+      security:
+        - jwt: []
+      tags:
+        - Query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+      responses:
+        '204':
+          $ref: './base.openapi.yaml#/components/responses/204'
+        '400':
+          $ref: './base.openapi.yaml#/components/responses/400'
+        '401':
+          $ref: './base.openapi.yaml#/components/responses/401'
+        '500':
+          $ref: './base.openapi.yaml#/components/responses/500'
+
+  /api/v1/queries/execute:
+    post:
+      summary: Execute query
+      description: Execute a query with variables
+      security:
+        - jwt: []
+      tags:
+        - Query
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+                - variables
+              properties:
+                id:
+                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+                variables:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Query executed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+        '400':
+          $ref: './base.openapi.yaml#/components/responses/400'
+        '401':
+          $ref: './base.openapi.yaml#/components/responses/401'
+        '500':
+          $ref: './base.openapi.yaml#/components/responses/500'

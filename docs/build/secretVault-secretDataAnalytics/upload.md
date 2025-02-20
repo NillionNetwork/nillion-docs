@@ -7,7 +7,7 @@ To store records in SecretVault, you'll first encrypt any sensitive fields with 
 
 ### 1. Check Your Collection for the Schema ID
 
-List available Collections using the [List Schemas endpoint](../../api/nildb/list-the-organizations-schemas.api.mdx) (GET /schemas) to get the Schema ID of the collection you want to store your data in.
+List available Collections using the [List Schemas endpoint](../../api/nildb/get-schemas.api.mdx) (GET /schemas) to get the Schema ID of the collection you want to store your data in.
 
 ### 2. Store a Record
 

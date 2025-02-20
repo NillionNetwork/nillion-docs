@@ -1,0 +1,92 @@
+paths:
+  /api/v1/schemas:
+    get:
+      summary: Get schemas
+      description: List accounts' schemas
+      security:
+        - jwt: []
+      tags:
+        - Schema
+      responses:
+        '200':
+          description: The organization's schemas
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './base.openapi.yaml#/components/schemas/Schema'
+        '400':
+          $ref: './base.openapi.yaml#/components/responses/400'
+        '401':
+          $ref: './base.openapi.yaml#/components/responses/401'
+        '500':
+          $ref: './base.openapi.yaml#/components/responses/500'
+    post:
+      summary: Add schema
+      description: Add a new schema
+      security:
+        - jwt: []
+      tags:
+        - Schema
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - _id
+                - name
+                - schema
+              properties:
+                _id:
+                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+                name:
+                  type: string
+                  minLength: 1
+                schema:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '201':
+          $ref: './base.openapi.yaml#/components/responses/201'
+        '400':
+          $ref: './base.openapi.yaml#/components/responses/400'
+        '401':
+          $ref: './base.openapi.yaml#/components/responses/401'
+        '500':
+          $ref: './base.openapi.yaml#/components/responses/500'
+
+    delete:
+      summary: Delete schema
+      description: Delete a schema
+      security:
+        - jwt: []
+      tags:
+        - Schema
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+      responses:
+        '204':
+          $ref: './base.openapi.yaml#/components/responses/204'
+        '400':
+          $ref: './base.openapi.yaml#/components/responses/400'
+        '401':
+          $ref: './base.openapi.yaml#/components/responses/401'
+        '500':
+          $ref: './base.openapi.yaml#/components/responses/500'

@@ -15,25 +15,31 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
 
 NILDB API has several endpoints you may interface with:
 
-- System
+- Accounts
+
+  - [Accounts](./accounts.api.mdx)
+
+- Nodes
 
   - [Health](./get-health-status.api.mdx)
   - [About](./get-node-details.api.mdx)
-  - [Accounts](./retrieve-an-organizations-account-details.api.mdx)
 
 - Data
 
-  - [List Schemas](./list-the-organizations-schemas.api.mdx)
-  - [Add Schema](./add-a-new-schema.api.mdx)
-  - [Delete Schema](./delete-a-schema.api.mdx)
-  - [Upload/Create](./upload-data-to-the-specified-schema-collection.api.mdx)
-  - [Read](./retrieve-data-from-the-specified-schema-collection-that-matches-the-provided-filter.api.mdx)
-  - [Tail](./retrieve-recently-added-documents-from-a-schema-collection.api.mdx)
-  - [Update](./update-documents-within-a-schema-collection-that-match-the-given-filter.api.mdx)
-  - [Delete](./delete-data-records-that-match-a-given-filter.api.mdx)
-  - [Flush](./remove-all-documents-in-a-schema-collection.api.mdx)
+  - [Upload](./upload-data.api.mdx)
+  - [Read](./read-data.api.mdx)
+  - [List New Data](./list-new-data.api.mdx)
+  - [Update](./update-data.api.mdx)
+  - [Delete](./delete-data.api.mdx)
+  - [Delete All Data](./delete-all-data.api.mdx)
+
+- Schemas
+
+  - [List Schemas](./get-schemas.api.mdx)
+  - [Add Schema](./add-schema.api.mdx)
+  - [Delete Schema](./delete-schema.api.mdx)
 
 - Queries
-  - [List](./list-the-organizations-queries.api.mdx)
-  - [Add](./add-a-new-query.api.mdx)
-  - [Delete](./delete-a-query.api.mdx)
+  - [List](./get-queries.api.mdx)
+  - [Add](./add-query.api.mdx)
+  - [Delete](./delete-query.api.mdx)
