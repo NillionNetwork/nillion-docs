@@ -7,7 +7,7 @@ To store records in SecretVault, you'll first encrypt any sensitive fields with 
 
 ### 1. Check Your Collection for the Schema ID
 
-List available Collections using the [List Schemas endpoint](../../api/nildb/list-the-organizations-schemas.api.mdx) (GET /schemas) to get the Schema ID of the collection you want to store your data in.
+List available Collections using the [List Schemas endpoint](../../api/nildb/get-schemas.api.mdx) (GET /schemas) to get the Schema ID of the collection you want to store your data in.
 
 ### 2. Store a Record
 
@@ -41,7 +41,7 @@ You can include up to 10k records in a `POST /data/create` request, and the tota
 
 </details>
 
-Upload to all nodes using each node's [Upload/Create Data endpoint](/api/nildb/upload-data-to-the-specified-schema-collection) using [valid API tokens](/build/secretVault-secretDataAnalytics/generate-tokens) to authenticate requests to each node. The response includes:
+Upload to all nodes using each node's [Upload/Create Data endpoint](/api/nildb/upload-data) using [valid API tokens](/build/secretVault-secretDataAnalytics/generate-tokens) to authenticate requests to each node. The response includes:
 
 - Created records
 - Any validation errors, where any issues with data ingestion will be described even if the communication with the node resulted in a `200` status response. You can check out an example below that showcases both instances:

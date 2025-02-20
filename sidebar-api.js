@@ -10,44 +10,44 @@ module.exports = [
     type: 'category',
     label: 'nilDB API',
     items: [
-      // 'api/nildb/overview',
+      'api/nildb/overview',
+      'api/nildb/accounts',
       {
         type: 'category',
-        label: 'System',
+        label: 'Node',
         items: [
           'api/nildb/get-health-status', // Health
-          'api/nildb/get-node-details', // About
-          'api/nildb/retrieve-an-organizations-account-details', // Accounts
+          'api/nildb/get-node-details', // Details
         ],
       },
       {
         type: 'category',
         label: 'Schemas',
         items: [
-          'api/nildb/list-the-organizations-schemas', // List Schemas
-          'api/nildb/add-a-new-schema', // Add Schema
-          'api/nildb/delete-a-schema', // Delete Schema
+          'api/nildb/get-schemas', // List Schemas
+          'api/nildb/add-schema', // Add Schema
+          'api/nildb/delete-schema', // Delete Schema
         ],
       },
       {
         type: 'category',
         label: 'Data',
         items: [
-          'api/nildb/upload-data-to-the-specified-schema-collection', // Upload
-          'api/nildb/retrieve-data-from-the-specified-schema-collection-that-matches-the-provided-filter', // Read
-          'api/nildb/retrieve-recently-added-documents-from-a-schema-collection', // Tail
-          'api/nildb/update-documents-within-a-schema-collection-that-match-the-given-filter', // Update
-          'api/nildb/delete-data-records-that-match-a-given-filter', // Detail
-          'api/nildb/remove-all-documents-in-a-schema-collection', // Flush
+          'api/nildb/upload-data', // Upload
+          'api/nildb/read-data', // Read
+          'api/nildb/list-new-data', // Tail
+          'api/nildb/update-data', // Update
+          'api/nildb/delete-data', // Detail
+          'api/nildb/delete-all-data', // Flush
         ],
       },
       {
         type: 'category',
         label: 'Queries',
         items: [
-          'api/nildb/list-the-organizations-queries', // List Query
-          'api/nildb/add-a-new-query', // Add Query
-          'api/nildb/delete-a-query', // Delete Query
+          'api/nildb/get-queries', // List Query
+          'api/nildb/add-query', // Add Query
+          'api/nildb/delete-query', // Delete Query
         ],
       },
     ],

@@ -1,0 +1,155 @@
+---
+id: accounts
+title: 'Accounts'
+description: "Retrieve an organization's account details"
+sidebar_label: 'Accounts'
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVt1vGzcM/1cEvTQBEjvJ0mK9t2zJhqxYN6xJ+5AYBX2ibSU66aqP1K5x/3tJ3fkjthF3wF72YkukKJK/H0ndXCoMpdd11M7KQv6D0Wt8QgFWOD8Gq78Bq14FAWXpko1CYQRtgjySEcZBFnfyotUEOTiSAcvkdZyRfC4fvkb6HzQk9xhqZwOSwVyenZzw33PXNxPc77J0NqKNbA11bXSZj/YfAl8xl6GcYAW8irMa6VI3fMAySvb/JWmPiuNVEIFjrb2r0UfdBpWleyw/a0WSz/kI/ZceIWIWpVp1yzoNKa53OKO1hYoPtmFx/F8Seva35Z1v3glJh0EgEErK3IPRAZXQijZ6pNGLg8vry0Omow08EIN2THucQlUbFimtCqtNETFEi5HXhjycYrIe0zcTp2MzfTuanr/9yZz5n3H0xivjIZ2roGwpm0XKK3RWTmyqGBlQlba0X2dQDpo1kHYYj5yvIHKAdOI4agKrWcPyhy1WkG+ZNB0JuxQLWrZwvxAEchRuJNojhHYQcQJRDNE4OxbR0VYvC3QFPngPTLyOWO28OFn9hD6AMTNeUz2sU0np0cUkIvPeDkqX6aeUKzHqmAm+vb2+lE2zqq8XUuIjs/9LRs1K0k0ZFmb5+a4h8pHaQ+Xio1kiqMVKDIE8CfTe+f9sgkS+qbtyq5Vj+MHKPdrR7vlSGn18IERq4B5XaufqBVbzCUE2AcYYXqAP7OyvUZ7Om/2wnfLzvEqndvdR53WHrmkGzzi84ijlgr/T7YT+1C1dlIu2T0ym+OPTDTt5vYvua+LSWzAioKcibFHIjVBhnDjiSo4xZwJxQps+1Lr/dNpfDFWezdkyZESSN3RoEmMdin6fpqQaHiusXK8bmD0anl+df5TN2kv3gSumRSi/d0sQ+J7F8Of9EMGjJ0m7+G1REJzgZilcCBrqx6QRKePBLXT14ez1m3cCzNiR30mVewsSqajZSp6YAq2qnabEeveWjWuYGQdKVImqRNvSJIXFvT0WGmIhrkNIZERDYFltrMNpXYiraa1920hLpTjwWLqqIi+oDvkoJFWIG/AEsrBUHnseqew5hEL8ajRpXu171O5t5lLbkcu4dlVEbFz+Ii7+vibYmLsWspPeee9kC8iPOugo7pQrw5JFymFwsGB5U3NInz5K3I0J4TRkQf99q3zfct+Wxcp+z8FDnqyGCLeich57nBKVowuxgjxw2tdp9Q21kcB8NbD+5cdZW4QRp7FfG9DZby7wedcN9GjXmiE8pR9Y+4abUHSsns+HEPDWm6ZhcX44+HuOTMBrGDIZd/zGTxAUVTa30CM/wpwN1tx31MIpj6HNUcsdtOzR36+4A7iU19pno13WRxbNsLW7Kcx84sY9oqVQj7ogIu9lnkDfAdAOxsY=
+sidebar_class_name: 'get api-method'
+info_path: api/nildb/nildb-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from '@theme/ApiExplorer/MethodEndpoint';
+import ParamsDetails from '@theme/ParamsDetails';
+import RequestSchema from '@theme/RequestSchema';
+import StatusCodes from '@theme/StatusCodes';
+import OperationTabs from '@theme/OperationTabs';
+import TabItem from '@theme/TabItem';
+import Heading from '@theme/Heading';
+
+<Heading
+  as={'h1'}
+  className={'openapi__heading'}
+  children={'Accounts'}
+></Heading>
+
+<MethodEndpoint
+  method={'get'}
+  path={'/api/v1/accounts'}
+  context={'endpoint'}
+></MethodEndpoint>
+
+:::info
+You may use this test Bearer token we have created for development
+
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvbjF4dnRuM2FhajQ4dGY3bm5zZW16MGQ2OGVwbjZlcHU0ZjRhNG5mYSIsImF1ZCI6ImRpZDpuaWw6dGVzdG5ldDpuaWxsaW9uMXd3c3Jqbmd4dnU5dGMzMzVsajlrM213d3JybDV3M3EyZDB1ZXR6In0.yOKg-wyJdyn9jK-KNtkjbi9PS0pF9wmgVmd7pIeNGhoTjhgZhzB62atbgzE45OGGYx0gUsw_i2k3K2AdFf_tuQ
+```
+
+:::
+
+Retrieve an organization's account details
+
+<ParamsDetails parameters={undefined}></ParamsDetails>
+
+<RequestSchema title={'Body'} body={undefined}></RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{
+    '200': {
+      description: "The organization's account details",
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            required: ['data'],
+            properties: {
+              data: {
+                type: 'object',
+                required: [
+                  '_id',
+                  '_type',
+                  '_created',
+                  '_updated',
+                  'publicKey',
+                  'name',
+                  'schemas',
+                  'queries',
+                ],
+                properties: {
+                  _id: {
+                    description: 'The accounts decentralised identifier (DID)',
+                    type: 'string',
+                    example:
+                      'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc',
+                  },
+                  _type: { type: 'string', enum: ['admin', 'organization'] },
+                  _created: { type: 'string', format: 'date-time' },
+                  _updated: { type: 'string', format: 'date-time' },
+                  publicKey: { type: 'string' },
+                  name: { type: 'string' },
+                  schemas: {
+                    description:
+                      'A list of schema ids that belong to this account',
+                    type: 'array',
+                    items: {
+                      description:
+                        'A universally unique identifier for the item.',
+                      type: 'string',
+                      format: 'uuid',
+                      title: 'UUID',
+                    },
+                  },
+                  queries: {
+                    description:
+                      'A list of query ids that belong to this account',
+                    type: 'array',
+                    items: {
+                      description:
+                        'A universally unique identifier for the item.',
+                      type: 'string',
+                      format: 'uuid',
+                      title: 'UUID',
+                    },
+                  },
+                },
+                title: 'Account',
+              },
+            },
+          },
+        },
+      },
+    },
+    '400': {
+      description: 'Validation or processing errors',
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            required: ['ts', 'errors'],
+            properties: {
+              ts: {
+                type: 'string',
+                format: 'date-time',
+                description: "The error's timestamp.",
+              },
+              errors: {
+                description: 'A list of error messages',
+                type: 'array',
+                items: {
+                  anyOf: [
+                    { type: 'string' },
+                    {
+                      type: 'object',
+                      properties: {
+                        code: { type: 'string' },
+                        message: { type: 'string' },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            title: 'Error',
+          },
+        },
+      },
+    },
+    '401': { description: 'Missing or invalid JWT' },
+    '500': { description: 'Internal server error' },
+  }}
+></StatusCodes>

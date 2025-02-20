@@ -7,7 +7,7 @@ Running your queries is pretty straightforward, you only need the query id and a
 
 ### 1. Check Your Queries for the Query ID
 
-List available Queries using the [List Queries endpoint](../../api/nildb/list-the-organizations-queries.api.mdx) (GET /queries) to get the Query ID.
+List available Queries using the [List Queries endpoint](../../api/nildb/get-queries.api.mdx) (GET /queries) to get the Query ID.
 
 ### 2. Executing the Query
 
