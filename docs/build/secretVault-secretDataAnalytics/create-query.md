@@ -8,74 +8,59 @@ To run Data Analytics on SecretVault, you'll need to define a query. This is an 
 
 ### 1. Define your Data Analytics Query and Variables
 
-Start with formulating a [MongoDB Aggregation Pipeline](https://www.mongodb.com/docs/manual/core/aggregation-pipeline/). In this example, we want to get all usernames for a given service by order of creation:
+Before we begin, we need to take into consideration the type of operation our data were encrypted for. While the query/aggregation can perform any kind of computation
+on data stored as plaintext, for encrypted data there are only two options:
+- Data stored with the STORE option can only be retrieved as is
+- Data stored with the SUM option can have summation run directly on the encrypted shares - the results of this from all the nodes can then be reconstructed
+
+Queries are formulated using [MongoDB Aggregation Pipelines](https://www.mongodb.com/docs/manual/core/aggregation-pipeline/).
+
+Additionally, there's an option for using **variables** (variables can be of type `string`, `number`, `boolean`, `date`, and `array` of the former 4 - they are referenced in the aggregation using a `##` prefix).
+
+For the examples below we'll use the "Web3 survey" schema and showcase two different queries for STORE and SUM operations.
 
 <details>
-<summary>Example Aggregation Pipeline</summary>
+<summary>Example Queries</summary>
 
-```mongo
-[
-   {
-      "$match": {
-         "service": "Netflix"
-      }
-   },
-   {
-      "$sort": {
-         "_created": 1
-      }
-   },
-   {
-      "$project": {
-         "username": 1,
-         "_id": 0
-      }
-   }
-]
-```
-</details>
+<Tabs>
+<TabItem value="store schema" label="Store Schema">
 
-Additionally, we'll make our matching target a **variable** (variables can be of type `string`, `number`, `boolean`, `date`, and `array` of the former 4 - they are referenced in the aggregation using a `##` prefix):
-
-<details>
-<summary>Adding Variables to the Query</summary>
-
-```json
-{
-   "variables": {
-      "service": {
-         "type": "string",
-         "description": "The target service"
-      }
-   },
-   "pipeline": [
-      {
-         "$match": {
-            "service": "##service"
-         }
-      },
-      {
-         "$sort": {
-            "_created": 1
-         }
-      },
-      {
-         "$project": {
-            "username": 1,
-            "_id": 0
-         }
-      }
-   ]
-}
+```python reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/store_encryption/schema_store.json
 ```
 
+</TabItem> 
+<TabItem value="store query" label="Store Query">
+This query returns the years in web3 of the users that gave the top 3 ratings.
+```python reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/store_encryption/query_store_no_vars.json
+```
+
+</TabItem>
+<TabItem value="sum schema" label="Sum Schema">
+
+```python reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/sum_encryption/schema_sum.json
+```
+
+</TabItem> 
+<TabItem value="sum query" label="Sum Query w/ variables">
+THis query returns sum of years in web3 and count of users that have answered question x (a variable)
+```python reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/sum_encryption/query_sum_with_vars.json
+```
+
+</TabItem>
+</Tabs>
 </details>
+
+
 
 
 
 ### 1b. [Optional] Enlisting the help of LLMs
 
-Alternatively you can use a LLM with the the prompt provided below, substituting `MY SCHEMA` with your own, and `MY QUERY DESCRIPTION` with information about your query, including the encryption operation used in nilQL (default is `STORE`, alternatively you can use `SUM` but remember the data in the collection are to be encrypted in the same way), any variables you'd like to add, and a description of what you want the query to return.
+Alternatively you can use a LLM with the the prompt provided below. At the end of the prompt template, substitute the sections `MY SCHEMA` with your own, and `MY QUERY DESCRIPTION` with information about your query, including the encryption operation used in nilQL (default is `STORE`, alternatively you can use `SUM` but remember the data in the collection are to be encrypted in the same way), any variables you'd like to add, and a description of what you want the query to return.
 
 <details>
 <summary>LLM Prompt Template</summary>
@@ -85,62 +70,6 @@ TASK:
 - For the data described by the json schema found below (MY SCHEMA), build a Mongo Aggregation pipeline using as example
 the query examples provided (EXAMPLE QUERIES that are setup against EXAMPLE SCHEMA - adjust for MY SCHEMA), the QUERY
 SETUP HINTS/GUIDE and MY QUERY DESCRIPTION
-
-=======================================================================================================================
-
-MY QUERY DESCRIPTION:
-- Encryption type: Store
-- Variables: None
-- Desired outcome: For each user, get the number of responses they gave, and return the count of responses and years
-they spent in web3. Get the top 5 by number of responses.
-
-MY SCHEMA:
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Web3 Experience Survey",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "_id": {
-        "type": "string",
-        "format": "uuid",
-        "coerce": true
-      },
-      "years_in_web3": {
-        "type": "object",
-        "properties": {
-          "%share": {
-            "type": "string"
-          }
-        },
-        "required": ["%share"]
-      },
-      "responses": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "rating": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 5
-            },
-            "question_number": {
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": ["rating", "question_number"]
-        },
-        "minItems": 1
-      }
-    },
-    "required": ["_id", "years_in_web3", "responses"]
-  }
-}
-
-=======================================================================================================================
 
 EXAMPLE SCHEMA FOR THE EXAMPLE QUERIES:
 {
@@ -269,6 +198,61 @@ for sum encryption)
 - consider the format of the output regarding fields with %share, it should be nested like in the examples
 - if variables are mentioned, populate the variables field in the query like in the example with variables, and use the
 variable fields inside the pipeline prefixed with ## like in the example with variables
+
+=======================================================================================================================
+
+MY QUERY DESCRIPTION:
+- Encryption type: Store
+- Variables: None
+- Desired outcome: For each user, get the number of responses they gave, and return the count of responses and years
+they spent in web3. Get the top 5 by number of responses.
+
+MY SCHEMA:
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Web3 Experience Survey",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string",
+        "format": "uuid",
+        "coerce": true
+      },
+      "years_in_web3": {
+        "type": "object",
+        "properties": {
+          "%share": {
+            "type": "string"
+          }
+        },
+        "required": ["%share"]
+      },
+      "responses": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "rating": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "question_number": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": ["rating", "question_number"]
+        },
+        "minItems": 1
+      }
+    },
+    "required": ["_id", "years_in_web3", "responses"]
+  }
+}
+
 ```
 
 </details>
@@ -279,7 +263,7 @@ variable fields inside the pipeline prefixed with ## like in the example with va
 
 Decide on a query name/description and generate a UUID4 for the Collection ID (use identical UUID across all Cluster nodes). You'll also need the schema id of the collection you're going to run the query against. You can get this via `GET /schemas` - check out the [List Schemas endpoint](../../api/nildb/get-schemas.api.mdx)) page for details.
 
-Then use the [Create Query endpoint](../../api/nildb/add-query.api.mdx)to upload your query to each node in your organization using [valid API tokens](/build/secretVault-secretDataAnalytics/generate-tokens) for each node.
+Then use the [Create Query endpoint](../../api/nildb/add-query.api.mdx) to upload your query to each node in your organization using [valid API tokens](/build/secretVault-secretDataAnalytics/generate-tokens) for each node.
 
 <details>
 <summary>Example `POST /queries` Payload</summary>
@@ -290,29 +274,40 @@ Then use the [Create Query endpoint](../../api/nildb/add-query.api.mdx)to upload
    "name": "Returns usernames for a given service by order of creation",
    "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
    "variables": {
-      "service": {
-         "type": "string",
-         "description": "The target service"
-      }
-   },
-   "pipeline": [
-      {
-         "$match": {
-            "service": "##service"
-         }
-      },
-      {
-         "$sort": {
-            "_created": 1
-         }
-      },
-      {
-         "$project": {
-            "username": 1,
-            "_id": 0
-         }
-      }
-   ]
+   "question_number": {
+      "type": "number",
+      "description": "The target question"
+    }
+  },
+  "pipeline":
+      [
+        {
+          "$match": {
+            "responses.question_number": "##question_number"
+          }
+        },
+        {
+          "$group": {
+            "_id": null,
+            "total_years": { "$sum": "$years_in_web3.%share" },
+            "count": { "$sum": 1 }
+          }
+        },
+        {
+          "$project": {
+            "_id": 0,
+            "sum_years_in_web3": {
+              "%share": {
+                "$mod": [
+                  "$total_years",
+                  { "$add": [{ "$pow": [2, 32] }, 15] }
+                ]
+              }
+            },
+            "user_count": "$count"
+          }
+        }
+      ]
 }
 ```
 
