@@ -539,8 +539,17 @@ paths:
                 filter:
                   $ref: '#/components/schemas/Filter'
       responses:
-        '204':
-          $ref: '#/components/responses/204'
+        '200':
+          description: The result of the delete operations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  acknowledged:
+                    type: boolean
+                  deletedCount:
+                    type: number
         '400':
           $ref: '#/components/responses/400'
         '401':

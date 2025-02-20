@@ -42,7 +42,7 @@ paths:
                     description: The uuids from successfully created documents
                     type: array
                     items:
-                      $ref: './base.openapi.yaml#/components/schemas/UUID'
+                      $ref: '../docs/base.openapi.yaml#/components/schemas/UUID'
                   errors:
                     type: array
                     items:
@@ -56,11 +56,11 @@ paths:
                         document:
                           type: object
         '400':
-          $ref: './base.openapi.yaml#/components/responses/400'
+          $ref: '../docs/base.openapi.yaml#/components/responses/400'
         '401':
-          $ref: './base.openapi.yaml#/components/responses/401'
+          $ref: '../docs/base.openapi.yaml#/components/responses/401'
         '500':
-          $ref: './base.openapi.yaml#/components/responses/500'
+          $ref: '../docs/base.openapi.yaml#/components/responses/500'
   /api/v1/data/read:
     post:
       summary: Read data
@@ -79,9 +79,9 @@ paths:
                 - filter
               properties:
                 schema:
-                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+                  $ref: '../docs/base.openapi.yaml#/components/schemas/UUID'
                 filter:
-                  $ref: './base.openapi.yaml#/components/schemas/Filter'
+                  $ref: '../docs/base.openapi.yaml#/components/schemas/Filter'
       responses:
         '200':
           description: Data documents that match the provided filter. Pagination is not supported.
@@ -95,13 +95,13 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: './base.openapi.yaml#/components/schemas/DataDocument'
+                      $ref: '../docs/base.openapi.yaml#/components/schemas/DataDocument'
         '400':
-          $ref: './base.openapi.yaml#/components/responses/400'
+          $ref: '../docs/base.openapi.yaml#/components/responses/400'
         '401':
-          $ref: './base.openapi.yaml#/components/responses/401'
+          $ref: '../docs/base.openapi.yaml#/components/responses/401'
         '500':
-          $ref: './base.openapi.yaml#/components/responses/500'
+          $ref: '../docs/base.openapi.yaml#/components/responses/500'
   /api/v1/data/update:
     post:
       summary: Update data
@@ -121,9 +121,9 @@ paths:
                 - update
               properties:
                 schema:
-                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+                  $ref: '../docs/base.openapi.yaml#/components/schemas/UUID'
                 filter:
-                  $ref: './base.openapi.yaml#/components/schemas/Filter'
+                  $ref: '../docs/base.openapi.yaml#/components/schemas/Filter'
                 update:
                   additionalProperties:
                     type: object
@@ -149,11 +149,11 @@ paths:
                       updated:
                         type: number
         '400':
-          $ref: './base.openapi.yaml#/components/responses/400'
+          $ref: '../docs/base.openapi.yaml#/components/responses/400'
         '401':
-          $ref: './base.openapi.yaml#/components/responses/401'
+          $ref: '../docs/base.openapi.yaml#/components/responses/401'
         '500':
-          $ref: './base.openapi.yaml#/components/responses/500'
+          $ref: '../docs/base.openapi.yaml#/components/responses/500'
   /api/v1/data/tail:
     post:
       summary: List new data
@@ -171,7 +171,7 @@ paths:
                 - schema
               properties:
                 schema:
-                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+                  $ref: '../docs/base.openapi.yaml#/components/schemas/UUID'
       responses:
         '200':
           description: The last 25 latest documents added to the schema collection
@@ -185,13 +185,13 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: './base.openapi.yaml#/components/schemas/DataDocument'
+                      $ref: '../docs/base.openapi.yaml#/components/schemas/DataDocument'
         '400':
-          $ref: './base.openapi.yaml#/components/responses/400'
+          $ref: '../docs/base.openapi.yaml#/components/responses/400'
         '401':
-          $ref: './base.openapi.yaml#/components/responses/401'
+          $ref: '../docs/base.openapi.yaml#/components/responses/401'
         '500':
-          $ref: './base.openapi.yaml#/components/responses/500'
+          $ref: '../docs/base.openapi.yaml#/components/responses/500'
   /api/v1/data/delete:
     post:
       summary: Delete data
@@ -207,18 +207,27 @@ paths:
               type: object
               properties:
                 schema:
-                  $ref: './base.openapi.yaml#/components/schemas/UUID'
+                  $ref: '../docs/base.openapi.yaml#/components/schemas/UUID'
                 filter:
-                  $ref: './base.openapi.yaml#/components/schemas/Filter'
+                  $ref: '../docs/base.openapi.yaml#/components/schemas/Filter'
       responses:
-        '204':
-          $ref: './base.openapi.yaml#/components/responses/204'
+        '200':
+          description: The result of the delete operations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  acknowledged:
+                    type: boolean
+                  deletedCount:
+                    type: number
         '400':
-          $ref: './base.openapi.yaml#/components/responses/400'
+          $ref: '../docs/base.openapi.yaml#/components/responses/400'
         '401':
-          $ref: './base.openapi.yaml#/components/responses/401'
+          $ref: '../docs/base.openapi.yaml#/components/responses/401'
         '500':
-          $ref: './base.openapi.yaml#/components/responses/500'
+          $ref: '../docs/base.openapi.yaml#/components/responses/500'
   /api/v1/data/flush:
     post:
       summary: Delete all data
@@ -239,7 +248,7 @@ paths:
                   type: object
                   properties:
                     schema:
-                      $ref: './base.openapi.yaml#/components/schemas/UUID'
+                      $ref: '../docs/base.openapi.yaml#/components/schemas/UUID'
       responses:
         '200':
           description: The total documents removed
@@ -256,8 +265,8 @@ paths:
                       deletedCount:
                         type: number
         '400':
-          $ref: './base.openapi.yaml#/components/responses/400'
+          $ref: '../docs/base.openapi.yaml#/components/responses/400'
         '401':
-          $ref: './base.openapi.yaml#/components/responses/401'
+          $ref: '../docs/base.openapi.yaml#/components/responses/401'
         '500':
-          $ref: './base.openapi.yaml#/components/responses/500'
+          $ref: '../docs/base.openapi.yaml#/components/responses/500'
