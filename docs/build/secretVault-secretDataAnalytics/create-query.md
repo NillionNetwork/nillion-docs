@@ -279,7 +279,7 @@ variable fields inside the pipeline prefixed with ## like in the example with va
 
 Decide on a query name/description and generate a UUID4 for the Collection ID (use identical UUID across all Cluster nodes). You'll also need the schema id of the collection you're going to run the query against. You can get this via `GET /schemas` - check out the [List Schemas endpoint](../../api/nildb/get-schemas.api.mdx)) page for details.
 
-Then use the Create Query endpoint to upload your query to each node in your organization using [valid API tokens](/build/secretVault-secretDataAnalytics/generate-tokens) for each node.
+Then use the [Create Query endpoint](../../api/nildb/add-query.api.mdx)to upload your query to each node in your organization using [valid API tokens](/build/secretVault-secretDataAnalytics/generate-tokens) for each node.
 
 <details>
 <summary>Example `POST /queries` Payload</summary>

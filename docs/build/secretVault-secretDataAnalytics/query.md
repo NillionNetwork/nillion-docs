@@ -11,7 +11,7 @@ List available Queries using the [List Queries endpoint](../../api/nildb/get-que
 
 ### 2. Executing the Query
 
-Using the query id and any variables required you are ready to setup the payload for executing the query:
+Using the query id and any variables required you are ready to setup the payload for executing the query via the [Execute Query endpoint](../../api/nildb/execute-query.api.mdx):
 
 <details>
 <summary>Example `POST /queries/execute` Payload</summary>
