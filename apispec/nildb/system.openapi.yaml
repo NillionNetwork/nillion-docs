@@ -1,0 +1,75 @@
+components:
+  schemas:
+    AboutNode:
+      type: object
+      required:
+        - started
+        - build
+        - did
+        - publicKey
+        - url
+      properties:
+        started:
+          type: string
+          format: date-time
+          description: Timestamp when the node was started
+          example: '2024-12-16T09:38:04.095Z'
+        build:
+          type: object
+          required:
+            - time
+            - commit
+            - version
+          properties:
+            time:
+              type: string
+              format: date-time
+              description: Build timestamp
+              example: '2024-12-24T23:59:59Z'
+            commit:
+              type: string
+              description: Git commit hash or identifier
+              example: c0401ee26ece3f7155fd788848baf122cdd702ed
+            version:
+              type: string
+              description: Node's api version
+              example: 0.4.0
+        did:
+          type: string
+          description: Decentralized Identifier (DID) of the node
+          example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
+        publicKey:
+          type: string
+          description: Public key of the node
+          example: 02d1f198df9a64ffa27c293861bace8c80bd6b1e150e008267f7f94eae9e6c380c
+        url:
+          type: string
+          format: uri
+          description: URL where the node can be reached
+          example: 'https://nildb-demo.nillion.network'
+
+paths:
+  /health:
+    get:
+      summary: Node health check
+      description: Returns 200 OK if the service is healthy
+      operationId: getHealthStatus
+      tags:
+        - Node
+      responses:
+        '200':
+          description: Service is healthy
+  /about:
+    get:
+      summary: Node information
+      description: Returns information about the node including its DID, public key and build details
+      operationId: getNodeDetails
+      tags:
+        - Node
+      responses:
+        '200':
+          description: Details about the node
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AboutNode'

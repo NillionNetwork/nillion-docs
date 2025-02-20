@@ -1,0 +1,187 @@
+# components:
+#   schemas:
+#     Account:
+#       type: object
+#       required:
+#         - _id
+#         - _type
+#         - _created
+#         - _updated
+#         - publicKey
+#         - name
+#         - schemas
+#         - queries
+#       properties:
+#         _id:
+#           description: The accounts decentralised identifier (DID)
+#           type: string
+#           example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
+#         _type:
+#           type: string
+#           enum: ['admin', 'organization']
+#         _created:
+#           type: string
+#           format: date-time
+#         _updated:
+#           type: string
+#           format: date-time
+#         publicKey:
+#           type: string
+#         name:
+#           type: string
+#         schemas:
+#           description: A list of schema ids that belong to this account
+#           type: array
+#           items:
+#             $ref: './base.openapi.yaml#/components/schemas/UUID'
+#         queries:
+#           description: A list of query ids that belong to this account
+#           type: array
+#           items:
+#             $ref: './base.openapi.yaml#/components/schemas/UUID'
+
+# paths:
+#   /api/v1/accounts:
+#     get:
+#       summary: Get account information
+#       description: Retrieve an organization's account details
+#       tags:
+#         - Accounts
+#       security:
+#         - jwt: []
+#       responses:
+#         '200':
+#           description: "The organization's account details"
+#           content:
+#             application/json:
+#               schema:
+#                 type: object
+#                 required:
+#                   - data
+#                 properties:
+#                   data:
+#                     $ref: '#/components/schemas/Account'
+#         '400':
+#           $ref: './base.openapi.yaml#/components/responses/400'
+#         '401':
+#           $ref: './base.openapi.yaml#/components/responses/401'
+#         '500':
+#           $ref: './base.openapi.yaml#/components/responses/500'
+
+openapi: 3.0.0
+info:
+  title: nilDB API - Accounts
+  version: 0.5.0
+  description: Account management for nilDB API
+servers:
+  - url: https://nildb-demo.nillion.network/api/v1/
+tags:
+  - name: Accounts
+    description: Account operations
+
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        A DID-JWT using the ES256K algorithm for authenticated endpoints.
+  schemas:
+    UUID:
+      description: A universally unique identifier
+      type: string
+      format: uuid
+    Account:
+      type: object
+      required:
+        - _id
+        - _type
+        - _created
+        - _updated
+        - publicKey
+        - name
+        - schemas
+        - queries
+      properties:
+        _id:
+          description: The accounts decentralised identifier (DID)
+          type: string
+          example: 'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc'
+        _type:
+          type: string
+          enum: ['admin', 'organization']
+        _created:
+          type: string
+          format: date-time
+        _updated:
+          type: string
+          format: date-time
+        publicKey:
+          type: string
+        name:
+          type: string
+        schemas:
+          description: A list of schema ids that belong to this account
+          type: array
+          items:
+            $ref: '#/components/schemas/UUID'
+        queries:
+          description: A list of query ids that belong to this account
+          type: array
+          items:
+            $ref: '#/components/schemas/UUID'
+  responses:
+    '400':
+      description: Validation or processing errors
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ts:
+                type: string
+                format: date-time
+              errors:
+                type: array
+                items:
+                  oneOf:
+                    - type: string
+                    - type: object
+                      properties:
+                        code:
+                          type: string
+                        message:
+                          type: string
+    '401':
+      description: Missing or invalid JWT
+    '500':
+      description: Internal server error
+
+paths:
+  /api/v1/accounts:
+    get:
+      summary: Get account information
+      description: Retrieve an organization's account details
+      tags:
+        - Accounts
+      security:
+        - jwt: []
+      responses:
+        '200':
+          description: "The organization's account details"
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Account'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'

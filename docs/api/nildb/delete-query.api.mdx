@@ -1,12 +1,12 @@
 ---
-id: remove-all-documents-in-a-schema-collection
-title: 'Remove all documents in a schema collection'
-description: 'Remove all documents in a schema collection'
-sidebar_label: 'Flush'
+id: delete-query
+title: 'Delete query'
+description: 'Delete a query'
+sidebar_label: 'Delete'
 hide_title: true
 hide_table_of_contents: true
-api: eJy9VV1PGzsQ/SuWX26vxCYQIG33jTZcifuhViW0Dy0PE3s2MXjtvbY3EEX5753xbiAQdKsrVeUh2J4Pn5k5PruWEVUbTFrJ8uta3twl+n+9uT6QCeaR1nICCSTtA/7bYkzvvCbXtVTeJXSJl9A01ihIxrvhTfSOz6JaYA28SqsGZSn97AZVkl0eE1Bzbt3nboJvMCSDkSPy6QuRT70eb9AYVTAN30/uZ6J1ZokhgrUrXhNsYTRhNZXBICofRFrQUcJ6QFn7W2IKxs1pT/YaqC7Ztkaz3STLDldXFxO56f+4jNh4Fzsso8PDfSBTuiT5BFZor9qaAEQRsPZL5LS/rn+urWcY5Bb4yUtYP4M1OiMQ1B5KpzBG6ofAEHyIPwtv4kx9yj3YKe6E74+D4GGRTI10+EKjySB8lSebLxCglA+aa0g+HzuvcSA3DwD2mvC3iYlzdPE1dQDmGB8pAiHAirbMnBwObvWhyu/mKerNwY/IqwjLfrWErb/1Bdtmc53nt+XjOaOU25ke7Zfzj+lGSLUYt+QBiz+/TCX7P3X8lEkp6L3sMNU4AaKbqlDeWqqCvRlhWniapmx8zIVBWtBuCI0ZLo+GTL5hZdu4IFvEwC8xt6gNltwWKTWxHA6dsXpWaLp5QEtLqQcO050Pt5LFZytKlwyga1mWpoeucB6+INtpP0MIRPKDfvHHljVc8fN6z8TkYlKQRbS5QUyO88vR6fgv6sHc072LOssEtGQi3SCuoxbodOMN9WbwzXFwAyvrQYu6JdoYp2yrsfzmCmEgleIixpaCIGVqxgR1wza8b0pxft+Y0L22B6N4FVD5mpqvUf/OrtDqUkwhzDFl7gqNitAEmmSkzDuS9orqySE08VK8t4Ysv8Uf+mcq8AP+9Cjt5/eExeKujGyftjyu4M1pNT4pTl8fvS5OTsejYnZcqWKk3o6Pq/EYKhjnnMZVPs+qpypNePJOnH28oFEwH7oxHA5GgxFznolUQ5YRB3ma/4+RT6b7wJCE92nYWDCO78jsW/dk/UoSZhjLEUdzmaQzmbJEvQXTmlzW6xlEvAp2s+Fj6lDgbyQtlxAMzLgy+lJSAIIm6jHHb5Fc5PtOKospA2F322b5eC6bLBNdxJlS2KT/9L3eeXkfP1wyq2f9p7jOYiID3LHc0m8paeFzQ/LTyWdracHN2ywussvJs2KO73Tt2TvaFTdSux2E1J7sMfW36KhFB30pifcya9V3NNDexw==
-sidebar_class_name: 'post api-method'
+api: eJytVUtzGjkQ/isqXdau4mUbSMLNCWwV+8juJjh7IByaUQ/I1kizksY2RfHft1szGDCuzWV9wBr1++uvW1upMGRel1E7K0dyjAYjChD/VOg3siUDZpXXcSNH8628f4r0f7FbtGSEVaCz/Cvp0YVHMgnxo1Oku02f2qOSo+grbMnM2Yg2sgjK0ugMOGL3PnDYrQzZGgvgU9yUSIm45T1mUbaOHM2lVhyp9K5EHzUG1qc7+j2t4lZUVj+iD2DMhs+UmtCK4utcoxe58yKu6Spi0aEYTcwQvbYr+iZ5AZSrrCpyT3IdDSvc3U3Hcpf+OLFQOhvqLK57/fM0vmBwlc9QqISqkmTV7/XOFb+B0SoBIigzqi/DECgVgd47H+T/BF9kT43LMxxjODI/R4LSw3bUBdLlafIzAjI5/SkIVggRirLDtTah3miP0SEKl9d2gmwCrDAcOgHeA7OPG5QcgN38kScOnma4a52XfFpX5hSeV0bZNVHfkO12i9ThfdsnnKWsu97vXZ0X9Luu20W1aPvIzRS//D3jIIO32j2lXnoLRgT0xNIaBblLOcW1Uwx3YgwXA3FN310odffxqstjqRNStW1ImFTekM46xjKMul2rjVq2FRauQ0dDMTsW45PzD5Indz/RX5kzNUZprl9gYD8cIMnpe4ng0dNNffh5Twku8TUZbsV4Om6TRFQJEZ6yydfrwfBXAWblKO66SOMHFYloHonIqARaVTptY+h8t2xcwsY4UKKoiCfaZqZSOPpu20JDHIlpCBUZQTzwjWX4XI7E5LnUvh6lF6G48Ji5oqAoqC5ZFSo1EjPwK4zCEkFoQjPKxlPrAnk+WhUXVE8yoRaPxCejSUJE/5F+6iZP55fDWpw8Uy4G90tL3uTwfpAP++3Bu6t37f5geN1e3uRZ+zr7MLzJh0PIYcgc0jZ3qT0NHamp44/i9s8poc8UqJHvdfqd3lk/vumgo5grl4UXMhAUi4s9WV5LLgVYJeYralS15Ivu51r4uaZQza6D/Q8UL0V0whBvrCicxw4jQ6R2IRaQNpeFxLHm3dm/OidFbA/b7/x9ajgb8Tl2SwM6+U/zsG1mZ04bUzNUV/Sznx+agzUlwdLtdgkB77zZ7fi6dkyvHFmA17BkzOnNIwMERXPAA/eApCI/1Wm1Z5wDq5sqLa/XC5qXVG1xm2VYxv/UXRxtgfHkt8lswpPXvKpFWmbSwxOvdvodSTq4BFSa5HS3lQbsqkrLTdZemY48ckdj/mqsj5crbdujHAmgpDFzD2gJpFZTTORvmXblvyqf194=
+sidebar_class_name: 'delete api-method'
 info_path: api/nildb/nildb-api
 custom_edit_url: null
 ---
@@ -22,16 +22,14 @@ import Heading from '@theme/Heading';
 <Heading
   as={'h1'}
   className={'openapi__heading'}
-  children={'Remove all documents in a schema collection'}
+  children={'Delete query'}
 ></Heading>
 
 <MethodEndpoint
-  method={'post'}
-  path={'/api/v1/data/flush'}
+  method={'delete'}
+  path={'/api/v1/queries'}
   context={'endpoint'}
 ></MethodEndpoint>
-
-Remove all documents in a schema collection
 
 :::info
 You may use this test Bearer token we have created for development
@@ -41,6 +39,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
 ```
 
 :::
+
+Delete a query
 
 <Heading
   id={'request'}
@@ -54,22 +54,18 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
 <RequestSchema
   title={'Body'}
   body={{
+    required: true,
     content: {
       'application/json': {
         schema: {
           type: 'object',
-          required: ['data'],
+          required: ['id'],
           properties: {
-            data: {
-              type: 'object',
-              properties: {
-                schema: {
-                  description: 'A universally unique identifier for the item.',
-                  type: 'string',
-                  format: 'uuid',
-                  title: 'UUID',
-                },
-              },
+            id: {
+              description: 'A universally unique identifier for the item.',
+              type: 'string',
+              format: 'uuid',
+              title: 'UUID',
             },
           },
         },
@@ -82,18 +78,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
   id={undefined}
   label={undefined}
   responses={{
-    '200': {
-      description: 'The total documents removed',
-      content: {
-        'application/json': {
-          schema: {
-            type: 'object',
-            required: ['data'],
-            properties: { data: { type: 'number' } },
-          },
-        },
-      },
-    },
+    '204': { description: 'Resource deleted' },
     '400': {
       description: 'Validation or processing errors',
       content: {
@@ -105,10 +90,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
               ts: {
                 type: 'string',
                 format: 'date-time',
-                description: 'The time of the error according to the node.',
+                description: "The error's timestamp.",
               },
               errors: {
-                description: 'List of error messages',
+                description: 'A list of error messages',
                 type: 'array',
                 items: {
                   anyOf: [
@@ -130,5 +115,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
       },
     },
     '401': { description: 'Missing or invalid JWT' },
+    '500': { description: 'Internal server error' },
   }}
 ></StatusCodes>

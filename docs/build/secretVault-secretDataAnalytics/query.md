@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # SDA: Querying Data
 
-1. 🔍 You can check out the available queries for your org via `GET /queries` - see the [List Queries endpoint](../../api/nildb/list-the-organizations-queries.api.mdx) page for details.
+1. 🔍 You can check out the available queries for your org via `GET /queries` - see the [List Queries endpoint](../../api/nildb/get-queries.api.mdx) page for details.
 2. 🧰 Then, using the query id and any variables required you are ready to setup the payload for executing the query:
 
 <details>
@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
 </details>
 
-3. 🏁 You can now use the `POST /queries` endpoint to retrieve the results - check out the [Execute Queries endpoint](../../api/nildb/add-a-new-query.api.mdx) page for details. You can find an example below:
+3. 🏁 You can now use the `POST /queries` endpoint to retrieve the results - check out the [Execute Queries endpoint](../../api/nildb/add-query.api.mdx) page for details. You can find an example below:
 
    - 1️⃣ Node info acquisition details can be found on the [Access](access.md) page
    - 2️⃣ Token acquisition details can be found on the [Generating API Tokens](generate-tokens.md) page

@@ -36,7 +36,7 @@ import TabItem from '@theme/TabItem';
 3. 🧰 Additionally, we'll make our matching target a **variable** (variables can be of type `string`, `number`, `boolean`, `date`, and `array` of the former 4 - they are referenced in the aggregation using a `##` prefix), and gather a few more things we're going to need before being ready to register the query:
    - 1️⃣ Your organization's DID (Decentralized Identifier), obtained during the [Access](access.md) step
    - 2️⃣ A name (description) for your query
-   - 3️⃣ The schema we're targeting (by `schema_id`, you can get this via `GET /schemas` - check out the [List Schemas endpoint](../../api/nildb/list-the-organizations-schemas.api.mdx)) page for details
+   - 3️⃣ The schema we're targeting (by `schema_id`, you can get this via `GET /schemas` - check out the [List Schemas endpoint](../../api/nildb/get-schemas.api.mdx)) page for details
    - 4️⃣ A unique `uuid4` identifier for your query. As you're going to be registering this to multiple nodes that do not communicate or are aware of each other (for purposes of encryption via secret shares), this must be provided on creation and be the same across nodes.
 
 <details>
@@ -44,34 +44,34 @@ import TabItem from '@theme/TabItem';
 
 ```json
 {
-   "_id": "21b9911a-37c1-4626-8863-e465eXXXXXXX",
-   "owner": "did:nil:testnet:nillion1lng3uvz65frtv4jnrxyn2zn7xhyzujXXXXXXXX",
-   "name": "Returns usernames for a given service by order of creation",
-   "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
-   "variables": {
-      "service": {
-         "type": "string",
-         "description": "The target service"
+  "_id": "21b9911a-37c1-4626-8863-e465eXXXXXXX",
+  "owner": "did:nil:testnet:nillion1lng3uvz65frtv4jnrxyn2zn7xhyzujXXXXXXXX",
+  "name": "Returns usernames for a given service by order of creation",
+  "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
+  "variables": {
+    "service": {
+      "type": "string",
+      "description": "The target service"
+    }
+  },
+  "pipeline": [
+    {
+      "$match": {
+        "service": "##service"
       }
-   },
-   "pipeline": [
-      {
-         "$match": {
-            "service": "##service"
-         }
-      },
-      {
-         "$sort": {
-            "_created": 1
-         }
-      },
-      {
-         "$project": {
-            "username": 1,
-            "_id": 0
-         }
+    },
+    {
+      "$sort": {
+        "_created": 1
       }
-   ]
+    },
+    {
+      "$project": {
+        "username": 1,
+        "_id": 0
+      }
+    }
+  ]
 }
 ```
 
@@ -91,7 +91,7 @@ import TabItem from '@theme/TabItem';
 https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L113-L136
 ```
 
-</TabItem> 
+</TabItem>
 
 <TabItem value="wrapper-py" label="Python (with wrapper)">
 
