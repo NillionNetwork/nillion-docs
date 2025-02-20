@@ -55,6 +55,7 @@ Ultimately, the better choice between salad and pizza depends on your individual
 
 As a fitness coach, I always recommend balance and variety in your diet. Aim to include a mix of whole, unprocessed foods, and indulge in moderation. Listen to your body and make choices that nourish your mind, body, and soul.
 ```
+
 </details>
 </TabItem>
 <TabItem value="python" label="Python">
@@ -64,27 +65,33 @@ from openai import OpenAI
 # Initialize the OpenAI client
 
 client = OpenAI(
-    base_url="https://nilai-<node>.nillion.network/v1/",
-    api_key="YOUR_API_KEY"
+base_url="https://nilai-<node>.nillion.network/v1/",
+api_key="YOUR_API_KEY"
 )
 
 # Send a chat completion request
 
 response = client.chat.completions.create(
-    model="meta-llama/Llama-3.1-8B-Instruct",
-    messages=[
-        {
-            "role": "system",
-            "content": "You are a helpful assistant."
-        },
-        {
-            "role": "user",
-            "content": "What is your name?"
-        }
-    ],
-    stream=False
+model="meta-llama/Llama-3.1-8B-Instruct",
+messages=[
+{
+"role": "system",
+"content": "You are a helpful assistant."
+},
+{
+"role": "user",
+"content": "What is your name?"
+}
+],
+stream=False
 )
 
 ````
 </TabItem>
+<TabItem value="javascript" label="Next JS (API routes)">
+```typescript reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nextjs/app/api/chat/route.ts
+```
+</TabItem>
 </Tabs>
+````

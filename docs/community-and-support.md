@@ -9,7 +9,7 @@
 
 ### Support
 
-If you like to open a ticket, you can do so via our [Discord ticket link](https://discord.com/channels/905926225120338000/927874817355563018)
+If you'd like to open a ticket, you can do so via our [Discord ticket link](https://discord.com/channels/905926225120338000/927874817355563018)
 
 ---
 
@@ -23,6 +23,10 @@ Nillion's [Github Discussions](https://github.com/orgs/NillionNetwork/discussion
 
 Got a suggestion for improving the docs? Let us know by [creating a Github Issue](https://github.com/NillionNetwork/nillion-docs/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D).
 
+### Grants
+
+Are you building a startup using Nillion technology? Apply to the [Nucleus Builders Program](/nucleus-builders-program).
+
 ### Status Page
 
-We have a [Status page](https://status.nillion.com/) that illustrates the upkeep time of our Nillion Services.
+We have a [Status page](https://status.nillion.com/) that illustrates the uptime of our Nillion Services.

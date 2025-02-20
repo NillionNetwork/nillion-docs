@@ -98,6 +98,7 @@ const buildSidebar = [
       id: 'build/secretLLM/overview',
     },
     items: [
+      'build/secretLLM/quickstart',
       'build/secretLLM/access',
       'build/secretLLM/usage',
       {
@@ -124,6 +125,11 @@ const buildSidebar = [
       'build/secretSigner/setup',
       'build/secretSigner/store-key',
       'build/secretSigner/signing',
+      {
+        type: 'link',
+        label: 'Nillion Signature Tools',
+        href: 'https://nillion-signature-tools.streamlit.app',
+      },
       {
         type: 'link',
         label: 'Examples',

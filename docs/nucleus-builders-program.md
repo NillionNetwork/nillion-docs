@@ -20,7 +20,7 @@ We are committed to your success every step of the way. Nucleus offers weekly su
 
 ### Financial Support
 
-We believe in aligning our interests with those of our builders. We offer Nucleus builders a robust financial support package, including network credits that cover storage and compute costs on the Nillion Network. Additionally, our token compensation rewards provide tangible economic benefits as you build on our platform.
+We believe in aligning our interests with those of our builders. We offer Nucleus builders a robust financial support package, including grants of network credits that cover storage and compute costs on the Nillion Network. Additionally, our token compensation rewards provide tangible economic benefits as you build on our platform.
 
 ### Marketing & Business Support
 

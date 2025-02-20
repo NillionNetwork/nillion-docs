@@ -14,7 +14,7 @@ module.exports = [
       type: 'doc',
       id: 'nillion-client',
     },
-    collapsed: false,
+    collapsible: false,
     items: [
       {
         type: 'category',
@@ -26,7 +26,6 @@ module.exports = [
         items: [
           'python-quickstart',
           'python-client-reference',
-          'threshold-signatures',
           {
             type: 'link',
             label: 'Client Examples',
@@ -120,9 +119,21 @@ module.exports = [
       type: 'doc',
       id: 'nada-lang',
     },
+    collapsible: false,
     items: [
       'nada-lang-types',
       'nada-lang-operators',
+      {
+        type: 'category',
+        label: 'Built-in Programs',
+        items: [
+          {
+            type: 'link',
+            label: 'Signature Programs',
+            href: 'https://docs.nillion.com/build/secretSigner/signers',
+          },
+        ],
+      },
       {
         type: 'category',
         label: 'Programming with Nada',

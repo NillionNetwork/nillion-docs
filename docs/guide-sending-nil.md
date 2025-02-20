@@ -3,17 +3,15 @@ import BlockExplorers from './\_testnet_block_explorers.mdx';
 
 # Sending NIL Tokens
 
-Send a transaction on the Nillion Testnet and find the onchain record of the transaction on a block explorer.
+Send a transaction on the Nillion Network and find the onchain record of the transaction on a block explorer.
 
 ## How to send NIL
 
-This guide walks you through how to send NIL testnet tokens from one Nillion Testnet wallet to another Nillion Testnet wallet and find the transaction on a block explorer.
+This guide walks you through how to send NIL tokens from one Nillion wallet to another Nillion wallet and find the transaction on a block explorer.
 
 ### 0. Set up a wallet and get NIL
 
-Follow the [Creating a Nillion Wallet](/guide-testnet-connect) guide to set up a connected wallet.
-
-Follow the [Using the Faucet](/guide-testnet-faucet) guide to request NIL testnet tokens.
+Follow the [Creating a Nillion Wallet](/guide-nillion-wallet) guide to set up a connected wallet.
 
 ### 1. Open Keplr and check your NIL balance
 
@@ -21,13 +19,13 @@ Follow the [Using the Faucet](/guide-testnet-faucet) guide to request NIL testne
 
     2. Type in "NIL" to filter for your available balance of NIL.
 
-    3. Click "NIL" to open the NIL on Nillion Testnet view.
+    3. Click "NIL" to open the NIL on Nillion Network view.
 
 ### 2. Send NIL to another Nillion wallet
 
     1. Click "Send"
 
-    2. Under "Wallet address" paste in a valid Nillion wallet address - this address should start with `nillion1`
+    2. Under "Wallet address" paste in a valid Nillion wallet address - this address should start with `nillion`
 
     3. Under "Amount" type in the amount of NIL to send or click "Max" to send all your NIL minus the transaction fee (Tx Fee) shown at the bottom of Keplr.
 
@@ -43,20 +41,16 @@ Follow the [Using the Faucet](/guide-testnet-faucet) guide to request NIL testne
 
 ### 3. Look for the transaction on a Nillion block explorer
 
-There are multiple Nillion Testnet block explorers you can use to see your transaction.
+There are multiple nilChain block explorers you can use to see your transaction.
 
 <BlockExplorers/>
 
 Use an explorer to find your transaction:
 
-1. Open a Nillion Testnet block explorer and paste your Nillion wallet address into the search bar.
+1. Open a Nillion Network block explorer and paste your Nillion wallet address into the search bar.
 
 2. Find "Transactions" and click on the latest transaction.
 
 3. Look at the transaction details to see the onchain record of the NIL you just sent.
 
 <IframeVideo videoSrc="https://www.loom.com/embed/6f9023f29ad547f4b3a4f92bc852c11c?sid=cd8061b7-6ccf-4523-b0c9-094193e084d6"/>
-
-<br/>
-
-Well done! You just sent your first transaction on the Nillion Testnet!
