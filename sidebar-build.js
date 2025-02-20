@@ -67,7 +67,7 @@ const buildSidebar = [
           {
             type: 'doc',
             label: 'API Reference',
-            id: 'api/nildb/get-node-details',
+            id: 'api/nildb/overview',
           },
         ],
       },
