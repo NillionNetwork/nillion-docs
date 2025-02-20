@@ -1,10 +1,17 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# SDA: Querying Data
+# Execute a Query | Data Analytics
 
-1. 🔍 You can check out the available queries for your org via `GET /queries` - see the [List Queries endpoint](../../api/nildb/get-queries.api.mdx) page for details.
-2. 🧰 Then, using the query id and any variables required you are ready to setup the payload for executing the query:
+Running your queries is pretty straightforward, you only need the query id and any optional variables required.
+
+### 1. Check Your Queries for the Query ID
+
+List available Queries using the [List Queries endpoint](../../api/nildb/get-queries.api.mdx) (GET /queries) to get the Query ID.
+
+### 2. Executing the Query
+
+Using the query id and any variables required you are ready to setup the payload for executing the query via the [Execute Query endpoint](../../api/nildb/execute-query.api.mdx):
 
 <details>
 <summary>Example `POST /queries/execute` Payload</summary>
@@ -19,11 +26,6 @@ import TabItem from '@theme/TabItem';
 ```
 
 </details>
-
-3. 🏁 You can now use the `POST /queries` endpoint to retrieve the results - check out the [Execute Queries endpoint](../../api/nildb/add-query.api.mdx) page for details. You can find an example below:
-
-   - 1️⃣ Node info acquisition details can be found on the [Access](access.md) page
-   - 2️⃣ Token acquisition details can be found on the [Generating API Tokens](generate-tokens.md) page
 
 <details>
 <summary>Code Samples</summary>
@@ -92,7 +94,7 @@ python3 query_execute.py
 <Tabs>
   <TabItem value="createSchema" label="query_execute.py">
 ```javascript reference showGithubLink
-https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/query_execute.py
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/store_encryption/query_execute.py
 ```
 </TabItem>
   <TabItem value="orgConfig" label="org_config.py">

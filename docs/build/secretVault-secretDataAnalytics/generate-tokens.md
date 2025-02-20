@@ -122,12 +122,12 @@ python3 generate_api_tokens.py
 ```
 
 <Tabs>
-  <TabItem value="createSchema" label="generate_api_tokens.js">
+  <TabItem value="generateTokens" label="generate_api_tokens.py">
 ```javascript reference showGithubLink
 https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/generate_api_tokens.py
 ```
 </TabItem>
-  <TabItem value="orgConfig" label="orgConfig.js">
+  <TabItem value="orgConfig" label="org_config.py">
 ```javascript reference showGithubLink
 https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/org_config.py
 ```

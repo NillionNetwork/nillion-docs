@@ -193,12 +193,12 @@ python3 schema_create.py
 ```
 
 <Tabs>
-  <TabItem value="createSchema" label="createSchema.js">
+  <TabItem value="createSchema" label="schema_create.py">
 ```javascript reference showGithubLink
-https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/schema_create.py
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/store_encryption/schema_create.py
 ```
 </TabItem>
-  <TabItem value="orgConfig" label="orgConfig.js">
+  <TabItem value="orgConfig" label="org_config.py">
 ```javascript reference showGithubLink
 https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/org_config.py
 ```

@@ -87,12 +87,12 @@ python3 data_create_read.py
 ```
 
 <Tabs>
-  <TabItem value="readWriteSv" label="readWriteSv.js">
+  <TabItem value="readWriteSv" label="data_create_read.py">
 ```javascript reference showGithubLink
-https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/data_create_read.py
+https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/store_encryption/data_create_read.py
 ```
 </TabItem>
-  <TabItem value="orgConfig" label="orgConfig.js">
+  <TabItem value="orgConfig" label="org_config.py">
 ```javascript reference showGithubLink
 https://github.com/NillionNetwork/secretvaults-py/blob/main/examples/org_config.py
 ```

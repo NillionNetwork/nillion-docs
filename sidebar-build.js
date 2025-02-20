@@ -56,8 +56,18 @@ const buildSidebar = [
           },
           {
             type: 'doc',
+            label: '5. Define a Query | Data Analytics',
+            id: 'build/secretVault-secretDataAnalytics/create-query',
+          },
+          {
+            type: 'doc',
+            label: '6. Execute a Query | Data Analytics',
+            id: 'build/secretVault-secretDataAnalytics/query',
+          },
+          {
+            type: 'doc',
             label: 'API Reference',
-            id: 'api/nildb/get-node-details',
+            id: 'api/nildb/overview',
           },
         ],
       },
@@ -77,40 +87,6 @@ const buildSidebar = [
         type: 'link',
         label: 'Full App Examples',
         href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb',
-      },
-      {
-        type: 'category',
-        label: 'SecretDataAnalytics',
-        link: {
-          type: 'doc',
-          id: 'build/secret-data-analytics',
-        },
-
-        items: [
-          {
-            type: 'category',
-            label: 'nilDB APIs for SecretDataAnalytics',
-            collapsible: false,
-
-            items: [
-              {
-                type: 'doc',
-                label: 'Create a Query',
-                id: 'build/secretVault-secretDataAnalytics/create-query',
-              },
-              {
-                type: 'doc',
-                label: 'Query Records',
-                id: 'build/secretVault-secretDataAnalytics/query',
-              },
-              {
-                type: 'doc',
-                label: 'API Reference',
-                id: 'api/nildb/get-node-details',
-              },
-            ],
-          },
-        ],
       },
     ],
   },
