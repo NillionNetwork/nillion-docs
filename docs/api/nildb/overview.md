@@ -19,27 +19,27 @@ NILDB API has several endpoints you may interface with:
 
   - [Accounts](./accounts.api.mdx)
 
-- Nodes
+- Node
 
   - [Health](./get-health-status.api.mdx)
-  - [About](./get-node-details.api.mdx)
+  - [Node details](./get-node-details.api.mdx)
+
+- Schemas
+
+  - [Get](./get-schemas.api.mdx)
+  - [Add](./add-schema.api.mdx)
+  - [Delete](./delete-schema.api.mdx)
 
 - Data
 
   - [Upload](./upload-data.api.mdx)
   - [Read](./read-data.api.mdx)
-  - [List New Data](./list-new-data.api.mdx)
+  - [List new data](./list-new-data.api.mdx)
   - [Update](./update-data.api.mdx)
   - [Delete](./delete-data.api.mdx)
-  - [Delete All Data](./delete-all-data.api.mdx)
-
-- Schemas
-
-  - [List Schemas](./get-schemas.api.mdx)
-  - [Add Schema](./add-schema.api.mdx)
-  - [Delete Schema](./delete-schema.api.mdx)
+  - [Delete all](./delete-all-data.api.mdx)
 
 - Queries
-  - [List](./get-queries.api.mdx)
+  - [Get](./get-queries.api.mdx)
   - [Add](./add-query.api.mdx)
   - [Delete](./delete-query.api.mdx)
