@@ -1,63 +1,214 @@
 ---
 id: get-queries
-title: "Get queries"
-description: "List account queries"
-sidebar_label: "Get queries"
+title: 'Get queries'
+description: 'List account queries'
+sidebar_label: 'Get queries'
 hide_title: true
 hide_table_of_contents: true
 api: eJy1V9ty2zYQ/RUMX2rP2JKdOplGb07tZtxLmk6c9CHReCBiJcEGAQYAbSka/XvPgqJEiUo0nbQvEglgF7tnz164yBSF3OsyamezQfa7DlHIPHeVjeJzRV5TyE6yQHnldZxng4+L7P4p4n+4HJ5kUU4CnrO/cHKeYcFTKJ0NEBossmdnZ/y3fcPtlJoLfgitK3JnI9nIArIsjc4lC/TvA0stspBPqZD8FOclQY8b3VMeM77yc6U9KbZDySjZjNK7knzUtR1pdSMpvZdzCOpIRdqXxvw5Tq7t6t7Wc6dV159LUVn9SD5Ay5yf4ZLQCq7osSYvxs6LCJ/5th5Urq4I0Ws7wTv2Cwm3s6qCeuzraPjA+/c3V9nyJLvLPclIquVAVxYe0mnUBWGxC3fSgFfBJ0KURdlLmqtSfadmI0GXWs2W8uV2WO6SZ2tPWlcPNw5fubwqANsrGQjmfTvQViaL3JMlz/ys2XGSPUqv5cggXh0WJJF94QscJbDQKgSQCTkXK/XbqCyb+/ZyWlEO4700OpBqE+Do6ubqWLhxYgEUQJVwfiKt/pKisocTNAOMCRSl1cBqM4iA1lLkZwOZc6qsp+qLibOJmb0czy5e/mie+Z9o/MIr42V1oYKyOZu8SZyuzQgX4IE99SGRO2OANVOlpq2uM3SOTJWTiadJzaNSl2S07UK0S+dlOyJ7TWjUN8EVHoUBTBIbuZMOE6RSmnVI83YrxM7SVxK5zZ20t83mDllq+W5ekK0K1rFewPsoUXDknCHJ0WRmZ8PlTr7s6uIcaaifyueHlcMHub/H/qaY/Ws/6lp42NhWtTxo2v8B5rID1yVbvsFsyAfWvOymuV0zjWZoZg2N+TRSd4w/JSRYbkWChPO19rDFv07j2IaCjRzuWJkWk/EX+5rhB5QLVecU8g2o5RQCJyR57/x/1haTEyuV3eiE72gASSlA3e4sq6v2FFvD8wWwTScEZIKc0Lcglna+ndJrRh7q1rlTe1gH61a37ktJplGLaNdsZdbE77zr0B+6Dhd80faRgyl+/fuWL3m+L9w3iKVH1RJoORgZahRSJSgoTh1ilU0oeSLjFC99Wer+43m/PYixYEiAVN7gzDTGMgz6fXQGNTpVVLjeqkn00DCenH/ImJXNBPeOCVMDlOa4NQasp+mk/D4i6etcTA+/NHxg/3aZcCnQ406xg2bKcHCnu3737PmL34Q0E4d7p0XqKLLCFup7zs1foOOWTtsYep8sC5dybpxUoqhAEm1zUykafLKnQss4EDchVJykcUM23qNZORDXs1L7nRlHHHnKXYGRQpE65qOyUgNxKz0wFhbsONCz080hDMTPBsMBT6uHzqdQajt2CdcViRCNq1fi8u0NjyeIXQ3ZWe+id9YB8oMOOoqPyuVhHUX4MDxqory7c4yKpcTHCRCuRrzQf1NvvqljX9NiI3/g4LGITqDyeisK56nHLoGNLsRC2s0Qlb2m9tfBTutYl6yvfU2sGBdpFvulkTpdkti8WDEfjanUjNc5fhpBsHgKS3h3sRhhSnzvzXLJy6m08zfJZtxIXygQIKl4YkO6PNCcqZrnVMY0KZoqVZzdqsrZsk7H19fMdqZtK1V2UqNdnVCuWrphZjpx6x7IwtSTlRGR31PPWv4DKBywKg==
-sidebar_class_name: "get api-method"
+sidebar_class_name: 'get api-method'
 info_path: api/nildb/nildb-api
 custom_edit_url: null
 ---
 
-import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import ParamsDetails from "@theme/ParamsDetails";
-import RequestSchema from "@theme/RequestSchema";
-import StatusCodes from "@theme/StatusCodes";
-import OperationTabs from "@theme/OperationTabs";
-import TabItem from "@theme/TabItem";
-import Heading from "@theme/Heading";
+import MethodEndpoint from '@theme/ApiExplorer/MethodEndpoint';
+import ParamsDetails from '@theme/ParamsDetails';
+import RequestSchema from '@theme/RequestSchema';
+import StatusCodes from '@theme/StatusCodes';
+import OperationTabs from '@theme/OperationTabs';
+import TabItem from '@theme/TabItem';
+import Heading from '@theme/Heading';
 
 <Heading
-  as={"h1"}
-  className={"openapi__heading"}
-  children={"Get queries"}
->
-</Heading>
+  as={'h1'}
+  className={'openapi__heading'}
+  children={'Get queries'}
+></Heading>
 
 <MethodEndpoint
-  method={"get"}
-  path={"/api/v1/queries"}
-  context={"endpoint"}
->
-  
-</MethodEndpoint>
+  method={'get'}
+  path={'/api/v1/queries'}
+  context={'endpoint'}
+></MethodEndpoint>
 
+:::info
+You may use this test Bearer token we have created for development
 
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvbjF4dnRuM2FhajQ4dGY3bm5zZW16MGQ2OGVwbjZlcHU0ZjRhNG5mYSIsImF1ZCI6ImRpZDpuaWw6dGVzdG5ldDpuaWxsaW9uMXd3c3Jqbmd4dnU5dGMzMzVsajlrM213d3JybDV3M3EyZDB1ZXR6In0.yOKg-wyJdyn9jK-KNtkjbi9PS0pF9wmgVmd7pIeNGhoTjhgZhzB62atbgzE45OGGYx0gUsw_i2k3K2AdFf_tuQ
+```
+
+:::
 
 List account queries
 
-<ParamsDetails
-  parameters={undefined}
->
-  
-</ParamsDetails>
+<ParamsDetails parameters={undefined}></ParamsDetails>
 
-<RequestSchema
-  title={"Body"}
-  body={undefined}
->
-  
-</RequestSchema>
+<RequestSchema title={'Body'} body={undefined}></RequestSchema>
 
 <StatusCodes
   id={undefined}
   label={undefined}
-  responses={{"200":{"description":"The account's queries","content":{"application/json":{"schema":{"type":"object","required":["data"],"properties":{"data":{"type":"array","items":{"allOf":[{"type":"object","properties":{"_id":{"description":"A universally unique identifier for the item.","type":"string","format":"uuid","title":"UUID"},"_created":{"type":"string","format":"date-time","description":"The creation timestamp."},"_updated":{"type":"string","format":"date-time","description":"The last update timestamp."}},"required":["_id","_created","_updated"],"title":"DocumentBase"},{"type":"object","required":["name","owner","schema","variables"],"properties":{"name":{"description":"A user friendly query name","type":"string"},"owner":{"description":"The decentralised identifier (DID) of the owning organization","type":"string","example":"did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc"},"schema":{"description":"The starting schema collection for this query's aggregation pipeline","type":"string","format":"uuid"},"variables":{"description":"The query's required runtime variables","type":"object","additionalProperties":{"oneOf":[{"type":"object","required":["type","description"],"properties":{"type":{"type":"string","enum":["string","number","boolean","date"]},"description":{"type":"string"}},"title":"QueryVariable"},{"type":"object","required":["type","description","items"],"properties":{"type":{"type":"string","enum":["array"]},"description":{"type":"string"},"items":{"type":"object","required":["type"],"properties":{"type":{"type":"string","enum":["string","number","boolean","date"]}}}},"title":"QueryArrayVariable"}]}},"pipeline":{"description":"An query's execution pipline defined as an array of objects","type":"array","items":{"type":"object"}}}}],"title":"Query"}}}}}}},"400":{"description":"Validation or processing errors","content":{"application/json":{"schema":{"type":"object","required":["ts","errors"],"properties":{"ts":{"type":"string","format":"date-time","description":"The error's timestamp."},"errors":{"description":"A list of error messages","type":"array","items":{"anyOf":[{"type":"string"},{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"}}}]}}},"title":"Error"}}}},"401":{"description":"Missing or invalid JWT"},"500":{"description":"Internal server error"}}}
->
-  
-</StatusCodes>
-
-
-      
+  responses={{
+    '200': {
+      description: "The account's queries",
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            required: ['data'],
+            properties: {
+              data: {
+                type: 'array',
+                items: {
+                  allOf: [
+                    {
+                      type: 'object',
+                      properties: {
+                        _id: {
+                          description:
+                            'A universally unique identifier for the item.',
+                          type: 'string',
+                          format: 'uuid',
+                          title: 'UUID',
+                        },
+                        _created: {
+                          type: 'string',
+                          format: 'date-time',
+                          description: 'The creation timestamp.',
+                        },
+                        _updated: {
+                          type: 'string',
+                          format: 'date-time',
+                          description: 'The last update timestamp.',
+                        },
+                      },
+                      required: ['_id', '_created', '_updated'],
+                      title: 'DocumentBase',
+                    },
+                    {
+                      type: 'object',
+                      required: ['name', 'owner', 'schema', 'variables'],
+                      properties: {
+                        name: {
+                          description: 'A user friendly query name',
+                          type: 'string',
+                        },
+                        owner: {
+                          description:
+                            'The decentralised identifier (DID) of the owning organization',
+                          type: 'string',
+                          example:
+                            'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc',
+                        },
+                        schema: {
+                          description:
+                            "The starting schema collection for this query's aggregation pipeline",
+                          type: 'string',
+                          format: 'uuid',
+                        },
+                        variables: {
+                          description: "The query's required runtime variables",
+                          type: 'object',
+                          additionalProperties: {
+                            oneOf: [
+                              {
+                                type: 'object',
+                                required: ['type', 'description'],
+                                properties: {
+                                  type: {
+                                    type: 'string',
+                                    enum: [
+                                      'string',
+                                      'number',
+                                      'boolean',
+                                      'date',
+                                    ],
+                                  },
+                                  description: { type: 'string' },
+                                },
+                                title: 'QueryVariable',
+                              },
+                              {
+                                type: 'object',
+                                required: ['type', 'description', 'items'],
+                                properties: {
+                                  type: { type: 'string', enum: ['array'] },
+                                  description: { type: 'string' },
+                                  items: {
+                                    type: 'object',
+                                    required: ['type'],
+                                    properties: {
+                                      type: {
+                                        type: 'string',
+                                        enum: [
+                                          'string',
+                                          'number',
+                                          'boolean',
+                                          'date',
+                                        ],
+                                      },
+                                    },
+                                  },
+                                },
+                                title: 'QueryArrayVariable',
+                              },
+                            ],
+                          },
+                        },
+                        pipeline: {
+                          description:
+                            "An query's execution pipline defined as an array of objects",
+                          type: 'array',
+                          items: { type: 'object' },
+                        },
+                      },
+                    },
+                  ],
+                  title: 'Query',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    '400': {
+      description: 'Validation or processing errors',
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            required: ['ts', 'errors'],
+            properties: {
+              ts: {
+                type: 'string',
+                format: 'date-time',
+                description: "The error's timestamp.",
+              },
+              errors: {
+                description: 'A list of error messages',
+                type: 'array',
+                items: {
+                  anyOf: [
+                    { type: 'string' },
+                    {
+                      type: 'object',
+                      properties: {
+                        code: { type: 'string' },
+                        message: { type: 'string' },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            title: 'Error',
+          },
+        },
+      },
+    },
+    '401': { description: 'Missing or invalid JWT' },
+    '500': { description: 'Internal server error' },
+  }}
+></StatusCodes>

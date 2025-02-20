@@ -11,7 +11,7 @@ List available Collections using the [List Schemas endpoint](../../api/nildb/get
 
 ### 2. Retrieve Records
 
-Retrieve records from a collection by calling the [Read Data endpoint](../../api/nildb/retrieve-data-from-the-specified-schema-collection-that-matches-the-provided-filter) (POST /data/read) with the schema id and optionally a filter. If you don't pass in a filter, all records will be returned.
+Retrieve records from a collection by calling the [Read Data endpoint](../../api/nildb/read-data) (POST /data/read) with the schema id and optionally a filter. If you don't pass in a filter, all records will be returned.
 
 <details>
 <summary>Example `POST /data/read` Payload</summary>

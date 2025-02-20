@@ -1,63 +1,158 @@
 ---
 id: get-schemas
-title: "Get schemas"
+title: 'Get schemas'
 description: "List accounts' schemas"
-sidebar_label: "Get schemas"
+sidebar_label: 'Get schemas'
 hide_title: true
 hide_table_of_contents: true
 api: eJytVl1TGzcU/SsavQRmwAZKMo3fSKEZ+pF0JpA+EIaRV9e2iFbaSFqw4/F/77na9cfabnlI/eJdSffznHu0c6kpFsFUyXgnB/IPE5NQReFrl+IrEYsJlSrKIxmpqINJMzm4m8vH54T/+8X9kUxqHPEsP+WTEiuBYuVdJCzP5dnJCf91g9xMSPgwVs58V7z0Km4EKrxL5BJbqaqypshH+o+RTeeyOchPaVYRnPnhIxVJctxvtQmkORutUs6lCr6ikEyTTF5dW6oQ1AyGJlGZ95W1H0e5wG3fXT8PRu8WdSFqZ54oRHiZ8fO3moTRKMWMDAUx8kEkFM7RenDZhogpGDfGO/ZLhbJlXcM99k2yfOD29vpSLo7kQxFIJdIbBezaokI6TqYkLO72PHvAq+ATMamy6mXPdaV/0LNVoE3jpuN80YXlIVe2qmQj9P264Etf1CXa9k5FQnr/DbRTOSP/7CgwS1cs7CKWj+2DLDIywZDTAK2xFq3PbisWyyB72aypQMZBWRNJb6J+cHl9eSj8KEMPB3DVof4eItAUvcud0EYPnLGDhH46SvxsYXNKtQtUf7dpOrbTt6Pp+duf7Fn4mUZvgrZB1ec6aldwyutp2c2ZJ2pZcs1pJy+eUEEGkUdFDAnwg7EY5pB5YxzOcCWtWeGtBSadOlqYFovFBqatOiya35E83ycLn5vgHAizAgALipEbRiH48L9pQ2JPrcsdoqT4A1OQnULMuuPVhtrDPstiC27kEwI2UY0prlu5K1Bu1hWoFTlfkqzCa9qtDNm1UffsAcCM1RLDK85SLvE73S3oT9PAhVqMy0wSv/19w0Fe74P7GlgGp6wAu6CbTReyZJSUJh5YyTHlSlSa4KWvKtN/Ou1v3klsGHND6mBxZpJSFQf9PiZFD481lb7XDk0PA/Tsw1fJtFxeZpmWTYPylbbqAftZygm/D0mFLDDNw69LPnB920y4EJj5Y+xgqrgdPC9Xn85ev/ldKDv2iDsp822gamxBKApWQAEJqjwGLPa+ODau1Mx6pUVZgyTGFbbWNPjijoVRaSCuY6xhpNKabLxH02ogrqaVCVtCLw4CFb6ErmrSh3xU1XogblRAj4UDO17QsBw5xoH4xUItE1j+0vkMpXEjn/vakghoXL4TF39do22MXdOyk95572SnkZ9NNEncaV/EFYqo4f5gifL2zqFQTou7MTpcD3mh/6HZ/NBg39Bibf/CwUNWRAvAnSihgz0uCWz0MZXKrW8V+R4dXJOyU8N8LVn//mnVci7RNPUrq0wOk/k8b7l/B7kz3LHT1R2XtWuCXHh3Ph/isrwNdrHgZXx5BP5Qw+OTCkYNufX4XIMBKc13GAbmK82YrEVBFQ8Z5rXOmrOtqzwvq4F8f8V8Z+JuDMvWcGzqEwRrwzfSzCdu/FdySPWoTSLxu8xy8w/EYakr
-sidebar_class_name: "get api-method"
+sidebar_class_name: 'get api-method'
 info_path: api/nildb/nildb-api
 custom_edit_url: null
 ---
 
-import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import ParamsDetails from "@theme/ParamsDetails";
-import RequestSchema from "@theme/RequestSchema";
-import StatusCodes from "@theme/StatusCodes";
-import OperationTabs from "@theme/OperationTabs";
-import TabItem from "@theme/TabItem";
-import Heading from "@theme/Heading";
+import MethodEndpoint from '@theme/ApiExplorer/MethodEndpoint';
+import ParamsDetails from '@theme/ParamsDetails';
+import RequestSchema from '@theme/RequestSchema';
+import StatusCodes from '@theme/StatusCodes';
+import OperationTabs from '@theme/OperationTabs';
+import TabItem from '@theme/TabItem';
+import Heading from '@theme/Heading';
 
 <Heading
-  as={"h1"}
-  className={"openapi__heading"}
-  children={"Get schemas"}
->
-</Heading>
+  as={'h1'}
+  className={'openapi__heading'}
+  children={'Get schemas'}
+></Heading>
 
 <MethodEndpoint
-  method={"get"}
-  path={"/api/v1/schemas"}
-  context={"endpoint"}
->
-  
-</MethodEndpoint>
+  method={'get'}
+  path={'/api/v1/schemas'}
+  context={'endpoint'}
+></MethodEndpoint>
 
+:::info
+You may use this test Bearer token we have created for development
 
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvbjF4dnRuM2FhajQ4dGY3bm5zZW16MGQ2OGVwbjZlcHU0ZjRhNG5mYSIsImF1ZCI6ImRpZDpuaWw6dGVzdG5ldDpuaWxsaW9uMXd3c3Jqbmd4dnU5dGMzMzVsajlrM213d3JybDV3M3EyZDB1ZXR6In0.yOKg-wyJdyn9jK-KNtkjbi9PS0pF9wmgVmd7pIeNGhoTjhgZhzB62atbgzE45OGGYx0gUsw_i2k3K2AdFf_tuQ
+```
+
+:::
 
 List accounts' schemas
 
-<ParamsDetails
-  parameters={undefined}
->
-  
-</ParamsDetails>
+<ParamsDetails parameters={undefined}></ParamsDetails>
 
-<RequestSchema
-  title={"Body"}
-  body={undefined}
->
-  
-</RequestSchema>
+<RequestSchema title={'Body'} body={undefined}></RequestSchema>
 
 <StatusCodes
   id={undefined}
   label={undefined}
-  responses={{"200":{"description":"The organization's schemas","content":{"application/json":{"schema":{"type":"object","required":["data"],"properties":{"data":{"type":"array","items":{"allOf":[{"type":"object","properties":{"_id":{"description":"A universally unique identifier for the item.","type":"string","format":"uuid","title":"UUID"},"_created":{"type":"string","format":"date-time","description":"The creation timestamp."},"_updated":{"type":"string","format":"date-time","description":"The last update timestamp."}},"required":["_id","_created","_updated"],"title":"DocumentBase"},{"type":"object","required":["name","owner","schema"],"properties":{"name":{"description":"A user friendly schema name","type":"string"},"owner":{"description":"The decentralised identifier (DID) of the owning organization","type":"string","example":"did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc"},"schema":{"description":"The json schema used to validate data before insertion into the schema collection","type":"object"}}}],"title":"Schema"}}}}}}},"400":{"description":"Validation or processing errors","content":{"application/json":{"schema":{"type":"object","required":["ts","errors"],"properties":{"ts":{"type":"string","format":"date-time","description":"The error's timestamp."},"errors":{"description":"A list of error messages","type":"array","items":{"anyOf":[{"type":"string"},{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"}}}]}}},"title":"Error"}}}},"401":{"description":"Missing or invalid JWT"},"500":{"description":"Internal server error"}}}
->
-  
-</StatusCodes>
-
-
-      
+  responses={{
+    '200': {
+      description: "The organization's schemas",
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            required: ['data'],
+            properties: {
+              data: {
+                type: 'array',
+                items: {
+                  allOf: [
+                    {
+                      type: 'object',
+                      properties: {
+                        _id: {
+                          description:
+                            'A universally unique identifier for the item.',
+                          type: 'string',
+                          format: 'uuid',
+                          title: 'UUID',
+                        },
+                        _created: {
+                          type: 'string',
+                          format: 'date-time',
+                          description: 'The creation timestamp.',
+                        },
+                        _updated: {
+                          type: 'string',
+                          format: 'date-time',
+                          description: 'The last update timestamp.',
+                        },
+                      },
+                      required: ['_id', '_created', '_updated'],
+                      title: 'DocumentBase',
+                    },
+                    {
+                      type: 'object',
+                      required: ['name', 'owner', 'schema'],
+                      properties: {
+                        name: {
+                          description: 'A user friendly schema name',
+                          type: 'string',
+                        },
+                        owner: {
+                          description:
+                            'The decentralised identifier (DID) of the owning organization',
+                          type: 'string',
+                          example:
+                            'did:nil:testnet:nillion1eunreuzltxglx9fx493l2r8ef6rdlrau4dsdnc',
+                        },
+                        schema: {
+                          description:
+                            'The json schema used to validate data before insertion into the schema collection',
+                          type: 'object',
+                        },
+                      },
+                    },
+                  ],
+                  title: 'Schema',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    '400': {
+      description: 'Validation or processing errors',
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            required: ['ts', 'errors'],
+            properties: {
+              ts: {
+                type: 'string',
+                format: 'date-time',
+                description: "The error's timestamp.",
+              },
+              errors: {
+                description: 'A list of error messages',
+                type: 'array',
+                items: {
+                  anyOf: [
+                    { type: 'string' },
+                    {
+                      type: 'object',
+                      properties: {
+                        code: { type: 'string' },
+                        message: { type: 'string' },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            title: 'Error',
+          },
+        },
+      },
+    },
+    '401': { description: 'Missing or invalid JWT' },
+    '500': { description: 'Internal server error' },
+  }}
+></StatusCodes>
