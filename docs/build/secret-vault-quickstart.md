@@ -80,7 +80,7 @@ For quickstart purposes, we've pre-registered an org you can use. Here are the o
 
 You can also look up cluster configuration values using the orgDid in the "Returning Org" section of the [SecretVault Registration Portal](https://sv-sda-registration.replit.app/).
 
-```javascript reference showGithubLink
+```javascript
 import dotenv from 'dotenv';
 dotenv.config();
 
