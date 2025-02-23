@@ -203,7 +203,7 @@ const SCHEMA_ID = 'YOUR_SCHEMA_ID';
 Mark the name and years_in_web3 fields with `%allot` to signal to nilQL that these are fields that need to be encrypted to shares before being stored in SecretVault. The secretvaults package will transform data marked %allot into encrypted %share properties before upload to SecretVault.
 
 ```javascript
-const data = [
+const web3ExperienceSurveyData = [
   {
     years_in_web3: { '%allot': 8 }, // years_in_web3 will be encrypted to a %share
     responses: [
