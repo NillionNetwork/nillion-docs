@@ -20,7 +20,7 @@ Retrieve records from a collection by calling the [Read Data endpoint](../../api
 {
    "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
    "filter": {
-      "service": "Netflix"
+      "_id": "120a60f3-d1b6-4a11-a413-abcd60c8ccb3"
    }
 }
 ```
