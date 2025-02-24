@@ -16,10 +16,10 @@ Sketch out your data structure to plan the fields and types that will define you
 <summary>Example Data</summary>
 
 ```json
-service = Netflix //string
-username = JohnDoe13 //string
-password = p4$$worD //string
-registered_at = 2022-01-01T00:00:00Z //datetime
+years_in_web3 = 3 //integer, encrypted
+responses = [] //array
+  question_number = 1 //integer
+  rating = 5 //integer
 ```
 
 </details>
@@ -31,6 +31,7 @@ Convert your data structure into a JSON Schema following these requirements:
 - Use JSON Schema draft-07, type "array"
 - Each record needs a unique \_id (UUID format, coerce: true)
 - Use "date-time" format for dates (coerce: true)
+- Remember to take into ac
 - Mark required fields (\_id is always required)
 - Set additionalProperties to false
 - Avoid "$" prefix in field names to prevent query conflicts
@@ -41,37 +42,8 @@ Use a [JSON Schema validator tool](https://www.jsonschemavalidator.net/) to make
 <details>
 <summary>Example JSON Schema</summary>
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "_id": {
-        "type": "string",
-        "format": "uuid",
-        "coerce": true
-      },
-      "service": {
-        "type": "string"
-      },
-      "username": {
-        "type": "string"
-      },
-      "password": {
-        "type": "string"
-      },
-      "registered_at": {
-        "type": "string",
-        "format": "date-time",
-        "coerce": true
-      }
-    },
-    "required": ["_id", "service", "username", "password", "registered_at"],
-    "additionalProperties": false
-  }
-}
+```js reference showGithubLink
+https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/schema.json
 ```
 
 </details>
@@ -90,10 +62,11 @@ Then use the Create Schema endpoint to upload your JSON schema to each node in y
 ```json
 {
   "_id": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
-  "name": "My services",
+  "name": "Web3 Experience Survey",
   "keys": ["_id"],
   "schema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Web3 Experience Survey",
     "type": "array",
     "items": {
       "type": "object",
@@ -103,23 +76,36 @@ Then use the Create Schema endpoint to upload your JSON schema to each node in y
           "format": "uuid",
           "coerce": true
         },
-        "service": {
-          "type": "string"
+        "years_in_web3": {
+          "type": "object",
+          "properties": {
+            "%share": {
+              "type": "string"
+            }
+          },
+          "required": ["%share"]
         },
-        "username": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        },
-        "registered_at": {
-          "type": "string",
-          "format": "date-time",
-          "coerce": true
+        "responses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rating": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "question_number": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": ["rating", "question_number"]
+          },
+          "minItems": 1
         }
       },
-      "required": ["_id", "service", "username", "password", "registered_at"],
-      "additionalProperties": false
+      "required": ["_id", "years_in_web3", "responses"]
     }
   }
 }
@@ -145,7 +131,7 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 <TabItem value="typescript" label="TypeScript">
 
 ```tsx reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs/app/api/create-schema/route.ts
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs/app/api/create-schema/route.ts#L41-L115
 ```
 
 </TabItem> 

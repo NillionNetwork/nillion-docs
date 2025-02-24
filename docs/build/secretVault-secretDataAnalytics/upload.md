@@ -26,17 +26,27 @@ You can include up to 10k records in a `POST /data/create` request, and the tota
 
 ```JSON
 {
-   "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
-   "data": [
-      {
-         "_id": "f47ac10b-58cc-4372-a567-0e02bXXXXXX",
-         "service": "Netflix",
-         "username": "JohnDoe13",
-         "password": "oTsOsg+XMaA=", //encrypted share
-         "registered_at": "2022-01-01T00:00:00Z"
-      }
-   ]
+  "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
+  "data": [
+    {
+      "_id": "120a60f3-d1b6-4a11-a413-abcd60c8ccb3",
+      "years_in_web3": "zKH1L", // encrypted share
+      "responses": [
+        { "rating": 5, "question_number": 1 },
+        { "rating": 3, "question_number": 2 }
+      ]
+    },
+    {
+      "_id": "b321301b-ffcd-43d8-bec7-4b0830f7a305",
+      "years_in_web3": "5J_KL4", // encrypted share
+      "responses": [
+        { "rating": 2, "question_number": 1 },
+        { "rating": 4, "question_number": 2 }
+      ]
+    }
+  ]
 }
+
 ```
 
 </details>
@@ -53,17 +63,18 @@ Upload to all nodes using each node's [Upload/Create Data endpoint](/api/nildb/u
 {
    "data": {
       "created": [
-         "f47ac10b-58cc-5372-a567-0e02b2XXXXXX"
+         "120a60f3-d1b6-4a11-a413-abcd60c8ccb3"
       ],
       "errors": [
          {
-            "error": "E11000 duplicate key error collection: datablocks_data.f47ac10b-58cc-4372-a567-0e02b2XXXXXX index: _id_ dup key: { _id: UUID(\"f47ac10b-58cc-4372-a567-0e02b2XXXXXX\") }",
+            "error": "E11000 duplicate key error collection: datablocks_data.f47ac10b-58cc-4372-a567-0e02b2XXXXXX index: _id_ dup key: { _id: UUID(\"b321301b-ffcd-43d8-bec7-4b0830f7a305\") }",
             "document": {
-               "_id": "f47ac10b-58cc-4372-a567-0e02bXXXXXX",
-               "service": "Netflix",
-               "username": "JohnDoe13",
-               "password": "oTsOsg+XMaA=",
-               "registered_at": "2022-01-01T00:00:00Z"
+              "_id": "b321301b-ffcd-43d8-bec7-4b0830f7a305",
+              "years_in_web3": "5J_KL4",
+              "responses": [
+                { "rating": 2, "question_number": 1 },
+                { "rating": 4, "question_number": 2 }
+              ]
             }
          }
       ]
