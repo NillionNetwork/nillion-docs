@@ -40,7 +40,23 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6bmlsOnRlc3RuZXQ6bmlsbGlvb
 
 :::
 
-Update documents within a schema collection that match the given filter
+Update documents within a schema collection that match the given `filter`.
+
+Supply fields under `update` using `$set` to update their value. Example:
+```JSON
+{
+    "schema": "c48dcfb6-dd97-4ee6-b227-1f6c334685f8",
+    "filter": {
+        "_id": "f7bca333-b0b9-472a-9649-e17d23f7ccc0"
+    },
+    "update": {
+        "$set": {
+            "steps": 100
+        }
+    }
+}
+```
+You can find more options on [field update operators](https://www.mongodb.com/docs/manual/reference/operator/update-field/#field-update-operators) other than `$set`, but take care to not alter the schema by removing required fields.
 
 <Heading
   id={'request'}
