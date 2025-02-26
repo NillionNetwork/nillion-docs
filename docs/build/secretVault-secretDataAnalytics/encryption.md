@@ -79,5 +79,5 @@ const operation = {
 ```
 
 ```javascript reference showGithubLink
-https://github.com/NillionNetwork/nillion-sv-wrappers/blob/main/nilQl/wrapper.js#L47-L50
+https://github.com/NillionNetwork/secretvaults-js/blob/main/nilQl/wrapper.js#L47-L50
 ```

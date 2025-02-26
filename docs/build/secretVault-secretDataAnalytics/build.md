@@ -2,7 +2,7 @@
 
 ## How to use SecretVault APIs
 
-Interact with [nilDB APIs](/api/overview) or the JS [nillion-sv-wrappers](https://github.com/NillionNetwork/secretvault-js) helper package shown in the [Quickstart](/build/secret-vault-quickstart) to use SecretVault (also available in [Python](https://github.com/NillionNetwork/secretvaults-py)). First complete setup by registering an organization and defining the structure of your data collections. After setup, you can securely store, retrieve, and query data from SecretVault.
+Interact with [nilDB APIs](/api/overview) or the JS [secretvaults](https://github.com/NillionNetwork/secretvault-js) helper package shown in the [Quickstart](/build/secret-vault-quickstart) to use SecretVault (also available in [Python](https://github.com/NillionNetwork/secretvaults-py)). First complete setup by registering an organization and defining the structure of your data collections. After setup, you can securely store, retrieve, and query data from SecretVault.
 
 ### 1. Register an Organization
 
