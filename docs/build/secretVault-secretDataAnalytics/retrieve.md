@@ -11,7 +11,29 @@ List available Collections using the [List Schemas endpoint](../../api/nildb/get
 
 ### 2. Retrieve Records
 
-Retrieve records from a collection by calling the [Read Data endpoint](../../api/nildb/read-data) (POST /data/read) with the schema id and optionally a filter. If you don't pass in a filter, all records will be returned.
+Retrieve records from a collection by calling the [Read Data endpoint](../../api/nildb/read-data) (`POST /data/read`) with the schema id and optionally a filter. If you don't pass in a filter, all records will be returned.
+
+#### Using a filter
+A filter can be a basic match (e.g. `"status": "active"`), a comparison (e.g. `"age" : { "$gte": 30}`) or something more complex.
+
+<details>
+<summary>Complex filter example & resources</summary>
+
+```JSON
+{
+  "filter": {
+    "$and": [
+        { "status": "active" },
+        { "age": { "$gte": 30 } },
+        { "tags": { "$in": ["premium", "verified"] } }
+    ]
+  }
+}
+```
+For more operator options check out [Comparison Operators](https://www.mongodb.com/docs/manual/reference/operator/query/#comparison) and [Logical Operators](https://www.mongodb.com/docs/manual/reference/operator/query/#logical).
+</details>
+
+#### Examples for retrieving records
 
 <details>
 <summary>Example `POST /data/read` Payload</summary>
@@ -107,3 +129,13 @@ Retrieved records will have:
 
 - Plaintext fields with identical values across nodes
 - Encrypted fields as shares that need nilQL to decrypt and reconstruct values from all nodes
+
+
+### Other operations on records
+
+- [Update Data endpoint](../../api/nildb/update-data) (also supported via the `secretvaults` JS+Python wrappers)
+- [Delete Data endpoint](../../api/nildb/delete-data) (also supported via the `secretvaults` JS+Python wrappers)
+- [Flush Data endpoint](../../api/nildb/delete-all-data)
+- [Tail Data endpoint](../../api/nildb/list-new-data)
+
+
