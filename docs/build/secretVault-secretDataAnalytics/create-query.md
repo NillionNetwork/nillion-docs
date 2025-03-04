@@ -320,7 +320,7 @@ Then use the [Create Query endpoint](../../api/nildb/add-query.api.mdx) to uploa
 <TabItem value="python" label="Python">
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L115-L139
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L113-L137
 ```
 
 </TabItem> 

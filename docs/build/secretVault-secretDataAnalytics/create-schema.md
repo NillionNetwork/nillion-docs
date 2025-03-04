@@ -124,7 +124,7 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 ```
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L90-L111
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L88-L111
 ```
 
 </TabItem>
