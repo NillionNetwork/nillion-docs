@@ -271,7 +271,7 @@ Then use the [Create Query endpoint](../../api/nildb/add-query.api.mdx) to uploa
 ```json
 {
    "_id": "21b9911a-37c1-4626-8863-e465eXXXXXXX",
-   "name": "Returns usernames for a given service by order of creation",
+   "name": "Returns sum of years_in_web3 and count of users that have answered question X",
    "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
    "variables": {
    "question_number": {
@@ -320,7 +320,7 @@ Then use the [Create Query endpoint](../../api/nildb/add-query.api.mdx) to uploa
 <TabItem value="python" label="Python">
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L113-L136
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L115-L139
 ```
 
 </TabItem> 

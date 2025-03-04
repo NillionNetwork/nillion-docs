@@ -120,18 +120,18 @@ Then use the Create Schema endpoint to upload your JSON schema to each node in y
   <TabItem value="python" label="Python">
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L88-L111
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/define_collection.py#L12-L38
 ```
 
 ```python reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/define_collection.py#L12-L38
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_python/nildb_api.py#L90-L111
 ```
 
 </TabItem>
 <TabItem value="typescript" label="TypeScript">
 
 ```tsx reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs/app/api/create-schema/route.ts#L41-L115
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs/app/api/create-schema/route.ts#L41-L106
 ```
 
 </TabItem> 
