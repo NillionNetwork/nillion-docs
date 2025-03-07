@@ -31,7 +31,7 @@ Convert your data structure into a JSON Schema following these requirements:
 - Use JSON Schema draft-07, type "array"
 - Each record needs a unique \_id (UUID format, coerce: true)
 - Use "date-time" format for dates (coerce: true)
-- Remember to take into ac
+- Remember to take into account the type for fields that you want to encrypt using %allot/%share
 - Mark required fields (\_id is always required)
 - Set additionalProperties to false
 - Avoid "$" prefix in field names to prevent query conflicts
