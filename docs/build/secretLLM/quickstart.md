@@ -4,7 +4,15 @@ SecretLLM allows you to run AI models within a Trusted Execution Environment (TE
 
 ## Getting Started
 
-![img!](../../../static/img/secretllm_yt_thumbnail.png)
+<iframe 
+  width="100%" 
+  height="500" 
+  src="https://www.youtube.com/embed/f0EMmEUhFcM" 
+  title="YouTube video player" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+</iframe>
 
 In this quickstart, we will be making a private AI journaling application with nextjs. Let's get started by cloning our examples repo.
 

@@ -1,0 +1,94 @@
+# Nillion Documentation
+
+> Nillion is a decentralized computation platform that enables privacy-preserving operations through advanced cryptography. Our technology allows developers to build applications that process sensitive data without compromising privacy or security.
+
+Nillion combines multiple cryptographic techniques to create a platform where data can remain private while still being useful for computation. Our suite of tools includes SecretVault for secure data storage, SecretLLM for private AI, SecretSigner for protected key operations, and nilVM for general-purpose privacy-preserving computation.
+
+## Learn
+
+- [What Is Nillion](https://docs.nillion.com/what-is-nillion): Introduction to Nillion and its capabilities
+- [Use Cases](https://docs.nillion.com/learn/use-cases): Example applications and industry solutions built with Nillion
+- [Architecture](https://docs.nillion.com/learn/architecture): Overview of Nillion's technical architecture
+- [Blind Modules](https://docs.nillion.com/build/blind-modules): How Nillion's pre-built privacy-preserving modules work
+- [Protocols](https://docs.nillion.com/learn/protocols): Technical details about Nillion's cryptographic protocols
+
+## Build
+
+- [Start Building](https://docs.nillion.com/quickstart): Quick guide to get started with Nillion development
+- [Network Configuration](https://docs.nillion.com/network): Information about connecting to the Nillion network
+
+### SecretVault
+
+- [Overview](https://docs.nillion.com/build/secret-vault): Introduction to SecretVault for secure data storage
+- [SecretVault Quickstart](https://docs.nillion.com/build/secret-vault-quickstart): Get started with SecretVault
+- [Register an Organization](https://docs.nillion.com/build/secretVault-secretDataAnalytics/access): How to set up an organization in SecretVault
+- [Define a Collection](https://docs.nillion.com/build/secretVault-secretDataAnalytics/create-schema): Creating data schemas
+- [Store Records](https://docs.nillion.com/build/secretVault-secretDataAnalytics/upload): How to store data securely
+- [Retrieve Records](https://docs.nillion.com/build/secretVault-secretDataAnalytics/retrieve): How to retrieve stored data
+- [Define a Query](https://docs.nillion.com/build/secretVault-secretDataAnalytics/create-query): Creating queries for data analytics
+- [Execute a Query](https://docs.nillion.com/build/secretVault-secretDataAnalytics/query): Running analytics on private data
+- [API Reference](https://docs.nillion.com/api/nildb/overview): Complete SecretVault API documentation
+
+### SecretLLM
+
+- [Overview](https://docs.nillion.com/build/secretLLM/overview): Introduction to privacy-preserving LLM operations
+- [Quickstart](https://docs.nillion.com/build/secretLLM/quickstart): Get started with SecretLLM
+- [Access](https://docs.nillion.com/build/secretLLM/access): How to access SecretLLM services
+- [Usage](https://docs.nillion.com/build/secretLLM/usage): How to use SecretLLM in applications
+- [API Reference](https://docs.nillion.com/api/nilai/overview): Complete SecretLLM API documentation
+
+### SecretSigner
+
+- [Overview](https://docs.nillion.com/build/secretSigner/overview): Introduction to secure key management
+- [Signers](https://docs.nillion.com/build/secretSigner/signers): Types of signing operations supported
+- [Setup](https://docs.nillion.com/build/secretSigner/setup): Setting up SecretSigner
+- [Store Key](https://docs.nillion.com/build/secretSigner/store-key): How to securely store cryptographic keys
+- [Signing](https://docs.nillion.com/build/secretSigner/signing): Performing private signing operations
+
+## Nada Language
+
+- [Introduction](https://docs.nillion.com/nada-lang): Overview of the Nada programming language
+- [Types](https://docs.nillion.com/nada-lang-types): Data types in Nada
+- [Operators](https://docs.nillion.com/nada-lang-operators): Operators available in Nada
+- [Programs](https://docs.nillion.com/nada-lang-programs): How to write Nada programs
+- [Debugging](https://docs.nillion.com/nada-debugging): How to debug Nada programs
+- [Nada by Example](https://docs.nillion.com/nada-by-example): Learn Nada through examples
+
+### Nada Libraries
+
+- [nada-numpy](https://docs.nillion.com/nada-numpy-introduction): Privacy-preserving numerical computations
+- [nada-ai](https://docs.nillion.com/nada-ai-introduction): Privacy-preserving machine learning
+- [nada-test](https://docs.nillion.com/nada-test): Testing framework for Nada programs
+
+## nilVM
+
+- [Nillion Clients](https://docs.nillion.com/nillion-client): Clients for connecting to the Nillion network
+- [Python Client](https://docs.nillion.com/python-client): Python SDK for nilVM
+- [TypeScript Client](https://docs.nillion.com/js-client): TypeScript SDK for nilVM
+- [CLI Client](https://docs.nillion.com/nillion): Command line interface for nilVM
+
+### Tools
+
+- [Installation](https://docs.nillion.com/installation): How to install Nillion tools
+- [nilup](https://docs.nillion.com/nilup): Nillion version manager
+- [nada](https://docs.nillion.com/nada): Nada compiler
+- [pynadac](https://docs.nillion.com/pynadac): Python interface for the Nada compiler
+- [nada-run](https://docs.nillion.com/nada-run): Tool for running Nada programs
+
+## API Reference
+
+- [SecretVault API](https://docs.nillion.com/api/nildb/overview): API documentation for SecretVault
+- [SecretLLM API](https://docs.nillion.com/api/nilai/overview): API documentation for SecretLLM
+
+## Community
+
+- [Community and Support](https://docs.nillion.com/community-and-support): How to get help and connect with the community
+- [Nucleus Builders Program](https://docs.nillion.com/nucleus-builders-program): Information about the developer program
+- [nilChain Guides](https://docs.nillion.com/guide-nillion-wallet): Guides for interacting with nilChain
+- [Status Page](https://status.nillion.com/): Current status of Nillion services
+
+## Optional
+
+- [Nada by Example Programs](https://docs.nillion.com/nada-by-example/nada-data-types): Detailed examples of Nada programs
+- [nada-numpy Library Details](https://docs.nillion.com/nada-numpy-rationals): Deep dive into the nada-numpy library
+- [nilVM Advanced Topics](https://docs.nillion.com/nada-execution-plan): Advanced topics for nilVM development
