@@ -46,3 +46,8 @@ SecretLLM provides two layers of cryptographic proof:
 2. Use your API key to check the `/models` endpoint for available models
 3. Start running private AI using your chosen model
 4. Optionally, verify your environment using the attestation API
+
+
+### Enhance SecretLLM by providing context from SecretVault and nilRAG
+Optionally, you can use nilRAG to allow SecretLLM to access SecretVault and retrieve relevant context!
+See our [nilRAG documentation](https://docs.nillion.com/build/nilQL) for details.

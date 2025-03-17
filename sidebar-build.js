@@ -163,6 +163,11 @@ const buildSidebar = [
           },
         ],
       },
+      {
+        type: 'doc',
+        label: 'nilRAG',
+        id: 'build/nilRAG',
+      },
     ],
   },
 
