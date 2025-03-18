@@ -72,7 +72,7 @@ touch orgConfig.js
 
 #### Add the demo organization configuration:
 
-For quickstart purposes, we've pre-registered an org you can use. Here are the organization's credentials and cluster configuration including node urls and node did (decentralized identifiers) to paste into your `nillionOrgConfig.js` file:
+For quickstart purposes, we've pre-registered an org you can use. Here are the organization's credentials and cluster configuration including node urls and node did (decentralized identifiers) to paste into your `orgConfig.js` file:
 
 <details>
 
