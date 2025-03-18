@@ -13,6 +13,7 @@ Create a Nillion wallet to connect to the Nillion Network and access your NIL.
 
 This guide walks you through downloading a wallet, setting up your wallet, and adding the Nillion Network.
 
+
 ### 1. Download Keplr
 
 Visit the [Keplr download page](https://www.keplr.app/download) and select your browser to download the Keplr browser extension. We recommend Chrome.
@@ -53,9 +54,13 @@ Verify your recovery phrase by filling in ordered words. Then name your wallet a
 
 ### 7. Add Nillion Network
 
+:::info
+When adding the Nillion Network to Keplr, you’ll see “Nillion Testnet” rather than Mainnet. This is expected. The same wallet address you create now will be usable when Mainnet launches.
+:::
+
     1. Toggle open the "Extensions" button in your browser and pin the Keplr extension so that the browser has access to it.
 
-    2. Open the [Keplr Chains page](https://chains.keplr.app/) and search for "Nillion." Click "Add to Keplr."
+    2. Open the [Keplr Chains page](https://chains.keplr.app/) and search for "Nillion Testnet" Click "Add to Keplr."
 
     3. "Approve" adding the Nillion within Keplr.
 
