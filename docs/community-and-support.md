@@ -25,7 +25,7 @@ Got a suggestion for improving the docs? Let us know by [creating a Github Issue
 
 ### Grants
 
-Are you building a startup using Nillion technology? Apply to the [Nucleus Builders Program](/nucleus-builders-program).
+Are you building a startup using Nillion technology? Apply to the [Nucleus Builders Program](https://nucleus.nillion.com/).
 
 ### Status Page
 

@@ -6,7 +6,11 @@ const communitySidebar = [
     defaultStyle: true,
   },
   'community-and-support',
-  'nucleus-builders-program',
+  {
+    type: 'link',
+    label: 'Nucleus Builders Program',
+    href: 'https://nucleus.nillion.com/',
+  },
   {
     type: 'category',
     label: 'nilChain Guides',

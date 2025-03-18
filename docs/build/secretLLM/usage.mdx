@@ -59,34 +59,35 @@ As a fitness coach, I always recommend balance and variety in your diet. Aim to 
 </details>
 </TabItem>
 <TabItem value="python" label="Python">
+
 ```python
 from openai import OpenAI
 
 # Initialize the OpenAI client
 
 client = OpenAI(
-base_url="https://nilai-<node>.nillion.network/v1/",
-api_key="YOUR_API_KEY"
+    base_url="https://nilai-<node>.nillion.network/v1/",
+    api_key="YOUR_API_KEY"
 )
 
 # Send a chat completion request
 
 response = client.chat.completions.create(
-model="meta-llama/Llama-3.1-8B-Instruct",
-messages=[
-{
-"role": "system",
-"content": "You are a helpful assistant."
-},
-{
-"role": "user",
-"content": "What is your name?"
-}
-],
-stream=False
+    model="meta-llama/Llama-3.1-8B-Instruct",
+    messages=[
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "What is your name?"
+        }
+    ],
+    stream=False
 )
-
 ````
+
 </TabItem>
 <TabItem value="javascript" label="Next JS (API routes)">
 ```typescript reference showGithubLink
@@ -94,4 +95,3 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretll
 ```
 </TabItem>
 </Tabs>
-````
