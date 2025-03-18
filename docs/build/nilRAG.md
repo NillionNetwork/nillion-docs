@@ -2,10 +2,8 @@
 
 Retrieval Augmented Generation (RAG) is a technique that grants large language
 models (LLMs) information retrieval capabilities and context that they might be
-missing. Nillion's RAG (nilRAG) uses [nilAI
-(SecretLLM)](https://docs.nillion.com/build/secretLLM/quickstart), [nilDB
-(SecretVault)](https://docs.nillion.com/build/secret-vault-quickstart), and
-[nilQL](https://docs.nillion.com/build/nilQL).
+missing. Nillion's RAG (nilRAG) uses [SecretLLM)](/build/secretLLM/overview), [SecretVault](/build/secret-vault), and the
+[nilQL](/build/nilQL) encryption library.
 
 :::info
 nilRAG lets you to store private information in [SecretVault](/build/secret-vault) and then use it as context when you use the [SecretLLM](/build/secretLLM/overview) chat endpoint.
