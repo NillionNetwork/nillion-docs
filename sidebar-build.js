@@ -164,9 +164,24 @@ const buildSidebar = [
         ],
       },
       {
-        type: 'doc',
+        type: 'category',
         label: 'nilRAG',
-        id: 'build/nilRAG',
+        link: {
+          type: 'doc',
+          id: 'build/nilRAG',
+        },
+        items: [
+          {
+            type: 'link',
+            label: 'nilrag-py',
+            href: 'https://github.com/NillionNetwork/nilrag',
+          },
+          {
+            type: 'link',
+            label: 'Examples',
+            href: 'https://github.com/NillionNetwork/nilrag/tree/main/examples',
+          },
+        ],
       },
     ],
   },
