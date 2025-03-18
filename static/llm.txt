@@ -83,7 +83,7 @@ Nillion combines multiple cryptographic techniques to create a platform where da
 ## Community
 
 - [Community and Support](https://docs.nillion.com/community-and-support): How to get help and connect with the community
-- [Nucleus Builders Program](https://docs.nillion.com/nucleus-builders-program): Information about the developer program
+- [Nucleus Builders Program](https://nucleus.nillion.com): Information about the developer program for grants and support
 - [nilChain Guides](https://docs.nillion.com/guide-nillion-wallet): Guides for interacting with nilChain
 - [Status Page](https://status.nillion.com/): Current status of Nillion services
 
