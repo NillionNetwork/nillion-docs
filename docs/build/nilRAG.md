@@ -8,7 +8,7 @@ missing. Nillion's RAG (nilRAG) uses [nilAI
 [nilQL](https://docs.nillion.com/build/nilQL).
 
 :::info
-In simple terms, nilRAG allows you to store information in SecretVault and then use it as context when you query SecretLLM!
+nilRAG lets you to store private information in [SecretVault](/build/secret-vault) and then use it as context when you use the [SecretLLM](/build/secretLLM/overview) chat endpoint.
 :::
 
 
@@ -85,7 +85,7 @@ You can reproduce the example above by following the [README](https://github.com
 
 ## Implementation
 
-nilRAG is not a standalone library available through
+nilRAG is a standalone library available through
 [PyPI](https://pypi.org/project/nilrag) and open-source on
 [GitHub](https://github.com/NillionNetwork/nilrag). Developers can use nilRAG as
 a feature of [SecretLLM](https://docs.nillion.com/build/secretLLM/quickstart) to
