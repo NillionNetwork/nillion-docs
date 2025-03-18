@@ -46,19 +46,44 @@ Let us deep dive into the entities and their roles in the system.
     ```
     :::
 
+    Let's dive a bit more into the example of employees records. First, Data
+    Owners need to create a schema and a query in SecretVault:
+    <details>
+    <summary>Full 1.init_schema_query.py</summary>
+    ```py reference showGithubLink
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/1.init_schema_query.py
+    ```
+    </details>
+
+    Now that the schema and the query are ready, Data Owners can upload their data:
+    <details>
+    <summary>Full 2.data_owner_upload.py</summary>
+    ```py reference showGithubLink
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/2.data_owner_upload.py
+    ```
+    </details>
+
 
 2. **Client:** The client submits a query to search against the data owners'
-   uploaded files in SecretVault, retrieve the most relevant data, and use the
-   top-k results for privacy-preserving inference in SecretLLM. Similar to the
-   encoding by data owners, the query is processed into its corresponding
-   embeddings.
+    uploaded files in SecretVault, retrieve the most relevant data, and use the
+    top-k results for privacy-preserving inference in SecretLLM. Similar to the
+    encoding by data owners, the query is processed into its corresponding
+    embeddings.
 
-   Going back to our example, the client can query SecretLLM asking about Danielle:
+    Going back to our example, the client can query SecretLLM asking about Danielle:
     :::note Employees Example
     ```
     Who is Danielle Miller?
     ```
     :::
+
+    Here is an example of how clients can run such a query:
+    <details>
+    <summary>Full 3.client_query.py</summary>
+    ```py reference showGithubLink
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/3.client_query.py
+    ```
+    </details>
 
 
 3. **SecretVault:** SecretVault stores the blinded chunks and embeddings
