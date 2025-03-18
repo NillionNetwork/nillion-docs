@@ -17,7 +17,7 @@ SecretLLM allows you to run AI models within a Trusted Execution Environment (TE
 In this quickstart, we will be making a private AI journaling application with nextjs. Let's get started by cloning our examples repo.
 
 ```
-git clone gh repo clone NillionNetwork/blind-module-examples
+gh repo clone NillionNetwork/blind-module-examples
 cd blind-module-examples/nilai/secretllm_nextjs
 ```
 
