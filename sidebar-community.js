@@ -8,6 +8,11 @@ const communitySidebar = [
   'community-and-support',
   {
     type: 'link',
+    label: 'Tokenomics',
+    href: 'https://nillion.com/news/blind-compute-needs-its-first-champion/',
+  },
+  {
+    type: 'link',
     label: 'Nucleus Builders Program',
     href: 'https://nucleus.nillion.com/',
   },
