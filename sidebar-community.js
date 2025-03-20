@@ -6,11 +6,7 @@ const communitySidebar = [
     defaultStyle: true,
   },
   'community-and-support',
-  {
-    type: 'link',
-    label: 'Nucleus Builders Program',
-    href: 'https://nucleus.nillion.com/',
-  },
+
   {
     type: 'category',
     label: 'nilChain Guides',
@@ -27,6 +23,16 @@ const communitySidebar = [
         items: ['guide-testnet-faucet'],
       },
     ],
+  },
+  {
+    type: 'link',
+    label: 'Tokenomics',
+    href: 'https://nillion.com/news/blind-compute-needs-its-first-champion/',
+  },
+  {
+    type: 'link',
+    label: 'Nucleus Builders Program',
+    href: 'https://nucleus.nillion.com/',
   },
   {
     type: 'link',
