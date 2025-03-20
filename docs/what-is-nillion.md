@@ -8,7 +8,7 @@ Nillion is a decentralized data storage and computation network and an accompany
 
 ## What is Blind Computation
 
-When sensitive data is encrypted and stored, the traditional approaches to doing useful work with that data involve decrypting it in order perform any necessary computations (and then potentially re-encrypting the results). This decrypt-compute-re-encrypt cycle not only exposes the data to the operators of the computing infrastructure. Blind computation makes it possible to perform useful work on data *while it remains encrypted*, even if the operator of the computing infrastructure does not possess the ability to decrypt it.
+When sensitive data is encrypted and stored, the traditional approaches to doing useful work with that data involve decrypting it in order to perform any necessary computations (and then potentially re-encrypting the results). This decrypt-compute-re-encrypt cycle not only exposes the data to the operators of the computing infrastructure. Blind computation makes it possible to perform useful work on data *while it remains encrypted*, even if the operator of the computing infrastructure does not possess the ability to decrypt it.
 
 ## What are Blind Modules
 
