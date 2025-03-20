@@ -21,7 +21,7 @@ module.exports = [
         label: 'Python Client',
         link: {
           type: 'doc',
-          id: 'python-client',
+          id: 'python-quickstart',
         },
         items: [
           'python-quickstart',
