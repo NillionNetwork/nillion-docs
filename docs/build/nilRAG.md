@@ -114,3 +114,21 @@ nilRAG is a standalone library available through
 a feature of [SecretLLM](https://docs.nillion.com/build/secretLLM/quickstart) to
 enhance the inference with context that has been uploaded to [SecretVault](https://docs.nillion.com/build/secret-vault).
 
+
+### Performance Expectations
+
+We have performed a series of benchmarks to evaluate the performance of nilRAG.
+Currently, nilRAG scales linearly to the number of rows stored in nilDB.
+The following table shows latency to upload to nilDB multiple paragraphs of a few sentences long, as well as the runtime for AI inference using SecretLLM with nilRAG.
+
+| Number of Paragraphs Stored in nilDB | Upload Time to nilDB (sec.) | Query Time (Inference + RAG) (sec.) |
+| -------------- | ------------------ | ----------------- |
+|      1         |         0.2        |        2.4        |
+|      10        |         0.4        |        3.1        |
+|      100       |         1.0        |        5.8        |
+|      1000      |         10.5       |        13.2       |
+|      10000     |         51.3       |        21.9       |
+
+Additionally, using multiple concurrent users, the query time for inference with nilRAG increases.
+Performing inference with nilRAG with a content of 100 paragraphs takes approximately 5 seconds for a single user, while with ten concurrent users the inference time for the same content goes up to almost 9 seconds.
+We're developing new research to further accelerate nilRAG and make it more scalable, stay tuned!
