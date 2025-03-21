@@ -46,19 +46,44 @@ Let us deep dive into the entities and their roles in the system.
     ```
     :::
 
+    Let's dive a bit more into the example of employees records. First, Data
+    Owners need to create a schema and a query in SecretVault:
+    <details>
+    <summary>Full 1.init_schema_query.py</summary>
+    ```py reference showGithubLink
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/1.init_schema_query.py
+    ```
+    </details>
+
+    Now that the schema and the query are ready, Data Owners can upload their data:
+    <details>
+    <summary>Full 2.data_owner_upload.py</summary>
+    ```py reference showGithubLink
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/2.data_owner_upload.py
+    ```
+    </details>
+
 
 2. **Client:** The client submits a query to search against the data owners'
-   uploaded files in SecretVault, retrieve the most relevant data, and use the
-   top-k results for privacy-preserving inference in SecretLLM. Similar to the
-   encoding by data owners, the query is processed into its corresponding
-   embeddings.
+    uploaded files in SecretVault, retrieve the most relevant data, and use the
+    top-k results for privacy-preserving inference in SecretLLM. Similar to the
+    encoding by data owners, the query is processed into its corresponding
+    embeddings.
 
-   Going back to our example, the client can query SecretLLM asking about Danielle:
+    Going back to our example, the client can query SecretLLM asking about Danielle:
     :::note Employees Example
     ```
     Who is Danielle Miller?
     ```
     :::
+
+    Here is an example of how clients can run such a query:
+    <details>
+    <summary>Full 3.client_query.py</summary>
+    ```py reference showGithubLink
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/3.client_query.py
+    ```
+    </details>
 
 
 3. **SecretVault:** SecretVault stores the blinded chunks and embeddings
@@ -89,3 +114,21 @@ nilRAG is a standalone library available through
 a feature of [SecretLLM](https://docs.nillion.com/build/secretLLM/quickstart) to
 enhance the inference with context that has been uploaded to [SecretVault](https://docs.nillion.com/build/secret-vault).
 
+
+### Performance Expectations
+
+We have performed a series of benchmarks to evaluate the performance of nilRAG.
+Currently, nilRAG scales linearly to the number of rows stored in nilDB.
+The following table shows latency to upload to nilDB multiple paragraphs of a few sentences long, as well as the runtime for AI inference using SecretLLM with nilRAG.
+
+| Number of Paragraphs Stored in nilDB | Upload Time to nilDB (sec.) | Query Time (Inference + RAG) (sec.) |
+| -------------- | ------------------ | ----------------- |
+|      1         |         0.2        |        2.4        |
+|      10        |         0.4        |        3.1        |
+|      100       |         1.0        |        5.8        |
+|      1000      |         10.5       |        13.2       |
+|      10000     |         51.3       |        21.9       |
+
+Additionally, using multiple concurrent users, the query time for inference with nilRAG increases.
+Performing inference with nilRAG with a content of 100 paragraphs takes approximately 5 seconds for a single user, while with ten concurrent users the inference time for the same content goes up to almost 9 seconds.
+We're developing new research to further accelerate nilRAG and make it more scalable, stay tuned!
