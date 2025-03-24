@@ -5,6 +5,10 @@ import {PythonTestnetEnv, ReactTestnetEnv} from '@site/src/components/Networks/T
 
 # Network Configuration
 
+## Mainnet
+
+Check the `nilChain` and `nilvm` sections [here](./network.md) to be up to date with the latest config. 
+
 ## Testnet
 
 :::info

@@ -20,9 +20,12 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
     </TabItem>
 
     <TabItem value="nilchain-mainnet" label="nilChain Mainnet" default>
-       ```
-       Coming 🔜
-       ```
+    ```
+    nilChain Chain ID: nillion-1
+    nilChain JSON RPC URL: http://nilchain-rpc-4f13.nillion.network
+    nilChain REST API: https://nilchain-api-4f13.nillion.network
+    nilChain GRPC URL: https://nillion-grpc.lavenderfive.com
+    ```
     </TabItem>
 
 </Tabs>
@@ -116,7 +119,8 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
     <TabItem value="nilVM-mainnet" label="nilVM Mainnet">
         ```
-       Coming 🔜
+        # Bootnode Multi Address
+        nilVM GRPC Endpoint: https://nilvm-c930.nillion.network:14311
        ```
     </TabItem>
 

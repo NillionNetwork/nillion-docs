@@ -68,6 +68,8 @@ When adding the Nillion Network to Keplr, you’ll see “Nillion Testnet” rat
 
     5. Verify setup by toggling Keplr back open. Scroll down to the bottom of the "Home" tab, where you should see a new NIL token balance of 0 NIL.
 
+![Keplr Config](/img/keplr_config.png)
+
 ### 8. Find your new Nillion wallet address
 
     1. From your Keplr extension, click the "Copy address" button.
