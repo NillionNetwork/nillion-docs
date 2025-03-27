@@ -25,7 +25,7 @@ More information on the supported models and project ideas can be found [here](.
 ## Installation / Quickstart
 
 :::info
-Note: For the hackathon, you are required to install, run the development network. Then try run one of the [examples:](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples)
+Note: For the hackathon, you are required to install, run the development network. Then try running one of the [examples:](https://github.com/NillionNetwork/nillion-aivm/tree/main/examples)
 
 - 2a-fine-tuning-bert-tiny.ipynb
 - 2b-fine-tuning-lenet5.ipynb
@@ -104,7 +104,7 @@ You can choose to use Docker for deploying `aivm-devnet`. For that, you **must h
 docker run -it -p 50050:50050 nillion/aivm-devnet
 ```
 
-This commands forwards port 50050 from the Docker to your local machine, which is the port used to connect with the cluster.
+This command forwards port 50050 from Docker to your local machine, which is the port used to connect with the cluster.
 
 ## Performing Secure Inference
 
