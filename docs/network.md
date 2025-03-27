@@ -22,8 +22,8 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
     <TabItem value="nilchain-mainnet" label="nilChain Mainnet" default>
     ```
     nilChain Chain ID: nillion-1
-    nilChain JSON RPC URL: http://nilchain-rpc-4f13.nillion.network
-    nilChain REST API: https://nilchain-api-4f13.nillion.network
+    nilChain JSON RPC URL: http://nilchain-rpc.nillion.network
+    nilChain REST API: https://nilchain-api.nillion.network
     nilChain GRPC URL: https://nillion-grpc.lavenderfive.com
     ```
     </TabItem>
