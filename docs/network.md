@@ -37,12 +37,12 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilDB Nodes
 
-[SecretVault](/build/secret-vault) and [SecretDataAnalytics](/build/secret-data-analytics) connect to nilDB nodes to enable storing and querying encrypted data.
+[SecretVault](/build/secret-vault) is connect to nilDB nodes to enable storing and querying encrypted data.
 
 <Tabs>
-    <TabItem value="nilDB-demo" label="nilDB Testnet" default>
+    <TabItem value="nilDB-demo" label="nilDB Alpha" default>
 
-    #### Demo node 1: [nildb-nx8v](https://nildb-nx8v.nillion.network/api/v1/openapi/docs/)
+    #### Node 1: [nildb-nx8v](https://nildb-nx8v.nillion.network/api/v1/openapi/docs/)
 
     ```
     URL: https://nildb-nx8v.nillion.network
@@ -51,7 +51,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
     API docs: https://nildb-nx8v.nillion.network/api/v1/openapi/docs/
     ```
 
-    #### Demo node 2: [nildb-p3mx](https://nildb-p3mx.nillion.network/api/v1/openapi/docs/)
+    #### Node 2: [nildb-p3mx](https://nildb-p3mx.nillion.network/api/v1/openapi/docs/)
 
     ```
     URL: https://nildb-p3mx.nillion.network
@@ -60,7 +60,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
     API docs: https://nildb-zy8u.nillion.network/api/v1/openapi/docs/
     ```
 
-    #### Demo node 3: [nildb-rugk](https://nildb-rugk.nillion.network/api/v1/openapi/docs/)
+    #### Node 3: [nildb-rugk](https://nildb-rugk.nillion.network/api/v1/openapi/docs/)
 
     ```
     URL: https://nildb-rugk.nillion.network
@@ -69,12 +69,6 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
     API docs: https://nildb-rugk.nillion.network/api/v1/openapi/docs/
     ```
 
-    </TabItem>
-
-    <TabItem value="nilDB-mainnet" label="nilDB Mainnet" default>
-       ```
-       Coming 🔜
-       ```
     </TabItem>
 
 </Tabs>
@@ -87,17 +81,11 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 [SecretLLM](/build/secretLLM/overview) connnects to a nilAI node to privately run AI models within a TEE.
 
 <Tabs>
-    <TabItem value="nilAI-testnet" label="nilAI Testnet" default>
+    <TabItem value="nilAI-testnet" label="nilAI Alpha" default>
        ```
        nilAI Node URL: https://nilai-a779.nillion.network
        API docs: https://nilai-a779.nillion.network/docs
        ```
-    </TabItem>
-
-    <TabItem value="nilAI-mainnet" label="nilAI Mainnet" default>
-        ```
-       Coming 🔜
-        ```
     </TabItem>
 
 </Tabs>
@@ -122,31 +110,6 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
         # Bootnode Multi Address
         nilVM GRPC Endpoint: https://nilvm-c930.nillion.network:14311
        ```
-    </TabItem>
-
-    <TabItem value="nilVM-photon" label="🌅 nilVM Photon Testnets (sunsetting soon)">
-       :::warning
-
-       The original nilVM Photon testnet networks, Photon1 and Photon2, are being sunset. Migrate all blind apps to the latest nilVM Testnet by April 11, 2025.
-       :::
-
-        #### Photon2 Testnet
-
-        ```
-        Cluster ID: [no longer needed]
-        Bootnode Multi Address: https://node-1.photon2.nillion-network.nilogy.xyz:14311
-        Bootnode Websocket: [no longer needed]
-        ```
-
-        #### Photon1 Testnet
-
-        ```
-        Cluster ID: b13880d3-dde8-4a75-a171-8a1a9d985e6c
-        Bootnode Multi Address: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14111/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
-        Bootnode Websocket: /dns/node-1.testnet-photon.nillion-network.nilogy.xyz/tcp/14211/wss/p2p/12D3KooWCfFYAb77NCjEk711e9BVe2E6mrasPZTtAjJAPtVAdbye
-        ```
-
-
     </TabItem>
 
 </Tabs>
