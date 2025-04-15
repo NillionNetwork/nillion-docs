@@ -12,11 +12,12 @@ SecretLLM is a set of OpenAI-compatible APIs that run AI models within a Trusted
 
 ## Available Models
 
-| Model                                    | Parameters | Features                      | Best For                                                                                      | Access                                                                |
-| ---------------------------------------- | ---------- | ----------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| meta-llama/Llama-3.2-3B-Instruct         | 3B         | Chat completion, tool support | Quick responses, simple Q&A, basic chat. Faster inference with lower resource usage.          | Testnet                                                               |
-| meta-llama/Llama-3.1-8B-Instruct         | 8B         | Chat completion, tool support | More complex tasks, detailed responses, code generation. Higher quality but slower inference. | Testnet                                                               |
-| deepseek-ai/DeepSeek-R1-Distill-Qwen-14B | 14B        | Chat completion               | Reasoning and complex tasks that require a long output. Also, slowest of the three            | [Apply for access](/build/secretLLM/access#apply-for-a-nilai-api-key) |
+| Model                                                 | Parameters | Features                      | Best For                                                                                             | Access                                                                |
+|-------------------------------------------------------|------------| ----------------------------- |------------------------------------------------------------------------------------------------------| --------------------------------------------------------------------- |
+| meta-llama/Llama-3.2-3B-Instruct                      | 3B         | Chat completion, tool support | Quick responses, simple Q&A, basic chat. Faster inference with lower resource usage.                 | Testnet                                                               |
+| meta-llama/Llama-3.1-8B-Instruct                      | 8B         | Chat completion, tool support | More complex tasks, detailed responses, code generation. Higher quality but slower inference.        | Testnet                                                               |
+| deepseek-ai/DeepSeek-R1-Distill-Qwen-14B              | 14B        | Chat completion               | Reasoning and complex tasks that require a long output. Slowest of the three.                        | [Apply for access](/build/secretLLM/access#apply-for-a-nilai-api-key) |
+| hugging-quants/Meta-Llama-3.1-70B-Instruct-AWQ-INT4   | 70B        | Chat completion, tool support | Very high-quality responses, complex reasoning, detailed generation (e.g., coding, creative writing) | [Apply for access](/build/secretLLM/access#apply-for-a-nilai-api-key) |
 
 For most use cases, start with the 3B model and move up if you need more capability.
 
@@ -34,7 +35,6 @@ SecretLLM provides two layers of cryptographic proof:
 
 1. **Environment Attestation**: Verify your TEE's integrity through the attestation endpoint, including:
 
-   - CPU environment verification
    - GPU environment verification
    - Service verification through a verifying key
 
