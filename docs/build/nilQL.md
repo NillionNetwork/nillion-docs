@@ -8,6 +8,10 @@ nilQL (Nillion Query Library) is a cryptographic library for secure data operati
 
 Developers can use nilQL as a general-purpose encryption/decryption library for their applications.
 
+### In BlindChef
+
+You can interact with nilQL seamlessly from your browser using [Blind Chef](https://blind-chef.vercel.app/).
+
 ### With SecretVault and SecretDataAnalytics
 
 You can interact with SecretVault and SecretDataAnalytics either directly through nilQL or using the optional secretvaults package (available in [JS](https://github.com/NillionNetwork/secretvaults-js) and [Python](https://github.com/NillionNetwork/secretvaults-py)):
