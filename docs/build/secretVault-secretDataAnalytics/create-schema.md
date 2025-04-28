@@ -8,7 +8,7 @@ To store data in SecretVault, you'll need to define a Collection with a JSON Sch
 1. Creates a Collection in SecretVault for your data
 2. Links the Collection to your Organization and validates all records before storage, ensuring they adhere to the JSON Schema
 
-You can create schema collections programatically or using the Secre
+You can create schema collections programatically or using the SecretVault Tools UI:
 
 ## Upload a Schema using the SecretVault Tools UI
 
@@ -63,7 +63,7 @@ Use a [JSON Schema validator tool](https://www.jsonschemavalidator.net/) to make
 <summary>Example JSON Schema</summary>
 
 ```js reference showGithubLink
-https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/schema.json
+https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/store/schema.json
 ```
 
 </details>
