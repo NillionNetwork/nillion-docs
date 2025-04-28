@@ -180,7 +180,7 @@ const web3ExperienceSurveyData = [
 - Read data from all nodes and recombine shares to decrypt the years_in_web3 field
 
 ```js reference showGithubLink
-https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/readWriteSv.js#L25-L54
+https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/store/dataCreateRead.js#L25-L54
 ```
 
 #### 5. Run the script
@@ -192,7 +192,7 @@ node readWriteSv.js
 <details>
 <summary>Full readWriteSv.js file</summary>
 ```js reference showGithubLink
-https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/readWriteSv.js
+https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/store/dataCreateRead.js
 ```
 </details>
 

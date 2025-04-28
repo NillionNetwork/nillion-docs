@@ -119,7 +119,7 @@ node readWriteSv.js
 <Tabs>
   <TabItem value="readWriteSv" label="readWriteSv.js">
 ```javascript reference showGithubLink
-https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/readWriteSv.js
+https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/store/dataCreateRead.js
 ```
 </TabItem>
   <TabItem value="orgConfig" label="orgConfig.js">
