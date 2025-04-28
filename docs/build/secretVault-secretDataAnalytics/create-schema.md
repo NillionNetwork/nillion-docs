@@ -8,6 +8,26 @@ To store data in SecretVault, you'll need to define a Collection with a JSON Sch
 1. Creates a Collection in SecretVault for your data
 2. Links the Collection to your Organization and validates all records before storage, ensuring they adhere to the JSON Schema
 
+You can create schema collections programatically or using the Secre
+
+## Upload a Schema using the SecretVault Tools UI
+
+[Nillion SecretVault Tools](https://schema-tools.vercel.app/) is a web application to help developers manage Nillion SecretVault schemas and collections. This tool allows you to create, validate, and upload JSON schemas to your SecretVault organization, as well as view and manage your schema collections and their records.
+
+![Schema Tools UI](/img/secret-vault-tools-custom.png)
+
+### Key Features
+
+- Set your organization configuration: Easily configure and manage your SecretVault organization settings directly from the UI.
+
+- Create and upload custom schemas: Design and validate new JSON schemas tailored to your data needs, then upload them directly to nodes
+
+- View schema collections and records: Browse your existing schema collections and view individual records
+
+- Show example records: View sample records to better understand your data structure and schema usage
+
+## Upload a Schema Programatically
+
 ### 1. Plan Your Collection's Data Structure
 
 Sketch out your data structure to plan the fields and types that will define your collection's JSON schema. Here's an example:

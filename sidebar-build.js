@@ -88,6 +88,11 @@ const buildSidebar = [
         label: 'Full App Examples',
         href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb',
       },
+      {
+        type: 'link',
+        label: 'Nillion SecretVault Tools UI',
+        href: 'https://schema-tools.vercel.app',
+      },
     ],
   },
   {

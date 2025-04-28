@@ -21,9 +21,9 @@ This quickstart will guide you through:
 3. Creating a SecretVault Collection by uploading a schema
 4. Writing and reading encrypted survey data to the collection
 
-Your final project structure will be like this: 
+Your final project structure will be like this:
 
-[//]: # (For a complete working version, check out the finished project in this [GitHub repo]&#40;https://github.com/oceans404/nillion-sv-example&#41;)
+[//]: # 'For a complete working version, check out the finished project in this [GitHub repo](https://github.com/oceans404/nillion-sv-example)'
 
 ```
 sv-quickstart/
@@ -86,7 +86,8 @@ dotenv.config();
 
 export const orgConfig = {
   orgCredentials: {
-    secretKey: '0ac97ffdd83769c6c5032cb202d0957800e0ef151f015b0aaec52e2d864d4fc6',
+    secretKey:
+      '0ac97ffdd83769c6c5032cb202d0957800e0ef151f015b0aaec52e2d864d4fc6',
     orgDid: 'did:nil:testnet:nillion1v596szek38l22jm9et4r4j7txu3v7eff3uffue',
   },
   nodes: [
@@ -115,51 +116,9 @@ Now we have all the organization and cluster details needed to use SecretVault:
 
 ### 3. Create Collection Schema
 
-#### Create a schema.json file:
+Use the [SecretVault Schema Tools UI](https://schema-tools.vercel.app/) to create a SecretVault Schema from the pre-built schema template. Complete the flow to validate then upload the schema.
 
-```bash
-touch schema.json
-```
-
-Add the "Web3 Experience Survey" schema within schema.json. The schema definition specifies the data structure of any record uploaded to the collection:
-
-- Every survey response requires a unique `_id`
-
-[//]: # (- `name` is an encrypted field that stores data shares)
-- `years_in_web3` is also encrypted and follows the same structure
-- `responses` array holds unencrypted survey ratings, with each rating being 1-5
-
-<details>
-
-<summary>**Copy this Web3 Experience Survey schema into schema.json:**</summary>
-
-```js reference showGithubLink
-https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/schema.json
-```
-
-</details>
-
-#### Create the upload schema script:
-
-```bash
-touch createSchema.js
-```
-
-<details>
-
-<summary>**Copy this script that creates your collection schema into createSchema.js:**</summary>
-
-```js reference showGithubLink
-https://github.com/NillionNetwork/secretvaults-js/blob/main/examples/createSchema.js
-```
-
-</details>
-
-#### Run the upload schema script to create a schema collection:
-
-```bash
-node createSchema.js
-```
+![Schema Tools UI](/img/secret-vault-tools-ui.png)
 
 Save the Schema ID from the output - you'll need it for writing and reading data to your collection in the next step.
 
