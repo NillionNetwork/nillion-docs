@@ -1,0 +1,318 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# AI Workflow
+
+Times are changing and we are using AI asssisted workflows to enhance our development processes. At Nillion, we embrace these changes and want to help you with that.
+
+We have created several ["one-shot"](https://www.ibm.com/think/topics/one-shot-prompting) prompts that will help you get from prompt to application in a matter of minutes.
+
+These has been tested against several of the popular LLM models and platforms.
+
+- `v0`
+- `Claude3.5`
+- `Claude3.7`
+
+<!-- - `ChatGPT4o` -->
+<!-- - `Gemini2.5` -->
+
+All that is required is to copy and paste into the chat browser where these models run.
+
+:::info
+For those using an AI assited IDE (i.e. Cursor), we also recommend adding our LLM.txt docs to your IDE for a better coding experience.
+Add [`https://docs.nillion.com/llm.txt`](https://docs.nillion.com/llm.txt) to your `Custom Docs`. More instructions [here](https://docs.cursor.com/context/@-symbols/@-docs#add-custom-docs)
+:::
+
+<Tabs>
+
+<TabItem value='SecretLLM' label='SecretLLM' default>
+
+<!-- v0 or Claude 3.5/3.7  -->
+
+<details>
+<summary>**v0 or Claude 3.5/3.7**</summary>
+
+```
+Make a nextjs app with @app router structure and tailwind with this file structure and code to make a chat app.
+No other extra external libraries.
+
+Use these hardcoded values for .env(okay to dev purposes)
+NILAI_API_URL=https://nilai-a779.nillion.network
+NILAI_API_KEY=Nillion2025
+
+//app/api/chat/route.ts
+import { NextResponse } from 'next/server';
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+
+    const response = await fetch(
+      `${process.env.NILAI_API_URL}/v1/chat/completions`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.NILAI_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: 'meta-llama/Llama-3.1-8B-Instruct',
+          messages: body.messages,
+          temperature: 0.2,
+        }),
+      }
+    );
+
+    const data = await response.json();
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error('Chat error:', error);
+    return NextResponse.json(
+      { error: 'Failed to process chat request' },
+      { status: 500 }
+    );
+  }
+}
+
+//app/lib/types/api.ts
+export interface ChatMessage {
+  role: 'user' | 'assistant' | 'system';
+  content: string;
+}
+
+export interface ChatRequest {
+  model: string;
+  messages: ChatMessage[];
+  temperature?: number;
+}
+
+//app/page.tsx
+'use client';
+
+import { useState, useRef, useEffect } from 'react';
+import { ChatMessage } from './lib/types/api';
+
+export default function Home() {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+
+    const userMessage: ChatMessage = { role: 'user', content: input };
+    setMessages((prev) => [...prev, userMessage]);
+    setInput('');
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: [...messages, userMessage],
+        }),
+      });
+
+      const data = await res.json();
+
+      const assistantMessage: ChatMessage = {
+        role: 'assistant',
+        content: data.choices[0].message.content,
+      };
+      setMessages((prev) => [...prev, assistantMessage]);
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-1 flex flex-col max-w-2xl mx-auto w-full py-10">
+        <div className="sticky top-0 z-10 backdrop-blur-sm">
+          <div className="max-w-2xl mx-auto py-6">
+            <h1 className="text-3xl font-bold text-center dark:text-white">
+              Chat with the Blind Computer 💻
+            </h1>
+          </div>
+        </div>
+
+        {/* Messages container */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 border-2 border-gray-600 dark:border-gray-600 rounded-xl">
+          {messages.map((message, index) => (
+            <div
+              key={index}
+              className={`flex ${
+                message.role === 'user' ? 'justify-end' : 'justify-start'
+              }`}
+            >
+              <div
+                className={`
+                  max-w-[80%] rounded-lg px-4 py-2
+                  ${
+                    message.role === 'user'
+                      ? 'bg-black text-white dark:bg-white dark:text-black'
+                      : 'bg-gray-100 text-black dark:bg-gray-800 dark:text-white'
+                  }
+                `}
+              >
+                {message.content}
+              </div>
+            </div>
+          ))}
+          {loading && (
+            <div className="flex justify-start">
+              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg px-4 py-2 text-black dark:text-white flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 animate-spin"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
+                </svg>
+              </div>
+            </div>
+          )}
+          <div ref={messagesEndRef} />
+        </div>
+
+        {/* Input form */}
+        <div className="p-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex gap-2 max-w-2xl mx-auto"
+          >
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="flex-1 px-4 py-2 rounded-lg border
+                dark:bg-gray-800 dark:border-gray-700
+                focus:outline-none focus:ring-2 focus:ring-gray-500
+                dark:text-white"
+              placeholder="What would you like to know?"
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black
+                rounded-lg disabled:opacity-50 hover:opacity-90 transition-opacity"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </main>
+    </div>
+  );
+}
+ );
+}
+```
+
+</details>
+
+</TabItem>
+
+<TabItem value='SecreVault' label='SecretVault' default>
+
+<details>
+<summary>**v0 or Claude 3.5/3.7**</summary>
+
+```
+Let's build a NextJS guestbook style app with typescript + tailwind CSS where people can sign the book saying their name and a memo
+---
+We want to also create a backend or api in the app that connects to Nillion SecretVault.
+
+Here's an example of what writing data and reading data looks like.
+
+The app should use this style of code to post to SecretVault and read from SecretVault.
+
+import { SecretVaultWrapper } from 'secretvaults';
+
+const orgConfig = {
+  orgCredentials: {
+    secretKey: '0ac97ffdd83769c6c5032cb202d0957800e0ef151f015b0aaec52e2d864d4fc6',
+    orgDid: 'did:nil:testnet:nillion1v596szek38l22jm9et4r4j7txu3v7eff3uffue',
+  },
+  nodes: [
+    {
+      url: 'https://nildb-nx8v.nillion.network',
+      did: 'did:nil:testnet:nillion1qfrl8nje3nvwh6cryj63mz2y6gsdptvn07nx8v',
+    },
+    {
+      url: 'https://nildb-p3mx.nillion.network',
+      did: 'did:nil:testtest:nillion1uak7fgsp69kzfhdd6lfqv69fnzh3lprg2mp3mx',
+    },
+    {
+      url: 'https://nildb-rugk.nillion.network',
+      did: 'did:nil:testnet:nillion1kfremrp2mryxrynx66etjl8s7wazxc3rssrugk',
+    },
+  ],
+};
+
+const SCHEMA_ID = '4d14248b-a38d-4798-987a-3d0306de15fb';
+
+const data = [
+  {
+    "name": "Steven",
+    "memo": "hi from Steven!"
+  },
+  {
+    "name": "Steven's evil Twin",
+    "memo": "hi from the real Steven"
+  }
+];
+
+async function main() {
+  try {
+    const collection = new SecretVaultWrapper(
+      orgConfig.nodes,
+      orgConfig.orgCredentials,
+      SCHEMA_ID
+    );
+    await collection.init();
+    const dataWritten = await collection.writeToNodes(data);
+    console.log('dataWritten', dataWritten);
+    const newIds = [
+      ...new Set(dataWritten.map((item) => item.data.created).flat()),
+    ];
+    console.log('created ids:', newIds);
+    const dataRead = await collection.readFromNodes({});
+    console.log('📚 total records:', dataRead.length);
+    console.log(dataRead);
+  } catch (error) {
+    console.error('❌ Failed to use SecretVaultWrapper:', error.message);
+    process.exit(1);
+  }
+}
+
+main();
+```
+
+</details>
+
+</TabItem>
+
+</Tabs>

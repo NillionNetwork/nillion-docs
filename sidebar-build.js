@@ -11,6 +11,7 @@ const buildSidebar = [
     id: 'quickstart',
   },
   'network',
+
   {
     type: 'category',
     label: 'SecretVault',
@@ -185,7 +186,7 @@ const buildSidebar = [
       },
     ],
   },
-
+  'build/ai-workflow',
   {
     type: 'doc',
     label: 'Evolution of nilVM',
