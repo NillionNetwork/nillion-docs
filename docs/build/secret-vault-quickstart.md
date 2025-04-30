@@ -31,7 +31,6 @@ sv-quickstart/
 ├── package-lock.json
 ├── package.json          # Project dependencies
 ├── orgConfig.js          # Nillion org credentials and node URLs
-├── createSchema.js       # Script for uploading a schema to create a collection
 └── readWriteSv.js        # Main script that reads and writes to SecretVault
 ```
 
