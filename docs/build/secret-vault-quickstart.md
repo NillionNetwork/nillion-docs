@@ -138,7 +138,6 @@ sv-quickstart/
 ├── package-lock.json
 ├── package.json
 ├── orgConfig.js
-├── createSchema.js
 └── readWriteSv.js
 ```
 </details>
@@ -147,7 +146,6 @@ sv-quickstart/
 
 ```
 import { SecretVaultWrapper } from 'secretvaults';
-import { v4 as uuidv4 } from 'uuid';
 import { orgConfig } from './orgConfig.js';
 ```
 
