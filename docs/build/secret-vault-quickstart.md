@@ -31,7 +31,6 @@ sv-quickstart/
 ├── package-lock.json
 ├── package.json          # Project dependencies
 ├── orgConfig.js          # Nillion org credentials and node URLs
-├── createSchema.js       # Script for uploading a schema to create a collection
 └── readWriteSv.js        # Main script that reads and writes to SecretVault
 ```
 
@@ -138,7 +137,6 @@ sv-quickstart/
 ├── package-lock.json
 ├── package.json
 ├── orgConfig.js
-├── createSchema.js
 └── readWriteSv.js
 ```
 </details>
@@ -147,7 +145,6 @@ sv-quickstart/
 
 ```
 import { SecretVaultWrapper } from 'secretvaults';
-import { v4 as uuidv4 } from 'uuid';
 import { orgConfig } from './orgConfig.js';
 ```
 
