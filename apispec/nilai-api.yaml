@@ -236,6 +236,7 @@ paths:
                     max_tokens: 2048
                     stream: false
                     nilrag: {}
+                    blindrag: {}
       responses:
         '200':
           description: Successful Response
@@ -348,6 +349,12 @@ components:
             - type: object
             - type: 'null'
           title: Nilrag
+          default: {}
+        blindrag:
+          anyOf:
+            - type: object
+            - type: 'null'
+          title: blindRAG
           default: {}
       type: object
       required:

@@ -48,6 +48,6 @@ SecretLLM provides two layers of cryptographic proof:
 4. Optionally, verify your environment using the attestation API
 
 
-### Enhance SecretLLM by providing context from SecretVault and nilRAG
-Optionally, you can use nilRAG to allow SecretLLM to access SecretVault and retrieve relevant context!
-See our [nilRAG documentation](https://docs.nillion.com/build/nilQL) for details.
+### Enhance SecretLLM by providing context from SecretVault and blindRAG
+Optionally, you can use blindRAG to allow SecretLLM to access SecretVault and retrieve relevant context!
+See our [blindRAG documentation](https://docs.nillion.com/build/blindRAG) for details.

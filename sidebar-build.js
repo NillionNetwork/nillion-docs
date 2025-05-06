@@ -145,21 +145,21 @@ const buildSidebar = [
       },
       {
         type: 'category',
-        label: 'nilRAG',
+        label: 'blindRAG',
         link: {
           type: 'doc',
-          id: 'build/nilRAG',
+          id: 'build/blindRAG',
         },
         items: [
           {
             type: 'link',
-            label: 'nilrag-py',
-            href: 'https://github.com/NillionNetwork/nilrag',
+            label: 'blindrag-py',
+            href: 'https://github.com/NillionNetwork/blindrag',
           },
           {
             type: 'link',
             label: 'Examples',
-            href: 'https://github.com/NillionNetwork/nilrag/tree/main/examples',
+            href: 'https://github.com/NillionNetwork/blindrag/tree/main/examples',
           },
         ],
       },
