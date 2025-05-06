@@ -2,7 +2,7 @@
 
 Retrieval Augmented Generation (RAG) is a technique that grants large language
 models (LLMs) information retrieval capabilities and context that they might be
-missing. Nillion's RAG (nilRAG) uses [SecretLLM)](/build/secretLLM/overview), [SecretVault](/build/secret-vault), and the
+missing. Nillion's RAG (nilRAG) uses [SecretLLM](/build/secretLLM/overview), [SecretVault](/build/secret-vault), and the
 [nilQL](/build/nilQL) encryption library.
 
 :::info
@@ -23,6 +23,13 @@ their information to SecretVault, while SecretLLM processes client queries and
 retrieves the most relevant results (top-k) without revealing sensitive
 information from either party.
 
+nilRAG supports optional clustering to accelerate query retrieval. Data owners 
+locally partition their dataset into clusters, then upload the clusters to 
+SecretVault. At query time, SecretLLM first identifies the most relevant cluster 
+for the incoming query embedding and then executes RAG within that subset. 
+By minimizing the search space, this approach reduces comparison overhead and 
+significantly speeds up inference.
+
 
 Let us deep dive into the entities and their roles in the system.
 
@@ -32,7 +39,9 @@ Let us deep dive into the entities and their roles in the system.
    search, while the chunks are used to retrieve the actual uploaded files. Once
    the files are encoded into chunks and embeddings, they are blinded before
    being uploaded to SecretVault, where each chunk and embedding is
-   secret-shared.
+   secret-shared. Optionally, data owners can locally partition their data 
+   into clusters and upload the chunks and embeddings along with the 
+   corresponding cluster information to SecretVault.
 
    For instance, a data owner, wishes to upload the following file to SecretVault and later use it to provide context to SecretLLM:
     :::note Employees Example
@@ -46,20 +55,24 @@ Let us deep dive into the entities and their roles in the system.
     ```
     :::
 
-    Let's dive a bit more into the example of employees records. First, Data
-    Owners need to create a schema and a query in SecretVault:
+    Let's dive a bit more into the example of employees records. First, data
+    owners need to create a schema and a query in SecretVault. If clustering is enabled, 
+    data owners also create a clusters' schema to store the centroids of
+    the clusters.
     <details>
     <summary>Full 1.init_schema_query.py</summary>
     ```py reference showGithubLink
-    https://github.com/NillionNetwork/nilrag/blob/main/examples/1.init_schema_query.py
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/init/bootstrap.py
     ```
     </details>
 
-    Now that the schema and the query are ready, Data Owners can upload their data:
+    Now that the schemas and the query are ready, data owners can upload their data. If clustering is enabled,
+    data owners start by locally computing the clusters centroids using
+    [scikit-learn KMeans](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html) method.
     <details>
     <summary>Full 2.data_owner_upload.py</summary>
     ```py reference showGithubLink
-    https://github.com/NillionNetwork/nilrag/blob/main/examples/2.data_owner_upload.py
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/data_owner/write.py
     ```
     </details>
 
@@ -68,7 +81,8 @@ Let us deep dive into the entities and their roles in the system.
     uploaded files in SecretVault, retrieve the most relevant data, and use the
     top-k results for privacy-preserving inference in SecretLLM. Similar to the
     encoding by data owners, the query is processed into its corresponding
-    embeddings.
+    embeddings. If clustering is enabled, the most relevant cluster is first 
+    identified and RAG is executed over this cluster.
 
     Going back to our example, the client can query SecretLLM asking about Danielle:
     :::note Employees Example
@@ -81,7 +95,7 @@ Let us deep dive into the entities and their roles in the system.
     <details>
     <summary>Full 3.client_query.py</summary>
     ```py reference showGithubLink
-    https://github.com/NillionNetwork/nilrag/blob/main/examples/3.client_query.py
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/client/query.py
     ```
     </details>
 
@@ -89,12 +103,15 @@ Let us deep dive into the entities and their roles in the system.
 3. **SecretVault:** SecretVault stores the blinded chunks and embeddings
    provided by data owners. When a client submits a query, SecretVault computes
    the differences between the query's embeddings and each stored embedding in a
-   privacy-preserving manner.
+   privacy-preserving manner. If clustering is enabled, SecretVault also stores the 
+   cluster centroids in a separate schema. In the original schema, the blinded chunks
+   and embeddings are stored along with the corresponding centroid.
 
 
 4. **SecretLLM:** SecretLLM connects to SecretVault to fetch the blinded
    differences between the query and the stored embeddings and then compute the
-   closest matches. Finally, it uses the top k matches for inference.
+   closest matches. If clustering is enabled, SecretLLM starts by retrieving the
+   centroid points. Finally, it uses the top k matches for inference.
 
    Lastly, the client can query SecretLLM asking about Danielle:
     :::note Employees Example
@@ -117,17 +134,76 @@ enhance the inference with context that has been uploaded to [SecretVault](https
 
 ### Performance Expectations
 
-We have performed a series of benchmarks to evaluate the performance of nilRAG.
-Currently, nilRAG scales linearly to the number of rows stored in nilDB.
-The following table shows latency to upload to nilDB multiple paragraphs of a few sentences long, as well as the runtime for AI inference using SecretLLM with nilRAG.
+We have performed a series of benchmarks to evaluate the performance of nilRAG with and without clustering.
+Currently, nilRAG scales linearly to the number of rows stored in SecretVault.
+The following table shows latency to upload to SecretVault multiple paragraphs of a few sentences long, as well as the runtime for AI inference using SecretLLM with nilRAG.
 
-| Number of Paragraphs Stored in nilDB | Upload Time to nilDB (sec.) | Query Time (Inference + RAG) (sec.) |
-| -------------- | ------------------ | ----------------- |
-|      1         |         0.2        |        2.4        |
-|      10        |         0.4        |        3.1        |
-|      100       |         1.0        |        5.8        |
-|      1000      |         10.5       |        13.2       |
-|      10000     |         51.3       |        21.9       |
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Number of Paragraphs Stored in SecretVault</th>
+      <th colspan="2">RAG Time (sec.)</th>
+      <th colspan="2">Query Time (Inference + RAG, sec.)</th>
+    </tr>
+    <tr>
+      <th>No Clust.</th>
+      <th> Clust.</th>
+      <th>No Clust.</th>
+      <th>Clust.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>0.2</td>
+      <td> - </td>
+      <td>2.4</td>
+      <td> - </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>0.4</td>
+      <td> - </td>
+      <td>3.1</td>
+      <td> - </td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>2.3 </td>
+      <td> 1.7 </td>
+      <td>2.9</td>
+      <td> 2.1 </td>
+    </tr>
+    <tr>
+      <td>1 000</td>
+      <td>5.8</td>
+      <td>2.5</td>
+      <td>7.0</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <td>5 000</td>
+      <td>20.0</td>
+      <td>5.7</td>
+      <td>25.1</td>
+      <td>5.9</td>
+    </tr>
+    <tr>
+      <td>10 000</td>
+      <td>39.2</td>
+      <td>10.0</td>
+      <td>47.5</td>
+      <td>8.9</td>
+    </tr>
+    <tr>
+      <td>20 000</td>
+      <td>74.7</td>
+      <td>11.3</td>
+      <td>92.5</td>
+      <td>19.8</td>
+    </tr>
+  </tbody>
+</table>
 
 Additionally, using multiple concurrent users, the query time for inference with nilRAG increases.
 Performing inference with nilRAG with a content of 100 paragraphs takes approximately 5 seconds for a single user, while with ten concurrent users the inference time for the same content goes up to almost 9 seconds.
