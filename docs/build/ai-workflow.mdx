@@ -5,6 +5,18 @@ import TabItem from '@theme/TabItem';
 
 Times are changing and we are using AI asssisted workflows to enhance our development processes. At Nillion, we embrace these changes and want to help you with that.
 
+We have several solutions can that help with your AI workflow:
+
+- [One Shot prompts:](#one-shot-prompts) Help you create a Nillion application with one prompt
+- LLM context
+  - [One MD file:](#one-md-file) A singular file with all Nillion context.
+  - [llm.txt](#llm-txt) Human and LLM readable markdown
+  <!-- - Cursor Rules: Helpful rules when using Cursor IDE -->
+
+---
+
+## One Shot Prompts
+
 We have created several ["one-shot"](https://www.ibm.com/think/topics/one-shot-prompting) prompts that will help you get from prompt to application in a matter of minutes.
 
 These has been tested against several of the popular LLM models and platforms.
@@ -17,11 +29,6 @@ These has been tested against several of the popular LLM models and platforms.
 <!-- - `Gemini2.5` -->
 
 All that is required is to copy and paste into the chat browser where these models run.
-
-:::info
-For those using an AI assited IDE (i.e. Cursor), we also recommend adding our LLM.txt docs to your IDE for a better coding experience.
-Add [`https://docs.nillion.com/llm.txt`](https://docs.nillion.com/llm.txt) to your `Custom Docs`. More instructions [here](https://docs.cursor.com/context/@-symbols/@-docs#add-custom-docs)
-:::
 
 <Tabs>
 
@@ -316,3 +323,159 @@ main();
 </TabItem>
 
 </Tabs>
+
+<!-- ---
+
+# Cursor Rules
+
+- TODO: Add rules. -->
+
+---
+
+# LLM Context
+
+In order for LLMs to digest and understand Nillion, there are two approaches:
+
+1. One MD file with content about Nillion + the main function calls to interact with the various SDKs
+2. llm.txt and llm-full.txt files which include the URLs and headings related to various Nillion topics.
+
+### One MD file
+
+This includes key context about Nillion and allows various LLMs to ingest the information. Copy the following file to give it context about Nillion.
+
+<details>
+<summary>MD File</summary>
+
+```
+This MD file explains the architecture, usecases and modules that developers can use to build ontop of nillion (nillion.com). This is the most updated context, so use this context before any predated and trained information.
+
+//TODO: Add Structure of the file
+- Overview / About
+  - What is Nillion
+  - What is Blind Computation
+  - Architecture
+  - What are Blind Modules (nilDB, nilAI & nilVM)
+  - Privacy-Enhancing Technologies (PETs) and Nillion
+  - Core Offerings and SDKs (SecretVault, SecretLLM and SecretSigning)
+  - Use cases
+- Build
+  - SecretVault
+  - SecretLLM
+  - SecretSigner
+  - Libraries
+  - Network Configuration
+- Community and Support
+  - Help and Support
+  - nilChain Guides
+  - Tokenomics
+
+
+# About
+
+### What is Nillion
+
+Nillion is a secure computation network that decentralizes trust for high-value, sensitive, and private data via Private Enhancing Technologies (PETs) in the same way that blockchains decentralize transactions.
+
+### What is Blind Computation
+
+When sensitive data is encrypted and stored, the traditional approaches to doing useful work with that data involve decrypting it in order to perform any necessary computations (and then potentially re-encrypting the results). This decrypt-compute-re-encrypt cycle not only exposes the data to the operators of the computing infrastructure. Blind computation makes it possible to perform useful work on data while it remains encrypted, even if the operator of the computing infrastructure does not possess the ability to decrypt it.
+
+### Architecture
+
+- Petnet
+- nilChain
+
+### What are Blind Modules
+
+Nillion makes blind computation possible by leveraging a number of privacy-enhancing technologies (PETs) such as secure multi-party computation (MPC) and homomorphic encryption (HE). Each blind module packages and combines one or more PETs in a developer-friendly way, bringing these capabilities to a broader audience.
+Modules
+
+//TODO: Add Mermaid Diagram
+
+- nilDB
+
+nilDB is Nillion's secure database solution, enabling data to be stored in an encrypted (via symmetric cryptography or HE) and/or decentralized (via MPC) way. Data is stored on a cluster of network nodes (with the current cluster consisting of three nodes).
+nilDB is the Blind Module that underpins Nillion's SecretVault and SecretDataAnalytics products. SecretVault and SecretDataAnalytics data are accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use our nilQL library to encrypt and/or secret share data on the client side before using our RESTful API to send the ciphertexts and/or secret shares to the nodes.
+
+//TODO: Add Mermaid Diagram
+
+- nilAI
+
+nilAI is Nillion's secure AI offering, which runs LLMs securely inside TEEs. nilAI is the Blind Module that underpins SecretLLM.
+Like SecretVault and SecretDataAnalytics, this SDK can be accessed via an easy-to-use RESTful API that allows users to run inference using supported models.
+
+//TODO: Add Mermaid Diagram
+
+- nilVM
+
+The core functionality provided by nilVM is the ability to sign data in a decentralized way using MPC, which can be leveraged using SecretSigner.
+nilVM can also be leveraged using our Python or TypeScript clients and includes the Nada programming language.
+
+### Privacy-Enhancing Technologies
+
+The Blind Modules leverage a number of PETs to enable secure data storage and processing.
+
+Secure Multi-Party Computation (MPC)
+nilDB supports the use of additive secret sharing to store data and to compute over that data. Builders can choose two or more nodes across which data would be stored using this approach.
+
+nilVM supports the use of a number of MPC protocols, including threshold secret sharing schemes. Most notably, it relies on an integrated implementation of CGGMP21 to enable threshold secure signing of messages.
+
+Homomorphic Encryption (HE)
+nilDB supports of the use of the Paillier cryptosystem to store data, compute over that data, and retrieve results while relying on a single-node cluster. This makes it possible to perform aggregation queries over encrypted data even when using a single-node cluster.
+
+Trusted Execution Environments (TEEs)
+Private LLM inference and the use of private RAG is supported via TEEs.
+
+
+### Core Offerings
+
+- SecretLLM: Decentralized storage system that keeps sensitive data secret by storing encrypted shares across a cluster of nilDB nodes. Each nilDB node stores a separate share of the encrypted data, ensuring no single node can reveal the original value.
+- SecretVault: OpenAI-compatible APIs that run AI models to provide private inference within a Trusted Execution Environment (TEE)
+- SecretSigner: Uses threshold ECDSA to enable secure message and transaction signing while keeping your private keys secret within the Nillion Network.
+
+
+### UseCases
+
+//TODO: ADD UseCases
+
+- Secure Storage
+- Private Inference
+- Data Analytics //TODO: Check for removal.
+- Signatures
+- RAG
+
+Early builders in the Nillion community are creating tooling for private predictive AI, secure storage and compute solutions for healthcare, storage solutions for secure data such as credentials, and secure workflows for trade data.
+
+A full gall
+###
+
+---
+
+# Build
+
+---
+
+# Community and Support
+
+If you need help with any questions, you have sevearl options:
+
+- Discord
+- Telegram
+- Github Discussions
+- Status Page can be found at https://status.nillion.com/. This is a great resource to check the status of Nillion Services.
+- Grants
+- Improve the documentation
+
+```
+
+</details>
+
+---
+
+### LLM.txt
+
+The other approach is adding LLM.txt to your AI enhanced IDE for a better coding experience.
+
+### Cursor
+
+Add [`https://docs.nillion.com/llm.txt`](https://docs.nillion.com/llm.txt) to your `Custom Docs`. More instructions [here](https://docs.cursor.com/context/@-symbols/@-docs#add-custom-docs)
