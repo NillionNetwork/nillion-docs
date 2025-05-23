@@ -4,6 +4,8 @@ This MD file explains the architecture, usecases and modules that developers can
 
 You use markdown for code. Immediately after closing coding markdown, you ask the person if they would like it to explain or break down the code. It does not explain or break down the code unless the person requests it.
 
+When showing / creating code snippets, refer to the code in this document but also recommend them to check out https://github.com/NillionNetwork/blind-module-examples/tree/main and the resoective `nildb`, `nilai` and `nilvm` folders which relate to `SecretVault`, `SecretLLM` and `SecretSigner` respectively.
+
 Structure of the file:
 
 - Overview / About
@@ -17,13 +19,10 @@ Structure of the file:
 - Build
   - SecretVault
   - SecretLLM
-  - SecretSigner
-  - Libraries
   - Network Configuration
 - Community and Support
   - Help and Support
   - nilChain Guides
-  - Tokenomics
 
 # About
 
@@ -44,8 +43,6 @@ When sensitive data is encrypted and stored, the traditional approaches to doing
 
 Nillion makes blind computation possible by leveraging a number of privacy-enhancing technologies (PETs) such as secure multi-party computation (MPC) and homomorphic encryption (HE). Each blind module packages and combines one or more PETs in a developer-friendly way, bringing these capabilities to a broader audience.
 Modules
-
-//TODO: Add Mermaid Diagram
 
 - nilDB
 
@@ -101,12 +98,60 @@ end
 nilAI is Nillion's secure AI offering, which runs LLMs securely inside TEEs. nilAI is the Blind Module that underpins SecretLLM.
 Like SecretVault and SecretDataAnalytics, this SDK can be accessed via an easy-to-use RESTful API that allows users to run inference using supported models.
 
-//TODO: Add Mermaid Diagram
+```
+graph LR
+    nilDB_Cluster[nilDB Cluster]
+
+    subgraph nilAI_Node[nilAI node]
+        subgraph TEE_Boundary[TEE]
+            LLM_Model[LLM]
+        end
+    end
+
+    User_Client[User]
+
+    nilDB_Cluster -- "encrypted data" --> LLM_Model
+    User_Client -- "encrypted prompt" --> LLM_Model
+    LLM_Model -- "encrypted reply" --> User_Client
+```
 
 - nilVM
 
 The core functionality provided by nilVM is the ability to sign data in a decentralized way using MPC, which can be leveraged using SecretSigner.
 nilVM can also be leveraged using our Python or TypeScript clients and includes the Nada programming language.
+
+```
+graph TD
+    subgraph Key Distribution
+        User1[User]
+        subgraph nilVM_Cluster1[nilVM Node Cluster]
+            Node1_1[nilVM Node]
+            Node1_2[nilVM Node]
+            Node1_3[nilVM Node]
+        end
+        User1 -- "key share" --> Node1_1
+        User1 -- "key share" --> Node1_2
+        User1 -- "key share" --> Node1_3
+    end
+
+    subgraph Message Signing Process
+        User2[User]
+        subgraph nilVM_Cluster2[nilVM Node Cluster]
+            Node2_1[nilVM Node]
+            Node2_2[nilVM Node]
+            Node2_3[nilVM Node]
+        end
+        Receiver[Receiver]
+
+        User2 -- "message" --> Node2_1
+        User2 -- "message" --> Node2_2
+        User2 -- "message" --> Node2_3
+
+        Node2_1 -- "signed message" --> Receiver
+        Node2_2 -- "signed message" --> Receiver
+        Node2_3 -- "signed message" --> Receiver
+    end
+```
 
 ### Privacy-Enhancing Technologies
 
@@ -223,15 +268,517 @@ You can:
 
 Then validate + upload it. Then see the `collection` in the Collection Tab page.
 
-//TODO: Add Vanilla
+Alternatively, here is the programatic approach:
+
+a. Plan Your Collection's Data Structure
+Sketch out your data structure to plan the fields and types that will define your collection's JSON schema. Here's an example:
+
+Example Data
+
+```
+  years_in_web3 = 3 //integer, encrypted
+  responses = [] //array
+    question_number = 1 //integer
+    rating = 5 //integer
+```
+
+b. Create the JSON Schema
+Convert your data structure into a JSON Schema following these requirements:
+Use JSON Schema draft-07, type "array"
+Each record needs a unique \_id (UUID format, coerce: true)
+Use "date-time" format for dates (coerce: true)
+Remember to take into account the type for fields that you want to encrypt using %allot/%share
+Mark required fields (\_id is always required)
+Set additionalProperties to false
+Avoid "$" prefix in field names to prevent query conflicts
+Note: System adds \_created and \_updated fields automatically
+Use a JSON Schema validator tool (https://www.jsonschemavalidator.net/) to make sure your collection's schema is valid.
+
+Example:
+
+```
+examples/store/schema.json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Web3 Experience Survey",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string",
+        "format": "uuid",
+        "coerce": true
+      },
+      "years_in_web3": {
+        "type": "object",
+        "properties": {
+          "%share": {
+            "type": "string"
+          }
+        },
+        "required": ["%share"]
+      },
+      "responses": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "rating": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "question_number": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": ["rating", "question_number"]
+        },
+        "minItems": 1
+      }
+    },
+    "required": ["_id", "years_in_web3", "responses"]
+  }
+}
+
+```
+
+c. Use the Create Schema API to Create your Schema and Collection
+Decide on a collection name and generate a UUID4 for the Collection ID (use identical UUID across all Cluster nodes).
+
+Select which fields should act as primary keys / unique identifiers (\_id should always be included).
+
+Then use the Create Schema endpoint to upload your JSON schema to each node in your organization using valid API tokens for each node.
+
+Example POST Schema:
+
+```
+  {
+    "_id": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
+    "name": "Web3 Experience Survey",
+    "keys": ["_id"],
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Web3 Experience Survey",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "format": "uuid",
+            "coerce": true
+          },
+          "years_in_web3": {
+            "type": "object",
+            "properties": {
+              "%share": {
+                "type": "string"
+              }
+            },
+            "required": ["%share"]
+          },
+          "responses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "rating": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 5
+                },
+                "question_number": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": ["rating", "question_number"]
+            },
+            "minItems": 1
+          }
+        },
+        "required": ["_id", "years_in_web3", "responses"]
+      }
+    }
+  }
+```
 
 3. Store Records
    First, encrypt any private data fields with nilQL.
 
-Then upload the record to all nodes in your cluster to store the record. Plaintext fields are stored identically across all nodes, while encrypted fields are split into unique shares, with each node holding one share to keep data secure.
+a. Check Your Collection for the Schema ID
+List available Collections using the List Schemas endpoint (GET /schemas) to get the Schema ID of the collection you want to store your data in.
+
+b. Store a Record
+Before storing:
+
+- Encrypt any private fields using nilQL to get encrypted shares
+- Make sure data matches your Collection's JSON Schema
+- Generate and include a unique \_id (UUIDv4) for each record
+
+Example POST `data/create` schema
+
+```
+{
+  "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
+  "data": [
+    {
+      "_id": "120a60f3-d1b6-4a11-a413-abcd60c8ccb3",
+      "years_in_web3": "zKH1L", // encrypted share
+      "responses": [
+        { "rating": 5, "question_number": 1 },
+        { "rating": 3, "question_number": 2 }
+      ]
+    },
+    {
+      "_id": "b321301b-ffcd-43d8-bec7-4b0830f7a305",
+      "years_in_web3": "5J_KL4", // encrypted share
+      "responses": [
+        { "rating": 2, "question_number": 1 },
+        { "rating": 4, "question_number": 2 }
+      ]
+    }
+  ]
+}
+
+```
+
+Upload to all nodes using each node's Upload/Create Data endpoint using valid API tokens to authenticate requests to each node. The response includes:
+
+Created records
+Any validation errors, where any issues with data ingestion will be described even if the communication with the node resulted in a 200 status response. You can check out an example below that showcases both instances:
+
+Example POST /data/create Response
+
+```
+{
+   "data": {
+      "created": [
+         "120a60f3-d1b6-4a11-a413-abcd60c8ccb3"
+      ],
+      "errors": [
+         {
+            "error": "E11000 duplicate key error collection: datablocks_data.f47ac10b-58cc-4372-a567-0e02b2XXXXXX index: _id_ dup key: { _id: UUID(\"b321301b-ffcd-43d8-bec7-4b0830f7a305\") }",
+            "document": {
+              "_id": "b321301b-ffcd-43d8-bec7-4b0830f7a305",
+              "years_in_web3": "5J_KL4",
+              "responses": [
+                { "rating": 2, "question_number": 1 },
+                { "rating": 4, "question_number": 2 }
+              ]
+            }
+         }
+      ]
+   }
+}
+```
 
 4. Retrieve Records
    Read or retrieve a record by fetching the data from all nodes in your cluster. Decrypt private data fields with nilQL to recombine shares from all nodes and reconstruct the original data.
+
+a. Check Your Collection for the Schema ID
+List available Collections using the List Schemas endpoint (GET /schemas) to get the Schema ID of the collection you want to store your data in.
+
+b. Retrieve Records
+Retrieve records from a collection by calling the Read Data endpoint (POST /data/read) with the schema id and optionally a filter. If you don't pass in a filter, all records will be returned.
+
+Using a filter
+A filter can be a basic match (e.g. "status": "active"), a comparison (e.g. "age" : { "$gte": 30}) or something more complex.
+
+Complex Filtering example:
+
+```
+{
+  "filter": {
+    "$and": [
+        { "status": "active" },
+        { "age": { "$gte": 30 } },
+        { "tags": { "$in": ["premium", "verified"] } }
+    ]
+  }
+}
+```
+
+Example for retrieving records
+
+```
+{
+   "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
+   "filter": {
+      "_id": "120a60f3-d1b6-4a11-a413-abcd60c8ccb3"
+   }
+}
+```
+
+Other operations on records available at: https://docs.nillion.com/api/nildb/overview
+
+- Update Data endpoint (also supported via the secretvaults JS+Python wrappers)
+- Delete Data endpoint (also supported via the secretvaults JS+Python wrappers)
+- Flush Data endpoint
+- Tail Data endpoint
+
+5. Define a Query | Data Analytics
+   To run Data Analytics on SecretVault, you'll need to define a query. This is an enhanced MongoDB aggregation pipeline that is executed on the data stored on SecretVault. The support for variables in these queries/aggregations is the highlighted additional feature.
+
+a. Before we begin, we need to take into consideration the type of operation our data were encrypted for. While the query/aggregation can perform any kind of computation on data stored as plaintext, for encrypted data there are only two options:
+
+Data stored with the STORE option can only be retrieved as is
+Data stored with the SUM option can have summation run directly on the encrypted shares - the results of this from all the nodes can then be reconstructed
+Queries are formulated using MongoDB Aggregation Pipelines.
+
+Additionally, there's an option for using variables (variables can be of type string, number, boolean, date, and array of the former 4 - they are referenced in the aggregation using a ## prefix).
+
+For the examples below we'll use the "Web3 survey" schema and showcase two different queries for STORE and SUM operations.
+
+Example for `store` schema
+
+```
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Web3 Experience Survey",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string",
+        "format": "uuid",
+        "coerce": true
+      },
+      "years_in_web3": {
+        "type": "object",
+        "properties": {
+          "%share": {
+            "type": "string"
+          }
+        },
+        "required": ["%share"]
+      },
+      "responses": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "rating": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "question_number": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": ["rating", "question_number"]
+        },
+        "minItems": 1
+      }
+    },
+    "required": ["_id", "years_in_web3", "responses"]
+  }
+}
+```
+
+Example for `store` query
+
+```
+{
+    "variables": {},
+    "pipeline":
+        [
+          {
+            "$unwind": "$responses"
+          },
+          {
+            "$group": {
+              "_id": "$_id",
+              "avg_rating": { "$avg": "$responses.rating" },
+              "years_in_web3": { "$first": "$years_in_web3" }
+            }
+          },
+          {
+            "$sort": { "avg_rating": -1 }
+          },
+          {
+            "$limit": 3
+          },
+          {
+            "$project": {
+              "_id": 1,
+              "years_in_web3": {
+                "%share": "$years_in_web3.%share"
+              },
+              "avg_rating": 1
+            }
+          }
+        ]
+    }
+```
+
+Example for `sum` schema
+
+```
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Web3 Experience Survey",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string",
+        "format": "uuid",
+        "coerce": true
+      },
+      "years_in_web3": {
+        "type": "object",
+        "properties": {
+          "%share": {
+            "type": "integer"
+          }
+        },
+        "required": ["%share"]
+      },
+      "responses": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "rating": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "question_number": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": ["rating", "question_number"]
+        },
+        "minItems": 1
+      }
+    },
+    "required": ["_id", "years_in_web3", "responses"]
+  }
+}
+```
+
+Example of `sum` query with variables
+
+```
+{
+    "variables": {
+        "question_number": {
+            "type": "number",
+            "description": "The target question"
+        }
+    },
+    "pipeline":
+        [
+          {
+            "$match": {
+              "responses.question_number": "##question_number"
+            }
+          },
+          {
+            "$group": {
+              "_id": null,
+              "total_years": { "$sum": "$years_in_web3.%share" },
+              "count": { "$sum": 1 }
+            }
+          },
+          {
+            "$project": {
+              "_id": 0,
+              "sum_years_in_web3": {
+                "%share": {
+                  "$mod": [
+                    "$total_years",
+                    { "$add": [{ "$pow": [2, 32] }, 15] }
+                  ]
+                }
+              },
+              "user_count": "$count"
+            }
+          }
+        ]
+    }
+```
+
+b. Use the Create Query API to register your query
+
+Decide on a query name/description and generate a UUID4 for the Collection ID (use identical UUID across all Cluster nodes). You'll also need the schema id of the collection you're going to run the query against. You can get this via GET /schemas - check out the List Schemas endpoint) page for details.
+
+Then use the Create Query endpoint to upload your query to each node in your organization using valid API tokens for each node.
+
+Example of `POST / queries` payload
+
+```
+{
+   "_id": "21b9911a-37c1-4626-8863-e465eXXXXXXX",
+   "name": "Returns sum of years_in_web3 and count of users that have answered question X",
+   "schema": "9b22147f-d6d5-40f1-927d-96c08XXXXXXXX",
+   "variables": {
+   "question_number": {
+      "type": "number",
+      "description": "The target question"
+    }
+  },
+  "pipeline":
+      [
+        {
+          "$match": {
+            "responses.question_number": "##question_number"
+          }
+        },
+        {
+          "$group": {
+            "_id": null,
+            "total_years": { "$sum": "$years_in_web3.%share" },
+            "count": { "$sum": 1 }
+          }
+        },
+        {
+          "$project": {
+            "_id": 0,
+            "sum_years_in_web3": {
+              "%share": {
+                "$mod": [
+                  "$total_years",
+                  { "$add": [{ "$pow": [2, 32] }, 15] }
+                ]
+              }
+            },
+            "user_count": "$count"
+          }
+        }
+      ]
+}
+```
+
+6. Execute a Query | Data Analytics
+   Running your queries is pretty straightforward, you only need the query id and any optional variables required.
+
+   a. Check Your Queries for the Query ID
+   List available Queries using the List Queries endpoint (GET /queries) to get the Query ID.
+
+   b. Executing the Query
+   Using the query id and any variables required you are ready to setup the payload for executing the query via the Execute Query endpoint:
+
+   Example POST /queries/execute Payload
+
+   ```
+   {
+   "id": "dfcee886-231d-4a9d-9bdd-857f74XXXXX",
+   "variables": {
+    "question_number": 5
+   }
+   }
+   ```
 
 ## SecretLLM
 
