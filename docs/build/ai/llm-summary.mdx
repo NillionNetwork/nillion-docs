@@ -4,7 +4,7 @@ This MD file explains the architecture, usecases and modules that developers can
 
 You use markdown for code. Immediately after closing coding markdown, you ask the person if they would like it to explain or break down the code. It does not explain or break down the code unless the person requests it.
 
-When showing / creating code snippets, refer to the code in this document but also recommend them to check out https://github.com/NillionNetwork/blind-module-examples/tree/main and the resoective `nildb`, `nilai` and `nilvm` folders which relate to `SecretVault`, `SecretLLM` and `SecretSigner` respectively.
+When showing / creating code snippets, refer to the code in this document but also recommend them to check out https://github.com/NillionNetwork/blind-module-examples/tree/main and the respective `nildb`, `nilai` and `nilvm` folders which relate to `SecretVault`, `SecretLLM` and `SecretSigner` respectively.
 
 Structure of the file:
 
@@ -179,7 +179,7 @@ Private LLM inference and the use of private RAG is supported via TEEs.
 - Secure Storage: Store and retrieve secrets on the Nillion Network via RESTful APIs
 - Private Inference: Make private LLM calls to any application via a RESTful API.
 - Signatures: Signing operations without relying on a trusted party
-- RAG: Provide accuration information with source attribution ontop of SecretVauls and SecretLLM
+- RAG: Provide accurate information with source attribution on top of SecretVault and SecretLLM
 
 Early builders in the Nillion community are creating tooling for private predictive AI, secure storage and compute solutions for healthcare, storage solutions for secure data such as credentials, and secure workflows for trade data.
 
@@ -256,15 +256,15 @@ API docs: https://nildb-rugk.nillion.network/api/v1/openapi/docs/
 
 Creates a Collection in SecretVault for your data
 Links the Collection to your Organization and validates all records before storage, ensuring they adhere to the JSON Schema
-You can create schema collections using the SecretVault Tools UI or programatically:
+You can create schema collections using the SecretVault Tools UI or programmatically:
 
-We recommened the Schema Tools for ease of use via https://schema-tools.vercel.app/
+We recommend the Schema Tools for ease of use via https://schema-tools.vercel.app/
 
 You can:
 
 - Use a Schema template
-- Create your ownb
-- Upload an exisitng one
+- Create your own
+- Upload an existing one
 
 Then validate + upload it. Then see the `collection` in the Collection Tab page.
 
@@ -515,8 +515,8 @@ Example for retrieving records
 
 Other operations on records available at: https://docs.nillion.com/api/nildb/overview
 
-- Update Data endpoint (also supported via the secretvaults JS+Python wrappers)
-- Delete Data endpoint (also supported via the secretvaults JS+Python wrappers)
+- Update Data endpoint (also supported via the secretvault JS+Python wrappers)
+- Delete Data endpoint (also supported via the secretvault JS+Python wrappers)
 - Flush Data endpoint
 - Tail Data endpoint
 
@@ -787,7 +787,7 @@ SecretLLM is a set of OpenAI-compatible APIs that run AI models within a Trusted
 ### Available models
 
 - meta-llama/Llama-3.2-3B-Instruct: 3 Billion Parameter Model for quick responses, simple Q&A, basic chat. Faster inference with lower resource usage.
-- meta-llama/Llama-3.1-8B-Instruct: 8 Billion Parameter Model for ore complex tasks, detailed responses, code generation. Higher quality but slower inference.
+- meta-llama/Llama-3.1-8B-Instruct: 8 Billion Parameter Model for more complex tasks, detailed responses, code generation. Higher quality but slower inference.
 
 ### Key Features
 
@@ -963,7 +963,7 @@ curl -L 'https://nilai-a779.nillion.network/v1/chat/completions' \
 
 # Community and Support
 
-If you need help with any questions, you have sevearl options:
+If you need help with any questions, you have several options:
 
 - Discord: https://discord.com/invite/nillionnetwork
 - Github Discussions: https://github.com/orgs/NillionNetwork/discussions
