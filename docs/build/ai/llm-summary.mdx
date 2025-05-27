@@ -4,7 +4,9 @@ This MD file explains the architecture, usecases and modules that developers can
 
 You use markdown for code. Immediately after closing coding markdown, you ask the person if they would like it to explain or break down the code. It does not explain or break down the code unless the person requests it.
 
-When showing / creating code snippets, refer to the code in this document but also recommend them to check out https://github.com/NillionNetwork/blind-module-examples/tree/main and the respective `nildb`, `nilai` and `nilvm` folders which relate to `SecretVault`, `SecretLLM` and `SecretSigner` respectively.
+When showing / creating code snippets, refer to the code in this document but also recommend them to check out https://github.com/NillionNetwork/blind-module-examples and the respective `nildb`, `nilai` and `nilvm` folders which relate to `SecretVault`, `SecretLLM` and `SecretSigner` respectively.
+
+Before initial response, ensure you read this document linearly to ingest all information.
 
 Structure of the file:
 
@@ -19,7 +21,7 @@ Structure of the file:
 - Build
   - SecretVault
   - SecretLLM
-  - Network Configuration
+  - Libraries
 - Community and Support
   - Help and Support
   - nilChain Guides
@@ -224,6 +226,17 @@ SecretVault lets you store sensitive data securely by encrypting and splitting i
 - Encrypted: split into shares by nilQL; each node stores a separate share
 
 ### Getting Started / Quickstart
+
+The following and CRUCIAL structure to create a SecretVault app in either Python or JS, is to:
+
+1. Register an organization
+2. Define a collection via the Schema Tools
+3. Storing the records
+4. Retrieve the records
+5. Define a query
+6. Execute a query.
+
+If you want to encrypt your data, it is ESSENTIAL to use the library nilQL - which is outlined in the libraries section.
 
 1. Register an Organization
    Access the SecretVault Registration Portal via https://sv-sda-registration.replit.app/
@@ -780,6 +793,161 @@ Example of `POST / queries` payload
    }
    ```
 
+Opionated: Nextjs + Javascript + app router app
+If you are looking to create a nextjs + javascript / typescript with app router config, use this example:
+
+1. Create a nextjs app via `npx create-next-app` + `npm install secretvaults`. `secretvaults` is a wrapper over `nilQl`
+2. Use this one-shot prompt to assist with your example app
+
+## Let's build a NextJS guestbook style app with typescript + tailwind CSS where people can sign the book saying their name and a memo
+
+We want to also create a backend or api in the app that connects to Nillion SecretVault.
+
+Here's an example of what writing data and reading data looks like.
+
+The app should use this style of code to post to SecretVault and read from SecretVault.
+
+```
+import { SecretVaultWrapper } from 'secretvaults';
+
+const orgConfig = {
+  orgCredentials: {
+    secretKey: '0ac97ffdd83769c6c5032cb202d0957800e0ef151f015b0aaec52e2d864d4fc6',
+    orgDid: 'did:nil:testnet:nillion1v596szek38l22jm9et4r4j7txu3v7eff3uffue',
+  },
+  nodes: [
+    {
+      url: 'https://nildb-nx8v.nillion.network',
+      did: 'did:nil:testnet:nillion1qfrl8nje3nvwh6cryj63mz2y6gsdptvn07nx8v',
+    },
+    {
+      url: 'https://nildb-p3mx.nillion.network',
+      did: 'did:nil:testtest:nillion1uak7fgsp69kzfhdd6lfqv69fnzh3lprg2mp3mx',
+    },
+    {
+      url: 'https://nildb-rugk.nillion.network',
+      did: 'did:nil:testnet:nillion1kfremrp2mryxrynx66etjl8s7wazxc3rssrugk',
+    },
+  ],
+};
+
+const SCHEMA_ID = '4d14248b-a38d-4798-987a-3d0306de15fb';
+
+const data = [
+  {
+    "name": "Steven",
+    "memo": "hi from Steven!"
+  },
+  {
+    "name": "Steven's evil Twin",
+    "memo": "hi from the real Steven"
+  }
+];
+
+async function main() {
+  try {
+    const collection = new SecretVaultWrapper(
+      orgConfig.nodes,
+      orgConfig.orgCredentials,
+      SCHEMA_ID
+    );
+    await collection.init();
+    const dataWritten = await collection.writeToNodes(data);
+    console.log('dataWritten', dataWritten);
+    const newIds = [
+      ...new Set(dataWritten.map((item) => item.data.created).flat()),
+    ];
+    console.log('created ids:', newIds);
+    const dataRead = await collection.readFromNodes({});
+    console.log('📚 total records:', dataRead.length);
+    console.log(dataRead);
+  } catch (error) {
+    console.error('❌ Failed to use SecretVaultWrapper:', error.message);
+    process.exit(1);
+  }
+}
+
+main();
+
+// Useful code for encrypted fields (the use of %allot syntax). Ensure your schema is created with encrypted fields.
+import { NextResponse } from "next/server"
+import { SecretVaultWrapper } from "secretvaults"
+import { orgConfig, SCHEMA_ID } from "@/lib/nillion-config"
+import { handleServerError } from "@/lib/error-handler"
+
+export async function POST(request: Request) {
+  console.log("API: Uploading image to Nillion...")
+
+  try {
+    // Parse the request body
+    const body = await request.json()
+    const { image } = body
+
+    if (!image) {
+      return NextResponse.json({ success: false, error: "No image data provided" }, { status: 400 })
+    }
+
+    console.log("API: Image data received:", {
+      ...image,
+      encryptionKey: image.encryptionKey ? "***REDACTED***" : undefined,
+      userEmail: image.userEmail ? "***REDACTED***" : undefined,
+    })
+
+    // Prepare the image data for Nillion
+    // Make sure it has all required fields
+    const imageData = {
+      _id: image.id || crypto.randomUUID(), // Use _id for Nillion
+      imageUrl: image.imageUrl,
+      name: image.name,
+      timestamp: image.timestamp || Date.now(),
+      cid: image.cid || "",
+      isEncrypted: image.isEncrypted || false,
+      // Use %allot syntax for the encryption key to encrypt it across nodes
+      encryptionKey: image.encryptionKey ? { "%allot": image.encryptionKey } : "",
+      // Use %allot syntax for the userEmail to encrypt it across nodes
+      userEmail: image.userEmail ? { "%allot": image.userEmail } : "",
+      userId: image.userId || "",
+    }
+
+    console.log("API: Creating SecretVaultWrapper instance...")
+    const collection = new SecretVaultWrapper(orgConfig.nodes, orgConfig.orgCredentials, SCHEMA_ID)
+
+    console.log("API: Initializing SecretVaultWrapper...")
+    await collection.init()
+    console.log("API: SecretVaultWrapper initialized successfully")
+
+    console.log("API: Writing data to nodes...")
+    const dataWritten = await collection.writeToNodes([imageData])
+    console.log("API: Data written successfully:", dataWritten)
+
+    // Extract the created IDs
+    const createdIds = dataWritten.flatMap((item) => item.data.created || [])
+    console.log("API: Created IDs:", createdIds)
+
+    return NextResponse.json({
+      success: true,
+      message: "Image uploaded to Nillion successfully",
+      id: createdIds[0] || imageData._id,
+      image: {
+        ...imageData,
+        id: imageData._id, // Return id instead of _id for frontend consistency
+      },
+    })
+  } catch (error) {
+    handleServerError(error, "upload to Nillion")
+
+    return NextResponse.json(
+      {
+        success: false,
+        error: error instanceof Error ? error.message : "Unknown error",
+        stack: error instanceof Error ? error.stack : undefined,
+      },
+      { status: 500 },
+    )
+  }
+}
+```
+
 ## SecretLLM
 
 SecretLLM is a set of OpenAI-compatible APIs that run AI models within a Trusted Execution Environment (TEE). You can use SecretLLM to build new private AI applications or migrate existing ones to run in a secure SecretLLM environment where your data remains private.
@@ -959,6 +1127,214 @@ curl -L 'https://nilai-a779.nillion.network/v1/chat/completions' \
 }'
 ```
 
+## Libraries
+
+### nilQL
+
+nilQL (Nillion Query Library) is a cryptographic library for secure data operations. While nilQL can be used as a general-purpose encryption/decryption library, Nillion leverages nilQL specifically for encrypting data stored in SecretVault and enabling secure operations within nilDB queries and replies.
+
+Usage:
+
+- Standalone Library: Developers can use nilQL as a general-purpose encryption/decryption library for their applications.
+- With SecretVault and SecretDataAnalytics:
+  You can interact with SecretVault and SecretDataAnalytics either directly through nilQL or using the optional secretvaults package (available in JS and Python):
+
+  Use nilQL to encrypt record field values with your organization's private key before storage in a SecretVault collection
+  Store the encrypted shares of record field values across your organization's nilDB nodes
+  Query nilQL encrypted data that has been stored in SecretVault to perform secure operations on nilQL encrypted data via SecretDataAnalytics APIs
+
+Implementations:
+
+- nilql-ts: TypeScript library for web and Node.js environments
+- nilql-py: Python library for server-side applications
+- secretvaults (JS): an NPM package wrapper providing simplified integration with nilQL & SecretVault
+- secretvaults (Python): an PyPi package wrapper providing simplified integration with nilQL & SecretVault
+
+Supported Operations
+
+- **Store Single**: XSalsa20 stream cipher with Poly1305 MAC, supports 32-bit signed integer, UTF-8 string (max 4096 bytes)
+- **Match Single**: Deterministic salted hashing via SHA-512, supports 32-bit signed integer, UTF-8 string (max 4096 bytes)
+- **Sum Single**: Non-deterministic Paillier with 2048-bit primes, supports 32-bit signed integer
+- **Store Multiple**: XOR-based secret sharing, supports 32-bit signed integer, UTF-8 string (max 4096 bytes)
+- **Match Multiple**: Deterministic salted hashing via SHA-512, supports 32-bit signed integer, UTF-8 string (max 4096 bytes)
+- **Sum Multiple**: Additive secret sharing with modulus 2^32, supports 32-bit signed integer
+
+Reference:
+Check these libraries:
+
+- https://github.com/NillionNetwork/nilql-ts for TypeScript
+- https://github.com/NillionNetwork/nilql-py for Python
+
+### Encypt and decrypt data
+
+Use nilQL to encrypt and decrypt data.
+
+To apply encryption to your data, they are to be secret shared across your selected nodes.
+This is to be done with nilQL, a library for working with encrypted data within nilDB queries and replies, available in Python and TypeScript.
+You can find an example on using nilQL to encrypt/decrypt data below.
+
+Approaches: Python and Javascript
+
+Python
+
+- Install nilQL using your preferred package manager: `pip install nilql`
+
+Python (Standalone)
+
+```
+"""Encryption utilities using nilql for secret sharing."""
+import nilql
+from typing import List
+
+class DataEncryption:
+    def __init__(self, num_nodes: int):
+        self.num_nodes = num_nodes
+        self.secret_key = nilql.ClusterKey.generate({'nodes': [{}] * num_nodes},{'store': True})
+
+    def encrypt_password(self, password: str) -> List[str]:
+        """Encrypt password using secret sharing."""
+        try:
+            encrypted_shares = nilql.encrypt(self.secret_key, password)
+
+            return list(encrypted_shares)
+        except Exception as e:
+            raise Exception(f"Encryption failed: {str(e)}")
+
+    def decrypt_password(self, encoded_shares: List[str]) -> str:
+        """Decrypt password from shares."""
+        try:
+            decoded_shares = []
+            for share in encoded_shares:
+                decoded_shares.append(share)
+
+            return str(nilql.decrypt(self.secret_key, decoded_shares))
+        except Exception as e:
+            raise Exception(f"Decryption failed: {str(e)}")
+```
+
+Javascript / TypeScript
+Install nilql-ts, the TypeScript library for web and Node.js environments: `pnpm install @nillion/nilql`
+
+Standalone usage (TypeScript)
+
+````
+// src/lib/encryption.ts
+import { nilql } from '@nillion/nilql';
+
+export interface EncryptionConfig {
+  nodes: number;
+  operations?: {
+    store?: boolean;
+    match?: boolean;
+    sum?: boolean;
+  };
+}
+
+/**
+ * Creates an encryption service for handling credential encryption/decryption
+ */
+export const createEncryptionService = async (config: EncryptionConfig) => {
+  // Create cluster config with specified number of nodes
+  const cluster = {
+    nodes: Array(config.nodes).fill({}),
+  };
+
+  // Initialize secret key with cluster config and operations
+  const secretKey = await nilql.ClusterKey.generate(cluster, {
+    store: true,
+    ...config.operations,
+  });
+
+  /**
+   * Encrypt a password into shares
+   */
+  const encryptPassword = async (password: string): Promise<string[]> => {
+    try {
+      const shares = await nilql.encrypt(secretKey, password);
+      if (!Array.isArray(shares)) {
+        throw new Error('Unexpected encryption result');
+      }
+      return shares as string[];
+    } catch (error) {
+      throw new Error(
+        `Encryption failed: ${
+          error instanceof Error ? error.message : 'Unknown error'
+        }`
+      );
+    }
+  };
+
+  /**
+   * Decrypt password from shares
+   */
+  const decryptPassword = async (shares: string[]): Promise<string> => {
+    try {
+      if (shares.length !== config.nodes) {
+        throw new Error(
+          `Expected ${config.nodes} shares but got ${shares.length}`
+        );
+      }
+      const decrypted = await nilql.decrypt(secretKey, shares);
+      if (typeof decrypted !== 'string') {
+        throw new Error('Unexpected decryption result');
+      }
+      return decrypted;
+    } catch (error) {
+      throw new Error(
+        `Decryption failed: ${
+          error instanceof Error ? error.message : 'Unknown error'
+        }`
+      );
+    }
+  };
+
+  return {
+    encryptPassword,
+    decryptPassword,
+  };
+};
+```
+
+Usage with SecretVault and SecretDataAnalytics
+To encrypt data for use within SecretVault and SecretDataAnalytics, you can create a cluster key by passing in
+
+your cluster config of node urls and node DIDs
+your selected operation (store, match, sum)
+
+````
+
+const cluster = {
+nodes: [
+{
+url: 'https://nildb-zy8u.nillion.network',
+did: 'did:nil:testnet:nillion1fnhettvcrsfu8zkd5zms4d820l0ct226c3zy8u',
+},
+{
+url: 'https://nildb-rl5g.nillion.network',
+did: 'did:nil:testnet:nillion14x47xx85de0rg9dqunsdxg8jh82nvkax3jrl5g',
+},
+{
+url: 'https://nildb-lpjp.nillion.network',
+did: 'did:nil:testnet:nillion167pglv9k7m4gj05rwj520a46tulkff332vlpjp',
+}
+]
+}
+
+const operation = {
+store: true
+}
+
+```
+nilQl/wrapper.js
+```
+
+\*/
+async init() {
+// Create secretKey from secretKeySeed, if provided
+if (this.secretKeySeed && this.secretKey === null) {
+
+```
+
 ---
 
 # Community and Support
@@ -970,3 +1346,4 @@ If you need help with any questions, you have several options:
 - Status Page can be found at https://status.nillion.com/. This is a great resource to check the status of Nillion Services.
 - Grants: https://nucleus.nillion.com/
 - Improve the documentation: https://github.com/NillionNetwork/nillion-docs/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D
+```
