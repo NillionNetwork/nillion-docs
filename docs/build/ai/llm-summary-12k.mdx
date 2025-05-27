@@ -1217,7 +1217,7 @@ Install nilql-ts, the TypeScript library for web and Node.js environments: `pnpm
 
 Standalone usage (TypeScript)
 
-````
+```
 // src/lib/encryption.ts
 import { nilql } from '@nillion/nilql';
 
@@ -1301,7 +1301,7 @@ To encrypt data for use within SecretVault and SecretDataAnalytics, you can crea
 your cluster config of node urls and node DIDs
 your selected operation (store, match, sum)
 
-````
+```
 
 const cluster = {
 nodes: [
@@ -1325,10 +1325,12 @@ store: true
 }
 
 ```
+
 nilQl/wrapper.js
+
 ```
 
-\*/
+
 async init() {
 // Create secretKey from secretKeySeed, if provided
 if (this.secretKeySeed && this.secretKey === null) {
@@ -1346,4 +1348,7 @@ If you need help with any questions, you have several options:
 - Status Page can be found at https://status.nillion.com/. This is a great resource to check the status of Nillion Services.
 - Grants: https://nucleus.nillion.com/
 - Improve the documentation: https://github.com/NillionNetwork/nillion-docs/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D
+
+```
+
 ```
