@@ -5,6 +5,18 @@ import TabItem from '@theme/TabItem';
 
 Times are changing and we are using AI asssisted workflows to enhance our development processes. At Nillion, we embrace these changes and want to help you with that.
 
+We have several solutions can that help with your AI workflow:
+
+- [One Shot prompts:](#one-shot-prompts) Help you create a Nillion application with one prompt
+- LLM context
+  - [One MD file:](#one-md-file) A singular file with all Nillion context.
+  - [llm.txt](#llm-txt) Human and LLM readable markdown
+  <!-- - Cursor Rules: Helpful rules when using Cursor IDE -->
+
+---
+
+## One Shot Prompts
+
 We have created several ["one-shot"](https://www.ibm.com/think/topics/one-shot-prompting) prompts that will help you get from prompt to application in a matter of minutes.
 
 These has been tested against several of the popular LLM models and platforms.
@@ -13,15 +25,11 @@ These has been tested against several of the popular LLM models and platforms.
 - `Claude3.5`
 - `Claude3.7`
 
+<!-- - `Claude 4` -->
 <!-- - `ChatGPT4o` -->
 <!-- - `Gemini2.5` -->
 
 All that is required is to copy and paste into the chat browser where these models run.
-
-:::info
-For those using an AI assited IDE (i.e. Cursor), we also recommend adding our LLM.txt docs to your IDE for a better coding experience.
-Add [`https://docs.nillion.com/llm.txt`](https://docs.nillion.com/llm.txt) to your `Custom Docs`. More instructions [here](https://docs.cursor.com/context/@-symbols/@-docs#add-custom-docs)
-:::
 
 <Tabs>
 
@@ -316,3 +324,47 @@ main();
 </TabItem>
 
 </Tabs>
+
+<!-- ---
+
+# Cursor Rules
+
+- TODO: Add rules. -->
+
+---
+
+# LLM Context
+
+In order for LLMs to digest and understand Nillion, there are two approaches:
+
+1. One MD file with content about Nillion + the main function calls to interact with the various SDKs
+2. llm.txt and llm-full.txt files which include the URLs and headings related to various Nillion topics.
+
+### One MD file
+
+This includes key context about Nillion and allows various LLMs to ingest the information. Copy the following file to give it context about Nillion.
+
+<details>
+  <summary>MD File</summary>
+  ```mdx reference showGithubLink 
+  https://github.com/NillionNetwork/nillion-docs/blob/feat/ai-workflow-v2/docs/build/ai/llm-summary-12k.mdx
+  ```
+</details>
+
+<!-- ```tsx reference showGithubLink
+https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/store-program.tsx
+``` -->
+
+---
+
+### LLM.txt
+
+The other approach is adding LLM.txt to your AI enhanced IDE for a better coding experience.
+
+### Cursor
+
+Add [`https://docs.nillion.com/llm.txt`](https://docs.nillion.com/llm.txt) to your `Custom Docs`. More instructions [here](https://docs.cursor.com/context/@-symbols/@-docs#add-custom-docs)
+
+```
+
+```

@@ -36,6 +36,11 @@ const communitySidebar = [
   },
   {
     type: 'link',
+    label: 'Nillion App Gallery',
+    href: 'https://mini-app.nillion.com/',
+  },
+  {
+    type: 'link',
     label: 'Status Page',
     href: 'https://status.nillion.com/',
   },

@@ -23,13 +23,11 @@ cd blind-module-examples/nilai/secretllm_nextjs
 
 ## Authentication
 
-Create a SecretLLM API key from [here.](./access.md) It requires either a Keplr or Metamask wallet. Then copy your `.env.example` into your `.env` file
-
 ```
 cp .env.example .env
 ```
 
-Then replace it with the API Key you created from the access page.
+Then replace it with the `Nillion2025`. This is the test developer key we provide. We recommend switching to a production API key [here.](./access.md).
 
 ## Usage
 
