@@ -1,6 +1,10 @@
-# Authentication
+# API Key
 
 SecretLLM provides secure access to the nilAI node API through API key authentication. This guide walks you through the process of creating a nilAI API key.
+
+:::info
+To get started, feel free to use `Nillion2025` as the Bearer Token and follow the steps below for production API Keys.
+:::
 
 ## Create an API Key
 
