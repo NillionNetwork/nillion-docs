@@ -66,7 +66,7 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 <TabItem value="typescript" label="TypeScript">
 
 ```TypeScript reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs_niql/app/lib/nildb.ts#L55-L85
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs_nilql/app/lib/nildb.ts#L55-L85
 ```
 
 </TabItem>
