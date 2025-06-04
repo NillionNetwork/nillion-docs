@@ -61,7 +61,7 @@ if __name__ == "__main__":
     secret_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     org_did = "did:nil:testnet:nillionXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     # these are the demo cluster node dids, change them if your config is different
-    node_ids = [ 
+    node_ids = [
         "did:nil:testnet:nillion1fnhettvcrsfu8zkd5zms4d820l0ct226c3zy8u",
         "did:nil:testnet:nillion14x47xx85de0rg9dqunsdxg8jh82nvkax3jrl5g",
         "did:nil:testnet:nillion167pglv9k7m4gj05rwj520a46tulkff332vlpjp"
@@ -73,7 +73,7 @@ if __name__ == "__main__":
 <TabItem value="javascript" label="JavaScript (from scratch)">
 
 ```javascript reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs/generate.js
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs_niql/generate.js
 ```
 
 </TabItem>

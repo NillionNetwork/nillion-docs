@@ -151,7 +151,7 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 <TabItem value="typescript" label="TypeScript">
 
 ```tsx reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs/app/api/create-schema/route.ts#L41-L106
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs_niql/app/api/create-schema/route.ts#L41-L106
 ```
 
 </TabItem> 
