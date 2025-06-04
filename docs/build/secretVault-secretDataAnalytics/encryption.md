@@ -41,7 +41,7 @@ https://github.com/NillionNetwork/nil-examples/blob/main/nildb/secretvault_pytho
 <TabItem value="typescript" label="JavaScript">
 
 ```tsx reference showGithubLink
-https://github.com/NillionNetwork/nil-examples/blob/main/nildb/secretvault_nextjs/app/lib/encryption.ts
+https://github.com/NillionNetwork/nil-examples/blob/main/nildb/secretvault_nextjs_nilql/app/lib/encryption.ts
 ```
 
 </TabItem>

@@ -154,9 +154,8 @@ You can create schema collections using the SecretVault Tools UI or programatica
           <TabItem value="typescript" label="TypeScript">
 
           ```tsx reference showGithubLink
-          https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs/app/api/create-schema/route.ts#L41-L106
+          https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvault_nextjs_nilql/app/api/create-schema/route.ts#L41-L106
           ```
-
           </TabItem>
           <TabItem value="wrapper" label="JavaScript (with wrapper)">
 
