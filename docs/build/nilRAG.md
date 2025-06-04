@@ -141,15 +141,15 @@ The following table shows latency to upload to SecretVault multiple paragraphs o
 <table>
   <thead>
     <tr>
-      <th rowspan="2">Number of Paragraphs Stored in SecretVault</th>
+      <th rowspan="2">Number of Paragraphs Stored <br> in SecretVault</th>
       <th colspan="2">RAG Time (sec.)</th>
       <th colspan="2">Query Time (Inference + RAG, sec.)</th>
     </tr>
     <tr>
-      <th>No Clust.</th>
-      <th> Clust.</th>
-      <th>No Clust.</th>
-      <th>Clust.</th>
+      <th>No Clusters</th>
+      <th>5 Clusters</th>
+      <th>No <br> Clusters</th>
+      <th>5 <br> Clusters</th>
     </tr>
   </thead>
   <tbody>
