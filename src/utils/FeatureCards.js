@@ -23,10 +23,9 @@ export const Libraries = [
     href: './build/nilQL',
   },
   {
-    title: 'nilRAG',
-    description:
-      'Provide context to SecretLLM from SecretVault with nilRAG library.',
+    title: 'blindRAG',
+    description: 'Provide context to SecretLLM from SecretVault with blindRAG library.',
     icon: '🔍',
-    href: './build/nilRAG',
+    href: './build/blindRAG',
   },
 ];

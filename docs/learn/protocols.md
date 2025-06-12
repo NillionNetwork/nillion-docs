@@ -20,4 +20,4 @@ nilDB supports of the use of the [Paillier cryptosystem](https://en.wikipedia.or
 
 ### Trusted Execution Environments (TEEs)
 
-Private LLM inference and the use of [private RAG](https://github.com/NillionNetwork/nilrag) is supported via TEEs.
+Private LLM inference and the use of [private RAG](https://github.com/NillionNetwork/blindrag) is supported via TEEs.
