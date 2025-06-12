@@ -14,8 +14,6 @@ The Blind Modules leverage a number of PETs to enable secure data storage and pr
 
 nilDB supports the use of [additive secret sharing](https://en.wikipedia.org/wiki/Secret_sharing) to store data and to compute over that data. Builders can choose two or more nodes across which data would be stored using this approach.
 
-nilVM supports the use of a number of MPC protocols, including threshold secret sharing schemes. Most notably, it relies on an integrated [implementation](https://github.com/LFDT-Lockness/cggmp21) of [CGGMP21](https://eprint.iacr.org/2021/060) to enable threshold secure signing of messages.
-
 ### Homomorphic Encryption (HE)
 
 nilDB supports of the use of the [Paillier cryptosystem](https://en.wikipedia.org/wiki/Paillier_cryptosystem) to store data, compute over that data, and retrieve results while relying on a single-node cluster. This makes it possible to perform aggregation queries over encrypted data even when using a single-node cluster.
