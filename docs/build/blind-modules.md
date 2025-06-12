@@ -1,8 +1,6 @@
 # Blind Modules
 
-Blind Modules are the core technology Nillion is building. As a developer or end user of Nillion's technology, you will mainly interact with the SecretSDKs, which are all built on top of our Blind Modules.
-
-Currently, there are three Blind Modules: nilVM, nilDB & nilAI.
+Blind Modules are the core technology Nillion is building. As a developer or end user of Nillion's technology, you will mainly interact with the SecretSDKs, which are all built on top of our Blind Modules: nilDB and nilAI.
 
 ## nilDB
 
@@ -77,51 +75,3 @@ graph LR
 ```
 
 Like SecretVault and SecretDataAnalytics, this SDK can be accessed via an easy-to-use RESTful API that allows users to run inference using supported models.
-
-## nilVM
-
-The core functionality provided by nilVM is the ability to sign data in a decentralized way using MPC, which can be leveraged using [SecretSigner](/build/secretSigner/overview).
-
-```mermaid
-graph TD
-
-    subgraph NET_L [" "]
-    A
-    B
-    C
-    end
-
-    V[User] -->|key share| A[<b>nilVM Node</b>]
-    V[User] -->|key share| B[<b>nilVM Node</b>]
-    V[User] -->|key share| C[<b>nilVM Node</b>]
-    style V fill:#EEEEEE,stroke:#000000
-    style A fill:#0000FF,color:#FFFFFF
-    style B fill:#0000FF,color:#FFFFFF
-    style C fill:#0000FF,color:#FFFFFF
-    style NET_L fill:#CCCCFF,stroke:#000000
-```
-
-```mermaid
-graph TD
-
-    subgraph NET_R [" "]
-    X
-    Y
-    Z
-    end
-
-    U[User] -->|message| X[<b>nilVM Node</b>]
-    U[User] -->|message| Y[<b>nilVM Node</b>]
-    U[User] -->|message| Z[<b>nilVM Node</b>]
-    X -->|signed message| R[Receiver]
-    Y -->|signed message| R
-    Z -->|signed message| R
-    style U fill:#EEEEEE,stroke:#000000
-    style X fill:#0000FF,color:#FFFFFF
-    style Y fill:#0000FF,color:#FFFFFF
-    style Z fill:#0000FF,color:#FFFFFF
-    style NET_R fill:#CCCCFF,stroke:#000000
-    style R fill:#EEEEEE,stroke:#000000
-```
-
-nilVM can also be leveraged using our [Python](/python-client) or [TypeScript](/js-client) clients and includes the [Nada programming language](/nada-lang). Check out full nilVM docs including older [nilVM Quickstarts](/start-building).

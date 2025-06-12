@@ -1,10 +1,9 @@
 ---
 name: Document a new feature
-about: Request documentation for new features in the Nillion SDK
+about: Request documentation for new features in a Nillion Secret SDK
 title: ''
 labels: documentation, enhancement
 assignees: ''
-
 ---
 
 **Feature Description**

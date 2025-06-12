@@ -8,10 +8,6 @@ With [SecretVault](/build/secretVault-secretDataAnalytics/overview), users can s
 
 With [SecretLLM](/build/secretLLM/overview), it is possible to make private LLM calls to any application via a RESTful API. It is compatible with OpenAI Standards and any AI powered application can be built. Common sectors developers build on include (but not limited to): healh and finance apps that require private inference through the prompts and answers.
 
-## Signatures
-
-[Nillion Signatures](/build/secretSigner/overview) makes it possible to leverage MPC to perform signing operations without relying on a trusted party. Nodes within a Nillion Network cluster can store a key in a distributed, encrypted form while still being able to jointly run a protocol to sign a message.
-
 ## Retrieval-Augmented Generation (RAG)
 
 Combining _retrieval-augmented generation_ (RAG) with PETs makes it possible to leverage the powerful features of contemporary AI solutions while storing data in an encrypted form at all times. This can unlock new use cases by reducing the amount of data that must be decrypted to accomplish a given task.
