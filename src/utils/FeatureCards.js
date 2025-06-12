@@ -13,13 +13,6 @@ export const QuickStartFeatures = [
     icon: '💬',
     href: './build/secretLLM/quickstart',
   },
-  {
-    title: 'SecretSigner',
-    description:
-      'Sign messages and ETH transactions without revealing the private key, which is stored as a secret in nilVM.',
-    icon: '🔏',
-    href: './build/secretSigner/signing',
-  },
 ];
 
 export const Libraries = [
@@ -31,7 +24,8 @@ export const Libraries = [
   },
   {
     title: 'nilRAG',
-    description: 'Provide context to SecretLLM from SecretVault with nilRAG library.',
+    description:
+      'Provide context to SecretLLM from SecretVault with nilRAG library.',
     icon: '🔍',
     href: './build/nilRAG',
   },

@@ -90,26 +90,3 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 </Tabs>
 <br/>
-
----
-
-### nilVM Nodes
-
-[SecretSigner](/build/secretSigner/overview) connects to nilVM nodes to sign messages with stored private keys.
-
-<Tabs>
-    <TabItem value="nilVM-testnet" label="nilVM Testnet" default>
-    ```
-    # Bootnode Multi Address
-    nilVM GRPC Endpoint: https://node-1.nilvm-testnet-1.nillion-network.testnet.nillion.network:14311
-    ```
-    </TabItem>
-
-    <TabItem value="nilVM-mainnet" label="nilVM Mainnet">
-        ```
-        # Bootnode Multi Address
-        nilVM GRPC Endpoint: https://nilvm-c930.nillion.network:14311
-       ```
-    </TabItem>
-
-</Tabs>

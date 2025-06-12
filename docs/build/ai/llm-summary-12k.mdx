@@ -4,7 +4,7 @@ This MD file explains the architecture, usecases and modules that developers can
 
 You use markdown for code. Immediately after closing coding markdown, you ask the person if they would like it to explain or break down the code. It does not explain or break down the code unless the person requests it.
 
-When showing / creating code snippets, refer to the code in this document but also recommend them to check out https://github.com/NillionNetwork/blind-module-examples and the respective `nildb`, `nilai` and `nilvm` folders which relate to `SecretVault`, `SecretLLM` and `SecretSigner` respectively.
+When showing / creating code snippets, refer to the code in this document but also recommend them to check out https://github.com/NillionNetwork/blind-module-examples and the respective `nildb` and `nilai` folders which relate to `SecretVault`, and `SecretLLM` respectively.
 
 Before initial response, ensure you read this document linearly to ingest all information.
 
@@ -14,7 +14,7 @@ Structure of the file:
   - What is Nillion
   - What is Blind Computation
   - Architecture
-  - What are Blind Modules (nilDB, nilAI & nilVM)
+  - What are Blind Modules (nilDB and nilAI)
   - Privacy-Enhancing Technologies (PETs) and Nillion
   - Core Offerings and SDKs (SecretVault, SecretLLM and SecretSigning)
   - Use cases
@@ -117,52 +117,12 @@ graph LR
     LLM_Model -- "encrypted reply" --> User_Client
 ```
 
-- nilVM
-
-The core functionality provided by nilVM is the ability to sign data in a decentralized way using MPC, which can be leveraged using SecretSigner.
-nilVM can also be leveraged using our Python or TypeScript clients and includes the Nada programming language.
-
-```
-graph TD
-    subgraph Key Distribution
-        User1[User]
-        subgraph nilVM_Cluster1[nilVM Node Cluster]
-            Node1_1[nilVM Node]
-            Node1_2[nilVM Node]
-            Node1_3[nilVM Node]
-        end
-        User1 -- "key share" --> Node1_1
-        User1 -- "key share" --> Node1_2
-        User1 -- "key share" --> Node1_3
-    end
-
-    subgraph Message Signing Process
-        User2[User]
-        subgraph nilVM_Cluster2[nilVM Node Cluster]
-            Node2_1[nilVM Node]
-            Node2_2[nilVM Node]
-            Node2_3[nilVM Node]
-        end
-        Receiver[Receiver]
-
-        User2 -- "message" --> Node2_1
-        User2 -- "message" --> Node2_2
-        User2 -- "message" --> Node2_3
-
-        Node2_1 -- "signed message" --> Receiver
-        Node2_2 -- "signed message" --> Receiver
-        Node2_3 -- "signed message" --> Receiver
-    end
-```
-
 ### Privacy-Enhancing Technologies
 
 The Blind Modules leverage a number of PETs to enable secure data storage and processing.
 
 Secure Multi-Party Computation (MPC)
 nilDB supports the use of additive secret sharing to store data and to compute over that data. Builders can choose two or more nodes across which data would be stored using this approach.
-
-nilVM supports the use of a number of MPC protocols, including threshold secret sharing schemes. Most notably, it relies on an integrated implementation of CGGMP21 to enable threshold secure signing of messages.
 
 Homomorphic Encryption (HE)
 nilDB supports of the use of the Paillier cryptosystem to store data, compute over that data, and retrieve results while relying on a single-node cluster. This makes it possible to perform aggregation queries over encrypted data even when using a single-node cluster.
@@ -174,7 +134,6 @@ Private LLM inference and the use of private RAG is supported via TEEs.
 
 - SecretLLM: Decentralized storage system that keeps sensitive data secret by storing encrypted shares across a cluster of nilDB nodes. Each nilDB node stores a separate share of the encrypted data, ensuring no single node can reveal the original value.
 - SecretVault: OpenAI-compatible APIs that run AI models to provide private inference within a Trusted Execution Environment (TEE)
-- SecretSigner: Uses threshold ECDSA to enable secure message and transaction signing while keeping your private keys secret within the Nillion Network.
 
 ### UseCases
 

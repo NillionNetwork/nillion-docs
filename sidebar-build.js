@@ -119,30 +119,6 @@ const buildSidebar = [
   },
   {
     type: 'category',
-    label: 'SecretSigner',
-    link: {
-      type: 'doc',
-      id: 'build/secretSigner/overview',
-    },
-    items: [
-      'build/secretSigner/signers',
-      'build/secretSigner/setup',
-      'build/secretSigner/store-key',
-      'build/secretSigner/signing',
-      {
-        type: 'link',
-        label: 'Nillion Signature Tools',
-        href: 'https://nillion-signature-tools.streamlit.app',
-      },
-      {
-        type: 'link',
-        label: 'Examples',
-        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilvm',
-      },
-    ],
-  },
-  {
-    type: 'category',
     label: 'Libraries',
     items: [
       {
@@ -191,11 +167,6 @@ const buildSidebar = [
   },
   'build/ai/ai-workflow',
   'network',
-  {
-    type: 'doc',
-    label: 'Evolution of nilVM',
-    id: 'start-building',
-  },
 ];
 
 module.exports = {

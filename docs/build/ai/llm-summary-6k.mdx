@@ -4,7 +4,7 @@ This MD file explains the architecture, usecases and modules that developers can
 
 You use markdown for code. Immediately after closing coding markdown, you ask the person if they would like it to explain or break down the code. It does not explain or break down the code unless the person requests it.
 
-When showing / creating code snippets, refer to the code in this document but also recommend them to check out https://github.com/NillionNetwork/blind-module-examples and the respective `nildb`, `nilai` and `nilvm` folders which relate to `SecretVault`, `SecretLLM` and `SecretSigner` respectively.
+When showing / creating code snippets, refer to the code in this document but also recommend them to check out https://github.com/NillionNetwork/blind-module-examples and the respective `nildb` and `nilai` folders which relate to `SecretVault` and `SecretLLM` respectively.
 
 Before initial response, ensure you read this document linearly to ingest all information.
 
@@ -39,14 +39,11 @@ Nillion's Blind Modules leverage and combine privacy-enhancing technologies (PET
 
   - _Data Flow Summary_: A user client sends an encrypted prompt to a `nilAI` node, where an LLM inside a TEE processes it (potentially with encrypted data from a `nilDB` cluster) and returns an encrypted reply to the user.
 
-- **nilVM**: Provides decentralized data signing using MPC, leveraged by **SecretSigner**. It supports Python and TypeScript clients and includes the Nada programming language.
-  - _Data Flow Summary_: Users distribute key shares to `nilVM` nodes. To sign a message, a user sends the message to multiple `nilVM` nodes, which collectively compute and send signed message shares to a receiver, who can then verify the complete signature.
-
 ### Privacy-Enhancing Technologies (PETs)
 
 Blind Modules utilize several PETs for secure data handling:
 
-- **Secure Multi-Party Computation (MPC)**: `nilDB` uses additive secret sharing for data storage and computation. `nilVM` uses threshold secret sharing schemes, including CGGMP21 for threshold secure signing.
+- **Secure Multi-Party Computation (MPC)**: `nilDB` uses additive secret sharing for data storage and computation.
 - **Homomorphic Encryption (HE)**: `nilDB` supports the Paillier cryptosystem for single-node aggregation queries over encrypted data.
 - **Trusted Execution Environments (TEEs)**: Used in `nilAI` to support private LLM inference and private RAG.
 
@@ -54,13 +51,11 @@ Blind Modules utilize several PETs for secure data handling:
 
 - **SecretVault**: Decentralized storage system storing encrypted shares of sensitive data across `nilDB` nodes, ensuring no single node can reveal the original value.
 - **SecretLLM**: OpenAI-compatible APIs running AI models within TEEs for private inference.
-- **SecretSigner**: Uses threshold ECDSA for secure message and transaction signing, keeping private keys secret within the Nillion Network.
 
 ### Use Cases
 
 - **Secure Storage**: Store and retrieve secrets via RESTful APIs.
 - **Private Inference**: Make private LLM calls to any application via a RESTful API.
-- **Signatures**: Perform signing operations without relying on a trusted party.
 - **RAG**: Provide accurate information with source attribution on top of SecretVault and SecretLLM.
 
 Early builders are creating tools for private predictive AI, secure storage/compute for healthcare, credential storage, and secure trade data workflows.
