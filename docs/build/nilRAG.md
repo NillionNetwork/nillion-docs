@@ -49,17 +49,17 @@ Let us deep dive into the entities and their roles in the system.
     Let's dive a bit more into the example of employees records. First, Data
     Owners need to create a schema and a query in SecretVault:
     <details>
-    <summary>Full 1.init_schema_query.py</summary>
+    <summary>init/bootstrap.py</summary>
     ```py reference showGithubLink
-    https://github.com/NillionNetwork/nilrag/blob/main/examples/1.init_schema_query.py
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/init/bootstrap.py
     ```
     </details>
 
     Now that the schema and the query are ready, Data Owners can upload their data:
     <details>
-    <summary>Full 2.data_owner_upload.py</summary>
+    <summary>data_owner/write.py</summary>
     ```py reference showGithubLink
-    https://github.com/NillionNetwork/nilrag/blob/main/examples/2.data_owner_upload.py
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/data_owner/write.py
     ```
     </details>
 
@@ -79,9 +79,9 @@ Let us deep dive into the entities and their roles in the system.
 
     Here is an example of how clients can run such a query:
     <details>
-    <summary>Full 3.client_query.py</summary>
+    <summary>client/query.py</summary>
     ```py reference showGithubLink
-    https://github.com/NillionNetwork/nilrag/blob/main/examples/3.client_query.py
+    https://github.com/NillionNetwork/nilrag/blob/main/examples/client/query.py
     ```
     </details>
 
