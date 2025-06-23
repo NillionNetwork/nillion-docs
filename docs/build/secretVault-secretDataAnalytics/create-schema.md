@@ -59,7 +59,7 @@ You can create schema collections using the SecretVault Tools UI or programatica
       - Use "date-time" format for dates (coerce: true)
       - Remember to take into account the type for fields that you want to encrypt using %allot/%share
       - Mark required fields (\_id is always required)
-      - Set additionalProperties to false
+      - Set `additionalProperties` to false
       - Avoid "$" prefix in field names to prevent query conflicts
       - Note: System adds \_created and \_updated fields automatically
 
@@ -129,7 +129,8 @@ You can create schema collections using the SecretVault Tools UI or programatica
                   "minItems": 1
                 }
               },
-              "required": ["_id", "years_in_web3", "responses"]
+              "required": ["_id", "years_in_web3", "responses"],
+              "additionalProperties": false
             }
           }
         }
