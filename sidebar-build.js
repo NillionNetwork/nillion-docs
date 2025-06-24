@@ -103,7 +103,6 @@ const buildSidebar = [
     },
     items: [
       'build/secretLLM/quickstart',
-      'build/secretLLM/access',
       'build/secretLLM/usage',
       {
         type: 'doc',
