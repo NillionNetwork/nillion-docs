@@ -118,6 +118,11 @@ const buildSidebar = [
     ],
   },
   {
+    type: 'doc',
+    label: 'API Key',
+    id: 'build/api-key',
+  },
+  {
     type: 'category',
     label: 'Libraries',
     items: [
