@@ -15,82 +15,14 @@ const buildSidebar = [
     label: 'SecretVault',
     link: {
       type: 'doc',
-      id: 'build/secret-vault',
+      id: 'build/secret-vault/about',
     },
 
     items: [
       {
-        type: 'doc',
-        label: 'SecretVault Quickstart',
-        id: 'build/secret-vault-quickstart',
-      },
-      {
-        type: 'category',
-        label: 'Build with SecretVault APIs',
-        link: {
-          type: 'doc',
-          id: 'build/secretVault-secretDataAnalytics/build',
-        },
-        collapsible: false,
-        items: [
-          {
-            type: 'doc',
-            label: '1. Register an Organization',
-            id: 'build/secretVault-secretDataAnalytics/access',
-          },
-          {
-            type: 'doc',
-            label: '2. Define a Collection',
-            id: 'build/secretVault-secretDataAnalytics/create-schema',
-          },
-          {
-            type: 'doc',
-            label: '3. Store Records',
-            id: 'build/secretVault-secretDataAnalytics/upload',
-          },
-          {
-            type: 'doc',
-            label: '4. Retrieve Records',
-            id: 'build/secretVault-secretDataAnalytics/retrieve',
-          },
-          {
-            type: 'doc',
-            label: '5. Define a Query | Data Analytics',
-            id: 'build/secretVault-secretDataAnalytics/create-query',
-          },
-          {
-            type: 'doc',
-            label: '6. Execute a Query | Data Analytics',
-            id: 'build/secretVault-secretDataAnalytics/query',
-          },
-          {
-            type: 'doc',
-            label: 'API Reference',
-            id: 'api/nildb/overview',
-          },
-        ],
-      },
-      'build/secretVault-secretDataAnalytics/generate-tokens',
-
-      {
         type: 'link',
-        label: 'JS Wrapper Examples',
-        href: 'https://github.com/NillionNetwork/secretvault-js/tree/main/examples',
-      },
-      {
-        type: 'link',
-        label: 'Python Wrapper Examples',
-        href: 'https://github.com/NillionNetwork/secretvaults-py/tree/main/examples',
-      },
-      {
-        type: 'link',
-        label: 'Full App Examples',
-        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb',
-      },
-      {
-        type: 'link',
-        label: 'Nillion SecretVault Tools UI',
-        href: 'https://schema-tools.vercel.app',
+        label: 'secretvaults-ts',
+        href: 'https://github.com/NillionNetwork/secretvaults-ts',
       },
     ],
   },
@@ -134,7 +66,6 @@ const buildSidebar = [
         },
         collapsible: false,
         items: [
-          'build/secretVault-secretDataAnalytics/encryption',
           {
             type: 'link',
             label: 'nilql-ts',
