@@ -4,7 +4,7 @@ export const QuickStartFeatures = [
     description:
       'Read and write records to an encrypted database using nilDB APIs.',
     icon: '🏛️',
-    href: './build/secret-vault-quickstart',
+    href: './build/secret-vault/quickstart',
   },
   {
     title: 'SecretLLM',

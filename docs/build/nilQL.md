@@ -16,9 +16,9 @@ You can interact with nilQL seamlessly from your browser using [Blind Chef](http
 
 You can interact with SecretVault and SecretDataAnalytics either directly through nilQL or using the optional secretvaults package (available in [JS](https://github.com/NillionNetwork/secretvaults-js) and [Python](https://github.com/NillionNetwork/secretvaults-py)):
 
-- Use nilQL to encrypt record field values with your organization's private key before storage in a [SecretVault](/build/secret-vault) collection
+- Use nilQL to encrypt record field values with your organization's private key before storage in a [SecretVault](/build/secret-vault/about) collection
 - Store the encrypted shares of record field values across your organization's nilDB nodes
-- Query nilQL encrypted data that has been stored in SecretVault to perform secure operations on nilQL encrypted data via [SecretDataAnalytics](/build/secret-data-analytics) APIs
+- Query nilQL encrypted data that has been stored in SecretVault to perform secure operations on nilQL encrypted data via Query APIs
 
 ## Implementations
 

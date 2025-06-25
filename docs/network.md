@@ -37,7 +37,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilDB Nodes
 
-[SecretVault](/build/secret-vault) is connect to nilDB nodes to enable storing and querying encrypted data.
+[SecretVault](/build/secret-vault/about) is connect to nilDB nodes to enable storing and querying encrypted data.
 
 <Tabs>
     <TabItem value="nilDB-demo" label="nilDB Alpha" default>
