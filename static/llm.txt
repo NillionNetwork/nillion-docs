@@ -19,7 +19,7 @@ Nillion combines multiple cryptographic techniques to create a platform where da
 
 ### SecretVault
 
-- [Overview](https://docs.nillion.com/build/secret-vault-about): Introduction to SecretVault for secure data storage
+- [Overview](https://docs.nillion.com/build/secret-vault/about): Introduction to SecretVault for secure data storage
 - [API Reference](https://docs.nillion.com/api/nildb/overview): Complete SecretVault API documentation
 
 ### SecretLLM
