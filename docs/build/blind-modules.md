@@ -45,7 +45,7 @@ graph TD
     style SERVICE fill:#FFFFFF,stroke:#000000
 ```
 
-nilDB is the Blind Module that underpins Nillion's SecretVault and SecretDataAnalytics products. [SecretVault](./secret-vault) data are accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use our nilQL library to encrypt and/or secret share data on the client side before using our RESTful API to send the ciphertexts and/or secret shares to the nodes.
+nilDB is the Blind Module that underpins Nillion's SecretVault and SecretDataAnalytics products. [SecretVault](./secret-vault/about) data are accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use our nilQL library to encrypt and/or secret share data on the client side before using our RESTful API to send the ciphertexts and/or secret shares to the nodes.
 
 ## nilAI
 
