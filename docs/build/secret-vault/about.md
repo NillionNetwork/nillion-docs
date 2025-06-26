@@ -8,34 +8,28 @@ This approach offers stronger security than traditional databases where all data
 
 ## How it Works
 
-SecretVault uses Nillion's [blindfold library](/build/blindfold) to implement secret sharing:
+SecretVault uses Nillion's [blindfold libraries](/build/blindfold) to implement secret sharing and Nillion's [secretvault libraries](/build/secretvault) to simplify interacting with nilDB nodes.
 
 1. **Data Encryption**: Sensitive fields are encrypted using cryptographic keys
 2. **Share Generation**: Encrypted data is mathematically split into multiple shares
 3. **Distributed Storage**: Each nilDB node stores only one share of the encrypted data
 4. **Secure Retrieval**: Multiple shares must be combined to reconstruct the original data
-5. **Automatic Decryption**: The SDK handles share recombination and decryption transparently
-
-## Related Nillion Tools
-
-- **Blindfold**: The encryption library that handles secret sharing and cryptographic operations
-- **NUC (Nillion Universal Cryptography)**: Provides authentication tokens and cryptographic primitives
-- **NilDB**: The distributed database nodes that store encrypted shares
+5. **Automatic Decryption**: The secretvault libraries handle share recombination and decryption from nilDB nodes
 
 ## How to Use SecretVault
 
-Interact with SecretVault using the TypeScript or Python SDK. First register as a builder or user, define data collections, then securely store and retrieve data.
+Interact with SecretVault using the TypeScript or Python [SecretVault libraries](/build/secretvault). First register as a builder or user, define data collections, then securely store and retrieve data.
 
 **For Builders (Applications)**
 
-- Register and get cluster access
+- Create a [Nillion API Key](/build/api-key) to get nilDB cluster access
 - Define collections with schemas
 - Store and query data
 - Create aggregation queries
 
 **For Users (Data Owners)**
 
-- Connect to the cluster
+- Connect to a nilDB cluster
 - Store private data with access controls
 - Manage permissions on your data
 - Grant and revoke access
@@ -101,9 +95,9 @@ Collections are immutable once created.
 
 ### Schema
 
-A JSON Schema that defines the immutable structure of records including field names, data types, required fields, formats, and validation rules.
+A JSON Schema defines the immutable structure of records in a Collection including field names, data types, required fields, formats, and validation rules.
 
-### Record/Document
+### Record
 
 A single data entry that follows a collection's schema. Plaintext fields are stored identically across nodes, while encrypted fields are split into unique shares per node.
 

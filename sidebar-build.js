@@ -32,7 +32,7 @@ const buildSidebar = [
       },
       {
         type: 'category',
-        label: 'Blindfold',
+        label: 'Blindfold Libraries',
         link: {
           type: 'doc',
           id: 'build/blindfold',
@@ -51,14 +51,24 @@ const buildSidebar = [
         ],
       },
       {
-        type: 'link',
-        label: 'secretvaults-ts',
-        href: 'https://github.com/NillionNetwork/secretvaults-ts',
-      },
-      {
-        type: 'link',
-        label: 'secretvaults-py',
-        href: 'https://github.com/NillionNetwork/secretvaults-py',
+        type: 'category',
+        label: 'SecretVault Libraries',
+        link: {
+          type: 'doc',
+          id: 'build/secretvault',
+        },
+        items: [
+          {
+            type: 'link',
+            label: 'secretvaults-ts',
+            href: 'https://github.com/NillionNetwork/secretvaults-ts',
+          },
+          {
+            type: 'link',
+            label: 'secretvaults-py',
+            href: 'https://github.com/NillionNetwork/secretvaults-py',
+          },
+        ],
       },
     ],
   },
