@@ -46,6 +46,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
     ```
     NILCHAIN_URL=http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
     NILAUTH_URL=https://nilauth.sandbox.app-cluster.sandbox.nilogy.xyz
+    NILAUTH_PUBLIC_KEY=03e3ba1eb887b4e972fbf395d479ff6cdb2cec91ba477ffc287b2b9cb5ec2161aa
     NILDB_NODE_1=https://nildb-stg-n1.nillion.network
     NILDB_NODE_2=https://nildb-stg-n2.nillion.network
     NILDB_NODE_3=https://nildb-stg-n3.nillion.network
