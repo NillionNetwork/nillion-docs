@@ -1,24 +1,24 @@
-# SecretVault
+# Private Storage
 
-## What is SecretVault
+## What is Private Storage
 
-Nillion's SecretVault is a decentralized storage system that keeps sensitive data secret by storing encrypted shares across a cluster of nilDB nodes. Each nilDB node stores a separate share of the encrypted data, ensuring no single node can reveal the original value.
+Nillion's decentralized storage system keeps sensitive data secret by storing encrypted shares across a cluster of nilDB nodes. Each nilDB node stores a separate share of the encrypted data, ensuring no single node can reveal the original value.
 
-This approach offers stronger security than traditional databases where all data sits in one place. Because SecretVault splits sensitive data between nodes, a breach of any single node only reveals a useless share. You need to combine multiple shares to reconstruct and decrypt the original data.
+This approach offers stronger security than traditional databases where all data sits in one place. Because secretvaults splits sensitive data between nodes, a breach of any single node only reveals a useless share. You need to combine multiple shares to reconstruct and decrypt the original data.
 
 ## How it Works
 
-SecretVault uses Nillion's [blindfold libraries](/build/blindfold) to implement secret sharing and Nillion's [secretvault libraries](/build/secretvault) to simplify interacting with nilDB nodes.
+Private storage is enabled using Nillion's [blindfold libraries](/build/blindfold) (which implement secret sharing) and Nillion's [secretvaults SDKs](/build/secretvault) (which simplify interacting with nilDB clusters).
 
 1. **Data Encryption**: Sensitive fields are encrypted using cryptographic keys
 2. **Share Generation**: Encrypted data is mathematically split into multiple shares
 3. **Distributed Storage**: Each nilDB node stores only one share of the encrypted data
 4. **Secure Retrieval**: Multiple shares must be combined to reconstruct the original data
-5. **Automatic Decryption**: The secretvault libraries handle share recombination and decryption from nilDB nodes
+5. **Automatic Decryption**: The secretvaults libraries handle share recombination and decryption from nilDB nodes
 
-## How to Use SecretVault
+## How to Use Private Storage
 
-Interact with SecretVault using the TypeScript or Python [SecretVault libraries](/build/secretvault). First register as a builder or user, define data collections, then securely store and retrieve data.
+Interact with the private storage solution using the TypeScript or Python [secretvaults libraries](/build/secretvault). First register as a builder or user, define data collections, then securely store and retrieve data.
 
 **For Builders (Applications)**
 
@@ -34,7 +34,7 @@ Interact with SecretVault using the TypeScript or Python [SecretVault libraries]
 - Manage permissions on your data
 - Grant and revoke access
 
-## SecretVault Key Concepts
+## Key Concepts
 
 ### Builder
 
@@ -130,7 +130,7 @@ Users can grant and revoke permissions at any time. Each document maintains its 
 
 ### Query System
 
-SecretVault supports MongoDB-style aggregation pipelines with stages like `$match`, `$group`, and `$count`. Queries can operate on encrypted data without full decryption and support variables for parameterization.
+MongoDB-style aggregation pipelines with stages like `$match`, `$group`, and `$count` are supported. Queries can operate on encrypted data without full decryption and support variables for parameterization.
 
 **Query Variables**
 Allow parameterization of saved queries using JSONPath syntax to specify substitution points, enabling reusable query templates.

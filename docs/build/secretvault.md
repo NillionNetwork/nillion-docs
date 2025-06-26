@@ -1,8 +1,6 @@
-# SecretVaults Library
+# secretvaults SDK
 
-SecretVaults is a library that simplifies interacting with nilDB nodes to store and retrieve data encrypted with [blindfold](/build/blindfold).
+secretvaults is an SDK that simplifies interacting with nilDB nodes to store and retrieve data encrypted with [blindfold](/build/blindfold). Two versions of the SDK are available:
 
-## Library Implementations
-
-- [TypeScript](https://github.com/NillionNetwork/secretvaults-ts)
-- [Python](https://github.com/NillionNetwork/secretvaults-py)
+- TypeScript library for web and Node.js environments: [GitHub repository](https://github.com/NillionNetwork/secretvaults-ts) and [NPM package](https://www.npmjs.com/package/@nillion/secretvaults)
+- Python library for server-side applications: [GitHub repository](https://github.com/NillionNetwork/secretvaults-py), and [PyPI package](https://pypi.org/project/secretvaults/)

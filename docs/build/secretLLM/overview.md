@@ -1,12 +1,12 @@
-# SecretLLM
+# Private LLMs
 
-## What is SecretLLM
+## What are Private LLMs
 
-SecretLLM is a set of OpenAI-compatible APIs that run AI models within a Trusted Execution Environment (TEE). You can use SecretLLM to build new private AI applications or migrate existing ones to run in a secure SecretLLM environment where your data remains private.
+Private LLMs are supported via a set of OpenAI-compatible APIs that run AI models within a *trusted execution environment* (TEE). This makes it possible to build new private AI applications or to migrate existing ones to run in a secure environment where your data remains private.
 
-## How SecretLLM Works
+## How Private LLMs Work
 
-1. Send your prompt to SecretLLM over HTTPS (just like any secure web request)
+1. Send your prompt over HTTPS (just like any secure web request)
 2. Your prompt runs inside a Trusted Execution Environment where it is hidden from the cloud provider
 3. Get your result back over HTTPS, complete with a cryptographic signature
 
@@ -23,7 +23,7 @@ For most use cases, start with the 3B model and move up if you need more capabil
 
 ## Key Features
 
-- **Drop-in Privacy**: Keep your OpenAI-style code, just point it to SecretLLM
+- **Drop-in Privacy**: Keep your OpenAI-style code, just point it at a private LLM
 - **Privacy Through TEEs**: All processing happens within a TEE, built on NVIDIA Confidential Computing
 - **Standard Security**: HTTPS encryption provides end-to-end protection for all data in transit between your application and the TEE environment
 - **Cryptographic Attestation**: Verify the integrity of your TEE environment through our attestation API
@@ -31,7 +31,7 @@ For most use cases, start with the 3B model and move up if you need more capabil
 
 ## Attestation & Verification
 
-SecretLLM provides two layers of cryptographic proof:
+Two layers of cryptographic proof are provided:
 
 1. **Environment Attestation**: Verify your TEE's integrity through the attestation endpoint, including:
 
@@ -42,12 +42,11 @@ SecretLLM provides two layers of cryptographic proof:
 
 ## Getting Started
 
-1. Get access to SecretLLM by obtaining your nilAI API key and node URL
+1. Get access to private LLMs by obtaining your nilAI API key and node URL
 2. Use your API key to check the `/models` endpoint for available models
 3. Start running private AI using your chosen model
 4. Optionally, verify your environment using the attestation API
 
-### Enhance SecretLLM by providing context from SecretVault and nilRAG
+### Enhance by Providing Context from Private Storage and nilRAG
 
-Optionally, you can use nilRAG to allow SecretLLM to access SecretVault and retrieve relevant context!
-See our [nilRAG documentation](https://docs.nillion.com/build/nilQL) for details.
+Optionally, you can use nilRAG to allow private LLMs to access nilDB private storage in order to retrieve relevant context! See [nilRAG documentation](/build/nilRAG) for details.

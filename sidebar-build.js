@@ -18,7 +18,7 @@ const buildSidebar = [
   },
   {
     type: 'category',
-    label: 'SecretVault Storage',
+    label: 'Private Storage',
     link: {
       type: 'doc',
       id: 'build/secret-vault/about',
@@ -32,27 +32,7 @@ const buildSidebar = [
       },
       {
         type: 'category',
-        label: 'Blindfold Libraries',
-        link: {
-          type: 'doc',
-          id: 'build/blindfold',
-        },
-        items: [
-          {
-            type: 'link',
-            label: 'blindfold-ts',
-            href: 'https://github.com/NillionNetwork/blindfold-ts',
-          },
-          {
-            type: 'link',
-            label: 'blindfold-py',
-            href: 'https://github.com/NillionNetwork/blindfold-py',
-          },
-        ],
-      },
-      {
-        type: 'category',
-        label: 'SecretVault Libraries',
+        label: 'secretvaults SDK',
         link: {
           type: 'doc',
           id: 'build/secretvault',
@@ -70,11 +50,31 @@ const buildSidebar = [
           },
         ],
       },
+      {
+        type: 'category',
+        label: 'blindfold Library',
+        link: {
+          type: 'doc',
+          id: 'build/blindfold',
+        },
+        items: [
+          {
+            type: 'link',
+            label: 'blindfold-ts',
+            href: 'https://github.com/NillionNetwork/blindfold-ts',
+          },
+          {
+            type: 'link',
+            label: 'blindfold-py',
+            href: 'https://github.com/NillionNetwork/blindfold-py',
+          },
+        ],
+      },
     ],
   },
   {
     type: 'category',
-    label: 'SecretLLM AI',
+    label: 'Private LLMs',
     link: {
       type: 'doc',
       id: 'build/secretLLM/overview',
@@ -92,36 +92,9 @@ const buildSidebar = [
         label: 'Examples',
         href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai',
       },
-    ],
-  },
-  {
-    type: 'category',
-    label: 'Libraries',
-    items: [
       {
         type: 'category',
-        label: 'nilQL (temporary, pages will be deprecated)',
-        link: {
-          type: 'doc',
-          id: 'build/nilQL',
-        },
-        collapsible: false,
-        items: [
-          {
-            type: 'link',
-            label: 'blindfold-ts',
-            href: 'https://github.com/NillionNetwork/blindfold-ts',
-          },
-          {
-            type: 'link',
-            label: 'blindfold-py',
-            href: 'https://github.com/NillionNetwork/blindfold-py',
-          },
-        ],
-      },
-      {
-        type: 'category',
-        label: 'nilRAG',
+        label: 'nilRAG Library',
         link: {
           type: 'doc',
           id: 'build/nilRAG',
