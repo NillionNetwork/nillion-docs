@@ -8,7 +8,7 @@ This approach offers stronger security than traditional databases where all data
 
 ## How it Works
 
-SecretVault uses Nillion's Blindfold technology to implement secret sharing:
+SecretVault uses Nillion's [blindfold library](/build/blindfold) to implement secret sharing:
 
 1. **Data Encryption**: Sensitive fields are encrypted using cryptographic keys
 2. **Share Generation**: Encrypted data is mathematically split into multiple shares

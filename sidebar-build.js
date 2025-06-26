@@ -5,15 +5,20 @@ const buildSidebar = [
     value: 'Build',
     defaultStyle: true,
   },
-  'network',
   {
     type: 'doc',
     label: 'Start Building',
     id: 'quickstart',
   },
+  'network',
+  {
+    type: 'doc',
+    label: 'Nillion API Keys',
+    id: 'build/api-key',
+  },
   {
     type: 'category',
-    label: 'SecretVault',
+    label: 'SecretVault Storage',
     link: {
       type: 'doc',
       id: 'build/secret-vault/about',
@@ -26,15 +31,40 @@ const buildSidebar = [
         id: 'build/secret-vault/quickstart',
       },
       {
+        type: 'category',
+        label: 'Blindfold',
+        link: {
+          type: 'doc',
+          id: 'build/blindfold',
+        },
+        items: [
+          {
+            type: 'link',
+            label: 'blindfold-ts',
+            href: 'https://github.com/NillionNetwork/blindfold-ts',
+          },
+          {
+            type: 'link',
+            label: 'blindfold-py',
+            href: 'https://github.com/NillionNetwork/blindfold-py',
+          },
+        ],
+      },
+      {
         type: 'link',
         label: 'secretvaults-ts',
         href: 'https://github.com/NillionNetwork/secretvaults-ts',
+      },
+      {
+        type: 'link',
+        label: 'secretvaults-py',
+        href: 'https://github.com/NillionNetwork/secretvaults-py',
       },
     ],
   },
   {
     type: 'category',
-    label: 'SecretLLM',
+    label: 'SecretLLM AI',
     link: {
       type: 'doc',
       id: 'build/secretLLM/overview',
@@ -55,17 +85,12 @@ const buildSidebar = [
     ],
   },
   {
-    type: 'doc',
-    label: 'API Key',
-    id: 'build/api-key',
-  },
-  {
     type: 'category',
     label: 'Libraries',
     items: [
       {
         type: 'category',
-        label: 'nilQL',
+        label: 'nilQL (temporary, pages will be deprecated)',
         link: {
           type: 'doc',
           id: 'build/nilQL',
@@ -74,13 +99,13 @@ const buildSidebar = [
         items: [
           {
             type: 'link',
-            label: 'nilql-ts',
-            href: 'https://github.com/NillionNetwork/nilql-ts',
+            label: 'blindfold-ts',
+            href: 'https://github.com/NillionNetwork/blindfold-ts',
           },
           {
             type: 'link',
-            label: 'nilql-py',
-            href: 'https://github.com/NillionNetwork/nilql-py',
+            label: 'blindfold-py',
+            href: 'https://github.com/NillionNetwork/blindfold-py',
           },
         ],
       },
