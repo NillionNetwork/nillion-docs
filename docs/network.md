@@ -40,7 +40,19 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 [SecretVault](/build/secret-vault/about) is connect to nilDB nodes to enable storing and querying encrypted data.
 
 <Tabs>
-    <TabItem value="nilDB-demo" label="nilDB Alpha" default>
+    <TabItem value="nilDB-update" label="nilDB Testnet" default>
+    ### Testnet
+
+    ```
+    NILCHAIN_URL=http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
+    NILAUTH_URL=https://nilauth.sandbox.app-cluster.sandbox.nilogy.xyz
+    NILDB_NODE_1=https://nildb-stg-n1.nillion.network
+    NILDB_NODE_2=https://nildb-stg-n2.nillion.network
+    NILDB_NODE_3=https://nildb-stg-n3.nillion.network
+    ```
+
+    </TabItem>
+    <TabItem value="nilDB-demo" label="nilDB Alpha">
 
     #### Node 1: [nildb-nx8v](https://nildb-nx8v.nillion.network/api/v1/openapi/docs/)
 

@@ -5,6 +5,7 @@ const buildSidebar = [
     value: 'Build',
     defaultStyle: true,
   },
+  'network',
   {
     type: 'doc',
     label: 'Start Building',
@@ -19,6 +20,11 @@ const buildSidebar = [
     },
 
     items: [
+      {
+        type: 'doc',
+        label: 'Quickstart',
+        id: 'build/secret-vault/quickstart',
+      },
       {
         type: 'link',
         label: 'secretvaults-ts',
@@ -101,7 +107,6 @@ const buildSidebar = [
     ],
   },
   'build/ai/ai-workflow',
-  'network',
 ];
 
 module.exports = {
