@@ -33,7 +33,7 @@ This showcases Nillion's core value: users own their data, but can selectively s
 - Node.js 18+ with ES modules support
 - npm or yarn package manager
 
-## Step 1: Project Setup
+## Project Setup
 
 Create a new Node.js project:
 
@@ -51,7 +51,7 @@ Add ES module support to your `package.json`:
 }
 ```
 
-## Step 2: Install Dependencies
+## Install Dependencies
 
 Install the required Nillion packages:
 
@@ -59,7 +59,7 @@ Install the required Nillion packages:
 npm install @nillion/secretvaults@0.1.0-rc.4 @nillion/nuc dotenv
 ```
 
-## Step 3: Environment Configuration
+## Environment Configuration
 
 Create a `.env` file in your project root:
 
@@ -75,7 +75,7 @@ NILLION_PRIVATE_KEY=your-hex-private-key-from-nilpay
 
 **⚠️ Important**: Add `.env` to your `.gitignore` to avoid committing your private key!
 
-## Step 4: Basic Script Structure
+## Basic Script Structure
 
 Create `demo.js` with the following structure:
 
@@ -126,13 +126,13 @@ if (!config.PRIVATE_KEY) {
 }
 
 async function main() {
-  // Your demo code goes here
+  // All code in the next steps will be added here
 }
 
 main().catch(console.error);
 ```
 
-## Step 5: Authentication and Client Setup
+## Authentication and Client Setup
 
 ### Create Keypairs
 
@@ -177,7 +177,7 @@ const builder = await SecretVaultBuilderClient.from({
 await builder.refreshRootToken();
 ```
 
-## Step 6: Builder Registration
+## Builder Registration
 
 Handle builder registration with proper error handling:
 
@@ -204,7 +204,7 @@ try {
 }
 ```
 
-## Step 7: Create an Owned Collection
+## Create an Owned Collection
 
 ### Define Collection Schema
 
@@ -253,7 +253,7 @@ try {
 }
 ```
 
-## Step 8: User Stores Private Data
+## User Stores Private Data
 
 ### Create User Client
 
@@ -299,7 +299,7 @@ const uploadResults = await user.createData(delegation, {
 console.log('✅ User uploaded private data with builder access granted');
 ```
 
-## Step 9: Builder Accesses User Data
+## Builder Accesses User Data
 
 ### Read User's Data (with permission)
 
@@ -325,7 +325,7 @@ const references = await user.listDataReferences();
 console.log('✅ User has', references.data.length, 'private records stored');
 ```
 
-## Step 10: Access Control in Action
+## Access Control in Action
 
 ### Grant Access to Another User
 
@@ -372,7 +372,7 @@ await user.deleteData({
 console.log('✅ User deleted their private data');
 ```
 
-## Step 11: Running Your Demo
+## Running Your Demo
 
 Run the full script
 
