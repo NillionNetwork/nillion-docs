@@ -40,7 +40,7 @@ Create a new Node.js project:
 ```bash
 mkdir nillion-secretvaults-demo
 cd nillion-secretvaults-demo
-npm init -y
+pnpm init -y
 ```
 
 Add ES module support to your `package.json`:
@@ -56,7 +56,7 @@ Add ES module support to your `package.json`:
 Install the required Nillion packages:
 
 ```bash
-npm install @nillion/secretvaults@0.1.0-rc.4 @nillion/nuc dotenv
+pnpm install @nillion/secretvaults@0.1.0-rc.4 @nillion/nuc dotenv
 ```
 
 ## Environment Configuration
