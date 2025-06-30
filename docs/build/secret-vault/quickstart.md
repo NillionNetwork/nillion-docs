@@ -30,8 +30,8 @@ This showcases Nillion's core value: users own their data, but can selectively s
 
 ### 2. System Requirements
 
-- Node.js 18+ with ES modules support
-- npm or yarn package manager
+- `Node.js 22+` with ES modules support
+- `pnpm` package manager (you can use `npm` or `yarn` as well)
 
 ## Project Setup
 
