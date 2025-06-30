@@ -59,7 +59,7 @@ Add ES module support to your `package.json` by adding:
 Install the required Nillion packages:
 
 ```bash
-pnpm install @nillion/secretvaults@0.1.0-rc.4 @nillion/nuc dotenv
+pnpm add @nillion/secretvaults@0.1.0-rc.4 @nillion/nuc dotenv
 ```
 
 ## Environment Configuration
