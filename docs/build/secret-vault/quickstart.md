@@ -25,7 +25,7 @@ This showcases Nillion's core value: users own their data, but can selectively s
 
 1. Visit [https://nilpay.vercel.app/](https://nilpay.vercel.app/)
 2. Create a Testnet public/private key pair through the UI
-3. Fund your account with Testnet NIL to create a valid subscription
+3. [Fund your account with Testnet NIL](https://faucet.testnet.nillion.com) to create a valid subscription
 4. Save your private key (hex format) - you'll need this for authentication
 
 ### 2. System Requirements
