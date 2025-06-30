@@ -43,7 +43,7 @@ cd nillion-secretvaults-demo
 pnpm init -y
 ```
 
-Add ES module support to your `package.json`:
+Add ES module support to your `package.json` by changing the type to:
 
 ```json
 {
@@ -82,7 +82,7 @@ Create `demo.js` with the following structure:
 ```javascript
 #!/usr/bin/env node
 
-import { randomUUID } from 'crypto';
+import { randomUUID } from 'node:crypto';
 import { config as loadEnv } from 'dotenv';
 
 // Load environment variables
@@ -103,25 +103,15 @@ import {
 
 // Configuration
 const config = {
-  NILCHAIN_URL:
-    process.env.NILCHAIN_URL ||
-    'http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz',
-  NILAUTH_URL:
-    process.env.NILAUTH_URL ||
-    'https://nilauth.sandbox.app-cluster.sandbox.nilogy.xyz',
-  NILDB_NODES: process.env.NILDB_NODES
-    ? process.env.NILDB_NODES.split(',')
-    : [
-        'https://nildb-stg-n1.nillion.network',
-        'https://nildb-stg-n2.nillion.network',
-        'https://nildb-stg-n3.nillion.network',
-      ],
-  PRIVATE_KEY: process.env.NILLION_PRIVATE_KEY,
+  NILCHAIN_URL: process.env.NILCHAIN_URL,
+  NILAUTH_URL: process.env.NILAUTH_URL,
+  NILDB_NODES: process.env.NILDB_NODES.split(',')
+  BUILDER_PRIVATE_KEY: process.env.NILLION_PRIVATE_KEY,
 };
 
 // Validate configuration
-if (!config.PRIVATE_KEY) {
-  console.error('❌ Please set NILLION_PRIVATE_KEY in your .env file');
+if (!config.BUILDER_PRIVATE_KEY) {
+  console.error('❌ Please set BUILDER_PRIVATE_KEY in your .env file');
   process.exit(1);
 }
 
@@ -138,7 +128,7 @@ main().catch(console.error);
 
 ```javascript
 // Step 1: Create keypairs for builder and user
-const builderKeypair = Keypair.from(config.PRIVATE_KEY); // Use your funded key
+const builderKeypair = Keypair.from(config.BUILDER_PRIVATE_KEY); // Use your funded key
 const userKeypair = Keypair.generate(); // Generate random user
 
 const builderDid = builderKeypair.toDid().toString();
@@ -216,7 +206,7 @@ const collectionId = randomUUID();
 
 const collection = {
   _id: collectionId,
-  type: 'owned', // This makes it user-owned
+  type: 'owned', // Every document in the collection will be user-owned
   name: 'User Profile Collection',
   schema: {
     $schema: 'http://json-schema.org/draft-07/schema#',
