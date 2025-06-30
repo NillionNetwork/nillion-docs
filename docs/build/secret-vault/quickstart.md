@@ -424,6 +424,11 @@ const query = {
 await builder.createQuery(query);
 ```
 
+### OpenAPI
+
+You can access the OpenAPI specifications for any node by visiting the following URL pattern: `https://{endpoint}/openapi.json`, where `{endpoint}` is replaced with your specific node address.
+For instance, to view the API specs for the staging node, you would use: `https://nildb-stg-n1.nillion.network/openapi.json`.
+
 ## Next Steps
 
 Now that you understand the basics of Nillion private storage, you can:
