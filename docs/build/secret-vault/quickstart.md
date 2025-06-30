@@ -261,7 +261,7 @@ const user = await SecretVaultUserClient.from({
 ### User Uploads Data with Access Control
 
 ```javascript
-// Step 8: User creates their private data and grants builder access
+// Step 8: Builder grants write access to the user
 const delegation = NucTokenBuilder.extending(builder.rootToken)
   .command(new Command(['nil', 'db', 'data', 'create']))
   .audience(userKeypair.toDid())
