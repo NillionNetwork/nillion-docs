@@ -23,10 +23,13 @@ This showcases Nillion's core value: users own their data, but can selectively s
 
 ### 1. Get Your API Key and Subscription
 
+As good practice, we recommend to use two distinct keys: one for network access and a separate key for subscription payments. This dual-key architecture separates authentication from payment processing, enhancing security by limiting the scope of each credential.
+
 1. Visit [https://nilpay.vercel.app/](https://nilpay.vercel.app/)
-2. Create a Testnet public/private key pair through the UI
-3. [Fund your account with Testnet NIL](https://faucet.testnet.nillion.com) to create a valid subscription
-4. Save your private key (hex format) - you'll need this for authentication
+2. Create a Testnet public/private key pair through the UI that we will use for network access
+3. [Fund your account with Testnet NIL](https://faucet.testnet.nillion.com)
+4. Subscribe to `nilDB` by paying with your subscription wallet
+5. Save your private key (hex format) - you'll need this for authentication
 
 ### 2. System Requirements
 
@@ -35,15 +38,15 @@ This showcases Nillion's core value: users own their data, but can selectively s
 
 ## Project Setup
 
-Create a new Node.js project:
+Create a new `Node.js` project:
 
 ```bash
 mkdir nillion-secretvaults-demo
 cd nillion-secretvaults-demo
-pnpm init -y
+pnpm init
 ```
 
-Add ES module support to your `package.json` by changing the type to:
+Add ES module support to your `package.json` by adding:
 
 ```json
 {
@@ -105,7 +108,7 @@ import {
 const config = {
   NILCHAIN_URL: process.env.NILCHAIN_URL,
   NILAUTH_URL: process.env.NILAUTH_URL,
-  NILDB_NODES: process.env.NILDB_NODES.split(',')
+  NILDB_NODES: process.env.NILDB_NODES.split(','),
   BUILDER_PRIVATE_KEY: process.env.NILLION_PRIVATE_KEY,
 };
 
@@ -317,43 +320,41 @@ console.log('✅ User has', references.data.length, 'private records stored');
 
 ## Access Control in Action
 
-### Grant Access to Another User
+### Grant Access to Another Builders
+
+If users wants to grant access to other builders, they can do so by calling `grantAccess` and specifying the new builder did, the document and collection and specific permissions. We will omit this step for simplicity, but the code should look similar to this:
 
 ```javascript
-// Step 11: User grants access to someone else
-const friendKeypair = Keypair.generate();
 
+// If you want to run this functionality 
 await user.grantAccess({
   collection: collectionId,
   document: userPrivateData._id,
   acl: {
-    grantee: friendKeypair.toDid().toString(),
-    read: true, // Friend can read
-    write: false, // Friend cannot modify
-    execute: false, // Friend cannot run queries
+    grantee: "new-builder-did",
+    read: true, // New Builder can read
+    write: false, // New Builder cannot modify
+    execute: false, // New Builder cannot run queries
   },
 });
-
-console.log('✅ User granted read access to a friend');
 ```
 
-### Revoke Access
+### Revoking Access
+
+In the same way, we can revoke access calling `revokeAccess`:
 
 ```javascript
-// Step 12: User changes their mind and revokes access
 await user.revokeAccess({
-  grantee: friendKeypair.toDid().toString(),
+  grantee: "new-builder-did",
   collection: collectionId,
   document: userPrivateData._id,
 });
-
-console.log("✅ User revoked friend's access");
 ```
 
 ### Cleanup
 
 ```javascript
-// Step 13: User deletes their data
+// Step 11: User deletes their data
 await user.deleteData({
   collection: collectionId,
   document: userPrivateData._id,
