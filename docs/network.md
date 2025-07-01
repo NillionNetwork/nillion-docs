@@ -37,7 +37,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilDB Nodes
 
-[Private Storage](/build/secret-vault/about) solutions leverage a decentralized cluster of nilDB nodes. The [secretvaults SDK](/build/secretvault) can connect to a cluster of one or more nodes, making it possible to store and query both plaintext and encrypted data stored in the cluster.
+[Private Storage](/build/private-storage/overview) solutions leverage a decentralized cluster of nilDB nodes. The [secretvaults SDK](/build/secretvaults) can connect to a cluster of one or more nodes, making it possible to store and query both plaintext and encrypted data stored in the cluster.
 
 <Tabs>
     <TabItem value="nilDB-update" label="nilDB Testnet" default>
@@ -91,7 +91,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilAI Nodes
 
-[Private LLMs](/build/secretLLM/overview) can be leveraged by connecting to a nilAI node, which runs AI models within a TEE.
+[Private LLMs](/build/private-llms/overview) can be leveraged by connecting to a nilAI node, which runs AI models within a TEE.
 
 <Tabs>
     <TabItem value="nilAI-testnet" label="nilAI Alpha" default>

@@ -21,21 +21,21 @@ const buildSidebar = [
     label: 'Private Storage',
     link: {
       type: 'doc',
-      id: 'build/secret-vault/about',
+      id: 'build/private-storage/overview',
     },
 
     items: [
       {
         type: 'doc',
         label: 'Quickstart',
-        id: 'build/secret-vault/quickstart',
+        id: 'build/private-storage/quickstart',
       },
       {
         type: 'category',
         label: 'secretvaults SDK',
         link: {
           type: 'doc',
-          id: 'build/secretvault',
+          id: 'build/secretvaults',
         },
         items: [
           {
@@ -77,11 +77,11 @@ const buildSidebar = [
     label: 'Private LLMs',
     link: {
       type: 'doc',
-      id: 'build/secretLLM/overview',
+      id: 'build/private-llms/overview',
     },
     items: [
-      'build/secretLLM/quickstart',
-      'build/secretLLM/usage',
+      'build/private-llms/quickstart',
+      'build/private-llms/usage',
       {
         type: 'doc',
         label: 'API Reference',
@@ -114,7 +114,7 @@ const buildSidebar = [
       },
     ],
   },
-  'build/ai/ai-workflow',
+  'build/ai/ai-assisted-workflow',
 ];
 
 module.exports = {

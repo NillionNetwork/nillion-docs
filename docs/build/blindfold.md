@@ -4,11 +4,11 @@ The blindfold cryptographic library provides functions for encrypting/decrypting
 
 ## How to use blindfold
 
-For most developers and use cases, the [secretvaults SDKs](/build/secretvault) (which rely on blindfold) are sufficient. However, expert users may use blindfold to communicate directly with individual nilDB nodes and to manage on their own ciphertexts and secret shares within nilDB queries and replies.
+For most developers and use cases, the [secretvaults SDKs](/build/secretvaults) (which rely on blindfold) are sufficient. However, expert users may use blindfold to communicate directly with individual nilDB nodes and to manage on their own ciphertexts and secret shares within nilDB queries and replies.
 
 ### Via the secretvaults SDKs
 
-The [secretvaults SDKs](/build/secretvault) provide common storage, retrieval, and querying functionalities for nilDB. The SDK abstracts away many aspects of data encryption/decryption and secret sharing (via blindfold) and communication with individual nodes in a cluster.
+The [secretvaults SDKs](/build/secretvaults) provide common storage, retrieval, and querying functionalities for nilDB. The SDK abstracts away many aspects of data encryption/decryption and secret sharing (via blindfold) and communication with individual nodes in a cluster.
 
 ### As a Standalone Library
 

@@ -1,25 +1,15 @@
 # nilRAG Library
 
-Retrieval augmented generation (RAG) is a technique that grants large language models (LLMs) information retrieval capabilities and context that they might be missing. The nilRAG library leverages features of [Private LLMs)](/build/secretLLM/overview) and [Private Storage](/build/secret-vault/about) together with the
+Retrieval augmented generation (RAG) is a technique that grants large language models (LLMs) information retrieval capabilities and context that they might be missing. The nilRAG library leverages features of [Private LLMs)](/build/private-llms/overview) and [Private Storage](/build/private-storage/overview) together with the
 [blindfold](/build/blindfold) encryption library.
 
 :::info
-nilRAG makes it possible to store sensitive information in [Private Storage](/build/secret-vault/about) and then to use that information as context when leveraging the chat endpoint made available by [Private LLMs](/build/secretLLM/overview).
+nilRAG makes it possible to store sensitive information in [Private Storage](/build/private-storage/overview) and then to use that information as context when leveraging the chat endpoint made available by [Private LLMs](/build/private-llms/overview).
 :::
 
 ## Library Overview
 
-Data owners often possess valuable files that clients wish to query to enhance
-their LLM-based inferences. However, ensuring privacy is a key challenge: data
-owners want to keep their data confidential, and clients are equally concerned
-about safeguarding their queries. nilRAG addresses this challenge by enabling
-secure data sharing and querying. It allows data owners to store their data
-securely in nilDB while allowing clients to query the data without
-exposing their queries or compromising the data's privacy. The process involves
-leveraging an LLM for secure computation via nilAI. Data owners upload
-their information to nilDB and an LLM on a nilAI node processes client queries and
-retrieves the most relevant results (top-*k*) without revealing sensitive
-information from either party.
+Data owners often possess valuable files that clients wish to query to enhance their LLM-based inferences. However, ensuring privacy is a key challenge: data owners want to keep their data confidential, and clients are equally concerned about safeguarding their queries. nilRAG addresses this challenge by enabling secure data sharing and querying. It allows data owners to store their data securely in nilDB while allowing clients to query the data without exposing their queries or compromising the data's privacy. The process involves leveraging an LLM for secure computation via nilAI. Data owners upload their information to nilDB and an LLM on a nilAI node processes client queries and retrieves the most relevant results (top-*k*) without revealing sensitive information from either party.
 
 Let us do a deep dive into the entities and their roles in the system.
 
@@ -106,17 +96,11 @@ You can reproduce the example above by following the [README](https://github.com
 
 ## Implementation
 
-nilRAG is a standalone open-source library available through
-[PyPI](https://pypi.org/project/nilrag) and on [GitHub](https://github.com/NillionNetwork/nilrag).
-Developers can use nilRAG as a feature of [Private LLMs](/build/secretLLM/overview) to
-enhance the inference with context that has been uploaded to [Private Storage](/build/secret-vault/about).
+nilRAG is a standalone open-source library available on [PyPI](https://pypi.org/project/nilrag) and on [GitHub](https://github.com/NillionNetwork/nilrag). Developers can use nilRAG as a feature of [Private LLMs](/build/private-llms/overview) to enhance the inference with context that has been uploaded to [Private Storage](/build/private-storage/overview).
 
 ### Performance Expectations
 
-We have performed a series of benchmarks to evaluate the performance of nilRAG.
-Currently, nilRAG scales linearly to the number of rows stored in nilDB.
-The following table shows latency to upload to nilDB multiple paragraphs of a few sentences
-long, as well as the runtime for AI inference using an LLM on a nilAI node with nilRAG.
+Presented below are a series of benchmarks that evaluate the performance of nilRAG. Currently, nilRAG scales linearly to the number of rows stored in nilDB. The table shows latency to upload to nilDB multiple paragraphs of a few sentences long, as well as the runtime for AI inference using an LLM on a nilAI node with nilRAG.
 
 | Number of Paragraphs Stored in nilDB | Upload Time to nilDB (sec.) | Query Time (Inference + RAG) (sec.) |
 | ------------------------------------ | --------------------------- | ----------------------------------- |
@@ -126,6 +110,4 @@ long, as well as the runtime for AI inference using an LLM on a nilAI node with 
 | 1000                                 | 10.5                        | 13.2                                |
 | 10000                                | 51.3                        | 21.9                                |
 
-Additionally, using multiple concurrent users, the query time for inference with nilRAG increases.
-Performing inference with nilRAG with a content of 100 paragraphs takes approximately 5 seconds for a single user, while with ten concurrent users the inference time for the same content goes up to almost 9 seconds.
-We are continuing our research to further accelerate nilRAG and make it more scalable. Stay tuned!
+Additionally, using multiple concurrent users, the query time for inference with nilRAG increases. Performing inference with nilRAG with a content of 100 paragraphs takes approximately 5 seconds for a single user, while with ten concurrent users the inference time for the same content goes up to almost 9 seconds. We are continuing our research to further accelerate nilRAG and make it more scalable. Stay tuned!

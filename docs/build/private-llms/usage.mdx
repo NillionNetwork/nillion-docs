@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # Usage
 
-Once you have a [nilAI API key](/build/api-key), you can start using SecretLLM with any OpenAI-compatible library.
+Once you have a [nilAI API key](/build/api-key), you can start using LLMs on nilAI nodes with any OpenAI-compatible library.
 
 :::info
 The `Old Flow` will be deprecated by the 1st of August 2025. Please use the `NUCS` flow to create your API key.
@@ -11,9 +11,9 @@ The `Old Flow` will be deprecated by the 1st of August 2025. Please use the `NUC
 
 <Tabs>
     <TabItem value="nucs-flow" label="NUCS" >
-    ## Getting Started with SecretLLM
+    ## Getting Started with Private LLMs
 
-    Getting started with SecretLLM is straightforward
+    Getting started is straightforward
 
     You can either use:
     -  `API Key` flow as the sole developer / organization or
@@ -22,10 +22,10 @@ The `Old Flow` will be deprecated by the 1st of August 2025. Please use the `NUC
     ### API Key Flow
 
     1. Use `https://nilai-a779.nillion.network/nuc/v1` as the BASE URL
-    2. Check [available models](/build/secretLLM/overview#available-models) or query the [`/v1/models`](/api/nilai/get-models-v-1-models-get) endpoint or
+    2. Check [available models](/build/private-llms/overview#available-models) or query the [`/v1/models`](/api/nilai/get-models-v-1-models-get) endpoint or
     3. Select an available model and use it with the [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) nilAI node endpoint
 
-    Since SecretLLM is OpenAI-compatible, you can use any OpenAI library. Here's an example for querying the `Llama-3.1-8B` model:
+    With OpenAI compatibility, you can use any OpenAI library. Here's an example for querying the `Llama-3.1-8B` model:
 
     <Tabs>
         <TabItem value="python" label="Python">
@@ -60,7 +60,7 @@ The `Old Flow` will be deprecated by the 1st of August 2025. Please use the `NUC
 
     To use the delegation flow, you need to create a delegation token server.
 
-    The server then creates the delegation tokens and managing their expiration and usage. Then the delegation token allows you to make requests to the SecretLLM/nilAI API.
+    The server then creates the delegation tokens and managing their expiration and usage. Then the delegation token allows you to make requests to the nilAI API.
 
         <Tabs>
 

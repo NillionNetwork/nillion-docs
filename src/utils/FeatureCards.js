@@ -4,14 +4,14 @@ export const QuickStartFeatures = [
     description:
       'Read and write records to an encrypted database using nilDB APIs.',
     icon: '🏛️',
-    href: './build/secret-vault/quickstart',
+    href: './build/private-storage/quickstart',
   },
   {
     title: 'Private LLMs',
     description:
       'Run OpenAI-compatible LLMs privately in a TEE within a nilAI node, without exposing user data.',
     icon: '💬',
-    href: './build/secretLLM/quickstart',
+    href: './build/private-llms/quickstart',
   },
 ];
 

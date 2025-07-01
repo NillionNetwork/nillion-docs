@@ -25,11 +25,11 @@ graph TD
     R
     end
 
-    A[Application] -->|data| NILQL0[<b>nilQL</b>]
+    A[Application] -->|data| NILQL0[<b>blindfold</b>]
     NILQL0 -->|data secret share| X[<b>nilDB Node</b>]
     NILQL0 -->|data secret share| Y[<b>nilDB Node</b>]
     NILQL0 -->|data secret share| Z[<b>nilDB Node</b>]
-    X <-->|query secret share<br/>reply secret share| NILQL1[<b>nilQL</b>]
+    X <-->|query secret share<br/>reply secret share| NILQL1[<b>blindfold</b>]
     Y <-->|query secret share<br/>reply secret share| NILQL1
     Z <-->|query secret share<br/>reply secret share| NILQL1
     NILQL1 <-->|query<br/>reply| R[Service Provider]
@@ -45,11 +45,11 @@ graph TD
     style SERVICE fill:#FFFFFF,stroke:#000000
 ```
 
-nilDB is the Blind Module that underpins Nillion's SecretVault and SecretDataAnalytics products. [SecretVault](./secret-vault/about) data are accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use our nilQL library to encrypt and/or secret share data on the client side before using our RESTful API to send the ciphertexts and/or secret shares to the nodes.
+nilDB is the Blind Module that underpins Nillion's [Private Storage](/build/private-storage/overview) solutions. When using nilDB, data is accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use the [blindfold library](/build/blindfold) to encrypt and/or secret share data on the client side before using the RESTful API to send the ciphertexts and/or secret shares to the nodes.
 
 ## nilAI
 
-nilAI is Nillion's secure AI offering, which runs LLMs securely inside TEEs. nilAI is the Blind Module that underpins [SecretLLM](/build/secretLLM/overview).
+nilAI is Nillion's secure AI offering, which runs LLMs securely inside TEEs. nilAI is the Blind Module that underpins Nillion's [Private LLMs](/build/private-llms/overview) solution.
 
 ```mermaid
 graph LR

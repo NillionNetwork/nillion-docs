@@ -1,6 +1,6 @@
 # Quickstart
 
-SecretLLM allows you to run AI models within a Trusted Execution Environment (TEE). You can use SecretLLM to build new private AI applications or migrate existing ones to run in a secure SecretLLM environment where your data remains private.
+With nilAI, it is possible to run AI models within a trusted execution environment (TEE). This makes it possible to build new private AI applications or migrate existing ones to run on a secure nilAI node so that your data remains private.
 
 ## Getting Started
 
@@ -41,7 +41,7 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretll
 
 ## Customization of UI
 
-With your new API key, you should be able to interact and talk to the SecretLLM with the current UI. In order to interact with a new interface for the journal UI, we will just simple useState and then then call the SecretLLM API to retrieve the data.
+With your new API key, you should be able to interact and talk to the LLM on a nilAI node with the current UI. In order to interact with a new interface for the journal UI, we will just simple useState and then then call the nilAI API to retrieve the data.
 
 You may use the content from this page on your page.tsx and then customize the application as you wish.
 
