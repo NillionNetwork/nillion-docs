@@ -13,7 +13,7 @@ const buildSidebar = [
   'network',
   {
     type: 'doc',
-    label: 'Nillion API Keys',
+    label: 'Network API Access',
     id: 'build/api-key',
   },
   {

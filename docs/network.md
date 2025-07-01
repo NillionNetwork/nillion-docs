@@ -7,7 +7,7 @@ import BlockExplorers from './\_testnet_block_explorers.mdx';
 
 ## nilChain
 
-Configuration information for connecting to [nilChain](https://github.com/NillionNetwork/nilchain), Nillion's Coordination Layer.
+Configuration information for connecting to [nilChain](https://github.com/NillionNetwork/nilchain), Nillion's coordination layer.
 
 <Tabs>
     <TabItem value="nilchain-testnet" label="nilChain Testnet" default>
@@ -37,7 +37,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilDB Nodes
 
-[SecretVault](/build/secret-vault/about) is connect to nilDB nodes to enable storing and querying encrypted data.
+[Private Storage](/build/secret-vault/about) solutions leverage a decentralized cluster of nilDB nodes. The [secretvaults SDK](/build/secretvault) can connect to a cluster of one or more nodes, making it possible to store and query both plaintext and encrypted data stored in the cluster.
 
 <Tabs>
     <TabItem value="nilDB-update" label="nilDB Testnet" default>
@@ -91,7 +91,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilAI Nodes
 
-[SecretLLM](/build/secretLLM/overview) connects to a nilAI node to privately run AI models within a TEE.
+[Private LLMs](/build/secretLLM/overview) can be leveraged by connecting to a nilAI node, which runs AI models within a TEE.
 
 <Tabs>
     <TabItem value="nilAI-testnet" label="nilAI Alpha" default>
