@@ -1,0 +1,237 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Usage
+
+Once you have a [nilAI API key](/build/api-key), you can start using LLMs on nilAI nodes with any OpenAI-compatible library.
+
+:::info
+The `Old Flow` will be deprecated by the 1st of August 2025. Please use the `NUCS` flow to create your API key.
+:::
+
+<Tabs>
+    <TabItem value="nucs-flow" label="NUCS" >
+    ## Getting Started with Private LLMs
+
+    Getting started is straightforward
+
+    <Tabs>
+        <TabItem value="pip" label="pip" default>
+            ```bash
+            pip install nilai-py
+            ```
+        </TabItem>
+        <TabItem value="uv" label="uv" >
+            ```bash
+            uv pip install nilai-py
+            ```
+       </TabItem>
+
+   </Tabs>
+
+    You can either use:
+    -  `API Key` flow as the sole developer / organization or
+    - `Delegation Flow` to provide permissions to another user / organization.
+
+    ### API Key Flow
+
+    1. Use `https://nilai-a779.nillion.network/nuc/v1` as the BASE URL
+    2. Check [available models](/build/private-llms/overview#available-models) or query the [`/v1/models`](/api/nilai/get-models-v-1-models-get) endpoint or
+    3. Select an available model and use it with the [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) nilAI node endpoint
+
+    With OpenAI compatibility, you can use any OpenAI library. Here's an example for querying the `Llama-3.1-8B` model:
+
+    <Tabs>
+        <TabItem value="python" label="Python">
+            ```python
+            from nilai_py import Client
+
+            from config import API_KEY
+
+            def main():
+                client = Client(
+                    base_url="https://nilai-a779.nillion.network/nuc/v1",
+                    api_key=API_KEY,
+                )
+
+                # Make a request to the Nilai API
+                response = client.chat.completions.create(
+                    model="meta-llama/Llama-3.2-3B-Instruct",
+                    messages=[
+                        {"role": "user", "content": "Hello! Can you help me with something?"}
+                    ],
+                )
+
+                print(f"Response: {response.choices[0].message.content}")
+
+            if __name__ == "__main__":
+                main()
+            ```
+        </TabItem>
+    </Tabs>
+
+    ### Delegation flow
+
+    To use the delegation flow, you need to create a delegation token server.
+
+    The server then creates the delegation tokens and managing their expiration and usage. Then the delegation token allows you to make requests to the nilAI API.
+
+        <Tabs>
+
+<TabItem value="python" label="Python">
+                ```python
+
+                from nilai_py import (
+                    Client,
+                    DelegationTokenServer,
+                    AuthType,
+                    DelegationServerConfig,
+                    DelegationTokenRequest,
+                    DelegationTokenResponse,
+
+                )
+
+                from config import API_KEY
+
+                def main(): # >>> Server initializes a delegation token server # The server is responsible for creating delegation tokens # and managing their expiration and usage.
+                    server = DelegationTokenServer(
+                    private_key=API_KEY,
+                    config=DelegationServerConfig(
+                        expiration_time=10, # 10 seconds validity of delegation tokens
+                        token_max_uses=1, # 1 use of a delegation token
+                        ),
+                    )
+
+                    # >>> Client initializes a client
+                    # The client is responsible for making requests to the Nilai API.
+                    # We do not provide an API key but we set the auth type to DELEGATION_TOKEN
+                    client = Client(
+                        base_url="https://nilai-a779.nillion.network/nuc/v1/",
+                        auth_type=AuthType.DELEGATION_TOKEN,
+                    )
+
+                    # >>> Client produces a delegation request
+                    delegation_request: DelegationTokenRequest = client.get_delegation_request()
+
+                    # <<< Server creates a delegation token
+                    delegation_token: DelegationTokenResponse = server.create_delegation_token(
+                        delegation_request
+                    )
+
+                    # >>> Client sets internally the delegation token
+                    client.update_delegation(delegation_token)
+
+                    # >>> Client uses the delegation token to make a request
+                    response = client.chat.completions.create(
+                        model="meta-llama/Llama-3.2-3B-Instruct",
+                        messages=[
+                            {"role": "user", "content": "Hello! Can you help me with something?"}
+                        ],
+                    )
+
+                    print(f"Response: {response.choices[0].message.content}")
+
+                if  __name__ == "__main__":
+                    main()
+
+                ```
+        </TabItem>
+        </Tabs>
+
+    </TabItem>
+
+    <TabItem value="old-flow" label="Old Flow">
+        ## Getting Started with SecretLLM
+
+    Getting started with SecretLLM is straightforward:
+
+    1. Select a [nilAI node url](/network#nilai-nodes)
+    2. Query the [`/v1/models`](/api/nilai/get-models-v-1-models-get) endpoint or check [available models](/build/private-llms/overview#available-models)
+    3. Select an available model and use it with the [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) nilAI node endpoint
+
+    Since SecretLLM is OpenAI-compatible, you can use any OpenAI library. Here's an example for querying the `Llama-3.1-8B` model:
+
+    <Tabs>
+
+    <TabItem value="node" label="Node.js" default>
+    ```javascript reference showGithubLink
+    https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nodejs/index.js
+    ```
+
+    ### Example response from SecretLLM
+
+    <details>
+    <summary>Signature and Response</summary>
+
+    ```text
+    Signature: MEYCIQCfafKvn1nRmBdFYyxp+mJrRVaTuuN1ME40TRDC4Wg/HAIhAIpm4H2QCqlPmgnOd8/aJXuvWvIAEzKl3ObbbyFMz6iI
+    Response: As a fitness coach, I'd say it's not necessarily about which one is better, but rather about balance and moderation. Both salads and pizza can be part of a healthy diet, but it depends on how they're prepared and consumed.
+
+    A salad, when made with nutrient-dense ingredients like leafy greens, vegetables, lean proteins, and healthy fats, can be an excellent choice for a healthy meal. It's high in fiber, vitamins, and minerals, and can help support weight loss, improve digestion, and boost energy levels.
+
+    On the other hand, pizza, when made with refined flour, processed meats, and high amounts of cheese, can be a less-than-ideal choice. It's high in calories, saturated fat, sodium, and refined carbohydrates, which can lead to weight gain, inflammation, and other health problems.
+
+    However, if you're craving pizza, there are ways to make it healthier. Look for options that use:
+
+    1. Whole-wheat or cauliflower crust
+    2. Lean protein sources like chicken, turkey, or plant-based options
+    3. Fresh vegetables like bell peppers, onions, and mushrooms
+    4. Low-fat cheese or dairy-free alternatives
+    5. Herbs and spices for flavor instead of salt and sugar
+
+    In contrast, a salad can be made healthier by:
+
+    1. Using a variety of colorful vegetables
+    2. Adding lean protein sources like grilled chicken, salmon, or tofu
+    3. Incorporating healthy fats like avocado, nuts, or seeds
+    4. Using a homemade vinaigrette dressing instead of store-bought
+    5. Limiting or avoiding added sugars and refined grains
+
+    Ultimately, the better choice between salad and pizza depends on your individual needs and preferences. If you're looking for a quick, easy, and nutritious meal, a salad might be the way to go. But if you're craving something more indulgent, a healthier pizza option can be a better choice.
+
+    As a fitness coach, I always recommend balance and variety in your diet. Aim to include a mix of whole, unprocessed foods, and indulge in moderation. Listen to your body and make choices that nourish your mind, body, and soul.
+    ```
+
+    </details>
+    </TabItem>
+    <TabItem value="python" label="Python">
+
+    ```python
+    from openai import OpenAI
+
+    # Initialize the OpenAI client
+
+    client = OpenAI(
+        base_url="https://nilai-<node>.nillion.network/v1/",
+        api_key="YOUR_API_KEY"
+    )
+
+    # Send a chat completion request
+
+    response = client.chat.completions.create(
+        model="meta-llama/Llama-3.1-8B-Instruct",
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a helpful assistant."
+            },
+            {
+                "role": "user",
+                "content": "What is your name?"
+            }
+        ],
+        stream=False
+    )
+    ```
+
+    </TabItem>
+    <TabItem value="javascript" label="Next JS (API routes)">
+    ```typescript reference showGithubLink
+    https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nextjs/app/api/chat/route.ts
+    ```
+    </TabItem>
+    </Tabs>
+
+    </TabItem>
+
+</Tabs>

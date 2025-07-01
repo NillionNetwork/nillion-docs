@@ -1,6 +1,6 @@
-# Community and support
+# Community and Support
 
-### Join our community
+### Join Our Community
 
 - Join our [Discord](https://discord.com/invite/nillionnetwork)
 - Telegram groups
@@ -15,11 +15,11 @@ If you'd like to open a ticket, you can do so via our [Discord ticket link](http
 
 # Developers
 
-### Technical discussions and questions
+### Technical Discussions and Questions
 
 Nillion's [Github Discussions](https://github.com/orgs/NillionNetwork/discussions?discussions_q=) forum is our central developer hub for technical discussions related to Nillion. Builders can use Github discussions to share ideas, ask questions, showcase their projects, and stay updated on the latest news and announcements from the Nillion team.
 
-### Improve the docs
+### Improve the Docs
 
 Got a suggestion for improving the docs? Let us know by [creating a Github Issue](https://github.com/NillionNetwork/nillion-docs/issues/new?assignees=&labels=documentation&projects=&template=improve-documentation.md&title=%5BDOCS%5D).
 

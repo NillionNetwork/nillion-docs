@@ -19,14 +19,7 @@ Nillion combines multiple cryptographic techniques to create a platform where da
 
 ### SecretVault
 
-- [Overview](https://docs.nillion.com/build/secret-vault): Introduction to SecretVault for secure data storage
-- [SecretVault Quickstart](https://docs.nillion.com/build/secret-vault-quickstart): Get started with SecretVault
-- [Register an Organization](https://docs.nillion.com/build/secretVault-secretDataAnalytics/access): How to set up an organization in SecretVault
-- [Define a Collection](https://docs.nillion.com/build/secretVault-secretDataAnalytics/create-schema): Creating data schemas
-- [Store Records](https://docs.nillion.com/build/secretVault-secretDataAnalytics/upload): How to store data securely
-- [Retrieve Records](https://docs.nillion.com/build/secretVault-secretDataAnalytics/retrieve): How to retrieve stored data
-- [Define a Query](https://docs.nillion.com/build/secretVault-secretDataAnalytics/create-query): Creating queries for data analytics
-- [Execute a Query](https://docs.nillion.com/build/secretVault-secretDataAnalytics/query): Running analytics on private data
+- [Overview](https://docs.nillion.com/build/secret-vault/about): Introduction to SecretVault for secure data storage
 - [API Reference](https://docs.nillion.com/api/nildb/overview): Complete SecretVault API documentation
 
 ### SecretLLM

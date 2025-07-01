@@ -10,101 +10,78 @@ const buildSidebar = [
     label: 'Start Building',
     id: 'quickstart',
   },
+  'network',
+  {
+    type: 'doc',
+    label: 'Network API Access',
+    id: 'build/api-key',
+  },
   {
     type: 'category',
-    label: 'SecretVault',
+    label: 'Private Storage',
     link: {
       type: 'doc',
-      id: 'build/secret-vault',
+      id: 'build/private-storage/overview',
     },
 
     items: [
       {
         type: 'doc',
-        label: 'SecretVault Quickstart',
-        id: 'build/secret-vault-quickstart',
+        label: 'Quickstart',
+        id: 'build/private-storage/quickstart',
       },
       {
         type: 'category',
-        label: 'Build with SecretVault APIs',
+        label: 'Secretvaults SDK',
         link: {
           type: 'doc',
-          id: 'build/secretVault-secretDataAnalytics/build',
+          id: 'build/secretvaults',
         },
-        collapsible: false,
         items: [
           {
-            type: 'doc',
-            label: '1. Register an Organization',
-            id: 'build/secretVault-secretDataAnalytics/access',
+            type: 'link',
+            label: 'secretvaults-ts',
+            href: 'https://github.com/NillionNetwork/secretvaults-ts',
           },
-          {
-            type: 'doc',
-            label: '2. Define a Collection',
-            id: 'build/secretVault-secretDataAnalytics/create-schema',
-          },
-          {
-            type: 'doc',
-            label: '3. Store Records',
-            id: 'build/secretVault-secretDataAnalytics/upload',
-          },
-          {
-            type: 'doc',
-            label: '4. Retrieve Records',
-            id: 'build/secretVault-secretDataAnalytics/retrieve',
-          },
-          {
-            type: 'doc',
-            label: '5. Define a Query | Data Analytics',
-            id: 'build/secretVault-secretDataAnalytics/create-query',
-          },
-          {
-            type: 'doc',
-            label: '6. Execute a Query | Data Analytics',
-            id: 'build/secretVault-secretDataAnalytics/query',
-          },
-          {
-            type: 'doc',
-            label: 'API Reference',
-            id: 'api/nildb/overview',
-          },
+          // {
+          //   type: 'link',
+          //   label: 'secretvaults-py',
+          //   href: 'https://github.com/NillionNetwork/secretvaults-py',
+          // },
         ],
       },
-      'build/secretVault-secretDataAnalytics/generate-tokens',
-
       {
-        type: 'link',
-        label: 'JS Wrapper Examples',
-        href: 'https://github.com/NillionNetwork/secretvault-js/tree/main/examples',
-      },
-      {
-        type: 'link',
-        label: 'Python Wrapper Examples',
-        href: 'https://github.com/NillionNetwork/secretvaults-py/tree/main/examples',
-      },
-      {
-        type: 'link',
-        label: 'Full App Examples',
-        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb',
-      },
-      {
-        type: 'link',
-        label: 'Nillion SecretVault Tools UI',
-        href: 'https://schema-tools.vercel.app',
+        type: 'category',
+        label: 'Blindfold Library',
+        link: {
+          type: 'doc',
+          id: 'build/blindfold',
+        },
+        items: [
+          {
+            type: 'link',
+            label: 'blindfold-ts',
+            href: 'https://github.com/NillionNetwork/blindfold-ts',
+          },
+          {
+            type: 'link',
+            label: 'blindfold-py',
+            href: 'https://github.com/NillionNetwork/blindfold-py',
+          },
+        ],
       },
     ],
   },
   {
     type: 'category',
-    label: 'SecretLLM',
+    label: 'Private LLMs',
     link: {
       type: 'doc',
-      id: 'build/secretLLM/overview',
+      id: 'build/private-llms/overview',
     },
     items: [
-      'build/secretLLM/quickstart',
-      'build/secretLLM/access',
-      'build/secretLLM/usage',
+      'build/private-llms/quickstart',
+      'build/private-llms/usage',
       {
         type: 'doc',
         label: 'API Reference',
@@ -115,37 +92,9 @@ const buildSidebar = [
         label: 'Examples',
         href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai',
       },
-    ],
-  },
-  {
-    type: 'category',
-    label: 'Libraries',
-    items: [
       {
         type: 'category',
-        label: 'nilQL',
-        link: {
-          type: 'doc',
-          id: 'build/nilQL',
-        },
-        collapsible: false,
-        items: [
-          'build/secretVault-secretDataAnalytics/encryption',
-          {
-            type: 'link',
-            label: 'nilql-ts',
-            href: 'https://github.com/NillionNetwork/nilql-ts',
-          },
-          {
-            type: 'link',
-            label: 'nilql-py',
-            href: 'https://github.com/NillionNetwork/nilql-py',
-          },
-        ],
-      },
-      {
-        type: 'category',
-        label: 'nilRAG',
+        label: 'nilRAG Library',
         link: {
           type: 'doc',
           id: 'build/nilRAG',
@@ -165,8 +114,7 @@ const buildSidebar = [
       },
     ],
   },
-  'build/ai/ai-workflow',
-  'network',
+  'build/ai/ai-assisted-workflow',
 ];
 
 module.exports = {
