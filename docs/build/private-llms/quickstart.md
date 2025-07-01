@@ -27,7 +27,11 @@ cd blind-module-examples/nilai/secretllm_nextjs
 cp .env.example .env
 ```
 
-Then replace it with the `Nillion2025`. This is the test developer key we provide. We recommend switching to a production API key [here](/build/api-key).
+:::info
+Replace the key with the `Nillion2025`. This is the test developer key we provide.
+
+We recommend using a production API Key. Follow the guide [here](/build/api-key) via the `Old Flow (SecretLLM)`.
+:::
 
 ## Usage
 
