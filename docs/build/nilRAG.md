@@ -1,6 +1,6 @@
 # nilRAG Library
 
-Retrieval augmented generation (RAG) is a technique that grants large language models (LLMs) information retrieval capabilities and context that they might be missing. The nilRAG library leverages features of [Private LLMs)](/build/private-llms/overview) and [Private Storage](/build/private-storage/overview) together with the
+Retrieval augmented generation (RAG) is a technique that grants large language models (LLMs) information retrieval capabilities and context that they might be missing. The nilRAG library leverages features of [Private LLMs](/build/private-llms/overview) and [Private Storage](/build/private-storage/overview) together with the
 [blindfold](/build/blindfold) encryption library.
 
 :::info

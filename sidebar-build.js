@@ -32,7 +32,7 @@ const buildSidebar = [
       },
       {
         type: 'category',
-        label: 'secretvaults SDK',
+        label: 'Secretvaults SDK',
         link: {
           type: 'doc',
           id: 'build/secretvaults',
@@ -52,7 +52,7 @@ const buildSidebar = [
       },
       {
         type: 'category',
-        label: 'blindfold Library',
+        label: 'Blindfold Library',
         link: {
           type: 'doc',
           id: 'build/blindfold',

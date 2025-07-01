@@ -1,4 +1,4 @@
-# blindfold Library
+# Blindfold Library
 
 The blindfold cryptographic library provides functions for encrypting/decrypting and secret sharing data stored in individual nilDB nodes and nilDB clusters.
 
