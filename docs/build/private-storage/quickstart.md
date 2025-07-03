@@ -68,7 +68,7 @@ Create a `.env` file in your project root:
 
 ```bash
 # .env
-NILLION_PRIVATE_KEY=your-hex-private-key-from-nilpay
+BUILDER_PRIVATE_KEY=your-hex-private-key-from-nilpay
 
 # Optional: Override default testnet URLs if needed
 # NILCHAIN_URL=http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
@@ -109,7 +109,7 @@ const config = {
   NILCHAIN_URL: process.env.NILCHAIN_URL,
   NILAUTH_URL: process.env.NILAUTH_URL,
   NILDB_NODES: process.env.NILDB_NODES.split(','),
-  BUILDER_PRIVATE_KEY: process.env.NILLION_PRIVATE_KEY,
+  BUILDER_PRIVATE_KEY: process.env.BUILDER_PRIVATE_KEY,
 };
 
 // Validate configuration
