@@ -272,8 +272,8 @@ const config = {
         redirects: [
           // /docs/oldDoc -> /docs/newDoc
           {
-            to: '/docs/build/private-storage/overview',
-            from: '/docs/build/secret-vault',
+            to: '/build/private-storage/overview',
+            from: '/build/secret-vault',
           },
           // Redirect from multiple old paths to the new path
           // {

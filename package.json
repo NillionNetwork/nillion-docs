@@ -16,7 +16,7 @@
   "dependencies": {
     "@cookbookdev/docsbot": "^4.17.4",
     "@docusaurus/core": "3.5.2",
-    "@docusaurus/plugin-client-redirects": "^3.8.1",
+    "@docusaurus/plugin-client-redirects": "3.5.2",
     "@docusaurus/preset-classic": "3.5.2",
     "@docusaurus/theme-mermaid": "^3.5.2",
     "@docusaurus/theme-search-algolia": "3.5.2",
