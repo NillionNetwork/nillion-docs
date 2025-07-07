@@ -264,6 +264,47 @@ const config = {
         },
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        fromExtensions: ['html', 'htm'],
+        toExtensions: ['exe', 'zip'],
+        redirects: [
+          {
+            to: '/build/private-llms/quickstart',
+            from: '/build/secretLLM/quickstart',
+          },
+          {
+            to: '/build/private-storage/quickstart',
+            from: '/build/secret-vault-quickstart',
+          },
+          {
+            to: '/build/private-storage/overview',
+            from: [
+              '/build/secret-vault',
+              '/build/secretVault-secretDataAnalytics/build',
+              '/build/secretVault-secretDataAnalytics/create-schema',
+              '/build/secretVault-secretDataAnalytics/upload',
+              '/build/secretVault-secretDataAnalytics/retrive',
+              '/build/secretVault-secretDataAnalytics/create-query',
+              '/build/secretVault-secretDataAnalytics/query',
+            ],
+          },
+          {
+            to: '/build/private-llms/overview',
+            from: ['/build/secretLLM/overview', '/build/secretLLM/usage'],
+          },
+          {
+            to: '/build/api-key',
+            from: [
+              '/build/secretVault-secretDataAnalytics/generate-tokens',
+              '/build/secretVault-secretDataAnalytics/access',
+              '/build/secretLLM/access',
+            ],
+          },
+        ],
+      },
+    ],
   ],
 };
 
