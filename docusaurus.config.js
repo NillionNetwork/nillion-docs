@@ -297,9 +297,11 @@ const config = {
           {
             to: '/build/api-key',
             from: [
+              '/build/permissions-and-payments/overview',
               '/build/secretVault-secretDataAnalytics/generate-tokens',
               '/build/secretVault-secretDataAnalytics/access',
               '/build/secretLLM/access',
+              '/build/network-api-access',
             ],
           },
         ],
