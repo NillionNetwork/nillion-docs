@@ -271,7 +271,7 @@ const config = {
         toExtensions: ['exe', 'zip'],
         redirects: [
           {
-            to: '.build/private-llms/quickstart',
+            to: '/build/private-llms/quickstart',
             from: '/build/secretLLM/quickstart',
           },
           {
@@ -282,7 +282,6 @@ const config = {
             to: '/build/private-storage/overview',
             from: [
               '/build/secret-vault',
-              '/build/secret-vault-quickstart',
               '/build/secretVault-secretDataAnalytics/build',
               '/build/secretVault-secretDataAnalytics/create-schema',
               '/build/secretVault-secretDataAnalytics/upload',
