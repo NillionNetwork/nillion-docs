@@ -267,30 +267,43 @@ const config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
-        fromExtensions: ['html', 'htm'], // /myPage.html -> /myPage
-        toExtensions: ['exe', 'zip'], // /myAsset -> /myAsset.zip (if latter exists)
+        fromExtensions: ['html', 'htm'],
+        toExtensions: ['exe', 'zip'],
         redirects: [
-          // /docs/oldDoc -> /docs/newDoc
+          {
+            to: '.build/private-llms/quickstart',
+            from: '/build/secretLLM/quickstart',
+          },
+          {
+            to: '/build/private-storage/quickstart',
+            from: '/build/secret-vault-quickstart',
+          },
           {
             to: '/build/private-storage/overview',
-            from: '/build/secret-vault',
+            from: [
+              '/build/secret-vault',
+              '/build/secret-vault-quickstart',
+              '/build/secretVault-secretDataAnalytics/build',
+              '/build/secretVault-secretDataAnalytics/create-schema',
+              '/build/secretVault-secretDataAnalytics/upload',
+              '/build/secretVault-secretDataAnalytics/retrive',
+              '/build/secretVault-secretDataAnalytics/create-query',
+              '/build/secretVault-secretDataAnalytics/query',
+            ],
           },
-          // Redirect from multiple old paths to the new path
-          // {
-          //   to: '/docs/newDoc2',
-          //   from: ['/docs/oldDocFrom2019', '/docs/legacyDocFrom2016'],
-          // },
+          {
+            to: '/build/private-llms/overview',
+            from: ['/build/secretLLM/overview', '/build/secretLLM/usage'],
+          },
+          {
+            to: '/build/api-key',
+            from: [
+              '/build/secretVault-secretDataAnalytics/generate-tokens',
+              '/build/secretVault-secretDataAnalytics/access',
+              '/build/secretLLM/access',
+            ],
+          },
         ],
-        //   createRedirects(existingPath) {
-        //     if (existingPath.includes('/community')) {
-        //       // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
-        //       return [
-        //         existingPath.replace('/community', '/docs/team'),
-        //         existingPath.replace('/community', '/docs/support'),
-        //       ];
-        //     }
-        //     return undefined; // Return a falsy value: no redirect created
-        //   },
       },
     ],
   ],
