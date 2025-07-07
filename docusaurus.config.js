@@ -264,6 +264,21 @@ const config = {
         },
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/build/api-key',
+            from: '/build/permissions-and-payments/overview',
+          },
+          {
+            to: '/build/api-key',
+            from: '/build/network-api-access',
+          },
+        ]
+      },
+    ],
   ],
 };
 
