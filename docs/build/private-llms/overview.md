@@ -49,4 +49,4 @@ Two layers of cryptographic proof are provided:
 
 ### Enhance by Providing Context from Private Storage and nilRAG
 
-Optionally, you can use nilRAG to allow private LLMs to access nilDB private storage in order to retrieve relevant context! See [nilRAG documentation](/build/nilRAG) for details.
+Optionally, you can use nilRAG to allow private LLMs to access nilDB private storage in order to retrieve relevant context! See [nilRAG documentation](/build/private-llms/nilRAG) for details.
