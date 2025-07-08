@@ -21,7 +21,7 @@ function HeroSection() {
           transactions.
         </p>
         <div className={styles.getStartedButton}>
-          <LinkButton text='Get Started' link='/quickstart' small={true} />
+          <LinkButton text='Get Started' link='/build/quickstart' small={true} />
         </div>
       </div>
       <div className={styles.heroImageContainer}>
@@ -52,20 +52,20 @@ function FeaturesSection() {
       description:
         'Nillion is a secure computation network that decentralizes trust for high value data in the same way that blockchains decentralized transactions.',
       icon: '🎓',
-      href: './what-is-nillion',
+      href: './learn/what-is-nillion',
     },
     {
       title: 'Build',
       description: 'Start building on Nillion with one of our developer SDKs.',
       icon: '👷',
-      href: './quickstart',
+      href: './build/quickstart',
     },
     {
       title: 'Community',
       description:
         'Join the Nillion community to connect, collaborate, and contribute to the future of blind computation.',
       icon: '🌐',
-      href: './community-and-support',
+      href: './community/community-and-support',
     },
   ];
 

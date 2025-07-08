@@ -125,13 +125,13 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'what-is-nillion',
+            docId: 'learn/what-is-nillion',
             label: 'Learn',
           },
           {
             type: 'doc',
             position: 'left',
-            docId: 'quickstart',
+            docId: 'build/quickstart',
             label: 'Build',
           },
           {
@@ -143,7 +143,7 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'community-and-support',
+            docId: 'community/community-and-support',
             label: 'Community',
           },
 
@@ -267,8 +267,6 @@ const config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
-        fromExtensions: ['html', 'htm'],
-        toExtensions: ['exe', 'zip'],
         redirects: [
           {
             to: '/build/private-llms/quickstart',
@@ -295,14 +293,62 @@ const config = {
             from: ['/build/secretLLM/overview', '/build/secretLLM/usage'],
           },
           {
-            to: '/build/api-key',
+            to: '/build/network-api-access',
             from: [
               '/build/permissions-and-payments/overview',
               '/build/secretVault-secretDataAnalytics/generate-tokens',
               '/build/secretVault-secretDataAnalytics/access',
               '/build/secretLLM/access',
-              '/build/network-api-access',
+              '/build/api-key',
             ],
+          },
+          {
+            to: '/learn/blind-modules',
+            from: '/build/blind-modules',
+          },
+          {
+            to: '/learn/what-is-nillion',
+            from: '/what-is-nillion',
+          },
+          {
+            to: '/build/quickstart',
+            from: '/quickstart',
+          },
+          {
+            to: '/build/network-config',
+            from: '/network',
+          },
+          {
+            to: '/build/private-storage/secretvaults',
+            from: '/build/secretvaults',
+          },
+          {
+            to: '/build/private-storage/blindfold',
+            from: '/build/blindfold',
+          },
+          {
+            to: '/build/private-llms/nilRAG',
+            from: '/build/nilRAG',
+          },
+          {
+            to: '/community/community-and-support',
+            from: '/community-and-support',
+          },
+          {
+            to: '/community/guides/testnet',
+            from: '/testnet-guides',
+          },
+          {
+            to: '/community/guides/nillion-wallet',
+            from: '/guide-nillion-wallet',
+          },
+          {
+            to: '/community/guides/testnet-faucet',
+            from: '/guide-testnet-faucet',
+          },
+          {
+            to: '/community/guides/sending-nil',
+            from: '/guide-sending-nil',
           },
         ],
       },

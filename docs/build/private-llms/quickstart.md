@@ -30,7 +30,7 @@ cp .env.example .env
 :::info
 Replace the key with the `Nillion2025`. This is the test developer key we provide.
 
-We recommend using a production API Key. Follow the guide [here](/build/api-key) via the `Old Flow (SecretLLM)`.
+We recommend using a production API Key. Follow the guide [here](/build/network-api-access) via the `Old Flow (SecretLLM)`.
 :::
 
 ## Usage

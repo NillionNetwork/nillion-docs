@@ -5,22 +5,22 @@ const communitySidebar = [
     value: 'Community',
     defaultStyle: true,
   },
-  'community-and-support',
+  'community/community-and-support',
 
   {
     type: 'category',
     label: 'nilChain Guides',
     items: [
-      'guide-nillion-wallet',
-      'guide-sending-nil',
+      'community/guides/nillion-wallet',
+      'community/guides/sending-nil',
       {
         type: 'category',
         label: 'Testnet Guides',
         link: {
           type: 'doc',
-          id: 'testnet-guides',
+          id: 'community/guides/testnet',
         },
-        items: ['guide-testnet-faucet'],
+        items: ['community/guides/testnet-faucet'],
       },
     ],
   },

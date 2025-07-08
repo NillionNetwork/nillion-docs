@@ -1,5 +1,5 @@
 import IframeVideo from '@site/src/components/IframeVideo/index';
-import BlockExplorers from './\_testnet_block_explorers.mdx';
+import BlockExplorers from '../../\_testnet_block_explorers.mdx';
 
 # Sending NIL Tokens
 

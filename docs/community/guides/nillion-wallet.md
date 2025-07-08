@@ -1,5 +1,5 @@
 import IframeVideo from '@site/src/components/IframeVideo/index';
-import SupportedWallets from './\_testnet_supported_wallets.mdx';
+import SupportedWallets from '../../\_testnet_supported_wallets.mdx';
 
 # Creating a Nillion Wallet
 

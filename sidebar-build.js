@@ -8,13 +8,13 @@ const buildSidebar = [
   {
     type: 'doc',
     label: 'Start Building',
-    id: 'quickstart',
+    id: 'build/quickstart',
   },
-  'network',
+  'build/network-config',
   {
     type: 'doc',
     label: 'Network API Access',
-    id: 'build/api-key',
+    id: 'build/network-api-access',
   },
   {
     type: 'category',
@@ -35,7 +35,7 @@ const buildSidebar = [
         label: 'Secretvaults SDK',
         link: {
           type: 'doc',
-          id: 'build/secretvaults',
+          id: 'build/private-storage/secretvaults',
         },
         items: [
           {
@@ -55,7 +55,7 @@ const buildSidebar = [
         label: 'Blindfold Library',
         link: {
           type: 'doc',
-          id: 'build/blindfold',
+          id: 'build/private-storage/blindfold',
         },
         items: [
           {
@@ -70,6 +70,11 @@ const buildSidebar = [
           },
         ],
       },
+      {
+        type: 'doc',
+        label: 'nilDB API',
+        id: 'api/nildb/overview',
+      },
     ],
   },
   {
@@ -83,11 +88,6 @@ const buildSidebar = [
       'build/private-llms/quickstart',
       'build/private-llms/usage',
       {
-        type: 'doc',
-        label: 'API Reference',
-        id: 'api/nilai/overview',
-      },
-      {
         type: 'link',
         label: 'Examples',
         href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai',
@@ -97,7 +97,7 @@ const buildSidebar = [
         label: 'nilRAG Library',
         link: {
           type: 'doc',
-          id: 'build/nilRAG',
+          id: 'build/private-llms/nilRAG',
         },
         items: [
           {
@@ -112,9 +112,19 @@ const buildSidebar = [
           },
         ],
       },
+      {
+        type: 'doc',
+        label: 'nilAI API',
+        id: 'api/nilai/overview',
+      },
     ],
   },
-  'build/ai/ai-assisted-workflow',
+  {
+    type: 'doc',
+    label: 'Permissions and Payments',
+    id: 'build/permissions-and-payments',
+  },
+  'build/ai-assisted-workflow/overview',
 ];
 
 module.exports = {
