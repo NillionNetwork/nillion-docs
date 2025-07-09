@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import SupportedWallets from './\_testnet_supported_wallets.mdx';
-import BlockExplorers from './\_testnet_block_explorers.mdx';
+import SupportedWallets from '../\_testnet_supported_wallets.mdx';
+import BlockExplorers from '../\_testnet_block_explorers.mdx';
 
 # Network Configuration
 
@@ -37,7 +37,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ### nilDB Nodes
 
-[Private Storage](/build/private-storage/overview) solutions leverage a decentralized cluster of nilDB nodes. The [secretvaults SDK](/build/secretvaults) can connect to a cluster of one or more nodes, making it possible to store and query both plaintext and encrypted data stored in the cluster.
+[Private Storage](/build/private-storage/overview) solutions leverage a decentralized cluster of nilDB nodes. The [secretvaults SDK](/build/private-storage/secretvaults) can connect to a cluster of one or more nodes, making it possible to store and query both plaintext and encrypted data stored in the cluster.
 
 <Tabs>
     <TabItem value="nilDB-update" label="nilDB Testnet" default>

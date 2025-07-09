@@ -1,6 +1,6 @@
 # Protocols
 
-The Nillion Network [Blind Modules](/build/blind-modules) -- and the available SDKs that can be used to interoperate with them -- make it possible to leverage a number of secure data storage and computation protocols. These include what are broadly known as privacy-enhancing technologies (PETs).
+The Nillion Network [Blind Modules](/learn/blind-modules) -- and the available SDKs that can be used to interoperate with them -- make it possible to leverage a number of secure data storage and computation protocols. These include what are broadly known as privacy-enhancing technologies (PETs).
 
 ## Trust Assumptions
 
@@ -20,4 +20,4 @@ nilDB supports of the use of the [Paillier cryptosystem](https://en.wikipedia.or
 
 ### Trusted Execution Environments (TEEs)
 
-[Private LLM inference](/build/private-llms/overview) and the use of [private RAG](/build/nilRAG) is supported via TEEs.
+[Private LLM inference](/build/private-llms/overview) and the use of [private RAG](/build/private-llms/nilRAG) is supported via TEEs.

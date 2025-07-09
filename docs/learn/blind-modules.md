@@ -45,7 +45,7 @@ graph TD
     style SERVICE fill:#FFFFFF,stroke:#000000
 ```
 
-nilDB is the Blind Module that underpins Nillion's [Private Storage](/build/private-storage/overview) solutions. When using nilDB, data is accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use the [blindfold library](/build/blindfold) to encrypt and/or secret share data on the client side before using the RESTful API to send the ciphertexts and/or secret shares to the nodes.
+nilDB is the Blind Module that underpins Nillion's [Private Storage](/build/private-storage/overview) solutions. When using nilDB, data is accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use the [blindfold library](/build/private-storage/blindfold) to encrypt and/or secret share data on the client side before using the RESTful API to send the ciphertexts and/or secret shares to the nodes.
 
 ## nilAI
 

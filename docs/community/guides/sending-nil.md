@@ -1,5 +1,5 @@
 import IframeVideo from '@site/src/components/IframeVideo/index';
-import BlockExplorers from './\_testnet_block_explorers.mdx';
+import BlockExplorers from '../../\_testnet_block_explorers.mdx';
 
 # Sending NIL Tokens
 
@@ -11,7 +11,7 @@ This guide walks you through how to send NIL tokens from one Nillion wallet to a
 
 ### 0. Set up a wallet and get NIL
 
-Follow the [Creating a Nillion Wallet](/guide-nillion-wallet) guide to set up a connected wallet.
+Follow the [Creating a Nillion Wallet](/community/guides/nillion-wallet) guide to set up a connected wallet.
 
 ### 1. Open Keplr and check your NIL balance
 

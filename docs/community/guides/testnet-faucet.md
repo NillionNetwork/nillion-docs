@@ -10,7 +10,7 @@ This guide walks you through how to get NIL from the Nillion Testnet Faucet.
 
 ### 0. Set up a wallet
 
-Follow the [Creating a Nillion Wallet](/guide-nillion-wallet) guide to set up a connected wallet. After creating a wallet, you should have a Nillion wallet address similar to this example address:
+Follow the [Creating a Nillion Wallet](/community/guides/nillion-wallet) guide to set up a connected wallet. After creating a wallet, you should have a Nillion wallet address similar to this example address:
 
 ```
 nillion1jat3ecr8pmd48uxsahyh5nf9qea3gezqtk0sfq

@@ -5,10 +5,10 @@ const learnSidebar = [
     value: 'Learn',
     defaultStyle: true,
   },
-  'what-is-nillion',
+  'learn/what-is-nillion',
   'learn/use-cases',
   'learn/architecture',
-  'build/blind-modules',
+  'learn/blind-modules',
   'learn/protocols',
 ];
 

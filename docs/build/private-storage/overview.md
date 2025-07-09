@@ -8,7 +8,7 @@ This approach offers stronger security than traditional databases where all data
 
 ## How it Works
 
-Private storage is enabled using Nillion's [blindfold libraries](/build/blindfold) (which implement secret sharing) and Nillion's [secretvaults SDKs](/build/secretvaults) (which simplify interacting with nilDB clusters).
+Private storage is enabled using Nillion's [blindfold libraries](/build/private-storage/blindfold) (which implement secret sharing) and Nillion's [secretvaults SDKs](/build/private-storage/secretvaults) (which simplify interacting with nilDB clusters).
 
 1. **Data Encryption**: Sensitive fields are encrypted using cryptographic keys
 2. **Share Generation**: Encrypted data is mathematically split into multiple shares
@@ -18,11 +18,11 @@ Private storage is enabled using Nillion's [blindfold libraries](/build/blindfol
 
 ## How to Use Private Storage
 
-Interact with the private storage solution using the TypeScript or Python [secretvaults libraries](/build/secretvaults). First register as a builder or user, define data collections, then securely store and retrieve data.
+Interact with the private storage solution using the TypeScript or Python [secretvaults libraries](/build/private-storage/secretvaults). First register as a builder or user, define data collections, then securely store and retrieve data.
 
 **For Builders (Applications)**
 
-- Create a [Nillion API Key](/build/api-key) to get nilDB cluster access
+- Obtain [Network API Access](/build/network-api-access) to get nilDB cluster access
 - Define collections with schemas
 - Store and query data
 - Create aggregation queries
