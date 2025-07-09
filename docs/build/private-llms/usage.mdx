@@ -13,19 +13,27 @@ The `Old Flow` will be deprecated by the 1st of August 2025. Please use the `NUC
     <TabItem value="nucs-flow" label="NUCS" >
     ## Getting Started with Private LLMs
 
-    Getting started is straightforward
-
     <Tabs>
-        <TabItem value="pip" label="pip" default>
+
+        <TabItem value="python" label="Python" default>
+            <Tabs>
+                <TabItem value="pip" label="pip" default>
+                    ```bash
+                    pip install nilai-py
+                    ```
+                </TabItem>
+                <TabItem value="uv" label="uv">
+                    ```bash
+                    uv pip install nilai-py
+                    ```
+                </TabItem>
+            </Tabs>
+        </TabItem>
+        <TabItem value="typescript" label="TypeScript">
             ```bash
-            pip install nilai-py
+            pnpm install @nillion/nilai-ts
             ```
         </TabItem>
-        <TabItem value="uv" label="uv" >
-            ```bash
-            uv pip install nilai-py
-            ```
-       </TabItem>
 
    </Tabs>
 
@@ -43,29 +51,46 @@ The `Old Flow` will be deprecated by the 1st of August 2025. Please use the `NUC
 
     <Tabs>
         <TabItem value="python" label="Python">
-            ```python
-            from nilai_py import Client
+            ```python reference showGithubLink
+            https://github.com/NillionNetwork/nilai-py/blob/main/examples/0-api_key_mode.py
+            ```
+        </TabItem>
+        <TabItem value="typescript" label="Typescript">
+            ```typescript
+            import "dotenv/config";
+            import { NilaiOpenAIClient, NilAuthInstance } from "@nillion/nilai-ts";
 
-            from config import API_KEY
+            // To obtain an API key, navigate to https://nilpay.vercel.app/
+            // and create a new subscription.
+            // The API key will be displayed in the subscription details.
+            // The NilaiOpenAIClient class automatically handles the NUC token creation and management.
 
-            def main():
-                client = Client(
-                    base_url="https://nilai-a779.nillion.network/nuc/v1",
-                    api_key=API_KEY,
-                )
+            const API_KEY = process.env.NILLION_API_KEY;
 
-                # Make a request to the Nilai API
-                response = client.chat.completions.create(
-                    model="meta-llama/Llama-3.2-3B-Instruct",
-                    messages=[
-                        {"role": "user", "content": "Hello! Can you help me with something?"}
-                    ],
-                )
+            async function main() {
+            // Initialize the client in API key mode
+            // For sandbox, use the following:
+            const client = new NilaiOpenAIClient({
+                baseURL: "https://nilai-a779.nillion.network/nuc/v1/",
+                apiKey: API_KEY,
+                nilauthInstance: NilAuthInstance.SANDBOX,
+                // For production, use the following:
+                // nilauthInstance: NilAuthInstance.PRODUCTION,
+            });
 
-                print(f"Response: {response.choices[0].message.content}")
+            // Make a request to the Nilai API
+            const response = await client.chat.completions.create({
+                model: "meta-llama/Llama-3.2-3B-Instruct",
+                messages: [
+                { role: "user", content: "Hello! Can you help me with something?" }
+                ],
+            });
 
-            if __name__ == "__main__":
-                main()
+            console.log(`Response: ${response.choices[0].message.content}`);
+            }
+
+            // Run the example
+            main().catch(console.error);
             ```
         </TabItem>
     </Tabs>
@@ -78,63 +103,15 @@ The `Old Flow` will be deprecated by the 1st of August 2025. Please use the `NUC
 
         <Tabs>
 
-<TabItem value="python" label="Python">
-                ```python
-
-                from nilai_py import (
-                    Client,
-                    DelegationTokenServer,
-                    AuthType,
-                    DelegationServerConfig,
-                    DelegationTokenRequest,
-                    DelegationTokenResponse,
-
-                )
-
-                from config import API_KEY
-
-                def main(): # >>> Server initializes a delegation token server # The server is responsible for creating delegation tokens # and managing their expiration and usage.
-                    server = DelegationTokenServer(
-                    private_key=API_KEY,
-                    config=DelegationServerConfig(
-                        expiration_time=10, # 10 seconds validity of delegation tokens
-                        token_max_uses=1, # 1 use of a delegation token
-                        ),
-                    )
-
-                    # >>> Client initializes a client
-                    # The client is responsible for making requests to the Nilai API.
-                    # We do not provide an API key but we set the auth type to DELEGATION_TOKEN
-                    client = Client(
-                        base_url="https://nilai-a779.nillion.network/nuc/v1/",
-                        auth_type=AuthType.DELEGATION_TOKEN,
-                    )
-
-                    # >>> Client produces a delegation request
-                    delegation_request: DelegationTokenRequest = client.get_delegation_request()
-
-                    # <<< Server creates a delegation token
-                    delegation_token: DelegationTokenResponse = server.create_delegation_token(
-                        delegation_request
-                    )
-
-                    # >>> Client sets internally the delegation token
-                    client.update_delegation(delegation_token)
-
-                    # >>> Client uses the delegation token to make a request
-                    response = client.chat.completions.create(
-                        model="meta-llama/Llama-3.2-3B-Instruct",
-                        messages=[
-                            {"role": "user", "content": "Hello! Can you help me with something?"}
-                        ],
-                    )
-
-                    print(f"Response: {response.choices[0].message.content}")
-
-                if  __name__ == "__main__":
-                    main()
-
-                ```
+        <TabItem value="python" label="Python">
+            ```python reference showGithubLink
+            https://github.com/NillionNetwork/nilai-py/blob/main/examples/1-delegation_token_mode.py
+            ```
+        </TabItem>
+        <TabItem value="typescript" label="Typescript">
+            ```typescript reference showGithubLink
+            https://github.com/NillionNetwork/nilai-ts/blob/main/examples/1-delegation-token.ts
+            ```
         </TabItem>
         </Tabs>
 
