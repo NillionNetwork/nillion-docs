@@ -40,8 +40,8 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 [Private Storage](/build/private-storage/overview) solutions leverage a decentralized cluster of nilDB nodes. The [secretvaults SDK](/build/private-storage/secretvaults) can connect to a cluster of one or more nodes, making it possible to store and query both plaintext and encrypted data stored in the cluster.
 
 <Tabs>
-    <TabItem value="nilDB-update" label="nilDB Testnet" default>
-    ### Testnet
+    <TabItem value="nilDB-update" label="nilDB Testnet">
+    #### Testnet
 
     ```
     NILCHAIN_URL=http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
@@ -53,7 +53,7 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
     ```
 
     </TabItem>
-    <TabItem value="nilDB-demo" label="nilDB Alpha">
+    <TabItem value="nilDB-demo" label="nilDB Alpha" default>
 
     ### Nillion Operated Nodes
 
