@@ -124,14 +124,14 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
     ```
     URL: https://nildb-f375.stcbahrain.net
-    API docs: https://nildb-f375.stcbahrain.net/api/v1/openapi/docs/
+    Public Key: 02938a44a192c18fd55b1814f6ba3ecc11e5689baf861e8309aac71eca42ebf375
     ```
 
     #### [nildb-2140](https://nildb-2140.staking.telekom-mms.com)
 
     ```
     URL: https://nildb-2140.staking.telekom-mms.com
-    API docs: https://nildb-2140.staking.telekom-mms.com/api/v1/openapi/docs/
+    Public Key: 034b875022316cda631da79149058303d81547a11bc7e67cc0cd29769858752140
     ```
 
     </TabItem>
