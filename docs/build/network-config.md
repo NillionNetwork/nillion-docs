@@ -89,11 +89,9 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
     #### [nildb-5ab1](https://nildb-5ab1.nillion.network/)
 
     ```
-    URL: https://nildb-5ab1.nillion.network/
+    URL: https://nildb-5ab1.nillion.network
     Public Key: 031f95488b7c389c963548e57b9871a22477fc475adbbd8336a70e1715a7245ab1
     ```
-
-    ### Externally Operated Nodes
 
     #### [nildb-906d](https://nildb-906d.kjnodes.com)
 
