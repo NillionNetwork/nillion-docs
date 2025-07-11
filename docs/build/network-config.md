@@ -41,7 +41,6 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 <Tabs>
     <TabItem value="nilDB-testnet" label="nilDB Testnet">
-    ### Testnet
 
     ```
     NILCHAIN_URL=http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
