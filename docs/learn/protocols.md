@@ -4,15 +4,18 @@ The Nillion Network [Blind Modules](/learn/blind-modules) -- and the available S
 
 ## Trust Assumptions
 
-The Nillion Network consists of clusters of nodes, and builders have the option to rely on a subset of one or more of these nodes to securely store and compute over data. When working with a single node in conjunction with a PET such as homomorphic encryption, it is up to the builder to determine how secret and public keys are generated, maintained, and used. When working with a cluster of two or more nodes, builders can choose to rely on the non-collusion of network nodes (and may not even need to inform any individual node of the identities of other nodes in the cluster).
+The Nillion Network consists of a collection of independent nodes, and builders have the option to rely on any subset of one or more of these nodes (*i.e.*, a *cluster* of nodes that is determined entirely by the builder) to securely store and compute over data.
+
+* When working with a single node in conjunction with a PET such as homomorphic encryption, it is up to the builder to determine how secret and public keys are generated, maintained, and used.
+* When working with a cluster of two or more nodes, builders can choose to rely on the non-collusion of network nodes (and need not inform any individual node of the identities of other nodes in the cluster).
 
 ## Privacy-Enhancing Technologies
 
-The Blind Modules leverage a number of PETs to enable secure data storage and processing.
+The [Blind Modules](/learn/blind-modules) leverage a number of PETs to enable secure data storage and processing.
 
 ### Secure Multi-Party Computation (MPC)
 
-nilDB supports the use of [additive secret sharing](https://en.wikipedia.org/wiki/Secret_sharing) to store data and to compute over that data. Builders can choose two or more nodes across which data would be stored using this approach.
+nilDB supports the use of [additive secret sharing](https://en.wikipedia.org/wiki/Secret_sharing) and [Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) (including threshold secret sharing) to store data and to compute over that data. Builders can choose two or more nodes across which data would be stored using this approach.
 
 ### Homomorphic Encryption (HE)
 

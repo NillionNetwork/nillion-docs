@@ -1,8 +1,10 @@
 # Use Cases
 
+The Nillion Network enables a variety of use cases in which sensitive data is leveraged and processed while remaining protected using cryptographic techniques.
+
 ## Secure Storage and Retrieval
 
-With [Private Storage](/build/private-storage/overview), users can store and retrieve secrets on the Nillion Network via a RESTful API. It is up to the developer which *privacy-enhancing technology* (PET) they want to use and on which node or cluster of nodes they want to rely. Querying and secure computation of these secrets is available for large scale database operations. Homomorphic encryption offers data protection and supports computation over data even if only one node is being used. Secure multi-party computation makes it possible to go one step further, making it possible to store in a decentralized way while relying on the strongest form of encryption possible ([information theoretic security](https://en.wikipedia.org/wiki/Information-theoretic_security)).
+With [Private Storage](/build/private-storage/overview), users can store and retrieve secrets on the Nillion Network via a RESTful API. It is up to the developer which privacy-enhancing technology (PET) they want to use and on which node or cluster of nodes they want to rely. Querying and secure computation of these secrets is available for large scale database operations. Homomorphic encryption offers data protection and supports computation over data even if only one node is being used. Secure multi-party computation makes it possible to go one step further, making it possible to store in a decentralized way while relying on the strongest form of encryption possible (*i.e.*, [information-theoretic security](https://en.wikipedia.org/wiki/Information-theoretic_security)).
 
 ## Private Inference
 
