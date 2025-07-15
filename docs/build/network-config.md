@@ -7,7 +7,7 @@ import BlockExplorers from '../\_testnet_block_explorers.mdx';
 
 ## nilChain
 
-Configuration information for connecting to [nilChain](https://github.com/NillionNetwork/nilchain), Nillion's coordination layer.
+Below is the configuration information for connecting to [nilChain](https://github.com/NillionNetwork/nilchain), Nillion's coordination layer.
 
 <Tabs>
     <TabItem value="nilchain-testnet" label="nilChain Testnet" default>
@@ -35,9 +35,13 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 
 ## Petnet
 
+The Nillion Petnet consists of a network of nodes in which each node implements one of the [Blind Modules](/learn/blind-modules). In some cases, collections of multiple nodes can be treated as clusters by builders.
+
 ### nilDB Nodes
 
-[Private Storage](/build/private-storage/overview) solutions leverage a decentralized cluster of nilDB nodes. The [secretvaults SDK](/build/private-storage/secretvaults) can connect to a cluster of one or more nodes, making it possible to store and query both plaintext and encrypted data stored in the cluster.
+[Private Storage](/build/private-storage/overview) solutions leverage a decentralized cluster of [nilDB](/learn/blind-modules#nildb) nodes, making it possible to store in the cluster and to query both plaintext and encrypted data. Builders can treat any collection of one or more nilDB nodes as a cluster. To work with a cluster, builders either can connect to it using the [secretvaults SDK](/build/private-storage/secretvaults) or can interact directly with individual nodes via the [nilDB API](/api/nildb/overview) and [blindfold library](/build/private-storage/blindfold).
+
+
 
 <Tabs>
     <TabItem value="nilDB-testnet" label="nilDB Testnet">
@@ -139,11 +143,9 @@ Configuration information for connecting to [nilChain](https://github.com/Nillio
 </Tabs>
 <br/>
 
----
-
 ### nilAI Nodes
 
-[Private LLMs](/build/private-llms/overview) can be leveraged by connecting to a nilAI node, which runs AI models within a TEE.
+[Private LLMs](/build/private-llms/overview) can be leveraged by connecting to a [nilAI](/learn/blind-modules#nil-ai) node, which runs AI models within a TEE.
 
 <Tabs>
     <TabItem value="nilAI-testnet" label="nilAI Alpha" default>
