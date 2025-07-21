@@ -43,11 +43,11 @@ const buildSidebar = [
             label: 'secretvaults-ts',
             href: 'https://github.com/NillionNetwork/secretvaults-ts',
           },
-          // {
-          //   type: 'link',
-          //   label: 'secretvaults-py',
-          //   href: 'https://github.com/NillionNetwork/secretvaults-py',
-          // },
+          {
+            type: 'link',
+            label: 'secretvaults-py',
+            href: 'https://github.com/NillionNetwork/secretvaults-py',
+          },
         ],
       },
       {
