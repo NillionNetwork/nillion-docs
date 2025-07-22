@@ -255,6 +255,9 @@ try {
 const user = await SecretVaultUserClient.from({
   baseUrls: config.NILDB_NODES,
   keypair: userKeypair,
+  blindfold: {
+    operation: "store"
+  }
 });
 ```
 
@@ -269,11 +272,16 @@ const delegation = NucTokenBuilder.extending(builder.rootToken)
   .build(builderKeypair.privateKey());
 
 // User's private data
+// %allot indicates that the client should encrypt this data
 const userPrivateData = {
   _id: randomUUID(),
   name: 'Steph',
-  email: 'steph@example.com',
-  phone: '+1-555-0123',
+  email: {
+    "%allot": 'steph@example.com'
+  },
+  phone: {
+    "%allot": '+1-555-0123'
+  },
 };
 
 // User uploads data and grants builder limited access
