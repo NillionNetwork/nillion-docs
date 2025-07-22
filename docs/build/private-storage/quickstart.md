@@ -212,20 +212,41 @@ const collection = {
   type: 'owned', // Every document in the collection will be user-owned
   name: 'User Profile Collection',
   schema: {
-    $schema: 'http://json-schema.org/draft-07/schema#',
-    type: 'array',
-    uniqueItems: true,
-    items: {
+      $schema: 'http://json-schema.org/draft-07/schema#',
+      type: 'array',
+      uniqueItems: true,
+      items: {
       type: 'object',
       properties: {
-        _id: { type: 'string', format: 'uuid' },
-        name: { type: 'string' },
-        email: { type: 'string', format: 'email' },
-        phone: { type: 'string' },
+          _id: { type: 'string', format: 'uuid' },
+          name: { type: 'string' }, // name will not be secret shared
+          email: { // email will be secret shared
+            type: "object",
+            properties: {
+              "%share": {
+                type: "string"
+              }
+            },
+            required: [
+              "%share"
+            ]
+          },
+          phone: { // email will be secret shared
+            type: "object",
+            properties: {
+              "%share": {
+                type: "string"
+              }
+            },
+            required: [
+              "%share"
+            ]
+          },
       },
       required: ['_id', 'name', 'email'],
+      },
     },
-  },
+  };
 };
 ```
 
