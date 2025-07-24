@@ -130,7 +130,8 @@ Users can grant and revoke permissions at any time. Each document maintains its 
 
 ### Query System
 
-MongoDB-style aggregation pipelines with stages like `$match`, `$group`, and `$count` are supported. Queries can operate on encrypted data without full decryption and support variables for parameterization.
+MongoDB-style aggregation pipelines are supported, including stages such as `$match`, `$group`, `$count`, `$lookup`, and `$project`.
+Queries can operate on encrypted data without full decryption and support variables for parameterization.
 
 **Query Variables**
 Allow parameterization of saved queries using JSONPath syntax to specify substitution points, enabling reusable query templates.
