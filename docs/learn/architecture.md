@@ -8,9 +8,58 @@ The Nillion Network architecture consists of two main components: the **nilChain
 
 ![Nillion's network architecture diagram](/img/network_diagram.png)
 
+```mermaid
+graph TD
+
+    subgraph SDKS_AND_LIBRARIES ["SDKs and Libraries"]
+        subgraph SDKS_AND_LIBRARIES_PADDING1 [" "]
+            direction LR
+            SECRETVAULTS["secretvaults"]
+            ---BLINDFOLD["blindfold"]
+            ---NILRAG["nilRAG"]
+            ---NUC["nuc"]
+        end
+    end
+
+    subgraph NILCHAIN ["nilChain"]
+        subgraph MECHANISMS ["Mechanisms"]
+            direction LR
+            PAYMENTS[Payments]
+            ---VALIDATION[Validation]
+            ---CRYPTOECONOMICS[Cryptoeconomics]
+        end
+
+    end
+
+    subgraph PETNET ["Petnet"]
+        subgraph BLIND_MODULES ["Blind Modules"]
+        NILDB[nilDB]
+        ---NILAI[nilAI]
+        end
+    end
+
+    SDKS_AND_LIBRARIES --- NILCHAIN
+    SDKS_AND_LIBRARIES --- PETNET
+
+    SDKS_AND_LIBRARIES:::PADDING_ONE
+    SDKS_AND_LIBRARIES_PADDING1:::PADDING_ONE
+    NILCHAIN:::PADDING_TWO
+    PETNET:::PADDING_TWO
+    classDef PADDING_ONE padding-left:610px,padding-right:610px
+    classDef PADDING_TWO padding-left:10px,padding-right:590px
+
+    style SDKS_AND_LIBRARIES fill:#FFFFFF,stroke:#000000
+    style SDKS_AND_LIBRARIES_PADDING1 fill:#FFFFFF,stroke:#000000,stroke-width:0px
+    style NILCHAIN fill:#CCCCFF,color:#000000
+    style MECHANISMS fill:#0000FF,color:#FFFFFF
+    style BLIND_MODULES fill:#0000FF,color:#FFFFFF
+    style PETNET fill:#CCCCFF,color:#000000
+    linkStyle default fill:#FFFFFF,stroke-width:0px,stroke:#FFFFFF
+```
+
 ### nilChain
 
-The nilChain is a blockchain that manages shared resources for the whole Nillion Network. It's built on top of the Cosmos SDK stack and supports payments, rewards, cryptoeconomic staking, and governance. The main purpose of nilChain is to enable coordination, so it does not have an open execution environment for running smart contracts.
+The nilChain is a blockchain that manages shared resources for the whole Nillion Network. It's built on top of the Cosmos SDK stack and supports payments, rewards, and cryptoeconomic staking. The main purpose of nilChain is to enable coordination, so it does not have an open execution environment for running smart contracts.
 
 ### Petnet
 
