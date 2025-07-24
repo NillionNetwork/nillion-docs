@@ -231,7 +231,7 @@ const collection = {
               "%share"
             ]
           },
-          phone: { // email will be secret shared
+          phone: { // phone will be secret shared
             type: "object",
             properties: {
               "%share": {
