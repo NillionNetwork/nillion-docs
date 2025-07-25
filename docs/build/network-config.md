@@ -50,44 +50,40 @@ The Nillion Petnet consists of a network of nodes in which each node implements 
     NILCHAIN_URL=http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
     NILAUTH_URL=https://nilauth.sandbox.app-cluster.sandbox.nilogy.xyz
     NILAUTH_PUBLIC_KEY=03e3ba1eb887b4e972fbf395d479ff6cdb2cec91ba477ffc287b2b9cb5ec2161aa
-    NILDB_NODE_1=https://nildb-stg-n1.nillion.network
-    NILDB_NODE_2=https://nildb-stg-n2.nillion.network
-    NILDB_NODE_3=https://nildb-stg-n3.nillion.network
+    ```
+    ### Nodes
+
+    #### [nildb-stg-n1](https://nildb-stg-n1.nillion.network)
+
+    ```
+    URL:https://nildb-stg-n1.nillion.network
+    Public Key: 02e3846c455dbceef9eff8a84127c3be1b9719ac05415efbf72790f31fa9f8027a
+    ```
+
+    #### [nildb-stg-n2](https://nildb-stg-n2.nillion.network)
+
+    ```
+    URL: https://nildb-stg-n2.nillion.network
+    Public Key: 025792e96a68c0b7ef7794960327dc570704c6dd565cf2cacf206bdc72d6123f90
+    ```
+
+    #### [nildb-stg-n3](https://nildb-stg-n3.nillion.network)
+
+    ```
+    URL: https://nildb-stg-n3.nillion.network
+    Public Key: 0304001592c3d2a4af4fd049f75a5623e10939b37c38cc64c264801a5567b493ab
     ```
 
     </TabItem>
-    <TabItem value="nilDB-alpha" label="nilDB Alpha">
-
-    #### Node 1: [nildb-nx8v](https://nildb-nx8v.nillion.network/api/v1/openapi/docs/)
-
-    ```
-    URL: https://nildb-nx8v.nillion.network
-    DID: did:nil:testnet:nillion1qfrl8nje3nvwh6cryj63mz2y6gsdptvn07nx8v
-    Public Key: 034a2df3bafaca2aa0b70353aa2f05ad129096b60c8a305d115bf605d57bc2588a
-    API docs: https://nildb-nx8v.nillion.network/api/v1/openapi/docs/
-    ```
-
-    #### Node 2: [nildb-p3mx](https://nildb-p3mx.nillion.network/api/v1/openapi/docs/)
-
-    ```
-    URL: https://nildb-p3mx.nillion.network
-    DID: did:nil:testnet:nillion1uak7fgsp69kzfhdd6lfqv69fnzh3lprg2mp3mx
-    Public Key: 03d088a7f2c8f2a6e2aa788265c87e22d1501dd1210fa149ff600ac264ada5eb42
-    API docs: https://nildb-p3mx.nillion.network/api/v1/openapi/docs/
-    ```
-
-    #### Node 3: [nildb-rugk](https://nildb-rugk.nillion.network/api/v1/openapi/docs/)
-
-    ```
-    URL: https://nildb-rugk.nillion.network
-    DID: did:nil:testnet:nillion1kfremrp2mryxrynx66etjl8s7wazxc3rssrugk
-    Public Key: 02c4a5c6135098dd7ac1186c13d4de466be85f85efc6961e75abc31e4fdac41528
-    API docs: https://nildb-rugk.nillion.network/api/v1/openapi/docs/
-    ```
-
-    </TabItem>
-
+    
     <TabItem value="nilDB-mainnet" label="nilDB Mainnet" default>
+ 
+    ```
+    NILCHAIN_URL=http://nilchain-rpc.nillion.network
+    NILAUTH_URL=https://nilauth-cf7f.nillion.network
+    NILAUTH_PUBLIC_KEY=020b419e17d0d11445ea46520086952772eb18f5cb9f949c0ad0b418282617cf7f
+    ```
+    ### Nodes    
 
     #### [nildb-5ab1](https://nildb-5ab1.nillion.network/)
 
@@ -136,6 +132,37 @@ The Nillion Petnet consists of a network of nodes in which each node implements 
     ```
     URL: https://nildb-2140.staking.telekom-mms.com
     Public Key: 034b875022316cda631da79149058303d81547a11bc7e67cc0cd29769858752140
+    ```
+
+    </TabItem>
+
+    <TabItem value="nilDB-alpha" label="nilDB Alpha">
+
+    #### Node 1: [nildb-nx8v](https://nildb-nx8v.nillion.network/api/v1/openapi/docs/)
+
+    ```
+    URL: https://nildb-nx8v.nillion.network
+    DID: did:nil:testnet:nillion1qfrl8nje3nvwh6cryj63mz2y6gsdptvn07nx8v
+    Public Key: 034a2df3bafaca2aa0b70353aa2f05ad129096b60c8a305d115bf605d57bc2588a
+    API docs: https://nildb-nx8v.nillion.network/api/v1/openapi/docs/
+    ```
+
+    #### Node 2: [nildb-p3mx](https://nildb-p3mx.nillion.network/api/v1/openapi/docs/)
+
+    ```
+    URL: https://nildb-p3mx.nillion.network
+    DID: did:nil:testnet:nillion1uak7fgsp69kzfhdd6lfqv69fnzh3lprg2mp3mx
+    Public Key: 03d088a7f2c8f2a6e2aa788265c87e22d1501dd1210fa149ff600ac264ada5eb42
+    API docs: https://nildb-p3mx.nillion.network/api/v1/openapi/docs/
+    ```
+
+    #### Node 3: [nildb-rugk](https://nildb-rugk.nillion.network/api/v1/openapi/docs/)
+
+    ```
+    URL: https://nildb-rugk.nillion.network
+    DID: did:nil:testnet:nillion1kfremrp2mryxrynx66etjl8s7wazxc3rssrugk
+    Public Key: 02c4a5c6135098dd7ac1186c13d4de466be85f85efc6961e75abc31e4fdac41528
+    API docs: https://nildb-rugk.nillion.network/api/v1/openapi/docs/
     ```
 
     </TabItem>
