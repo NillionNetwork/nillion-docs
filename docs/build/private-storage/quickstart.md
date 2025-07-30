@@ -25,7 +25,7 @@ This showcases Nillion's core value: users own their data, but can selectively s
 
 As good practice, we recommend to use two distinct keys: one for network access and a separate key for subscription payments. This dual-key architecture separates authentication from payment processing, enhancing security by limiting the scope of each credential.
 
-1. Visit [https://nilpay.vercel.app/](https://nilpay.vercel.app/)
+1. Visit [https://subscription.nillion.com](https://subscription.nillion.com)
 2. Create a Testnet public/private key pair through the UI that we will use for network access
 3. [Fund your account with Testnet NIL](https://faucet.testnet.nillion.com)
 4. Subscribe to `nilDB` by paying with your subscription wallet
