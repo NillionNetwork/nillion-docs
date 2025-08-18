@@ -92,25 +92,11 @@ The Nillion Petnet consists of a network of nodes in which each node implements 
     Public Key: 031f95488b7c389c963548e57b9871a22477fc475adbbd8336a70e1715a7245ab1
     ```
 
-    #### [nildb-906d](https://nildb-906d.kjnodes.com)
-
-    ```
-    URL: https://nildb-906d.kjnodes.com
-    Public Key: 031bf30c915e24478e6522395404bf1123982f8224c15cf2cd4ec0f82ba4a0906d
-    ```
-
     #### [nildb-8001](https://nildb-8001.cloudician.xyz)
 
     ```
     URL: https://nildb-8001.cloudician.xyz
     Public Key: 03e238bcededae0b203b75edff7539be77cc0950b10a24e95cc0baae8f43638001
-    ```
-
-    #### [nildb-ddb5](https://nildb-ddb5.imperator.co)
-
-    ```
-    URL: https://nildb-ddb5.imperator.co
-    Public Key: 032b3ac6a1bf2219a60845d10b506f5cb7a8e5f506a5beba9a64a3fa3ff4fdddb5
     ```
 
     #### [nildb-f496](https://nildb-f496.pairpointweb3.io)
