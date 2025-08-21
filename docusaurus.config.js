@@ -39,10 +39,6 @@ const config = {
 
   scripts: [
     {
-      src: '/js/piwik.js',
-      async: false,
-    },
-    {
       src: 'https://tag.safary.club/stag-0.1.11.js',
       async: true,
       'data-name': 'safary-sdk',
