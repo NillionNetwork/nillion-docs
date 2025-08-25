@@ -22,8 +22,8 @@ Interact with the private storage solution using the TypeScript or Python [secre
 
 **For Builders (Applications)**
 
-- Obtain [Network API Access](/build/network-api-access) to get nilDB cluster access
-- Define collections with schemas
+- Get a [Nillion API Key](/build/network-api-access) to connect to nilDB nodes
+- Define collections with schemas programatically or by using the no-code, visual, **[Collection Explorer Tool](/build/private-storage/collection-explorer) (recommended)**
 - Store and query data
 - Create aggregation queries
 
@@ -92,6 +92,7 @@ Collections are immutable once created.
 - Each document has individual ACLs
 - Users control access permissions
 - Support fine-grained permission types
+- 🚧 Note: User Owned Collections are not fully supported by the [Collection Explorer Tool](/build/private-storage/collection-explorer)
 
 ### Schema
 

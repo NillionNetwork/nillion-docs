@@ -8,7 +8,7 @@ The [Nillion Collection Explorer](https://collection-explorer.nillion.com) is a 
 
 The Collection Explorer is your gateway to [Nillion Private Storage](/build/private-storage/overview) as a **builder**, where you can:
 
-- **Create collections by building schemas** that define the structure and validation rules for your private data
+- **Create standard collections by building schemas** that define the structure and validation rules for your private data
 - **Store and manage records** with automatic encryption for sensitive fields
 - **Control data privacy** by marking specific fields as encrypted for distribution across nilDB nodes
 
