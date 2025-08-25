@@ -1,5 +1,7 @@
 # Collection Explorer
 
+[![Collection Explorer](/img/collection_explorer/collection_explorer_card.png)](https://collection-explorer.nillion.com/)
+
 The [Nillion Collection Explorer](https://collection-explorer.nillion.com) is a no-code builder tool for creating and managing Nillion Private Storage schemas, collections, and records. This web-based interface provides a UI abstraction that speeds up and simplifies development by allowing builders to interact with Nillion's private data storage infrastructure without requiring programming knowledge or command-line tools. Everything possible through the Collection Explorer is also available programmatically via the Nillion [Secretvaults SDK](/build/private-storage/secretvaults).
 
 ## What is the Collection Explorer?
