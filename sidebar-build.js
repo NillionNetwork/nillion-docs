@@ -51,6 +51,11 @@ const buildSidebar = [
         ],
       },
       {
+        type: 'doc',
+        label: 'Collection Explorer Tool',
+        id: 'build/private-storage/collection-explorer',
+      },
+      {
         type: 'category',
         label: 'Blindfold Library',
         link: {
