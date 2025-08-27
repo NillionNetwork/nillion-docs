@@ -1,9 +1,9 @@
 .feedbackContainer {
   margin-top: 1.5rem;
   padding: 1rem;
-  background: #f8fafc;
+  background: var(--ifm-card-background-color);
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--ifm-toc-border-color);
 }
 
 .questionSection {
@@ -16,14 +16,14 @@
 .questionIcon {
   width: 24px;
   height: 24px;
-  background: #e2e8f0;
+  background: var(--ifm-color-emphasis-200);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   font-weight: 600;
-  color: #64748b;
+  color: var(--ifm-color-emphasis-700);
   flex-shrink: 0;
 }
 
@@ -31,7 +31,7 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 500;
-  color: #475569;
+  color: var(--ifm-font-color-base);
   line-height: 1.4;
 }
 
@@ -46,13 +46,13 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: white;
-  border: 1px solid #d1d5db;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 8px;
   padding: 0.625rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #374151;
+  color: var(--ifm-font-color-base);
   text-decoration: none;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -61,14 +61,14 @@
 }
 
 .feedbackButton:hover {
-  background: #f9fafb;
-  border-color: #9ca3af;
-  color: #111827;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: var(--ifm-hover-overlay);
+  border-color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-900);
+  box-shadow: var(--ifm-global-shadow-lw);
 }
 
 .feedbackButton:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--ifm-color-primary);
   outline-offset: 2px;
 }
 
@@ -77,12 +77,12 @@
 }
 
 .thumbsIcon {
-  color: #6b7280;
+  color: var(--ifm-color-emphasis-600);
   transition: color 0.2s ease;
 }
 
 .feedbackButton:hover .thumbsIcon {
-  color: #374151;
+  color: var(--ifm-color-emphasis-900);
 }
 
 /* Responsive design */

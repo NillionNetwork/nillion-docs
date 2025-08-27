@@ -8,6 +8,16 @@ The [Nillion Testnet Faucet](https://faucet.testnet.nillion.com/) distributes ni
 
 This guide walks you through how to get NIL from the Nillion Testnet Faucet.
 
+<iframe
+  width='100%'
+  height='500'
+  src='https://www.youtube.com/embed/0kTX4x02wSc'
+  title='YouTube video player'
+  frameborder='0'
+  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+  allowfullscreen
+></iframe>
+
 ### 0. Set up a wallet
 
 Follow the [Creating a Nillion Wallet](/community/guides/nillion-wallet) guide to set up a connected wallet. After creating a wallet, you should have a Nillion wallet address similar to this example address:
