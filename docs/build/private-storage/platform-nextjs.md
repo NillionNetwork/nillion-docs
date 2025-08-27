@@ -31,8 +31,11 @@ First, we'll create a new Next.js app and install the Nillion libraries. No brow
 ```bash
 npx create-next-app@latest my-nillion-app --typescript
 cd my-nillion-app
+```
 
-# Install Nillion dependencies only - no polyfills needed!
+Install Nillion dependencies
+
+```
 npm install @nillion/nuc @nillion/secretvaults
 ```
 

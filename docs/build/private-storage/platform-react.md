@@ -32,8 +32,11 @@ First, we'll create a new React app and install Nillion libraries along with bro
 ```bash
 npx create-react-app my-nillion-app --template typescript
 cd my-nillion-app
+```
 
-# Install Nillion dependencies, then browser polyfill packages
+Install Nillion dependencies, then browser polyfill packages
+
+```bash
 npm install @nillion/nuc @nillion/secretvaults
 npm install --save-dev react-app-rewired assert buffer crypto-browserify os-browserify path-browserify process stream-browserify url util
 ```

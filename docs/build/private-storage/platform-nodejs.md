@@ -32,8 +32,11 @@ First, we'll create a new Node.js project and install the Nillion libraries. No 
 mkdir my-nillion-app
 cd my-nillion-app
 npm init -y
+```
 
-# Install Nillion dependencies and TypeScript tooling
+Install Nillion dependencies and TypeScript tooling
+
+```bash
 npm install @nillion/nuc @nillion/secretvaults
 npm install -D typescript @types/node tsx dotenv
 ```

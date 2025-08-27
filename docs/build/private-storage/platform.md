@@ -30,7 +30,7 @@ Browser-only integration with Nillion [Secretvaults TypeScript SDK](/build/priva
 ## Python Recipe
 
 :::note
-COMING SOON!
+COMING SOON! For now reference the [secretvaults-py example scripts](https://github.com/NillionNetwork/secretvaults-py/tree/main/examples#example-scripts)
 :::
 
 _Python applications, data pipelines, ML workflows, and backend services_
