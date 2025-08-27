@@ -51,6 +51,32 @@ const buildSidebar = [
         ],
       },
       {
+        type: 'category',
+        label: 'Integration by Platform',
+        link: {
+          type: 'doc',
+          id: 'build/private-storage/platform',
+        },
+        collapsed: false,
+        items: [
+          {
+            type: 'doc',
+            label: 'Node.js Recipe',
+            id: 'build/private-storage/platform-nodejs',
+          },
+          {
+            type: 'doc',
+            label: 'Next.js Recipe',
+            id: 'build/private-storage/platform-nextjs',
+          },
+          {
+            type: 'doc',
+            label: 'React Recipe',
+            id: 'build/private-storage/platform-react',
+          },
+        ],
+      },
+      {
         type: 'doc',
         label: 'Collection Explorer Tool',
         id: 'build/private-storage/collection-explorer',
