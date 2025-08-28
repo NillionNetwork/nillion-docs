@@ -2,11 +2,7 @@ import TypeScriptNextSteps from './\_ts_next_steps.mdx';
 
 # Private Storage: Next.js Recipe
 
-Build a Next.js app that reads all records from a [Nillion Private Storage](/build/private-storage/overview) standard collection using secure API routes!
-
-:::note
-This recipe uses [Next.js API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) for better security and maintainability, keeping your API keys secure on the server while providing a clean interface for your frontend.
-:::
+Build a Next.js app that reads all records from a [Nillion Private Storage](/build/private-storage/overview) standard collection using secure [Next.js API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) to keep your API keys secure on the server.
 
 ## What You'll Build
 
@@ -16,6 +12,10 @@ This guide walks you through creating a Next.js app that:
 - Reads all records from an existing Nillion Private Storage collection
 - Displays the data in a clean, responsive interface
 - Keeps your API keys secure on the server (never exposed to the browser!)
+
+:::tip
+This recipe is AI friendly! Give this entire [recipe markdown doc](https://github.com/NillionNetwork/nillion-docs/blob/main/docs/build/private-storage/platform-nextjs.md) to your LLM of choice and ask it to follow the recipe to read all records from your Nillion Private Storage standard collection. All you will have to do manually is complete the prerequisites below to set .env values.
+:::
 
 ### Prerequisites
 

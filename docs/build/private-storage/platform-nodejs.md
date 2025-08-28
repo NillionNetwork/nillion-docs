@@ -4,10 +4,6 @@ import TypeScriptNextSteps from './\_ts_next_steps.mdx';
 
 Build a Node.js script that reads all records from a [Nillion Private Storage](/build/private-storage/overview) standard collection with full TypeScript support!
 
-:::note
-Node.js provides direct access to all Nillion capabilities without browser constraints. Perfect for server applications, API backends, CLI tools, and automation scripts.
-:::
-
 ## What You'll Build
 
 This guide walks you through creating a Node.js/TypeScript script that:
@@ -16,6 +12,10 @@ This guide walks you through creating a Node.js/TypeScript script that:
 - Reads all records from an existing Nillion Private Storage collection
 - Displays the data in formatted JSON output
 - Runs in any Node.js environment (servers, CI/CD, local development)
+
+:::tip
+This recipe is AI friendly! Give this entire [recipe markdown doc](https://github.com/NillionNetwork/nillion-docs/blob/main/docs/build/private-storage/platform-nodejs.md) to your LLM of choice and ask it to follow the recipe to read all records from your Nillion Private Storage standard collection. All you will have to do manually is complete the prerequisites below to set .env values.
+:::
 
 ### Prerequisites
 

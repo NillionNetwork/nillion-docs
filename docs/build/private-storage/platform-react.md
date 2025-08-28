@@ -18,6 +18,10 @@ This guide walks you through creating a React app that:
 - Displays the data in a clean, responsive interface
 - Runs entirely in the browser (no backend server needed!)
 
+:::tip
+This recipe is AI friendly! Give this entire [recipe markdown doc](https://github.com/NillionNetwork/nillion-docs/blob/main/docs/build/private-storage/platform-react.md) to your LLM of choice and ask it to follow the recipe to read all records from your Nillion Private Storage standard collection. All you will have to do manually is complete the prerequisites below to set .env values.
+:::
+
 ### Prerequisites
 
 Before starting this guide, you'll need:
