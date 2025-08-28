@@ -18,7 +18,8 @@ export const QuickStartFeatures = [
 export const Libraries = [
   {
     title: 'blindfold',
-    description: 'Encrypt/decrypt and secret share data using the blindfold library.',
+    description:
+      'Encrypt/decrypt and secret share data using the blindfold library.',
     icon: '🔐',
     href: './private-storage/blindfold',
   },
@@ -28,5 +29,25 @@ export const Libraries = [
       'Provide context to SecretLLM from SecretVault with nilRAG library.',
     icon: '🔍',
     href: './private-llms/nilRAG',
+  },
+];
+
+export const Platforms = [
+  {
+    title: 'Node.js',
+    description:
+      'For server-side applications, APIs, CLI tools, and backend services',
+    href: './platform-nodejs',
+  },
+  {
+    title: 'Next.js',
+    description:
+      'For full-stack web applications with both client and server components',
+    href: './platform-nextjs',
+  },
+  {
+    title: 'React',
+    description: 'For client-side web applications (browser-only)',
+    href: './platform-react',
   },
 ];
