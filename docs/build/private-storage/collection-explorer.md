@@ -1,3 +1,5 @@
+import CTABanner from '@site/src/components/CTABanner';
+
 # Collection Explorer
 
 [![Collection Explorer](/img/collection_explorer/collection_explorer_card.png)](https://collection-explorer.nillion.com/)
@@ -18,9 +20,16 @@ This database management interface is specifically designed for privacy-preservi
 
 ### Set Your Nillion Network Configuration
 
-**Prerequisites:** You must have a [Nillion API Key](/build/network-api-access) before using the Collection Explorer.
+<CTABanner
+  question='Prerequisite: having a Nillion API Key'
+  instruction='You need a Nillion API Key with an active nilDB subscription to use the Collection Explorer tool.'
+  buttonText='Get a Nillion API Key'
+  buttonLink='https://subscription.nillion.com'
+  event='collections-explorer-api-key-cta'
+  external={true}
+/>
 
-To configure your connection to the Nillion Network:
+Once you have a Nillion API Key with an active nilDB subscription, go to the [Collection Explorer](https://collection-explorer.nillion.com/) and configure your connection to the Nillion Network:
 
 1. Navigate to "⚙️ Network Settings" in the navbar
 2. Configure your nilDB Network settings:

@@ -14,9 +14,11 @@ This guide walks you through creating a React app that:
 
 - Adds browser polyfills, stubs, and webpack configuration to make Nillion's libraries work in the browser
 - Connects to 3 nilDB Testnet nodes to read data from Nillion Private Storage
-- Reads all records from an existing Nillion Private Storage collection
-- Displays the data in a clean, responsive interface
+- Reads all records from an existing Nillion Private Storage standard collection
+- Displays the data in a React UI
 - Runs entirely in the browser (no backend server needed!)
+
+**Complete example:** View the [full source code](https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb/secretvaults-ts/standard-collection/react-app-recipe) for the finished React app.
 
 :::tip
 This recipe is AI friendly! Give this entire [recipe markdown doc](https://github.com/NillionNetwork/nillion-docs/blob/main/docs/build/private-storage/platform-react.md) to your LLM of choice and ask it to follow the recipe to read all records from your Nillion Private Storage standard collection. All you will have to do manually is complete the prerequisites below to set .env values.
@@ -26,7 +28,7 @@ This recipe is AI friendly! Give this entire [recipe markdown doc](https://githu
 
 Before starting this guide, you'll need:
 
-1. **A Nillion API Key** - Follow the [Network API Access guide](/build/network-api-access) to get your API key
+1. **A Nillion API Key** - Follow the [Network API Access guide](/build/network-api-access) to get your API key and subscribe to nilDB services
 2. **A Nillion Private Storage collection with data** - Use the [Collection Explorer](/build/private-storage/collection-explorer) to create collections and add records using the no-code builder
 
 ## Step 1: Create React App & Install Dependencies

@@ -5,23 +5,23 @@ import { Platforms } from '@site/src/utils/FeatureCards';
 
 The way you build with Nillion Storage varies depending on your application architecture. Server-side environments have native access to all Nillion capabilities, while browser environments require additional configuration for Node.js compatibility. **For web applications, we recommend the Next.js approach** for better security and performance.
 
-Get started by choosing the recipe that matches your development stack:
+Get started by choosing the platform that matches your development stack:
 
 <FeatureSection data={Platforms} />
 
-## Node.js Recipe
+## Node.js
 
 _Server-side applications, APIs, CLI tools, and backend services_
 
 Direct integration with full Nillion [Secretvaults TypeScript SDK](/build/private-storage/secretvaults) access. Ideal when you need complete control over data operations and don't have browser constraints.
 
-## Next.js Recipe
+## Next.js
 
 _Full-stack web applications with both client and server components_
 
 ⭐ **Recommended approach for web apps.** ⭐ Uses Nillion [Secretvaults TypeScript SDK](/build/private-storage/secretvaults) within secure API routes for sensitive operations and client-side components for user interactions, avoiding browser compatibility issues while maintaining security.
 
-## React Recipe
+## React
 
 _Client-side web applications (browser-only)_
 

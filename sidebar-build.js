@@ -31,6 +31,37 @@ const buildSidebar = [
         id: 'build/private-storage/quickstart',
       },
       {
+        type: 'doc',
+        label: 'Collection Explorer Tool',
+        id: 'build/private-storage/collection-explorer',
+      },
+      {
+        type: 'category',
+        label: 'Integration by Platform',
+        link: {
+          type: 'doc',
+          id: 'build/private-storage/platform',
+        },
+        collapsed: false,
+        items: [
+          {
+            type: 'doc',
+            label: 'Node.js',
+            id: 'build/private-storage/platform-nodejs',
+          },
+          {
+            type: 'doc',
+            label: 'Next.js',
+            id: 'build/private-storage/platform-nextjs',
+          },
+          {
+            type: 'doc',
+            label: 'React',
+            id: 'build/private-storage/platform-react',
+          },
+        ],
+      },
+      {
         type: 'category',
         label: 'Secretvaults SDK',
         link: {
@@ -49,37 +80,6 @@ const buildSidebar = [
             href: 'https://github.com/NillionNetwork/secretvaults-py',
           },
         ],
-      },
-      {
-        type: 'category',
-        label: 'Integration by Platform',
-        link: {
-          type: 'doc',
-          id: 'build/private-storage/platform',
-        },
-        collapsed: false,
-        items: [
-          {
-            type: 'doc',
-            label: 'Node.js Recipe',
-            id: 'build/private-storage/platform-nodejs',
-          },
-          {
-            type: 'doc',
-            label: 'Next.js Recipe',
-            id: 'build/private-storage/platform-nextjs',
-          },
-          {
-            type: 'doc',
-            label: 'React Recipe',
-            id: 'build/private-storage/platform-react',
-          },
-        ],
-      },
-      {
-        type: 'doc',
-        label: 'Collection Explorer Tool',
-        id: 'build/private-storage/collection-explorer',
       },
       {
         type: 'category',

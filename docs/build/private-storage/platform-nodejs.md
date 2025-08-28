@@ -9,9 +9,11 @@ Build a Node.js script that reads all records from a [Nillion Private Storage](/
 This guide walks you through creating a Node.js/TypeScript script that:
 
 - Connects directly to 3 nilDB Testnet nodes to read data from Nillion Private Storage
-- Reads all records from an existing Nillion Private Storage collection
+- Reads all records from an existing Nillion Private Storage standard collection
 - Displays the data in formatted JSON output
 - Runs in any Node.js environment (servers, CI/CD, local development)
+
+**Complete example:** View the [full source code](https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb/secretvaults-ts/standard-collection/nodejs-script-recipe) for the finished Node.js script.
 
 :::tip
 This recipe is AI friendly! Give this entire [recipe markdown doc](https://github.com/NillionNetwork/nillion-docs/blob/main/docs/build/private-storage/platform-nodejs.md) to your LLM of choice and ask it to follow the recipe to read all records from your Nillion Private Storage standard collection. All you will have to do manually is complete the prerequisites below to set .env values.
@@ -21,7 +23,7 @@ This recipe is AI friendly! Give this entire [recipe markdown doc](https://githu
 
 Before starting this guide, you'll need:
 
-1. **A Nillion API Key** - Follow the [Network API Access guide](/build/network-api-access) to get your API key
+1. **A Nillion API Key** - Follow the [Network API Access guide](/build/network-api-access) to get your API key and subscribe to nilDB services
 2. **A Nillion Private Storage collection with data** - Use the [Collection Explorer](/build/private-storage/collection-explorer) to create collections and add records using the no-code builder
 
 ## Step 1: Create Project & Install Dependencies
