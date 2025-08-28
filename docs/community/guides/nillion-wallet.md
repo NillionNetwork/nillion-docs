@@ -5,6 +5,15 @@ import SupportedWallets from '../../\_testnet_supported_wallets.mdx';
 
 Create a Nillion wallet to connect to the Nillion Network and access your NIL.
 
+<iframe
+  width='100%'
+  height='500'
+  src='https://www.youtube.com/embed/9IOa4BZRmR4'
+  title='YouTube video player'
+  frameborder='0'
+  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+  allowfullscreen
+></iframe>
 ## Supported Wallets
 
 <SupportedWallets/>
@@ -12,7 +21,6 @@ Create a Nillion wallet to connect to the Nillion Network and access your NIL.
 ## How to Create a Nillion Wallet
 
 This guide walks you through downloading a wallet, setting up your wallet, and adding the Nillion Network.
-
 
 ### 1. Download Keplr
 

@@ -4,11 +4,11 @@
 }
 
 .bannerContent {
-  background: white;
-  border: 1px solid #e5e7eb;
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-toc-border-color);
   border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--ifm-global-shadow-lw);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -18,7 +18,7 @@
 
 .bannerContent:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(147, 51, 234, 0.15);
+  box-shadow: var(--ifm-global-shadow-md);
   border-color: rgba(147, 51, 234, 0.1);
 }
 
@@ -31,14 +31,14 @@
 .infoIcon {
   width: 20px;
   height: 20px;
-  background: #f3f4f6;
+  background: var(--ifm-color-emphasis-200);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   font-weight: 500;
-  color: #6b7280;
+  color: var(--ifm-color-emphasis-700);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -51,14 +51,14 @@
   margin: 0 0 0.5rem 0;
   font-size: 1.125rem;
   font-weight: 600;
-  color: #111827;
+  color: var(--ifm-font-color-base);
   line-height: 1.4;
 }
 
 .instruction {
   margin: 0;
   font-size: 1rem;
-  color: #374151;
+  color: var(--ifm-color-emphasis-700);
   line-height: 1.5;
 }
 
@@ -67,13 +67,13 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: white;
-  border: 1px solid #e5e7eb;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 8px;
   padding: 0.75rem 1.5rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #111827;
+  color: var(--ifm-font-color-base);
   text-decoration: none;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -81,25 +81,25 @@
 }
 
 .ctaButton:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
+  background: var(--ifm-hover-overlay);
+  border-color: var(--ifm-color-emphasis-500);
   text-decoration: none;
-  color: #111827;
-  box-shadow: 0 2px 8px rgba(147, 51, 234, 0.15);
+  color: var(--ifm-font-color-base);
+  box-shadow: var(--ifm-global-shadow-lw);
 }
 
 .ctaButton:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--ifm-color-primary);
   outline-offset: 2px;
 }
 
 .arrowIcon {
-  color: #9ca3af;
+  color: var(--ifm-color-emphasis-600);
   transition: color 0.2s ease;
 }
 
 .ctaButton:hover .arrowIcon {
-  color: #6b7280;
+  color: var(--ifm-color-emphasis-900);
 }
 
 /* Responsive design */
