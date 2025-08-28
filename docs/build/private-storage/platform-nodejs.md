@@ -51,7 +51,7 @@ Set up TypeScript for modern Node.js development.
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "commonjs",
+    "module": "ESNext",
     "lib": ["ES2022"],
     "strict": true,
     "esModuleInterop": true,
@@ -84,13 +84,18 @@ dist/
 
 ### 4. Add Package Scripts
 
-**package.json** - Add convenient scripts for development:
+**package.json** - Add convenient scripts for development and set the module type:
 
 ```json
-"scripts": {
-  "dev": "tsx read-collection.ts",
-  "build": "tsc",
-  "start": "node read-collection.js"
+{
+  "name": "my-nillion-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx read-collection.ts",
+    "build": "tsc",
+    "start": "node read-collection.js"
+  }
 }
 ```
 
@@ -184,6 +189,6 @@ Your Node.js script will connect to Nillion's testnet and display all records fr
 - **"hex string expected" error**: Verify your API key format
 - **Module not found**: Ensure all dependencies are installed
 - **TypeScript errors**: Make sure tsconfig.json is properly configured
-- **Compatible with:** Node.js 18+, TypeScript 5+, CommonJS and ESM
+- **Compatible with:** Node.js 18+, TypeScript 5+, ES Modules
 
 <TypeScriptNextSteps/>
