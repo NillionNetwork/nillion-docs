@@ -34,19 +34,19 @@ export const Libraries = [
 
 export const Platforms = [
   {
-    title: 'Node.js Recipe',
+    title: 'Node.js',
     description:
       'For server-side applications, APIs, CLI tools, and backend services',
     href: './platform-nodejs',
   },
   {
-    title: 'Next.js Recipe',
+    title: 'Next.js',
     description:
       'For full-stack web applications with both client and server components',
     href: './platform-nextjs',
   },
   {
-    title: 'React Recipe',
+    title: 'React',
     description: 'For client-side web applications (browser-only)',
     href: './platform-react',
   },
