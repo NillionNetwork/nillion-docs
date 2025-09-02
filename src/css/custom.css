@@ -35,34 +35,36 @@
   --ifm-color-primary-light: #a5a4ff;
   --ifm-color-primary-lighter: #b5b4f5;
   --ifm-color-primary-lightest: #cccbff;
-  
+
   /* Background colors */
   --ifm-background-color: #12125a;
   --ifm-background-surface-color: #1a1a6e;
   --ifm-card-background-color: #1a1a6e;
   --ifm-sidebar-background-color: #12125a;
   --ifm-navbar-background-color: #12125a;
-  
+
   /* Text colors */
   --ifm-font-color-base: #ffffff;
   --ifm-font-color-secondary: #b0b0b0;
-  
+
   /* Border and divider colors */
   --ifm-toc-border-color: #4746a7;
   --ifm-table-border-color: #4746a7;
   --ifm-hr-background-color: #4746a7;
-  
+
   /* Card and container styling */
   --ifm-card-primary-grey: #3a3a3a;
   --docusaurus-highlighted-code-line-bg: rgba(138, 137, 255, 0.15);
-  
+
   /* Code block background */
   --ifm-code-background: #2a2a2a;
-  
+
   /* Shadows */
   --ifm-global-shadow-lw: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --ifm-global-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
-  --ifm-global-shadow-tl: 0 12px 28px 0 rgba(0, 0, 0, 0.6), 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  --ifm-global-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5),
+    0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --ifm-global-shadow-tl: 0 12px 28px 0 rgba(0, 0, 0, 0.6),
+    0 2px 4px 0 rgba(0, 0, 0, 0.4);
 }
 
 .sidebar-title {
@@ -226,7 +228,8 @@ h4 {
   background-color: #12125a;
 }
 
-[data-theme='dark'] .docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
+[data-theme='dark']
+  .docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
   background-color: #12125a;
 }
 
@@ -405,8 +408,8 @@ h4 {
 }
 
 /* Override any inline styles */
-[data-theme='dark'] .docusaurus-mermaid-container svg text[style*="fill"],
-[data-theme='dark'] .docusaurus-mermaid-container svg tspan[style*="fill"] {
+[data-theme='dark'] .docusaurus-mermaid-container svg text[style*='fill'],
+[data-theme='dark'] .docusaurus-mermaid-container svg tspan[style*='fill'] {
   fill: #ffffff !important;
 }
 
@@ -428,8 +431,8 @@ h4 {
 }
 
 /* Override any inline styles in light mode */
-[data-theme='light'] .docusaurus-mermaid-container svg text[style*="fill"],
-[data-theme='light'] .docusaurus-mermaid-container svg tspan[style*="fill"] {
+[data-theme='light'] .docusaurus-mermaid-container svg text[style*='fill'],
+[data-theme='light'] .docusaurus-mermaid-container svg tspan[style*='fill'] {
   fill: #1a1a1a !important;
 }
 
@@ -457,9 +460,9 @@ article img[src*="/img/collection_explorer/"] {
 }
 
 /* Dark mode border styling */
-[data-theme='dark'] article[class*="collection-explorer"] img,
-[data-theme='dark'] main img[src*="collection_explorer"],
-[data-theme='dark'] article img[src*="/img/collection_explorer/"] {
+[data-theme='dark'] article[class*='collection-explorer'] img,
+[data-theme='dark'] main img[src*='collection_explorer'],
+[data-theme='dark'] article img[src*='/img/collection_explorer/'] {
   border-color: #4a4a4a !important;
   box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1) !important;
 }
@@ -523,20 +526,42 @@ article header h1 {
   background-color: rgba(138, 137, 255, 0.15) !important;
 }
 
-/* Dark mode link styles - only for content, not navigation */
-[data-theme='dark'] .markdown a,
-[data-theme='dark'] article a:not(.menu__link):not(.table-of-contents__link),
-[data-theme='dark'] .theme-doc-markdown a:not(.menu__link):not(.table-of-contents__link),
-[data-theme='dark'] main a:not(.menu__link):not(.table-of-contents__link):not(.navbar__item):not(.breadcrumbs__link):not(.pagination-nav__link) {
+/* Base dark mode link styles - apply to ALL links */
+[data-theme='dark'] a {
   color: #8a89ff !important;
 }
 
-[data-theme='dark'] .markdown a:hover,
-[data-theme='dark'] article a:not(.menu__link):not(.table-of-contents__link):hover,
-[data-theme='dark'] .theme-doc-markdown a:not(.menu__link):not(.table-of-contents__link):hover,
-[data-theme='dark'] main a:not(.menu__link):not(.table-of-contents__link):not(.navbar__item):not(.breadcrumbs__link):not(.pagination-nav__link):hover {
+[data-theme='dark'] a:hover {
   color: #a5a4ff !important;
-  text-decoration: underline;
+}
+
+/* Override for specific navigation elements that need different colors */
+[data-theme='dark'] .menu__link {
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  color: #8a89ff !important;
+}
+
+[data-theme='dark'] .navbar__item {
+  color: white !important;
+}
+
+[data-theme='dark'] .table-of-contents__link {
+  color: #b0b0b0 !important;
+}
+
+[data-theme='dark'] .table-of-contents__link:hover {
+  color: #8a89ff !important;
+}
+
+[data-theme='dark'] .footer__link-item {
+  color: #b0b0b0 !important;
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: #8a89ff !important;
 }
 
 /* Dark mode code blocks and pre elements */
@@ -689,11 +714,11 @@ article header h1 {
   color: white !important;
 }
 
-[data-theme='dark'] .pushfeedback-modal button[type="submit"] {
+[data-theme='dark'] .pushfeedback-modal button[type='submit'] {
   background-color: #8a89ff !important;
   color: white !important;
 }
 
-[data-theme='dark'] .pushfeedback-modal button[type="submit"]:hover {
+[data-theme='dark'] .pushfeedback-modal button[type='submit']:hover {
   background-color: #a5a4ff !important;
 }
