@@ -10,7 +10,7 @@ import 'dotenv/config';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Nillion Builder Docs',
+  title: 'Nillion Docs',
   tagline:
     'Nillion is a secure computation network that decentralizes trust for high value data',
   favicon: 'img/favicon.ico',
@@ -162,7 +162,7 @@ const config = {
         defaultMode: 'dark',
         respectPrefersColorScheme: true,
       },
-      image: 'img/nillion-banner.jpeg',
+      image: 'img/nillion-banner.png',
       navbar: {
         logo: {
           alt: 'Nillion logo',
