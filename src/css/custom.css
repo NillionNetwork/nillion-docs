@@ -27,15 +27,42 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #b7d8f7;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --ifm-card-primary-grey: #646464;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* Nillion brand colors for dark mode */
+  --ifm-color-primary: #8a89ff;
+  --ifm-color-primary-dark: #6f6eff;
+  --ifm-color-primary-darker: #6f6eff;
+  --ifm-color-primary-darkest: #6f6eff;
+  --ifm-color-primary-light: #a5a4ff;
+  --ifm-color-primary-lighter: #b5b4f5;
+  --ifm-color-primary-lightest: #cccbff;
+  
+  /* Background colors */
+  --ifm-background-color: #12125a;
+  --ifm-background-surface-color: #1a1a6e;
+  --ifm-card-background-color: #1a1a6e;
+  --ifm-sidebar-background-color: #12125a;
+  --ifm-navbar-background-color: #12125a;
+  
+  /* Text colors */
+  --ifm-font-color-base: #ffffff;
+  --ifm-font-color-secondary: #b0b0b0;
+  
+  /* Border and divider colors */
+  --ifm-toc-border-color: #4746a7;
+  --ifm-table-border-color: #4746a7;
+  --ifm-hr-background-color: #4746a7;
+  
+  /* Card and container styling */
+  --ifm-card-primary-grey: #3a3a3a;
+  --docusaurus-highlighted-code-line-bg: rgba(138, 137, 255, 0.15);
+  
+  /* Code block background */
+  --ifm-code-background: #2a2a2a;
+  
+  /* Shadows */
+  --ifm-global-shadow-lw: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --ifm-global-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --ifm-global-shadow-tl: 0 12px 28px 0 rgba(0, 0, 0, 0.6), 0 2px 4px 0 rgba(0, 0, 0, 0.4);
 }
 
 .sidebar-title {
@@ -65,13 +92,18 @@ h4 {
 }
 
 .navbar .clean-btn svg,
-.navbar .navbar__title,
-.navbar .navbar__item {
+.navbar .navbar__title {
   color: white !important;
 }
-[data-theme='light'] .navbar .navbar__item {
+
+/* Dark mode navbar items */
+[data-theme='dark'] .navbar .navbar__item {
   color: white !important;
-  filter: invert(0.8);
+}
+
+/* Light mode navbar items - use default color */
+[data-theme='light'] .navbar .navbar__item {
+  color: var(--ifm-navbar-link-color);
 }
 
 [data-theme='light'] .navbar .clean-btn svg {
@@ -83,26 +115,153 @@ h4 {
 }
 
 .header-github:hover {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
+/* Light mode GitHub icon - dark icon for light background */
 .header-github:before {
   content: '';
   width: 24px;
   height: 24px;
   display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+/* Dark mode GitHub icon - white icon for dark background */
+[data-theme='dark'] .header-github:before {
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
     no-repeat;
 }
 
-/* Dark mode css */
-
 [data-theme='dark'] .header-github:hover {
-  filter: invert(1);
+  opacity: 0.7;
 }
 
 [data-theme='dark'] .sidebar-title {
-  border-bottom: solid rgb(96, 103, 112) 1px;
+  border-bottom: solid #4746a7 1px;
+}
+
+/* Additional dark mode overrides for Nillion brand */
+[data-theme='dark'] .navbar {
+  background-color: #12125a;
+  border-bottom: 1px solid #4746a7;
+}
+
+/* Navbar items hover state */
+[data-theme='dark'] .navbar__item.navbar__link {
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .navbar__item.navbar__link:hover {
+  color: #8a89ff !important;
+  background-color: rgba(138, 137, 255, 0.1);
+  border-radius: 0.375rem;
+}
+
+/* Light mode navbar hover */
+[data-theme='light'] .navbar__item.navbar__link {
+  transition: all 0.2s ease;
+}
+
+[data-theme='light'] .navbar__item.navbar__link:hover {
+  color: var(--ifm-color-primary-dark) !important;
+  background-color: rgba(0, 0, 255, 0.08);
+  border-radius: 0.375rem;
+}
+
+[data-theme='dark'] .menu__link {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .menu__link:hover,
+[data-theme='dark'] .menu__link--active {
+  color: #8a89ff;
+}
+
+[data-theme='dark'] .table-of-contents__link {
+  color: #b0b0b0;
+}
+
+[data-theme='dark'] .table-of-contents__link:hover,
+[data-theme='dark'] .table-of-contents__link--active {
+  color: #8a89ff;
+}
+
+[data-theme='dark'] .footer {
+  background-color: #12125a;
+  border-top: 1px solid #4746a7;
+}
+
+[data-theme='dark'] .footer__link-item {
+  color: #b0b0b0;
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: #8a89ff;
+}
+
+[data-theme='dark'] .admonition {
+  background-color: #1a1a6e;
+  border-left-color: #8a89ff;
+}
+
+[data-theme='dark'] .alert {
+  background-color: #1a1a6e;
+  border-color: #4746a7;
+}
+
+/* Homepage specific dark mode styles */
+[data-theme='dark'] .homepage {
+  background-color: #12125a;
+}
+
+[data-theme='dark'] .navbar--fixed-top {
+  background-color: #12125a;
+  border-bottom: 1px solid #4746a7;
+}
+
+/* Documentation pages dark mode background */
+[data-theme='dark'] .main-wrapper {
+  background-color: #12125a;
+}
+
+[data-theme='dark'] .docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
+  background-color: #12125a;
+}
+
+[data-theme='dark'] article {
+  background-color: #12125a;
+}
+
+[data-theme='dark'] .theme-doc-markdown {
+  background-color: #12125a;
+}
+
+/* Ensure sidebar has correct background */
+[data-theme='dark'] aside.theme-doc-sidebar-container {
+  background-color: #12125a;
+  border-right: 1px solid #4746a7;
+}
+
+/* TOC sidebar background */
+[data-theme='dark'] .theme-doc-toc-desktop {
+  background-color: #12125a;
+}
+
+/* Pagination background */
+[data-theme='dark'] .pagination-nav {
+  background-color: #12125a;
+}
+
+[data-theme='dark'] .pagination-nav__item {
+  background-color: #1a1a6e;
+  border: 1px solid #4746a7;
+}
+
+[data-theme='dark'] .pagination-nav__item:hover {
+  background-color: #2a2a5a;
+  border-color: #8a89ff;
 }
 
 @media (min-width: 768px) {
@@ -140,6 +299,151 @@ h4 {
   margin: 0 auto;
 }
 
+/* Mermaid dark mode theming */
+[data-theme='dark'] {
+  --mermaid-bg-color: #1a1a6e;
+  --mermaid-edge-color: #8a89ff;
+  --mermaid-node-bg-color: #2a2a2a;
+  --mermaid-node-border-color: #4746a7;
+  --mermaid-label-color: #ffffff;
+  --mermaid-label-bg-color: #12125a;
+  --mermaid-text-color: #ffffff;
+}
+
+/* Apply dark mode colors to mermaid elements */
+[data-theme='dark'] .docusaurus-mermaid-container {
+  background-color: transparent;
+}
+
+[data-theme='dark'] .docusaurus-mermaid-container svg {
+  background-color: transparent !important;
+}
+
+/* Style mermaid diagram elements */
+[data-theme='dark'] .node rect,
+[data-theme='dark'] .node circle,
+[data-theme='dark'] .node ellipse,
+[data-theme='dark'] .node polygon {
+  fill: var(--mermaid-node-bg-color) !important;
+  stroke: var(--mermaid-node-border-color) !important;
+  stroke-width: 2px !important;
+}
+
+[data-theme='dark'] .node text,
+[data-theme='dark'] .nodeLabel {
+  fill: var(--mermaid-text-color) !important;
+}
+
+[data-theme='dark'] .edgePath .path,
+[data-theme='dark'] .flowchart-link {
+  stroke: var(--mermaid-edge-color) !important;
+  stroke-width: 2px !important;
+}
+
+[data-theme='dark'] .edgeLabel,
+[data-theme='dark'] .edgeLabel rect {
+  fill: var(--mermaid-label-bg-color) !important;
+}
+
+[data-theme='dark'] .edgeLabel text {
+  fill: var(--mermaid-text-color) !important;
+}
+
+/* Cluster/subgraph styling */
+[data-theme='dark'] .cluster rect {
+  fill: var(--mermaid-bg-color) !important;
+  stroke: var(--mermaid-node-border-color) !important;
+}
+
+[data-theme='dark'] .cluster text {
+  fill: var(--mermaid-text-color) !important;
+}
+
+/* Arrow markers */
+[data-theme='dark'] marker path {
+  fill: var(--mermaid-edge-color) !important;
+  stroke: var(--mermaid-edge-color) !important;
+}
+
+/* Ensure all text in mermaid diagrams is visible in dark mode */
+[data-theme='dark'] .docusaurus-mermaid-container text {
+  fill: #ffffff !important;
+}
+
+/* Specific styling for node labels */
+[data-theme='dark'] .docusaurus-mermaid-container .node .label {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Make sure text inside nodes has good contrast */
+[data-theme='dark'] .docusaurus-mermaid-container tspan {
+  fill: #ffffff !important;
+}
+
+/* For clickable nodes, ensure text remains visible */
+[data-theme='dark'] .docusaurus-mermaid-container .clickable text,
+[data-theme='dark'] .docusaurus-mermaid-container .clickable tspan {
+  fill: #ffffff !important;
+}
+
+/* Force all mermaid text to be white with maximum specificity */
+[data-theme='dark'] .docusaurus-mermaid-container svg text,
+[data-theme='dark'] .docusaurus-mermaid-container svg tspan,
+[data-theme='dark'] .docusaurus-mermaid-container svg .nodeLabel,
+[data-theme='dark'] .docusaurus-mermaid-container svg .label {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Specific overrides for flowchart nodes */
+[data-theme='dark'] .docusaurus-mermaid-container .flowchart-label text,
+[data-theme='dark'] .docusaurus-mermaid-container g.nodes g.node text,
+[data-theme='dark'] .docusaurus-mermaid-container g.nodes g.node tspan {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Override any inline styles */
+[data-theme='dark'] .docusaurus-mermaid-container svg text[style*="fill"],
+[data-theme='dark'] .docusaurus-mermaid-container svg tspan[style*="fill"] {
+  fill: #ffffff !important;
+}
+
+/* Light mode mermaid text styling */
+[data-theme='light'] .docusaurus-mermaid-container svg text,
+[data-theme='light'] .docusaurus-mermaid-container svg tspan,
+[data-theme='light'] .docusaurus-mermaid-container svg .nodeLabel,
+[data-theme='light'] .docusaurus-mermaid-container svg .label {
+  fill: #1a1a1a !important;
+  color: #1a1a1a !important;
+}
+
+/* Specific overrides for flowchart nodes in light mode */
+[data-theme='light'] .docusaurus-mermaid-container .flowchart-label text,
+[data-theme='light'] .docusaurus-mermaid-container g.nodes g.node text,
+[data-theme='light'] .docusaurus-mermaid-container g.nodes g.node tspan {
+  fill: #1a1a1a !important;
+  color: #1a1a1a !important;
+}
+
+/* Override any inline styles in light mode */
+[data-theme='light'] .docusaurus-mermaid-container svg text[style*="fill"],
+[data-theme='light'] .docusaurus-mermaid-container svg tspan[style*="fill"] {
+  fill: #1a1a1a !important;
+}
+
+/* Ensure all text in mermaid diagrams is dark in light mode */
+[data-theme='light'] .docusaurus-mermaid-container text {
+  fill: #1a1a1a !important;
+}
+
+/* Force all mermaid node text to be dark in light mode */
+[data-theme='light'] .node text,
+[data-theme='light'] .nodeLabel {
+  fill: #1a1a1a !important;
+}
+
 /* Custom CSS for all images in the collection-explorer page */
 article[class*="collection-explorer"] img,
 main img[src*="collection_explorer"],
@@ -158,4 +462,201 @@ article img[src*="/img/collection_explorer/"] {
 [data-theme='dark'] article img[src*="/img/collection_explorer/"] {
   border-color: #4a4a4a !important;
   box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Blog/Articles title styling - consistent size across listing and individual pages */
+.blog-list-page article h2,
+.blog-list-page article h2 a {
+  font-size: 1.75rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Same size on individual blog post pages */
+article header h1 {
+  font-size: 1.75rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Fix blog sidebar links in dark mode */
+[data-theme='dark'] .blog-sidebar a {
+  color: #b0b0b0 !important;
+}
+
+[data-theme='dark'] .blog-sidebar a:hover {
+  color: #8a89ff !important;
+  text-decoration: none !important;
+}
+
+/* Blog sidebar title */
+[data-theme='dark'] .blog-sidebar h3 {
+  color: #ffffff !important;
+}
+
+/* Fix sidebarItemList links in blog/articles */
+[data-theme='dark'] .sidebarItemList a,
+[data-theme='dark'] .sidebarItem a {
+  color: #b0b0b0 !important;
+}
+
+[data-theme='dark'] .sidebarItemList a:hover,
+[data-theme='dark'] .sidebarItem a:hover {
+  color: #8a89ff !important;
+  text-decoration: none !important;
+}
+
+/* Active/current article in sidebar */
+[data-theme='dark'] .sidebarItemList .sidebarItemLinkActive,
+[data-theme='dark'] .sidebarItem.sidebarItemLinkActive a {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* Dark mode link styles - only for content, not navigation */
+[data-theme='dark'] .markdown a,
+[data-theme='dark'] article a:not(.menu__link):not(.table-of-contents__link),
+[data-theme='dark'] .theme-doc-markdown a:not(.menu__link):not(.table-of-contents__link),
+[data-theme='dark'] main a:not(.menu__link):not(.table-of-contents__link):not(.navbar__item):not(.breadcrumbs__link):not(.pagination-nav__link) {
+  color: #8a89ff !important;
+}
+
+[data-theme='dark'] .markdown a:hover,
+[data-theme='dark'] article a:not(.menu__link):not(.table-of-contents__link):hover,
+[data-theme='dark'] .theme-doc-markdown a:not(.menu__link):not(.table-of-contents__link):hover,
+[data-theme='dark'] main a:not(.menu__link):not(.table-of-contents__link):not(.navbar__item):not(.breadcrumbs__link):not(.pagination-nav__link):hover {
+  color: #a5a4ff !important;
+  text-decoration: underline;
+}
+
+/* Dark mode code blocks and pre elements */
+[data-theme='dark'] pre {
+  background-color: #2a2a2a !important;
+  border: 1px solid #4746a7;
+}
+
+[data-theme='dark'] code {
+  background-color: #2a2a2a;
+  border-color: #4746a7;
+}
+
+/* Inline code */
+[data-theme='dark'] :not(pre) > code {
+  background-color: #2a2a2a;
+  border: 1px solid #4746a7;
+  color: #b5b4f5;
+}
+
+/* Tables in dark mode */
+[data-theme='dark'] table {
+  background-color: #1a1a6e;
+}
+
+[data-theme='dark'] table thead {
+  background-color: #2a2a5a;
+}
+
+[data-theme='dark'] table tr:nth-child(even) {
+  background-color: rgba(138, 137, 255, 0.05);
+}
+
+/* Breadcrumbs */
+[data-theme='dark'] .breadcrumbs {
+  background-color: transparent;
+}
+
+[data-theme='dark'] .breadcrumbs__link {
+  color: #ffffff;
+  background-color: rgba(138, 137, 255, 0.15);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .breadcrumbs__link:hover {
+  color: #ffffff;
+  background-color: rgba(138, 137, 255, 0.25);
+  text-decoration: none;
+}
+
+/* Current/active breadcrumb */
+[data-theme='dark'] .breadcrumbs__item--active .breadcrumbs__link {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Breadcrumb separators */
+[data-theme='dark'] .breadcrumbs__separator {
+  color: #4746a7;
+}
+
+/* Logo sizing consistency */
+.navbar__logo {
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure consistent logo sizing in both themes */
+.navbar__logo img {
+  height: 2.5rem !important;
+  width: auto !important;
+  display: block;
+  object-fit: contain;
+}
+
+/* Remove any theme-specific sizing that might interfere */
+[data-theme='light'] .navbar__logo img,
+[data-theme='dark'] .navbar__logo img {
+  height: 2.5rem !important;
+  width: auto !important;
+}
+
+/* Pushfeedback button dark mode styles */
+[data-theme='dark'] {
+  --feedback-primary-color: #8a89ff;
+}
+
+[data-theme='dark'] .pushfeedback-button {
+  background-color: #8a89ff !important;
+  color: white !important;
+  border: none !important;
+}
+
+[data-theme='dark'] .pushfeedback-button:hover {
+  background-color: #a5a4ff !important;
+}
+
+[data-theme='dark'] .pushfeedback-button:active {
+  background-color: #6f6eff !important;
+}
+
+/* Pushfeedback modal dark mode */
+[data-theme='dark'] .pushfeedback-modal {
+  background-color: #1a1a6e !important;
+  border: 1px solid #4746a7 !important;
+}
+
+[data-theme='dark'] .pushfeedback-modal-header {
+  background-color: #12125a !important;
+  color: white !important;
+}
+
+[data-theme='dark'] .pushfeedback-modal-content {
+  background-color: #1a1a6e !important;
+  color: white !important;
+}
+
+[data-theme='dark'] .pushfeedback-modal input,
+[data-theme='dark'] .pushfeedback-modal textarea {
+  background-color: #2a2a2a !important;
+  border: 1px solid #4746a7 !important;
+  color: white !important;
+}
+
+[data-theme='dark'] .pushfeedback-modal button[type="submit"] {
+  background-color: #8a89ff !important;
+  color: white !important;
+}
+
+[data-theme='dark'] .pushfeedback-modal button[type="submit"]:hover {
+  background-color: #a5a4ff !important;
 }
