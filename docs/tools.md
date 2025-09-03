@@ -15,7 +15,7 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
   title="NIL Faucet"
   description="Get NIL (nilChain Testnet tokens) to start building apps."
   icon="💧"
-  href="https://faucet.nillion.com"
+  href="https://faucet.testnet.nillion.com"
   external={true}
   guideHref="/community/guides/testnet-faucet"
   guideExternal={false}
