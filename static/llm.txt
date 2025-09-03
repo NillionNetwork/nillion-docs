@@ -1,40 +1,117 @@
 # Nillion Documentation
 
-> Nillion is a decentralized computation platform that enables privacy-preserving operations through advanced cryptography. Our technology allows developers to build applications that process sensitive data without compromising privacy or security.
+Nillion is a secure computation network that decentralizes trust for high-value, sensitive, and private data using blind computation techniques like secure multi-party computation (MPC), homomorphic encryption (HE), and trusted execution environments (TEEs).
 
-Nillion combines multiple cryptographic techniques to create a platform where data can remain private while still being useful for computation. Our suite of tools includes SecretVault for secure data storage and SecretLLM for private AI.
+## Core Concepts
 
+Blind Computation - Performing computations on encrypted data without decryption, eliminating the traditional decrypt-compute-re-encrypt cycle
 
-## Learn
-- [What Is Nillion](https://docs.nillion.com/what-is-nillion): Introduction to Nillion and its capabilities
-- [Use Cases](https://docs.nillion.com/learn/use-cases): Example applications and industry solutions built with Nillion
-- [Architecture](https://docs.nillion.com/learn/architecture): Overview of Nillion's technical architecture
-- [Blind Modules](https://docs.nillion.com/build/blind-modules): How Nillion's pre-built privacy-preserving modules work
-- [Protocols](https://docs.nillion.com/learn/protocols): Technical details about Nillion's cryptographic protocols
+Blind Modules - The core technical components of the Nillion Network that are the actual nodes. Each Blind Module packages and combines one or more privacy-enhancing technologies (PETs) in a developer-friendly way.
 
-## Build
+nilChain - The blockchain network that powers Nillion's payment system
 
-- [Start Building](https://docs.nillion.com/quickstart): Quick guide to get started with Nillion development
-- [Network Configuration](https://docs.nillion.com/network): Information about connecting to the Nillion network
+NIL - The native token of nilChain, used to pay for Nillion API Key subscriptions to access nilDB and/or nilAI services
 
-### SecretVault
+## Blind Modules (Nodes)
 
-- [Overview](https://docs.nillion.com/build/secret-vault/about): Introduction to SecretVault for secure data storage
-- [API Reference](https://docs.nillion.com/api/nildb/overview): Complete SecretVault API documentation
+nilDB - Secure NoSQL database nodes enabling encrypted and/or decentralized data storage via symmetric cryptography, homomorphic encryption, or MPC. Supports clusters of multiple nodes with mixed encrypted/plaintext documents. Has RESTful API but developers typically use Secretvaults SDK instead.
 
-### SecretLLM
+nilAI - Secure AI nodes running LLMs inside trusted execution environments (TEEs) for private inference. Accessed via RESTful API for supported model inference.
 
-- [Overview](https://docs.nillion.com/build/secretLLM/overview): Introduction to privacy-preserving LLM operations
-- [Quickstart](https://docs.nillion.com/build/secretLLM/quickstart): Get started with SecretLLM
-- [Access](https://docs.nillion.com/build/secretLLM/access): How to access SecretLLM services
-- [Usage](https://docs.nillion.com/build/secretLLM/usage): How to use SecretLLM in applications
-- [API Reference](https://docs.nillion.com/api/nilai/overview): Complete SecretLLM API documentation
+## Developer Solutions
 
+To use these developer solutions, you must first subscribe to the corresponding services by paying NIL tokens to receive a valid Nillion API Key:
 
-## API Reference
+Private Storage - What developers can build using nilDB nodes for secure, encrypted data storage applications (requires nilDB service subscription)
 
-- [SecretVault API](https://docs.nillion.com/api/nildb/overview): API documentation for SecretVault
-- [SecretLLM API](https://docs.nillion.com/api/nilai/overview): API documentation for SecretLLM
+Private LLMs - What developers can build using nilAI nodes for private AI inference applications (requires nilAI service subscription)
+
+## Developer Flow for Building Privacy-Preserving Apps
+
+1. **Create Wallet & Get Tokens**
+   - Create a Nillion Wallet: https://docs.nillion.com/community/guides/nillion-wallet
+   - Get testnet NIL tokens: https://faucet.testnet.nillion.com/
+
+2. **Subscribe to Services**  
+   - Use nilPay to subscribe: https://nilpay.vercel.app/
+   - Pay NIL tokens for nilDB and/or nilAI service subscriptions to receive API keys
+
+3. **Integrate Solutions**
+   - Build with Private Storage (using nilDB nodes) or Private LLMs (using nilAI nodes)
+   - Follow platform-specific integration guides below
+
+## Getting Started with Private Storage
+
+- Private Storage Overview: https://docs.nillion.com/build/private-storage/overview - Comprehensive guide to concepts, collections, and security model
+- Integration by Platform: https://docs.nillion.com/build/private-storage/platform - Choose your development platform and integration approach
+- Node.js Guide: https://docs.nillion.com/build/private-storage/platform-nodejs - Server-side applications with full Secretvaults TypeScript SDK
+- Next.js Guide: https://docs.nillion.com/build/private-storage/platform-nextjs - ⭐ Recommended for web apps with secure API routes
+- React Guide: https://docs.nillion.com/build/private-storage/platform-react - Browser-only applications with webpack polyfills
+- Python Examples: https://github.com/NillionNetwork/secretvaults-py/tree/main/examples#example-scripts - Python integration examples and scripts
+
+## Creating Private Storage Collections and Schemas
+
+**⭐ Recommended: Use Collection Explorer for creating collections**
+- Collection Explorer: https://collection-explorer.nillion.com - No-code visual tool for creating and managing schemas, collections, and records
+- The Collection Explorer is the easiest way to create collections with proper schemas and validation
+- Collections created in Collection Explorer are fully compatible with the Secretvaults SDK
+- For programmatic collection creation, use the Secretvaults SDK after defining your schema
+
+## Getting Started with Private LLMs
+
+- Private LLMs Overview: https://docs.nillion.com/build/private-llms/overview - Complete guide to OpenAI-compatible private AI inference in TEEs
+- Private LLMs Quickstart: https://docs.nillion.com/build/private-llms/quickstart - Get started quickly with your first private AI request
+- Private LLMs Usage: https://docs.nillion.com/build/private-llms/usage - Detailed usage patterns and API examples
+- Available models include Gemma-3 (27B), GPT-OSS (20B), and Llama-3.1 (8B) with various capabilities
+- Drop-in privacy replacement for existing OpenAI-style code
+- Cryptographic attestation and signed responses for verification
+
+## Examples & Tutorials
+
+- All Examples: https://github.com/NillionNetwork/blind-module-examples/tree/main - Complete collection of code examples and tutorials
+- Private Storage Examples: https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb/secretvaults-ts/standard-collection - TypeScript examples with Node, NextJS, and React
+- Python Examples: https://github.com/NillionNetwork/secretvaults-py/tree/main/examples#example-scripts - Python integration examples and scripts
+
+## Secretvaults SDK
+
+The Secretvaults SDK simplifies interacting with Private Storage nilDB nodes to create collections and store/retrieve encrypted records. Instead of interacting with each nilDB node's RESTful API directly, developers configure the SDK with multiple nilDB node URLs (typically 3) and the SDK handles the multi-node interactions.
+
+**TypeScript SDK (secretvaults-ts):**
+- GitHub: https://github.com/NillionNetwork/secretvaults-ts
+- NPM: https://www.npmjs.com/package/@nillion/secretvaults  
+- Documentation: https://nillion.pub/secretvaults-ts/
+
+**Python SDK (secretvaults-py):**
+- GitHub: https://github.com/NillionNetwork/secretvaults-py
+- PyPI: https://pypi.org/project/secretvaults
+
+## Developer Tools
+
+- Network Configuration: https://docs.nillion.com/build/network-config - Nillion network endpoints and Blind Module configuration
+- Developer Tools Overview: https://docs.nillion.com/tools - Complete suite of tools for building privacy-preserving apps
+- NIL Faucet: https://faucet.testnet.nillion.com - Get NIL testnet tokens to start building
+- nilPay Subscription: https://nilpay.vercel.app/ - Subscribe to nilDB or nilAI services with API keys using NIL tokens
+- Collection Explorer: https://collection-explorer.nillion.com - No-code tool for managing Private Storage schemas and collections
+- Network Status: https://status.nillion.com - Check testnet and mainnet node status
+- NUC Viewer: https://nillion.tools/nuc-viewer - Decode and inspect Nillion NUCs
+- Blindfold Demo: https://blindfold.nillion.com - Demo encryption/decryption with Blindfold library
+
+## Use Cases
+
+Early builders are creating applications for private predictive AI, secure healthcare storage and compute, secure credential storage, and secure trade data workflows.
+
+## Guidelines
+
+- Devs should follow the 3-step developer flow: Create Nillion wallet → Subscribe to services → Integrate solutions
+- Devs building with Private Storage should **use the Collection Explorer tool for creating collections** - it's the recommended no-code approach and is fully compatible with Secretvaults SDK
+- For fullstack apps, use Standard Collections rather than Owned Collections (Owned Collections aren't fully supported yet)
+- Private LLMs provide OpenAI-compatible APIs running in trusted execution environments
+- Private Storage splits encrypted data across multiple nilDB nodes for enhanced security
+- Subscribe to nilDB and/or nilAI services by paying NIL tokens to get a valid Nillion API Key
+- Use Secretvaults SDK instead of interacting with nilDB node RESTful APIs directly
+- Configure Secretvaults SDK with multiple nilDB node URLs (typically 3 nodes)
+- For web applications, Next.js approach is recommended for better security and performance
+- Collection Explorer provides no-code alternative fully compatible with Secretvaults SDK
 
 ## Community
 
