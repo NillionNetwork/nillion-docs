@@ -16,7 +16,7 @@ export default function ToolFeatureItem({
 
   return (
     <div className={`${indexStyles.featureItem} ${styles.toolFeatureItem}`}>
-      <div className={indexStyles.featureIcon}>{icon}</div>
+      <div className={`${indexStyles.featureIcon} ${styles.toolIcon}`}>{icon}</div>
       <h3>{title}</h3>
       <p>{description}</p>
       <div className={styles.toolLinks}>

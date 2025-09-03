@@ -701,3 +701,34 @@ article img[src*="/img/collection_explorer/"] {
 [data-theme='dark'] .pushfeedback-modal button[type='submit']:hover {
   background-color: #a5a4ff !important;
 }
+
+/* Tools grid layout for 3 columns on larger screens */
+.tools-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 1.25rem !important;
+  margin-top: 1rem !important;
+}
+
+/* Force 3 columns on screens wider than 1024px */
+@media (min-width: 1024px) {
+  .tools-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* 2 columns on medium screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Single column on small screens */
+@media (max-width: 767px) {
+  .tools-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+

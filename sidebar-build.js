@@ -157,9 +157,9 @@ const buildSidebar = [
   },
   'build/ai-assisted-workflow/overview',
   {
-    type: 'link',
+    type: 'doc',
     label: 'Developer Tools',
-    href: '/tools',
+    id: 'tools',
   },
 ];
 

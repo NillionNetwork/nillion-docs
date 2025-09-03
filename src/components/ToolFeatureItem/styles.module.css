@@ -1,28 +1,42 @@
 .toolFeatureItem {
-  min-height: 280px;
+  min-height: 200px;
+  padding: 1.25rem !important;
+}
+
+.toolFeatureItem h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
 }
 
 .toolFeatureItem p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.toolIcon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .toolLinks {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-top: auto;
 }
 
 .toolLink,
 .guideLink {
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 6px;
   text-decoration: none !important;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+  line-height: 1.2;
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.2rem;
 }
 
 .toolLink {
@@ -47,19 +61,24 @@
 }
 
 .linkIcon {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 
 @media screen and (max-width: 768px) {
+  .toolFeatureItem {
+    padding: 1rem !important;
+    min-height: auto;
+  }
+  
   .toolLinks {
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .toolLink,
   .guideLink {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
   }
 }
 
