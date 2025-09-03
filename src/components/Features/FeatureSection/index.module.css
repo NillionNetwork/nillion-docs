@@ -179,3 +179,33 @@
     display: none;
   }
 }
+
+/* Dark mode styles for FeatureSection */
+[data-theme='dark'] .featureItem {
+  background-color: #1a1a6e;
+  border: 2px solid transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .featureItem:hover {
+  box-shadow: 0 4px 20px rgba(138, 137, 255, 0.2);
+  border-color: rgba(138, 137, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+[data-theme='dark'] .featureItem h3 {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .featureItem p {
+  color: #b0b0b0;
+}
+
+[data-theme='dark'] .featureIcon {
+  color: #8a89ff;
+}
+
+[data-theme='dark'] .main {
+  background-color: #12125a;
+  color: #ffffff;
+}

@@ -10,7 +10,7 @@ import 'dotenv/config';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Nillion Builder Docs',
+  title: 'Nillion Docs',
   tagline:
     'Nillion is a secure computation network that decentralizes trust for high value data',
   favicon: 'img/favicon.ico',
@@ -65,6 +65,50 @@ const config = {
         content: 'AaBcABcNNZ4eaHnfCCOfrhzAWLWI7IpKLePjkSBMGp4',
       },
     },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/img/favicon-32x32.png',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/img/favicon-16x16.png',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/img/apple-touch-icon.png',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '192x192',
+        href: '/img/android-chrome-192x192.png',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '512x512',
+        href: '/img/android-chrome-512x512.png',
+      },
+    },
   ],
   presets: [
     [
@@ -81,7 +125,14 @@ const config = {
           // editUrl:
           //   'https://github.com/NillionNetwork/nillion-docs/tree/main/',
         },
-        blog: false,
+        blog: {
+          routeBasePath: 'articles',
+          blogTitle: 'Technical Articles',
+          blogDescription: 'Technical articles and insights about Nillion',
+          postsPerPage: 10,
+          blogSidebarTitle: 'Technical Articles',
+          blogSidebarCount: 10,
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -111,11 +162,12 @@ const config = {
         defaultMode: 'dark',
         respectPrefersColorScheme: true,
       },
-      image: 'img/nillion-banner.jpeg',
+      image: 'img/nillion-banner.png',
       navbar: {
         logo: {
           alt: 'Nillion logo',
           src: 'img/logo.svg',
+          srcDark: 'img/logo-dark-mode.svg',
         },
         items: [
           {
@@ -130,17 +182,22 @@ const config = {
             docId: 'build/quickstart',
             label: 'Build',
           },
-          {
-            type: 'doc',
-            position: 'left',
-            docId: 'api/overview',
-            label: 'API',
-          },
+          // {
+          //   type: 'doc',
+          //   position: 'left',
+          //   docId: 'api/overview',
+          //   label: 'API',
+          // },
           {
             type: 'doc',
             position: 'left',
             docId: 'community/community-and-support',
             label: 'Community',
+          },
+          {
+            to: '/articles',
+            label: 'Articles',
+            position: 'left',
           },
 
           {
@@ -153,6 +210,32 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      mermaid: {
+        theme: { light: 'neutral', dark: 'dark' },
+        options: {
+          theme: 'dark',
+          themeVariables: {
+            primaryColor: '#8a89ff',
+            primaryBorderColor: '#4746a7',
+            primaryTextColor: '#ffffff',
+            lineColor: '#8a89ff',
+            secondaryColor: '#1a1a6e',
+            tertiaryColor: '#2a2a2a',
+            background: '#12125a',
+            mainBkg: '#2a2a2a',
+            secondBkg: '#1a1a6e',
+            tertiaryBkg: '#12125a',
+            textColor: '#ffffff',
+            labelBoxBkgColor: '#12125a',
+            labelTextColor: '#ffffff',
+            nodeBorder: '#4746a7',
+            clusterBkg: '#1a1a6e',
+            clusterBorder: '#4746a7',
+            defaultLinkColor: '#8a89ff',
+            edgeLabelBackground: '#12125a',
+          },
+        },
       },
       codeblock: {
         showGithubLink: true,
@@ -183,8 +266,13 @@ const config = {
               },
               {
                 type: 'link',
-                label: 'X (formerly Twitter)',
-                href: 'https://x.com/nillionnetwork',
+                label: 'BuildOnNillion',
+                href: 'https://x.com/buildonnillion',
+              },
+              {
+                type: 'link',
+                label: 'Nucleus Ecosystem',
+                href: 'https://nucleus.nillion.com/',
               },
             ],
           },
@@ -193,13 +281,13 @@ const config = {
             items: [
               {
                 type: 'link',
-                label: 'Github Discussions',
-                href: 'https://github.com/orgs/NillionNetwork/discussions',
+                label: 'Github',
+                href: 'https://github.com/NillionNetwork',
               },
               {
                 type: 'link',
-                label: 'Builder Bounties',
-                href: 'https://github.com/NillionNetwork/builder-bounties',
+                label: 'Github Discussions',
+                href: 'https://github.com/orgs/NillionNetwork/discussions',
               },
               {
                 type: 'link',
@@ -218,13 +306,12 @@ const config = {
               },
               {
                 type: 'link',
-                label: 'Blog',
-                href: 'https://nillion.com/news',
+                label: 'X (formerly Twitter)',
+                href: 'https://x.com/nillionnetwork',
               },
             ],
           },
         ],
-        copyright: `${new Date().getFullYear()} Nillion. All Rights Reserved.`,
       },
     }),
   plugins: [
