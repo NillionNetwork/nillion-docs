@@ -23,7 +23,7 @@ Interact with the private storage solution using the TypeScript or Python [secre
 **For Builders (Applications)**
 
 - Get a [Nillion API Key](/build/network-api-access) to connect to nilDB nodes
-- Define collections with schemas programatically or by using the no-code, visual, **[Collection Explorer Tool](/build/private-storage/collection-explorer) (recommended)**
+- Define collections with schemas programmatically or by using the no-code, visual, **[Collection Explorer Tool](/build/private-storage/collection-explorer) (recommended)**
 - Store and query data
 - Create aggregation queries
 
