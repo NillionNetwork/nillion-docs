@@ -413,40 +413,6 @@ h4 {
   fill: #ffffff !important;
 }
 
-/* Light mode mermaid text styling */
-[data-theme='light'] .docusaurus-mermaid-container svg text,
-[data-theme='light'] .docusaurus-mermaid-container svg tspan,
-[data-theme='light'] .docusaurus-mermaid-container svg .nodeLabel,
-[data-theme='light'] .docusaurus-mermaid-container svg .label {
-  fill: #1a1a1a !important;
-  color: #1a1a1a !important;
-}
-
-/* Specific overrides for flowchart nodes in light mode */
-[data-theme='light'] .docusaurus-mermaid-container .flowchart-label text,
-[data-theme='light'] .docusaurus-mermaid-container g.nodes g.node text,
-[data-theme='light'] .docusaurus-mermaid-container g.nodes g.node tspan {
-  fill: #1a1a1a !important;
-  color: #1a1a1a !important;
-}
-
-/* Override any inline styles in light mode */
-[data-theme='light'] .docusaurus-mermaid-container svg text[style*='fill'],
-[data-theme='light'] .docusaurus-mermaid-container svg tspan[style*='fill'] {
-  fill: #1a1a1a !important;
-}
-
-/* Ensure all text in mermaid diagrams is dark in light mode */
-[data-theme='light'] .docusaurus-mermaid-container text {
-  fill: #1a1a1a !important;
-}
-
-/* Force all mermaid node text to be dark in light mode */
-[data-theme='light'] .node text,
-[data-theme='light'] .nodeLabel {
-  fill: #1a1a1a !important;
-}
-
 /* Custom CSS for all images in the collection-explorer page */
 article[class*="collection-explorer"] img,
 main img[src*="collection_explorer"],
@@ -475,10 +441,10 @@ article img[src*="/img/collection_explorer/"] {
 }
 
 /* Same size on individual blog post pages */
-article header h1 {
+/* article header h1 {
   font-size: 1.75rem !important;
   line-height: 1.4 !important;
-}
+} */
 
 /* Fix blog sidebar links in dark mode */
 [data-theme='dark'] .blog-sidebar a {
@@ -627,23 +593,36 @@ article header h1 {
 
 /* Logo sizing consistency */
 .navbar__logo {
-  height: 2.5rem;
+  height: 3rem;
   display: flex;
   align-items: center;
 }
 
-/* Ensure consistent logo sizing in both themes */
+/* Zoom in on SVG logos by scaling them up */
+.navbar__logo svg {
+  height: 3rem !important;
+  width: auto !important;
+  display: block;
+  transform: scale(1.3);
+  transform-origin: center;
+}
+
+/* For img elements (if used instead of inline SVG) */
 .navbar__logo img {
-  height: 2.5rem !important;
+  height: 3rem !important;
   width: auto !important;
   display: block;
   object-fit: contain;
+  transform: scale(1.3);
+  transform-origin: center;
 }
 
 /* Remove any theme-specific sizing that might interfere */
 [data-theme='light'] .navbar__logo img,
-[data-theme='dark'] .navbar__logo img {
-  height: 2.5rem !important;
+[data-theme='dark'] .navbar__logo img,
+[data-theme='light'] .navbar__logo svg,
+[data-theme='dark'] .navbar__logo svg {
+  height: 3rem !important;
   width: auto !important;
 }
 

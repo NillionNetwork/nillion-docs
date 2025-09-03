@@ -65,7 +65,7 @@ export default function Tools() {
   return (
     <Layout
       title="Tools"
-      description="Essential tools and resources for building on the Nillion Network"
+      description="Developer tools for building privacy-preserving apps on Nillion."
       wrapperClassName="toolsPage"
     >
       <main className={styles.main}>
