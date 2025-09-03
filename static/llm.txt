@@ -26,6 +26,12 @@ Private Storage - What developers can build using nilDB nodes for secure, encryp
 
 Private LLMs - What developers can build using nilAI nodes for private AI inference applications (requires nilAI service subscription)
 
+## Blind Modules (Infrastructure) vs Developer Solutions
+
+The sections above show Nillion's layered approach. The Blind Modules (nilDB and nilAI nodes) are the infrastructure layer that you could interact with directly via RESTful APIs, but this requires managing multi-node coordination, encryption, and complex cryptographic operations manually.
+Instead, use the Developer Solutions. Private Storage and Private LLMs are designed to handle all the complexity for you. The Secretvaults SDK automatically manages multiple nilDB nodes, encryption, and orchestration. Private LLMs provides an OpenAI-compatible API that abstracts away the TEE complexity.
+Always use the Developer Solutions unless you have very specific requirements that require direct node control. The higher-level solutions handle the cryptographic complexity so you don't have to - this is why the nilDB description notes that "developers typically use Secretvaults SDK instead."
+
 ## Developer Flow for Building Privacy-Preserving Apps
 
 1. **Create Wallet & Get Tokens**
