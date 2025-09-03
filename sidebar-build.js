@@ -156,6 +156,11 @@ const buildSidebar = [
     id: 'build/permissions-and-payments',
   },
   'build/ai-assisted-workflow/overview',
+  {
+    type: 'link',
+    label: 'Developer Tools',
+    href: '/tools',
+  },
 ];
 
 module.exports = {
