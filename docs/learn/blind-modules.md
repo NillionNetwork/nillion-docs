@@ -33,7 +33,7 @@ graph TD
     Y <-->|query secret share<br/>reply secret share| NILQL1
     Z <-->|query secret share<br/>reply secret share| NILQL1
     NILQL1 <-->|query<br/>reply| R[Service Provider]
-    style A fill:#EEEEEE,stroke:#000000
+    style A fill:#CCCCFF,stroke:#000000
     style NILQL0 fill:#0000FF,color:#FFFFFF
     style NILQL1 fill:#0000FF,color:#FFFFFF
     style X fill:#0000FF,color:#FFFFFF
@@ -41,7 +41,7 @@ graph TD
     style Z fill:#0000FF,color:#FFFFFF
     style CLIENT fill:#FFFFFF,stroke:#000000
     style NET fill:#CCCCFF,stroke:#000000
-    style R fill:#EEEEEE,stroke:#000000
+    style R fill:#CCCCFF,stroke:#000000
     style SERVICE fill:#FFFFFF,stroke:#000000
 ```
 
@@ -66,7 +66,7 @@ graph LR
     U[User] -->|encrypted prompt| L[<b>LLM</b>]
     L  -->|encrypted reply| U
     NILDB[nilDB Cluster] -->|encrypted data| L
-    style U fill:#EEEEEE,stroke:#000000
+    style U fill:#CCCCFF,stroke:#000000
     style NILAI fill:#0000FF,color:#FFFFFF
     style TEE fill:#DDDDDD,stroke:#FFFFFF,color:#000000
     style L fill:#FFFFFF,stroke:#000000,color:#000000

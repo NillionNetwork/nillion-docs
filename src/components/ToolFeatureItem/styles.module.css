@@ -1,0 +1,106 @@
+.toolFeatureItem {
+  min-height: 200px;
+  padding: 1.25rem !important;
+}
+
+.toolFeatureItem h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+}
+
+.toolFeatureItem p {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.toolIcon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.toolLinks {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.toolLink,
+.guideLink {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  text-decoration: none !important;
+  font-weight: 500;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.toolLink {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-background) !important;
+}
+
+.toolLink:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: var(--ifm-color-primary-contrast-background) !important;
+}
+
+.guideLink {
+  background-color: transparent;
+  color: var(--ifm-color-primary) !important;
+  border: 2px solid var(--ifm-color-primary);
+}
+
+.guideLink:hover {
+  background-color: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-dark) !important;
+}
+
+.linkIcon {
+  font-size: 0.75rem;
+}
+
+@media screen and (max-width: 768px) {
+  .toolFeatureItem {
+    padding: 1rem !important;
+    min-height: auto;
+  }
+  
+  .toolLinks {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .toolLink,
+  .guideLink {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark mode styles for tool buttons */
+[data-theme='dark'] .toolLink {
+  background-color: #8a89ff;
+  color: #12125a !important;
+}
+
+[data-theme='dark'] .toolLink:hover {
+  background-color: #7776ff;
+  color: #12125a !important;
+}
+
+[data-theme='dark'] .guideLink {
+  background-color: transparent;
+  color: #8a89ff !important;
+  border: 2px solid #8a89ff;
+}
+
+[data-theme='dark'] .guideLink:hover {
+  background-color: rgba(138, 137, 255, 0.15);
+  color: #ffffff !important;
+  border-color: #8a89ff;
+}
