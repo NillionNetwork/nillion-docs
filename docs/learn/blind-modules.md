@@ -26,7 +26,7 @@ graph TD
         BLINDFOLD_CLIENT
     end
     style CLIENT fill:#FFFFFF,stroke:#000000
-    style A fill:#EEEEEE,stroke:#000000
+    style A fill:#CCCCFF,stroke:#000000
     style BLINDFOLD_CLIENT fill:#0000FF,color:#FFFFFF
 
     subgraph NET [" "]
@@ -45,7 +45,7 @@ graph TD
     end
     style SERVICE fill:#FFFFFF,stroke:#000000
     style BLINDFOLD_SERVICE fill:#0000FF,color:#FFFFFF
-    style R fill:#EEEEEE,stroke:#000000
+    style R fill:#CCCCFF,stroke:#000000
 
     A[Application] -->|data| BLINDFOLD_CLIENT[<b>blindfold</b>]
     BLINDFOLD_CLIENT -->|data secret share| X[<b>nilDB Node</b>]
@@ -93,7 +93,7 @@ graph LR
     U[User] -->|encrypted prompt| L[<b>LLM</b>]
     L  -->|encrypted reply| U
     NILDB[nilDB Cluster] -->|encrypted data| L
-    style U fill:#EEEEEE,stroke:#000000
+    style U fill:#CCCCFF,stroke:#000000
     style NILDB fill:#0000FF,color:#FFFFFF
 ```
 
