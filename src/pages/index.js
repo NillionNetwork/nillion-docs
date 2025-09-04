@@ -21,13 +21,17 @@ function HeroSection() {
           transactions.
         </p>
         <div className={styles.getStartedButton}>
-          <LinkButton text='Get Started' link='/build/quickstart' small={true} />
+          <LinkButton
+            text="Get Started"
+            link="/build/quickstart"
+            small={true}
+          />
         </div>
       </div>
       <div className={styles.heroImageContainer}>
         <img
-          src='https://nillion.com/wp-content/themes/nillion/assets/images/index/web-summit.svg'
-          alt='Nillion Network Illustration'
+          src="https://nillion.com/wp-content/themes/nillion/assets/images/index/web-summit.svg"
+          alt="Nillion Network Illustration"
           className={styles.spinningImage}
         />
       </div>
@@ -81,10 +85,10 @@ function FeaturesSection() {
 export default function Home() {
   return (
     <Layout
-      title='Home'
-      description="Nillion Builder Docs - Humanity's first blind computer"
+      title="Home"
+      description="Nillion Docs"
       noFooter={true}
-      wrapperClassName='homepage'
+      wrapperClassName="homepage"
     >
       <main className={styles.main}>
         <HeroSection />

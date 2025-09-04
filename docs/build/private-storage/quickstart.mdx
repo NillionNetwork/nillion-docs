@@ -1,8 +1,21 @@
+import CTABanner from '@site/src/components/CTABanner';
+import QuickstartFeedback from '@site/src/components/QuickstartFeedback';
+
 # Quickstart
 
 This guide walks you through building a Node.js demo app that uses Nillion's private storage with user-owned collections.
 
 ## What You'll Build
+
+<iframe
+  width='100%'
+  height='500'
+  src='https://www.youtube.com/embed/Om51sVC8EZA'
+  title='YouTube video player'
+  frameborder='0'
+  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+  allowfullscreen
+></iframe>
 
 In this quickstart, you'll create a simple but powerful demonstration of private storage:
 
@@ -25,11 +38,19 @@ This showcases Nillion's core value: users own their data, but can selectively s
 
 As good practice, we recommend to use two distinct keys: one for network access and a separate key for subscription payments. This dual-key architecture separates authentication from payment processing, enhancing security by limiting the scope of each credential.
 
-1. Visit [https://nilpay.vercel.app/](https://nilpay.vercel.app/)
-2. Create a Testnet public/private key pair through the UI that we will use for network access
-3. [Fund your account with Testnet NIL](https://faucet.testnet.nillion.com)
-4. Subscribe to `nilDB` by paying with your subscription wallet
-5. Save your private key (hex format) - you'll need this for authentication
+<CTABanner
+  question="Get your Nillion API keys here"
+  instruction="Visit the Nillion subscription portal to get your API keys for secretvaults!"
+  buttonText="Get your keys"
+  buttonLink="https://subscription.nillion.com"
+  event="quickstart-svaults-cta-banner"
+  external={true}
+/>
+
+1. Create a Testnet public/private key pair through the UI that we will use for network access
+2. [Fund your account with Testnet NIL](https://faucet.testnet.nillion.com)
+3. Subscribe to `nilDB` by paying with your subscription wallet
+4. Save your private key (hex format) - you'll need this for authentication
 
 ### 2. System Requirements
 
@@ -231,7 +252,7 @@ const collection = {
               "%share"
             ]
           },
-          phone: { // email will be secret shared
+          phone: { // phone will be secret shared
             type: "object",
             properties: {
               "%share": {
@@ -277,8 +298,8 @@ const user = await SecretVaultUserClient.from({
   baseUrls: config.NILDB_NODES,
   keypair: userKeypair,
   blindfold: {
-    operation: "store"
-  }
+    operation: 'store',
+  },
 });
 ```
 
@@ -298,10 +319,10 @@ const userPrivateData = {
   _id: randomUUID(),
   name: 'Steph',
   email: {
-    "%allot": 'steph@example.com'
+    '%allot': 'steph@example.com',
   },
   phone: {
-    "%allot": '+1-555-0123'
+    '%allot': '+1-555-0123',
   },
 };
 
@@ -354,13 +375,12 @@ console.log('✅ User has', references.data.length, 'private records stored');
 If users wants to grant access to other builders, they can do so by calling `grantAccess` and specifying the new builder did, the document and collection and specific permissions. We will omit this step for simplicity, but the code should look similar to this:
 
 ```javascript
-
-// If you want to run this functionality 
+// If you want to run this functionality
 await user.grantAccess({
   collection: collectionId,
   document: userPrivateData._id,
   acl: {
-    grantee: "new-builder-did",
+    grantee: 'new-builder-did',
     read: true, // New Builder can read
     write: false, // New Builder cannot modify
     execute: false, // New Builder cannot run queries
@@ -374,7 +394,7 @@ In the same way, we can revoke access calling `revokeAccess`:
 
 ```javascript
 await user.revokeAccess({
-  grantee: "new-builder-did",
+  grantee: 'new-builder-did',
   collection: collectionId,
   document: userPrivateData._id,
 });
@@ -412,6 +432,10 @@ node demo.js
 
 This demonstrates the core principle of Nillion's private storage: **users own their data**, but can selectively share it with applications they trust.
 
+<QuickstartFeedback
+  thumbsUpEvent="quickstart_secretvaults_completed_yes"
+  thumbsDownEvent="quickstart_secretvaults_completed_no"
+/>
 ## Key Concepts Learned
 
 - **Owned Collections**: Collections where users control access to their individual records

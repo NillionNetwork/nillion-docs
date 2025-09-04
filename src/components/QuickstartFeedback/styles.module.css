@@ -1,0 +1,115 @@
+.feedbackContainer {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  border: 1px solid var(--ifm-toc-border-color);
+}
+
+.questionSection {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.questionIcon {
+  width: 24px;
+  height: 24px;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  flex-shrink: 0;
+}
+
+.question {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  line-height: 1.4;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.feedbackButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: inherit;
+  min-width: 80px;
+}
+
+.feedbackButton:hover {
+  background: var(--ifm-hover-overlay);
+  border-color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-900);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.feedbackButton:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.feedbackButton:active {
+  transform: translateY(1px);
+}
+
+.thumbsIcon {
+  color: var(--ifm-color-emphasis-600);
+  transition: color 0.2s ease;
+}
+
+.feedbackButton:hover .thumbsIcon {
+  color: var(--ifm-color-emphasis-900);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .feedbackContainer {
+    margin-top: 1rem;
+    padding: 0.875rem;
+  }
+
+  .questionSection {
+    gap: 0.5rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .question {
+    font-size: 0.875rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .feedbackButton {
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
+    justify-content: center;
+  }
+}

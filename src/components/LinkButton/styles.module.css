@@ -45,3 +45,24 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+/* Dark mode styles */
+[data-theme='dark'] .customButton,
+[data-theme='dark'] .smallCustomButton {
+  background: #8a89ff;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .customButton:hover,
+[data-theme='dark'] .smallCustomButton:hover {
+  background: #a5a4ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(138, 137, 255, 0.3);
+}
+
+[data-theme='dark'] .customButton:active,
+[data-theme='dark'] .smallCustomButton:active {
+  background: #6f6eff;
+  transform: translateY(0);
+}
