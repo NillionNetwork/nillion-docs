@@ -316,19 +316,6 @@ const config = {
     }),
   plugins: [
     [
-      'docusaurus-pushfeedback',
-      {
-        project: '0zdbombk5w',
-        modalTitle: 'Nillion Docs Feedback',
-        messagePlaceholder:
-          'Let us know how we can improve this page of the Nillion docs.',
-        hideEmail: true,
-        sendButtonText: 'Send to the Nillion team',
-        buttonStyle: 'dark',
-        hideScreenshotButton: true,
-      },
-    ],
-    [
       'docusaurus-plugin-openapi-docs',
       {
         id: 'api',

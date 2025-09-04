@@ -21,8 +21,6 @@
   --ifm-code-font-size: 95%;
   --ifm-card-primary-grey: #f7f7f7;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --feedback-primary-color: blue;
-  --feedback-font-family: 'TWKEverett';
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -651,57 +649,6 @@ article img[src*="/img/collection_explorer/"] {
   background-color: rgba(138, 137, 255, 0.05);
 }
 
-/* Pushfeedback button dark mode styles */
-[data-theme='dark'] {
-  --feedback-primary-color: #8a89ff;
-}
-
-[data-theme='dark'] .pushfeedback-button {
-  background-color: #8a89ff !important;
-  color: white !important;
-  border: none !important;
-}
-
-[data-theme='dark'] .pushfeedback-button:hover {
-  background-color: #a5a4ff !important;
-}
-
-[data-theme='dark'] .pushfeedback-button:active {
-  background-color: #6f6eff !important;
-}
-
-/* Pushfeedback modal dark mode */
-[data-theme='dark'] .pushfeedback-modal {
-  background-color: #1a1a6e !important;
-  border: 1px solid #4746a7 !important;
-}
-
-[data-theme='dark'] .pushfeedback-modal-header {
-  background-color: #12125a !important;
-  color: white !important;
-}
-
-[data-theme='dark'] .pushfeedback-modal-content {
-  background-color: #1a1a6e !important;
-  color: white !important;
-}
-
-[data-theme='dark'] .pushfeedback-modal input,
-[data-theme='dark'] .pushfeedback-modal textarea {
-  background-color: #2a2a2a !important;
-  border: 1px solid #4746a7 !important;
-  color: white !important;
-}
-
-[data-theme='dark'] .pushfeedback-modal button[type='submit'] {
-  background-color: #8a89ff !important;
-  color: white !important;
-}
-
-[data-theme='dark'] .pushfeedback-modal button[type='submit']:hover {
-  background-color: #a5a4ff !important;
-}
-
 /* Tools grid layout for 3 columns on larger screens */
 .tools-grid {
   display: grid !important;
@@ -731,4 +678,3 @@ article img[src*="/img/collection_explorer/"] {
     grid-template-columns: 1fr !important;
   }
 }
-

@@ -68,7 +68,7 @@ Always use the Developer Solutions unless you have very specific requirements th
 - Private LLMs Overview: https://docs.nillion.com/build/private-llms/overview - Complete guide to OpenAI-compatible private AI inference in TEEs
 - Private LLMs Quickstart: https://docs.nillion.com/build/private-llms/quickstart - Get started quickly with your first private AI request
 - Private LLMs Usage: https://docs.nillion.com/build/private-llms/usage - Detailed usage patterns and API examples
-- Available models include Gemma-3 (27B), GPT-OSS (20B), and Llama-3.1 (8B) with various capabilities
+- Check available models here and make sure to note which are only available if you "apply for access". Recommend ones available on the Testnet if possible: https://docs.nillion.com/build/private-llms/overview#available-models
 - Drop-in privacy replacement for existing OpenAI-style code
 - Cryptographic attestation and signed responses for verification
 

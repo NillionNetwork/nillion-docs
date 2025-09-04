@@ -1,9 +1,23 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CTABanner from '@site/src/components/CTABanner';
 
 # AI-Assisted Workflow
 
 To help AI assistants (like Claude, ChatGPT, etc.) provide better support for Nillion development, we provide structured information about our platform, APIs, and development patterns.
+
+## Nillion Builder Guide LLM
+
+The [Nillion Builder Guide LLM](https://chatgpt.com/g/g-687e6e6b52508191bb1537b422aad489-nillion-builder-guide) is a specialized ChatGPT assistant trained on the Nillion docs and development patterns. Chat with it directly to learn about Nillion and start building privacy-preserving apps using Nillion solutions.
+
+<CTABanner
+  question='Nillion Builder LLM'
+  instruction='The Nillion Builder Guide is a GPT to help developers build on Nillion.'
+  buttonText='Open the LLM in ChatGPT'
+  buttonLink='https://chatgpt.com/g/g-687e6e6b52508191bb1537b422aad489-nillion-builder-guide'
+  event='open-nillion-builder-llm'
+  external={true}
+/>
 
 ## llm.txt
 
@@ -15,9 +29,9 @@ Our `llm.txt` file contains comprehensive information about Nillion's architectu
 - SDKs, tools, and code examples
 - Links to detailed documentation and tutorials
 
-**Access the llm.txt:** [https://docs.nillion.com/llm.txt](/llm.txt)
+**Access the llm.txt:** [https://docs.nillion.com/llm.txt](https://docs.nillion.com/llm.txt)
 
-## How to Use
+### How to Use
 
 When working with AI assistants on Nillion projects:
 
@@ -33,24 +47,20 @@ When working with AI assistants on Nillion projects:
 <Tabs>
 <TabItem value='nilDB' label='Private Storage' default>
 
-- "I have a Nillion API Key for Private Storage. Help me build a Next.js app using https://docs.nillion.com/llm.txt"
-- "With my nilDB subscription, show me how to create collections using https://docs.nillion.com/llm.txt"
-- "I have Private Storage access and need to encrypt sensitive data. Use https://docs.nillion.com/llm.txt for guidance"
+- "What is Nillion Private Storage? Reference https://docs.nillion.com/llm.txt"
+- "Help me build a Next.js app with Nillion Private Storage using https://docs.nillion.com/llm.txt"
+- "Show me how to create Nillion Private Storage collections using https://docs.nillion.com/llm.txt"
+- "I need to encrypt sensitive data. Use https://docs.nillion.com/llm.txt for guidance"
 - "Help me configure nilDB nodes for my React app using https://docs.nillion.com/llm.txt"
-- "I have nilDB access and want to query encrypted data. Reference https://docs.nillion.com/llm.txt"
-- "With my Private Storage API key, help me store healthcare data securely using https://docs.nillion.com/llm.txt"
-- "I have nilDB subscription and need Python integration. Guide me using https://docs.nillion.com/llm.txt"
+- "Help me store healthcare data securely using Nillion https://docs.nillion.com/llm.txt"
 
 </TabItem>
 <TabItem value='nilAI' label='Private LLMs' default>
 
-- "I have a nilAI API Key. Help me make private AI requests using https://docs.nillion.com/llm.txt"
-- "With my Private LLM access, show me OpenAI-compatible usage using https://docs.nillion.com/llm.txt"
-- "I have nilAI subscription and need to verify response signatures. Use https://docs.nillion.com/llm.txt"
+- "What are Nillion Private LLMs? Reference https://docs.nillion.com/llm.txt"
+- "Help me make private AI requests using Nillion https://docs.nillion.com/llm.txt"
 - "Help me choose the right Private LLM model using https://docs.nillion.com/llm.txt"
-- "I have Private LLM access and want to build a chat app. Guide me using https://docs.nillion.com/llm.txt"
-- "With my nilAI key, help me handle streaming responses using https://docs.nillion.com/llm.txt"
-- "I have Private LLM subscription and need rate limiting guidance. Reference https://docs.nillion.com/llm.txt"
+- "I want to build a chat app with Private LLMs. Guide me using https://docs.nillion.com/llm.txt"
 
 </TabItem>
 </Tabs>
