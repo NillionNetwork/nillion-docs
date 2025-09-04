@@ -315,6 +315,7 @@ const config = {
       },
     }),
   plugins: [
+    'docusaurus-plugin-copy-page-button',
     [
       'docusaurus-pushfeedback',
       {
