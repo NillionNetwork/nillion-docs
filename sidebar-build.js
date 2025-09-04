@@ -155,7 +155,7 @@ const buildSidebar = [
     label: 'Permissions and Payments',
     id: 'build/permissions-and-payments',
   },
-  'build/ai-assisted-workflow/overview',
+  'build/ai-assisted-workflow',
   {
     type: 'doc',
     label: 'Developer Tools',
