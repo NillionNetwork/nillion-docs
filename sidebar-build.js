@@ -101,11 +101,11 @@ const buildSidebar = [
           },
         ],
       },
-      {
-        type: 'doc',
-        label: 'nilDB API',
-        id: 'api/nildb/overview',
-      },
+      // {
+      //   type: 'doc',
+      //   label: 'nilDB API',
+      //   id: 'api/nildb/overview',
+      // },
     ],
   },
   {

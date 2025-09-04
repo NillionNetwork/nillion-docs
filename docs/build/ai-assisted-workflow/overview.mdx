@@ -3,368 +3,58 @@ import TabItem from '@theme/TabItem';
 
 # AI-Assisted Workflow
 
-Times are changing and we are using AI-assisted workflows to enhance our development processes. At Nillion, we embrace these changes and want to help you do the same.
+To help AI assistants (like Claude, ChatGPT, etc.) provide better support for Nillion development, we provide structured information about our platform, APIs, and development patterns.
 
-We have several solutions can that help with your AI workflow:
+## llm.txt
 
-- [One-Shot prompts:](#one-shot-prompts) Help you create a Nillion application with one prompt
-- LLM context
-  - [One MD file:](#one-md-file) A singular file with all Nillion context.
-  - [llm.txt](#llm-txt) Human and LLM readable markdown
-  <!-- - Cursor Rules: Helpful rules when using Cursor IDE -->
+Our `llm.txt` file contains comprehensive information about Nillion's architecture, developer tools, and integration guides. AI assistants can use this to understand:
 
----
+- Core concepts like Blind Computation and Blind Modules
+- Developer flow from wallet creation to app deployment
+- Private Storage and Private LLMs solutions
+- SDKs, tools, and code examples
+- Links to detailed documentation and tutorials
 
-## One-Shot Prompts
+**Access the llm.txt:** [https://docs.nillion.com/llm.txt](/llm.txt)
 
-We have created several ["one-shot"](https://www.ibm.com/think/topics/one-shot-prompting) prompts that will help you get from prompt to application in a matter of minutes.
+## How to Use
 
-These have been tested against several of the popular LLM models and platforms.
+When working with AI assistants on Nillion projects:
 
-- v0
-- Claude3.5
-- Claude3.7
+1. **Reference the llm.txt**: Point your AI assistant to `https://docs.nillion.com/llm.txt` for comprehensive context
+2. **Ask specific questions**: The more specific your questions, the better assistance you'll receive
+3. **Mention your platform**: Specify if you're using Node.js, Next.js, React, or Python for targeted guidance
+4. **Include your use case**: Whether building Private Storage or Private LLMs applications
 
-<!-- - `Claude 4` -->
-<!-- - `ChatGPT4o` -->
-<!-- - `Gemini2.5` -->
+### Example Prompts
 
-All that is required is to copy and paste into the chat browser where these models run.
+**Note:** These prompts assume you already have a Nillion API Key. If you don't have one yet, follow the [nilPay Guide](/build/network-api-access) to subscribe to services.
 
 <Tabs>
+<TabItem value='nilDB' label='Private Storage' default>
 
-<TabItem value='SecretLLM' label='SecretLLM' default>
-
-<!-- v0 or Claude 3.5/3.7  -->
-
-<details>
-<summary>**v0 or Claude 3.5/3.7**</summary>
-
-```
-Make a nextjs app with @app router structure and tailwind with this file structure and code to make a chat app.
-No other extra external libraries.
-
-Use these hardcoded values for .env(okay to dev purposes)
-NILAI_API_URL=https://nilai-a779.nillion.network
-NILAI_API_KEY=Nillion2025
-
-//app/api/chat/route.ts
-import { NextResponse } from 'next/server';
-
-export async function POST(req: Request) {
-  try {
-    const body = await req.json();
-
-    const response = await fetch(
-      `${process.env.NILAI_API_URL}/v1/chat/completions`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.NILAI_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: 'meta-llama/Llama-3.1-8B-Instruct',
-          messages: body.messages,
-          temperature: 0.2,
-        }),
-      }
-    );
-
-    const data = await response.json();
-    return NextResponse.json(data);
-  } catch (error) {
-    console.error('Chat error:', error);
-    return NextResponse.json(
-      { error: 'Failed to process chat request' },
-      { status: 500 }
-    );
-  }
-}
-
-//app/lib/types/api.ts
-export interface ChatMessage {
-  role: 'user' | 'assistant' | 'system';
-  content: string;
-}
-
-export interface ChatRequest {
-  model: string;
-  messages: ChatMessage[];
-  temperature?: number;
-}
-
-//app/page.tsx
-'use client';
-
-import { useState, useRef, useEffect } from 'react';
-import { ChatMessage } from './lib/types/api';
-
-export default function Home() {
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [input, setInput] = useState('');
-  const [loading, setLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    const userMessage: ChatMessage = { role: 'user', content: input };
-    setMessages((prev) => [...prev, userMessage]);
-    setInput('');
-    setLoading(true);
-
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          messages: [...messages, userMessage],
-        }),
-      });
-
-      const data = await res.json();
-
-      const assistantMessage: ChatMessage = {
-        role: 'assistant',
-        content: data.choices[0].message.content,
-      };
-      setMessages((prev) => [...prev, assistantMessage]);
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-1 flex flex-col max-w-2xl mx-auto w-full py-10">
-        <div className="sticky top-0 z-10 backdrop-blur-sm">
-          <div className="max-w-2xl mx-auto py-6">
-            <h1 className="text-3xl font-bold text-center dark:text-white">
-              Chat with the Blind Computer 💻
-            </h1>
-          </div>
-        </div>
-
-        {/* Messages container */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 border-2 border-gray-600 dark:border-gray-600 rounded-xl">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`flex ${
-                message.role === 'user' ? 'justify-end' : 'justify-start'
-              }`}
-            >
-              <div
-                className={`
-                  max-w-[80%] rounded-lg px-4 py-2
-                  ${
-                    message.role === 'user'
-                      ? 'bg-black text-white dark:bg-white dark:text-black'
-                      : 'bg-gray-100 text-black dark:bg-gray-800 dark:text-white'
-                  }
-                `}
-              >
-                {message.content}
-              </div>
-            </div>
-          ))}
-          {loading && (
-            <div className="flex justify-start">
-              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg px-4 py-2 text-black dark:text-white flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 animate-spin"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
-                </svg>
-              </div>
-            </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
-
-        {/* Input form */}
-        <div className="p-4">
-          <form
-            onSubmit={handleSubmit}
-            className="flex gap-2 max-w-2xl mx-auto"
-          >
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className="flex-1 px-4 py-2 rounded-lg border
-                dark:bg-gray-800 dark:border-gray-700
-                focus:outline-none focus:ring-2 focus:ring-gray-500
-                dark:text-white"
-              placeholder="What would you like to know?"
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black
-                rounded-lg disabled:opacity-50 hover:opacity-90 transition-opacity"
-            >
-              Send
-            </button>
-          </form>
-        </div>
-      </main>
-    </div>
-  );
-}
- );
-}
-```
-
-</details>
+- "I have a Nillion API Key for Private Storage. Help me build a Next.js app using https://docs.nillion.com/llm.txt"
+- "With my nilDB subscription, show me how to create collections using https://docs.nillion.com/llm.txt"
+- "I have Private Storage access and need to encrypt sensitive data. Use https://docs.nillion.com/llm.txt for guidance"
+- "Help me configure nilDB nodes for my React app using https://docs.nillion.com/llm.txt"
+- "I have nilDB access and want to query encrypted data. Reference https://docs.nillion.com/llm.txt"
+- "With my Private Storage API key, help me store healthcare data securely using https://docs.nillion.com/llm.txt"
+- "I have nilDB subscription and need Python integration. Guide me using https://docs.nillion.com/llm.txt"
 
 </TabItem>
+<TabItem value='nilAI' label='Private LLMs' default>
 
-<TabItem value='SecreVault' label='SecretVault' default>
-
-<details>
-<summary>**v0 or Claude 3.5/3.7**</summary>
-
-```
-Let's build a NextJS guestbook style app with typescript + tailwind CSS where people can sign the book saying their name and a memo
----
-We want to also create a backend or api in the app that connects to Nillion SecretVault.
-
-Here's an example of what writing data and reading data looks like.
-
-The app should use this style of code to post to SecretVault and read from SecretVault.
-
-import { SecretVaultWrapper } from 'secretvaults';
-
-const orgConfig = {
-  orgCredentials: {
-    secretKey: '0ac97ffdd83769c6c5032cb202d0957800e0ef151f015b0aaec52e2d864d4fc6',
-    orgDid: 'did:nil:testnet:nillion1v596szek38l22jm9et4r4j7txu3v7eff3uffue',
-  },
-  nodes: [
-    {
-      url: 'https://nildb-nx8v.nillion.network',
-      did: 'did:nil:testnet:nillion1qfrl8nje3nvwh6cryj63mz2y6gsdptvn07nx8v',
-    },
-    {
-      url: 'https://nildb-p3mx.nillion.network',
-      did: 'did:nil:testtest:nillion1uak7fgsp69kzfhdd6lfqv69fnzh3lprg2mp3mx',
-    },
-    {
-      url: 'https://nildb-rugk.nillion.network',
-      did: 'did:nil:testnet:nillion1kfremrp2mryxrynx66etjl8s7wazxc3rssrugk',
-    },
-  ],
-};
-
-const SCHEMA_ID = '4d14248b-a38d-4798-987a-3d0306de15fb';
-
-const data = [
-  {
-    "name": "Steven",
-    "memo": "hi from Steven!"
-  },
-  {
-    "name": "Steven's evil Twin",
-    "memo": "hi from the real Steven"
-  }
-];
-
-async function main() {
-  try {
-    const collection = new SecretVaultWrapper(
-      orgConfig.nodes,
-      orgConfig.orgCredentials,
-      SCHEMA_ID
-    );
-    await collection.init();
-    const dataWritten = await collection.writeToNodes(data);
-    console.log('dataWritten', dataWritten);
-    const newIds = [
-      ...new Set(dataWritten.map((item) => item.data.created).flat()),
-    ];
-    console.log('created ids:', newIds);
-    const dataRead = await collection.readFromNodes({});
-    console.log('📚 total records:', dataRead.length);
-    console.log(dataRead);
-  } catch (error) {
-    console.error('❌ Failed to use SecretVaultWrapper:', error.message);
-    process.exit(1);
-  }
-}
-
-main();
-```
-
-</details>
+- "I have a nilAI API Key. Help me make private AI requests using https://docs.nillion.com/llm.txt"
+- "With my Private LLM access, show me OpenAI-compatible usage using https://docs.nillion.com/llm.txt"
+- "I have nilAI subscription and need to verify response signatures. Use https://docs.nillion.com/llm.txt"
+- "Help me choose the right Private LLM model using https://docs.nillion.com/llm.txt"
+- "I have Private LLM access and want to build a chat app. Guide me using https://docs.nillion.com/llm.txt"
+- "With my nilAI key, help me handle streaming responses using https://docs.nillion.com/llm.txt"
+- "I have Private LLM subscription and need rate limiting guidance. Reference https://docs.nillion.com/llm.txt"
 
 </TabItem>
-
 </Tabs>
 
-<!-- ---
+## Contributing
 
-# Cursor Rules
-
-- TODO: Add rules. -->
-
----
-
-# LLM Context
-
-In order for LLMs to digest and understand Nillion, there are two approaches:
-
-1. One MD file with content about Nillion + the main function calls to interact with the various SDKs
-2. llm.txt and llm-full.txt files which include the URLs and headings related to various Nillion topics.
-
-### One MD file
-
-This includes key context about Nillion and allows various LLMs to ingest the information. Copy the following file to give it context about Nillion.
-
-<details>
-  <summary>MD File</summary>
-  ```mdx reference showGithubLink 
-  https://github.com/NillionNetwork/nillion-docs/blob/feat/ai-workflow-v2/docs/build/ai/llm-summary-12k.mdx
-  ```
-</details>
-
-<!-- ```tsx reference showGithubLink
-https://github.com/NillionNetwork/client-ts/blob/main/examples-nextjs/app/components/store-program.tsx
-``` -->
-
----
-
-### LLM.txt
-
-The other approach is adding LLM.txt to your AI enhanced IDE for a better coding experience.
-
-### Cursor
-
-Add [`https://docs.nillion.com/llm.txt`](https://docs.nillion.com/llm.txt) to your `Custom Docs`. More instructions [here](https://docs.cursor.com/context/@-symbols/@-docs#add-custom-docs)
-
-```
-
-```
+If you notice gaps in AI assistant understanding of Nillion concepts, please [let us know](https://github.com/NillionNetwork/nillion-docs/issues). The llm.txt is regularly updated to improve AI comprehension of our tools and documentation.
