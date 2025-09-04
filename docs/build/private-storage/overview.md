@@ -1,4 +1,4 @@
-# Private Storage
+# Private Storage with nilDB
 
 ## What is Private Storage
 
