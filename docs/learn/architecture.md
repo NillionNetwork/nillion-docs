@@ -12,6 +12,7 @@ The Nillion Network architecture consists of two main components: the **nilChain
         'theme': 'base',
         'themeVariables': {
             'fontSize': '18px',
+            'primaryTextColor': '#000000',
             'primaryBorderColor': '#000000',
             'secondaryBorderColor': '#000000',
             'tertiaryBorderColor': '#000000',
@@ -28,7 +29,7 @@ graph TD
         ---NUC[<b>nuc</b>]
         ---NILRAG[<b>nilRAG</b>]
     end
-    classDef COLLECTION padding-left:230px,padding-right:230px
+    classDef COLLECTION color:#000000,padding-left:230px,padding-right:230px
     SDKS_AND_LIBRARIES:::COLLECTION
     style SDKS_AND_LIBRARIES fill:#FFFFFF,stroke:#000000
     classDef LIBRARY_SDK fill:#CCCCCC
@@ -71,7 +72,7 @@ graph TD
     SDKS_AND_LIBRARIES ---> NILCHAIN
     SDKS_AND_LIBRARIES ---> PETNET
 
-    linkStyle default stroke-width:1px,stroke:#000000
+    linkStyle default stroke-width:3px,stroke:#8A89FF
     linkStyle 0,1,2,3,4,5 fill:#FFFFFF,stroke-width:0px,stroke:#FFFFFF
 ```
 <br/>

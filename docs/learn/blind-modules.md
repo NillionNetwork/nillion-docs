@@ -12,6 +12,7 @@ nilDB is Nillion's secure [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database 
         'theme': 'base',
         'themeVariables': {
             'fontSize': '14px',
+            'primaryTextColor': '#000000',
             'primaryBorderColor': '#000000',
             'secondaryBorderColor': '#000000',
             'tertiaryBorderColor': '#000000',
@@ -69,6 +70,7 @@ nilAI is Nillion's secure AI offering, which runs LLMs securely inside TEEs. nil
         'theme': 'base',
         'themeVariables': {
             'fontSize': '14px',
+            'primaryTextColor': '#000000',
             'primaryBorderColor': '#000000',
             'secondaryBorderColor': '#000000',
             'tertiaryBorderColor': '#000000',
