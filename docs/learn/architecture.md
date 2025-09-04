@@ -6,56 +6,77 @@ The architecture of the Nillion Network is geared towards enabling, supporting, 
 
 The Nillion Network architecture consists of two main components: the **nilChain** and the **Petnet**. The nilChain enables payments and incentivizes participation in the Nillion Network. The Petnet allows builders to leverage privacy-enhancing technologies (PETs) to store and compute over data while it remains encrypted.
 
-![Nillion's network architecture diagram](/img/network_diagram.png)
-
 ```mermaid
+%%{
+    init: {
+        'theme': 'base',
+        'themeVariables': {
+            'fontSize': '18px',
+            'primaryBorderColor': '#000000',
+            'secondaryBorderColor': '#000000',
+            'tertiaryBorderColor': '#000000',
+            'edgeLabelBackground': '#DFDFDF'
+        }
+    }
+}%%
 graph TD
 
-    subgraph SDKS_AND_LIBRARIES ["SDKs and Libraries"]
-        subgraph SDKS_AND_LIBRARIES_PADDING1 [" "]
-            direction LR
-            SECRETVAULTS["secretvaults"]
-            ---BLINDFOLD["blindfold"]
-            ---NILRAG["nilRAG"]
-            ---NUC["nuc"]
-        end
+    subgraph SDKS_AND_LIBRARIES [SDKs and Libraries]
+        direction LR
+        SECRETVAULTS[<b>secretvaults</b>]
+        ---BLINDFOLD[<b>blindfold</b>]
+        ---NUC[<b>nuc</b>]
+        ---NILRAG[<b>nilRAG</b>]
     end
-
-    subgraph NILCHAIN ["nilChain"]
-        subgraph MECHANISMS ["Mechanisms"]
-            direction LR
-            PAYMENTS[Payments]
-            ---VALIDATION[Validation]
-            ---CRYPTOECONOMICS[Cryptoeconomics]
-        end
-
-    end
-
-    subgraph PETNET ["Petnet"]
-        subgraph BLIND_MODULES ["Blind Modules"]
-        NILDB[nilDB]
-        ---NILAI[nilAI]
-        end
-    end
-
-    SDKS_AND_LIBRARIES --- NILCHAIN
-    SDKS_AND_LIBRARIES --- PETNET
-
-    SDKS_AND_LIBRARIES:::PADDING_ONE
-    SDKS_AND_LIBRARIES_PADDING1:::PADDING_ONE
-    NILCHAIN:::PADDING_TWO
-    PETNET:::PADDING_TWO
-    classDef PADDING_ONE padding-left:610px,padding-right:610px
-    classDef PADDING_TWO padding-left:10px,padding-right:590px
-
+    classDef COLLECTION padding-left:230px,padding-right:230px
+    SDKS_AND_LIBRARIES:::COLLECTION
     style SDKS_AND_LIBRARIES fill:#FFFFFF,stroke:#000000
-    style SDKS_AND_LIBRARIES_PADDING1 fill:#FFFFFF,stroke:#000000,stroke-width:0px
+    classDef LIBRARY_SDK fill:#CCCCCC
+    SECRETVAULTS:::LIBRARY_SDK
+    BLINDFOLD:::LIBRARY_SDK
+    NUC:::LIBRARY_SDK
+    NILRAG:::LIBRARY_SDK
+
+    subgraph NILCHAIN [<b>nilChain</b>]
+        subgraph MECHANISMS [<b>Mechanisms</b>]
+            direction LR
+            PAYMENTS[<b>Payments</b>]
+            ---VALIDATION[<b>Validation</b>]
+            ---CRYPTOECONOMICS[<b>Cryptoeconomics</b>]
+        end
+    end
+    NILCHAIN:::COMPONENT
     style NILCHAIN fill:#CCCCFF,color:#000000
     style MECHANISMS fill:#0000FF,color:#FFFFFF
-    style BLIND_MODULES fill:#0000FF,color:#FFFFFF
+    classDef MECHANISM fill:#FFFFFF
+    PAYMENTS:::MECHANISM
+    VALIDATION:::MECHANISM
+    CRYPTOECONOMICS:::MECHANISM
+
+    subgraph PETNET [<b>Petnet</b>]
+        subgraph BLIND_MODULES [<b>Blind Modules</b>]
+            NILDB[<b>nilDB</b>]
+            ---NILAI[<b>nilAI</b>]
+        end
+    end
+    PETNET:::COMPONENT
     style PETNET fill:#CCCCFF,color:#000000
-    linkStyle default fill:#FFFFFF,stroke-width:0px,stroke:#FFFFFF
+    style BLIND_MODULES fill:#0000FF,color:#FFFFFF
+    classDef BLIND_MODULE fill:#FFFFFF
+    NILDB:::BLIND_MODULE
+    NILAI:::BLIND_MODULE
+
+    classDef COMPONENT padding-left:10px,padding-right:610px
+
+    SDKS_AND_LIBRARIES ---> NILCHAIN
+    SDKS_AND_LIBRARIES ---> PETNET
+
+    linkStyle default stroke-width:1px,stroke:#000000
+    linkStyle 0,1,2,3,4,5 fill:#FFFFFF,stroke-width:0px,stroke:#FFFFFF
 ```
+<br/>
+
+Developers can interact with the various node types found in each network component either directly via their [corresponding APIs](/api/overview) or via the SDKs and libraries that support [Private Storage](/build/private-storage/overview) and [Private LLMs](/build/private-llms/overview).
 
 ### nilChain
 
