@@ -197,6 +197,15 @@ h4 {
   color: #b0b0b0;
 }
 
+.homepage #copy-page-button-container {
+  display: none !important;
+}
+
+.blog-list-page #copy-page-button-container,
+.blog-post-page #copy-page-button-container {
+  display: none !important;
+}
+
 [data-theme='dark'] .footer__link-item:hover {
   color: #8a89ff;
 }
