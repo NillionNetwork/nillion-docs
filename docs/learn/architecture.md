@@ -24,15 +24,15 @@ graph TD
 
     subgraph SDKS_AND_LIBRARIES [SDKs and Libraries]
         direction LR
-        SECRETVAULTS[<b>secretvaults</b>]
-        ---BLINDFOLD[<b>blindfold</b>]
-        ---NUC[<b>nuc</b>]
-        ---NILRAG[<b>nilRAG</b>]
+        SECRETVAULTS[<a style="color:#000000" href="/build/private-storage/secretvaults"><b>secretvaults</b></a>]
+        ---BLINDFOLD[<a style="color:#000000" href="/build/private-storage/blindfold"><b>blindfold</b></a>]
+        ---NUC[<a style="color:#000000" href="/build/permissions-and-payments#nuc"><b>nuc</b></a>]
+        ---NILRAG[<a style="color:#000000" href="/build/private-llms/nilRAG"><b>nilRAG</b></a>]
     end
     classDef COLLECTION color:#000000,padding-left:230px,padding-right:230px
     SDKS_AND_LIBRARIES:::COLLECTION
     style SDKS_AND_LIBRARIES fill:#FFFFFF,stroke:#000000
-    classDef LIBRARY_SDK fill:#CCCCCC
+    classDef LIBRARY_SDK fill:#DDDDDD,stroke:#000000
     SECRETVAULTS:::LIBRARY_SDK
     BLINDFOLD:::LIBRARY_SDK
     NUC:::LIBRARY_SDK
@@ -48,26 +48,26 @@ graph TD
     end
     NILCHAIN:::COMPONENT
     style NILCHAIN fill:#CCCCFF,color:#000000
-    style MECHANISMS fill:#0000FF,color:#FFFFFF
-    classDef MECHANISM fill:#FFFFFF
+    style MECHANISMS fill:#0000FF,stroke:#000000,color:#FFFFFF
+    classDef MECHANISM fill:#DDDDDD,stroke:#FFFFFF
     PAYMENTS:::MECHANISM
     VALIDATION:::MECHANISM
     CRYPTOECONOMICS:::MECHANISM
 
     subgraph PETNET [<b>Petnet</b>]
-        subgraph BLIND_MODULES [<b>Blind Modules</b>]
-            NILDB[<b>nilDB</b>]
-            ---NILAI[<b>nilAI</b>]
+        subgraph BLIND_MODULES [<a style="color:#FFFFFF" href="/learn/blind-modules"><b>Blind Modules</b></a>]
+            NILDB[<a style="color:#000000" href="/build/private-storage/overview"><b>nilDB</b></a>]
+            ---NILAI[<a style="color:#000000" href="/build/private-storage/overview"><b>nilAI</b></a>]
         end
     end
     PETNET:::COMPONENT
     style PETNET fill:#CCCCFF,color:#000000
-    style BLIND_MODULES fill:#0000FF,color:#FFFFFF
-    classDef BLIND_MODULE fill:#FFFFFF
+    style BLIND_MODULES fill:#0000FF,stroke:#000000,color:#FFFFFF
+    classDef BLIND_MODULE fill:#DDDDDD,stroke:#FFFFFF
     NILDB:::BLIND_MODULE
     NILAI:::BLIND_MODULE
 
-    classDef COMPONENT padding-left:10px,padding-right:610px
+    classDef COMPONENT stroke:#5C5DB3,padding-left:10px,padding-right:610px
 
     SDKS_AND_LIBRARIES ---> NILCHAIN
     SDKS_AND_LIBRARIES ---> PETNET
@@ -89,24 +89,6 @@ The Petnet consists of a network of nodes that can be recruited into clusters by
 
 The Petnet nodes support secure storage and computation over data, and these capabilities can be leveraged using the variety of SDKs that can be used to interact with the nodes. Each node supports the use of PETs by operating one or more [Blind Modules](/learn/blind-modules).
 
-## Guiding Assumptions
+## Guiding Assumptions and Design Principles
 
-The architecture of the Nillion Network is informed by a pragmatic perspective that acknowledges the realities that PETs infrastructure components and software artifacts inhabit today.
-
-* Most apps use a combination of frameworks and services that best suit their target problem, and these almost always come from a number of incumbent and up-and-coming providers.
-
-* It is difficult to predict today which PET components and features (or combinations thereof) will ultimately achieve product-market fit once PETs are ubiquitous.
-
-* Incentive mechanisms for PETs throughout the industry are not yet mature and so it is not known who (user, app developer and service provider, or third-party node operator) will run PETs software or maintain PETs infrastructure.
-
-## Principles and Philosophy
-
-The guiding assumptions motivate a strong commitment to three principles in the design and development of the Nillion Network.
-
-* **Interoperability:** The languages, dependencies, and interfaces are chosen from among the most common and popular in contemporary app development (even if this comes at the expense of performance). This includes starting with Python and JavaScript/TypeScript SDKs, a NoSQL storage solution, REST APIs for all components, and so on. Developers should encounter as few obstacles as possible incorporating a PET feature into a typical stack (especially if they are incorporating only a single feature and/or using it in tandem with other solutions).
-
-* **Modularity:** Interdependencies between libraries/SDKs and infrastructure are kept to a minimum both within layers and between them. We can illustrate both by considering storage of encrypted data within [nilDB](/build/private-storage/overview). The [blindfold](/build/private-storage/blindfold) library offers a number of encryption techniques, and any single technique can be used while ignoring the others. Furthermore, every available technique is compatible with nilDB nodes that are entirely independent of one another: no node necessarily needs to know the method of encryption or about which other nodes may be involved in a protocol.
-
-* **Portability:** The available functionalities and components are compatible with a number of stacks. Python and JavaScript/TypeScript SDKs and libraries accommodate both server-side and client-side app architectures, and containerization ensures that both service providers and third parties can operate nodes.
-
-While ensuring that infrastructure and software are decentralized and incentivized can be a standalone goal, it is worth noting that following the above three principles naturally leads to decentralization. In particular, it is easier to find and incentivize distinct kinds of operators (users with client devices, service providers, or third-party node operators) for each highly specialized modular component, with the component’s portability providing flexibility in finding the best operator-component fit.
+The architecture of the Nillion Network is informed by a [pragmatic perspective](/articles/nillion-network-architecture) that [acknowledges the realities](/articles/nillion-network-architecture#guiding-assumptions) that PETs infrastructure components and software artifacts inhabit today: apps are likely to use a combination of different PETs, product-market fit of PETs is difficult to predict today, and incentive mechanisms for deploying PETs are not yet mature. This leads to an [emphasis on three design principles](/articles/nillion-network-architecture#interoperability-modularity-and-portability) throughout the architecture: interoperability, modularity, and portability.

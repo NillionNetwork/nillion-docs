@@ -23,39 +23,39 @@ nilDB is Nillion's secure [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database 
 graph TD
 
     subgraph CLIENT [" "]
-        A
-        BLINDFOLD_CLIENT
+        CLIENT_APPLICATION
+        CLIENT_BLINDFOLD
     end
     style CLIENT fill:#FFFFFF,stroke:#000000
-    style A fill:#CCCCFF,stroke:#000000
-    style BLINDFOLD_CLIENT fill:#0000FF,color:#FFFFFF
+    style CLIENT_APPLICATION fill:#CCCCFF,stroke:#5C5DB3
+    style CLIENT_BLINDFOLD fill:#0000FF,stroke:#000000,color:#FFFFFF
 
-    subgraph NET [" "]
-        X
-        Y
-        Z
+    subgraph NODES [" "]
+        NODE_X
+        NODE_Y
+        NODE_Z
     end
-    style NET fill:#CCCCFF,stroke:#000000
-    style X fill:#0000FF,color:#FFFFFF
-    style Y fill:#0000FF,color:#FFFFFF
-    style Z fill:#0000FF,color:#FFFFFF
+    style NODES fill:#CCCCFF,stroke:#000000
+    style NODE_X fill:#0000FF,stroke:#000000,color:#FFFFFF
+    style NODE_Y fill:#0000FF,stroke:#000000,color:#FFFFFF
+    style NODE_Z fill:#0000FF,stroke:#000000,color:#FFFFFF
 
     subgraph SERVICE [" "]
         BLINDFOLD_SERVICE
-        R
+        SERVICE_PROVIDER
     end
     style SERVICE fill:#FFFFFF,stroke:#000000
-    style BLINDFOLD_SERVICE fill:#0000FF,color:#FFFFFF
-    style R fill:#CCCCFF,stroke:#000000
+    style BLINDFOLD_SERVICE fill:#0000FF,stroke:#000000,color:#FFFFFF
+    style SERVICE_PROVIDER fill:#CCCCFF,stroke:#5C5DB3
 
-    A[Application] -->|data| BLINDFOLD_CLIENT[<b>blindfold</b>]
-    BLINDFOLD_CLIENT -->|data secret share| X[<b>nilDB Node</b>]
-    BLINDFOLD_CLIENT -->|data secret share| Y[<b>nilDB Node</b>]
-    BLINDFOLD_CLIENT -->|data secret share| Z[<b>nilDB Node</b>]
-    X <-->|query secret share<br/>reply secret share| BLINDFOLD_SERVICE[<b>blindfold</b>]
-    Y <-->|query secret share<br/>reply secret share| BLINDFOLD_SERVICE
-    Z <-->|query secret share<br/>reply secret share| BLINDFOLD_SERVICE
-    BLINDFOLD_SERVICE <-->|query<br/>reply| R[Service Provider]
+    CLIENT_APPLICATION[Application] -->|data| CLIENT_BLINDFOLD[<b>blindfold</b>]
+    CLIENT_BLINDFOLD -->|data secret share| NODE_X[<b>nilDB Node</b>]
+    CLIENT_BLINDFOLD -->|data secret share| NODE_Y[<b>nilDB Node</b>]
+    CLIENT_BLINDFOLD -->|data secret share| NODE_Z[<b>nilDB Node</b>]
+    NODE_X <-->|query secret share<br/>reply secret share| BLINDFOLD_SERVICE[<b>blindfold</b>]
+    NODE_Y <-->|query secret share<br/>reply secret share| BLINDFOLD_SERVICE
+    NODE_Z <-->|query secret share<br/>reply secret share| BLINDFOLD_SERVICE
+    BLINDFOLD_SERVICE <-->|query<br/>reply| SERVICE_PROVIDER[Service Provider]
 ```
 
 nilDB is the Blind Module that underpins Nillion's [Private Storage](/build/private-storage/overview) solutions. When using nilDB directly, data is accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use the [blindfold library](/build/private-storage/blindfold) to encrypt and/or secret share data on the client side before using the [RESTful API](/api/nildb/overview) to send the ciphertexts and/or secret shares to the nodes.
@@ -87,16 +87,16 @@ graph LR
     style NILAI fill:#0000FF,color:#FFFFFF
 
     subgraph TEE
-        L
+        LLM
     end
     style TEE fill:#DDDDDD,stroke:#FFFFFF,color:#000000
-    style L fill:#FFFFFF,stroke:#000000,color:#000000
+    style LLM fill:#FFFFFF,stroke:#000000,color:#000000
 
-    U[User] -->|encrypted prompt| L[<b>LLM</b>]
-    L  -->|encrypted reply| U
-    NILDB[nilDB Cluster] -->|encrypted data| L
-    style U fill:#CCCCFF,stroke:#000000
-    style NILDB fill:#0000FF,color:#FFFFFF
+    USER[User] -->|encrypted prompt| LLM[<b>LLM</b>]
+    LLM  -->|encrypted reply| USER
+    NILDB[nilDB Cluster] -->|encrypted data| LLM
+    style USER fill:#CCCCFF,stroke:#5C5DB3
+    style NILDB fill:#0000FF,stroke:#000000,color:#FFFFFF
 ```
 
 The nilAI Blind Module can be accessed via an [easy-to-use RESTful API](/api/nilai/overview) that allows users to run inference using supported models.
