@@ -6,8 +6,9 @@ secretvaults is an SDK that simplifies interacting with Private Storage nilDB no
 
 ### TypeScript SDK
 
-secretvaults-ty is a TypeScript library for web and Node.js environments
+secretvaults-ts is a TypeScript library for web and Node.js environments
 
+- [Installation and Usage Docs](/build/private-storage/ts-docs)
 - [secretvaults-ts GitHub repository](https://github.com/NillionNetwork/secretvaults-ts)
 - [NPM package](https://www.npmjs.com/package/@nillion/secretvaults)
 - [TypeDoc](https://nillion.pub/secretvaults-ts/) with classes, methods, and types documented

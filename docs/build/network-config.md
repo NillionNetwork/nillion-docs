@@ -41,17 +41,15 @@ The Nillion Petnet consists of a network of nodes in which each node implements 
 
 [Private Storage](/build/private-storage/overview) solutions leverage a decentralized cluster of [nilDB](/learn/blind-modules#nildb) nodes, making it possible to store in the cluster and to query both plaintext and encrypted data. Builders can treat any collection of one or more nilDB nodes as a cluster. To work with a cluster, builders either can connect to it using the [secretvaults SDK](/build/private-storage/secretvaults) or can interact directly with individual nodes via the [nilDB API](/api/nildb/overview) and [blindfold library](/build/private-storage/blindfold).
 
-
-
 <Tabs>
-    <TabItem value="nilDB-testnet" label="nilDB Testnet">
+    <TabItem value="nilDB-testnet" label="nilDB Testnet" default>
 
     ```
     NILCHAIN_URL=http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
     NILAUTH_URL=https://nilauth.sandbox.app-cluster.sandbox.nilogy.xyz
     NILAUTH_PUBLIC_KEY=03e3ba1eb887b4e972fbf395d479ff6cdb2cec91ba477ffc287b2b9cb5ec2161aa
     ```
-    ### Nodes
+    #### Nodes
 
     #### [nildb-stg-n1](https://nildb-stg-n1.nillion.network)
 
@@ -75,15 +73,15 @@ The Nillion Petnet consists of a network of nodes in which each node implements 
     ```
 
     </TabItem>
-    
-    <TabItem value="nilDB-mainnet" label="nilDB Mainnet" default>
- 
+
+    <TabItem value="nilDB-mainnet" label="nilDB Mainnet">
+
     ```
     NILCHAIN_URL=http://nilchain-rpc.nillion.network
     NILAUTH_URL=https://nilauth-cf7f.nillion.network
     NILAUTH_PUBLIC_KEY=020b419e17d0d11445ea46520086952772eb18f5cb9f949c0ad0b418282617cf7f
     ```
-    ### Nodes    
+    #### Nodes
 
     #### [nildb-5ab1](https://nildb-5ab1.nillion.network/)
 
@@ -118,37 +116,6 @@ The Nillion Petnet consists of a network of nodes in which each node implements 
     ```
     URL: https://nildb-2140.staking.telekom-mms.com
     Public Key: 034b875022316cda631da79149058303d81547a11bc7e67cc0cd29769858752140
-    ```
-
-    </TabItem>
-
-    <TabItem value="nilDB-alpha" label="nilDB Alpha">
-
-    #### Node 1: [nildb-nx8v](https://nildb-nx8v.nillion.network/api/v1/openapi/docs/)
-
-    ```
-    URL: https://nildb-nx8v.nillion.network
-    DID: did:nil:testnet:nillion1qfrl8nje3nvwh6cryj63mz2y6gsdptvn07nx8v
-    Public Key: 034a2df3bafaca2aa0b70353aa2f05ad129096b60c8a305d115bf605d57bc2588a
-    API docs: https://nildb-nx8v.nillion.network/api/v1/openapi/docs/
-    ```
-
-    #### Node 2: [nildb-p3mx](https://nildb-p3mx.nillion.network/api/v1/openapi/docs/)
-
-    ```
-    URL: https://nildb-p3mx.nillion.network
-    DID: did:nil:testnet:nillion1uak7fgsp69kzfhdd6lfqv69fnzh3lprg2mp3mx
-    Public Key: 03d088a7f2c8f2a6e2aa788265c87e22d1501dd1210fa149ff600ac264ada5eb42
-    API docs: https://nildb-p3mx.nillion.network/api/v1/openapi/docs/
-    ```
-
-    #### Node 3: [nildb-rugk](https://nildb-rugk.nillion.network/api/v1/openapi/docs/)
-
-    ```
-    URL: https://nildb-rugk.nillion.network
-    DID: did:nil:testnet:nillion1kfremrp2mryxrynx66etjl8s7wazxc3rssrugk
-    Public Key: 02c4a5c6135098dd7ac1186c13d4de466be85f85efc6961e75abc31e4fdac41528
-    API docs: https://nildb-rugk.nillion.network/api/v1/openapi/docs/
     ```
 
     </TabItem>
