@@ -18,7 +18,7 @@ const buildSidebar = [
   },
   {
     type: 'category',
-    label: 'Private Storage',
+    label: 'Private Storage with nilDB',
     link: {
       type: 'doc',
       id: 'build/private-storage/overview',
@@ -111,7 +111,7 @@ const buildSidebar = [
   },
   {
     type: 'category',
-    label: 'Private LLMs',
+    label: 'Private LLMs with nilAI',
     link: {
       type: 'doc',
       id: 'build/private-llms/overview',

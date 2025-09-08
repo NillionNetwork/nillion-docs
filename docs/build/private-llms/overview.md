@@ -1,4 +1,4 @@
-# Private LLMs
+# Private LLMs with nilAI
 
 ## What are Private LLMs
 

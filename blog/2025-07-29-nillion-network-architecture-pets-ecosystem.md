@@ -10,7 +10,7 @@ hide_table_of_contents: false
 
 ![Nillion Network Architecture for a PETs Ecosystem](/img/articles/hero-architecture.png)
 
-Almost ten years ago, some of the current Nillion team members submitted a National Science Foundation research proposal that envisioned a decentralized secure storage and computation ecosystem in which node operators with various roles would enable, enhance, and monitor web-compatible apps and workflows over encrypted data. Today, we are finally seeing that vision come to life at Nillion as we build infrastructure and tools for creating competitive, usable apps that still protect user data. In this article, we discuss the philosophy and principles that motivate the architecture of the Nillion Network. We also present how the architecture's characteristics support a role-based PETs ecosystem that echoes and expands on the original vision.
+Almost ten years ago, some of the current Nillion team members submitted a [National Science Foundation research proposal](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1718135) that [envisioned a decentralized secure storage and computation ecosystem](https://eprint.iacr.org/2017/803) in which node operators with various roles would enable, enhance, and monitor web-compatible apps and workflows over encrypted data. Today, we are finally seeing that vision come to life at Nillion as we build infrastructure and tools for creating competitive, usable apps that still protect user data. In this article, we discuss the philosophy and principles that motivate the architecture of the Nillion Network. We also present how the architecture's characteristics support a role-based PETs ecosystem that echoes and expands on the original vision.
 
 <!-- truncate -->
 
