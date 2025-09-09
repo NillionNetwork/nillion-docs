@@ -9,7 +9,7 @@ Once you have [nilAI API access](/build/network-api-access), you can start using
 
 <Tabs>
 
-    <TabItem value="python" label="Python" default>
+    <TabItem value="python" label="Python">
         <Tabs>
             <TabItem value="pip" label="pip" default>
                 ```bash
@@ -23,7 +23,7 @@ Once you have [nilAI API access](/build/network-api-access), you can start using
             </TabItem>
         </Tabs>
     </TabItem>
-    <TabItem value="typescript" label="TypeScript">
+    <TabItem value="typescript" label="TypeScript" default>
         ```bash
         pnpm install @nillion/nilai-ts
         ```
@@ -38,7 +38,7 @@ You can either use:
 
 ### API Key Flow
 
-1. Use `https://nilai-a779.nillion.network/nuc/v1` as the BASE URL
+1. Use `https://nilai-a779.nillion.network/v1` as the BASE URL
 2. Check [available models](/build/private-llms/overview#available-models) or query the [`/v1/models`](/api/nilai/get-models-v-1-models-get) endpoint or
 3. Select an available model and use it with the [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) nilAI node endpoint
 
@@ -50,7 +50,7 @@ With OpenAI compatibility, you can use any OpenAI library. Here's an example for
         https://github.com/NillionNetwork/nilai-py/blob/main/examples/0-api_key_mode.py
         ```
     </TabItem>
-    <TabItem value="typescript" label="Typescript">
+    <TabItem value="typescript" label="Typescript" default>
         ```typescript
         import "dotenv/config";
         import { NilaiOpenAIClient, NilAuthInstance } from "@nillion/nilai-ts";
@@ -66,7 +66,7 @@ With OpenAI compatibility, you can use any OpenAI library. Here's an example for
         // Initialize the client in API key mode
         // For sandbox, use the following:
         const client = new NilaiOpenAIClient({
-            baseURL: "https://nilai-a779.nillion.network/nuc/v1/",
+            baseURL: "https://nilai-a779.nillion.network/v1/",
             apiKey: API_KEY,
             nilauthInstance: NilAuthInstance.SANDBOX,
             // For production, use the following:
@@ -104,7 +104,7 @@ The server then creates the delegation tokens and managing their expiration and 
         https://github.com/NillionNetwork/nilai-py/blob/main/examples/1-delegation_token_mode.py
         ```
     </TabItem>
-    <TabItem value="typescript" label="Typescript">
+    <TabItem value="typescript" label="Typescript" default>
         ```typescript reference showGithubLink
         https://github.com/NillionNetwork/nilai-ts/blob/main/examples/1-delegation-token.ts
         ```
