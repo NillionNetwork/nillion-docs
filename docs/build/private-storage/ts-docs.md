@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # SecretVaults SDK TypeScript Docs
 
-This guide shows how to get started building with the Nillion [secretvaults-ts](https://github.com/NillionNetwork/secretvaults-ts) SDK for build applications with Nillion Private Storage.
+This guide shows how to get started building with the Nillion [secretvaults-ts](https://github.com/NillionNetwork/secretvaults-ts) SDK to build applications with Nillion Private Storage.
 
 ## Install Nillion Dependencies
 
