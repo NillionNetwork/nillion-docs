@@ -86,7 +86,7 @@ The Secretvaults SDK simplifies interacting with Private Storage nilDB nodes to 
 - GitHub: https://github.com/NillionNetwork/secretvaults-ts
 - NPM: https://www.npmjs.com/package/@nillion/secretvaults  
 - Documentation: https://nillion.pub/secretvaults-ts/
-- Secretvaults TypeScript SDK Docs: https://docs.nillion.com/build/private-storage/ts-docs  is a complete guide to working with the Secretvaults TypeScript SDK for both standard and owned collections including prerequisites/setup, client initialization, collection management, record operations, access permissions, complete working examples
+- Secretvaults TypeScript SDK Docs: https://docs.nillion.com/build/private-storage/ts-docs is a complete guide to working with the Secretvaults TypeScript SDK for both standard and owned collections including prerequisites/setup, client initialization, collection management, record operations, access permissions, querying plaintext fields, and complete working examples
 
 **Python SDK (secretvaults-py):**
 - GitHub: https://github.com/NillionNetwork/secretvaults-py
