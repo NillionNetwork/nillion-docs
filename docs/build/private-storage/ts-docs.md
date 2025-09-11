@@ -150,6 +150,70 @@ Deletes records from a collection based on filter criteria. Use the collection e
 https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/standard-collections/delete-record.ts#L9-L14
 ```
 
+### Create Query
+
+Creates a new saved query in the system using MongoDB-style aggregation pipeline syntax. Queries operate on plaintext fields only - they cannot query encrypted fields (those marked as secret). Queries can be used for simple filtering or complex operations like statistical analysis, data aggregation, and transformations. Once saved, queries can be parameterized with variables and reused across different executions.
+
+:::tip
+Queries support the full range of MongoDB aggregation operations on plaintext fields - from simple $match filters to complex statistical calculations using $group, $avg, $min, $max, and more. Encrypted fields cannot be queried. Reference the [Query Examples section](#query-examples) to see how to structure aggregation pipelines for string and number field queries.
+:::
+
+<Tabs>
+    <TabItem value="full" label="Create Age Query" default>
+
+    This creates a query for a collection with a plaintext `age` number field. You could create this query for a Contact Book Collection, which has `age` as a plaintext, optional number field.
+
+```typescript
+const queryId = randomUUID();
+const queryRequest: CreateQueryRequest = {
+  _id: queryId,
+  collection: collectionId,
+  name: 'Calculate Age Statistics',
+  variables: {},
+  pipeline: [
+    {
+      $match: {
+        age: { $exists: true, $ne: null },
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        averageAge: { $avg: '$age' },
+        minAge: { $min: '$age' },
+        maxAge: { $max: '$age' },
+        totalWithAge: { $sum: 1 },
+        standardDeviation: { $stdDevPop: '$age' },
+      },
+    },
+  ],
+};
+
+const createResponse = await builderClient.createQuery(queryRequest);
+```
+
+    </TabItem>
+    <TabItem value="schema" label="contactBookSchema">
+    ```typescript reference showGithubLink
+    https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/schema-examples.ts
+    ```
+    </TabItem>
+
+</Tabs>
+
+### Run Query
+
+Executes a saved query and retrieves the results. Query execution is asynchronous across distributed nodes, requiring polling to get the final results. You can pass variables to parameterize the query at runtime.
+
+- \_id: ID of the saved query to execute
+- variables: Object containing values for any query variables defined in the saved query
+- Polling: Results must be polled as queries execute asynchronously across nodes
+- Timeout: Example shows polling for up to 30 seconds with exponential backoff
+
+```typescript reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/queries/run-query.ts#L9-L46
+```
+
 ### Create Delegation Token
 
 Creates a delegation token that allows a user client to perform operations on behalf of a builder client. Delegation tokens enable secure, time-limited access without sharing the builder's root credentials.
@@ -301,6 +365,52 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
     ```    
     </TabItem>
 </Tabs>
+</details>
+
+### Query Examples
+
+Complete working examples demonstrating MongoDB-style aggregation queries on plaintext fields. Each example includes collection setup, sample data creation, multiple query types, and result processing. These show the full range of operations possible on unencrypted data in Private Storage.
+
+#### Querying String Fields
+
+Demonstrates text-based queries including exact matches, pattern matching with regex, case-insensitive searches, prefix/suffix filtering, and text aggregations. Examples use the plaintext `name` field from a contact book schema.
+
+<details>
+    <summary>Querying String Fields Example Code</summary>
+    <Tabs>
+    <TabItem value="full" label="Full Script" default>
+    ```typescript reference showGithubLink
+    https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/queries/plaintext-string-query-example.ts
+    ```    
+    </TabItem>
+    <TabItem value="queries" label="String Queries">
+    ```typescript reference showGithubLink
+    https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/query-examples-string.ts
+    ```    
+    </TabItem>
+    </Tabs>
+
+</details>
+
+#### Querying Number Fields
+
+Demonstrates numeric queries including exact values, range filtering, mathematical comparisons, statistical calculations (avg, min, max, standard deviation), grouping by numeric ranges, and sorting with pagination. Examples use the plaintext `age` field from a contact book schema.
+
+<details>
+    <summary>Querying Number Fields Example Code</summary>
+    <Tabs>
+    <TabItem value="full" label="Full Script" default>
+    ```typescript reference showGithubLink
+    https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/queries/plaintext-number-query-example.ts
+    ```    
+    </TabItem>
+    <TabItem value="queries" label="Number Queries">
+    ```typescript reference showGithubLink
+    https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/query-examples-number.ts
+    ```    
+    </TabItem>
+    </Tabs>
+
 </details>
 
 ## Full SDK Reference Docs

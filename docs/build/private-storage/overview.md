@@ -132,7 +132,15 @@ Users can grant and revoke permissions at any time. Each document maintains its 
 ### Query System
 
 MongoDB-style aggregation pipelines are supported, including stages such as `$match`, `$group`, `$count`, `$lookup`, and `$project`.
-Queries can operate on encrypted data without full decryption and support variables for parameterization.
+**Queries can operate on plaintext record values** within Private Storage and support variables for parameterization.
 
-**Query Variables**
+#### Query Variables
+
 Allow parameterization of saved queries using JSONPath syntax to specify substitution points, enabling reusable query templates.
+
+#### Query Examples
+
+We provide string and number field query examples based on the plaintext [name (string) field](https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/schema-examples.ts#L11-L13) and the plaintext [age (number) field](https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/schema-examples.ts#L14-L16) in the [Example Contact Book Collection Schema](https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/schema-examples.ts).
+
+- [Queries on String Fields](https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/query-examples-string.ts)
+- [Queries on Number Fields](https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/sdk-examples/query-examples-number.ts)
