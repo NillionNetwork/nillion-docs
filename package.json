@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@cookbookdev/docsbot": "^4.17.4",
+    "@crypblizz/docusaurus-plugin-copy-page-button": "^0.3.6",
     "@docusaurus/core": "3.5.2",
     "@docusaurus/plugin-client-redirects": "3.5.2",
     "@docusaurus/preset-classic": "3.5.2",
@@ -24,7 +25,6 @@
     "@reduxjs/toolkit": "^2.5.0",
     "ag-grid-react": "^32.0.1",
     "clsx": "^2.0.0",
-    "docusaurus-plugin-copy-page-button": "^0.3.4",
     "docusaurus-plugin-openapi-docs": "4.2.0",
     "docusaurus-pushfeedback": "^1.0.1",
     "docusaurus-theme-github-codeblock": "^2.0.2",

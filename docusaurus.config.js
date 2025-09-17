@@ -315,7 +315,33 @@ const config = {
       },
     }),
   plugins: [
-    'docusaurus-plugin-copy-page-button',
+    [
+      '@crypblizz/docusaurus-plugin-copy-page-button',
+      {
+        customItems: [
+          {
+            id: 'use-mcp-url',
+            title: 'Use MCP URL',
+            description: 'Copy MCP server URL to clipboard',
+            emoji: '🔗',
+            action: {
+              type: 'copyText',
+              text: 'https://nillion-docs.fastmcp.app/mcp',
+            },
+          },
+          {
+            id: 'open-mcp-cursor',
+            title: 'Open MCP in Cursor',
+            description: 'Open this page in Cursor with MCP',
+            emoji: '⚡',
+            action: {
+              type: 'openUrl',
+              url: 'cursor://anysphere.cursor-deeplink/mcp/install?name=docs-mcp-server&config=eyJ0eXBlIjoibWNwIiwidXJsIjoiaHR0cHM6Ly9uaWxsaW9uLWRvY3MuZmFzdG1jcC5hcHAvbWNwIn0%3D',
+            },
+          },
+        ],
+      },
+    ],
     [
       'docusaurus-pushfeedback',
       {
