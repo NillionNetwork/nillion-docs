@@ -95,7 +95,7 @@ Expected response:
 { "hello": "world" }
 ```
 
-### Step 5: Verify Security (Attestation)
+### Verify Security (Check Attestation)
 
 Prove your workload runs in a secure TEE:
 
