@@ -18,6 +18,41 @@ const buildSidebar = [
   },
   {
     type: 'category',
+    label: 'Private Compute with nilCC',
+    link: {
+      type: 'doc',
+      id: 'build/compute/overview',
+    },
+    items: [
+      {
+        type: 'doc',
+        label: 'Quickstart',
+        id: 'build/compute/quickstart',
+      },
+      {
+        type: 'doc',
+        label: 'Architecture',
+        id: 'build/compute/architecture',
+      },
+      {
+        type: 'doc',
+        label: 'Key Terms',
+        id: 'build/compute/key-terms',
+      },
+      {
+        type: 'doc',
+        label: 'API Reference',
+        id: 'build/compute/api-reference',
+      },
+      {
+        type: 'doc',
+        label: 'Limitations',
+        id: 'build/compute/limitations',
+      },
+    ],
+  },
+  {
+    type: 'category',
     label: 'Private Storage with nilDB',
     link: {
       type: 'doc',
