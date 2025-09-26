@@ -42,6 +42,14 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 />
 
 <ToolFeatureItem
+  title="nilCC Workload Manager"
+  description="Web dashboard for deploying, managing, and monitoring confidential workloads on nilCC."
+  icon="🎛️"
+  href="https://nilcc.nillion.com"
+  external={true}
+/>
+
+<ToolFeatureItem
   title="Network Status Page"
   description="Check the status of testnet and mainnet nodes in the Nillion Network."
   icon="⚡"
