@@ -4,7 +4,7 @@
 
 nilCC is a private compute platform where nodes perform developer-specified workflows within Trusted Execution Environments (TEEs). This enables general-purpose private computation over sensitive data through containerized applications.
 
-Developers can deploy any Docker Compose application with hardware-guaranteed privacy and cryptographic proof of execution integrity, transforming standard workloads into verifiably secure computations.
+Developers can deploy any [Docker Compose application](https://docs.docker.com/compose/) with hardware-guaranteed privacy and cryptographic proof of execution integrity, transforming standard workloads into verifiably secure computations.
 
 ### Core Capabilities
 
