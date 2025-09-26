@@ -69,4 +69,4 @@ nilCC ensures workload integrity through a secure boot process. The custom initr
 ## Resources
 
 - **nilCC Source Code**: [https://github.com/NillionNetwork/nilcc](https://github.com/NillionNetwork/nilcc)
-- **nilCC Workload Manager**: [https://nilcc-workload-manager.vercel.app](https://nilcc-workload-manager.vercel.app)
+- **nilCC Workload Manager**: [https://nilcc.nillion.com](https://nilcc.nillion.com)

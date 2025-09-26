@@ -35,7 +35,9 @@ Choose your preferred workload creation method. Both options create the same sec
 
 **Best for:** First-time users, visual workflow management, and ongoing monitoring
 
-1. **Visit**: [nilCC Workload Manager](https://nilcc-workload-manager.vercel.app)
+[![nilCC Create Workload](/img/nilcc-create-workload.png)](https://nilcc.nillion.com/workloads/create)
+
+1. **Visit**: [nilCC Workload Manager](https://nilcc.nillion.com)
 2. **Authenticate**: Enter your nilCC API Key to log in
 3. **Create New Workload**:
    - **Name**: `hello-world-api`
@@ -50,8 +52,10 @@ Choose your preferred workload creation method. Both options create the same sec
 
 **Best for:** Automation, CI/CD pipelines, and programmatic deployments
 
+Update the command below with your nilCC API key, chosen resource tier (cpus, gpus, memory, and disk size), and the latest artifacts version:
+
 ```bash
-curl -X POST https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/api/v1/workloads/create \
+curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/create \
   -H "x-api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -59,11 +63,11 @@ curl -X POST https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/api/v1/wor
     "dockerCompose": "services:\n  web:\n    image: caddy:2\n    command: |\n      caddy respond --listen :8080 --body '\''{\"hello\":\"world\"}'\'' --header \"Content-Type: application/json\"",
     "serviceToExpose": "web",
     "servicePortToExpose": 8080,
-    "cpus": 1,
-    "memory": 1024,
-    "disk": 10,
-    "gpus": 0,
-    "artifactsVersion": "dbb2f89"
+    "cpus": YOUR_CPUS,
+    "memory": YOUR_MEMORY,
+    "disk": YOUR_DISK,
+    "gpus": YOUR_GPUS,
+    "artifactsVersion": LATEST_ARTIFACTS_VERSION
   }'
 ```
 
@@ -72,7 +76,7 @@ curl -X POST https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/api/v1/wor
 - `dockerCompose`: Your Docker Compose file as an escaped string
 - `serviceToExpose`: Which service gets the public domain (must match a service name)
 - `servicePortToExpose`: Which port on that service to expose publicly
-- `artifactsVersion`: System version (use `"dbb2f89"` for current release)
+- `artifactsVersion`: nilCC VM image version
 
 </TabItem>
 

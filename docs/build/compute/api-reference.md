@@ -6,12 +6,11 @@ The nilCC API provides comprehensive programmatic access to create and manage co
 
 ### Live OpenAPI Specification
 
-The complete API documentation is available as an interactive OpenAPI specification:
+The complete API documentation is available as an interactive [OpenAPI specification](https://api.nilcc.nillion.network/openapi.json)
 
-**Sandbox Environment:**
-
-- **API Base URL**: `https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz`
-- **OpenAPI Spec**: `https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/openapi.json`
+```
+https://api.nilcc.nillion.network/openapi.json
+```
 
 ### Interactive Documentation
 
@@ -26,7 +25,7 @@ You can explore the API using any OpenAPI-compatible tool:
 All API endpoints require authentication via the `x-api-key` header:
 
 ```bash
-curl -X POST https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/api/v1/workloads/create \
+curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/create \
   -H "x-api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json"
 ```
@@ -35,28 +34,48 @@ curl -X POST https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/api/v1/wor
 
 The API is organized into several functional groups:
 
-### Workloads (`/api/v1/workloads/*`)
+### Workloads 
+
+```
+/api/v1/workloads/*
+```
 
 - **Create**: Deploy new confidential workloads
 - **List**: View all your workloads
 - **Manage**: Start, stop, restart, and delete workloads
 - **Monitor**: Access logs and system statistics
 
-### Workload Containers (`/api/v1/workload-containers/*`)
+### Workload Containers 
+
+```
+/api/v1/workload-containers/*
+```
 
 - **List**: View containers within a workload
 - **Logs**: Access individual container logs
 
-### Accounts (`/api/v1/accounts/*`)
+### Accounts 
+
+```
+/api/v1/accounts/*
+```
 
 - **Profile**: Manage your account information
 - **Credits**: Add and manage account credits
 
-### Metal Instances (`/api/v1/metal-instances/*`)
+### Metal Instances 
+
+```
+/api/v1/metal-instances/*
+```
 
 - **Infrastructure**: Register and manage bare metal hosts (admin)
 
-### Artifacts (`/api/v1/artifacts/*`)
+### Artifacts 
+
+```
+/api/v1/artifacts/*
+```
 
 - **System**: Manage nilCC system artifacts and versions
 
@@ -67,7 +86,7 @@ Here's a typical workflow for deploying a workload:
 1. **Create a workload**:
 
 ```bash
-curl -X POST https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/api/v1/workloads/create \
+curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/create \
   -H "x-api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -83,14 +102,14 @@ curl -X POST https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/api/v1/wor
 2. **Check workload status**:
 
 ```bash
-curl -X POST https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/api/v1/workloads/list \
+curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/list \
   -H "x-api-key: YOUR_API_KEY"
 ```
 
 3. **Get workload logs**:
 
 ```bash
-curl -X POST https://nilcc-api.sandbox.app-cluster.sandbox.nilogy.xyz/api/v1/workloads/logs \
+curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/logs \
   -H "x-api-key: YOUR_API_KEY" \
   -d '{"workloadId": "your-workload-id"}'
 ```
@@ -120,8 +139,6 @@ API usage may be subject to rate limits and account quotas. Check your account s
 
 ## Support
 
-- **OpenAPI Spec**: Always up-to-date with the latest API changes
-- **Code Examples**: Available in the OpenAPI specification
-- **Source Code**: [https://github.com/NillionNetwork/nilcc](https://github.com/NillionNetwork/nilcc) (coming soon)
-
-The API documentation is automatically generated from the source code, ensuring it's always accurate and current with the implementation.
+- **[OpenAPI Spec](https://api.nilcc.nillion.network/openapi.json)**: The API documentation is automatically generated from the source code, so the spec should stay up to date with the latest API changes
+- **Code Examples**: Available in the OpenAPI specification and within the nilcc [blind-module-examples](https://github.com/NillionNetwork/blind-module-examples)
+- **nilCC Source Code**: [https://github.com/NillionNetwork/nilcc](https://github.com/NillionNetwork/nilcc)
