@@ -33,7 +33,7 @@ Choose your preferred workload creation method. Both options create the same sec
 <Tabs>
 <TabItem value="ui" label="Create Workload with UI" default>
 
-**Best for:** First-time users, visual workflow management, and ongoing monitoring
+Create a new workload with the [nilCC Workload Manager](https://nilcc.nillion.com) UI. This workload creation method is recommended for first-time nilCC users, visual workflow management, and ongoing monitoring.
 
 [![nilCC Create Workload](/img/nilcc-create-workload.png)](https://nilcc.nillion.com/workloads/create)
 
@@ -44,13 +44,13 @@ Choose your preferred workload creation method. Both options create the same sec
    - **Docker Compose**: Paste the YAML content from Step 1
    - **Service to Expose**: `web` (automatically detected)
    - **Port**: `8080` (automatically detected)
-   - **Resources**: 1 CPU, 1GB memory, 10GB disk (adjust as needed)
+   - **Resources**: Optionally adjust the resource tier as needed
 4. **Deploy**: Click "Create Workload" and monitor the deployment status in real-time
 
 </TabItem>
 <TabItem value="api" label="Create Workload with API">
 
-**Best for:** Automation, CI/CD pipelines, and programmatic deployments
+Create a new workload programatically with the nilCC API. This workload creation method is recommended for automation, CI/CD pipelines, and programmatic deployments.
 
 Update the command below with your nilCC API key, chosen resource tier (cpus, gpus, memory, and disk size), and the latest artifacts version:
 
