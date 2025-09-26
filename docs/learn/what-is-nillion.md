@@ -14,13 +14,15 @@ This shifts the trust model from "trust us with your data" to "trust the cryptog
 
 The Nillion Network is a network of specialized nodes (each running one or more blind modules) that provide independent privacy capabilities for the blind computer:
 
+- **[nilCC](/learn/blind-modules#nilcc) nodes for Private Compute**: Nodes perform developer-specified or user-specified workflows within TEEs, enabling general-purpose private computation over sensitive data.
 - **[nilDB](/learn/blind-modules#nildb) nodes for Private Storage**: Data is encrypted and split into secret shares, and these shares are distributed across multiple nodes (typically three) so no single node can view or reveal your original data.
 - **[nilAI](/learn/blind-modules#nilai) nodes for Private LLMs**: Individual nodes run AI models inside of a TEE. You connect to a node of your choice and perform private AI inference without the node viewing your data in unencrypted form.
-- **nilCC nodes for Private Compute**: Nodes perform developer-specified or user-specified workflows within TEEs, enabling general-purpose private computation over sensitive data.
 
 ## Developer Solutions
 
 While you can interact directly with network nodes, Nillion provides developer-friendly solutions that handle the cryptographic complexity for you.
+
+- **[Private Compute](/build/compute/overview)** offers a unified API and web dashboard that handles TEE provisioning, attestation generation, and workload lifecycle management - allowing you to deploy any Docker application as a secure computation without modifying your code.
 
 - **[Private Storage](/build/private-storage/overview)** uses the Secretvaults SDK to automatically manage multiple nilDB nodes, encryption, and orchestration - so you don't have to manage and coordinate individual nodes manually.
 

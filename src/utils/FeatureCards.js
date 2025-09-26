@@ -1,5 +1,12 @@
 export const QuickStartFeatures = [
   {
+    title: 'Private Compute',
+    description:
+      'Run Docker applications in TEEs with cryptographic attestation using nilCC.',
+    icon: '🖥️',
+    href: './compute/quickstart',
+  },
+  {
     title: 'Private Storage',
     description:
       'Read and write records to an encrypted database using nilDB APIs.',
