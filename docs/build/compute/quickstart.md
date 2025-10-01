@@ -90,7 +90,7 @@ Once deployed, your workload gets a unique domain. Access it at:
 
 ```bash
 # Your workload will be available at a domain like:
-curl https://[your-secure-workload].nillion.network
+curl https://[your-running-workload]
 ```
 
 Expected response:
@@ -104,7 +104,7 @@ Expected response:
 Prove your workload runs in a secure TEE:
 
 ```bash
-curl https://[your-secure-workload].nillion.network/nilcc/api/v2/report
+curl https://[your-running-workload]/nilcc/api/v2/report
 ```
 
 This returns a cryptographic attestation report proving:

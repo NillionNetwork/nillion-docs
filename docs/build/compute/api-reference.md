@@ -83,46 +83,70 @@ The API is organized into several functional groups:
 
 Here's a typical workflow for deploying a workload:
 
-1. **Create a workload**:
+1. **Check Available nilCC Resources**
+
+List the available workload tiers to see what resource configurations are offered:
+
+```bash
+curl -X GET https://api.nilcc.nillion.network/api/v1/workload-tiers/list \
+  -H "x-api-key: YOUR_API_KEY" \
+  -H "accept: application/json"
+```
+
+This returns available workload tiers - predefined resource configurations including CPU cores, memory (MB), disk storage (GB), GPUs, cost (credits), and tier ID. When creating a workload, your cpus, memory, disk, and gpus parameters must match one of the available tiers.
+
+2. **List Available Artifacts**
+
+Check which VM image versions are available to select the latest
+
+```bash
+curl -X GET https://api.nilcc.nillion.network/api/v1/artifacts/list \
+  -H "x-api-key: YOUR_API_KEY" \
+  -H "accept: application/json"
+```
+
+This returns the available artifact versions you can use in the `artifactsVersion` parameter when creating workloads.
+
+3. **Create a workload**:
 
 ```bash
 curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/create \
   -H "x-api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-  "name": "my-favorite-workload",
-  "artifactsVersion": "0.1.0",
-  "dockerCompose": "services:\n  api:\n    image: caddy:2\n    command: |\n      caddy respond --listen :80 --body '\''{\"hi\":\"foo\"}'\'' --header \"Content-Type: application/json\"",
-  "envVars": {
-    "FOO": "42"
-  },
-  "files": {
-    "foo/bar.txt": "dGhpcyBpcyBhIGZpbGUgY3JlYXRlZCBpbnNpZGUgdGhlIENWTSBhbmQgbW91bnRlZCB2aWEgZG9ja2VyIGNvbXBvc2U="
-  },
-  "dockerCredentials": [
-    {
-      "server": "registry.example.com",
-      "username": "username",
-      "password": "password"
-    }
-  ],
-  "publicContainerName": "api",
-  "publicContainerPort": 80,
-  "memory": 2048,
-  "cpus": 1,
-  "disk": 10,
-  "gpus": 0
-}'
+    "name": "my-favorite-workload",
+    "artifactsVersion": "ARTIFACTS_VERSION",
+    "dockerCompose": "services:\n  api:\n    image: caddy:2\n    command: |\n      caddy respond --listen :80 --body '\''{\"hi\":\"foo\"}'\'' --header \"Content-Type: application/json\"",
+    "envVars": {
+      "FOO": "42"
+    },
+    "files": {
+      "foo/bar.txt": "BASE64_ENCODED_CONTENT"
+    },
+    "dockerCredentials": [
+      {
+        "server": "registry.example.com",
+        "username": "username",
+        "password": "password"
+      }
+    ],
+    "publicContainerName": "api",
+    "publicContainerPort": 80,
+    "memory": MEMORY_MB,
+    "cpus": CPU_CORES,
+    "disk": DISK_GB,
+    "gpus": GPU_COUNT
+  }'
 ```
 
-2. **Check workload status**:
+4. **Check workload status**:
 
 ```bash
 curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/list \
   -H "x-api-key: YOUR_API_KEY"
 ```
 
-3. **Get workload logs**:
+5. **Get workload logs**:
 
 ```bash
 curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/logs \
@@ -130,10 +154,10 @@ curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/logs \
   -d '{"workloadId": "your-workload-id"}'
 ```
 
-4. **Access attestation report** (from your running workload):
+6. **Access attestation report** (from your running workload):
 
 ```bash
-curl https://[your-nilcc-workload.nillion.network]/nilcc/api/v2/report
+curl https://[your-running-workload]/nilcc/api/v2/report
 ```
 
 ## Response Format

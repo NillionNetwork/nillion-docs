@@ -102,6 +102,5 @@ The [nilcc-api](https://github.com/NillionNetwork/nilcc/tree/main/nilcc-api) ser
 
 - **Upward to Users/UI**: Serves the nilcc-ui dashboard and external API clients
 - **Downward to Agents**: Communicates with registered nilcc-agent instances using authentication tokens
-- **Data Persistence**: Maintains workload state, user accounts, and system configuration
 
 This centralized design allows users to manage workloads across multiple physical hosts through a single, consistent API while maintaining security through token-based authentication.
