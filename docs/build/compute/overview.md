@@ -16,7 +16,8 @@ Developers can deploy any [Docker Compose application](https://docs.docker.com/c
 
 ### Why Use nilCC?
 
-Traditional cloud computing requires trusting the infrastructure provider with your code and data. nilCC eliminates this trust requirement by using hardware-level security that even the infrastructure provider cannot bypass, enabling you to process sensitive data with cryptographic proof of integrity.
+Traditional cloud computing requires trusting the infrastructure provider with your code and data. nilCC eliminates this trust requirement by using hardware-level security that even the infrastructure provider cannot bypass, enabling you to process sensitive data with cryptographic proof of integrity.  
+We encourage you to extend these security guarantees to your users. Workloads running on nilCC cannot be accessed by the machine administrator or by the developer, powered by the same cryptographic attestation. By making the source code publicly available your users can also confirm the integrity of the workload and feel confident that their data is safe and secure.
 
 ## How Does nilCC Work?
 
