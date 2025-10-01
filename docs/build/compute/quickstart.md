@@ -23,7 +23,7 @@ services:
   web:
     image: caddy:2
     command: |
-      caddy respond --listen :8080 --body '{"message":"Hello from secure nilCC!","timestamp":"'$(date -Iseconds)'"}'  --header "Content-Type: application/json"
+      caddy respond --listen :8080 --body '{"hello":"world"}' --header "Content-Type: application/json"
 ```
 
 ### Step 2: Create Workload
@@ -109,7 +109,7 @@ curl https://[your-secure-workload].nillion.network/nilcc/api/v2/report
 
 This returns a cryptographic attestation report proving:
 
-- Your code runs unmodified in a genuine AMD SEV-SNP environment
+- Your code runs unmodified in a genuine [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html) environment
 - No unauthorized access to your workload
 - Hardware-guaranteed isolation and encryption
 
@@ -117,7 +117,7 @@ This returns a cryptographic attestation report proving:
 
 When you deploy a workload, nilCC:
 
-1. **Creates a Confidential VM** with AMD SEV-SNP hardware security
+1. **Creates a Confidential VM** with [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html) hardware security
 2. **Packages your workload** as an ISO with docker-compose.yaml, metadata, and environment variables
 3. **Boots securely** with dm-verity filesystem verification and LUKS encryption
 4. **Deploys containers** with automatic TLS certificates via Caddy

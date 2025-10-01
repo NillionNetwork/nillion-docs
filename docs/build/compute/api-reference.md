@@ -16,7 +16,7 @@ https://api.nilcc.nillion.network/openapi.json
 
 You can explore the API using any OpenAPI-compatible tool:
 
-1. **Swagger Editor**: Paste the OpenAPI spec URL into [editor.swagger.io](https://editor.swagger.io)
+1. **Swagger Validator**: Paste the OpenAPI spec URL into [validator.swagger.io](https://validator.swagger.io)
 2. **Postman**: Import the OpenAPI spec to generate a collection
 3. **curl**: Use the examples provided in the specification
 
@@ -34,7 +34,7 @@ curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/create \
 
 The API is organized into several functional groups:
 
-### Workloads 
+### Workloads
 
 ```
 /api/v1/workloads/*
@@ -45,7 +45,7 @@ The API is organized into several functional groups:
 - **Manage**: Start, stop, restart, and delete workloads
 - **Monitor**: Access logs and system statistics
 
-### Workload Containers 
+### Workload Containers
 
 ```
 /api/v1/workload-containers/*
@@ -54,7 +54,7 @@ The API is organized into several functional groups:
 - **List**: View containers within a workload
 - **Logs**: Access individual container logs
 
-### Accounts 
+### Accounts
 
 ```
 /api/v1/accounts/*
@@ -63,7 +63,7 @@ The API is organized into several functional groups:
 - **Profile**: Manage your account information
 - **Credits**: Add and manage account credits
 
-### Metal Instances 
+### Metal Instances
 
 ```
 /api/v1/metal-instances/*
@@ -71,7 +71,7 @@ The API is organized into several functional groups:
 
 - **Infrastructure**: Register and manage bare metal hosts (admin)
 
-### Artifacts 
+### Artifacts
 
 ```
 /api/v1/artifacts/*

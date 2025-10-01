@@ -31,7 +31,7 @@ The [nilcc-attester](https://github.com/NillionNetwork/nilcc/tree/main/nilcc-att
 
 #### Key Features
 
-- **Automatic Attestation Generation**: Generates AMD SEV-SNP attestations on startup
+- **Automatic Attestation Generation**: Generates [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html) attestations on startup
 - **GPU Support**: Additionally generates NVIDIA Confidential Compute attestations on GPU-enabled machines
 - **Public Endpoint**: Exposes attestation reports at `/nilcc/api/v2/report`
 - **TLS Integration**: Links attestation to the workload's TLS certificate fingerprint
