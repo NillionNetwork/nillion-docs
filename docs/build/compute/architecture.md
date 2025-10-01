@@ -39,7 +39,7 @@ The [nilcc-attester](https://github.com/NillionNetwork/nilcc/tree/main/nilcc-att
 #### Attestation Verification Flow
 
 1. **Client requests attestation report** from the public endpoint
-2. **Validates the attestation** including signature verification and certificate chain validation
+2. **Validates the attestation** including signature verification and certificate chain validation with AMD's public key
 3. **Verifies TLS fingerprint match** between the HTTPS connection and attestation data
 4. **Ensures authenticity** by confirming the client is communicating with the attested machine
 
