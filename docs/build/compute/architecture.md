@@ -27,7 +27,7 @@ The [nilcc-agent](https://github.com/NillionNetwork/nilcc/tree/main/nilcc-agent)
 
 ### nilcc-attester
 
-The [nilcc-attester](https://github.com/NillionNetwork/nilcc/tree/main/nilcc-attester) runs as a container within each CVM's Docker Compose setup, providing automatic attestation generation and serving.
+The [nilcc-attester](https://github.com/NillionNetwork/nilcc/tree/main/nilcc-attester) runs as a container within each CVM's Docker Compose setup, providing automatic attestation generation made available through an API.
 
 #### Key Features
 
