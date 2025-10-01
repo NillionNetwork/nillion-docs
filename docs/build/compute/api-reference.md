@@ -90,13 +90,29 @@ curl -X POST https://api.nilcc.nillion.network/api/v1/workloads/create \
   -H "x-api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "my-app",
-    "composeFile": "version: '\''3'\''\nservices:\n  app:\n    image: nginx:latest\n    ports:\n      - \"80:80\"",
-    "domain": "[your-nilcc-workload.nillion.network]",
-    "cpu": 2,
-    "memory": 4096,
-    "disk": 20
-  }'
+  "name": "my-favorite-workload",
+  "artifactsVersion": "0.1.0",
+  "dockerCompose": "services:\n  api:\n    image: caddy:2\n    command: |\n      caddy respond --listen :80 --body '\''{\"hi\":\"foo\"}'\'' --header \"Content-Type: application/json\"",
+  "envVars": {
+    "FOO": "42"
+  },
+  "files": {
+    "foo/bar.txt": "dGhpcyBpcyBhIGZpbGUgY3JlYXRlZCBpbnNpZGUgdGhlIENWTSBhbmQgbW91bnRlZCB2aWEgZG9ja2VyIGNvbXBvc2U="
+  },
+  "dockerCredentials": [
+    {
+      "server": "registry.example.com",
+      "username": "username",
+      "password": "password"
+    }
+  ],
+  "publicContainerName": "api",
+  "publicContainerPort": 80,
+  "memory": 2048,
+  "cpus": 1,
+  "disk": 10,
+  "gpus": 0
+}'
 ```
 
 2. **Check workload status**:
