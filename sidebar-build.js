@@ -126,6 +126,14 @@ const buildSidebar = [
       },
       {
         type: 'category',
+        label: 'Advanced Usage',
+        items: [
+          'build/private-llms/advanced/web_search',
+          'build/private-llms/advanced/private_prompts'
+        ]
+      },
+      {
+        type: 'category',
         label: 'nilRAG Library',
         link: {
           type: 'doc',
@@ -149,6 +157,7 @@ const buildSidebar = [
         label: 'nilAI API',
         id: 'api/nilai/overview',
       },
+
     ],
   },
   {
