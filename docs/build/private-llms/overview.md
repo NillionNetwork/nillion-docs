@@ -2,7 +2,7 @@
 
 ## What are Private LLMs
 
-Private LLMs are supported via a set of OpenAI-compatible APIs that run AI models within a *trusted execution environment* (TEE). This makes it possible to build new private AI applications or to migrate existing ones to run in a secure environment where your data remains private.
+Private LLMs are supported via a set of OpenAI-compatible APIs that run AI models within a _trusted execution environment_ (TEE). This makes it possible to build new private AI applications or to migrate existing ones to run in a secure environment where your data remains private.
 
 ## How Private LLMs Work
 
@@ -12,11 +12,11 @@ Private LLMs are supported via a set of OpenAI-compatible APIs that run AI model
 
 ## Available Models
 
-| Model                                               | Parameters | Features                      | Best For                                                                                             | Access                                        |
-| --------------------------------------------------- | ---------- | ----------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| google/gemma-3-27b-it                   | 27B         |Multimodal (text + images), 128K context, 140+ languages| Visual reasoning, long-context analysis, multilingual applications.                 | Testnet                                       |
-| openai/gpt-oss-20b                   | 20B         |Chain-of-thought reasoning, tool calling, configurable effort levels| Agentic workflows, complex reasoning tasks.       | [Apply for access](/build/network-api-access)                                       |
-| meta-llama/Llama-3.1-8B-Instruct                    | 8B         | Chat completion, tool support | More complex tasks, detailed responses, code generation. Higher quality but slower inference.        | [Apply for access](/build/network-api-access)     
+| Model                            | Parameters | Features                                                             | Best For                                                                                      | Access                                                                                          |
+| -------------------------------- | ---------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| google/gemma-3-27b-it            | 27B        | Multimodal (text + images), 128K context, 140+ languages             | Visual reasoning, long-context analysis, multilingual applications.                           | Testnet                                                                                         |
+| openai/gpt-oss-20b               | 20B        | Chain-of-thought reasoning, tool calling, configurable effort levels | Agentic workflows, complex reasoning tasks.                                                   | [Apply for access](https://surveys.nillion.com/developers/7d516c7a-66ae-4c78-b927-bbd912ae7a16) |
+| meta-llama/Llama-3.1-8B-Instruct | 8B         | Chat completion, tool support                                        | More complex tasks, detailed responses, code generation. Higher quality but slower inference. | [Apply for access](https://surveys.nillion.com/developers/7d516c7a-66ae-4c78-b927-bbd912ae7a16) |
 
 ## Key Features
 
