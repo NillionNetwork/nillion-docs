@@ -1,0 +1,114 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Web Search
+
+Web search allows LLMs to access real-time information from the internet during inference. This enables the model to provide up-to-date answers based on current information rather than relying solely on its training data.
+
+## Overview
+
+To enable web search in your LLM requests, you need to:
+
+1. Initialize a client with API key authentication
+2. Add `web_search: true` to the `extra_body` parameter in your chat completion request
+3. The model will automatically search the web and incorporate relevant information into its response
+
+## Basic Usage
+
+<Tabs>
+    <TabItem value="python" label="Python">
+        ```python
+        from nilai_py import Client, NilAuthInstance
+        from config import API_KEY
+
+        def main():
+            # Initialize the client in API key mode
+            client = Client(
+                base_url="https://nilai-a779.nillion.network/nuc/v1/",
+                api_key=API_KEY,
+            )
+
+            # Make a request with web search enabled
+            response = client.chat.completions.create(
+                model="google/gemma-3-27b-it",
+                messages=[
+                    {
+                        "role": "user",
+                        "content": "Can you look for the latest news about AI and summarize them?",
+                    }
+                ],
+                extra_body={"web_search": True},
+            )
+
+            print(f"Response: {response.choices[0].message.content}")
+
+        if __name__ == "__main__":
+            main()
+        ```
+    </TabItem>
+    <TabItem value="typescript" label="TypeScript" default>
+        ```typescript
+        import "dotenv/config";
+        import { NilaiOpenAIClient, NilAuthInstance } from "@nillion/nilai-ts";
+
+        const API_KEY = process.env.NILLION_API_KEY;
+
+        async function main() {
+          // Initialize the client in API key mode
+          const client = new NilaiOpenAIClient({
+            baseURL: "https://nilai-a779.nillion.network/v1/",
+            apiKey: API_KEY,
+            nilauthInstance: NilAuthInstance.SANDBOX,
+            // For production, use the following:
+            // nilauthInstance: NilAuthInstance.PRODUCTION,
+          });
+
+          // Make a request with web search enabled
+          const response = await client.chat.completions.create(
+            {
+              model: "google/gemma-3-27b-it",
+              messages: [
+                {
+                  role: "user",
+                  content: "Hello! Can you help me understand the latest news of AI?",
+                },
+              ],
+            },
+            {
+              extra_body: { web_search: true }, // Enable web search
+            } as any,
+          );
+
+          console.log(`Response: ${response.choices[0].message.content}`);
+        }
+
+        main().catch(console.error);
+        ```
+    </TabItem>
+</Tabs>
+
+## How It Works
+
+When web search is enabled:
+
+1. The model analyzes your query to determine if web search would be beneficial
+2. If needed, it formulates search queries and retrieves relevant information from the web
+3. The retrieved information is incorporated into the model's context
+4. The model generates a response that combines its knowledge with the web-sourced information
+
+## Use Cases
+
+Web search is particularly useful for:
+
+- **Current events**: Getting the latest news and updates
+- **Real-time data**: Accessing current prices, statistics, or live information
+- **Recent developments**: Information about topics that have evolved since the model's training cutoff
+- **Fact verification**: Cross-referencing information with current sources
+- **Dynamic content**: Queries that require up-to-date information
+
+## Important Notes
+
+- Web search adds latency to requests as the model needs to fetch and process external information
+- The quality of responses depends on the relevance and accuracy of web sources found
+- Not all queries will trigger a web search - the model determines when it's necessary
+- Web search works with both API key and delegation token authentication flows
