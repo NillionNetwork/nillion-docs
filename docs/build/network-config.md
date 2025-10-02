@@ -37,6 +37,15 @@ Below is the configuration information for connecting to [nilChain](https://gith
 
 The Nillion Petnet consists of a network of nodes in which each node implements one of the [Blind Modules](/learn/blind-modules). In some cases, collections of multiple nodes can be treated as clusters by builders.
 
+### nilCC Nodes
+
+[Private Compute](/build/compute/overview) can be leveraged by connecting to a nilCC node
+
+```
+nilCC node URL: https://api.nilcc.nillion.network
+nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
+```
+
 ### nilDB Nodes
 
 [Private Storage](/build/private-storage/overview) solutions leverage a decentralized cluster of [nilDB](/learn/blind-modules#nildb) nodes, making it possible to store in the cluster and to query both plaintext and encrypted data. Builders can treat any collection of one or more nilDB nodes as a cluster. To work with a cluster, builders either can connect to it using the [secretvaults SDK](/build/private-storage/secretvaults) or can interact directly with individual nodes via the [nilDB API](/api/nildb/overview) and [blindfold library](/build/private-storage/blindfold).
