@@ -1,6 +1,6 @@
 ---
-title: 'Understanding nilDB Encryption'
-description: 'How nilDB stores encrypted fields using secret sharing with %share and %allot'
+title: "Understanding nilDB Encryption"
+description: "How nilDB stores encrypted fields using secret sharing with %share and %allot"
 slug: nildb-encryption
 authors: nillion-team
 tags: [nilDB, encryption, secret-sharing]
@@ -12,7 +12,7 @@ hide_table_of_contents: false
 
 When building privacy-preserving applications, a common challenge is figuring out **how to keep sensitive user data safe** while still being able to work with it. Traditional databases store all information in one place making them a single point of failure if breached.
 
-NilDB takes a very different approach. It’s part of Nillion’s **blind modules**, designed for secure and decentralized data storage. Instead of storing raw values, NilDB **splits encrypted data into mathematical shares** and distributes them across multiple nodes. No single node ever has access to the full value. To reconstruct the data, you need multiple shares from different nodes.
+nilDB takes a very different approach. It’s part of Nillion’s **blind modules**, designed for secure and decentralized data storage. Instead of storing plaintext data values, developers can use [**blindfold**](/build/private-storage/blindfold) encryption within the [**SecretVaults SDK**](/build/private-storage/secretvaults) to **split encrypted data into mathematical shares**, then distribute and store them across multiple nilDB nodes. No single node ever has access to the full value. To reconstruct the data, you need multiple shares from different nodes.
 
 This approach gives you a much stronger security guarantee: if one node is compromised, the attacker gets nothing useful.
 
@@ -22,10 +22,10 @@ This approach gives you a much stronger security guarantee: if one node is compr
 
 ## Encrypted Fields
 
-In NilDB, you can choose whether a field should be stored as **plaintext** or as an **encrypted field**.
+In nilDB, you can choose whether a field should be stored as **plaintext** or as an **encrypted field**.
 
-- **Plaintext fields** (e.g., `name`) are stored directly in NilDB. They are useful for non-sensitive data that you may want to query, sort, or display easily.
-- **Encrypted fields** (e.g., `phone`) are automatically encrypted, secret-shared, and split across multiple NilDB nodes. These fields cannot be read in their raw form by any single node.
+- **Plaintext fields** (e.g., `name`) are stored directly in nilDB. They are useful for non-sensitive data that you may want to query, sort, or display easily.
+- **Encrypted fields** (e.g., `phone`) are automatically encrypted, secret-shared, and split across multiple nilDB nodes. These fields cannot be read in their raw form by any single node.
 
 Here’s the key difference:
 
@@ -34,7 +34,7 @@ Here’s the key difference:
 
 This means:
 
-- Encrypted fields are **unreadable to the database itself.** Even NilDB nodes don’t know the actual value.
+- Encrypted fields are **unreadable to the database itself.** Even nilDB nodes don’t know the actual value.
 - You, the developer, decide which data should be secret-shared, and which can safely remain in plaintext.
 - Queries on encrypted fields work differently (and are often limited) compared to plaintext, so design schemas carefully.
 
@@ -55,7 +55,7 @@ properties: {
 
 ```
 
-👉 In practice, you’ll mix both. Public data (like a username) stays plaintext for performance and usability. Private data (like phone numbers, addresses, or IDs) should be encrypted to ensure NilDB never sees the real values.
+👉 In practice, you’ll mix both. Public data (like a username) stays plaintext for performance and usability. Private data (like phone numbers, addresses, or IDs) should be encrypted to ensure nilDB never sees the real values.
 
 ---
 
@@ -85,7 +85,7 @@ properties: {
 
 ```
 
-👉 Notice the `"%share"` property inside encrypted fields. This is how NilDB knows to treat incoming values as secret-shared when you later use the `"%allot"` keyword.
+👉 Notice the `"%share"` property inside encrypted fields. This is how nilDB knows to treat incoming values as secret-shared when you later use the `"%allot"` keyword.
 
 ---
 
@@ -105,10 +105,9 @@ const sensitiveData = {
   email: "steph@example.com", // Plaintext
   phone: { "%allot": "+1-555-0123" }, // Encrypted
 };
-
 ```
 
-When NilDB processes this, it knows to encrypt and split the phone number into shares before distributing them across the cluster.
+When nilDB processes this, it knows to encrypt and split the phone number into shares before distributing them across the cluster.
 
 Think of it like **type-checking** in an API: `%share` tells the schema what format to expect, and `%allot` ensures you’re sending the right type of data.
 
@@ -124,13 +123,13 @@ Think of it like **type-checking** in an API: `%share` tells the schema what for
 
 ---
 
-## Building Encrypted Applications with NilDB
+## Building Encrypted Applications with nilDB
 
-NilDB makes it straightforward to add encryption to your app’s data model. You don’t need to implement secret sharing or cryptography yourself, the framework handles it.
+nilDB makes it straightforward to add encryption to your app’s data model. You don’t need to implement secret sharing or cryptography yourself, the framework handles it.
 
 - Use the [**Collection Explorer tool**](https://collection-explorer.nillion.com/) if you want a fast way to spin up schemas.
 - Or define schemas programmatically in JavaScript for more control.
 
 ## Conclusion
 
-NilDB’s `%share` and `%allot` keywords gives you a **simple but powerful model for encryption-by-design**. You can build applications that safeguard sensitive data at the storage layer.
+nilDB’s `%share` and `%allot` keywords gives you a **simple but powerful model for encryption-by-design**. You can build applications that safeguard sensitive data at the storage layer.
