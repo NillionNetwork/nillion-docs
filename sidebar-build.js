@@ -120,6 +120,11 @@ const buildSidebar = [
               },
             ],
           },
+          {
+            type: "link",
+            label: "nilDB Encryption",
+            href: "/articles/nildb-encryption",
+          },
         ],
       },
       {
@@ -165,16 +170,16 @@ const buildSidebar = [
         href: "https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai",
       },
       {
-        type: 'category',
-        label: 'Advanced Usage',
+        type: "category",
+        label: "Advanced Usage",
         items: [
-          'build/private-llms/advanced/web_search',
-          'build/private-llms/advanced/private_prompts'
-        ]
+          "build/private-llms/advanced/web_search",
+          "build/private-llms/advanced/private_prompts",
+        ],
       },
       {
-        type: 'category',
-        label: 'nilRAG Library',
+        type: "category",
+        label: "nilRAG Library",
         link: {
           type: "doc",
           id: "build/private-llms/nilRAG",
@@ -197,7 +202,6 @@ const buildSidebar = [
         label: "nilAI API",
         id: "api/nilai/overview",
       },
-
     ],
   },
   {
