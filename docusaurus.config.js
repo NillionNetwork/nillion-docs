@@ -340,16 +340,15 @@ const config = {
       {
         redirects: [
           {
-            to: '/build/private-llms/quickstart',
-            from: '/build/secretLLM/quickstart',
-          },
-          {
-            to: '/build/private-storage/quickstart',
-            from: '/build/secret-vault-quickstart',
+            to: '/build/compute/overview',
+            from: [
+              '/build/nilcc'
+            ],
           },
           {
             to: '/build/private-storage/overview',
             from: [
+              '/build/nildb',
               '/build/secret-vault',
               '/build/secretVault-secretDataAnalytics/build',
               '/build/secretVault-secretDataAnalytics/create-schema',
@@ -360,18 +359,32 @@ const config = {
             ],
           },
           {
-            to: '/build/private-llms/overview',
-            from: ['/build/secretLLM/overview', '/build/secretLLM/usage'],
+            to: '/build/private-storage/quickstart',
+            from: '/build/secret-vault-quickstart',
           },
           {
-            to: '/build/network-api-access',
+            to: '/build/private-storage/secretvaults',
+            from: '/build/secretvaults',
+          },
+          {
+            to: '/build/private-storage/blindfold',
+            from: '/build/blindfold',
+          },
+          {
+            to: '/build/private-llms/overview',
             from: [
-              '/build/permissions-and-payments/overview',
-              '/build/secretVault-secretDataAnalytics/generate-tokens',
-              '/build/secretVault-secretDataAnalytics/access',
-              '/build/secretLLM/access',
-              '/build/api-key',
+              '/build/nilai',
+              '/build/secretLLM/overview',
+              '/build/secretLLM/usage'
             ],
+          },
+          {
+            to: '/build/private-llms/quickstart',
+            from: '/build/secretLLM/quickstart',
+          },
+          {
+            to: '/build/private-llms/nilRAG',
+            from: '/build/nilRAG',
           },
           {
             to: '/learn/blind-modules',
@@ -390,16 +403,14 @@ const config = {
             from: '/network',
           },
           {
-            to: '/build/private-storage/secretvaults',
-            from: '/build/secretvaults',
-          },
-          {
-            to: '/build/private-storage/blindfold',
-            from: '/build/blindfold',
-          },
-          {
-            to: '/build/private-llms/nilRAG',
-            from: '/build/nilRAG',
+            to: '/build/network-api-access',
+            from: [
+              '/build/permissions-and-payments/overview',
+              '/build/secretVault-secretDataAnalytics/generate-tokens',
+              '/build/secretVault-secretDataAnalytics/access',
+              '/build/secretLLM/access',
+              '/build/api-key',
+            ],
           },
           {
             to: '/community/community-and-support',
