@@ -3,6 +3,10 @@ import { Platforms } from '@site/src/utils/FeatureCards';
 
 # Integration by Platform
 
+:::warning
+If you are using `secretvaults-ts`, please upgrade to at least version `0.1.7`
+:::
+
 The way you build with Nillion Storage varies depending on your application architecture. Server-side environments have native access to all Nillion capabilities, while browser environments require additional configuration for Node.js compatibility. **For web applications, we recommend the Next.js approach** for better security and performance.
 
 Get started by choosing the platform that matches your development stack:
