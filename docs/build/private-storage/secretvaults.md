@@ -1,5 +1,10 @@
 # Secretvaults SDK
 
+
+:::warning
+If you are using `secretvaults-ts`, please upgrade to at least version `0.1.7`
+:::
+
 secretvaults is an SDK that simplifies interacting with Private Storage nilDB nodes to create Nillion Private Storage collections, and store and retrieve encrypted records.
 
 ## SDK versions
