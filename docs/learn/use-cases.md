@@ -15,7 +15,7 @@ that make health engaging and rewarding by [storing and leveraging secret-shared
 
 ## Blind Computation Workflows
 
-One of the most straightforward examples of a use case for blind computation is LLM inference. [Private LLMs](/build/private-llms/overview) can be incorporated into any AI-powered application via a RESTful API. These are compatible with OpenAI standards. The inference capabilities of [nilGPT](https://nilgpt.xyz) are enabled using nilAI. More broadly, developers working in areas such as health and finance can take advantage of these features to build apps that offer inference capabilites while ensuring prompts and responses cannot be decrypted by the app operators or the underlying infrastructure providers.
+One of the most straightforward examples of a use case for blind computation is LLM inference. [Private LLMs](/build/private-llms/overview) can be incorporated into any AI-powered application via a RESTful API. These are compatible with OpenAI standards. The inference capabilities of [nilGPT](https://nilgpt.xyz) are enabled using nilAI. More broadly, developers working in areas such as health and finance can take advantage of these features to build apps that offer inference capabilities while ensuring prompts and responses cannot be decrypted by the app operators or the underlying infrastructure providers.
 
 Combining [retrieval-augmented generation (RAG) with PETs](/build/private-llms/nilRAG) makes it possible to leverage the powerful features of contemporary AI solutions while storing data in an encrypted form at all times. This can unlock new use cases by reducing the amount of data that must be decrypted to accomplish a given task.
 
