@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Network API Access
 
 nilPay allows you to subscribe and create credentials for using the [Private Storage](/build/private-storage/overview) and [Private LLMs](/build/private-llms/overview) network APIs.
@@ -8,15 +11,41 @@ This guide walks you through the process of creating an API key.
 
 In order to get an API Key, you must have a nillion address. We recommend starting by following the [wallet setup guide](/community/guides/nillion-wallet) to get started.
 
-Use the [nilPay Portal](https://subscription.nillion.com) to create an API key. Press the **Need an API Key?** button.
+Use the [nilPay Subscription Portal](https://subscription.nillion.com) to create an API key. 
 
-![nilPay Page](/img/nilpay_page.png)
+Ensure you have an EVM browser wallet (i.e. Metamask) + a Cosmos based walled (i.e. Keplr)
 
-Ensure you keep your API key safe and do not share it with anyone.
 
-![nilPay API Key](/img/nilpay_api_key.png)
+![nilPay Page](/img/nilpay-main-page.png)
 
-Enter your public key to associate your API key with your nillion address.
+
+
+## Identity Options
+<Tabs>
+<TabItem value='nilDB' label='Private Storage' default>
+
+![nilPay Payment Types](/img/nilpay-payment-types.png)
+
+For nilDB, you can use all of these options to pay for the subscription.
+- If you want an Ethereum wallet to be the authority for your keys you can use the `Brower Wallet` option.
+- Otherwise if you prefer to be key based, you may import one of your older keys via `Use Secret Key` or `Generate New Key` to create a new one.
+
+If using the Browser Wallet option, you have two options:
+1. Pay for yourself which is recommended if you are the developer of the application.
+2. Paying for others which is recommended if you are subscribing on behalf of someone else .
+
+</TabItem>
+
+<TabItem value='nilAI' label='Private LLM' default>
+
+![nilPay Payment Types](/img/nilpay-payment-ai-flow.png)
+
+For nilAI, you can either use the `Use Secret Key` or `Generate New Key` option for now.
+
+Also ensure to mark the `Create legacy did:nil (for backwards compatibility). This must be selected for nilAI` checkbox for backwards compatibility.
+
+</TabItem>
+</Tabs>
 
 ## Subscription to nilAI and/or nilDB
 
@@ -28,8 +57,8 @@ Click on the either the **Subscribe to nilAI** or **Subscribe to nilDB** button 
 
 After the payment goes through, you will have a 28 day subscription to the service and can now use your keys.
 
-![nilAI Subscription](/img/nilai_subscription.png)
+![nilAI Subscription](/img/nildb_subscription.png)
 
 This is possible for both services by following the same steps.
 
-![nilDB payment](/img/both_services_nilpay.png)
+![nilDB payment](/img/nilpay_bothservice_subscription.png)
