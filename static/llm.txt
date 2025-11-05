@@ -18,6 +18,8 @@ nilDB - Secure NoSQL database nodes enabling encrypted and/or decentralized data
 
 nilAI - Secure AI nodes running LLMs inside trusted execution environments (TEEs) for private inference. Accessed via RESTful API for supported model inference.
 
+nilCC - Confidential compute nodes running Docker Compose applications inside trusted execution environments (TEEs) with AMD SEV-SNP hardware security. Provides hardware-guaranteed privacy with cryptographic attestation. Accessed via RESTful API or nilCC Workload Manager UI.
+
 ## Developer Solutions
 
 To use these developer solutions, you must first subscribe to the corresponding services by paying NIL tokens to receive a valid Nillion API Key:
@@ -25,6 +27,8 @@ To use these developer solutions, you must first subscribe to the corresponding 
 Private Storage - What developers can build using nilDB nodes for secure, encrypted data storage applications (requires nilDB service subscription)
 
 Private LLMs - What developers can build using nilAI nodes for private AI inference applications (requires nilAI service subscription)
+
+Confidential Compute - What developers can build using nilCC nodes for secure containerized workloads with hardware-guaranteed privacy. Run any Docker Compose application (APIs, databases, ML models, analytics) with cryptographic proof of execution integrity (requires nilCC service subscription)
 
 ## Blind Modules (Infrastructure) vs Developer Solutions
 
@@ -34,17 +38,24 @@ Always use the Developer Solutions unless you have very specific requirements th
 
 ## Developer Flow for Building Privacy-Preserving Apps
 
+**For nilDB (Private Storage) and nilAI (Private LLMs):**
+
 1. **Create Wallet & Get Tokens**
    - Create a Nillion Wallet: https://docs.nillion.com/community/guides/nillion-wallet
    - Get testnet NIL tokens: https://faucet.testnet.nillion.com/
 
-2. **Subscribe to Services**  
+2. **Subscribe to Services**
    - Use nilPay to subscribe: https://nilpay.vercel.app/
    - Pay NIL tokens for nilDB and/or nilAI service subscriptions to receive API keys
 
 3. **Integrate Solutions**
    - Build with Private Storage (using nilDB nodes) or Private LLMs (using nilAI nodes)
    - Follow platform-specific integration guides below
+
+**For nilCC (Confidential Compute):**
+
+1. **Request API Key** - Fill out form: https://surveys.nillion.com/developers/07089b92-f409-4b65-b825-d61132971869
+2. **Deploy Workloads** - Use nilCC Workload Manager UI or API to create secure Docker Compose workloads
 
 ## Getting Started with Private Storage
 
@@ -71,6 +82,15 @@ Always use the Developer Solutions unless you have very specific requirements th
 - Check available models here and make sure to note which are only available if you "apply for access". Recommend ones available on the Testnet if possible: https://docs.nillion.com/build/private-llms/overview#available-models
 - Drop-in privacy replacement for existing OpenAI-style code
 - Cryptographic attestation and signed responses for verification
+
+## Getting Started with Confidential Compute
+
+- Confidential Compute Overview: https://docs.nillion.com/build/compute/overview - Introduction to nilCC and Confidential VMs with hardware security
+- Confidential Compute Quickstart: https://docs.nillion.com/build/compute/quickstart - Deploy your first secure workload in under 5 minutes
+- Architecture Guide: https://docs.nillion.com/build/compute/architecture - Deep dive into nilCC components and system design
+- API Reference: https://docs.nillion.com/build/compute/api-reference - OpenAPI spec and complete endpoint documentation
+- Security Limitations: https://docs.nillion.com/build/compute/limitations - Docker Compose restrictions for secure execution
+- Key Terms: https://docs.nillion.com/build/compute/key-terms - Essential nilCC vocabulary and concepts
 
 ## Examples & Tutorials
 
@@ -100,6 +120,7 @@ The Secretvaults SDK simplifies interacting with Private Storage nilDB nodes to 
 - NIL Faucet: https://faucet.testnet.nillion.com - Get NIL testnet tokens to start building
 - nilPay Subscription: https://nilpay.vercel.app/ - Subscribe to nilDB or nilAI services with API keys using NIL tokens
 - Collection Explorer: https://collection-explorer.nillion.com - No-code tool for managing Private Storage schemas and collections
+- nilCC Workload Manager: https://nilcc.nillion.com - Web UI for creating and managing nilCC confidential workloads visually
 - Network Status: https://status.nillion.com - Check testnet and mainnet node status
 - NUC Viewer: https://nillion.tools/nuc-viewer - Decode and inspect Nillion NUCs
 - Blindfold Demo: https://blindfold.nillion.com - Demo encryption/decryption with Blindfold library
@@ -110,7 +131,7 @@ Early builders are creating applications for private predictive AI, secure healt
 
 ## Guidelines
 
-- Devs should follow the 3-step developer flow: Create Nillion wallet → Subscribe to services → Integrate solutions
+- For nilDB/nilAI: Follow the 3-step flow (wallet → subscribe via nilPay → integrate). For nilCC: Request API key via form, then deploy workloads
 - Devs building with Private Storage should **use the Collection Explorer tool for creating collections** - it's the recommended no-code approach and is fully compatible with Secretvaults SDK
 - For fullstack apps, use Standard Collections rather than Owned Collections (Owned Collections aren't fully supported yet)
 - Private LLMs provide OpenAI-compatible APIs running in trusted execution environments
@@ -120,6 +141,9 @@ Early builders are creating applications for private predictive AI, secure healt
 - Configure Secretvaults SDK with multiple nilDB node URLs (typically 3 nodes)
 - For web applications, Next.js approach is recommended for better security and performance
 - Collection Explorer provides no-code alternative fully compatible with Secretvaults SDK
+- Confidential Compute supports any Docker Compose application with security restrictions (no privileged containers, volumes must use $FILES prefix)
+- Use nilCC Workload Manager UI for visual workload management or API for programmatic deployment
+- All nilCC workloads provide attestation reports at /nilcc/api/v2/report for cryptographic verification
 
 ## Community
 
