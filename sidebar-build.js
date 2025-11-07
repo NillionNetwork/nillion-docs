@@ -81,6 +81,11 @@ const buildSidebar = [
         id: 'build/private-storage/collection-explorer',
       },
       {
+        type: "doc",
+        label: "MetaMask Guide",
+        id: "build/private-storage/metamask-guide",
+        },
+      {
         type: 'category',
         label: 'Secretvaults SDK',
         link: {
