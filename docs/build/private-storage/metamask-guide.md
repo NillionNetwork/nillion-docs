@@ -50,7 +50,7 @@ npm install @nillion/nuc @nillion/secretvaults viem @tanstack/react-query
 ```
 
 # Active NilDB Subcription
-Head over to [subscription.nillion.com](subscription.nillion.com) and subscribe to Nildb.
+Head over to [subscription.nillion.com](https://subscription.nillion.com) and subscribe to Nildb.
 
 ---
 
