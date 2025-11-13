@@ -3,37 +3,37 @@ import TabItem from '@theme/TabItem';
 
 # Verify
 
-Verification of the nilCC computation is important for the validity and integrity of the TEE (Trusted Execution Environment) nilCC is running in. The hardware guarantee for privacy and cryptographic proof can be verified using our workload platform.
+An attestation report is provided from the TEE (Trusted Execution Environment) nilCC is running in. The hardware guarantee for privacy and cryptographic proof can be verified using our Workload Manager platform.
 
-# Key Terms
-- Docker Compose Hash: SHA256 hash of your Docker Compose file. It's calculated from the Docker Compose file shown above.
+### Key Terms
+- Docker Compose Hash: SHA256 hash of your Docker Compose file. It's calculated from the Docker Compose of the selected workload above.
 - Measurement Hash: Attestation hash from the `/report` URL, which maps to the TEE verification.
 
-# Prerequisite
+### Prerequisites
 1. Have a working nilCC workload running.
 2. Understanding of Docker and Git.
 
-# Usage
+### Usage
 ![nilcc verify first step](/img/verify_first_step.png)
 
-1. Visit the nilCC workload platform: https://nilcc.nillion.com/verify
-2. You can either precompute your measurement hash or compute it locally yourself. The main difference between `precompute` and `local` measurement hash is that the local one is the true attestation that your measurement hash equals the measurement hash provided by nilCC. This is the purest form of TEE attestation for a developer. We recommend `precompute` for quick and easy understanding of TEE verification, but `local` if you want the Badge Embedding feature below or to fully understand the privacy flow.
+1. Visit the nilCC Workload Manager platform: https://nilcc.nillion.com/verify
+2. You can either use a precomputed measurement hash of your workload or compute it locally yourself. The main difference between `precompute` and `local` measurement hash is that the local one is the true attestation that your measurement hash equals the measurement hash provided by nilCC. This is the purest form of TEE attestation for a developer. We recommend `precompute` for a quick and easy TEE verification, but `local` if you want the Badge Embedding feature below or to fully understand the privacy flow.
 
 <Tabs>
     <TabItem value="precompute" label="Precompute" default>
-        Precompute will rely on using your measurement hash provided by the `/report` URL from the nilcc workload . Just simply toggle to the PreCompute side and it should automatically fetch it.
+        Precompute will rely on using your measurement hash provided by the `/report` URL from the nilcc workload. Simply toggle to the `precompute` side and it should automatically fetch it.
     </TabItem>
     <TabItem value="local" label="Local" default>
-        Local hash generation is the true verification and allows you the do the Badge Embedding below as well. It can be done by following this repo [example.](https://github.com/NillionNetwork/blind-module-examples/tree/main/nilcc/attestation-verification). 
+        Local hash generation is the true verification and enables access to the Badge Embedding below as well. It can be done by following this repo [example](https://github.com/NillionNetwork/blind-module-examples/tree/main/nilcc/attestation-verification).
         
-        Following a similar strucutre to the repo strucutre
+        Following a similar structure to the repo:
 
         ```
             docker-compose.yaml
             scripts/measurement-hash.sh
         ```
 
-        To run this verification, add your docker-compose and then run the script to get your locally generaated measurement hash which should output to a `measurement-hash.json`.
+        To run this verification, add your docker-compose and then run the script to get your locally generated measurement hash which should output to a `measurement-hash.json`.
         
         ```
         cd scripts
@@ -50,7 +50,7 @@ Verification of the nilCC computation is important for the validity and integrit
 
 ![nilcc verify badge](/img/verify_badge.png)
 
-If you want to add a nilCC verification badge to your website, this is possible if you provide a measurement-hash.json like [this](https://github.com/NillionNetwork/blind-module-examples/blob/main/nilcc/attestation-verification/measurement-hash.json). This relates to the `local` measurement hash computation in Step 2.
+If you want to add a nilCC verification badge to your website, you should choose 'Local Generated` on the toggle and provide a measurement-hash.json like [this](https://github.com/NillionNetwork/blind-module-examples/blob/main/nilcc/attestation-verification/measurement-hash.json).
 
 1. Provide your Attestation JSON.
 2. If it is valid you will have an option to use the `React/JSX` embedding code to put on your website.
