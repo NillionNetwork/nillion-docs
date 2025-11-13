@@ -46,6 +46,11 @@ const buildSidebar = [
       },
       {
         type: 'doc',
+        label: 'Verify',
+        id: 'build/compute/verify',
+      },
+      {
+        type: 'doc',
         label: 'Limitations',
         id: 'build/compute/limitations',
       },
@@ -81,10 +86,10 @@ const buildSidebar = [
         id: 'build/private-storage/collection-explorer',
       },
       {
-        type: "doc",
-        label: "MetaMask Guide",
-        id: "build/private-storage/metamask-guide",
-        },
+        type: 'doc',
+        label: 'MetaMask Guide',
+        id: 'build/private-storage/metamask-guide',
+      },
       {
         type: 'category',
         label: 'Secretvaults SDK',
