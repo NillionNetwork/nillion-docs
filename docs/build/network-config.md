@@ -60,21 +60,21 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
     ```
     #### Nodes
 
-    #### [nildb-stg-n1](https://nildb-stg-n1.nillion.network)
+    #### [nildb-stg-n1](https://nildb-stg-n1.nillion.network/about)
 
     ```
     URL:https://nildb-stg-n1.nillion.network
     Public Key: 02e3846c455dbceef9eff8a84127c3be1b9719ac05415efbf72790f31fa9f8027a
     ```
 
-    #### [nildb-stg-n2](https://nildb-stg-n2.nillion.network)
+    #### [nildb-stg-n2](https://nildb-stg-n2.nillion.network/about)
 
     ```
     URL: https://nildb-stg-n2.nillion.network
     Public Key: 025792e96a68c0b7ef7794960327dc570704c6dd565cf2cacf206bdc72d6123f90
     ```
 
-    #### [nildb-stg-n3](https://nildb-stg-n3.nillion.network)
+    #### [nildb-stg-n3](https://nildb-stg-n3.nillion.network/about)
 
     ```
     URL: https://nildb-stg-n3.nillion.network
@@ -92,35 +92,28 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
     ```
     #### Nodes
 
-    #### [nildb-5ab1](https://nildb-5ab1.nillion.network/)
+    #### [nildb-5ab1](https://nildb-5ab1.nillion.network/about)
 
     ```
     URL: https://nildb-5ab1.nillion.network
     Public Key: 031f95488b7c389c963548e57b9871a22477fc475adbbd8336a70e1715a7245ab1
     ```
 
-    #### [nildb-8001](https://nildb-8001.cloudician.xyz)
-
-    ```
-    URL: https://nildb-8001.cloudician.xyz
-    Public Key: 03e238bcededae0b203b75edff7539be77cc0950b10a24e95cc0baae8f43638001
-    ```
-
-    #### [nildb-f496](https://nildb-f496.pairpointweb3.io)
+    #### [nildb-f496](https://nildb-f496.pairpointweb3.io/about)
 
     ```
     URL: https://nildb-f496.pairpointweb3.io
     Public Key: 02955a7d9f47f463540866daec7d0cd8774a827bb4f8ac68e6d266066b4335f496
     ```
 
-    #### [nildb-f375](https://nildb-f375.stcbahrain.net)
+    #### [nildb-f375](https://nildb-f375.stcbahrain.net/about)
 
     ```
     URL: https://nildb-f375.stcbahrain.net
     Public Key: 02938a44a192c18fd55b1814f6ba3ecc11e5689baf861e8309aac71eca42ebf375
     ```
 
-    #### [nildb-2140](https://nildb-2140.staking.telekom-mms.com)
+    #### [nildb-2140](https://nildb-2140.staking.telekom-mms.com/about)
 
     ```
     URL: https://nildb-2140.staking.telekom-mms.com
@@ -137,11 +130,34 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
 [Private LLMs](/build/private-llms/overview) can be leveraged by connecting to a [nilAI](/learn/blind-modules#nil-ai) node, which runs AI models within a TEE.
 
 <Tabs>
-    <TabItem value="nilAI-testnet" label="nilAI Alpha" default>
+    <TabItem value="nilAI-testnet" label="nilAI Testnet" default>
+
+       #### [nilai-a779](https://nilai-a779.nillion.network/docs)
+
        ```
        nilAI Node URL: https://nilai-a779.nillion.network
        API docs: https://nilai-a779.nillion.network/docs
+       Models: google/gemma-3-27b-it
        ```
+    </TabItem>
+    <TabItem value="nilAI-mainnet" label="nilAI Mainnet" default>
+
+       #### [nilai-e176](https://nilai-e176.nillion.network/docs)
+
+       ```
+       nilAI Node URL: https://nilai-e176.nillion.network
+       API docs: https://nilai-e176.nillion.network/docs
+       Models: google/gemma-3-27b-it
+       ```
+        
+       #### [nilai-f910](https://nilai-f910.nillion.network/docs)
+
+       ```
+       nilAI Node URL: https://nilai-f910.nillion.network
+       API docs: https://nilai-f910.nillion.network/docs
+       Models: meta-llama/Llama-3.1-8B, openai/gpt-oss-20b
+       ```
+
     </TabItem>
 
 </Tabs>
