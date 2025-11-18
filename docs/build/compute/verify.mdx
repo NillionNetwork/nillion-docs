@@ -70,9 +70,18 @@ https://github.com/NillionNetwork/nilcc-attestation-example/blob/main/scripts/up
 https://github.com/NillionNetwork/nilcc-attestation-example/blob/main/.github/workflows/verify-measurement.yml
 ```
 
+
 #### Usage 
 
-After adding in the extra files, push the latest changes to main. Then we can now run the Github (GH) Action Bot by tagging the version
+Try running the script locally + then push to main
+
+```
+cd scripts
+chmod +x update-verification.sh
+./update-verification-hash.sh
+```
+
+We can now run the Github (GH) Action Bot by tagging the version
 
 ```
 git tag v0.1.1
@@ -88,6 +97,6 @@ GH Action
 Verify PR that was auto-created by the GH Action Bot.
 
 
-Then we can add your public `verification-manifest.json` from your Github Repo to the `Github URL` input box. You will receive a `React/JSX` Code Snippet to use on your site. 
+We can now add your public `verification-manifest.json` from your Github Repo to the `Github URL` input box. You will receive a `React/JSX` Code Snippet to use on your site. 
 
 Then you can embed it like this example site: [https://nilcc-attestation-example.vercel.app/](https://nilcc-attestation-example.vercel.app/)
