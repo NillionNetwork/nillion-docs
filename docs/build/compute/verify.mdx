@@ -1,0 +1,102 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Verify
+
+An attestation report is provided from the TEE (Trusted Execution Environment) nilCC is running in. The hardware guarantee for privacy and cryptographic proof can be verified using our Workload Manager platform.
+
+### Key Terms
+- Docker Compose Hash: SHA256 hash of your Docker Compose file. It's calculated from the Docker Compose of the selected workload above.
+- Measurement Hash: Attestation hash from the `/report` URL, which maps to the TEE verification.
+
+### Prerequisites
+1. Have a working nilCC workload running.
+2. Understanding of Docker and Git.
+
+### Usage
+![nilcc verify first step](/img/verify_first_step.png)
+
+1. Visit the nilCC Workload Manager platform: https://nilcc.nillion.com/verify
+2. You can either use a precomputed measurement hash of your workload or compute it locally yourself. 
+
+The main difference between `precompute` and `local` measurement hash is that the local one is the true attestation that your measurement hash equals the measurement hash provided by nilCC. This is the purest form of TEE attestation for a developer. We recommend `precompute` for a quick and easy TEE verification, but `local` to understand the privacy flow.
+
+<Tabs>
+    <TabItem value="precompute" label="Precompute" default>
+        Precompute will rely on using your measurement hash provided by the `/report` URL from the nilcc workload. Simply toggle to the `precompute` side and it should automatically fetch it.
+    </TabItem>
+    <TabItem value="local" label="Local" default>
+        Local hash generation is the true verification and enables access to the Badge Embedding below as well. It can be done by following this repo [example](https://github.com/NillionNetwork/blind-module-examples/tree/main/nilcc/attestation-verification).
+        
+        Following a similar structure to the repo:
+
+        ```
+            docker-compose.yaml
+            scripts/local-measurement-hash.sh
+        ```
+
+        To run this verification, add your docker-compose and then run the script to get your locally generated measurement hash which should output to a `local-measurement-hash.json`.
+        
+        ```
+        cd scripts
+        chmod +x local-measurement-hash.sh
+        ./local-measurement-hash.sh     
+        ```  
+    </TabItem>
+
+</Tabs>
+
+
+---
+### Badge Embedding (Optional)
+
+![nilcc verify badge](/img/verify_badge.png)
+
+
+#### Prerequsities
+
+1. Make sure you have a public GitHub repository.
+2. Add these files to your repo (starter templates here):
+    - your `docker-compose.yaml` in your root directory
+    - `script/update-verification.sh`. Edit the `allowedDomains` field in your file to include any domains (websites) where you want to display the badge
+
+``` sh reference showGithubLink
+https://github.com/NillionNetwork/nilcc-attestation-example/blob/main/scripts/update-verification.sh
+```
+
+- `.github/workflows/verify-measurement.yml`
+
+```sh reference showGithubLink
+https://github.com/NillionNetwork/nilcc-attestation-example/blob/main/.github/workflows/verify-measurement.yml
+```
+
+
+#### Usage 
+
+Try running the script locally + then push to main
+
+```
+cd scripts
+chmod +x update-verification.sh
+./update-verification-hash.sh
+```
+
+We can now run the Github (GH) Action Bot by tagging the version
+
+```
+git tag v0.1.1
+git push origin v0.1.1
+```
+
+Increment the versioning to your preference. Then you GH Action should run and then make a PR request with the latest `verification-manifest.json`
+
+![nilcc GH Action badge](/img/GH_action.png)
+GH Action
+
+![nilcc verify badge](/img/verify_manifest_PR.png)
+Verify PR that was auto-created by the GH Action Bot.
+
+
+We can now add your public `verification-manifest.json` from your Github Repo to the `Github URL` input box. You will receive a `React/JSX` Code Snippet to use on your site. 
+
+Then you can embed it like this example site: [https://nilcc-attestation-example.vercel.app/](https://nilcc-attestation-example.vercel.app/)
