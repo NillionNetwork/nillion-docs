@@ -155,7 +155,7 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
        ```
        nilAI Node URL: https://nilai-f910.nillion.network
        API docs: https://nilai-f910.nillion.network/docs
-       Models: meta-llama/Llama-3.1-8B, openai/gpt-oss-20b
+       Models: openai/gpt-oss-20b
        ```
 
     </TabItem>
