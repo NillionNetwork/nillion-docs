@@ -222,7 +222,7 @@ paths:
               allOf:
                 - $ref: '#/components/schemas/ChatRequest'
                 - example:
-                    model: 'meta-llama/Llama-3.1-8B-Instruct'
+                    model: 'openai/gpt-oss-20b'
                     messages:
                       [
                         {
