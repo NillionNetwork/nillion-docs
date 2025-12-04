@@ -7,8 +7,7 @@ Get started with nilCC in under 5 minutes by deploying your first secure workloa
 
 :::info
 
-Before you start building, you'll need a nilCC API Key. Request a **nilCC API Key** by pinging the #developers channel in [discord](https://discord.com/channels/905926225120338000/1204182804817121334) 
-<!-- Before you start building, you'll need a nilCC API Key. Request a **nilCC API Key** by filling out [this form](https://surveys.nillion.com/developers/07089b92-f409-4b65-b825-d61132971869) -->
+Before you start building, you'll need a nilCC API Key. Request a **nilCC API Key** by filling out [this form](https://surveys.nillion.com/developers/07089b92-f409-4b65-b825-d61132971869)
 :::
 
 ## Deploy Your First Workload
