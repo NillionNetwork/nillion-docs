@@ -1,11 +1,19 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-export default function QuickstartFeedback({
+export default function ThumbsUpDown({
   question = 'Were you able to complete the quickstart?',
   thumbsUpEvent,
   thumbsDownEvent,
 }) {
+  const handleThumbsDownClick = () => {
+    window.open(
+      'https://surveys.nillion.com/developers/77d19315-90f0-435c-91df-31195561dc20',
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
+
   return (
     <div className={styles.feedbackContainer}>
       <div className={styles.questionSection}>
@@ -34,6 +42,7 @@ export default function QuickstartFeedback({
           className={styles.feedbackButton}
           data-umami-event={thumbsDownEvent}
           aria-label='No, I did not complete the quickstart'
+          onClick={handleThumbsDownClick}
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
