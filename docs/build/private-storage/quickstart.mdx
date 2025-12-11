@@ -3,33 +3,17 @@ import ThumbsUpDown from '@site/src/components/ThumbsUpDown';
 
 # Quickstart
 
-:::warning
-If you are using `secretvaults-ts`, please upgrade to at least version `0.1.7`
-:::
+This guide demonstrates how to build a passwordless notes application using nilDB.
 
-This guide walks you through building a Node.js demo app that uses Nillion's private storage with user-owned collections.
-
-:::tip
-Reference the full Secretvaults-ts docs while you build: [SecretVaults TypeScript Docs](/build/private-storage/ts-docs)
-:::
+We will be using **secretvaults** for private storage, **MetaMask** for identity and **Nillion's Network User Credentials (NUC)** for secure, decentralized authentication.
 
 ## What You'll Build
 
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.youtube.com/embed/Om51sVC8EZA"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
+In this quickstart, you'll create a simple notes app that requires login via MetaMask and learn:
 
-In this quickstart, you'll create a simple but powerful demonstration of private storage:
-
-1. **Builder Setup**: You (as a builder/application) will register for a Nillion API Key
-2. **Create an Owned Collection**: Define an owned collection with a specific schema that users can store private data in
-3. **User Data Storage** - A user will store their private data in your collection and grant you limited access to it
+1. **Builder setup**: You (as a builder/application) will register for a Nillion API key
+2. **Create an owned collection**: Define an owned collection with a specific schema where users can store private data
+3. **User data storage**: A user stores private data in their collection with create, read, update, and delete (CRUD) capabilities
 
 This showcases Nillion's core value: users own their data, but can selectively share it with applications.
 
@@ -40,430 +24,193 @@ This showcases Nillion's core value: users own their data, but can selectively s
 - How to grant and revoke specific permissions (read/write/execute)
 - How the **@nillion/secretvaults** library handles encryption and share distribution automatically
 
+## Code Reference
+
+- The completed full tutorial code is [here.](https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full)
+---
+
 ## Prerequisites
 
-### 1. Get Your API Key and Subscription
+- MetaMask browser extension
+- Keplr browser extension
 
-As good practice, we recommend to use two distinct keys: one for network access and a separate key for subscription payments. This dual-key architecture separates authentication from payment processing, enhancing security by limiting the scope of each credential.
+### 1. Get your API key and subscription
 
+You will need an Ethereum and Cosmos wallet (i.e., MetaMask and Keplr) to get your API keys. As a best practice, we recommend setting up separate wallets for development.
 <CTABanner
   question="Get your Nillion API keys here"
   instruction="Visit the Nillion subscription portal to get your API keys for secretvaults!"
   buttonText="Get your keys"
   buttonLink="https://subscription.nillion.com"
-  event="quickstart-svaults-cta-banner"
+  event="quickstart-svaults-v1-cta-banner"
   external={true}
 />
 
-1. Create a Testnet public/private key pair through the UI that we will use for network access
-2. [Fund your account with Testnet NIL](https://faucet.testnet.nillion.com)
-3. Subscribe to `nilDB` by paying with your subscription wallet
-4. Save your private key (hex format) - you'll need this for authentication
+1. Switch to the `Testnet` network
+2. Connect your developer MetaMask and Keplr wallets
+3. [Fund your account with Testnet NIL](https://faucet.testnet.nillion.com)
+4. Subscribe to `nilDB` using your subscription wallet
 
-### 2. System Requirements
+## 2. Project Setup
 
-- `Node.js 22+` with ES modules support
-- `pnpm` package manager (you can use `npm` or `yarn` as well)
-
-## Project Setup
-
-Create a new `Node.js` project:
+Clone the demo repository.
 
 ```bash
-mkdir nillion-secretvaults-demo
-cd nillion-secretvaults-demo
-pnpm init
+git clone https://github.com/NillionNetwork/blind-module-examples
+cd nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full
+pnpm i 
+pnpm run dev
 ```
 
-Add ES module support to your `package.json` by adding:
-
-```json
-{
-  "type": "module"
-}
+### Project Structure
+```
+src/
+  app/
+      layout.tsx
+      globals.css
+      page.tsx
+      profile/page.tsx
+  components/
+      Notes.tsx
+      ProtectedRoute.tsx
+  context/
+      NillionContext.tsx
+      AuthFlowManager.tsx
+  hooks/
+      useNillion.ts
+      usePersistedConnection.ts
+      useSessionQuery.ts
+      useInitializeSessionMutation.ts
+      useLoginMutation.ts
+      useNillionClient.ts
+      useNotesCollection.ts
+      useNotes.ts
+  types/
+    NillionState.ts
+  config.ts
 ```
 
-## Install Dependencies
+This is the project structure you'll use.
 
-Install the required Nillion packages:
+### Config file
+This configuration is required to connect to the three nilDB nodes.
 
-```bash
-pnpm add @nillion/secretvaults@latest @nillion/nuc dotenv
+```typescript reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full/src/config.ts
 ```
 
-## Environment Configuration
+## 3. MetaMask flow
 
-Create a `.env` file in your project root:
+We subscribed to the nilPay platform using a MetaMask account, so now we want to sign in with that account. This requires interfacing with a web3 wallet and is primarily done in `src/context/NillionContext.tsx`.
 
-```bash
-# .env
-BUILDER_PRIVATE_KEY=your-hex-private-key-from-nilpay
+We also use the `viem` library to detect and prove ownership of the account.
 
-# Optional: Override default testnet URLs if needed
-# NILCHAIN_URL=http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
-# NILAUTH_URL=https://nilauth.sandbox.app-cluster.sandbox.nilogy.xyz
-# NILDB_NODES=https://nildb-stg-n1.nillion.network,https://nildb-stg-n2.nillion.network,https://nildb-stg-n3.nillion.network
+***Key Concept***: 
+
+`Signer.fromWeb3()` wraps MetaMask's signing capability so Nillion can use it for NUC token creation.
+
+```typescript reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/3af300286616aadc796e8e6d53228eab5df8cdf4/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full/src/context/NillionContext.tsx#L71-L96
+``` 
+
+Relevant files:
+
+`src/hooks/useInitializeSessionMutation.ts`:
+- `initializeSession()`: 
+  - Creates `NilauthClient`
+  - Checks `subscriptionStatus`
+  - Builds `SecretVaultBuilderClient.from({ blindfold: { operation: "store" } })`
+  - Calls `refreshRootToken()`
+  - Mints per-node invocation tokens 
+  - Returns `{ nillionClient, nilauthClient, rootToken, nildbTokens }`.
+  - On success, saves the session into React Query (["session"]) and persists tokens via `usePersistedConnection`.
+
+`src/context/AuthFlowManager.tsx`
+- Decides whether to initialize or log in based on MetaMask connection and whether a stored session exists.
+
+`src/hooks/useLoginMutation.ts`
+- Rehydrates from localStorage
+- Validates the root token
+- Reuses or mints invocation tokens
+- Writes session back to React Query.
+
+
+***Key concepts***:
+
+- Root token: Master authorization from nilauth
+- Invocation Tokens: Node-specific tokens (one per nilDB node)
+- Blindfold: Enables automatic encryption for %allot fields
+
+## 5. Collection creation
+
+Before storing notes, we need a collection with a schema. Encrypted fields use %allot in the schema.
+
+```typescript reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full/src/hooks/useNotesCollection.ts
 ```
 
-**⚠️ Important**: Add `.env` to your `.gitignore` to avoid committing your private key!
+## 6. Create, Read, Update, Delete (CRUD) operations
 
-## Basic Script Structure
+***Key patterns***
 
-Create `demo.js` with the following structure:
+Notice how content is wrapped in `{ "%allot": value }` when sending.
 
-```javascript
-#!/usr/bin/env node
+The SDK automatically:
+1. Detects the %allot marker
+2. Encrypts the value
+3. Splits it into secret shares
+4. Sends one share to each nilDB node
 
-import { randomUUID } from 'node:crypto';
-import { config as loadEnv } from 'dotenv';
-
-// Load environment variables
-loadEnv();
-
-// Import Nillion SDK components
-import {
-  Keypair,
-  NilauthClient,
-  PayerBuilder,
-  NucTokenBuilder,
-  Command,
-} from '@nillion/nuc';
-import {
-  SecretVaultBuilderClient,
-  SecretVaultUserClient,
-} from '@nillion/secretvaults';
-
-// Configuration
-const config = {
-  NILCHAIN_URL: process.env.NILCHAIN_URL,
-  NILAUTH_URL: process.env.NILAUTH_URL,
-  NILDB_NODES: process.env.NILDB_NODES.split(','),
-  BUILDER_PRIVATE_KEY: process.env.BUILDER_PRIVATE_KEY,
-};
-
-// Validate configuration
-if (!config.BUILDER_PRIVATE_KEY) {
-  console.error('❌ Please set BUILDER_PRIVATE_KEY in your .env file');
-  process.exit(1);
-}
-
-async function main() {
-  // All code in the next steps will be added here
-}
-
-main().catch(console.error);
+```typescript reference showGithubLink
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full/src/hooks/useNotes.ts
 ```
 
-## Authentication and Client Setup
 
-### Create Keypairs
+## 8. UI layout 
 
-```javascript
-// Step 1: Create keypairs for builder and user
-const builderKeypair = Keypair.from(config.BUILDER_PRIVATE_KEY); // Use your funded key
-const userKeypair = Keypair.generate(); // Generate random user
+`src/app/page.tsx`: 
+- `useNillion()` to connect to MetaMask, log out, and access state (address/DID)
+- `useSessionQuery()` to know when the session is ready.
 
-const builderDid = builderKeypair.toDid().toString();
-const userDid = userKeypair.toDid().toString();
+`src/app/profile/page.tsx`: 
+- Wrapped with `<ProtectedRoute>` to ensure only authenticated users can access.
+- Renders `<Notes />`, which is where CRUD happens.
 
-console.log('Builder DID:', builderDid);
-console.log('User DID:', userDid);
-```
+`src/components/Notes.tsx`:
+- Hook integration
+  - Calls `useNotes()` which wires together:
+    - `useNotesCollection()` (ensures/creates collection with encrypted content schema).
+    - `useNillionClient()` (provides `nillionClient` + per-node tokens).
+    - All CRUD operations
+    - Encryption happens in the hook via `ensureAllot()` which wraps content as `{ "%allot": string }`.
 
-### Setup Authentication
+## 9. Running your app
 
-```javascript
-// Step 2: Create payer and nilauth client
-const payer = await new PayerBuilder()
-  .keypair(builderKeypair)
-  .chainUrl(config.NILCHAIN_URL)
-  .build();
+After you run your app with `pnpm run dev`, open `http://localhost:3000` and:
 
-const nilauth = await NilauthClient.from(config.NILAUTH_URL, payer);
-```
+1. Click "Connect with MetaMask"
+2. Approve the MetaMask connection
+3. Wait for session initialization
+4. Create a note - the content is automatically encrypted!
+5. Refresh the page - your session persists
 
-### Initialize Builder Client
-
-```javascript
-// Step 3: Create builder client
-const builder = await SecretVaultBuilderClient.from({
-  keypair: builderKeypair,
-  urls: {
-    chain: config.NILCHAIN_URL,
-    auth: config.NILAUTH_URL,
-    dbs: config.NILDB_NODES,
-  },
-});
-
-// Refresh token using existing subscription
-await builder.refreshRootToken();
-```
-
-## Builder Registration
-
-Handle builder registration with proper error handling:
-
-```javascript
-// Step 4: Register builder (handle existing registration)
-try {
-  const existingProfile = await builder.readProfile();
-  console.log('✅ Builder already registered:', existingProfile.data.name);
-} catch (profileError) {
-  try {
-    await builder.register({
-      did: builderDid,
-      name: 'My Demo Builder',
-    });
-    console.log('✅ Builder registered successfully');
-  } catch (registerError) {
-    // Handle duplicate key errors gracefully
-    if (registerError.message.includes('duplicate key')) {
-      console.log('✅ Builder already registered (duplicate key)');
-    } else {
-      throw registerError;
-    }
-  }
-}
-```
-
-## Create an Owned Collection
-
-### Define Collection Schema
-
-An **owned collection** allows users to store their private data with individual access controls on each record.
-
-```javascript
-// Step 5: Define your owned collection
-const collectionId = randomUUID();
-
-const collection = {
-  _id: collectionId,
-  type: 'owned', // Every document in the collection will be user-owned
-  name: 'User Profile Collection',
-  schema: {
-      $schema: 'http://json-schema.org/draft-07/schema#',
-      type: 'array',
-      uniqueItems: true,
-      items: {
-      type: 'object',
-      properties: {
-          _id: { type: 'string', format: 'uuid' },
-          name: { type: 'string' }, // name will not be secret shared
-          email: { // email will be secret shared
-            type: "object",
-            properties: {
-              "%share": {
-                type: "string"
-              }
-            },
-            required: [
-              "%share"
-            ]
-          },
-          phone: { // phone will be secret shared
-            type: "object",
-            properties: {
-              "%share": {
-                type: "string"
-              }
-            },
-            required: [
-              "%share"
-            ]
-          },
-      },
-      required: ['_id', 'name', 'email'],
-      },
-    },
-  };
-};
-```
-
-### Create Collection
-
-```javascript
-// Step 6: Create the owned collection
-try {
-  const createResults = await builder.createCollection(collection);
-  console.log(
-    '✅ Owned collection created on',
-    Object.keys(createResults).length,
-    'nodes'
-  );
-} catch (error) {
-  console.error('❌ Collection creation failed:', error.message);
-  // Handle testnet infrastructure issues gracefully
-}
-```
-
-## User Stores Private Data
-
-### Create User Client
-
-```javascript
-// Step 7: Create user client
-const user = await SecretVaultUserClient.from({
-  baseUrls: config.NILDB_NODES,
-  keypair: userKeypair,
-  blindfold: {
-    operation: 'store',
-  },
-});
-```
-
-### User Uploads Data with Access Control
-
-```javascript
-// Step 8: Builder grants write access to the user
-const delegation = NucTokenBuilder.extending(builder.rootToken)
-  .command(new Command(['nil', 'db', 'data', 'create']))
-  .audience(userKeypair.toDid())
-  .expiresAt(Math.floor(Date.now() / 1000) + 3600) // 1 hour
-  .build(builderKeypair.privateKey());
-
-// User's private data
-// %allot indicates that the client should encrypt this data
-const userPrivateData = {
-  _id: randomUUID(),
-  name: 'Steph',
-  email: {
-    '%allot': 'steph@example.com',
-  },
-  phone: {
-    '%allot': '+1-555-0123',
-  },
-};
-
-// User uploads data and grants builder limited access
-const uploadResults = await user.createData(delegation, {
-  owner: userDid,
-  acl: {
-    grantee: builderDid, // Grant access to the builder
-    read: true, // Builder can read the data
-    write: false, // Builder cannot modify the data
-    execute: true, // Builder can run queries on the data
-  },
-  collection: collectionId,
-  data: [userPrivateData],
-});
-
-console.log('✅ User uploaded private data with builder access granted');
-```
-
-## Builder Accesses User Data
-
-### Read User's Data (with permission)
-
-```javascript
-// Step 9: Builder reads user's data (only works because user granted access)
-const userData = await user.readData({
-  collection: collectionId,
-  document: userPrivateData._id,
-});
-
-console.log('✅ Builder successfully accessed user data:', {
-  name: userData.data.name,
-  email: userData.data.email,
-  // Note: Builder can only see this because user granted read permission
-});
-```
-
-### List User's Data References
-
-```javascript
-// Step 10: See what data the user has stored
-const references = await user.listDataReferences();
-console.log('✅ User has', references.data.length, 'private records stored');
-```
-
-## Access Control in Action
-
-### Grant Access to Another Builders
-
-If users wants to grant access to other builders, they can do so by calling `grantAccess` and specifying the new builder did, the document and collection and specific permissions. We will omit this step for simplicity, but the code should look similar to this:
-
-```javascript
-// If you want to run this functionality
-await user.grantAccess({
-  collection: collectionId,
-  document: userPrivateData._id,
-  acl: {
-    grantee: 'new-builder-did',
-    read: true, // New Builder can read
-    write: false, // New Builder cannot modify
-    execute: false, // New Builder cannot run queries
-  },
-});
-```
-
-### Revoking Access
-
-In the same way, we can revoke access calling `revokeAccess`:
-
-```javascript
-await user.revokeAccess({
-  grantee: 'new-builder-did',
-  collection: collectionId,
-  document: userPrivateData._id,
-});
-```
-
-### Cleanup
-
-```javascript
-// Step 11: User deletes their data
-await user.deleteData({
-  collection: collectionId,
-  document: userPrivateData._id,
-});
-
-console.log('✅ User deleted their private data');
-```
-
-## Running Your Demo
-
-Run the full script
-
-```bash
-node demo.js
-```
-
+---
 ## What Just Happened?
 
-🎉 **Congratulations!** You just built a privacy-preserving application where:
+🎉 Congratulations! You built a privacy-preserving notes app where:
 
-1. **You (Builder)** created a secure collection for user data
-2. **A User** stored their private information with automatic encryption and share distribution
-3. **The User** granted you specific, limited access to their data
-4. **You** could read the data only because the user gave permission
-5. **The User** maintained full control - they could revoke access or delete their data at any time
-
-This demonstrates the core principle of Nillion's private storage: **users own their data**, but can selectively share it with applications they trust.
+1. Users authenticate with MetaMask - no passwords needed
+2. Note titles are plaintext - for easy display and filtering
+3. Note content is encrypted - split into 3 secret shares across nodes
+4. Only the owner can decrypt - using their MetaMask signature
+5. Sessions persist - via NUC tokens stored in localStorage
 
 <ThumbsUpDown
   thumbsUpEvent="quickstart_secretvaults_completed_yes"
   thumbsDownEvent="quickstart_secretvaults_completed_no"
 />
-## Key Concepts Learned
-
-- **Owned Collections**: Collections where users control access to their individual records
-- **Access Control Lists (ACLs)**: Fine-grained permissions (read/write/execute) on each data record
-- **Encrypted Shares**: Your sensitive data is automatically split and distributed across multiple nodes
-- **User Sovereignty**: Users maintain complete control over their private data and permissions
 
 ## Advanced Features
-
-### Using Sensitive Field Encryption
-
-```javascript
-// Mark fields as sensitive for automatic encryption
-const sensitiveData = {
-  _id: randomUUID(),
-  name: 'Steph', // Plaintext
-  email: 'steph@example.com', // Plaintext
-  phone: { '%allot': '+1-555-0123' }, // Encrypted field flag
-};
-```
 
 ### Query Operations
 
