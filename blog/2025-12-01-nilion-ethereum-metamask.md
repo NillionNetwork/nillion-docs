@@ -14,6 +14,7 @@ hide_table_of_contents: false
 # Nillion-Ethereum Integration: MetaMask + EIP-712 DID Generation
 
 Technical documentation for Ethereum wallet integration with Nillion using EIP-712 signatures and DIDs.
+<!-- truncate -->
 
 ## Overview
 

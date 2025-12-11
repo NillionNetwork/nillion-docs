@@ -1,5 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ThumbsUpDown from '@site/src/components/ThumbsUpDown';
 
 # nilCC Quickstart
 
@@ -122,6 +123,11 @@ When you deploy a workload, nilCC:
 3. **Boots securely** with dm-verity filesystem verification and LUKS encryption
 4. **Deploys containers** with automatic TLS certificates via Caddy
 5. **Generates attestation** linking your TLS certificate to hardware measurements
+
+<ThumbsUpDown
+  thumbsUpEvent="quickstart_nilcc_completed_yes"
+  thumbsDownEvent="quickstart_nilcc_completed_no"
+/>
 
 ## Next Steps
 
