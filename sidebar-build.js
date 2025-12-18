@@ -36,8 +36,8 @@ const buildSidebar = [
       },
       {
         type: 'doc',
-        label: 'Key Terms',
-        id: 'build/compute/key-terms',
+        label: 'Key Concepts',
+        id: 'build/compute/key-concepts',
       },
       {
         type: 'doc',
@@ -84,6 +84,11 @@ const buildSidebar = [
         type: 'doc',
         label: 'Collection Explorer Tool',
         id: 'build/private-storage/collection-explorer',
+      },
+      {
+        type: 'doc',
+        label: 'Key Concepts',
+        id: 'build/private-storage/key-concepts',
       },
       {
         type: 'category',
@@ -174,6 +179,11 @@ const buildSidebar = [
     items: [
       'build/private-llms/quickstart',
       'build/private-llms/usage',
+      {
+        type: 'doc',
+        label: 'Key Concepts',
+        id: 'build/private-llms/key-concepts',
+      },
       {
         type: 'link',
         label: 'Examples',
