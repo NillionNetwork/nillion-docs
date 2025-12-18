@@ -29,12 +29,14 @@ services:
 
 ### Step 2: Create Workload
 
-Choose your preferred workload creation method. Both options create the same secure workload
+Choose your preferred workload creation method. Both options create the same secure workload but we ***strongly recommend*** using the UI to make your developer experience easier.
 
 <Tabs>
-<TabItem value="ui" label="Create Workload with UI" default>
+<TabItem value="ui" label="Create Workload with UI (Recommended)" default>
 
-Create a new workload with the [nilCC Workload Manager](https://nilcc.nillion.com) UI. This workload creation method is recommended for first-time nilCC users, visual workflow management, and ongoing monitoring.
+Create a new workload with the ***[nilCC Workload Manager UI](https://nilcc.nillion.com).*** 
+
+This workload creation method is recommended for first-time nilCC users, visual workflow management, and ongoing monitoring.
 
 [![nilCC Create Workload](/img/nilcc-create-workload.png)](https://nilcc.nillion.com/workloads/create)
 
@@ -138,7 +140,7 @@ When you deploy a workload, nilCC:
 - [Understand security constraints](./limitations.md) - What you can and can't do
 - [Explore the architecture](./architecture.md) - How nilCC components work together
 - [Browse API documentation](./api-reference.md) - Complete endpoint reference
-- [Check key terms](./key-terms.md) - Essential nilCC vocabulary
+- [Check key concepts](./key-concepts.md) - Essential nilCC vocabulary
 
 **Build Something Real:**
 

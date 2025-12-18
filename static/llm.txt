@@ -90,7 +90,7 @@ Always use the Developer Solutions unless you have very specific requirements th
 - Architecture Guide: https://docs.nillion.com/build/compute/architecture - Deep dive into nilCC components and system design
 - API Reference: https://docs.nillion.com/build/compute/api-reference - OpenAPI spec and complete endpoint documentation
 - Security Limitations: https://docs.nillion.com/build/compute/limitations - Docker Compose restrictions for secure execution
-- Key Terms: https://docs.nillion.com/build/compute/key-terms - Essential nilCC vocabulary and concepts
+- Key Terms: https://docs.nillion.com/build/compute/key-concepts - Essential nilCC vocabulary and concepts
 
 ## Examples & Tutorials
 

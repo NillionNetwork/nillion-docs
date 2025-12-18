@@ -1,4 +1,4 @@
-# nilCC Key Terms
+# Key Concepts
 
 This glossary defines key terms as they are used throughout the nilCC documentation and system.
 
