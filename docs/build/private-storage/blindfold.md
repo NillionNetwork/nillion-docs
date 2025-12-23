@@ -1,8 +1,8 @@
 # Blindfold Library
 
-The blindfold cryptographic library provides functions for encrypting/decrypting and secret sharing data stored in individual nilDB nodes and nilDB clusters.
+The blindfold cryptographic library provides functions for encrypting/decrypting and secret sharing data stored in [individual nilDB nodes and nilDB clusters](/build/private-storage/overview).
 
-## How to use blindfold
+## How to Use the Library
 
 For most developers and use cases, the [secretvaults SDKs](/build/private-storage/secretvaults) (which rely on blindfold) are sufficient. However, expert users may use blindfold to communicate directly with individual nilDB nodes and to manage on their own ciphertexts and secret shares within nilDB queries and replies.
 
@@ -19,17 +19,35 @@ Developers can use blindfold as a general-purpose encryption/decryption library 
 
 These libraries are entirely independent from nilDB. This means that developers are responsible for communicating with the individual nilDB nodes within a nilDB cluster, and for invoking blindfold functions as necessary to work with data and query replies.
 
-## Encryption Features and Supported Operations
+## Encryption Features
 
-This library supports traditional encryption of data for storage at rest, hashing of data for deterministic matching, homomorphic encryption of data in a manner that is compatible with addition under encryption, and secret sharing of data (via multi-party computation) in a manner that is compatible with summation under encryption. Each of these is compatible with either single-node clusters, multiple-node clusters, or both. Furthermore, it is possible to rely on either *secret* or *cluster* keys when working with multiple-node clusters. Secret keys ensure that all data (including individual secret shares) are encrypted using a private symmetric key. This means that the nodes in a cluster cannot decrypt ciphertexts even if they all collude. The table below provides a detailed breakdown 
+The library offers developers a consistent interface for a variety of different protocols and scenarios. As demonstrated by the secretvaults SDKs, this flexibility can allow developers to switch between protocols seamlessly.
 
-| Nodes    | Key Types       | Operation | Implementation Details                   | Supported Types                                                     |
-|----------|-----------------|-----------|------------------------------------------|---------------------------------------------------------------------|
-| single   | Secret          | store     | XSalsa20 stream cipher and Poly1305 MAC  | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
-| single   | Secret          | match     | deterministic salted hashing via SHA-512 | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
-| single   | Secret          | sum       | Paillier cryptosystem                    | 32-bit signed integer                                               |
-| multiple | Secret, Cluster | store     | XOR-based secret sharing                 | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
-| multiple | Secret, Cluster | store     | Shamir's secret sharing (with threshold) | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
-| multiple | Secret          | match     | deterministic salted hashing via SHA-512 | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
-| multiple | Secret, Cluster | sum       | additive secret sharing                  | 32-bit signed integer                                               |
-| multiple | Secret, Cluster | sum       | Shamir's secret sharing (with threshold) | 32-bit signed integer                                               |
+### Supported Cryptographic Protocols
+
+This library supports traditional encryption of data for storage at rest, [salted hashing of data for deterministic matching](https://www.sciencedirect.com/science/article/abs/pii/S0306437912001470), [partially homomorphic encryption](https://en.wikipedia.org/wiki/Paillier_cryptosystem) of data in a manner that is compatible with addition under encryption, and [secret sharing](https://en.wikipedia.org/wiki/Secret_sharing) of data via [secure multi-party computation](https://en.wikipedia.org/wiki/Secure_multi-party_computation) (MPC) schemes (including a [threshold scheme](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing)) in a manner that is compatible with summation under encryption.
+
+### Working with Clusters and Combining Protocols
+
+Each of the encryption techniques is compatible with either single-node clusters, multiple-node clusters, or both. Each standalone library uses the attributes of a key object (instantiated using an appropriate constructor) to determine what protocol to use when encrypting a plaintext. Keys fall into one of two categories:
+
+1. `SecretKey`/`PublicKey`: Keys in this category support operations within a single node or across multiple nodes. These contain cryptographic material for encryption, decryption, and other operations. Notably, a `SecretKey` instance includes cryptographic material (such as symmetric keys) that a client should not share with the cluster. Using a `SecretKey` instance helps ensure that a client can retain exclusive access to a plaintext *even if all servers in a cluster collude* (*i.e.*, the secret shares themselves are encrypted using the symmetric key).
+
+2. `ClusterKey`: Keys in this category represent cluster configurations but do not contain cryptographic material. These can be used only when working with multiple-node clusters. Unlike `SecretKey` and `PublicKey` instances, `ClusterKey` instances do not incorporate additional cryptographic material. This means each node in a cluster has access to a raw secret share of the plaintext and, therefore, the plaintext is only protected if the nodes in the cluster do not collude.
+
+The language-specific standalone versions of the library also provide helpful functions (`allot` and `unify`, in particular) for working with multiple secret shares of heterogenous data objects (such as JSON objects and Python dictionaries). These functions duplicate or merge plaintext values across object shares while also appropriately substituting internal values with their shares after encryption.
+
+### Overview and Summary
+
+The table below provides a detailed breakdown of the various supported encryption protocols and their features. More detailed information (such as ciphertext overheads for each protocol) can be found in the library documentation.
+
+| Nodes    | Key Categories            | Operation | Implementation Details                                                                                              | Supported Plaintext Types                                                  |
+|----------|---------------------------|-----------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| single   | `SecretKey`               | store     | [XSalsa20 stream cipher and Poly1305 MAC](https://eprint.iacr.org/2011/646)                                         | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
+| single   | `SecretKey`               | match     | [deterministic salted hashing](https://www.sciencedirect.com/science/article/abs/pii/S0306437912001470) via SHA-512 | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
+| single   | `SecretKey`               | sum       | [Paillier cryptosystem](https://en.wikipedia.org/wiki/Paillier_cryptosystem)                                        | 32-bit signed integer                                                      |
+| multiple | `SecretKey`; `ClusterKey` | store     | [XOR-based secret sharing](https://ieeexplore.ieee.org/document/6769090) (without threshold support)                | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
+| multiple | `SecretKey`; `ClusterKey` | store     | [Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) (with threshold support)         | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
+| multiple | `SecretKey`               | match     | [deterministic salted hashing](https://www.sciencedirect.com/science/article/abs/pii/S0306437912001470) via SHA-512 | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
+| multiple | `SecretKey`; `ClusterKey` | sum       | [additive secret sharing](https://link.springer.com/chapter/10.1007/3-540-45539-6_22)                               | 32-bit signed integer                                                      |
+| multiple | `SecretKey`; `ClusterKey` | sum       | [Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) (with threshold support)         | 32-bit signed integer                                                      |
