@@ -19,16 +19,17 @@ Developers can use blindfold as a general-purpose encryption/decryption library 
 
 These libraries are entirely independent from nilDB. This means that developers are responsible for communicating with the individual nilDB nodes within a nilDB cluster, and for invoking blindfold functions as necessary to work with data and query replies.
 
-## Supported Operations
+## Encryption Features and Supported Operations
 
-This library supports traditional encryption of data for storage at rest, hashing of data for deterministic matching, homomorphic encryption of data in a manner that is compatible with addition under encryption, and secret sharing of data (via multi-party computation) in a manner that is compatible with summation under encryption. Each of these is compatible with either single-node clusters, multiple-node clusters, or both; the table below provides a detailed breakdown.
+This library supports traditional encryption of data for storage at rest, hashing of data for deterministic matching, homomorphic encryption of data in a manner that is compatible with addition under encryption, and secret sharing of data (via multi-party computation) in a manner that is compatible with summation under encryption. Each of these is compatible with either single-node clusters, multiple-node clusters, or both. Furthermore, it is possible to rely on either *secret* or *cluster* keys when working with multiple-node clusters. Secret keys ensure that all data (including individual secret shares) are encrypted using a private symmetric key. This means that the nodes in a cluster cannot decrypt ciphertexts even if they all collude. The table below provides a detailed breakdown 
 
-| Cluster        | Operation | Implementation Details                                            | Supported Types                                           |
-|----------------|-----------|-------------------------------------------------------------------|-----------------------------------------------------------|
-| single node    | store     | XSalsa20 stream cipher and Poly1305 MAC                           | 32-bit signed integer; UTF-8 string (4096 bytes or fewer) |
-| single node    | match     | deterministic salted hashing via SHA-512                          | 32-bit signed integer; UTF-8 string (4096 bytes or fewer) |
-| single node    | sum       | non-deterministic Paillier with 2048-bit primes                   | 32-bit signed integer                                     |
-| multiple nodes | store     | XOR-based secret sharing                                          | 32-bit signed integer; UTF-8 string (4096 bytes or fewer) |
-| multiple nodes | match     | deterministic salted hashing via SHA-512                          | 32-bit signed integer; UTF-8 string (4096 bytes or fewer) |
-| multiple nodes | sum       | additive secret sharing (no threshold; prime modulus 2^32 + 15)   | 32-bit signed integer                                     |
-| multiple nodes | sum       | Shamir's secret sharing (with threshold; prime modulus 2^32 + 15) | 32-bit signed integer                                     |
+| Nodes    | Key Types       | Operation | Implementation Details                   | Supported Types                                                     |
+|----------|-----------------|-----------|------------------------------------------|---------------------------------------------------------------------|
+| single   | Secret          | store     | XSalsa20 stream cipher and Poly1305 MAC  | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
+| single   | Secret          | match     | deterministic salted hashing via SHA-512 | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
+| single   | Secret          | sum       | Paillier cryptosystem                    | 32-bit signed integer                                               |
+| multiple | Secret, Cluster | store     | XOR-based secret sharing                 | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
+| multiple | Secret, Cluster | store     | Shamir's secret sharing (with threshold) | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
+| multiple | Secret          | match     | deterministic salted hashing via SHA-512 | 32-bit signed integer; UTF-8 or binary string (4096 bytes or fewer) |
+| multiple | Secret, Cluster | sum       | additive secret sharing                  | 32-bit signed integer                                               |
+| multiple | Secret, Cluster | sum       | Shamir's secret sharing (with threshold) | 32-bit signed integer                                               |
