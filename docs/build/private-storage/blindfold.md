@@ -2,7 +2,7 @@
 
 The blindfold cryptographic library provides functions for encrypting/decrypting and secret sharing data stored in [individual nilDB nodes and nilDB clusters](/build/private-storage/overview).
 
-## How to Use the Library
+## Usage
 
 For most developers and use cases, the [secretvaults SDKs](/build/private-storage/secretvaults) (which rely on blindfold) are sufficient. However, expert users may use blindfold to communicate directly with individual nilDB nodes and to manage on their own ciphertexts and secret shares within nilDB queries and replies.
 
@@ -39,15 +39,15 @@ The language-specific standalone versions of the library also provide helpful fu
 
 ### Overview and Summary
 
-The table below provides a detailed breakdown of the various supported encryption protocols and their features. More detailed information (such as ciphertext overheads for each protocol) can be found in the library documentation.
+The table below summarizes the data encryption protocols that this library makes available (and which a developer may leverage by creating a key object with the appropriate attributes). The table also specifies which operation involving ciphertexts is supported by each protocol. Support for summation of encrypted values implies support both for subtraction of encrypted values from other encrypted values and for multiplication of encrypted values by a plaintext signed integer scalar.
 
-| Nodes    | Key Categories            | Operation | Implementation Details                                                                                              | Supported Plaintext Types                                                  |
-|----------|---------------------------|-----------|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| single   | `SecretKey`               | store     | [XSalsa20 stream cipher and Poly1305 MAC](https://eprint.iacr.org/2011/646)                                         | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
-| single   | `SecretKey`               | match     | [deterministic salted hashing](https://www.sciencedirect.com/science/article/abs/pii/S0306437912001470) via SHA-512 | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
-| single   | `SecretKey`               | sum       | [Paillier cryptosystem](https://en.wikipedia.org/wiki/Paillier_cryptosystem)                                        | 32-bit signed integer                                                      |
-| multiple | `SecretKey`; `ClusterKey` | store     | [XOR-based secret sharing](https://ieeexplore.ieee.org/document/6769090) (without threshold support)                | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
-| multiple | `SecretKey`; `ClusterKey` | store     | [Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) (with threshold support)         | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
-| multiple | `SecretKey`               | match     | [deterministic salted hashing](https://www.sciencedirect.com/science/article/abs/pii/S0306437912001470) via SHA-512 | 32-bit signed integer; UTF-8 string or binary vector (4096 bytes or fewer) |
-| multiple | `SecretKey`; `ClusterKey` | sum       | [additive secret sharing](https://link.springer.com/chapter/10.1007/3-540-45539-6_22)                               | 32-bit signed integer                                                      |
-| multiple | `SecretKey`; `ClusterKey` | sum       | [Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) (with threshold support)         | 32-bit signed integer                                                      |
+| Cluster        | Key Types                   | Operation | Protocols                                                                                                            | Plaintext Types                                              |
+|----------------|-----------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| single node    | `SecretKey`                 | store     | [XSalsa20 stream cipher and Poly1305 MAC](https://eprint.iacr.org/2011/646)                                          | 32-bit signed integer; UTF-8 text or byte array (4096 bytes) |
+| single node    | `SecretKey`                 | match     | [deterministic salted hashing](https://www.sciencedirect.com/science/article/abs/pii/S0306437912001470) with SHA-512 | 32-bit signed integer; UTF-8 text or byte array (4096 bytes) |
+| single node    | `SecretKey` and `PublicKey` | sum       | [Paillier cryptosystem](https://en.wikipedia.org/wiki/Paillier_cryptosystem) with 2048-bit primes                    | 32-bit signed integer                                        |
+| multiple nodes | `SecretKey` or `ClusterKey` | store     | [XOR secret sharing](https://ieeexplore.ieee.org/document/6769090) (*n*-out-of-*n*)                                  | 32-bit signed integer; UTF-8 text or byte array (4096 bytes) |
+| multiple nodes | `SecretKey` or `ClusterKey` | store     | [Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) (threshold)                       | 32-bit signed integer; UTF-8 text or byte array (4096 bytes) |
+| multiple nodes | `SecretKey`                 | match     | [deterministic salted hashing](https://www.sciencedirect.com/science/article/abs/pii/S0306437912001470) with SHA-512 | 32-bit signed integer; UTF-8 text or byte array (4096 bytes) |
+| multiple nodes | `SecretKey` or `ClusterKey` | sum       | [additive secret sharing](https://link.springer.com/chapter/10.1007/3-540-45539-6_22) (*n*-out-of-*n*)               | 32-bit signed integer                                        |
+| multiple nodes | `SecretKey` or `ClusterKey` | sum       | [Shamir's secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing) (threshold)                       | 32-bit signed integer                                        |
