@@ -36,6 +36,5 @@ Use these details to add Blacklight Testnet to your wallet:
 
 After adding Blacklight to your wallet:
 
-- Get testnet tokens using the [Blacklight Testnet Faucet](./faucets.md)
-- Explore the [Block Explorer](./block-explorer.md) to view transactions
 - Learn about [Bridging](./bridging.md) assets to Blacklight
+- Use a [Block Explorer](./block-explorer.md) to view transactions

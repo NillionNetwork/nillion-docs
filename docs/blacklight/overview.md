@@ -26,11 +26,3 @@ The network is designed to expand verification capabilities across multiple TEE 
 ## Node Operations
 
 Blacklight operates as a permissionless network where anyone can run a verifier node. Node operators earn rewards for completing verification work, with rewards distributed proportionally based on the amount of NIL staked to each node. The network uses a fixed annual reward pool funded by protocol emissions.
-
-## Native Gas Token
-
-ETH is the native gas token for the Blacklight L2. All transactions on the network, including verification operations and node interactions, require ETH to pay for gas fees.
-
-## NIL Token
-
-NIL is an ERC-20 token deployed on Blacklight and can be displayed and managed in any EVM-compatible wallet without special configuration. NIL is used for staking to verifier nodes, with staked amounts determining the share of verification work and rewards allocated to each node.

@@ -1,17 +1,23 @@
 import IframeVideo from '@site/src/components/IframeVideo/index';
 import BlockExplorers from '../../\_testnet_block_explorers.mdx';
 
-# Sending NIL Tokens
+# Sending NIL Tokens (nilChain/Cosmos)
 
-Send a transaction on the Nillion Network and find the onchain record of the transaction on a block explorer.
+:::info
+Nillion is migrating to Ethereum! **For new users, we recommend [setting up an Ethereum-compatible wallet and connecting to Blacklight](/blacklight/wallet-setup), Nillion's Ethereum L2 network.**
 
-## How to send NIL
+This guide is for sending NIL tokens on nilChain (Cosmos) using Keplr, which is still supported but primarily for legacy use cases. If you need to bridge NIL from nilChain to Blacklight, see the [Bridging to Blacklight](/blacklight/bridging) guide.
+:::
 
-This guide walks you through how to send NIL tokens from one Nillion wallet to another Nillion wallet and find the transaction on a block explorer.
+Send a transaction on nilChain and find the onchain record of the transaction on a block explorer.
+
+## How to send NIL on nilChain
+
+This guide walks you through how to send NIL tokens from one nilChain wallet to another nilChain wallet and find the transaction on a block explorer.
 
 ### 0. Set up a wallet and get NIL
 
-Follow the [Creating a Nillion Wallet](/community/guides/nillion-wallet) guide to set up a connected wallet.
+Follow the [Creating a Nillion Wallet (nilChain/Cosmos)](/community/guides/nillion-wallet) guide to set up a connected wallet.
 
 ### 1. Open Keplr and check your NIL balance
 
@@ -21,11 +27,11 @@ Follow the [Creating a Nillion Wallet](/community/guides/nillion-wallet) guide t
 
     3. Click "NIL" to open the NIL on Nillion Network view.
 
-### 2. Send NIL to another Nillion wallet
+### 2. Send NIL to another nilChain wallet
 
     1. Click "Send"
 
-    2. Under "Wallet address" paste in a valid Nillion wallet address - this address should start with `nillion`
+    2. Under "Wallet address" paste in a valid nilChain wallet address - this address should start with `nillion`
 
     3. Under "Amount" type in the amount of NIL to send or click "Max" to send all your NIL minus the transaction fee (Tx Fee) shown at the bottom of Keplr.
 
@@ -39,7 +45,7 @@ Follow the [Creating a Nillion Wallet](/community/guides/nillion-wallet) guide t
 
     <IframeVideo videoSrc="https://www.loom.com/embed/bb37a3c363424e4385636a4b9cbf779e?sid=32c65c3e-247f-441a-af95-b879c4dbff1c"/>
 
-### 3. Look for the transaction on a Nillion block explorer
+### 3. Look for the transaction on a nilChain block explorer
 
 There are multiple nilChain block explorers you can use to see your transaction.
 
@@ -47,7 +53,7 @@ There are multiple nilChain block explorers you can use to see your transaction.
 
 Use an explorer to find your transaction:
 
-1. Open a Nillion Network block explorer and paste your Nillion wallet address into the search bar.
+1. Open a nilChain block explorer and paste your nilChain wallet address into the search bar.
 
 2. Find "Transactions" and click on the latest transaction.
 

@@ -2,7 +2,7 @@ const learnSidebar = [
   {
     type: 'html',
     className: 'sidebar-title',
-    value: 'Learn',
+    value: 'About',
     defaultStyle: true,
   },
   'learn/what-is-nillion',
