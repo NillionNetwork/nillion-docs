@@ -173,31 +173,21 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'learn/what-is-nillion',
-            label: 'Learn',
+            docId: 'blacklight/overview',
+            label: 'Blacklight',
           },
           {
             type: 'doc',
             position: 'left',
             docId: 'build/quickstart',
-            label: 'Build',
+            label: 'Products',
           },
-          // {
-          //   type: 'doc',
-          //   position: 'left',
-          //   docId: 'api/overview',
-          //   label: 'API',
-          // },
+
           {
             type: 'doc',
             position: 'left',
             docId: 'community/community-and-support',
             label: 'Community',
-          },
-          {
-            to: '/articles',
-            label: 'Articles',
-            position: 'left',
           },
 
           {
@@ -341,9 +331,7 @@ const config = {
         redirects: [
           {
             to: '/build/compute/overview',
-            from: [
-              '/build/nilcc'
-            ],
+            from: ['/build/nilcc'],
           },
           {
             to: '/build/private-storage/overview',
@@ -375,7 +363,7 @@ const config = {
             from: [
               '/build/nilai',
               '/build/secretLLM/overview',
-              '/build/secretLLM/usage'
+              '/build/secretLLM/usage',
             ],
           },
           {

@@ -64,7 +64,7 @@ A range of existing projects are already working towards a world in which BPIs a
 
 ### Other Projects
 
-A range of ongoing efforts and projects are building either components that can play a critical role in enabling BPIs or entire workflows that can be seen as fully working examples of BPIs. For example, [x402](https://x402.xyz) provides a standard way to compensate users for granting API access to retrieve their data. [Reclaim Protocol](https://reclaimprotocol.org) ([@reclaimprotocol](https://x.com/reclaimprotocol)) makes it possible to verify the source of data retrieved from an API, and [Primus Labs](https://www.primus.xyz) ([@primus_labs](https://x.com/primus_labs)) can be viewed as a full-fledged BPI solution. More broadly, efforts to create privacy-enhanced interfaces for retrieving on-chain transaction data can also be viewed as working towards a BPI-like future.
+A range of ongoing efforts and projects are building either components that can play a critical role in enabling BPIs or entire workflows that can be seen as fully working examples of BPIs. For example, [x402](https://x402.xyz) provides a standard way to compensate users for granting API access to retrieve their data. [Reclaim Protocol](https://reclaimprotocol.org) ([@reclaimprotocol](https://x.com/reclaimprotocol)) makes it possible to verify the source of data retrieved from an API, and [Primus Labs](https://www.primus.xyz) ([@primus_labs](https://x.com/primus_labs)) can be viewed as a full-fledged BPI solution. More broadly, efforts to create privacy-enhanced interfaces for retrieving onchain transaction data can also be viewed as working towards a BPI-like future.
 
 ### Ongoing Research
 

@@ -22,7 +22,7 @@ The CEX (Binance) integration posed a particularly difficult challenge as the da
 
 Traders who want to build an audience and monetise their insights face two distinct, but equally difficult, problems depending on where they trade.
 
-On CEXs like Binance, the issue is verification. Traders might be highly profitable, but they have no reliable way to prove it. There's no on-chain footprint to audit, and most followers are understandably skeptical. As a result, CEX traders often struggle to build trust with their communities or monetise their alpha.
+On CEXs like Binance, the issue is verification. Traders might be highly profitable, but they have no reliable way to prove it. There's no onchain footprint to audit, and most followers are understandably skeptical. As a result, CEX traders often struggle to build trust with their communities or monetise their alpha.
 
 On DEXs, the problem is different. Because all trades are public, traders can prove their performance, but only by doxxing their wallet address. Once a wallet is doxxed, their alpha becomes public too. Anyone can follow and copy their trades in real time, making it almost impossible to monetise premium strategies.
 
