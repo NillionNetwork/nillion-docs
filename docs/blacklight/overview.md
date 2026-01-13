@@ -1,28 +1,36 @@
 # Overview
 
-Blacklight is the verification layer of the Blind Computer, consisting of an Ethereum L2 (Layer 2) network and a decentralized network of permissionless community verifier nodes. Together, these components continuously challenge and verify Trusted Execution Environment (TEE) workloads to ensure their security and correctness.
+Blacklight is the verification layer of the Blind Computer. It consists of an Ethereum L2 network and a decentralized network of permissionless verifier nodes that continuously challenge and verify Trusted Execution Environment (TEE) workloads.
 
 ## Architecture
 
-The Blacklight network consists of three main components:
+Blacklight has three main components:
 
-- **Blacklight L2**: An EVM-compatible Layer 2 network that serves as the settlement and coordination layer for the verification network. It integrates with the Ethereum ecosystem and handles transactions, staking, and reward distribution.
+- **Community Verifier Nodes**: Permissionless nodes that verify TEE workloads by challenging attestation reports and monitoring enclave behavior.
 
-- **Smart Contracts**: A suite of Solidity contracts deployed on the Blacklight L2 that orchestrate the verification system. These contracts handle heartbeat verification, staking operations, committee selection, reward distribution, protocol configuration, and emissions management. See [Blacklight Contracts](./contracts.md) for details.
+- **Blacklight L2**: An EVM-compatible Layer 2 network that handles settlement, coordination, transactions, staking, and reward distribution.
 
-- **Community Verifier Nodes**: A decentralized network of permissionless nodes operated by community members. These nodes perform the actual verification work by continuously challenging TEE attestation reports and monitoring enclave behavior.
+- **Smart Contracts**: Solidity contracts that orchestrate verification, manage staking, select committees, distribute rewards, and handle protocol configuration. See [Blacklight Contracts](./contracts.md) for details.
 
-The L2 provides the infrastructure for coordination and settlement, the smart contracts orchestrate the verification process and manage the economic incentives, and the verifier nodes execute the verification work. Together, they form a credibly neutral trust layer that holds TEE providers accountable through continuous monitoring and verification.
+Together, these components form a credibly neutral trust layer that holds applications with TEE workloads accountable through continuous monitoring and verification.
+
+## Community Roles
+
+Blacklight has two main community roles:
+
+1. **Verifier Node Operators**: Community members can run permissionless verifier nodes to verify TEE workloads and earn rewards. **[Run a verifier node](/blacklight/run-a-node) to join the network.**
+
+2. **App Developers**: Developers can register their TEE workloads (running on nilCC or Phala) to be verified by the Blacklight network, providing accountability and trust for their applications.
 
 ## Verification Scope
 
-Blacklight nodes verify TEE workloads by continuously challenging attestation reports and monitoring enclave behavior. The network currently verifies:
+Blacklight currently verifies:
 
-- All workloads running on nilCC (Nillion's confidential computation module)
+- [nilCC](/build/compute/overview) (Nillion's Confidential Compute) workloads that have opted-in to verification
 - Phala workloads registered with the Blacklight Network
 
 The network is designed to expand verification capabilities across multiple TEE and storage infrastructure providers over time.
 
-## Node Operations
+## Rewards
 
-Blacklight operates as a permissionless network where anyone can run a verifier node. Node operators earn rewards for completing verification work, with rewards distributed proportionally based on the amount of NIL staked to each node. The network uses a fixed annual reward pool funded by protocol emissions.
+Verifier node operators earn rewards proportional to the amount of NIL staked to their node. Rewards are distributed from a fixed annual pool funded by protocol emissions.
