@@ -6,6 +6,8 @@
 
 ## Smart Contracts
 
+[blacklight-contracts](/blacklight/contracts)
+
 ## Verifier Nodes
 
 ## Component Interactions

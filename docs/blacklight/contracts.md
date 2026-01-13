@@ -1,10 +1,8 @@
 # Blacklight Contracts
 
-The **[blacklight-contracts repo](https://github.com/NillionNetwork/blacklight-contracts)** contains the Solidity smart contracts for the Blacklight decentralized verifier network system.
+The **[blacklight-contracts repo](https://github.com/NillionNetwork/blacklight-contracts)** contains the core Solidity smart contracts for Blacklight.
 
 ## Core Contracts
-
-The Blacklight network consists of the following core smart contracts:
 
 - [HeartbeatManager](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/HeartbeatManager.sol) - Orchestrates multi-round heartbeat verification with stake-weighted committees
 - [StakingOperators](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/StakingOperators.sol) - ERC20 staking registry with snapshot-based voting power
@@ -38,6 +36,6 @@ Mainnet contract addresses will be available at launch.
 
 ### Tokens
 
-| Token | Address                                                                                                                                          |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| NIL   | [0xf65b7cCF9f13ef932093bac19Eb5ea77ee70F4A4](https://explorer-nilav-shzvox09l5.t.conduit.xyz/address/0xf65b7ccf9f13ef932093bac19eb5ea77ee70f4a4) |
+| Token       | Address                                                                                                                                          |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Testnet NIL | [0xf65b7cCF9f13ef932093bac19Eb5ea77ee70F4A4](https://explorer-nilav-shzvox09l5.t.conduit.xyz/address/0xf65b7ccf9f13ef932093bac19eb5ea77ee70f4a4) |

@@ -1,6 +1,6 @@
 # Network Configuration
 
-You can connect to Blacklight like you would with any other EVM chain.
+You can connect to the Blacklight L2 like you would with any other EVM chain.
 
 ### Blacklight Mainnet
 

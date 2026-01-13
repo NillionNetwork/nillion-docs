@@ -2,7 +2,13 @@
 
 Blacklight is the verification layer of the Blind Computer. It consists of an Ethereum L2 network and a decentralized network of permissionless verifier nodes that continuously challenge and verify Trusted Execution Environment (TEE) workloads.
 
-## Architecture
+## Community Roles
+
+- **App Developers**: Developers can register their TEE workloads (running on nilCC or Phala) to be verified by Blacklight, providing accountability and trust for their applications. **[Register your apps](/blacklight/register-apps) to have them verified by the network.**
+
+- **Verifier Node Operators**: Community members can run permissionless verifier nodes to verify developers' TEE workloads and earn rewards. **[Run a verifier node](/blacklight/run-a-node) to join the network and earn [rewards](/blacklight/rewards).**
+
+## Components
 
 Blacklight has three main components:
 
@@ -14,14 +20,6 @@ Blacklight has three main components:
 
 Together, these components form a credibly neutral trust layer that holds applications with TEE workloads accountable through continuous monitoring and verification.
 
-## Community Roles
-
-Blacklight has two main community roles:
-
-1. **Verifier Node Operators**: Community members can run permissionless verifier nodes to verify TEE workloads and earn rewards. **[Run a verifier node](/blacklight/run-a-node) to join the network.**
-
-2. **App Developers**: Developers can register their TEE workloads (running on nilCC or Phala) to be verified by the Blacklight network, providing accountability and trust for their applications.
-
 ## Verification Scope
 
 Blacklight currently verifies:
@@ -29,8 +27,4 @@ Blacklight currently verifies:
 - [nilCC](/build/compute/overview) (Nillion's Confidential Compute) workloads that have opted-in to verification
 - Phala workloads registered with the Blacklight Network
 
-The network is designed to expand verification capabilities across multiple TEE and storage infrastructure providers over time.
-
-## Rewards
-
-Verifier node operators earn rewards proportional to the amount of NIL staked to their node. Rewards are distributed from a fixed annual pool funded by protocol emissions.
+Blacklight is designed to expand verification capabilities across TEE and storage infrastructure providers over time.

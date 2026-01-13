@@ -21,7 +21,7 @@ const blacklightSidebar = [
   },
   {
     type: 'category',
-    label: 'Run a Node',
+    label: 'Run a Verifier Node',
     link: {
       type: 'doc',
       id: 'blacklight/run-a-node',
@@ -44,12 +44,12 @@ const blacklightSidebar = [
     items: [
       {
         type: 'link',
-        label: 'Verify nilCC Workloads',
+        label: 'Register nilCC Workloads',
         href: 'https://docs.nillion.com/build/compute/verify',
       },
       {
         type: 'link',
-        label: 'Verify Phala Workloads',
+        label: 'Register Phala Workloads',
         href: 'https://nilav-ui.vercel.app/workloads',
       },
     ],
