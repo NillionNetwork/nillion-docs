@@ -2,16 +2,50 @@ const blacklightSidebar = [
   {
     type: 'html',
     className: 'sidebar-title',
-    value: 'Blacklight',
+    value: 'Learn',
     defaultStyle: true,
   },
-  'blacklight/overview',
+  {
+    type: 'category',
+    label: 'Overview',
+    link: {
+      type: 'doc',
+      id: 'blacklight/overview',
+    },
+    items: [
+      {
+        type: 'doc',
+        label: 'Architecture',
+        id: 'blacklight/architecture',
+      },
+      {
+        type: 'doc',
+        label: 'Rewards',
+        id: 'blacklight/rewards',
+      },
+      {
+        type: 'doc',
+        label: 'Verification Process',
+        id: 'blacklight/verification-process',
+      },
+      {
+        type: 'doc',
+        label: 'Staking',
+        id: 'blacklight/staking',
+      },
+      {
+        type: 'doc',
+        label: 'Security Model',
+        id: 'blacklight/security-model',
+      },
+    ],
+  },
   'blacklight/config',
   'blacklight/contracts',
   {
     type: 'html',
     className: 'sidebar-title',
-    value: 'Get Started',
+    value: 'Participate',
     defaultStyle: true,
   },
   {
@@ -53,37 +87,6 @@ const blacklightSidebar = [
         href: 'https://nilav-ui.vercel.app/workloads',
       },
     ],
-  },
-  {
-    type: 'html',
-    className: 'sidebar-title',
-    value: 'Concepts',
-    defaultStyle: true,
-  },
-  {
-    type: 'doc',
-    label: 'Architecture',
-    id: 'blacklight/architecture',
-  },
-  {
-    type: 'doc',
-    label: 'Rewards',
-    id: 'blacklight/rewards',
-  },
-  {
-    type: 'doc',
-    label: 'Verification Process',
-    id: 'blacklight/verification-process',
-  },
-  {
-    type: 'doc',
-    label: 'Staking',
-    id: 'blacklight/staking',
-  },
-  {
-    type: 'doc',
-    label: 'Security Model',
-    id: 'blacklight/security-model',
   },
   {
     type: 'html',

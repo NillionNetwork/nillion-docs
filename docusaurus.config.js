@@ -180,7 +180,7 @@ const config = {
             type: 'doc',
             position: 'left',
             docId: 'build/quickstart',
-            label: 'Products',
+            label: 'Blind Computer',
           },
 
           {

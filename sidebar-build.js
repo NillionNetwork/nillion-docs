@@ -229,6 +229,12 @@ const buildSidebar = [
     label: 'Permissions and Payments',
     id: 'build/permissions-and-payments',
   },
+  {
+    type: 'html',
+    className: 'sidebar-title',
+    value: 'Tools',
+    defaultStyle: true,
+  },
   'build/ai-assisted-workflow',
   {
     type: 'doc',

@@ -6,9 +6,10 @@ const { blacklightSidebar } = require('./sidebar-blacklight');
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  nillionSidebar: [...learnSidebar, ...buildSidebar, ...communitySidebar],
-  apiSidebar: apiSidebar,
   blacklightSidebar: blacklightSidebar,
+  nillionSidebar: [...learnSidebar, ...buildSidebar],
+  communitySidebar: communitySidebar,
+  apiSidebar: apiSidebar,
 };
 
 export default sidebars;
