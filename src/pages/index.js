@@ -52,16 +52,16 @@ function FeatureItem({ title, description, href, icon }) {
 function FeaturesSection() {
   const features = [
     {
-      title: 'Learn',
+      title: 'Blacklight',
       description:
-        'Nillion is a secure computation network that decentralizes trust for high value data in the same way that blockchains decentralized transactions.',
-      icon: '🎓',
-      href: './learn/what-is-nillion',
+        'Blacklight is the verification layer of the Blind Computer.',
+      icon: '🌐',
+      href: './blacklight/overview',
     },
     {
-      title: 'Build',
+      title: 'Products',
       description: 'Start building on Nillion with one of our developer SDKs.',
-      icon: '👷',
+      icon: '💻',
       href: './build/quickstart',
     },
     {
