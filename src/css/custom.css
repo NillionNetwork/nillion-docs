@@ -687,3 +687,33 @@ article img[src*="/img/collection_explorer/"] {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ============================================
+   Copy Page Button - iOS/Mobile Fixes
+   ============================================ */
+
+/* Fix copy button positioning on mobile with safe area support */
+@media (max-width: 996px) {
+  #copy-page-button-container {
+    right: max(16px, env(safe-area-inset-right, 16px)) !important;
+  }
+}
+
+/* Fix touch interactions - remove hover states on real touch devices */
+@media (hover: none) and (pointer: coarse) {
+  #copy-page-button-container button {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+
+  /* Reset hover to match default state on touch devices */
+  #copy-page-button-container > div > button:hover {
+    background: var(--ifm-navbar-background-color) !important;
+    border-color: var(--ifm-color-emphasis-300) !important;
+  }
+
+  [data-theme="light"] #copy-page-button-container > div > button:hover {
+    background: #ffffff !important;
+    border-color: #d0d7de !important;
+  }
+}
