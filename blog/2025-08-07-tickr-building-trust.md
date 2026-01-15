@@ -12,7 +12,7 @@ hide_table_of_contents: false
 
 At Nillion, we're best known for building advanced privacy-preserving infrastructure. However, there's another essential, though often overlooked, concept that we are enabling - trust. One could argue this is the root concept of all, what can I trust, and why can I trust it?
 
-In this article, we explain what motivated us to build [Tickr](https://tickr.app), and how we applied Nillion's technology, [nilDB](/build/private-storage/overview) (secure database) and nilCC (confidential computing), to solve very specific, but distinct, problems for traders and their communities on centralised exchanges (CEXs) and decentralised exchanges (DEXs).
+In this article, we explain what motivated us to build [Tickr](https://tickr.app), and how we applied Nillion's technology, [nilDB](/blind-computer/build/storage/overview) (secure database) and nilCC (confidential computing), to solve very specific, but distinct, problems for traders and their communities on centralised exchanges (CEXs) and decentralised exchanges (DEXs).
 
 <!-- truncate -->
 
@@ -110,7 +110,7 @@ The Tickr backend secret shares the alpha and stores the shares across the nilDB
 
 ### 4 - 5. Subscription and Payment:
 
-Followers subscribe to alpha by paying the required amount in NIL via the [nilChain](/learn/what-is-nillion#nilchain). The resulting transaction hash is sent to the Tickr backend for verification.
+Followers subscribe to alpha by paying the required amount in NIL via the [nilChain](/blind-computer/learn/overview#nilchain). The resulting transaction hash is sent to the Tickr backend for verification.
 
 ### 6 - 7. Subscription verification & permissions granted
 

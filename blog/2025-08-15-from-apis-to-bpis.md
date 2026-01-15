@@ -60,7 +60,7 @@ A range of existing projects are already working towards a world in which BPIs a
 
 ### Tickr and Trading Data
 
-[Tickr](https://tickr.app) ([@Tickrdotapp](https://x.com/Tickrdotapp)) relies on both categories of BPI in its implementation. The integration with the [Hyperliquid](https://hyperliquid.xyz) API is wrapped in a BPI that relies on key delegation: a backend running entirely inside nilCC allows users to connect their account/wallet so that their trading history can be retrieved in a private and verifiable manner. On the other hand, the integration with Binance is accomplished using data delegation: the zkTLS Binance flow leverages the [@primus_labs](https://x.com/primus_labs) Chrome extension to extract and verify trading data that is then forwarded to Tickr. That data can then be stored in encrypted form within [nilDB](/build/private-storage/overview).
+[Tickr](https://tickr.app) ([@Tickrdotapp](https://x.com/Tickrdotapp)) relies on both categories of BPI in its implementation. The integration with the [Hyperliquid](https://hyperliquid.xyz) API is wrapped in a BPI that relies on key delegation: a backend running entirely inside nilCC allows users to connect their account/wallet so that their trading history can be retrieved in a private and verifiable manner. On the other hand, the integration with Binance is accomplished using data delegation: the zkTLS Binance flow leverages the [@primus_labs](https://x.com/primus_labs) Chrome extension to extract and verify trading data that is then forwarded to Tickr. That data can then be stored in encrypted form within [nilDB](/blind-computer/build/storage/overview).
 
 ### Other Projects
 

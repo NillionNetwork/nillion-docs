@@ -23,7 +23,7 @@ function HeroSection() {
         <div className={styles.getStartedButton}>
           <LinkButton
             text="Get Started"
-            link="/build/quickstart"
+            link="/blind-computer/build/quickstart"
             small={true}
           />
         </div>
@@ -56,13 +56,13 @@ function FeaturesSection() {
       description:
         'Blacklight is the verification layer of the Blind Computer.',
       icon: '🌐',
-      href: './blacklight/overview',
+      href: './blacklight/learn/overview',
     },
     {
-      title: 'Products',
+      title: 'Blind Computer',
       description: 'Start building on Nillion with one of our developer SDKs.',
       icon: '💻',
-      href: './build/quickstart',
+      href: './blind-computer/build/quickstart',
     },
     {
       title: 'Community',

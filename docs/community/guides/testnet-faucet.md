@@ -3,9 +3,9 @@ import IframeVideo from '@site/src/components/IframeVideo/index';
 # Testnet Faucet Guide (nilChain/Cosmos)
 
 :::info
-Nillion is migrating to Ethereum! **For new users, we recommend [setting up an Ethereum-compatible wallet and connecting to Blacklight](/blacklight/wallet-setup), Nillion's Ethereum L2 network.**
+Nillion is migrating to Ethereum! **For new users, we recommend [setting up an Ethereum-compatible wallet and connecting to Blacklight](/blacklight/verify/wallet-setup), Nillion's Ethereum L2 network.**
 
-This guide is for using the nilChain (Cosmos) testnet faucet, which is still supported but primarily for legacy use cases. For Blacklight testnet tokens, see the [Blacklight Testnet Faucet](/blacklight/faucets) guide.
+This guide is for using the nilChain (Cosmos) testnet faucet, which is still supported but primarily for legacy use cases. For Blacklight testnet tokens, see the [Blacklight Testnet Faucet](/blacklight/tools/faucets) guide.
 :::
 
 The [Nillion Testnet Faucet](https://faucet.testnet.nillion.com/) distributes nilChain Testnet NIL tokens. You can use the faucet to request Testnet NIL tokens once every 24 hours.

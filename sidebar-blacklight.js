@@ -10,55 +10,55 @@ const blacklightSidebar = [
     label: 'Overview',
     link: {
       type: 'doc',
-      id: 'blacklight/overview',
+      id: 'blacklight/learn/overview',
     },
     items: [
       {
         type: 'doc',
         label: 'Architecture',
-        id: 'blacklight/architecture',
+        id: 'blacklight/learn/architecture',
       },
       {
         type: 'doc',
         label: 'Rewards',
-        id: 'blacklight/rewards',
+        id: 'blacklight/learn/rewards',
       },
       {
         type: 'doc',
         label: 'Verification Process',
-        id: 'blacklight/verification-process',
+        id: 'blacklight/learn/verification-process',
       },
       {
         type: 'doc',
         label: 'Staking',
-        id: 'blacklight/staking',
+        id: 'blacklight/learn/staking',
       },
       {
         type: 'doc',
         label: 'Security Model',
-        id: 'blacklight/security-model',
+        id: 'blacklight/learn/security-model',
       },
     ],
   },
-  'blacklight/config',
-  'blacklight/contracts',
+  'blacklight/learn/config',
+  'blacklight/learn/contracts',
   {
     type: 'html',
     className: 'sidebar-title',
-    value: 'Participate',
+    value: 'Verify or Be Verified',
     defaultStyle: true,
   },
   {
     type: 'doc',
     label: 'Set Up a Wallet',
-    id: 'blacklight/wallet-setup',
+    id: 'blacklight/verify/wallet-setup',
   },
   {
     type: 'category',
     label: 'Run a Verifier Node',
     link: {
       type: 'doc',
-      id: 'blacklight/run-a-node',
+      id: 'blacklight/verify/run-node',
     },
     items: [
       {
@@ -73,7 +73,7 @@ const blacklightSidebar = [
     label: 'Register your Apps',
     link: {
       type: 'doc',
-      id: 'blacklight/register-apps',
+      id: 'blacklight/verify/register-apps',
     },
     items: [
       {
@@ -99,7 +99,7 @@ const blacklightSidebar = [
     label: 'Bridging',
     link: {
       type: 'doc',
-      id: 'blacklight/bridging',
+      id: 'blacklight/tools/bridging',
     },
     items: [
       {
@@ -124,7 +124,7 @@ const blacklightSidebar = [
     label: 'Faucets',
     link: {
       type: 'doc',
-      id: 'blacklight/faucets',
+      id: 'blacklight/tools/faucets',
     },
     items: [
       {
@@ -144,7 +144,7 @@ const blacklightSidebar = [
     label: 'Block Explorers',
     link: {
       type: 'doc',
-      id: 'blacklight/block-explorer',
+      id: 'blacklight/tools/block-explorer',
     },
     items: [
       {

@@ -28,7 +28,7 @@ The guiding assumptions motivate our strong commitment to three principles when 
 
 **Interoperability**: The languages, dependencies, and interfaces are chosen from among the most common and popular in contemporary app development (even if this comes at the expense of performance). This includes starting with Python and JavaScript/TypeScript SDKs, a NoSQL storage solution, REST APIs for all components, and so on. Developers should encounter as few obstacles as possible incorporating a Nillion PET feature into a typical stack (especially if they are incorporating only a single feature and/or using it in tandem with other solutions).
 
-**Modularity**: Interdependencies between libraries/SDKs and infrastructure are kept to a minimum both within layers and between them. We can illustrate both by considering storage of encrypted data within [nilDB](/learn/blind-modules#nildb). The [blindfold library](/build/private-storage/blindfold) offers a number of encryption techniques, and any single technique can be used while ignoring the others. Furthermore, every available technique is compatible with nilDB nodes that are entirely independent of one another: no node necessarily needs to know the method of encryption or about which other nodes may be involved in a protocol.
+**Modularity**: Interdependencies between libraries/SDKs and infrastructure are kept to a minimum both within layers and between them. We can illustrate both by considering storage of encrypted data within [nilDB](/blind-computer/learn/blind-modules#nildb). The [blindfold library](/blind-computer/build/storage/blindfold) offers a number of encryption techniques, and any single technique can be used while ignoring the others. Furthermore, every available technique is compatible with nilDB nodes that are entirely independent of one another: no node necessarily needs to know the method of encryption or about which other nodes may be involved in a protocol.
 
 **Portability**: The available functionalities and components are compatible with a number of stacks. Python and JavaScript/TypeScript SDKs and libraries accommodate both server-side and client-side app architectures, and containerization ensures that both service providers and third parties can operate nodes.
 
@@ -42,9 +42,9 @@ The latest launch introduced updated versions of a number of SDKs and components
 
 Operators may choose to run one or more nodes that offer specific functionalities.
 
-**Storage Node Operator**: An operator of a [nilDB](/learn/blind-modules#nildb) node supports data owners that need to store plaintext data, ciphertexts, or secret shares. An individual storage node operator need not have knowledge of clusters of nodes within which their node participates (and in which other nodes secret shares may be found).
+**Storage Node Operator**: An operator of a [nilDB](/blind-computer/learn/blind-modules#nildb) node supports data owners that need to store plaintext data, ciphertexts, or secret shares. An individual storage node operator need not have knowledge of clusters of nodes within which their node participates (and in which other nodes secret shares may be found).
 
-**Computation Node Operator**: An operator of a [nilAI](/learn/blind-modules#nilai) node makes it possible for users to query LLMs that run inside TEEs.
+**Computation Node Operator**: An operator of a [nilAI](/blind-computer/learn/blind-modules#nilai) node makes it possible for users to query LLMs that run inside TEEs.
 
 **Permission Node Operator**: An operator of a nilAuth node confirms payments and authorizes access to functional (i.e., storage and computation) node operators. Functional node operators can choose to trust one or more nilAuth nodes, making it possible for trust relationships to be developed and mediated in a decentralized way.
 

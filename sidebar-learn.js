@@ -8,12 +8,12 @@ const learnSidebar = [
   {
     type: 'link',
     label: 'Overview',
-    href: '/learn/what-is-nillion',
+    href: '/blind-computer/learn/overview',
   },
-  'learn/use-cases',
-  'learn/architecture',
-  'learn/blind-modules',
-  'learn/protocols',
+  'blind-computer/learn/use-cases',
+  'blind-computer/learn/architecture',
+  'blind-computer/learn/blind-modules',
+  'blind-computer/learn/protocols',
 ];
 
 module.exports = {

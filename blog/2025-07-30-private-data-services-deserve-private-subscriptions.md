@@ -26,7 +26,7 @@ This approach made no sense for Nillion. We are privacy first, so the traditiona
 
 ### Nillion API Portal
 
-[@0ceans404](https://x.com/0ceans404) built the [Nillion API Portal](https://github.com/oceans404/nillion-api-portal) using the [@nillion/nuc library](https://www.npmjs.com/package/@nillion/nuc) to demonstrate this vision in action. The Portal lets you subscribe to our [nilDB](/build/private-storage/overview) (Private Storage) and [nilAI](/build/private-llms/overview) (Private LLMs) services without the typical web2 signup flow. No email registration, no credit card details, no billing address. Just connect your Nillion wallet and pay with NIL tokens.
+[@0ceans404](https://x.com/0ceans404) built the [Nillion API Portal](https://github.com/oceans404/nillion-api-portal) using the [@nillion/nuc library](https://www.npmjs.com/package/@nillion/nuc) to demonstrate this vision in action. The Portal lets you subscribe to our [nilDB](/blind-computer/build/storage/overview) (Private Storage) and [nilAI](/blind-computer/build/llms/overview) (Private LLMs) services without the typical web2 signup flow. No email registration, no credit card details, no billing address. Just connect your Nillion wallet and pay with NIL tokens.
 
 Here's what changes when you put privacy first in your subscription model:
 

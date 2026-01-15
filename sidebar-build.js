@@ -8,51 +8,51 @@ const buildSidebar = [
   {
     type: 'doc',
     label: 'Start Building',
-    id: 'build/quickstart',
+    id: 'blind-computer/build/quickstart',
   },
-  'build/network-config',
+  'blind-computer/build/network-config',
   {
     type: 'doc',
     label: 'Network API Access',
-    id: 'build/network-api-access',
+    id: 'blind-computer/build/network-api-access',
   },
   {
     type: 'category',
     label: 'Private Compute with nilCC',
     link: {
       type: 'doc',
-      id: 'build/compute/overview',
+      id: 'blind-computer/build/compute/overview',
     },
     items: [
       {
         type: 'doc',
         label: 'Quickstart',
-        id: 'build/compute/quickstart',
+        id: 'blind-computer/build/compute/quickstart',
       },
       {
         type: 'doc',
         label: 'Architecture',
-        id: 'build/compute/architecture',
+        id: 'blind-computer/build/compute/architecture',
       },
       {
         type: 'doc',
         label: 'Key Concepts',
-        id: 'build/compute/key-concepts',
+        id: 'blind-computer/build/compute/key-concepts',
       },
       {
         type: 'doc',
         label: 'API Reference',
-        id: 'build/compute/api-reference',
+        id: 'blind-computer/build/compute/api-reference',
       },
       {
         type: 'doc',
         label: 'Verify',
-        id: 'build/compute/verify',
+        id: 'blind-computer/build/compute/verify',
       },
       {
         type: 'doc',
         label: 'Limitations',
-        id: 'build/compute/limitations',
+        id: 'blind-computer/build/compute/limitations',
       },
       {
         type: 'link',
@@ -71,31 +71,31 @@ const buildSidebar = [
     label: 'Private Storage with nilDB',
     link: {
       type: 'doc',
-      id: 'build/private-storage/overview',
+      id: 'blind-computer/build/storage/overview',
     },
 
     items: [
       {
         type: 'doc',
         label: 'Quickstart',
-        id: 'build/private-storage/quickstart',
+        id: 'blind-computer/build/storage/quickstart',
       },
       {
         type: 'doc',
         label: 'Collection Explorer Tool',
-        id: 'build/private-storage/collection-explorer',
+        id: 'blind-computer/build/storage/collection-explorer',
       },
       {
         type: 'doc',
         label: 'Key Concepts',
-        id: 'build/private-storage/key-concepts',
+        id: 'blind-computer/build/storage/key-concepts',
       },
       {
         type: 'category',
         label: 'Secretvaults SDK',
         link: {
           type: 'doc',
-          id: 'build/private-storage/secretvaults',
+          id: 'blind-computer/build/storage/secretvaults',
         },
         collapsed: false,
         items: [
@@ -104,29 +104,29 @@ const buildSidebar = [
             label: 'Integration by Platform',
             link: {
               type: 'doc',
-              id: 'build/private-storage/platform',
+              id: 'blind-computer/build/storage/platform',
             },
             collapsed: false,
             items: [
               {
                 type: 'doc',
                 label: 'TypeScript SDK Docs',
-                id: 'build/private-storage/ts-docs',
+                id: 'blind-computer/build/storage/ts-docs',
               },
               {
                 type: 'doc',
                 label: 'Node.js',
-                id: 'build/private-storage/platform-nodejs',
+                id: 'blind-computer/build/storage/platform-nodejs',
               },
               {
                 type: 'doc',
                 label: 'Next.js',
-                id: 'build/private-storage/platform-nextjs',
+                id: 'blind-computer/build/storage/platform-nextjs',
               },
               {
                 type: 'doc',
                 label: 'React',
-                id: 'build/private-storage/platform-react',
+                id: 'blind-computer/build/storage/platform-react',
               },
               {
                 type: 'link',
@@ -147,7 +147,7 @@ const buildSidebar = [
         label: 'Blindfold Library',
         link: {
           type: 'doc',
-          id: 'build/private-storage/blindfold',
+          id: 'blind-computer/build/storage/blindfold',
         },
         items: [
           {
@@ -174,15 +174,15 @@ const buildSidebar = [
     label: 'Private LLMs with nilAI',
     link: {
       type: 'doc',
-      id: 'build/private-llms/overview',
+      id: 'blind-computer/build/llms/overview',
     },
     items: [
-      'build/private-llms/quickstart',
-      'build/private-llms/usage',
+      'blind-computer/build/llms/quickstart',
+      'blind-computer/build/llms/usage',
       {
         type: 'doc',
         label: 'Key Concepts',
-        id: 'build/private-llms/key-concepts',
+        id: 'blind-computer/build/llms/key-concepts',
       },
       {
         type: 'link',
@@ -193,8 +193,8 @@ const buildSidebar = [
         type: 'category',
         label: 'Advanced Usage',
         items: [
-          'build/private-llms/advanced/web_search',
-          'build/private-llms/advanced/private_prompts',
+          'blind-computer/build/llms/advanced/web_search',
+          'blind-computer/build/llms/advanced/private_prompts',
         ],
       },
       {
@@ -202,7 +202,7 @@ const buildSidebar = [
         label: 'nilRAG Library',
         link: {
           type: 'doc',
-          id: 'build/private-llms/nilRAG',
+          id: 'blind-computer/build/llms/nilRAG',
         },
         items: [
           {
@@ -227,7 +227,7 @@ const buildSidebar = [
   {
     type: 'doc',
     label: 'Permissions and Payments',
-    id: 'build/permissions-and-payments',
+    id: 'blind-computer/build/permissions-and-payments',
   },
   {
     type: 'html',
@@ -235,12 +235,12 @@ const buildSidebar = [
     value: 'Tools',
     defaultStyle: true,
   },
-  'build/ai-assisted-workflow',
   {
     type: 'doc',
     label: 'Developer Tools',
-    id: 'tools',
+    id: 'blind-computer/tools',
   },
+  'blind-computer/tools/ai-assisted-workflow',
 ];
 
 module.exports = {
