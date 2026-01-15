@@ -4,9 +4,9 @@ Nillion Blacklight is the verification layer of the Blind Computer. It consists 
 
 ## Community Roles
 
-- **Blacklight Node Operators**: Community members can run permissionless Blacklight nodes that are assigned verification work by Nillion's L2 and earn rewards. **[Run a Blacklight node](/blacklight/run-a-node) to join the network and earn [rewards](/blacklight/rewards).**
+- **Blacklight Node Operators**: Community members can run permissionless Blacklight nodes that are assigned verification work by Nillion's L2 and earn rewards. **[Run a Blacklight node](/blacklight/verify/run-node) to join the network and earn [rewards](/blacklight/learn/rewards).**
 
-- **App Developers**: Developers can register their TEE workloads (running on nilCC or Phala) to be verified by Nillion Blacklight, providing accountability and trust for their applications. **[Register your apps](/blacklight/register-apps) to have them verified by the network.**
+- **App Developers**: Developers can register their TEE workloads (running on nilCC or Phala) to be verified by Nillion Blacklight, providing accountability and trust for their applications. **[Register your apps](/blacklight/verify/register-apps) to have them verified by the network.**
 
 ## Components
 
@@ -24,7 +24,7 @@ Together, these components form a credibly neutral trust layer that holds applic
 
 Nillion Blacklight currently verifies:
 
-- [nilCC](/build/compute/overview) (Nillion's Confidential Compute) workloads that have opted-in to verification
+- [nilCC](/blind-computer/build/compute/overview) (Nillion's Confidential Compute) workloads that have opted-in to verification
 - Phala workloads registered with the Blacklight Network
 
 The vision behind Nillion Blacklight is that, over time, it becomes the universal TEE trust layer. Being able to verify workloads across many TEE providers, providing a credibly neutral trust layer for all TEE workloads.
