@@ -11,7 +11,7 @@ Mainnet details will be available at launch.
 
 | Property        | Value                                           |
 | --------------- | ----------------------------------------------- |
-| Chain Name      | Nillion Network                                 |
+| Chain Name      | Nillion Network Testnet                         |
 | RPC URL         | https://rpc.testnet.nillion.network             |
 | Web Socket URL  | wss://rpc.testnet.nillion.network               |
 | Chain ID        | 78651                                           |
