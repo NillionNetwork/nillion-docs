@@ -40,12 +40,12 @@ const blacklightSidebar = [
       },
     ],
   },
-  'blacklight/learn/config',
+  'blacklight/learn/network',
   'blacklight/learn/contracts',
   {
     type: 'html',
     className: 'sidebar-title',
-    value: 'Verify or Be Verified',
+    value: 'Verify',
     defaultStyle: true,
   },
   {
