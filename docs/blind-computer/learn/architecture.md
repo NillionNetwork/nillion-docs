@@ -24,19 +24,19 @@ The Nillion Network architecture consists of two main components: the **nilChain
 
       subgraph SDKS_AND_LIBRARIES [SDKs and Libraries]
           direction LR
-          SECRETVAULTS[<a style="color:#000000"
+          SECRETVAULTS[<a style="color:#FFFFFF"
   href="/blind-computer/build/storage/secretvaults"><b>secretvaults</b></a>]
-          ---BLINDFOLD[<a style="color:#000000"
+          -.-BLINDFOLD[<a style="color:#FFFFFF"
   href="/blind-computer/build/storage/blindfold"><b>blindfold</b></a>]
-          ---NUC[<a style="color:#000000"
+          -.-NUC[<a style="color:#FFFFFF"
   href="/build/permissions-and-payments#nuc"><b>nuc</b></a>]
-          ---NILRAG[<a style="color:#000000"
+          -.-NILRAG[<a style="color:#FFFFFF"
   href="/blind-computer/build/llms/nilRAG"><b>nilRAG</b></a>]
       end
-      classDef COLLECTION color:#000000,padding-left:230px,padding-right:230px
+      classDef COLLECTION padding-left:230px,padding-right:230px,color:#888888,font-weight:bold
       SDKS_AND_LIBRARIES:::COLLECTION
       style SDKS_AND_LIBRARIES fill:#FFFFFF,stroke:#000000
-      classDef LIBRARY_SDK fill:#DDDDDD,stroke:#000000
+      classDef LIBRARY_SDK color:#FFFFFF,stroke:#FFFFFF
       SECRETVAULTS:::LIBRARY_SDK
       BLINDFOLD:::LIBRARY_SDK
       NUC:::LIBRARY_SDK
@@ -46,14 +46,14 @@ The Nillion Network architecture consists of two main components: the **nilChain
           subgraph MECHANISMS [<b>Mechanisms</b>]
               direction LR
               PAYMENTS[<b>Payments</b>]
-              ---VALIDATION[<b>Validation</b>]
-              ---CRYPTOECONOMICS[<b>Cryptoeconomics</b>]
+              -.-VALIDATION[<b>Validation</b>]
+              -.-CRYPTOECONOMICS[<b>Cryptoeconomics</b>]
           end
       end
       NILCHAIN:::COMPONENT
       style NILCHAIN fill:#CCCCFF,color:#000000
       style MECHANISMS fill:#0000FF,stroke:#000000,color:#FFFFFF
-      classDef MECHANISM fill:#DDDDDD,stroke:#FFFFFF
+      classDef MECHANISM color:#FFFFFF,stroke:#FFFFFF
       PAYMENTS:::MECHANISM
       VALIDATION:::MECHANISM
       CRYPTOECONOMICS:::MECHANISM
@@ -61,32 +61,29 @@ The Nillion Network architecture consists of two main components: the **nilChain
       subgraph PETNET [<b>Petnet</b>]
           subgraph BLIND_MODULES [<a style="color:#FFFFFF"
   href="/blind-computer/learn/blind-modules"><b>Blind Modules</b></a>]
-              NILCC[<a style="color:#000000"
+              NILCC[<a style="color:#FFFFFF"
   href="/blind-computer/build/compute/overview"><b>nilCC</b></a>]
-              ---NILDB[<a style="color:#000000"
+              -.-NILDB[<a style="color:#FFFFFF"
   href="/blind-computer/build/storage/overview"><b>nilDB</b></a>]
-              ---NILAI[<a style="color:#000000"
+              -.-NILAI[<a style="color:#FFFFFF"
   href="/blind-computer/build/storage/overview"><b>nilAI</b></a>]
-
           end
       end
       PETNET:::COMPONENT
       style PETNET fill:#CCCCFF,color:#000000
       style BLIND_MODULES fill:#0000FF,stroke:#000000,color:#FFFFFF
-      classDef BLIND_MODULE fill:#DDDDDD,stroke:#FFFFFF
+      classDef BLIND_MODULE color:#FFFFFF,stroke:#FFFFFF
       NILCC:::BLIND_MODULE
       NILDB:::BLIND_MODULE
       NILAI:::BLIND_MODULE
 
-
-      classDef COMPONENT stroke:#5C5DB3,padding-left:10px,padding-right:610px
+      classDef COMPONENT stroke:#444444,padding-left:10px,padding-right:610px
 
       SDKS_AND_LIBRARIES ---> NILCHAIN
       SDKS_AND_LIBRARIES ---> PETNET
 
       linkStyle default stroke-width:3px,stroke:#8A89FF
-      linkStyle 0,1,2,3,4,5,6 fill:#FFFFFF,stroke-width:0px,stroke:#FFFFFF
-
+      linkStyle 0,1,2,3,4,5,6 stroke-width:0px !important,stroke:transparent !important
 ```
 
 <br/>
