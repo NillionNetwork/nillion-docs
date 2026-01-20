@@ -1,10 +1,10 @@
 # Architecture
 
-The architecture of the Nillion Network is geared towards enabling, supporting, enhancing, and monitoring web-compatible apps and workflows that incorporate privacy-enhancing technologies (PETs).
+The architecture of the blind computer is geared towards enabling, supporting, enhancing, and monitoring web-compatible apps and workflows that incorporate privacy-enhancing technologies (PETs).
 
 ## Overview and Components
 
-The Nillion Network architecture consists of two main components: the **nilChain** and the **Petnet**. The nilChain enables payments and incentivizes participation in the Nillion Network. The Petnet allows builders to leverage privacy-enhancing technologies (PETs) to store and compute over data while it remains encrypted.
+When using the blind computer, developers rely on two components: the **Petnet** and **Nillion's L2**. The Petnet allows builders to leverage privacy-enhancing technologies (PETs) to store and compute over data while it remains encrypted. Nillion's L2 enables payments and incentivizes node participation.
 
 ```mermaid
 %%{
@@ -42,22 +42,6 @@ The Nillion Network architecture consists of two main components: the **nilChain
       NUC:::LIBRARY_SDK
       NILRAG:::LIBRARY_SDK
 
-      subgraph NILCHAIN [<b>nilChain</b>]
-          subgraph MECHANISMS [<b>Mechanisms</b>]
-              direction LR
-              PAYMENTS[<b>Payments</b>]
-              -.-VALIDATION[<b>Validation</b>]
-              -.-CRYPTOECONOMICS[<b>Cryptoeconomics</b>]
-          end
-      end
-      NILCHAIN:::COMPONENT
-      style NILCHAIN fill:#CCCCFF,color:#000000
-      style MECHANISMS fill:#0000FF,stroke:#000000,color:#FFFFFF
-      classDef MECHANISM color:#FFFFFF,stroke:#FFFFFF
-      PAYMENTS:::MECHANISM
-      VALIDATION:::MECHANISM
-      CRYPTOECONOMICS:::MECHANISM
-
       subgraph PETNET [<b>Petnet</b>]
           subgraph BLIND_MODULES [<a style="color:#FFFFFF"
   href="/blind-computer/learn/blind-modules"><b>Blind Modules</b></a>]
@@ -69,7 +53,7 @@ The Nillion Network architecture consists of two main components: the **nilChain
   href="/blind-computer/build/storage/overview"><b>nilAI</b></a>]
           end
       end
-      PETNET:::COMPONENT
+      PETNET:::COMPONENT_LEFT
       style PETNET fill:#CCCCFF,color:#000000
       style BLIND_MODULES fill:#0000FF,stroke:#000000,color:#FFFFFF
       classDef BLIND_MODULE color:#FFFFFF,stroke:#FFFFFF
@@ -77,10 +61,28 @@ The Nillion Network architecture consists of two main components: the **nilChain
       NILDB:::BLIND_MODULE
       NILAI:::BLIND_MODULE
 
-      classDef COMPONENT stroke:#444444,padding-left:10px,padding-right:610px
 
-      SDKS_AND_LIBRARIES ---> NILCHAIN
+      subgraph NILCHAIN [<b>Nillion L2</b>]
+          subgraph MECHANISMS [<b>Mechanisms</b>]
+              direction LR
+              PAYMENTS[<b>Payments</b>]
+              -.-AUTHENTICATION[<b>Authentication</b>]
+              -.-CRYPTOECONOMICS[<b>Cryptoeconomics</b>]
+          end
+      end
+      NILCHAIN:::COMPONENT_RIGHT
+      style NILCHAIN fill:#CCCCFF,color:#000000
+      style MECHANISMS fill:#0000FF,stroke:#000000,color:#FFFFFF
+      classDef MECHANISM color:#FFFFFF,stroke:#FFFFFF
+      PAYMENTS:::MECHANISM
+      AUTHENTICATION:::MECHANISM
+      CRYPTOECONOMICS:::MECHANISM
+
+      classDef COMPONENT_LEFT stroke:#444444,padding-left:10px,padding-right:410px
+      classDef COMPONENT_RIGHT stroke:#444444,padding-left:10px,padding-right:660px
+
       SDKS_AND_LIBRARIES ---> PETNET
+      SDKS_AND_LIBRARIES ---> NILCHAIN
 
       linkStyle default stroke-width:3px,stroke:#8A89FF
       linkStyle 0,1,2,3,4,5,6 stroke-width:0px !important,stroke:transparent !important
@@ -88,18 +90,18 @@ The Nillion Network architecture consists of two main components: the **nilChain
 
 <br/>
 
-Developers can interact with the various node types found in each network component either directly via their [corresponding APIs](/api/overview) or via the SDKs and libraries that support [Private Compute](/blind-computer/build/compute/overview), [Private Storage](/blind-computer/build/storage/overview) and [Private LLMs](/blind-computer/build/llms/overview).
-
-### nilChain
-
-The nilChain is a blockchain that manages shared resources for the whole Nillion Network. It's built on top of the Cosmos SDK stack and supports payments, rewards, and cryptoeconomic staking. The main purpose of nilChain is to enable coordination, so it does not have an open execution environment for running smart contracts.
+Developers can interact with each network component either directly via its [corresponding APIs](/api/overview) or via SDKs and libraries (such as those that support [private compute](/blind-computer/build/compute/overview), [private storage](/blind-computer/build/storage/overview) and [private LLMs](/blind-computer/build/llms/overview)).
 
 ### Petnet
 
-The Petnet consists of a network of nodes that can be recruited into clusters by builders (depending on which PET they employ). Developers have the power to pick their own point on the secure computation trade-off space and to decide what matters to them.
+The Petnet consists of a network of independent nodes that can be recruited into clusters by builders (depending on which PET they employ). Developers have the power to pick their own point on the secure computation trade-off space and to decide what matters to them.
 
-The Petnet nodes support secure storage and computation over data, and these capabilities can be leveraged using the variety of SDKs that can be used to interact with the nodes. Each node supports the use of PETs by operating one or more [Blind Modules](/blind-computer/learn/blind-modules).
+The Petnet nodes support secure storage and computation over data, and these capabilities can be leveraged using the variety of SDKs that can be used to interact with the nodes. Each node supports the use of PETs by operating one or more [blind modules](/blind-computer/learn/blind-modules).
+
+### Nillion L2
+
+Nillion's Ethereum L2 is an EVM-compatible Layer 2 network. It manages shared resources, payments, rewards, and cryptoeconomic staking. Its main purpose is to enable coordination and [verification](/blacklight/learn/overview) of the blind computer.
 
 ## Guiding Assumptions and Design Principles
 
-The architecture of the Nillion Network is informed by a [pragmatic perspective](/articles/nillion-network-architecture) that [acknowledges the realities](/articles/nillion-network-architecture#guiding-assumptions) that PETs infrastructure components and software artifacts inhabit today: apps are likely to use a combination of different PETs, product-market fit of PETs is difficult to predict today, and incentive mechanisms for deploying PETs are not yet mature. This leads to an [emphasis on three design principles](/articles/nillion-network-architecture#interoperability-modularity-and-portability) throughout the architecture: interoperability, modularity, and portability.
+The architecture of the blind computer is informed by a [pragmatic perspective](/articles/nillion-network-architecture) that [acknowledges the realities](/articles/nillion-network-architecture#guiding-assumptions) that PETs infrastructure components and software artifacts inhabit today: apps are likely to use a combination of different PETs, product-market fit of PETs is difficult to predict today, and incentive mechanisms for deploying PETs are not yet mature. This leads to an [emphasis on three design principles](/articles/nillion-network-architecture#interoperability-modularity-and-portability) throughout the architecture: interoperability, modularity, and portability.

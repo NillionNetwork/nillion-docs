@@ -33,7 +33,7 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 
 <ToolFeatureItem
   title="Collection Explorer"
-  description="A no-code tool for creating and managing Nillion Private Storage schemas, collections, and records."
+  description="A no-code tool for creating and managing nilDB schemas, collections, and records."
   icon="📦"
   href="https://collection-explorer.nillion.com"
   external={true}
@@ -51,7 +51,7 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 
 <ToolFeatureItem
   title="Network Status Page"
-  description="Check the status of testnet and mainnet nodes in the Nillion Network."
+  description="Check the status of nilDB, nilCC, and other nodes."
   icon="⚡"
   href="https://status.nillion.com"
   external={true}
@@ -67,7 +67,7 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 
 <ToolFeatureItem
   title="Blindfold Library Demo"
-  description="A demo page to encrypt and decrypt data using Blindfold library operations (store, match, and sum)."
+  description="Demo page illustrating the encryption features of the blindfold library."
   icon="🙈"
   href="https://blindfold.nillion.com"
   external={true}

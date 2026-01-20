@@ -1,6 +1,6 @@
 # Blind Modules
 
-Blind Modules are the core technical components of the Nillion Network. Developers and end users of Nillion's technology mainly interact with Blind Modules via SDKs, but also have the option of interacting with them directly via their APIs.
+Blind Modules are the core technical components of the blind computer. Developers and end users of Nillion's technology mainly interact with blind modules via SDKs, but also have the option of interacting with them directly via their APIs.
 
 ## nilCC
 
@@ -58,7 +58,7 @@ nilCC is Nillion's general-purpose confidential compute platform, enabling any c
       END_USER -->|verify attestation| ATTESTER
 ```
 
-nilCC is the Blind Module that underpins Nillion's [Private Compute](/blind-computer/build/compute/overview) solutions. When using nilCC directly, workloads are deployed via an easy-to-use RESTful API with endpoints to create, manage, and monitor confidential workloads. The platform automatically handles TEE provisioning, workload isolation, TLS certificate generation, and attestation report generation. Developers submit standard Docker Compose files, and nilCC transforms them into verifiable secure computations without requiring modifications to the application code.
+nilCC is the blind module that underpins Nillion's [private compute](/blind-computer/build/compute/overview) solutions. When using nilCC directly, workloads are deployed via an easy-to-use RESTful API with endpoints to create, manage, and monitor confidential workloads. The platform automatically handles TEE provisioning, workload isolation, TLS certificate generation, and attestation report generation. Developers submit standard Docker Compose files, and nilCC transforms them into verifiable secure computations without requiring modifications to the application code.
 
 ## nilDB
 
@@ -116,11 +116,11 @@ graph TD
     BLINDFOLD_SERVICE <-->|query<br/>reply| SERVICE_PROVIDER[Service Provider]
 ```
 
-nilDB is the Blind Module that underpins Nillion's [Private Storage](/blind-computer/build/storage/overview) solutions. When using nilDB directly, data is accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use the [blindfold library](/blind-computer/build/storage/blindfold) to encrypt and/or secret share data on the client side before using the [RESTful API](/api/nildb/overview) to send the ciphertexts and/or secret shares to the nodes.
+nilDB underpins Nillion's [private storage](/blind-computer/build/storage/overview) solutions. When using nilDB directly, data is accessed via an easy-to-use RESTful API with endpoints to create/upload, retrieve, and query data. Developers can use the [blindfold library](/blind-computer/build/storage/blindfold) to encrypt and/or secret share data on the client side before using the [RESTful API](/api/nildb/overview) to send the ciphertexts and/or secret shares to the nodes.
 
 ## nilAI
 
-nilAI is Nillion's secure AI offering, which runs LLMs securely inside TEEs. nilAI is the Blind Module that underpins Nillion's [Private LLMs](/blind-computer/build/llms/overview) solutions.
+nilAI is Nillion's secure AI offering, which runs LLMs securely inside TEEs. nilAI underpins Nillion's [private LLMs](/blind-computer/build/llms/overview) solutions.
 
 ```mermaid
 %%{
@@ -157,4 +157,4 @@ graph LR
     style NILDB fill:#0000FF,stroke:#000000,color:#FFFFFF
 ```
 
-The nilAI Blind Module can be accessed via an [easy-to-use RESTful API](/api/nilai/overview) that allows users to run inference using supported models.
+The nilAI blind module can be accessed via an [easy-to-use RESTful API](/api/nilai/overview) that allows users to run inference using supported models.
