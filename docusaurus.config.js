@@ -191,6 +191,12 @@ const config = {
           },
 
           {
+            to: '/articles',
+            label: 'Articles',
+            position: 'left',
+          },
+
+          {
             href: 'https://github.com/NillionNetwork',
             className: 'header-github',
             position: 'right',

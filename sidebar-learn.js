@@ -5,11 +5,7 @@ const learnSidebar = [
     value: 'Learn',
     defaultStyle: true,
   },
-  {
-    type: 'link',
-    label: 'Overview',
-    href: '/blind-computer/learn/overview',
-  },
+  'blind-computer/learn/overview',
   'blind-computer/learn/use-cases',
   'blind-computer/learn/architecture',
   'blind-computer/learn/blind-modules',
