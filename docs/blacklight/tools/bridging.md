@@ -19,15 +19,15 @@ flowchart LR
 
 ## From Cosmos to Ethereum
 
-You can bridge `NIL` tokens from nilChain (Cosmos) to Ethereum using our [Cosmos-Ethereum](coming.soon) bridge. 
+You can bridge `NIL` tokens from nilChain (Cosmos) to Ethereum using our <u>Cosmos-Ethereum (coming soon)</u> bridge. 
 
 ### Bridge NIL from Cosmos
 
-The [Cosmos-Ethereum](coming.soon) bridge allows you to transfer `NIL` between nilChain (Cosmos) and Ethereum.
+The <u>Cosmos-Ethereum (coming soon)</u> bridge allows you to transfer `NIL` between nilChain (Cosmos) and Ethereum.
 
 To bridge NIL from Cosmos to Ethereum:
 
-1. Visit the [Cosmos-Ethereum](coming.soon) bridge
+1. Visit the <u>Cosmos-Ethereum (coming soon)</u> bridge
 2. Connect your wallet (supports both Cosmos and EVM wallets)
 3. The source chain (nilChain `nillion-1`), destination chain (Ethereum `1`), source asset (NIL), source asset, and destination asset are pre-populated from the link
 4. Enter the amount of `NIL` you want to bridge
@@ -45,7 +45,7 @@ You can bridge assets from `Ethereum Mainnet` to `Blacklight Mainnet` using the 
 
 To bridge `ETH` from Ethereum to Blacklight:
 
-1. Visit the [Blacklight Mainnet Bridge](coming.soon)
+1. Visit the <u>Blacklight Mainnet Bridge (coming soon)</u>
 2. Connect your wallet
 3. Ensure `Ethereum` is the source chain and `Nillion` is the destination
 4. Enter the amount of `ETH` you want to bridge
@@ -57,7 +57,7 @@ Once the bridge transaction is confirmed, your ETH will be available on Blacklig
 
 To bridge `NIL` tokens from Ethereum to Blacklight:
 
-1. Visit the [Blacklight Mainnet Bridge](coming.soon)
+1. Visit the <u>Blacklight Mainnet Bridge (coming soon)</u>
 2. Connect your wallet
 3. Ensure `Ethereum` is the source chain and `Nillion` is the destination
 4. Select `NIL` as the token to bridge
