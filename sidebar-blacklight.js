@@ -20,23 +20,18 @@ const blacklightSidebar = [
       },
       {
         type: 'doc',
-        label: 'Rewards',
-        id: 'blacklight/learn/rewards',
-      },
-      {
-        type: 'doc',
-        label: 'Verification Process',
-        id: 'blacklight/learn/verification-process',
-      },
-      {
-        type: 'doc',
         label: 'Staking',
         id: 'blacklight/learn/staking',
       },
       {
         type: 'doc',
-        label: 'Security Model',
-        id: 'blacklight/learn/security-model',
+        label: 'Verification',
+        id: 'blacklight/learn/verification',
+      },
+      {
+        type: 'doc',
+        label: 'Rewards',
+        id: 'blacklight/learn/rewards',
       },
     ],
   },
