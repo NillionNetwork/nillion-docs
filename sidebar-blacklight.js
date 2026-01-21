@@ -75,18 +75,7 @@ const blacklightSidebar = [
       type: 'doc',
       id: 'blacklight/verify/register-apps',
     },
-    items: [
-      {
-        type: 'link',
-        label: 'Register nilCC Workloads',
-        href: 'https://docs.nillion.com/build/compute/verify',
-      },
-      {
-        type: 'link',
-        label: 'Register Phala Workloads',
-        href: 'https://nilav-ui.vercel.app/workloads',
-      },
-    ],
+    items: [],
   },
   {
     type: 'html',

@@ -1,12 +1,11 @@
+import FeatureSection from '@site/src/components/Features/FeatureSection/index';
+import { BlacklightActions } from '@site/src/utils/FeatureCards';
+
 # Overview
 
 Nillion Blacklight is the verification layer of the Blind Computer. It consists of an [Nillion's Ethereum L2](/blacklight/learn/network) and a decentralized network of permissionless, community-run Blacklight nodes that continuously challenge and verify workloads running on [nilCC](/blind-computer/build/compute/overview) and other TEE providers (such as Phala and Secret Network).
 
-## Community Roles
-
-- **Blacklight Node Operators**: Community members can run permissionless Blacklight nodes that are assigned verification tasks via Nillion's L2 and earn rewards by completing those tasks. **[Run a Blacklight node](/blacklight/verify/run-node) to join the network and earn [rewards](/blacklight/learn/rewards).**
-
-- **App Developers**: Developers can register their TEE workloads (running on nilCC or Phala) to be verified by Blacklight, providing accountability and trust for their applications. **[Register your apps](/blacklight/verify/register-apps) to have them verified by the network.**
+<FeatureSection data={BlacklightActions} />
 
 ## Components
 

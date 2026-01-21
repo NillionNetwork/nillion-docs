@@ -58,3 +58,22 @@ export const Platforms = [
     href: './platform-react',
   },
 ];
+
+
+
+export const BlacklightActions = [
+  {
+    title: 'Node Operators',
+    description:
+      'Run permissionless Blacklight nodes that are assigned verification tasks via Nillion\'s L2 and earn rewards.',
+    icon: '🌐',
+    href: '/blacklight/learn/rewards',
+  },
+  {
+    title: 'App Developers',
+    description:
+      'Developers can register their TEE workloads (running on nilCC or Phala) to be verified by Blacklight.',
+    icon: '💻',
+    href: '/blacklight/verify/register-apps',
+  },
+];
