@@ -67,7 +67,7 @@ export const BlacklightActions = [
     description:
       'Run permissionless Blacklight nodes that are assigned verification tasks via Nillion\'s L2 and earn rewards.',
     icon: '🌐',
-    href: '/blacklight/learn/rewards',
+    href: '/blacklight/verify/run-node',
   },
   {
     title: 'App Developers',
