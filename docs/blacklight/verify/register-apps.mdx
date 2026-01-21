@@ -12,11 +12,232 @@ Blacklight currently verifies workloads running on:
 - **nilCC** (Nillion's Confidential Compute) - Nillion's TEE compute infrastructure
 - **Phala Network** - Phala TEE workloads registered with Blacklight
 
+### Pre-requisite
+
+- Basic knowledge of Docker
+
 <Tabs>
-    <TabItem value="nilcc" label="nilCC">
-        <p>nilCC is Nillion's Confidential Compute platform. To register a nilCC workload for verification, you need to have a nilCC API key. You can get a nilCC API key by subscribing to nilCC on the <a href="https://nilcc.nillion.com">nilCC Workload Manager</a>.</p>
-    </TabItem>
-    <TabItem value="phala" label="Phala">
-        <p>Phala is a TEE platform that allows you to run workloads in a TEE. To register a Phala workload for verification, you need to have a Phala API key. You can get a Phala API key by subscribing to Phala on the <a href="https://phala.network">Phala Network</a>.</p>
-    </TabItem>
+<TabItem value="nilcc" label="nilCC">
+
+nilCC is Nillion's Confidential Compute platform. To register a nilCC workload for verification, you need to have a nilCC API key. You can get a nilCC API key by subscribing to nilCC on the [nilCC Workload Manager](https://nilcc.nillion.com).
+
+//TODO: Add Content
+
+</TabItem>
+<TabItem value="phala" label="Phala">
+
+Phala is a TEE platform that allows you to run workloads in a TEE.
+
+To register a Phala workload for verification, you need to run a Phala Confidential Virtual Machine (CVM) app which exposes `/attestation` and `/info` endpoints, then register it with Blacklight.
+
+### Endpoint Requirements
+
+Your Phala CVM app must expose two endpoints:
+
+<Tabs>
+<TabItem value="attestation" label="/attestation">
+
+**`/attestation`** (or `/api/attestation` for Next.js)
+
+Returns TEE attestation quote for cryptographic verification.
+
+**Response format:**
+
+```json
+{
+  "quote": "0x...",
+  "event_log": "...",
+  "replayRtmrs": ["...", "..."],
+  "vm_config": "..."
+}
+```
+</TabItem>
+<TabItem value="info" label="/info">
+
+**`/info`** (or `/api/info` for Next.js)
+
+Returns TEE environment information.
+
+**Response format:**
+
+```json
+{
+  "app_id": "...",
+  "instance_id": "...",
+  "app_cert": "...",
+  "tcb_info": {
+    "mrtd": "...",
+    "rtmr0": "...",
+    "rtmr1": "...",
+    "rtmr2": "...",
+    "rtmr3": "..."
+  },
+  "compose_hash": "...",
+  "device_id": "..."
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Implementation Example
+
+<Tabs>
+<TabItem value="nextjs" label="Next.js (TypeScript)" default>
+
+This is based off of a Next.js app/api router repo.
+
+```bash
+npm install @phala/dstack-sdk
+```
+
+**`next.config.ts`** 
+
+Enable standalone output:
+
+```typescript
+const nextConfig: NextConfig = { output: 'standalone' };
+```
+
+**`src/app/api/attestation/route.ts`**:
+
+```typescript
+import { NextResponse } from 'next/server';
+import { DstackClient } from '@phala/dstack-sdk';
+import crypto from 'crypto';
+
+const endpoint = process.env.DSTACK_SIMULATOR_ENDPOINT || '/var/run/dstack.sock';
+
+export async function GET() {
+  const client = new DstackClient(endpoint);
+  const result = await client.getQuote(crypto.randomBytes(32));
+  return NextResponse.json({
+    quote: result.quote,
+    event_log: result.event_log,
+    replayRtmrs: result.replayRtmrs(),
+    vm_config: result.vm_config,
+  });
+}
+```
+
+**`src/app/api/info/route.ts`**:
+
+```typescript
+import { NextResponse } from 'next/server';
+import { DstackClient } from '@phala/dstack-sdk';
+
+const endpoint = process.env.DSTACK_SIMULATOR_ENDPOINT || '/var/run/dstack.sock';
+
+export async function GET() {
+  const client = new DstackClient(endpoint);
+  return NextResponse.json(await client.info());
+}
+```
+
+**Dockerfile**
+
+```dockerfile
+ENV HOSTNAME=0.0.0.0  # Required for container networking
+```
+
+**docker-compose.yml** (for Phala Cloud):
+
+```yaml
+services:
+  app:
+    image: your-username/your-app@sha256:YOUR_DIGEST
+    ports:
+      - 3000:3000
+    volumes:
+      - /var/run/dstack.sock:/var/run/dstack.sock
+```
+
+**Build for Phala Cloud** (x86_64 required):
+
+```bash
+docker build --platform linux/amd64 -t your-username/your-app .
+docker push your-username/your-app
+```
+
+</TabItem>
+<TabItem value="python" label="Python (FastAPI)">
+
+This is built off a FastAPI application.
+
+```bash
+pip install dstack-sdk fastapi uvicorn
+```
+
+**`main.py`**:
+
+```python
+from fastapi import FastAPI
+from dstack_sdk import DstackClient
+
+app = FastAPI()
+
+@app.get("/attestation")
+async def attestation():
+    result = DstackClient().get_quote()
+    return {"quote": result.quote, "event_log": result.event_log, "vm_config": result.vm_config}
+
+@app.get("/info")
+async def info():
+    return DstackClient().info()
+```
+
+**docker-compose.yml** (for Phala Cloud):
+
+```yaml
+services:
+  app:
+    image: your-username/your-app@sha256:YOUR_DIGEST
+    ports:
+      - 8000:8000
+    volumes:
+      - /var/run/dstack.sock:/var/run/dstack.sock
+```
+
+**Build for Phala Cloud** (x86_64 required):
+
+```bash
+docker build --platform linux/amd64 -t your-username/your-app .
+docker push your-username/your-app
+```
+
+</TabItem>
+</Tabs>
+
+
+### Deployment
+
+1. Sign up at [cloud.phala.com](https://cloud.phala.com/)
+2. Deploy a new CVM + replace your tagged `docker-compose.yml`
+
+![Phala CVM Docker Compose](/img/phala-cvm-docker.png)
+
+3. Get your endpoint URL from `View Details` → `Network` tab → `Endpoint #1`
+4. Verify endpoints work:
+
+```bash
+curl https://YOUR-ENDPOINT.phala.network/api/info
+curl https://YOUR-ENDPOINT.phala.network/api/attestation
+```
+
+5. Register with Blacklight using your endpoint URL 
+
+//TODO: ADD URL
+
+  <div style={{maxWidth: '500px'}}>                              
+                                                                 
+  ![Phala Workload](/img/phala_workload.png)                     
+                                                                 
+  </div>        
+
+Great job, now the Blacklight network will be able to continuously verify this workload!  
+
+*If you get stuck, here are some common troubleshooting [fixes for Phala.](https://docs.phala.com/phala-cloud/troubleshooting/troubleshooting)*
+
+
+</TabItem>
 </Tabs>
