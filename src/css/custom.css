@@ -321,6 +321,79 @@ h4 {
   margin: 0 auto;
 }
 
+/* Mermaid light mode theming */
+[data-theme='light'] {
+  --mermaid-bg-color: #f5f5f5;
+  --mermaid-edge-color: #5555CC;
+  --mermaid-node-bg-color: #ffffff;
+  --mermaid-node-border-color: #cccccc;
+  --mermaid-label-color: #000000;
+  --mermaid-label-bg-color: #ffffff;
+  --mermaid-text-color: #000000;
+}
+
+/* Style mermaid diagram elements in light mode */
+[data-theme='light'] .node rect,
+[data-theme='light'] .node circle,
+[data-theme='light'] .node ellipse,
+[data-theme='light'] .node polygon {
+  fill: var(--mermaid-node-bg-color) !important;
+  stroke: var(--mermaid-node-border-color) !important;
+  stroke-width: 2px !important;
+}
+
+[data-theme='light'] .node text,
+[data-theme='light'] .nodeLabel {
+  fill: var(--mermaid-text-color) !important;
+}
+
+[data-theme='light'] .edgePath .path,
+[data-theme='light'] .flowchart-link {
+  stroke: var(--mermaid-edge-color) !important;
+  stroke-width: 2px !important;
+}
+
+[data-theme='light'] .edgeLabel,
+[data-theme='light'] .edgeLabel rect,
+[data-theme='light'] .edgeLabel span,
+[data-theme='light'] .edgeLabel foreignObject,
+[data-theme='light'] .edgeLabel foreignObject div {
+  fill: #ffffff !important;
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+[data-theme='light'] .edgeLabel text,
+[data-theme='light'] .edgeLabel span {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
+
+/* Cluster/subgraph styling for light mode */
+[data-theme='light'] .cluster rect {
+  fill: var(--mermaid-bg-color) !important;
+  stroke: var(--mermaid-node-border-color) !important;
+}
+
+[data-theme='light'] .cluster text {
+  fill: var(--mermaid-text-color) !important;
+}
+
+/* Arrow markers for light mode */
+[data-theme='light'] marker path {
+  fill: var(--mermaid-edge-color) !important;
+  stroke: var(--mermaid-edge-color) !important;
+}
+
+/* Force all mermaid text to be black in light mode */
+[data-theme='light'] .docusaurus-mermaid-container svg text,
+[data-theme='light'] .docusaurus-mermaid-container svg tspan,
+[data-theme='light'] .docusaurus-mermaid-container svg .nodeLabel,
+[data-theme='light'] .docusaurus-mermaid-container svg .label {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
+
 /* Mermaid dark mode theming */
 [data-theme='dark'] {
   --mermaid-bg-color: #212134;

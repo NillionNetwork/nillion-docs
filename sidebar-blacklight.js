@@ -85,23 +85,7 @@ const blacklightSidebar = [
       type: 'doc',
       id: 'blacklight/tools/bridging',
     },
-    items: [
-      {
-        type: 'link',
-        label: 'Mainnet Bridge (🚧)',
-        href: 'https:/coming-soon',
-      },
-      {
-        type: 'link',
-        label: 'Testnet Bridge',
-        href: 'https://nilav-shzvox09l5-8e94b8f60d47a72f.testnets.rollbridge.app/',
-      },
-      {
-        type: 'link',
-        label: 'Skip Go Cosmos Bridge',
-        href: 'https://go.skip.build/?src_asset=unil&src_chain=nillion-1&dest_asset=0x7Cf9a80db3B29eE8efE3710AadB7b95270572d47&dest_chain=1&amount_in=&amount_out=',
-      },
-    ],
+    items: [],
   },
   {
     type: 'category',
@@ -110,18 +94,7 @@ const blacklightSidebar = [
       type: 'doc',
       id: 'blacklight/tools/faucets',
     },
-    items: [
-      {
-        type: 'link',
-        label: 'ETH Sepolia Faucet',
-        href: 'https://faucet.conduit.xyz/',
-      },
-      {
-        type: 'link',
-        label: 'NIL Faucet (🚧)',
-        href: 'https:/coming-soon',
-      },
-    ],
+    items: [],
   },
   {
     type: 'category',
@@ -130,18 +103,7 @@ const blacklightSidebar = [
       type: 'doc',
       id: 'blacklight/tools/block-explorer',
     },
-    items: [
-      {
-        type: 'link',
-        label: 'Mainnet Block Explorer (🚧)',
-        href: 'https:/coming-soon',
-      },
-      {
-        type: 'link',
-        label: 'Testnet Block Explorer',
-        href: 'https://explorer-nilav-shzvox09l5.t.conduit.xyz/',
-      },
-    ],
+    items: [],
   },
 ];
 

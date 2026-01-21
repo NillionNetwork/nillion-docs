@@ -8,7 +8,7 @@ To get ETH on Blacklight Testnet, you'll need to first obtain Sepolia ETH and th
 
 ### Step 1: Get Sepolia ETH
 
-1. Visit a Sepolia faucet, such as the [Conduit Faucet](https://faucet.conduit.xyz/)
+1. Visit a Sepolia faucet, such as the [Conduit Faucet](https://faucet.conduit.xyz/) or [Alchemy Faucet](https://www.alchemy.com/faucets/ethereum-sepolia)
 2. Connect your wallet and request Sepolia ETH
 3. Wait for the transaction to complete
 
