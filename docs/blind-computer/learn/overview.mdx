@@ -1,14 +1,34 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import IframeVideo from '@site/src/components/IframeVideo/index';
+import LinkButton from '@site/src/components/LinkButton/index';
+import ThemedImage from '@theme/ThemedImage';
+import FeatureSection from '@site/src/components/Features/FeatureSection/index';
+import { QuickStartFeatures, Libraries } from '@site/src/utils/FeatureCards';
+
 # Overview
 
-Nillion is building a **blind computer** - a decentralized network of nodes that stores and processes your and your users' most sensitive data while keeping it encrypted and private.
-
-## What is a Blind Computer?
-
-A blind computer stores data and runs programs just like any normal computer, but with a crucial difference: it can perform useful computations on data while keeping it encrypted and private from application backends and the operators running the underlying infrastructure.
+Nillion is building a **blind computer** - a decentralized network of nodes that stores and processes your and your users' most sensitive data while keeping it encrypted and private from application backends and the operators running the underlying infrastructure.
 
 Instead of the traditional decrypt-compute-encrypt cycle that exposes data during processing, blind computation uses advanced cryptographic techniques like secure multi-party computation (MPC), homomorphic encryption (HE), and trusted execution environments (TEEs) to work directly on encrypted data.
 
 This shifts the trust model from "trust us with your data" to "trust the cryptography" &mdash; reducing what organizations and infrastructure must be trusted while still enabling powerful computations on sensitive information. Cryptographic techniques like secure MPC and technologies like TEEs provide mathematical guarantees rather than relying on promises or policies.
+
+## Start Building
+
+:::tip
+If you are using an LLM during development (Cursor, ChatGPT, Claude Code, etc.), we strongly recommend providing it with our [llm.txt](https://docs.nillion.com/llm.txt) file to help the LLM understand how to build on Nillion. Learn more in our [AI-Assisted Workflow](/blind-computer/tools/ai-assisted-workflow) guidelines.
+:::
+
+### Quickstarts
+
+Start building privacy preserving apps by following one of our quickstarts.
+
+<FeatureSection data={QuickStartFeatures} />
+
+### Libraries
+
+<FeatureSection data={Libraries} />
 
 ## Blind Modules
 
@@ -41,5 +61,3 @@ The biggest breakthroughs happen when people can collaborate on sensitive data w
 - **Government Policy**: Use real-time social data to influence policy and help vulnerable populations without breaking privacy.
 
 - **Financial Coordination**: Enable coordinated trading strategies without front-running risks.
-
-Ready to build privacy preserving apps? Start building with one of our [quickstart guides](/blind-computer/build/quickstart).

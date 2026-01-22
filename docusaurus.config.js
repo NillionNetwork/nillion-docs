@@ -179,23 +179,20 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'blind-computer/build/quickstart',
+            docId: 'blind-computer/learn/overview',
             label: 'Blind Computer',
           },
-
           {
             type: 'doc',
             position: 'left',
             docId: 'community/community-and-support',
             label: 'Community',
           },
-
           {
             to: '/articles',
             label: 'Articles',
             position: 'left',
           },
-
           {
             href: 'https://github.com/NillionNetwork',
             className: 'header-github',
@@ -336,6 +333,10 @@ const config = {
       {
         redirects: [
           {
+            to: '/blind-computer/learn/overview',
+            from: ['/blind-computer/build/quickstart'],
+          },
+          {
             to: '/blind-computer/build/storage/blindfold',
             from: ['/build/private-storage/blindfold'],
           },
@@ -424,7 +425,7 @@ const config = {
             from: ['/build/permissions-and-payments'],
           },
           {
-            to: '/blind-computer/build/quickstart',
+            to: '/blind-computer/learn/overview',
             from: ['/build/quickstart'],
           },
           {
@@ -522,7 +523,7 @@ const config = {
             ],
           },
           {
-            to: '/blind-computer/build/quickstart',
+            to: '/blind-computer/learn/overview',
             from: '/quickstart',
           },
           {
