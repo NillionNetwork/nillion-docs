@@ -8,7 +8,7 @@ Blacklight nodes will initially be rewarded from a reward pool equal to 0.5% inf
 
 ## Staking and Rewards
 
-In order to be assigned verification work by [Nillion's Ethereum L2](/blacklight/learn/network), Blacklight nodes must stake a minimum amount of NIL against their node. Currently this is set to 70,000 NIL. For every HTX that is sent by a TEE operator to Nillion Blacklight, the L2 assigns a committee of Blacklight nodes to verify it. Assignment is based on stake: the more stake a Blacklight node has, the higher the chance of it being assigned work.
+In order to be assigned verification work by [Nillion's Ethereum L2](/blacklight/verify/network), Blacklight nodes must stake a minimum amount of NIL against their node. Currently this is set to 70,000 NIL. For every HTX that is sent by a TEE operator to Nillion Blacklight, the L2 assigns a committee of Blacklight nodes to verify it. Assignment is based on stake: the more stake a Blacklight node has, the higher the chance of it being assigned work.
 
 Once a Blacklight node is assigned a HTX to verify, it must verify it and report the outcome back to the L2. Once a consensus is reached by the assigned committee of nodes, rewards are distributed from the reward pool by the L2 and can be claimed by Blacklight nodes.
 

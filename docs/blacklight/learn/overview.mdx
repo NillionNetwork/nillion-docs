@@ -3,7 +3,7 @@ import { BlacklightActions } from '@site/src/utils/FeatureCards';
 
 # Overview
 
-Nillion Blacklight is the verification layer of the Blind Computer. It consists of an [Nillion's Ethereum L2](/blacklight/learn/network) and a decentralized network of permissionless, community-run Blacklight nodes that continuously challenge and verify workloads running on [nilCC](/blind-computer/build/compute/overview) and other TEE providers (such as Phala and Secret Network).
+Nillion Blacklight is the verification layer of the Blind Computer. It consists of an [Nillion's Ethereum L2](/blacklight/verify/network) and a decentralized network of permissionless, community-run Blacklight nodes that continuously challenge and verify workloads running on [nilCC](/blind-computer/build/compute/overview) and other TEE providers (such as Phala and Secret Network).
 
 <FeatureSection data={BlacklightActions} />
 
@@ -13,9 +13,9 @@ Nillion Blacklight has three main components:
 
 - [**Community-run Blacklight Nodes**](/blacklight/verify/run-node): Permissionless nodes that verify TEE workloads by challenging attestation reports and monitoring enclave behavior.
 
-- [**Nillion's Ethereum L2**](/blacklight/learn/network): An EVM-compatible Layer 2 network that handles verification work assignment, staking, and reward distributions.
+- [**Nillion's Ethereum L2**](/blacklight/verify/network): An EVM-compatible Layer 2 network that handles verification work assignment, staking, and reward distributions.
 
-- [**Smart Contracts**](/blacklight/learn/contracts): Solidity contracts that handle protocol configuration, manage staking, select verification committees, orchestrate verification, and distribute rewards.
+- [**Smart Contracts**](/blacklight/verify/contracts): Solidity contracts that handle protocol configuration, manage staking, select verification committees, orchestrate verification, and distribute rewards.
 
 Together, the above components form a credibly neutral trust layer that holds applications with TEE workloads accountable through continuous monitoring and verification.
 

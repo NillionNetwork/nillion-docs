@@ -1,6 +1,6 @@
 # Smart Contracts
 
-The core Solidity smart contracts for Blacklight are deployed on [Nillion's Ethereum L2](/blacklight/learn/network) and are also maintained in the [Blacklight contracts repository](https://github.com/NillionNetwork/blacklight-contracts).
+The core Solidity smart contracts for Blacklight are deployed on [Nillion's Ethereum L2](/blacklight/verify/network) and are also maintained in the [Blacklight contracts repository](https://github.com/NillionNetwork/blacklight-contracts).
 
 ## Core Contracts
 
