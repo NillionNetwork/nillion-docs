@@ -5,38 +5,11 @@ const blacklightSidebar = [
     value: 'Learn',
     defaultStyle: true,
   },
-  {
-    type: 'category',
-    label: 'Overview',
-    link: {
-      type: 'doc',
-      id: 'blacklight/learn/overview',
-    },
-    items: [
-      {
-        type: 'doc',
-        label: 'Architecture',
-        id: 'blacklight/learn/architecture',
-      },
-      {
-        type: 'doc',
-        label: 'Staking',
-        id: 'blacklight/learn/staking',
-      },
-      {
-        type: 'doc',
-        label: 'Verification',
-        id: 'blacklight/learn/verification',
-      },
-      {
-        type: 'doc',
-        label: 'Rewards',
-        id: 'blacklight/learn/rewards',
-      },
-    ],
-  },
-  'blacklight/learn/network',
-  'blacklight/learn/contracts',
+  'blacklight/learn/overview',
+  'blacklight/learn/architecture',
+  'blacklight/learn/staking',
+  'blacklight/learn/verification',
+  'blacklight/learn/rewards',
   {
     type: 'html',
     className: 'sidebar-title',
@@ -44,9 +17,19 @@ const blacklightSidebar = [
     defaultStyle: true,
   },
   {
-    type: 'doc',
+    type: 'category',
     label: 'Set Up a Wallet',
-    id: 'blacklight/verify/wallet-setup',
+    link: {
+      type: 'doc',
+      id: 'blacklight/verify/wallet-setup',
+    },
+    items: [
+      {
+        type: 'doc',
+        label: 'Network Configuration',
+        id: 'blacklight/verify/network',
+      },
+    ],
   },
   {
     type: 'category',
@@ -72,6 +55,7 @@ const blacklightSidebar = [
     },
     items: [],
   },
+  'blacklight/verify/contracts',
   {
     type: 'html',
     className: 'sidebar-title',
