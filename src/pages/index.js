@@ -23,7 +23,7 @@ function HeroSection() {
         <div className={styles.getStartedButton}>
           <LinkButton
             text="Get Started"
-            link="/blind-computer/build/quickstart"
+            link="/blind-computer/learn/overview"
             small={true}
           />
         </div>
@@ -62,7 +62,7 @@ function FeaturesSection() {
       title: 'Blind Computer',
       description: 'Start building on Nillion with one of our developer SDKs.',
       icon: '💻',
-      href: './blind-computer/build/quickstart',
+      href: './blind-computer/learn/overview',
     },
     {
       title: 'Community',

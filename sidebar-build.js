@@ -5,11 +5,6 @@ const buildSidebar = [
     value: 'Build',
     defaultStyle: true,
   },
-  {
-    type: 'doc',
-    label: 'Start Building',
-    id: 'blind-computer/build/quickstart',
-  },
   'blind-computer/build/network-config',
   {
     type: 'doc',
