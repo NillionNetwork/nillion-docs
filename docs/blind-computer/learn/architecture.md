@@ -24,39 +24,31 @@ When using the blind computer, developers rely on two components: the **Petnet**
 
       subgraph SDKS_AND_LIBRARIES [SDKs and Libraries]
           direction LR
-          SECRETVAULTS[<a style="color:#FFFFFF"
-  href="/blind-computer/build/storage/secretvaults"><b>secretvaults</b></a>]
-          -.-BLINDFOLD[<a style="color:#FFFFFF"
-  href="/blind-computer/build/storage/blindfold"><b>blindfold</b></a>]
-          -.-NUC[<a style="color:#FFFFFF"
-  href="/build/permissions-and-payments#nuc"><b>nuc</b></a>]
-          -.-NILRAG[<a style="color:#FFFFFF"
-  href="/blind-computer/build/llms/nilRAG"><b>nilRAG</b></a>]
+          SECRETVAULTS[<a style="color:#000000" href="/blind-computer/build/storage/secretvaults"><b>secretvaults</b></a>]
+          -.-BLINDFOLD[<a style="color:#000000" href="/blind-computer/build/storage/blindfold"><b>blindfold</b></a>]
+          -.-NUC[<a style="color:#000000" href="/build/permissions-and-payments#nuc"><b>nuc</b></a>]
+          -.-NILRAG[<a style="color:#000000" href="/blind-computer/build/llms/nilRAG"><b>nilRAG</b></a>]
       end
       classDef COLLECTION padding-left:230px,padding-right:230px,color:#888888,font-weight:bold
       SDKS_AND_LIBRARIES:::COLLECTION
-      style SDKS_AND_LIBRARIES fill:#FFFFFF,stroke:#000000
-      classDef LIBRARY_SDK color:#FFFFFF,stroke:#FFFFFF
+      style SDKS_AND_LIBRARIES fill:#f5f5f5,stroke:#cccccc
+      classDef LIBRARY_SDK fill:#ffffff,stroke:#cccccc,color:#000000
       SECRETVAULTS:::LIBRARY_SDK
       BLINDFOLD:::LIBRARY_SDK
       NUC:::LIBRARY_SDK
       NILRAG:::LIBRARY_SDK
 
       subgraph PETNET [<b>Petnet</b>]
-          subgraph BLIND_MODULES [<a style="color:#FFFFFF"
-  href="/blind-computer/learn/blind-modules"><b>Blind Modules</b></a>]
-              NILCC[<a style="color:#FFFFFF"
-  href="/blind-computer/build/compute/overview"><b>nilCC</b></a>]
-              -.-NILDB[<a style="color:#FFFFFF"
-  href="/blind-computer/build/storage/overview"><b>nilDB</b></a>]
-              -.-NILAI[<a style="color:#FFFFFF"
-  href="/blind-computer/build/storage/overview"><b>nilAI</b></a>]
+          subgraph BLIND_MODULES [<b>Blind Modules</b>]
+              NILCC[<a style="color:#000000" href="/blind-computer/build/compute/overview"><b>nilCC</b></a>]
+              -.-NILDB[<a style="color:#000000" href="/blind-computer/build/storage/overview"><b>nilDB</b></a>]
+              -.-NILAI[<a style="color:#000000" href="/blind-computer/build/storage/overview"><b>nilAI</b></a>]
           end
       end
       PETNET:::COMPONENT_LEFT
-      style PETNET fill:#CCCCFF,color:#000000
-      style BLIND_MODULES fill:#0000FF,stroke:#000000,color:#FFFFFF
-      classDef BLIND_MODULE color:#FFFFFF,stroke:#FFFFFF
+      style PETNET fill:#f5f5f5,stroke:#cccccc,color:#000000
+      style BLIND_MODULES fill:#f5f5f5,stroke:#cccccc,color:#000000
+      classDef BLIND_MODULE fill:#ffffff,stroke:#cccccc,color:#000000
       NILCC:::BLIND_MODULE
       NILDB:::BLIND_MODULE
       NILAI:::BLIND_MODULE
@@ -71,20 +63,20 @@ When using the blind computer, developers rely on two components: the **Petnet**
           end
       end
       NILCHAIN:::COMPONENT_RIGHT
-      style NILCHAIN fill:#CCCCFF,color:#000000
-      style MECHANISMS fill:#0000FF,stroke:#000000,color:#FFFFFF
-      classDef MECHANISM color:#FFFFFF,stroke:#FFFFFF
+      style NILCHAIN fill:#f5f5f5,stroke:#cccccc,color:#000000
+      style MECHANISMS fill:#f5f5f5,stroke:#cccccc,color:#000000
+      classDef MECHANISM fill:#ffffff,stroke:#cccccc,color:#000000
       PAYMENTS:::MECHANISM
       AUTHENTICATION:::MECHANISM
       CRYPTOECONOMICS:::MECHANISM
 
-      classDef COMPONENT_LEFT stroke:#444444,padding-left:10px,padding-right:410px
-      classDef COMPONENT_RIGHT stroke:#444444,padding-left:10px,padding-right:660px
+      classDef COMPONENT_LEFT stroke:#cccccc,padding-left:10px,padding-right:410px
+      classDef COMPONENT_RIGHT stroke:#cccccc,padding-left:10px,padding-right:660px
 
       SDKS_AND_LIBRARIES ---> PETNET
       SDKS_AND_LIBRARIES ---> NILCHAIN
 
-      linkStyle default stroke-width:3px,stroke:#8A89FF
+      linkStyle default stroke-width:3px,stroke:#5555CC
       linkStyle 0,1,2,3,4,5,6 stroke-width:0px !important,stroke:transparent !important
 ```
 
