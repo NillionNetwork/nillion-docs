@@ -235,7 +235,7 @@
 
 /* Dark mode styles for homepage */
 [data-theme='dark'] .heroTitle {
-  color: #8888FF;
+  color: #777777;
 }
 
 [data-theme='dark'] .heroSubtitle {
