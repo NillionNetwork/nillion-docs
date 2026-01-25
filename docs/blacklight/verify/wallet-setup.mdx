@@ -1,8 +1,22 @@
+import AddNetworkButton from '@site/src/components/MetamaskConnect'
+
 # Set Up a Wallet
 
 Users running Blacklight verifier nodes must connect to [Nillion's Ethereum L2](/blacklight/verify/network), an EVM-compatible network. This guide will help you add the Nillion L2 to your wallet.
 
 ## Adding the Nillion L2 to Your Wallet
+
+### Automatically
+
+<AddNetworkButton
+  chainId="78651"
+  chainName="Nillion L2 (Testnet)"
+  rpcUrl="https://rpc.testnet.nillion.network/"
+  symbol="ETH"
+  explorer="https://explorer.testnet.nillion.network/"
+/>
+
+### Manually
 
 1. Open your wallet extension or app
 2. Navigate to network settings (usually found in settings or network dropdown)
