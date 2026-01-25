@@ -1,0 +1,44 @@
+.connectButton {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 12px 20px;
+  align-items: center;
+  font-weight: 600;
+  background: rgb(0, 33, 245);
+  color: white !important;
+  display: inline-flex;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.connectButton:hover {
+  cursor: pointer;
+  text-decoration: none;
+  background: rgb(0, 25, 200);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 33, 245, 0.3);
+}
+
+.connectButton:active {
+  transform: translateY(0);
+}
+
+/* Dark mode styles */
+[data-theme='dark'] .connectButton {
+  background: #8a89ff;
+  color: white !important;
+}
+
+[data-theme='dark'] .connectButton:hover {
+  background: #a5a4ff;
+  box-shadow: 0 4px 12px rgba(138, 137, 255, 0.3);
+}
+
+[data-theme='dark'] .connectButton:active {
+  background: #6f6eff;
+}
