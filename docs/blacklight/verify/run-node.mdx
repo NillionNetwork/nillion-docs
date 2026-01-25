@@ -1,0 +1,195 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+# Run a Verifier Node
+
+Anyone in the community can run a permissionless Blacklight verifier node. Verifier nodes continuously challenge and verify Trusted Execution Environment (TEE) workloads, helping to ensure the security and correctness of applications running on the Blind Computer.
+
+By running a verifier node, you contribute to the network's security while earning rewards.
+
+![Run a Verifier Node](/img/run-verifier-node-thumbnail.svg)
+
+## Getting Started
+
+This guide will walk you through setting up and running a Blacklight verifier node.
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- **Docker** installed and running on your machine
+- A wallet with sufficient **ETH** (minimum 0.00001 ETH for gas fees)
+- **NIL tokens** for staking (minimum 70 NIL, recommended 5,000+ NIL)
+
+## Step 1: Select Platform & Install Docker
+
+Choose your operating system for platform-specific setup instructions:
+
+- **macOS**
+- **Linux**
+- **Windows**
+
+
+Docker is required to run the Nillion verifier node.
+
+<Tabs>
+<TabItem value="macOS" label="macOS">
+
+
+```bash
+brew install --cask docker
+```
+
+Alternatively, you can [download Docker Desktop](https://www.docker.com/products/docker-desktop/) instead.
+</TabItem>
+
+<TabItem value="Linux" label="Linux">
+
+
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+
+Download and install [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/).
+</TabItem>
+</Tabs>
+
+> **Note:** After installation, you may need to restart your terminal.
+
+## Step 2: Setup & Run Node
+
+Pull the Docker image, run it to generate your node wallet, and enter the node's wallet address.
+
+### Pull Docker Image
+
+```bash
+docker pull ghcr.io/nillionnetwork/niluv/niluv_node:latest
+```
+
+### Run Node Setup
+
+```bash
+docker run -it --rm -v ./niluv_node:/app/ -v ./niluv_node:/tmp/niluv-cache ghcr.io/nillionnetwork/niluv/niluv_node:latest --rpc-url https://rpc-nilav-shzvox0915.t.conduit.xyz --manager-contract-address 0x8d683fb2CC794E085E8366c4f28f8CC991107576 --staking-contract-address 0x595A112FA10ED66Bc518b28781035BA50C9f2216 --token-contract-address 0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35
+```
+
+> **Note:** On first run, the node will generate a new wallet and save it to `./niluv_node/niluv_node.env`. Your wallet address will be displayed — copy it for the next field.
+
+### Enter Node Address
+
+After running the setup command, you'll see output similar to:
+
+```
+INFO niluv::config::node: No private key found. Generating new wallet...
+INFO niluv::config::node: New wallet generated and saved to niluv_node.env
+INFO niluv::config::node: Address: 0xe494fbb8c35fe399b1e550c19787807633978c20
+```
+
+Copy this address — you'll need it for staking in the next step.
+
+## Step 3: Fund Your Node
+
+Your node wallet needs both ETH (for gas) and NIL tokens (for staking).
+
+### Requirements
+
+| Asset | Minimum | Recommended |
+|-------|---------|-------------|
+| ETH | 0.00001 ETH | 0.01+ ETH |
+| NIL | 70 NIL | 5,000+ NIL |
+
+
+## Step 4: Stake NIL Tokens
+
+Once your waller is funded, stake NIL tokens to activate it.
+
+1. Go to the **Stake** tab in the Node Details dashboard
+2. Enter the amount to stake (minimum 70 NIL)
+3. Click **Stake Tokens**
+4. Confirm the transaction in your wallet
+
+After staking, your node status will change to **ACTIVE**.
+
+## Step 5: Start Node
+
+Run the node binary to register and start your verifier node.
+
+```bash
+docker run -it --rm -v ./niluv_node:/app/ -v ./niluv_node:/tmp/niluv-cache ghcr.io/nillionnetwork/niluv/niluv_node:latest --rpc-url https://rpc-nilav-shzvox0915.t.conduit.xyz --manager-contract-address 0x8d683fb2CC794E085E8366c4f28f8CC991107576 --staking-contract-address 0x595A112FA10ED66Bc518b28781035BA50C9f2216 --token-contract-address 0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35
+```
+
+After running this command, you should see "Node registered successfully" in your terminal. This means your node is successfully running and ready to receive verification work.
+
+## Node Dashboard
+
+Once your node is running, you can monitor it.
+
+### Dashboard Tabs
+
+| Tab | Description |
+|-----|-------------|
+| **Verification Activity** | View committee assignments and verification tasks |
+| **Stake** | Add more NIL tokens to your stake |
+| **Unstake** | Request to unstake tokens (unbonding period applies) |
+| **Withdraw** | Withdraw unstaked tokens after unbonding |
+| **Rewards** | Claim your earned NIL rewards |
+| **Fund Node** | Send additional ETH or NIL to your node |
+
+### Node Status
+
+Your node will display one of the following statuses:
+
+- **ACTIVE** — Node is registered and ready for verification work
+- **INACTIVE** — Node is not staked or has insufficient balance
+- **PENDING** — Node registration is being processed
+
+## Claiming Rewards
+
+As your node participates in verification activities, you'll earn NIL rewards.
+
+1. Navigate to the **Rewards** tab
+2. View your **Staker Claimable** balance
+3. Click **Claim Rewards** to transfer earnings to your wallet
+
+> **Note:** There may be no rewards to claim if your node hasn't been selected for committee verification yet. Committee assignments appear on the Verification Activity tab.
+
+## Unstaking
+
+To unstake your NIL tokens:
+
+1. Go to the **Unstake** tab
+2. Enter the amount to unstake
+3. Click **Request Unstake**
+
+> **Note:** Unstaking initiates an unbonding period. You can withdraw tokens after the period ends.
+
+## Troubleshooting
+
+### Node requires funding
+
+If you see:
+
+```
+Please fund this address with at least 0.00001 ETH and stake NIL tokens to continue
+```
+
+Your node wallet needs ETH to work. 
+
+### No verification activity
+
+New nodes may not immediately receive committee assignments. Continue running your node — assignments will appear as the network schedules verification work.
+
+### Docker permission errors
+
+On Linux, you may need to add your user to the docker group:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+Then log out and back in for changes to take effect.
