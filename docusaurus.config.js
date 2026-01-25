@@ -545,7 +545,7 @@ const config = {
             from: '/community-and-support',
           },
           {
-            to: '/community/guides/testnet',
+            to: '/community/guides/testnet-faucet',
             from: '/testnet-guides',
           },
           {

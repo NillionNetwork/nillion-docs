@@ -9,19 +9,15 @@ const communitySidebar = [
 
   {
     type: 'category',
-    label: 'nilChain Guides',
+    label: 'nilChain',
+    link: {
+      type: 'doc',
+      id: 'community/nilchain',
+    },
     items: [
       'community/guides/nillion-wallet',
       'community/guides/sending-nil',
-      {
-        type: 'category',
-        label: 'Testnet Guides',
-        link: {
-          type: 'doc',
-          id: 'community/guides/testnet',
-        },
-        items: ['community/guides/testnet-faucet'],
-      },
+      'community/guides/testnet-faucet',
     ],
   },
   {
