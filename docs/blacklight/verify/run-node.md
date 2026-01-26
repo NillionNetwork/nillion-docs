@@ -7,3 +7,7 @@ By running a verifier node, you contribute to the network's security while earni
 ## Getting Started
 
 This guide will walk you through setting up and running a Blacklight verifier node.
+
+```
+Coming soon 🔜
+```

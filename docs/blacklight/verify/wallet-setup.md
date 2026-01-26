@@ -26,6 +26,4 @@ Users running Blacklight verifier nodes must connect to [Nillion's Ethereum L2](
 ## Next Steps
 
 After adding Blacklight to your wallet:
-
-- Learn about [Bridging](/blacklight/tools/bridging.md) assets to Blacklight
 - Use a [Block Explorer](/blacklight/tools/block-explorer.md) to view transactions
