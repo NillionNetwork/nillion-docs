@@ -7,9 +7,8 @@ const blacklightSidebar = [
   },
   'blacklight/learn/overview',
   'blacklight/learn/architecture',
-  'blacklight/learn/staking',
   'blacklight/learn/verification',
-  'blacklight/learn/rewards',
+  'blacklight/learn/staking_and_rewards',
   {
     type: 'html',
     className: 'sidebar-title',

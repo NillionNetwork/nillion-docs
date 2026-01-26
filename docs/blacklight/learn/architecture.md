@@ -4,8 +4,8 @@
 
 Nillion Blacklight is a decentralised verification network designed to continuously verify workloads running inside Trusted Execution Environments (TEEs). The system is composed of three core components that work together to provide ongoing, credibly neutral verification.
 
-* TEE Operators run workloads inside TEEs and submit proofs of liveness.
-* [**Nillion's Ethereum L2**](/blacklight/verify/network) coordinates verification, consensus, and rewards.
+* TEE Operators run workloads inside TEEs and submit proofs of liveness (that we call heartbeat transactions - HTXs).
+* [**Nillion's Ethereum L2**](/blacklight/verify/network) coordinates verification, consensus, and rewards. Verification coordination is realised by the L2 assigning Blacklight nodes HTXs they should verify.
 * Blacklight nodes independently challenge and verify TEE attestations.
 
 Together, these components enable continuous, decentralised verification of TEE-backed workloads. In doing so, they act as a credibly neutral trust layer for TEEs.
@@ -14,7 +14,7 @@ The central concept underpinning Nillion Blacklight is that of the heartbeat tra
 
 ## TEE Operators
 
-TEE operators (such as [nilCC](/blind-computer/build/compute/overview) node operators) run workloads inside Trusted Execution Environments such or other supported TEE platforms. For each active workload, operators periodically submit heartbeat transactions (HTXs) to [Nillion's Ethereum L2](/blacklight/verify/network). These heartbeats assert that the workload is still running and provide the metadata required for the network to independently verify its execution.
+TEE operators (such as [nilCC](/blind-computer/build/compute/overview) node operators) run workloads inside Trusted Execution Environments. For each active workload, operators periodically submit heartbeat transactions (HTXs) to [Nillion's Ethereum L2](/blacklight/verify/network). These heartbeats assert that the workload is still running and provide the metadata required for the network to independently verify its execution.
 
 ## Nillion's Ethereum L2
 

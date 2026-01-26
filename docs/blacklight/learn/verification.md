@@ -93,12 +93,6 @@ This multi-node consensus requirement ensures that verification outcomes are rel
 Once consensus is reached, the L2 distributes rewards from the reward pool. Nodes that contributed to the finalised outcome are eligible for rewards, which they can then claim. For details on how rewards are calculated and distributed, see the [Rewards](/blacklight/learn/rewards) page.
 
 
-### Accountability Mechanisms
-
-The [JailingPolicy contract](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/JailingPolicy.sol) enforces penalties through temporary operator jailing for malicious behavior, ensuring nodes are economically incentivized to perform honest verification.
-
-
-
 ## Blacklight Nodes
 
 [Blacklight nodes](/blacklight/verify/run-node) are permissionless verifier nodes that perform the core verification work of the network.
@@ -112,7 +106,7 @@ When assigned an HTX by the L2, a Blacklight node performs a series of cryptogra
 
 Blacklight nodes retrieve attestation reports directly from the TEE operator using URLs provided in the HTX:
 - **Workload measurement URL** (`workload_measurement.url`): Points to the workload's attestation report endpoint
-- **Builder measurement URL** (`builder_measurement.url`): Points to the builder's measurement information
+- **Builder measurement URL** (`builder_measurement.url`): Points to the builder's measurement information.
 This direct retrieval ensures nodes verify attestations independently without relying on intermediaries, preventing attestation manipulation or replay attacks.
 
 
