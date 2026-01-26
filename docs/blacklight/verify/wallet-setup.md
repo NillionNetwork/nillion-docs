@@ -2,6 +2,19 @@
 
 Users running Blacklight verifier nodes must connect to [Nillion's Ethereum L2](/blacklight/verify/network), an EVM-compatible network. This guide will help you add the Nillion L2 to your wallet.
 
+<iframe
+  width='100%'
+  height='500'
+  src='https://www.youtube.com/embed/-HpQoJHMgPM'
+  title='YouTube video player'
+  frameborder='0'
+  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+  allowfullscreen
+></iframe>
+
+### Pre-requisite
+- Must have ETH and/or NIL on the Nillion L2 network. Bridging guide [here.](../tools/bridging.md)
+
 ## Adding the Nillion L2 to Your Wallet
 
 1. Open your wallet extension or app
