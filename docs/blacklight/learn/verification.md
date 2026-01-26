@@ -95,7 +95,7 @@ Once consensus is reached, the L2 distributes rewards from the reward pool. Node
 
 ## Blacklight Nodes
 
-[Blacklight nodes](/blacklight/verify/run-node) are permissionless verifier nodes that perform the core verification work of the network.
+Blacklight nodes are permissionless verifier nodes that perform the core verification work of the network.
 To participate, nodes must [stake](/blacklight/learn/staking_and_rewards) a minimum amount of NIL tokens.
 
 
