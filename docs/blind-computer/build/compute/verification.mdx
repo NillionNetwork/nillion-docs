@@ -1,13 +1,13 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Verify
+# nilCC Verification
 
-An attestation report is provided from the TEE (Trusted Execution Environment) nilCC is running in. The hardware guarantee for privacy and cryptographic proof can be verified using our Workload Manager platform.
+An attestation report is provided by the trusted execution environment (TEE) within which nilCC is running. The hardware guarantees with regard to privacy and cryptographic proof of execution can be verified using our [Workload Manager](https://nilcc.nillion.com/verify).
 
 ### Key Terms
-- Docker Compose Hash: SHA256 hash of your Docker Compose file. It's calculated from the Docker Compose of the selected workload above.
-- Measurement Hash: Attestation hash from the `/report` URL, which maps to the TEE verification.
+- **Docker Compose Hash**: SHA256 hash of your Docker Compose file. It's calculated from the Docker Compose of the selected workload above.
+- **Measurement Hash**: Attestation hash from the `/report` URL, which maps to the TEE verification.
 
 ### Prerequisites
 1. Have a working nilCC workload running.
@@ -16,7 +16,7 @@ An attestation report is provided from the TEE (Trusted Execution Environment) n
 ### Usage
 ![nilcc verify first step](/img/verify_first_step.png)
 
-1. Visit the nilCC Workload Manager platform: https://nilcc.nillion.com/verify
+1. Visit the nilCC [Workload Manager](https://nilcc.nillion.com/verify).
 2. You can either use a precomputed measurement hash of your workload or compute it locally yourself. 
 
 The main difference between `precompute` and `local` measurement hash is that the local one is the true attestation that your measurement hash equals the measurement hash provided by nilCC. This is the purest form of TEE attestation for a developer. We recommend `precompute` for a quick and easy TEE verification, but `local` to understand the privacy flow.
@@ -46,12 +46,10 @@ The main difference between `precompute` and `local` measurement hash is that th
 
 </Tabs>
 
-
 ---
 ### Badge Embedding (Optional)
 
 ![nilcc verify badge](/img/verify_badge.png)
-
 
 #### Prerequsities
 
@@ -69,7 +67,6 @@ https://github.com/NillionNetwork/nilcc-attestation-example/blob/main/scripts/up
 ```sh reference showGithubLink
 https://github.com/NillionNetwork/nilcc-attestation-example/blob/main/.github/workflows/verify-measurement.yml
 ```
-
 
 #### Usage 
 
@@ -96,7 +93,6 @@ GH Action
 ![nilcc verify badge](/img/verify_manifest_PR.png)
 Verify PR that was auto-created by the GH Action Bot.
 
+We can now add your public `verification-manifest.json` from your Github Repo to the `Github URL` input box. You will receive a `React/JSX` Code Snippet to use on your site.
 
-We can now add your public `verification-manifest.json` from your Github Repo to the `Github URL` input box. You will receive a `React/JSX` Code Snippet to use on your site. 
-
-Then you can embed it like this example site: [https://nilcc-attestation-example.vercel.app/](https://nilcc-attestation-example.vercel.app/)
+Then you can embed it in the manner illustrated on this example site: [https://nilcc-attestation-example.vercel.app/](https://nilcc-attestation-example.vercel.app/).

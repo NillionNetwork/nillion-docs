@@ -41,8 +41,8 @@ const buildSidebar = [
       },
       {
         type: 'doc',
-        label: 'Verify',
-        id: 'blind-computer/build/compute/verify',
+        label: 'Verification',
+        id: 'blind-computer/build/compute/verification',
       },
       {
         type: 'doc',
