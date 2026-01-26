@@ -385,6 +385,13 @@ const config = {
             from: ['/build/private-storage/ts-docs'],
           },
           {
+            to: '/blind-computer/build/compute/verification',
+            from: [
+              '/blind-computer/build/compute/verify',
+              '/build/compute/verify',
+            ],
+          },
+          {
             to: '/blind-computer/build/llms/advanced/web_search',
             from: ['/build/private-llms/advanced/web_search'],
           },
@@ -427,10 +434,6 @@ const config = {
           {
             to: '/blind-computer/learn/overview',
             from: ['/build/quickstart'],
-          },
-          {
-            to: '/blind-computer/build/compute/verify',
-            from: ['/build/compute/verify'],
           },
           {
             to: '/blind-computer/build/compute/quickstart',
@@ -545,7 +548,7 @@ const config = {
             from: '/community-and-support',
           },
           {
-            to: '/community/guides/testnet',
+            to: '/community/guides/testnet-faucet',
             from: '/testnet-guides',
           },
           {

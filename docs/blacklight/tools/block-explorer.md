@@ -10,4 +10,4 @@ Block explorers allow you to view transactions, blocks, addresses, and other onc
 
 ## Blacklight Testnet
 
-[https://explorer-nilav-shzvox09l5.t.conduit.xyz](https://explorer-nilav-shzvox09l5.t.conduit.xyz/)
+[https://explorer.testnet.nillion.network](https://explorer.testnet.nillion.network)

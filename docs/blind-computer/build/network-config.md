@@ -5,48 +5,18 @@ import BlockExplorers from '../\_testnet_block_explorers.mdx';
 
 # Network Configuration
 
-## nilChain
+The Blind Computer is powered by a network of nodes in which each node implements one of the [blind modules](/blind-computer/learn/blind-modules). In some cases, collections of multiple nodes can be treated as clusters by builders.
 
-Below is the configuration information for connecting to [nilChain](https://github.com/NillionNetwork/nilchain), Nillion's coordination layer.
+## nilCC Nodes
 
-<Tabs>
-    <TabItem value="nilchain-testnet" label="nilChain Testnet" default>
-    ```
-    nilChain Chain ID: nillion-chain-testnet-1
-    nilChain JSON RPC URL: http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
-    nilChain REST API: https://api.testnet.nilchain-rpc-proxy.nilogy.xyz
-    nilChain GRPC URL: https://testnet-nillion-grpc.lavenderfive.com
-    ```
-    </TabItem>
-
-    <TabItem value="nilchain-mainnet" label="nilChain Mainnet" default>
-    ```
-    nilChain Chain ID: nillion-1
-    nilChain JSON RPC URL: http://nilchain-rpc.nillion.network
-    nilChain REST API: https://nilchain-api.nillion.network
-    nilChain GRPC URL: https://nillion-grpc.lavenderfive.com
-    ```
-    </TabItem>
-
-</Tabs>
-<br/>
-
----
-
-## Petnet
-
-The Nillion Petnet consists of a network of nodes in which each node implements one of the [Blind Modules](/blind-computer/learn/blind-modules). In some cases, collections of multiple nodes can be treated as clusters by builders.
-
-### nilCC Nodes
-
-[Private Compute](/blind-computer/build/compute/overview) can be leveraged by connecting to a nilCC node
+[Private Compute](/blind-computer/build/compute/overview) can be leveraged by connecting to a nilCC node.
 
 ```
 nilCC node URL: https://api.nilcc.nillion.network
 nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
 ```
 
-### nilDB Nodes
+## nilDB Nodes
 
 [Private Storage](/blind-computer/build/storage/overview) solutions leverage a decentralized cluster of [nilDB](/blind-computer/learn/blind-modules#nildb) nodes, making it possible to store in the cluster and to query both plaintext and encrypted data. Builders can treat any collection of one or more nilDB nodes as a cluster. To work with a cluster, builders either can connect to it using the [secretvaults SDK](/blind-computer/build/storage/secretvaults) or can interact directly with individual nodes via the [nilDB API](/api/nildb/overview) and [blindfold library](/blind-computer/build/storage/blindfold).
 
@@ -58,23 +28,23 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
     NILAUTH_URL=https://nilauth.sandbox.app-cluster.sandbox.nilogy.xyz
     NILAUTH_PUBLIC_KEY=03e3ba1eb887b4e972fbf395d479ff6cdb2cec91ba477ffc287b2b9cb5ec2161aa
     ```
-    #### Nodes
+    ### Nodes
 
-    #### [nildb-stg-n1](https://nildb-stg-n1.nillion.network/about)
+    ### [nildb-stg-n1](https://nildb-stg-n1.nillion.network/about)
 
     ```
     URL:https://nildb-stg-n1.nillion.network
     Public Key: 02e3846c455dbceef9eff8a84127c3be1b9719ac05415efbf72790f31fa9f8027a
     ```
 
-    #### [nildb-stg-n2](https://nildb-stg-n2.nillion.network/about)
+    ### [nildb-stg-n2](https://nildb-stg-n2.nillion.network/about)
 
     ```
     URL: https://nildb-stg-n2.nillion.network
     Public Key: 025792e96a68c0b7ef7794960327dc570704c6dd565cf2cacf206bdc72d6123f90
     ```
 
-    #### [nildb-stg-n3](https://nildb-stg-n3.nillion.network/about)
+    ### [nildb-stg-n3](https://nildb-stg-n3.nillion.network/about)
 
     ```
     URL: https://nildb-stg-n3.nillion.network
@@ -90,30 +60,30 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
     NILAUTH_URL=https://nilauth-cf7f.nillion.network
     NILAUTH_PUBLIC_KEY=020b419e17d0d11445ea46520086952772eb18f5cb9f949c0ad0b418282617cf7f
     ```
-    #### Nodes
+    ### Nodes
 
-    #### [nildb-5ab1](https://nildb-5ab1.nillion.network/about)
+    ### [nildb-5ab1](https://nildb-5ab1.nillion.network/about)
 
     ```
     URL: https://nildb-5ab1.nillion.network
     Public Key: 031f95488b7c389c963548e57b9871a22477fc475adbbd8336a70e1715a7245ab1
     ```
 
-    #### [nildb-f496](https://nildb-f496.pairpointweb3.io/about)
+    ### [nildb-f496](https://nildb-f496.pairpointweb3.io/about)
 
     ```
     URL: https://nildb-f496.pairpointweb3.io
     Public Key: 02955a7d9f47f463540866daec7d0cd8774a827bb4f8ac68e6d266066b4335f496
     ```
 
-    #### [nildb-f375](https://nildb-f375.stcbahrain.net/about)
+    ### [nildb-f375](https://nildb-f375.stcbahrain.net/about)
 
     ```
     URL: https://nildb-f375.stcbahrain.net
     Public Key: 02938a44a192c18fd55b1814f6ba3ecc11e5689baf861e8309aac71eca42ebf375
     ```
 
-    #### [nildb-2140](https://nildb-2140.staking.telekom-mms.com/about)
+    ### [nildb-2140](https://nildb-2140.staking.telekom-mms.com/about)
 
     ```
     URL: https://nildb-2140.staking.telekom-mms.com
@@ -125,14 +95,14 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
 </Tabs>
 <br/>
 
-### nilAI Nodes
+## nilAI Nodes
 
 [Private LLMs](/blind-computer/build/llms/overview) can be leveraged by connecting to a [nilAI](/blind-computer/learn/blind-modules#nil-ai) node, which runs AI models within a TEE.
 
 <Tabs>
     <TabItem value="nilAI-testnet" label="nilAI Testnet" default>
 
-       #### [nilai-a779](https://nilai-a779.nillion.network/docs)
+       ### [nilai-a779](https://nilai-a779.nillion.network/docs)
 
        ```
        nilAI Node URL: https://nilai-a779.nillion.network
@@ -142,7 +112,7 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
     </TabItem>
     <TabItem value="nilAI-mainnet" label="nilAI Mainnet" default>
 
-       #### [nilai-e176](https://nilai-e176.nillion.network/docs)
+       ### [nilai-e176](https://nilai-e176.nillion.network/docs)
 
        ```
        nilAI Node URL: https://nilai-e176.nillion.network
@@ -150,7 +120,7 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
        Models: google/gemma-3-27b-it
        ```
         
-       #### [nilai-f910](https://nilai-f910.nillion.network/docs)
+       ### [nilai-f910](https://nilai-f910.nillion.network/docs)
 
        ```
        nilAI Node URL: https://nilai-f910.nillion.network

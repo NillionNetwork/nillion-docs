@@ -23,13 +23,16 @@ const blacklightSidebar = [
       type: 'doc',
       id: 'blacklight/verify/wallet-setup',
     },
-    items: [
-      {
-        type: 'doc',
-        label: 'Network Configuration',
-        id: 'blacklight/verify/network',
-      },
-    ],
+    items: [],
+  },
+  {
+    type: 'category',
+    label: 'Network Configuration',
+    link: {
+      type: 'doc',
+      id: 'blacklight/verify/network',
+    },
+    items: [],
   },
   {
     type: 'category',
@@ -38,13 +41,7 @@ const blacklightSidebar = [
       type: 'doc',
       id: 'blacklight/verify/run-node',
     },
-    items: [
-      {
-        type: 'link',
-        label: 'Blacklight Node Setup',
-        href: 'https://nilav-ui.vercel.app',
-      },
-    ],
+    items: [],
   },
   {
     type: 'category',

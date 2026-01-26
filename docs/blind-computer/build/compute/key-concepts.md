@@ -1,4 +1,4 @@
-# Key Concepts
+# nilCC Key Concepts
 
 This glossary defines key terms as they are used throughout the nilCC documentation and system.
 
@@ -6,11 +6,11 @@ This glossary defines key terms as they are used throughout the nilCC documentat
 
 Physical server hardware that hosts the nilCC infrastructure. Each bare metal machine runs a single `nilcc-agent` instance that manages multiple Confidential VMs on that physical host. The bare metal machine provides the [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html) hardware security features that enable confidential computing.
 
-## TEE (Trusted Execution Environment)
+## Trusted Execution Environment (TEE)
 
 A secure area of a processor that provides hardware-level isolation and encryption for code and data. In nilCC, TEEs are implemented using [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html) technology, which creates secure enclaves where workloads can run with cryptographic proof that they haven't been tampered with or accessed by unauthorized parties, including the infrastructure provider.
 
-## CVM (Confidential VM)
+## Confidential Virtual Machine (CVM)
 
 A virtual machine that leverages [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html) to run workloads in a secure and verifiable way. Each CVM:
 
@@ -42,11 +42,11 @@ nilCC uses both CPU and GPU resources for confidential computation:
 
 **GPU**: nilCC supports GPU-enabled machines for enhanced computational capabilities. On GPU machines, nilcc-attester will generate an NVIDIA Confidential Compute attestation in addition to the [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html) attestation. GPU resources are tracked and allocated by the system alongside CPU and memory resources.
 
-## nilCC Components
+## Core Components
 
-See [nilCC Architecture](./architecture)
+See the [nilCC architecture description](./architecture) for more details.
 
+- **nilcc-api**: Public API for workload and system management
 - **nilcc-agent**: Runs on bare metal machines to manage CVMs and workloads
 - **cvm-agent**: Runs inside each CVM to manage Docker Compose workload execution
 - **nilcc-attester**: Generates TEE attestations within each CVM
-- **nilcc-api**: Public API for workload and system management

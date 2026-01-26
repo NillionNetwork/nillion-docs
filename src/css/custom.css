@@ -36,6 +36,10 @@
   background-color: #212134 !important;
 }
 
+[data-theme='dark'] .smallCustomButton_src-components-LinkButton-styles-module {
+  background-color: #333352 !important;
+}
+
 [data-theme='dark'] {
   /* Nillion brand colors for dark mode */
   --ifm-color-primary: #8888FF;
