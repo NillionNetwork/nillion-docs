@@ -70,7 +70,7 @@ It orchestrates the verification process through smart contracts that handle com
 When a TEE operator submits an HTX to the L2, the [WeightedCommitteeSelector contract](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/WeightedCommitteeSelector.sol)  selects a committee of Blacklight nodes to verify it.
 Selection is:
 
-- **Stake-weighted**: Nodes with more [stake](/blacklight/learn/staking) have higher probability of being selected, providing economic security
+- **Stake-weighted**: Nodes with more [stake](/blacklight/learn/staking_and_rewards) have higher probability of being selected, providing economic security
 - **Probabilistic**: Selection remains random, preventing gaming or manipulation and ensuring diverse committee composition
 - **Permissionless**: Any node that meets the minimum staking requirement can be selected
 
@@ -90,13 +90,13 @@ This multi-node consensus requirement ensures that verification outcomes are rel
 
 ### Reward Distribution
 
-Once consensus is reached, the L2 distributes rewards from the reward pool. Nodes that contributed to the finalised outcome are eligible for rewards, which they can then claim. For details on how rewards are calculated and distributed, see the [Rewards](/blacklight/learn/rewards) page.
+Once consensus is reached, the L2 distributes rewards from the reward pool. Nodes that contributed to the finalised outcome are eligible for rewards, which they can then claim. For details on how rewards are calculated and distributed, see the [Rewards](/blacklight/learn/staking_and_rewards) page.
 
 
 ## Blacklight Nodes
 
 [Blacklight nodes](/blacklight/verify/run-node) are permissionless verifier nodes that perform the core verification work of the network.
-To participate, nodes must [stake](/blacklight/learn/staking) a minimum amount of NIL tokens.
+To participate, nodes must [stake](/blacklight/learn/staking_and_rewards) a minimum amount of NIL tokens.
 
 
 ### Verification Process
