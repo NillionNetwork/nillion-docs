@@ -11,7 +11,7 @@ Users running Blacklight verifier nodes and developers registering their apps fo
 | Web Socket URL  | wss://rpc.nillion.network                       |
 | Chain ID        | 98875                                           |
 | Currency Symbol | ETH                                             |
-| Block Explorer  | https://explorer.nillion.network/               |
+| Block Explorer  | https://explorer.nillion.network               |
 
 ## Testnet
 
@@ -28,7 +28,7 @@ Users running Blacklight verifier nodes and developers registering their apps fo
 
 # NIL Contract
 
-The current contract for NIL on the L2 is at:
+The current contracts for NIL on the L2 are at:
 
 | Property        | Value                                           |
 | --------------- | ----------------------------------------------- |
