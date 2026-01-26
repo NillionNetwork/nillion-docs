@@ -9,20 +9,45 @@ const blacklightSidebar = [
   'blacklight/learn/architecture',
   'blacklight/learn/verification',
   'blacklight/learn/staking_and_rewards',
+  // {
+  //   type: 'html',
+  //   className: 'sidebar-title',
+  //   value: 'Verify',
+  //   defaultStyle: true,
+  // },
+  // {
+  //   type: 'category',
+  //   label: 'Set Up a Wallet',
+  //   link: {
+  //     type: 'doc',
+  //     id: 'blacklight/verify/wallet-setup',
+  //   },
+  //   items: [],
+  // },
+  // {
+  //   type: 'category',
+  //   label: 'Run a Verifier Node',
+  //   link: {
+  //     type: 'doc',
+  //     id: 'blacklight/verify/run-node',
+  //   },
+  //   items: [],
+  // },
+  // {
+  //   type: 'category',
+  //   label: 'Register your Apps',
+  //   link: {
+  //     type: 'doc',
+  //     id: 'blacklight/verify/register-apps',
+  //   },
+  //   items: [],
+  // },
+  // 'blacklight/verify/contracts',
   {
     type: 'html',
     className: 'sidebar-title',
-    value: 'Verify',
+    value: 'Tools',
     defaultStyle: true,
-  },
-  {
-    type: 'category',
-    label: 'Set Up a Wallet',
-    link: {
-      type: 'doc',
-      id: 'blacklight/verify/wallet-setup',
-    },
-    items: [],
   },
   {
     type: 'category',
@@ -32,31 +57,6 @@ const blacklightSidebar = [
       id: 'blacklight/verify/network',
     },
     items: [],
-  },
-  {
-    type: 'category',
-    label: 'Run a Verifier Node',
-    link: {
-      type: 'doc',
-      id: 'blacklight/verify/run-node',
-    },
-    items: [],
-  },
-  {
-    type: 'category',
-    label: 'Register your Apps',
-    link: {
-      type: 'doc',
-      id: 'blacklight/verify/register-apps',
-    },
-    items: [],
-  },
-  'blacklight/verify/contracts',
-  {
-    type: 'html',
-    className: 'sidebar-title',
-    value: 'Tools',
-    defaultStyle: true,
   },
   {
     type: 'category',

@@ -10,11 +10,11 @@ flowchart LR
 
     subgraph EVM
         ETH[Ethereum<br/>Mainnet]
-        BL[Blacklight<br/>L2]
+        BL[Nillion's<br/>L2]
     end
 
     NC -->|NIL<br/>Cosmos Bridge| ETH
-    ETH -->|ETH / NIL<br/>Blacklight Mainnet Bridge| BL
+    ETH -->|ETH / NIL<br/>Nillion's L2 Bridge| BL
 ```
 
 ## From Cosmos to Ethereum
@@ -30,6 +30,10 @@ To bridge NIL from Cosmos to Ethereum:
 5. Review and confirm the transaction
 
 The bridge will handle the cross-chain transfer and your NIL tokens will be available on Ethereum once the transaction is complete.
+
+Watch the video below for a run through on how to bridge NIL from Cosmos to Ethereum.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LHTjCh9-dMs?si=9GZvnEmIRJgVbeOz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
