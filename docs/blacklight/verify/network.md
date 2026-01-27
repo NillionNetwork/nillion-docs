@@ -24,11 +24,9 @@ Users running Blacklight verifier nodes and developers registering their apps fo
 | Currency Symbol | ETH                                             |
 | Block Explorer  | https://explorer.testnet.nillion.network        |
 
----
+## NIL Contracts
 
-# NIL Contract
-
-The current contracts for NIL on the L2 are at:
+The current contracts for NIL on the L2 are at the addresses below.
 
 | Property        | Value                                           |
 | --------------- | ----------------------------------------------- |

@@ -12,8 +12,9 @@ Users running Blacklight verifier nodes must connect to [Nillion's Ethereum L2](
   allowfullscreen
 ></iframe>
 
-### Pre-requisite
-- Must have ETH and/or NIL on the Nillion L2 network. Bridging guide [here.](../tools/bridging.md)
+## Prerequisite
+
+- You must have ETH and/or NIL on the Nillion L2 network (refer to the [bridging guide](../tools/bridging.md) for help)
 
 ## Adding the Nillion L2 to Your Wallet
 
@@ -25,5 +26,4 @@ Users running Blacklight verifier nodes must connect to [Nillion's Ethereum L2](
 
 ## Next Steps
 
-After adding Blacklight to your wallet:
-- Use a [Block Explorer](/blacklight/tools/block-explorer.md) to view transactions
+- After adding Blacklight to your wallet, use a [Block Explorer](/blacklight/tools/block-explorer.md) to view transactions

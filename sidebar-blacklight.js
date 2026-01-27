@@ -8,13 +8,7 @@ const blacklightSidebar = [
   'blacklight/learn/overview',
   'blacklight/learn/architecture',
   'blacklight/learn/verification',
-  'blacklight/learn/staking_and_rewards',
-  // {
-  //   type: 'html',
-  //   className: 'sidebar-title',
-  //   value: 'Verify',
-  //   defaultStyle: true,
-  // },
+  'blacklight/learn/staking-and-rewards',
   // {
   //   type: 'category',
   //   label: 'Run a Verifier Node',
@@ -37,7 +31,7 @@ const blacklightSidebar = [
   {
     type: 'html',
     className: 'sidebar-title',
-    value: 'Tools',
+    value: 'Verify',
     defaultStyle: true,
   },
   {
@@ -48,6 +42,12 @@ const blacklightSidebar = [
       id: 'blacklight/verify/network',
     },
     items: [],
+  },
+  {
+    type: 'html',
+    className: 'sidebar-title',
+    value: 'Tools',
+    defaultStyle: true,
   },
   {
     type: 'category',

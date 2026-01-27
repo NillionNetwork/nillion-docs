@@ -4,9 +4,9 @@ Blacklight nodes are rewarded for the verification work they perform. Nodes are 
 
 ## Staking
 
-Staking (and unstaking are) defined by the Smart Contract [here](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/StakingOperators.sol). 
+Staking (and unstaking are) defined by the [corresponding smart contract](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/StakingOperators.sol). 
 
-In order to be assigned verification work by [Nillion's Ethereum L2](/blacklight/verify/network), Blacklight nodes must stake a minimum amount of NIL against their node. Currently this is set to 70,000 NIL. For every HTX that is sent by a TEE operator to Nillion Blacklight, the L2 assigns a committee of Blacklight nodes to verify it. Assignment is based on stake: the more stake a Blacklight node has, the higher the chance of it being assigned work. You can read more about the committee assignment process [here](/blacklight/learn/verification#committee-selection).
+In order to be assigned verification work by [Nillion's Ethereum L2](/blacklight/verify/network), Blacklight node operators must stake a minimum amount of NIL against their node. Currently this minimum is set to 70,000 NIL. For every HTX that is sent by a TEE operator to Nillion Blacklight, the L2 assigns a committee of Blacklight nodes to verify it. Assignment is based on stake: the more stake a Blacklight node has, the higher the chance of it being assigned work. You can read more about the [committee selection process](/blacklight/learn/verification#committee-selection).
 
 ## Rewards
 
@@ -17,6 +17,6 @@ Once a Blacklight node is assigned a HTX to verify, it must verify it and report
 
 The greater a Blacklight nodes stake, the more work it will likely be assigned, the higher rewards it can earn. See the [budget reward allocator smart contract](https://explorer-nilav-shzvox09l5.t.conduit.xyz/address/0xb7223d0a84a8e0c5a5d384b57f2ba3b2cb216ed9) for more details.
 
-## Example APY Calculations
+### Example APY Calculations
 
 APY is variable because rewards come from a fixed annual pool and depend on the total Blacklight stake. APY can approximately be calculated according to the formula **0.5% × (total NIL supply) / (total Blacklight stake)**. For example, the expected APY is ~33% if 15M NIL is staked and the expected APY is ~10% if 50M NIL is staked.

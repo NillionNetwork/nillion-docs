@@ -68,7 +68,7 @@ function FeaturesSection() {
       title: 'Community',
       description:
         'Join the Nillion community to connect, collaborate, and contribute to the future of blind computation.',
-      icon: '🌐',
+      icon: '🤝',
       href: './community/community-and-support',
     },
   ];
