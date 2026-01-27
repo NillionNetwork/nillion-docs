@@ -33,9 +33,3 @@ Mainnet contract addresses will be available at launch.
 | HeartbeatManager          | [0x3dbE95E20B370C5295E7436e2d887cFda8bcb02c](https://explorer-nilav-shzvox09l5.t.conduit.xyz/address/0x3dbe95e20b370c5295e7436e2d887cfda8bcb02c) |
 | RewardPolicy              | [0xB7223d0a84A8e0c5a5D384b57F2bA3b2Cb216ed9](https://explorer-nilav-shzvox09l5.t.conduit.xyz/address/0xb7223d0a84a8e0c5a5d384b57f2ba3b2cb216ed9) |
 | JailingPolicy             | [0x7Fe02E082ff4E377AbE4E80bd428e45047dEe957](https://explorer-nilav-shzvox09l5.t.conduit.xyz/address/0x7fe02e082ff4e377abe4e80bd428e45047dee957) |
-
-#### Tokens
-
-| Token       | Address                                                                                                                                          |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Testnet NIL | [0xf65b7cCF9f13ef932093bac19Eb5ea77ee70F4A4](https://explorer-nilav-shzvox09l5.t.conduit.xyz/address/0xf65b7ccf9f13ef932093bac19eb5ea77ee70f4a4) |

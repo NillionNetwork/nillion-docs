@@ -9,25 +9,6 @@ const blacklightSidebar = [
   'blacklight/learn/architecture',
   'blacklight/learn/verification',
   'blacklight/learn/staking-and-rewards',
-  // {
-  //   type: 'category',
-  //   label: 'Run a Verifier Node',
-  //   link: {
-  //     type: 'doc',
-  //     id: 'blacklight/verify/run-node',
-  //   },
-  //   items: [],
-  // },
-  // {
-  //   type: 'category',
-  //   label: 'Register your Apps',
-  //   link: {
-  //     type: 'doc',
-  //     id: 'blacklight/verify/register-apps',
-  //   },
-  //   items: [],
-  // },
-  // 'blacklight/verify/contracts',
   {
     type: 'html',
     className: 'sidebar-title',
@@ -43,6 +24,25 @@ const blacklightSidebar = [
     },
     items: [],
   },
+  {
+    type: 'category',
+    label: 'Run a Verifier Node',
+    link: {
+      type: 'doc',
+      id: 'blacklight/verify/run-node',
+    },
+    items: [],
+  },
+  {
+    type: 'category',
+    label: 'Register your Apps',
+    link: {
+      type: 'doc',
+      id: 'blacklight/verify/register-apps',
+    },
+    items: [],
+  },
+  'blacklight/verify/contracts',
   {
     type: 'html',
     className: 'sidebar-title',

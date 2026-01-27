@@ -646,11 +646,20 @@ article img[src*="/img/collection_explorer/"] {
 
 /* Tables in dark mode */
 [data-theme='dark'] table {
-  background-color: #212134;
+  background-color: transparent;
+  width: 100%;
 }
 
 [data-theme='dark'] table thead {
   background-color: #2a2a5a;
+}
+
+[data-theme='dark'] table thead th {
+  background-color: #2a2a5a;
+}
+
+[data-theme='dark'] table tbody tr {
+  background-color: #000000;
 }
 
 [data-theme='dark'] table tr:nth-child(even) {
