@@ -173,21 +173,15 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'learn/what-is-nillion',
-            label: 'Learn',
+            docId: 'blacklight/learn/overview',
+            label: 'Blacklight',
           },
           {
             type: 'doc',
             position: 'left',
-            docId: 'build/quickstart',
-            label: 'Build',
+            docId: 'blind-computer/learn/overview',
+            label: 'Blind Computer',
           },
-          // {
-          //   type: 'doc',
-          //   position: 'left',
-          //   docId: 'api/overview',
-          //   label: 'API',
-          // },
           {
             type: 'doc',
             position: 'left',
@@ -199,7 +193,6 @@ const config = {
             label: 'Articles',
             position: 'left',
           },
-
           {
             href: 'https://github.com/NillionNetwork',
             className: 'header-github',
@@ -340,13 +333,145 @@ const config = {
       {
         redirects: [
           {
-            to: '/build/compute/overview',
+            to: '/blind-computer/learn/overview',
+            from: ['/blind-computer/build/quickstart'],
+          },
+          {
+            to: '/blind-computer/build/storage/blindfold',
+            from: ['/build/private-storage/blindfold'],
+          },
+          {
+            to: '/blind-computer/build/storage/collection-explorer',
+            from: ['/build/private-storage/collection-explorer'],
+          },
+          {
+            to: '/blind-computer/build/storage/key-concepts',
+            from: ['/build/private-storage/key-concepts'],
+          },
+          {
+            to: '/blind-computer/build/storage/metamask-guide',
+            from: ['/build/private-storage/metamask-guide'],
+          },
+          {
+            to: '/blind-computer/build/storage/overview',
+            from: ['/build/private-storage/overview'],
+          },
+          {
+            to: '/blind-computer/build/storage/platform',
+            from: ['/build/private-storage/platform'],
+          },
+          {
+            to: '/blind-computer/build/storage/platform-nextjs',
+            from: ['/build/private-storage/platform-nextjs'],
+          },
+          {
+            to: '/blind-computer/build/storage/platform-nodejs',
+            from: ['/build/private-storage/platform-nodejs'],
+          },
+          {
+            to: '/blind-computer/build/storage/platform-react',
+            from: ['/build/private-storage/platform-react'],
+          },
+          {
+            to: '/blind-computer/build/storage/quickstart',
+            from: ['/build/private-storage/quickstart'],
+          },
+          {
+            to: '/blind-computer/build/storage/secretvaults',
+            from: ['/build/private-storage/secretvaults'],
+          },
+          {
+            to: '/blind-computer/build/storage/ts-docs',
+            from: ['/build/private-storage/ts-docs'],
+          },
+          {
+            to: '/blind-computer/build/compute/verification',
             from: [
-              '/build/nilcc'
+              '/blind-computer/build/compute/verify',
+              '/build/compute/verify',
             ],
           },
           {
-            to: '/build/private-storage/overview',
+            to: '/blind-computer/build/llms/advanced/web_search',
+            from: ['/build/private-llms/advanced/web_search'],
+          },
+          {
+            to: '/blind-computer/build/llms/advanced/private_prompts',
+            from: ['/build/private-llms/advanced/private_prompts'],
+          },
+          {
+            to: '/blind-computer/build/llms/usage',
+            from: ['/build/private-llms/usage'],
+          },
+          {
+            to: '/blind-computer/build/llms/quickstart',
+            from: ['/build/private-llms/quickstart'],
+          },
+          {
+            to: '/blind-computer/build/llms/overview',
+            from: ['/build/private-llms/overview'],
+          },
+          {
+            to: '/blind-computer/build/llms/nilRAG',
+            from: ['/build/private-llms/nilRAG'],
+          },
+          {
+            to: '/blind-computer/build/llms/key-concepts',
+            from: ['/build/private-llms/key-concepts'],
+          },
+          {
+            to: '/blind-computer/build/network-api-access',
+            from: ['/build/network-api-access'],
+          },
+          {
+            to: '/blind-computer/build/network-config',
+            from: ['/build/network-config'],
+          },
+          {
+            to: '/blind-computer/build/permissions-and-payments',
+            from: ['/build/permissions-and-payments'],
+          },
+          {
+            to: '/blind-computer/learn/overview',
+            from: ['/build/quickstart'],
+          },
+          {
+            to: '/blind-computer/build/compute/quickstart',
+            from: ['/build/compute/quickstart'],
+          },
+          {
+            to: '/blind-computer/build/compute/limitations',
+            from: ['/build/compute/limitations'],
+          },
+          {
+            to: '/blind-computer/build/compute/key-concepts',
+            from: ['/build/compute/key-concepts'],
+          },
+          {
+            to: '/blind-computer/build/compute/architecture',
+            from: ['/build/compute/architecture'],
+          },
+          {
+            to: '/blind-computer/build/compute/api-reference',
+            from: ['/build/compute/api-reference'],
+          },
+          {
+            to: '/blind-computer/build/compute/overview',
+            from: [
+              '/build/nilcc',
+              '/build/compute/overview',
+            ],
+          },
+          {
+            to: '/blind-computer/tools',
+            from: ['/tools'],
+          },
+          {
+            to: '/blind-computer/tools/ai-assisted-workflow',
+            from: ['/build/ai-assisted-workflow'],
+          },
+          {
+            to: '/blind-computer/build/storage/overview',
             from: [
               '/build/nildb',
               '/build/secret-vault',
@@ -359,51 +484,57 @@ const config = {
             ],
           },
           {
-            to: '/build/private-storage/quickstart',
+            to: '/blind-computer/build/storage/quickstart',
             from: '/build/secret-vault-quickstart',
           },
           {
-            to: '/build/private-storage/secretvaults',
+            to: '/blind-computer/build/storage/secretvaults',
             from: '/build/secretvaults',
           },
           {
-            to: '/build/private-storage/blindfold',
+            to: '/blind-computer/build/storage/blindfold',
             from: '/build/blindfold',
           },
           {
-            to: '/build/private-llms/overview',
+            to: '/blind-computer/build/llms/overview',
             from: [
               '/build/nilai',
               '/build/secretLLM/overview',
-              '/build/secretLLM/usage'
+              '/build/secretLLM/usage',
             ],
           },
           {
-            to: '/build/private-llms/quickstart',
+            to: '/blind-computer/build/llms/quickstart',
             from: '/build/secretLLM/quickstart',
           },
           {
-            to: '/build/private-llms/nilRAG',
+            to: '/blind-computer/build/llms/nilRAG',
             from: '/build/nilRAG',
           },
           {
-            to: '/learn/blind-modules',
-            from: '/build/blind-modules',
+            to: '/blind-computer/learn/blind-modules',
+            from: [
+              '/build/blind-modules',
+              '/learn/blind-modules',
+            ]
           },
           {
-            to: '/learn/what-is-nillion',
-            from: '/what-is-nillion',
+            to: '/blind-computer/learn/overview',
+            from: [
+              '/learn/what-is-nillion',
+              '/what-is-nillion',
+            ],
           },
           {
-            to: '/build/quickstart',
+            to: '/blind-computer/learn/overview',
             from: '/quickstart',
           },
           {
-            to: '/build/network-config',
+            to: '/blind-computer/build/network-config',
             from: '/network',
           },
           {
-            to: '/build/network-api-access',
+            to: '/blind-computer/build/network-api-access',
             from: [
               '/build/permissions-and-payments/overview',
               '/build/secretVault-secretDataAnalytics/generate-tokens',
@@ -417,7 +548,7 @@ const config = {
             from: '/community-and-support',
           },
           {
-            to: '/community/guides/testnet',
+            to: '/community/guides/testnet-faucet',
             from: '/testnet-guides',
           },
           {

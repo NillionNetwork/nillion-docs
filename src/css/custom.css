@@ -24,9 +24,25 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] [class*='featureItem_src-components-Features-FeatureSection-index-module'] {
+  background-color: #212134 !important;
+}
+
+[data-theme='dark'] [class*='featureIcon_src-components-Features-FeatureSection-index-module'] {
+  background-color: #212134 !important;
+}
+
+[data-theme='dark'] [class*='featureItem_src-pages-index-module toolFeatureItem_src-components-ToolFeatureItem-styles-module'] {
+  background-color: #212134 !important;
+}
+
+[data-theme='dark'] .smallCustomButton_src-components-LinkButton-styles-module {
+  background-color: #333352 !important;
+}
+
 [data-theme='dark'] {
   /* Nillion brand colors for dark mode */
-  --ifm-color-primary: #8a89ff;
+  --ifm-color-primary: #8888FF;
   --ifm-color-primary-dark: #6f6eff;
   --ifm-color-primary-darker: #6f6eff;
   --ifm-color-primary-darkest: #6f6eff;
@@ -35,20 +51,20 @@
   --ifm-color-primary-lightest: #cccbff;
 
   /* Background colors */
-  --ifm-background-color: #12125a;
-  --ifm-background-surface-color: #1a1a6e;
-  --ifm-card-background-color: #1a1a6e;
-  --ifm-sidebar-background-color: #12125a;
-  --ifm-navbar-background-color: #12125a;
+  --ifm-background-color: #000000;
+  --ifm-background-surface-color: #212134;
+  --ifm-card-background-color: #212134;
+  --ifm-sidebar-background-color: #000000;
+  --ifm-navbar-background-color: #000000;
 
   /* Text colors */
   --ifm-font-color-base: #ffffff;
   --ifm-font-color-secondary: #b0b0b0;
 
   /* Border and divider colors */
-  --ifm-toc-border-color: #4746a7;
-  --ifm-table-border-color: #4746a7;
-  --ifm-hr-background-color: #4746a7;
+  --ifm-toc-border-color: #474747;
+  --ifm-table-border-color: #474747;
+  --ifm-hr-background-color: #474747;
 
   /* Card and container styling */
   --ifm-card-primary-grey: #3a3a3a;
@@ -139,13 +155,13 @@ h4 {
 }
 
 [data-theme='dark'] .sidebar-title {
-  border-bottom: solid #4746a7 1px;
+  border-bottom: solid #474747 1px;
 }
 
 /* Additional dark mode overrides for Nillion brand */
 [data-theme='dark'] .navbar {
-  background-color: #12125a;
-  border-bottom: 1px solid #4746a7;
+  background-color: #000000;
+  border-bottom: 1px solid #474747;
 }
 
 /* Navbar items hover state */
@@ -154,7 +170,7 @@ h4 {
 }
 
 [data-theme='dark'] .navbar__item.navbar__link:hover {
-  color: #8a89ff !important;
+  color: #8888FF !important;
   background-color: rgba(138, 137, 255, 0.1);
   border-radius: 0.375rem;
 }
@@ -176,7 +192,7 @@ h4 {
 
 [data-theme='dark'] .menu__link:hover,
 [data-theme='dark'] .menu__link--active {
-  color: #8a89ff;
+  color: #8888FF;
 }
 
 [data-theme='dark'] .table-of-contents__link {
@@ -185,12 +201,12 @@ h4 {
 
 [data-theme='dark'] .table-of-contents__link:hover,
 [data-theme='dark'] .table-of-contents__link--active {
-  color: #8a89ff;
+  color: #8888FF;
 }
 
 [data-theme='dark'] .footer {
-  background-color: #12125a;
-  border-top: 1px solid #4746a7;
+  background-color: #000000;
+  border-top: 1px solid #474747;
 }
 
 [data-theme='dark'] .footer__link-item {
@@ -207,71 +223,71 @@ h4 {
 }
 
 [data-theme='dark'] .footer__link-item:hover {
-  color: #8a89ff;
+  color: #8888FF;
 }
 
 [data-theme='dark'] .admonition {
-  background-color: #1a1a6e;
-  border-left-color: #8a89ff;
+  background-color: #212134;
+  border-left-color: #8888FF;
 }
 
 [data-theme='dark'] .alert {
-  background-color: #1a1a6e;
-  border-color: #4746a7;
+  background-color: #212134;
+  border-color: #474747;
 }
 
 /* Homepage specific dark mode styles */
 [data-theme='dark'] .homepage {
-  background-color: #12125a;
+  background-color: #000000;
 }
 
 [data-theme='dark'] .navbar--fixed-top {
-  background-color: #12125a;
-  border-bottom: 1px solid #4746a7;
+  background-color: #000000;
+  border-bottom: 1px solid #474747;
 }
 
 /* Documentation pages dark mode background */
 [data-theme='dark'] .main-wrapper {
-  background-color: #12125a;
+  background-color: #000000;
 }
 
 [data-theme='dark']
   .docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
-  background-color: #12125a;
+  background-color: #000000;
 }
 
 [data-theme='dark'] article {
-  background-color: #12125a;
+  background-color: #000000;
 }
 
 [data-theme='dark'] .theme-doc-markdown {
-  background-color: #12125a;
+  background-color: #000000;
 }
 
 /* Ensure sidebar has correct background */
 [data-theme='dark'] aside.theme-doc-sidebar-container {
-  background-color: #12125a;
-  border-right: 1px solid #4746a7;
+  background-color: #000000;
+  border-right: 1px solid #474747;
 }
 
 /* TOC sidebar background */
 [data-theme='dark'] .theme-doc-toc-desktop {
-  background-color: #12125a;
+  background-color: #000000;
 }
 
 /* Pagination background */
 [data-theme='dark'] .pagination-nav {
-  background-color: #12125a;
+  background-color: #000000;
 }
 
 [data-theme='dark'] .pagination-nav__item {
-  background-color: #1a1a6e;
-  border: 1px solid #4746a7;
+  background-color: #212134;
+  border: 1px solid #474747;
 }
 
 [data-theme='dark'] .pagination-nav__item:hover {
   background-color: #2a2a5a;
-  border-color: #8a89ff;
+  border-color: #474747;
 }
 
 @media (min-width: 768px) {
@@ -309,14 +325,87 @@ h4 {
   margin: 0 auto;
 }
 
+/* Mermaid light mode theming */
+[data-theme='light'] {
+  --mermaid-bg-color: #f5f5f5;
+  --mermaid-edge-color: #5555CC;
+  --mermaid-node-bg-color: #ffffff;
+  --mermaid-node-border-color: #cccccc;
+  --mermaid-label-color: #000000;
+  --mermaid-label-bg-color: #ffffff;
+  --mermaid-text-color: #000000;
+}
+
+/* Style mermaid diagram elements in light mode */
+[data-theme='light'] .node rect,
+[data-theme='light'] .node circle,
+[data-theme='light'] .node ellipse,
+[data-theme='light'] .node polygon {
+  fill: var(--mermaid-node-bg-color) !important;
+  stroke: var(--mermaid-node-border-color) !important;
+  stroke-width: 2px !important;
+}
+
+[data-theme='light'] .node text,
+[data-theme='light'] .nodeLabel {
+  fill: var(--mermaid-text-color) !important;
+}
+
+[data-theme='light'] .edgePath .path,
+[data-theme='light'] .flowchart-link {
+  stroke: var(--mermaid-edge-color) !important;
+  stroke-width: 2px !important;
+}
+
+[data-theme='light'] .edgeLabel,
+[data-theme='light'] .edgeLabel rect,
+[data-theme='light'] .edgeLabel span,
+[data-theme='light'] .edgeLabel foreignObject,
+[data-theme='light'] .edgeLabel foreignObject div {
+  fill: #ffffff !important;
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+[data-theme='light'] .edgeLabel text,
+[data-theme='light'] .edgeLabel span {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
+
+/* Cluster/subgraph styling for light mode */
+[data-theme='light'] .cluster rect {
+  fill: var(--mermaid-bg-color) !important;
+  stroke: var(--mermaid-node-border-color) !important;
+}
+
+[data-theme='light'] .cluster text {
+  fill: var(--mermaid-text-color) !important;
+}
+
+/* Arrow markers for light mode */
+[data-theme='light'] marker path {
+  fill: var(--mermaid-edge-color) !important;
+  stroke: var(--mermaid-edge-color) !important;
+}
+
+/* Force all mermaid text to be black in light mode */
+[data-theme='light'] .docusaurus-mermaid-container svg text,
+[data-theme='light'] .docusaurus-mermaid-container svg tspan,
+[data-theme='light'] .docusaurus-mermaid-container svg .nodeLabel,
+[data-theme='light'] .docusaurus-mermaid-container svg .label {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
+
 /* Mermaid dark mode theming */
 [data-theme='dark'] {
-  --mermaid-bg-color: #1a1a6e;
-  --mermaid-edge-color: #8a89ff;
+  --mermaid-bg-color: #212134;
+  --mermaid-edge-color: #8888FF;
   --mermaid-node-bg-color: #2a2a2a;
-  --mermaid-node-border-color: #4746a7;
+  --mermaid-node-border-color: #474747;
   --mermaid-label-color: #ffffff;
-  --mermaid-label-bg-color: #12125a;
+  --mermaid-label-bg-color: #000000;
   --mermaid-text-color: #ffffff;
 }
 
@@ -459,7 +548,7 @@ article img[src*="/img/collection_explorer/"] {
 }
 
 [data-theme='dark'] .blog-sidebar a:hover {
-  color: #8a89ff !important;
+  color: #8888FF !important;
   text-decoration: none !important;
 }
 
@@ -476,7 +565,7 @@ article img[src*="/img/collection_explorer/"] {
 
 [data-theme='dark'] .sidebarItemList a:hover,
 [data-theme='dark'] .sidebarItem a:hover {
-  color: #8a89ff !important;
+  color: #8888FF !important;
   text-decoration: none !important;
 }
 
@@ -501,7 +590,7 @@ article img[src*="/img/collection_explorer/"] {
 
 /* Base dark mode link styles - apply to ALL links */
 [data-theme='dark'] a {
-  color: #8a89ff !important;
+  color: #8888FF !important;
 }
 
 [data-theme='dark'] a:hover {
@@ -514,7 +603,7 @@ article img[src*="/img/collection_explorer/"] {
 }
 
 [data-theme='dark'] .menu__link:hover {
-  color: #8a89ff !important;
+  color: #8888FF !important;
 }
 
 [data-theme='dark'] .navbar__item {
@@ -526,7 +615,7 @@ article img[src*="/img/collection_explorer/"] {
 }
 
 [data-theme='dark'] .table-of-contents__link:hover {
-  color: #8a89ff !important;
+  color: #8888FF !important;
 }
 
 [data-theme='dark'] .footer__link-item {
@@ -534,30 +623,30 @@ article img[src*="/img/collection_explorer/"] {
 }
 
 [data-theme='dark'] .footer__link-item:hover {
-  color: #8a89ff !important;
+  color: #8888FF !important;
 }
 
 /* Dark mode code blocks and pre elements */
 [data-theme='dark'] pre {
   background-color: #2a2a2a !important;
-  border: 1px solid #4746a7;
+  border: 1px solid #474747;
 }
 
 [data-theme='dark'] code {
   background-color: #2a2a2a;
-  border-color: #4746a7;
+  border-color: #474747;
 }
 
 /* Inline code */
 [data-theme='dark'] :not(pre) > code {
   background-color: #2a2a2a;
-  border: 1px solid #4746a7;
+  border: 1px solid #474747;
   color: #b5b4f5;
 }
 
 /* Tables in dark mode */
 [data-theme='dark'] table {
-  background-color: #1a1a6e;
+  background-color: #212134;
 }
 
 [data-theme='dark'] table thead {
@@ -595,7 +684,7 @@ article img[src*="/img/collection_explorer/"] {
 
 /* Breadcrumb separators */
 [data-theme='dark'] .breadcrumbs__separator {
-  color: #4746a7;
+  color: #474747;
 }
 
 /* Logo sizing consistency */
@@ -647,14 +736,14 @@ article img[src*="/img/collection_explorer/"] {
 }
 
 [data-theme='dark'] .tabs__item--active {
-  color: #8a89ff;
-  border-bottom-color: #8a89ff;
+  color: #8888FF;
+  border-bottom-color: #8888FF;
   background-color: transparent;
 }
 
 [data-theme='dark'] .tabs__item--active:hover {
-  color: #8a89ff;
-  border-bottom-color: #8a89ff;
+  color: #8888FF;
+  border-bottom-color: #8888FF;
   background-color: rgba(138, 137, 255, 0.05);
 }
 

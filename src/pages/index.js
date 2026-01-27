@@ -23,7 +23,7 @@ function HeroSection() {
         <div className={styles.getStartedButton}>
           <LinkButton
             text="Get Started"
-            link="/build/quickstart"
+            link="/blind-computer/learn/overview"
             small={true}
           />
         </div>
@@ -52,23 +52,23 @@ function FeatureItem({ title, description, href, icon }) {
 function FeaturesSection() {
   const features = [
     {
-      title: 'Learn',
+      title: 'Blacklight',
       description:
-        'Nillion is a secure computation network that decentralizes trust for high value data in the same way that blockchains decentralized transactions.',
-      icon: '🎓',
-      href: './learn/what-is-nillion',
+        'Blacklight is the verification layer of the Blind Computer.',
+      icon: '🌐',
+      href: './blacklight/learn/overview',
     },
     {
-      title: 'Build',
+      title: 'Blind Computer',
       description: 'Start building on Nillion with one of our developer SDKs.',
-      icon: '👷',
-      href: './build/quickstart',
+      icon: '💻',
+      href: './blind-computer/learn/overview',
     },
     {
       title: 'Community',
       description:
         'Join the Nillion community to connect, collaborate, and contribute to the future of blind computation.',
-      icon: '🌐',
+      icon: '🤝',
       href: './community/community-and-support',
     },
   ];

@@ -182,7 +182,7 @@
 
 /* Dark mode styles for FeatureSection */
 [data-theme='dark'] .featureItem {
-  background-color: #1a1a6e;
+  background-color: #212134;
   border: 2px solid transparent;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 }
@@ -201,11 +201,7 @@
   color: #b0b0b0;
 }
 
-[data-theme='dark'] .featureIcon {
-  color: #8a89ff;
-}
-
 [data-theme='dark'] .main {
-  background-color: #12125a;
+  background-color: #000000;
   color: #ffffff;
 }

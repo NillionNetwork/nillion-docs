@@ -5,11 +5,11 @@ const learnSidebar = [
     value: 'Learn',
     defaultStyle: true,
   },
-  'learn/what-is-nillion',
-  'learn/use-cases',
-  'learn/architecture',
-  'learn/blind-modules',
-  'learn/protocols',
+  'blind-computer/learn/overview',
+  'blind-computer/learn/use-cases',
+  'blind-computer/learn/architecture',
+  'blind-computer/learn/blind-modules',
+  'blind-computer/learn/protocols',
 ];
 
 module.exports = {

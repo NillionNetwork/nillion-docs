@@ -12,7 +12,7 @@ hide_table_of_contents: false
 
 At Nillion, we're best known for building advanced privacy-preserving infrastructure. However, there's another essential, though often overlooked, concept that we are enabling - trust. One could argue this is the root concept of all, what can I trust, and why can I trust it?
 
-In this article, we explain what motivated us to build [Tickr](https://tickr.app), and how we applied Nillion's technology, [nilDB](/build/private-storage/overview) (secure database) and nilCC (confidential computing), to solve very specific, but distinct, problems for traders and their communities on centralised exchanges (CEXs) and decentralised exchanges (DEXs).
+In this article, we explain what motivated us to build [Tickr](https://tickr.app), and how we applied Nillion's technology, [nilDB](/blind-computer/build/storage/overview) (secure database) and nilCC (confidential computing), to solve very specific, but distinct, problems for traders and their communities on centralised exchanges (CEXs) and decentralised exchanges (DEXs).
 
 <!-- truncate -->
 
@@ -22,7 +22,7 @@ The CEX (Binance) integration posed a particularly difficult challenge as the da
 
 Traders who want to build an audience and monetise their insights face two distinct, but equally difficult, problems depending on where they trade.
 
-On CEXs like Binance, the issue is verification. Traders might be highly profitable, but they have no reliable way to prove it. There's no on-chain footprint to audit, and most followers are understandably skeptical. As a result, CEX traders often struggle to build trust with their communities or monetise their alpha.
+On CEXs like Binance, the issue is verification. Traders might be highly profitable, but they have no reliable way to prove it. There's no onchain footprint to audit, and most followers are understandably skeptical. As a result, CEX traders often struggle to build trust with their communities or monetise their alpha.
 
 On DEXs, the problem is different. Because all trades are public, traders can prove their performance, but only by doxxing their wallet address. Once a wallet is doxxed, their alpha becomes public too. Anyone can follow and copy their trades in real time, making it almost impossible to monetise premium strategies.
 
@@ -110,7 +110,7 @@ The Tickr backend secret shares the alpha and stores the shares across the nilDB
 
 ### 4 - 5. Subscription and Payment:
 
-Followers subscribe to alpha by paying the required amount in NIL via the [nilChain](/learn/what-is-nillion#nilchain). The resulting transaction hash is sent to the Tickr backend for verification.
+Followers subscribe to alpha by paying the required amount in NIL via the [nilChain](/blind-computer/learn/overview#nilchain). The resulting transaction hash is sent to the Tickr backend for verification.
 
 ### 6 - 7. Subscription verification & permissions granted
 

@@ -4,21 +4,21 @@ export const QuickStartFeatures = [
     description:
       'Run Docker applications in TEEs with cryptographic attestation using nilCC.',
     icon: '🖥️',
-    href: './compute/quickstart',
+    href: '/blind-computer/build/compute/quickstart',
   },
   {
     title: 'Private Storage',
     description:
       'Read and write records to an encrypted database using nilDB APIs.',
     icon: '🏛️',
-    href: './private-storage/quickstart',
+    href: '/blind-computer/build/storage/quickstart',
   },
   {
     title: 'Private LLMs',
     description:
       'Run OpenAI-compatible LLMs privately in a TEE within a nilAI node, without exposing user data.',
     icon: '💬',
-    href: './private-llms/quickstart',
+    href: '/blind-computer/build/llms/quickstart',
   },
 ];
 
@@ -28,14 +28,14 @@ export const Libraries = [
     description:
       'Encrypt/decrypt and secret share data using the blindfold library.',
     icon: '🔐',
-    href: './private-storage/blindfold',
+    href: '/blind-computer/build/storage/blindfold',
   },
   {
     title: 'nilRAG',
     description:
       'Provide context to SecretLLM from SecretVault with nilRAG library.',
     icon: '🔍',
-    href: './private-llms/nilRAG',
+    href: '/blind-computer/build/llms/nilRAG',
   },
 ];
 
@@ -56,5 +56,24 @@ export const Platforms = [
     title: 'React',
     description: 'For client-side web applications (browser-only)',
     href: './platform-react',
+  },
+];
+
+
+
+export const BlacklightActions = [
+  {
+    title: 'Node Operators',
+    description:
+      'Run permissionless Blacklight nodes that are assigned verification tasks via Nillion\'s L2 and earn rewards.',
+    icon: '🌐',
+    href: '/blacklight/verify/run-node',
+  },
+  {
+    title: 'App Developers',
+    description:
+      'Developers can register their TEE workloads (running on nilCC or Phala) to be verified by Blacklight.',
+    icon: '💻',
+    href: '/blacklight/verify/register-apps',
   },
 ];

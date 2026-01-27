@@ -12,7 +12,7 @@ hide_table_of_contents: false
 
 When building privacy-preserving applications, a common challenge is figuring out **how to keep sensitive user data safe** while still being able to work with it. Traditional databases store all information in one place making them a single point of failure if breached.
 
-nilDB takes a very different approach. It’s part of Nillion’s **blind modules**, designed for secure and decentralized data storage. Instead of storing plaintext data values, developers can use [**blindfold**](/build/private-storage/blindfold) encryption within the [**SecretVaults SDK**](/build/private-storage/secretvaults) to **split encrypted data into mathematical shares**, then distribute and store them across multiple nilDB nodes. No single node ever has access to the full value. To reconstruct the data, you need multiple shares from different nodes.
+nilDB takes a very different approach. It’s part of Nillion’s **blind modules**, designed for secure and decentralized data storage. Instead of storing plaintext data values, developers can use [**blindfold**](/blind-computer/build/storage/blindfold) encryption within the [**SecretVaults SDK**](/blind-computer/build/storage/secretvaults) to **split encrypted data into mathematical shares**, then distribute and store them across multiple nilDB nodes. No single node ever has access to the full value. To reconstruct the data, you need multiple shares from different nodes.
 
 This approach gives you a much stronger security guarantee: if one node is compromised, the attacker gets nothing useful.
 
