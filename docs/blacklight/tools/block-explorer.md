@@ -8,4 +8,4 @@ The block explorer for mainnet can be viewed at: [https://explorer.nillion.netwo
 
 ## Testnet
 
-The block explorer for mainnet can be viewed at: [https://explorer.testnet.nillion.network](https://explorer.testnet.nillion.network).
+The block explorer for testnet can be viewed at: [https://explorer.testnet.nillion.network](https://explorer.testnet.nillion.network).
