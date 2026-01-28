@@ -52,7 +52,7 @@ Ensure you have NIL and ETH on Nillion's Ethereum L2.
 You can find a [prerequisites guide here](/blacklight/verify/prerequisites).
 
 :::note
-Your Blacklight node must be online 24/7 to handle verification tasks. We recommend running it on a VPS. As a guideline, a node should have at least 2 CPU cores, 1 GB of RAM, and 1 GB of available storage.
+Your Blacklight node <b>must be online 24/7</b> to handle verification tasks. We recommend running it on a <b>VPS</b>. As a guideline, a node should have at least <b>2 CPU cores, 1 GB of RAM, and 1 GB of available storage</b>.
 :::
 
 ## Walkthrough
@@ -63,126 +63,152 @@ Below is a high‑level walkthrough of the full process so you know what to expe
 
 ### Step 1: Select Platform & Install Docker
 
-  <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem'}}>
-    <img src="/img/blacklight_webapp_choose_platform.png" alt="Webapp pull and run Blacklight node" style={{width: '48%', minWidth: '200px', flex: '1'}} />
-    <img src="/img/blacklight_webapp_docker_command.png" alt="Webapp pull and run Blacklight node" style={{width: '48%', minWidth: '200px', flex: '1'}} />
+<div style={{display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap'}}>
+  <div style={{flex: '1', minWidth: '300px'}}>
+    <p>Blacklight verifier nodes run inside <b>Docker containers</b>. Install Docker for your operating system using the instructions below.</p>
+
+    <Tabs>
+    <TabItem value="macOS" label="macOS">
+
+
+    ```bash
+    brew install --cask docker
+    ```
+
+    Alternatively, you can [download Docker Desktop](https://www.docker.com/products/docker-desktop/) instead.
+    </TabItem>
+
+    <TabItem value="Linux" label="Linux">
+
+
+    ```bash
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    ```
+
+    </TabItem>
+    <TabItem value="Windows" label="Windows">
+
+
+    Download and install [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/).
+    </TabItem>
+    </Tabs>
+
+    :::note
+    After installation, you may need to restart your terminal.
+    :::
   </div>
-
-  <p>Blacklight verifier nodes run inside Docker containers. Install Docker for your operating system using the instructions below.</p>
-
-  <Tabs>
-  <TabItem value="macOS" label="macOS">
-
-
-  ```bash
-  brew install --cask docker
-  ```
-
-  Alternatively, you can [download Docker Desktop](https://www.docker.com/products/docker-desktop/) instead.
-  </TabItem>
-
-  <TabItem value="Linux" label="Linux">
-
-
-  ```bash
-  curl -fsSL https://get.docker.com -o get-docker.sh
-  sudo sh get-docker.sh
-  ```
-
-  </TabItem>
-  <TabItem value="Windows" label="Windows">
-
-
-  Download and install [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/).
-  </TabItem>
-  </Tabs>
-
-  :::note
-  After installation, you may need to restart your terminal.
-  :::
+  <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
+    <img src="/img/blacklight_webapp_choose_platform.png" alt="Webapp choose platform" style={{width: '100%', marginBottom: '1rem'}} />
+    <img src="/img/blacklight_webapp_docker_command.png" alt="Webapp docker command" style={{width: '100%'}} />
+  </div>
+</div>
 </div>
 
 <div style={{borderTop: '2px solid var(--ifm-color-emphasis-200)', paddingTop: '2rem', marginTop: '2rem'}}>
 
 ### Step 2: Setup & Run Node
 
-<center><img src="/img/blacklight_webapp_pull_run_docker.png" alt="Webapp pull and run Blacklight node" style={{width: '60%'}} /></center>
+<div style={{display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap'}}>
+  <div style={{flex: '1', minWidth: '300px'}}>
+    <p><b>First, pull the Blacklight node Docker image:</b></p>
 
-First, pull the Blacklight node Docker image:
+    ```bash
+    docker pull ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.9.0
+    ```
 
-```bash
-docker pull ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.9.0
-```
+    <p><b>Next, run the node once to initialize it and generate a wallet:</b></p>
 
-Next, run the node once to initialize it and generate a wallet:
+    ```bash
+    docker run -it --rm -v ./blacklight_node:/app/ -v ./blacklight_node:/tmp/blacklight-cache ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.9.0 --rpc-url https://rpc.testnet.nillion.network --manager-contract-address 0x8d683fb2CC794E085E8366c4f28f8CC991107576 --staking-contract-address 0x595A112FA10ED66Bc518b28781035BA50C9f2216 --token-contract-address 0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35
+    ```
 
-```bash
-docker run -it --rm -v ./blacklight_node:/app/ -v ./blacklight_node:/tmp/blacklight-cache ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.9.0 --rpc-url https://rpc.testnet.nillion.network --manager-contract-address 0x8d683fb2CC794E085E8366c4f28f8CC991107576 --staking-contract-address 0x595A112FA10ED66Bc518b28781035BA50C9f2216 --token-contract-address 0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35
-```
+    <p>On first run, the node will:</p>
 
-On first run, the node will:
+    1. Generate a new <b>wallet address</b>
+    2. Save it locally to `./blacklight_node/blacklight_node.env`
+    3. Print the wallet address to the terminal
 
-1. Generate a new wallet address
-2. Save it locally to `./blacklight_node/blacklight_node.env`
-3. Print the wallet address to the terminal
+    <p><b>You will need this wallet address in the next steps.</b></p>
 
-You will need this wallet address in the next steps.
-
-You can see the expected output at the command line, and the generated wallet address below.
-
-<center><img src="/img/blacklight_terminal_not_funded.png" alt="Unfunded Blacklight node terminal" style={{width: '70%'}} /></center>
+    <p>You can see the expected output at the command line, and the generated wallet address below.</p>
+  </div>
+  <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
+    <img src="/img/blacklight_webapp_pull_run_docker.png" alt="Webapp pull and run Blacklight node" style={{width: '100%', marginBottom: '1rem'}} />
+    <img src="/img/blacklight_terminal_not_funded.png" alt="Unfunded Blacklight node terminal" style={{width: '100%'}} />
+  </div>
+</div>
 </div>
 
 <div style={{borderTop: '2px solid var(--ifm-color-emphasis-200)', paddingTop: '2rem', marginTop: '2rem'}}>
 
 ### Step 3: Stake NIL Tokens to your Blacklight Node
 
-<center><img src="/img/blacklight_webapp_stake_nil.png" alt="Webapp stake NIL" style={{width: '60%'}} /></center>
+<div style={{display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap'}}>
+  <div style={{flex: '1', minWidth: '300px'}}>
+    <p>Next, you will stake NIL tokens to your Blacklight node. To be eligible for verification work, your node <b>must have at least 70,000 NIL staked</b>.</p>
 
-Next, you will stake NIL tokens to your Blacklight node. To be eligible for verification work, your node must have at least 70,000 NIL staked.
-
-In the webapp, enter the amount you would like to stake to your Blacklight node, click stake and sign the transaction in your wallet.
+    <p>In the webapp, enter the amount you would like to stake to your Blacklight node, click stake and sign the transaction in your wallet.</p>
+  </div>
+  <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
+    <img src="/img/blacklight_webapp_stake_nil.png" alt="Webapp stake NIL" style={{width: '100%'}} />
+  </div>
+</div>
 </div>
 
 <div style={{borderTop: '2px solid var(--ifm-color-emphasis-200)', paddingTop: '2rem', marginTop: '2rem'}}>
 
 ### Step 4: Add ETH to your Blacklight Node
 
-<center><img src="/img/blacklight_webapp_stake_eth.png" alt="Webapp stake ETH" style={{width: '60%'}} /></center>
+<div style={{display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap'}}>
+  <div style={{flex: '1', minWidth: '300px'}}>
+    <p>Your Blacklight node will need a small amount of <b>ETH on Nillion's L2</b> to pay for gas when sending verified transactions back to the L2.</p>
 
-Your Blacklight node will need a small amount of ETH on Nillion's L2 to pay for gas when sending verified transactions back to the L2.
+    <p>In the webapp, enter the amount of ETH you would like to fund your node with and confirm the transaction.</p>
 
-In the webapp, enter the amount of ETH you would like to fund your node with and confirm the transaction.
-
-We recommend funding the node between 0.0001ETH and 0.001 ETH, which should be enough for a number of weeks of verifications.
+    <p>We recommend funding the node between <b>0.0001 ETH and 0.001 ETH</b>, which should be enough for a number of weeks of verifications.</p>
+  </div>
+  <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
+    <img src="/img/blacklight_webapp_stake_eth.png" alt="Webapp stake ETH" style={{width: '100%'}} />
+  </div>
+</div>
 </div>
 
 <div style={{borderTop: '2px solid var(--ifm-color-emphasis-200)', paddingTop: '2rem', marginTop: '2rem'}}>
 
 ### Step 5: Start Node
 
-<center><img src="/img/blacklight_webapp_run_node.png" alt="Webapp run node" style={{width: '60%'}} /></center>
+<div style={{display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap'}}>
+  <div style={{flex: '1', minWidth: '300px'}}>
+    <p><b>Finally, you need to set your Blacklight node running.</b> Run the command below.</p>
 
-Finally, you need to set your Blacklight node running. Run the command below.
+    ```bash
+    docker run -it --rm -v ./blacklight_node:/app/ -v ./blacklight_node:/tmp/blacklight-cache ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.9.0 --rpc-url https://rpc.nillion.network --manager-contract-address 0x0Ee49a8f50293Fa5d05Ba6d1FC136e7F79b2eA4f --staking-contract-address 0x89c1312Cedb0B0F67e4913D2076bd4a860652B69 --token-contract-address 0x32DEAe728473cb948B4D8661ac0f2755133D4173
+    ```
 
-```bash
-docker run -it --rm -v ./blacklight_node:/app/ -v ./blacklight_node:/tmp/blacklight-cache ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.9.0 --rpc-url https://rpc.nillion.network --manager-contract-address 0x0Ee49a8f50293Fa5d05Ba6d1FC136e7F79b2eA4f --staking-contract-address 0x89c1312Cedb0B0F67e4913D2076bd4a860652B69 --token-contract-address 0x32DEAe728473cb948B4D8661ac0f2755133D4173
-```
-
-After running this command, you should see "✅ Ready to operate" followed by "Node registered successfully" in your terminal. This means your Blacklight node is successfully running correctly. 
-
-<center><img src="/img/blacklight_terminal_ready.png" alt="Blacklight node terminal ✅ Ready" style={{width: '45%'}} /></center>
+    <p>After running this command, you should see <b>"✅ Ready to operate"</b> followed by <b>"Node registered successfully"</b> in your terminal. This means your Blacklight node is successfully running correctly.</p>
+  </div>
+  <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
+    <img src="/img/blacklight_webapp_run_node.png" alt="Webapp run node" style={{width: '100%', marginBottom: '1rem'}} />
+    <center><img src="/img/blacklight_terminal_ready.png" alt="Blacklight node terminal ✅ Ready" style={{width: '70%'}} /></center>
+  </div>
+</div>
 </div>
 
 <div style={{borderTop: '2px solid var(--ifm-color-emphasis-200)', paddingTop: '2rem', marginTop: '2rem'}}>
 
 ### Node Dashboard
 
-<center><img src="/img/blacklight_webapp_dashboard.png" alt="Webapp dashboard" style={{width: '60%'}} /></center>
+<div style={{display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap'}}>
+  <div style={{flex: '1', minWidth: '300px'}}>
+    <p>Once your node is running, you can monitor it in the dashboard. Here you can view the status and manage your node.</p>
 
-Once your node is running, you can monitor it in the dashboard. Here you can view the status and manage your node. 
+    <p>You can stake, unstake and then withdraw your funds. Note there is a <b>7 day unbonding period</b>. Only after this period, you can withdraw your funds.</p>
 
-You can stake, unstake and then withdraw your funds. Note there is a 7 day unbonding period. Only after this period, you can withdraw your funds.
-
-You can also claim your rewards (to the wallet you staked from) and fund your Blacklight node with more ETH.
+    <p>You can also claim your rewards (to the wallet you staked from) and fund your Blacklight node with more ETH.</p>
+  </div>
+  <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
+    <img src="/img/blacklight_webapp_dashboard.png" alt="Webapp dashboard" style={{width: '100%'}} />
+  </div>
+</div>
 </div>
