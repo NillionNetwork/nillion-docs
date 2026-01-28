@@ -24,6 +24,6 @@ Consensus is determined using two stake-weighted conditions: a quorum requiremen
 
 ## Blacklight Nodes
 
-[Blacklight nodes](/blacklight/verify/run-node) are permissionless verifier nodes that perform the core verification work of the network. When assigned a HTX, a Blacklight node retrieves the workload’s attestation report directly from the TEE operator and independently verifies its authenticity and correctness.
+Blacklight nodes are permissionless verifier nodes that perform the core verification work of the network. When assigned a HTX, a Blacklight node retrieves the workload’s attestation report directly from the TEE operator and independently verifies its authenticity and correctness.
 
 Each node submits a signed verification result back to the L2. Once consensus is reached, nodes that contributed to the finalised outcome are eligible for rewards.
