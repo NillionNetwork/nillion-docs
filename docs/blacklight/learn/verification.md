@@ -1,23 +1,22 @@
 # Verification
 
-This page describes the verification protocol from Nillion Blacklight.
-For an overview of the system architecture and its three core components (TEE Operators, Nillion's Ethereum L2, and Blacklight Nodes), see the [architecture](/blacklight/learn/architecture) page.
+This page describes the verification protocol utilized within Nillion Blacklight. For an overview of the system architecture and its three core components (TEE operators, Nillion's Ethereum L2, and Blacklight nodes), see the [architecture page](/blacklight/learn/architecture).
 
 
 ## TEE Operators
 
-Developers run their workloads inside Trusted Execution Environments (TEEs), such as [nilCC](/blind-computer/build/compute/overview).
+Developers run their workloads inside trusted execution environments (TEEs), such as [nilCC](/blind-computer/build/compute/overview).
 For each active workload, the TEE operators periodically submit heartbeat transactions (HTXs) to [Nillion's Ethereum L2](/blacklight/verify/network) at custom intervals (e.g., one every hour).
 
 ### Heartbeat Transaction (HTX)
 
-Each HTX serves as a proof of liveness, asserting that:
+Each HTX serves as a proof of liveness, asserting the three facts below.
+
 - The workload is still running inside a real TEE enclave
 - The workload is ready to be independently verified by the network
 - The workload maintains its privacy and integrity guarantees
 
-An HTX contains the metadata required for Blacklight nodes to independently verify a TEE workload.
-The following example illustrates the structure of an HTX:
+An HTX contains the metadata required for Blacklight nodes to independently verify a TEE workload. The below example illustrates the structure of an HTX.
 
 ```json
 {
@@ -39,7 +38,7 @@ The following example illustrates the structure of an HTX:
 }
 ```
 
-Key components of the HTX:
+The key components of an HTX are enumerated below.
 
 - **`provider`**: Identifies the TEE provider (e.g., "nillion", "phala", etc)
 - **`version`**: HTX protocol version
