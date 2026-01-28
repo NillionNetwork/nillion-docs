@@ -22,7 +22,7 @@ const blacklightSidebar = [
   {
     type: 'html',
     className: 'sidebar-title',
-    value: 'Run a Blacklight node',
+    value: 'Build & Verify',
     defaultStyle: true,
   },
   {
