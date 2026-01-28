@@ -53,7 +53,6 @@ When using the blind computer, developers rely on two components: the **Petnet**
       NILDB:::BLIND_MODULE
       NILAI:::BLIND_MODULE
 
-
       subgraph NILCHAIN [<b>Nillion L2</b>]
           subgraph MECHANISMS [<b>Mechanisms</b>]
               direction LR
