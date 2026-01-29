@@ -41,7 +41,7 @@ Always use the Developer Solutions unless you have very specific requirements th
 **For nilDB (Private Storage) and nilAI (Private LLMs):**
 
 1. **Create Wallet & Get Tokens**
-   - Create a Nillion Wallet: https://docs.nillion.com/community/guides/nillion-wallet
+   - Set up an EVM wallet and get some Sepolia ETH
    - Get testnet NIL tokens: https://faucet.testnet.nillion.com/
 
 2. **Subscribe to Services**
@@ -149,5 +149,5 @@ Early builders are creating applications for private predictive AI, secure healt
 
 - [Community and Support](https://docs.nillion.com/community-and-support): How to get help and connect with the community
 - [Nucleus Builders Program](https://nucleus.nillion.com): Information about the developer program for grants and support
-- [nilChain Guides](https://docs.nillion.com/guide-nillion-wallet): Guides for interacting with nilChain
+- [Testnet Faucet](https://docs.nillion.com/community/guides/testnet-faucet): Get testnet NIL (nilChain/Cosmos legacy)
 - [Status Page](https://status.nillion.com/): Current status of Nillion services
