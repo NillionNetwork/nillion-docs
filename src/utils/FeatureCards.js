@@ -67,13 +67,13 @@ export const BlacklightActions = [
     description:
       'Run permissionless Blacklight nodes that are assigned verification tasks via Nillion\'s L2 and earn rewards.',
     icon: '🌐',
-    href: '/blacklight/verify/run-node',
+    href: '/blacklight/run-node/setup',
   },
   {
     title: 'App Developers',
     description:
       'Developers can register their TEE workloads (running on nilCC or Phala) to be verified by Blacklight.',
     icon: '💻',
-    href: '/blacklight/verify/register-apps',
+    href: '/blacklight/tools/register-apps',
   },
 ];
