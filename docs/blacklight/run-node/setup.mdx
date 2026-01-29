@@ -1,3 +1,4 @@
+import CTABanner from '@site/src/components/CTABanner';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -8,43 +9,13 @@ Anyone in the community can run a permissionless Blacklight verifier node. These
 
 By running a Blacklight node, you contribute to the network's security while earning rewards.
 
-## Getting Started
-
-The easiest way to set up a Blacklight verifier node is through the Blacklight webapp, which guides you step by step through installation, funding, and operation.
-
-<div style={{display: 'flex', justifyContent: 'center', margin: '2rem 0'}}>
-  <a 
-    href="https://blacklight.nillion.com" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    style={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      gap: '0.75rem',
-      padding: '1rem 2rem',
-      backgroundColor: 'var(--ifm-color-primary)',
-      color: 'var(--ifm-color-primary-contrast-background)',
-      borderRadius: '8px',
-      textDecoration: 'none',
-      fontWeight: '600',
-      fontSize: '1.1rem',
-      transition: 'all 0.2s ease',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.transform = 'translateY(-2px)';
-      e.currentTarget.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.15)';
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    }}
-  >
-    <span>🚀</span>
-    <span>Visit the Blacklight WebApp</span>
-    <span style={{fontSize: '0.9rem'}}>↗</span>
-  </a>
-</div>
+<CTABanner
+  question='Getting Started'
+  instruction='The easiest way to set up a Blacklight verifier node is through the Blacklight WebApp, which guides you step by step through installation, funding, and operation.'
+  buttonText='Visit the Blacklight WebApp'
+  buttonLink='https://blacklight.nillion.com'
+  external={true}
+/>
 
 ## Prerequisites
 
@@ -166,7 +137,7 @@ Below is a high‑level walkthrough of the full process so you know what to expe
 
     <p>In the webapp, enter the amount of ETH you would like to fund your node with and confirm the transaction.</p>
 
-    <p>We recommend funding the node between <b>0.0001 ETH and 0.001 ETH</b>, which should be enough for a number of weeks of verifications.</p>
+    <p>We recommend funding the node with between <b>0.0001 ETH and 0.001 ETH</b>, which should be enough for a number of weeks of verifications.</p>
   </div>
   <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
     <img src="/img/blacklight_webapp_stake_eth.png" alt="Webapp stake ETH" style={{width: '100%'}} />

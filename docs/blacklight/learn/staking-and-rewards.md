@@ -15,7 +15,7 @@ Blacklight nodes will initially be rewarded from a reward pool equal to 0.5% inf
 
 Once a Blacklight node is assigned a HTX to verify, it must verify it and report the outcome back to the L2. Once a consensus is reached by the assigned committee of nodes, rewards are distributed from the reward pool by the L2 and can be claimed by Blacklight nodes.
 
-The greater a Blacklight nodes stake, the more work it will likely be assigned, the higher rewards it can earn. See the [budget reward allocator smart contract](https://explorer-nilav-shzvox09l5.t.conduit.xyz/address/0xb7223d0a84a8e0c5a5d384b57f2ba3b2cb216ed9) for more details.
+The greater a Blacklight nodes stake, the more work it will likely be assigned, the higher rewards it can earn. See the [budget reward allocator smart contract](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/RewardPolicy.sol) for more details.
 
 ### Example APY Calculations
 
