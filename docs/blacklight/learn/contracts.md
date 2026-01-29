@@ -28,8 +28,6 @@ The core Solidity smart contracts for Blacklight are deployed on [Nillion's Ethe
 
 ### Testnet
 
-#### Contracts
-
 | Contract                  | Address                                                                                                                                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------|
 | ProtocolConfig            | [0xfa718d54f31bcf49CcaC3a79C276fa87d11E2F44](https://explorer.testnet.nillion.network/address/0xfa718d54f31bcf49ccac3a79c276fa87d11e2f44) |
