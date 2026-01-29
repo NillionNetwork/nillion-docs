@@ -4,7 +4,7 @@ import SupportedWallets from '../../blind-computer/\_testnet_supported_wallets.m
 # Creating a Nillion Wallet (nilChain/Cosmos)
 
 :::info
-Nillion is migrating to Ethereum! **For new users, we recommend [setting up an Ethereum-compatible wallet and connecting to Blacklight](/blacklight/verify/wallet-setup), Nillion's Ethereum L2 network.**
+Nillion is migrating to Ethereum! **For new users, we recommend [setting up an Ethereum-compatible wallet and connecting to Blacklight](/blacklight/tools/wallet-setup), Nillion's Ethereum L2 network.**
 
 This guide is for creating a nilChain (Cosmos) wallet using Keplr, which is still supported but primarily for legacy use cases.
 :::

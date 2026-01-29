@@ -6,7 +6,7 @@ Blacklight nodes are rewarded for the verification work they perform. Nodes are 
 
 Staking (and unstaking are) defined by the [corresponding smart contract](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/StakingOperators.sol). 
 
-In order to be assigned verification work by [Nillion's Ethereum L2](/blacklight/verify/network), Blacklight node operators must stake a minimum amount of NIL against their node. Currently this minimum is set to 70,000 NIL. For every HTX that is sent by a TEE operator to Nillion Blacklight, the L2 assigns a committee of Blacklight nodes to verify it. Assignment is based on stake: the more stake a Blacklight node has, the higher the chance of it being assigned work. You can read more about the [committee selection process](/blacklight/learn/verification#committee-selection).
+In order to be assigned verification work by [Nillion's Ethereum L2](/blacklight/learn/network), Blacklight node operators must stake a minimum amount of NIL against their node. Currently this minimum is set to 70,000 NIL. For every HTX that is sent by a TEE operator to Nillion Blacklight, the L2 assigns a committee of Blacklight nodes to verify it. Assignment is based on stake: the more stake a Blacklight node has, the higher the chance of it being assigned work. You can read more about the [committee selection process](/blacklight/learn/verification#committee-selection).
 
 ## Rewards
 

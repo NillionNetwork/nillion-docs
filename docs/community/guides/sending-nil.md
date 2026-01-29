@@ -4,7 +4,7 @@ import BlockExplorers from '../../blind-computer/\_testnet_block_explorers.mdx';
 # Sending NIL Tokens (nilChain/Cosmos)
 
 :::info
-Nillion is migrating to Ethereum! **For new users, we recommend [setting up an Ethereum-compatible wallet and connecting to Blacklight](/blacklight/verify/wallet-setup), Nillion's Ethereum L2 network.**
+Nillion is migrating to Ethereum! **For new users, we recommend [setting up an Ethereum-compatible wallet and connecting to Blacklight](/blacklight/tools/wallet-setup), Nillion's Ethereum L2 network.**
 
 This guide is for sending NIL tokens on nilChain (Cosmos) using Keplr, which is still supported but primarily for legacy use cases. If you need to bridge NIL from nilChain to Blacklight, see the [Bridging to Blacklight](/blacklight/tools/bridging) guide.
 :::
