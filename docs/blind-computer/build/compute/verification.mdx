@@ -14,7 +14,7 @@ An attestation report is provided by the trusted execution environment (TEE) wit
 2. Understanding of Docker and Git.
 
 ### Usage
-![nilcc verify first step](/img/verify_first_step.png)
+![nilcc verify first step](/img/verify-first-step.png)
 
 1. Visit the nilCC [Workload Manager](https://nilcc.nillion.com/verify).
 2. You can either use a precomputed measurement hash of your workload or compute it locally yourself. 
@@ -49,7 +49,7 @@ The main difference between `precompute` and `local` measurement hash is that th
 ---
 ### Badge Embedding (Optional)
 
-![nilcc verify badge](/img/verify_badge.png)
+![nilcc verify badge](/img/verify-badge.png)
 
 #### Prerequsities
 
@@ -87,10 +87,10 @@ git push origin v0.1.1
 
 Increment the versioning to your preference. Then you GH Action should run and then make a PR request with the latest `verification-manifest.json`
 
-![nilcc GH Action badge](/img/GH_action.png)
+![nilcc GH Action badge](/img/gh-action.png)
 GH Action
 
-![nilcc verify badge](/img/verify_manifest_PR.png)
+![nilcc verify badge](/img/verify-manifest-PR.png)
 Verify PR that was auto-created by the GH Action Bot.
 
 We can now add your public `verification-manifest.json` from your Github Repo to the `Github URL` input box. You will receive a `React/JSX` Code Snippet to use on your site.

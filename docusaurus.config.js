@@ -555,10 +555,6 @@ const config = {
             to: '/community/guides/testnet-faucet',
             from: '/guide-testnet-faucet',
           },
-          {
-            to: '/community/guides/testnet-faucet',
-            from: '/community/guides/nillion-wallet',
-          }
         ],
       },
     ],

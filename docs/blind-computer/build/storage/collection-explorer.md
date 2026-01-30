@@ -2,7 +2,7 @@ import CTABanner from '@site/src/components/CTABanner';
 
 # Collection Explorer
 
-[![Collection Explorer](/img/collection_explorer/collection_explorer_card.png)](https://collection-explorer.nillion.com/)
+[![Collection Explorer](/img/collection-explorer/collection-explorer-card.png)](https://collection-explorer.nillion.com/)
 
 The [Nillion Collection Explorer](https://collection-explorer.nillion.com) is a no-code builder tool for creating and managing Nillion Private Storage schemas, collections, and records. This web-based interface provides a UI abstraction that speeds up and simplifies development by allowing builders to interact with Nillion's private data storage infrastructure without requiring programming knowledge or command-line tools. Everything possible through the Collection Explorer is also available programmatically via the Nillion [Secretvaults SDK](/blind-computer/build/storage/secretvaults).
 
@@ -39,7 +39,7 @@ Once you have a Nillion API Key with an active nilDB subscription, go to the [Co
 3. Enter your [Nillion API Key](/blind-computer/build/network-api-access) for authenticated access
 4. Save your configuration - these settings will persist across Collection Explorer sessions
 
-[![Set API Key](/img/collection_explorer/collection_explorer_set_nillion_api_key.png)](https://collection-explorer.nillion.com/)
+[![Set API Key](/img/collection-explorer/collection-explorer-set-nillion-api-key.png)](https://collection-explorer.nillion.com/)
 
 ## Managing Collections
 
@@ -52,7 +52,7 @@ The Collections dashboard provides an overview of all collections where your bui
 - View key metrics like record count and creation timestamps
 - See collection types (standard or owned)
 
-[![View Collections](/img/collection_explorer/collection_explorer_view_collections.png)](https://collection-explorer.nillion.com/collections)
+[![View Collections](/img/collection-explorer/collection-explorer-view-collections.png)](https://collection-explorer.nillion.com/collections)
 
 ### Create New Collections
 
@@ -69,7 +69,7 @@ The custom schema builder provides an intuitive, visual interface:
 - **Live preview**: See your JSON Schema update in real-time as you build
 - **Schema validation**: Automatic validation ensures your schema is properly formatted
 
-[![Create Collection with the UI](/img/collection_explorer/collection_explorer_create_collection_ui.png)](https://collection-explorer.nillion.com/)
+[![Create Collection with the UI](/img/collection-explorer/collection-explorer-create-collection-ui.png)](https://collection-explorer.nillion.com/)
 
 #### Option 2: JSON Schema Upload (for devs with existing JSON schema code)
 
@@ -80,7 +80,7 @@ If you already have a JSON Schema or prefer working with code:
 - **Error feedback**: Get immediate feedback on any schema formatting issues
 - **Faster setup**: Skip the visual builder if you're comfortable with JSON
 
-[![Create Collection by uploading json](/img/collection_explorer/collection_explorer_create_collection_json.png)](https://collection-explorer.nillion.com/)
+[![Create Collection by uploading json](/img/collection-explorer/collection-explorer-create-collection-json.png)](https://collection-explorer.nillion.com/)
 
 ## Working with Records and Schemas
 
@@ -88,7 +88,7 @@ If you already have a JSON Schema or prefer working with code:
 
 Once you have a collection, you can fully manage its data:
 
-[![View Records](/img/collection_explorer/collection_explorer_records.png)](https://collection-explorer.nillion.com/)
+[![View Records](/img/collection-explorer/collection-explorer-records.png)](https://collection-explorer.nillion.com/)
 
 **Collection Overview:**
 
@@ -112,7 +112,7 @@ Once you have a collection, you can fully manage its data:
 
 Understanding and modifying your collection's structure:
 
-[![View Collection Schema](/img/collection_explorer/collection_explorer_view_schema.png)](https://collection-explorer.nillion.com/)
+[![View Collection Schema](/img/collection-explorer/collection-explorer-view-schema.png)](https://collection-explorer.nillion.com/)
 
 - **Schema visualization**: See the complete JSON Schema that defines your collection's structure and validation rules
 - **Copy functionality**: Easily copy schema JSON for use in other applications or for backup

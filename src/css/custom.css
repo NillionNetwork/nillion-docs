@@ -511,9 +511,9 @@ h4 {
 
 /* Custom CSS for all images in the collection-explorer page */
 article[class*="collection-explorer"] img,
-main img[src*="collection_explorer"],
-/* Fallback: target all images in article content that are from the collection_explorer folder */
-article img[src*="/img/collection_explorer/"] {
+main img[src*="collection-explorer"],
+/* Fallback: target all images in article content that are from the collection-explorer folder */
+article img[src*="/img/collection-explorer/"] {
   border: 2px solid #e0e0e0 !important;
   border-radius: 8px !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
@@ -523,8 +523,8 @@ article img[src*="/img/collection_explorer/"] {
 
 /* Dark mode border styling */
 [data-theme='dark'] article[class*='collection-explorer'] img,
-[data-theme='dark'] main img[src*='collection_explorer'],
-[data-theme='dark'] article img[src*='/img/collection_explorer/'] {
+[data-theme='dark'] main img[src*='collection-explorer'],
+[data-theme='dark'] article img[src*='/img/collection-explorer/'] {
   border-color: #4a4a4a !important;
   box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1) !important;
 }

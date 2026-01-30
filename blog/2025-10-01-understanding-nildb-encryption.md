@@ -4,7 +4,7 @@ description: "How nilDB stores encrypted fields using secret sharing with %share
 slug: nildb-encryption
 authors: nillion-team
 tags: [nilDB, encryption, secret-sharing]
-image: /img/articles/nildb_diagram.png
+image: /img/articles/nildb-diagram.png
 hide_table_of_contents: false
 ---
 
