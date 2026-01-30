@@ -34,41 +34,27 @@ Your EVM wallet should connect to the nilPay Portal. Select `Sepolia` for your d
 
 ## Identity Options
 
-You have several options on which identity you would like to issue / have access to your nilDB and/or nilAI subscription.
+![nilPay Choose Recipient](/img/nilpay-identity-explainer.png)
 
-![nilPay Payment Types](/img/nilpay-identity-explainer.png)
+The **Choose Recipient** step lets you decide which identity will have access to your nilDB and/or nilAI subscription. There are two categories:
 
-- `My Wallet:` Your current ETH wallet address
-- `Another identity:` You may issue access for another Ethereum address.
-- `Generate new Identity:`
-- `Import secret key:`
+| Category | Options | How it works |
+|---|---|---|
+| **Wallet-based** | My Wallet, Another Identity | Access is tied directly to an Ethereum address. Use **My Wallet** for your connected address, or **Another Identity** to grant access to a different Ethereum address. |
+| **Key-based** | Generate New Identity, Import Secret Key | Works like a standard API key approach — a Secp256k1 private key authenticates your requests directly. Use **Generate New Identity** to create a new key, or **Import Secret Key** to reuse an existing one. The key is associated with your Ethereum address at creation time. |
 
-Here is more context regarding the `did:eth` formats.
-
-A DID (Decentralized Identifier) is an unique cryptographic identifier for builders, users, and nodes. Format: `did:eth` which is derived from public keys for verifiable authentication.
+Note: Your address may appear as `did:ethr:0xXXX`. This is a DID (Decentralized Identifier) — a unique cryptographic identifier derived from your public key, used for verifiable authentication.
 
 <Tabs>
 <TabItem value='nilDB' label='Private Storage' default>
 
-![nilPay Payment Types](/img/nilpay-payment-types.png)
-
-For nilDB, you can use all of these options to pay for the subscription.
-- If you want an Ethereum wallet to be the authority for your keys you can use the `Browser Wallet` option.
-- Otherwise if you prefer to be key based, you may import one of your older keys via `Use Secret Key` or `Generate New Key` to create a new one.
-
-If using the Browser Wallet option, you have two options:
-1. Pay for yourself which is recommended if you are the developer of the application.
-2. Paying for others which is recommended if you are subscribing on behalf of someone else.
+For nilDB, all four identity options are available — both wallet-based and key-based.
 
 </TabItem>
 
 <TabItem value='nilAI' label='Private LLM' default>
 
-![nilPay Payment Types](/img/nilpay-payment-ai-flow.png)
-
-For nilAI, you can either use the `Use Secret Key` or `Generate New Key` option for now.
-
-Also ensure to mark the `Create legacy did:nil (for backwards compatibility). This must be selected for nilAI` checkbox for backwards compatibility.
+For nilAI, only key-based options are supported: **Generate New Identity** or **Import Secret Key**. This works like a standard API key approach — your secret key authenticates requests directly. Do not lose your Secret Key.
 
 </TabItem>
 </Tabs>
