@@ -9,7 +9,7 @@ The core Solidity smart contracts for Blacklight are deployed on [Nillion's Ethe
 - [WeightedCommitteeSelector](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/WeightedCommitteeSelector.sol) - Stake-weighted random committee selection
 - [HeartbeatManager](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/HeartbeatManager.sol) - Orchestrates multi-round heartbeat verification with stake-weighted committees
 - [RewardPolicy](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/RewardPolicy.sol) - Streaming budget reward allocator with stake-weighted distribution
-- [NoOpSlashingPolicy](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/NoOpSlashingPolicy.sol) - Penalty enforcement through temporary operator jailing
+- [NoOpSlashingPolicy](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/NoOpSlashingPolicy.sol) - Slashing policy implementation that intentionally applies no penalties or jailing
 - [EmissionsController](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/EmissionsController.sol) - Token emissions scheduler with L1-to-L2 bridging
 - [Interfaces](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/Interfaces.sol) - Shared contract interfaces for pluggable modules
 
