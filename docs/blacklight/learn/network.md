@@ -4,6 +4,8 @@ Users running Blacklight verifier nodes and developers registering their apps fo
 
 ## Mainnet
 
+### Network
+
 | Property        | Value                                           |
 | --------------- | ----------------------------------------------- |
 | Chain Name      | Nillion Network                                |
@@ -13,7 +15,17 @@ Users running Blacklight verifier nodes and developers registering their apps fo
 | Currency Symbol | ETH                                             |
 | Block Explorer  | https://explorer.nillion.network               |
 
+### Token
+
+| Symbol          | Token Address                                           |
+| --------------- | ----------------------------------------------- |
+| NIL             | [0x32DEAe728473cb948B4D8661ac0f2755133D4173](https://explorer.nillion.network/token/0x32DEAe728473cb948B4D8661ac0f2755133D4173) |
+
+---
+
 ## Testnet
+
+### Network
 
 | Property        | Value                                           |
 | --------------- | ----------------------------------------------- |
@@ -24,11 +36,8 @@ Users running Blacklight verifier nodes and developers registering their apps fo
 | Currency Symbol | ETH                                             |
 | Block Explorer  | https://explorer.testnet.nillion.network        |
 
-## NIL Contracts
+### Token
 
-The current contracts for NIL on the L2 are at the addresses below.
-
-| Property        | Value                                           |
+| Symbol          | Token Address                                           |
 | --------------- | ----------------------------------------------- |
-| Mainnet         | [0x32DEAe728473cb948B4D8661ac0f2755133D4173](https://explorer.nillion.network/token/0x32DEAe728473cb948B4D8661ac0f2755133D4173)                                |
-| Testnet         | [0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35](https://explorer.testnet.nillion.network/token/0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35)                                |
+| NIL             | [0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35](https://explorer.testnet.nillion.network/token/0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35) |

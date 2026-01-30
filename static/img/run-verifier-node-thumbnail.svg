@@ -1,0 +1,59 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0021f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a3aff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGradient)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="700" cy="80" r="120" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="720" cy="350" r="80" fill="rgba(255,255,255,0.03)"/>
+  <circle cx="100" cy="320" r="60" fill="rgba(255,255,255,0.04)"/>
+
+  <!-- Network nodes decoration -->
+  <g fill="rgba(255,255,255,0.15)">
+    <circle cx="650" cy="150" r="8"/>
+    <circle cx="720" cy="180" r="6"/>
+    <circle cx="680" cy="220" r="5"/>
+    <circle cx="740" cy="130" r="4"/>
+    <circle cx="600" cy="200" r="6"/>
+    <line x1="650" y1="150" x2="720" y2="180" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <line x1="720" y1="180" x2="680" y2="220" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <line x1="650" y1="150" x2="740" y2="130" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <line x1="650" y1="150" x2="600" y2="200" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  </g>
+
+  <!-- Server/Node icon -->
+  <g transform="translate(80, 140)">
+    <rect x="0" y="0" width="80" height="60" rx="4" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="2"/>
+    <line x1="0" y1="20" x2="80" y2="20" stroke="white" stroke-width="1" opacity="0.5"/>
+    <line x1="0" y1="40" x2="80" y2="40" stroke="white" stroke-width="1" opacity="0.5"/>
+    <circle cx="15" cy="10" r="3" fill="#4ade80"/>
+    <circle cx="15" cy="30" r="3" fill="#4ade80"/>
+    <circle cx="15" cy="50" r="3" fill="#4ade80"/>
+    <rect x="30" y="7" width="40" height="6" rx="2" fill="rgba(255,255,255,0.4)"/>
+    <rect x="30" y="27" width="35" height="6" rx="2" fill="rgba(255,255,255,0.4)"/>
+    <rect x="30" y="47" width="42" height="6" rx="2" fill="rgba(255,255,255,0.4)"/>
+  </g>
+
+  <!-- Main text -->
+  <text x="400" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)">
+    Run a Verifier Node
+  </text>
+
+  <!-- Subtitle -->
+  <text x="400" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="400" fill="rgba(255,255,255,0.8)" text-anchor="middle">
+    Secure the Blind Computer network
+  </text>
+</svg>
