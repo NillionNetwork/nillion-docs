@@ -3,11 +3,11 @@ import TabItem from '@theme/TabItem';
 
 # Network API Access
 
-nilPay allows you to subscribe and create credentials for using the [Private Storage](/blind-computer/build/storage/overview) and [Private LLMs](/blind-computer/build/llms/overview) network APIs.
+The nilPay Subscription Portal allows you to subscribe and create credentials for using the [Private Storage](/blind-computer/build/storage/overview) and [Private LLMs](/blind-computer/build/llms/overview) network APIs.
 
 This guide walks you through the process of creating an API key.
 
-<iframe
+{/* <iframe
   width='100%'
   height='500'
   src='https://www.youtube.com/embed/F1pWAUV78rg'
@@ -15,64 +15,58 @@ This guide walks you through the process of creating an API key.
   frameborder='0'
   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
   allowfullscreen
-></iframe>
+></iframe> */}
+
+
+## Prerequisites
+You must have acquired some Sepolia ETH + NIL via this [faucet guide.](/community/guides/testnet-faucet)
 
 ## Create an API Key
 
-In order to get an API Key, you must have a nillion address. We recommend starting by following the [wallet setup guide](/community/guides/nillion-wallet) to get started.
-
-Use the [nilPay Subscription Portal](https://subscription.nillion.com) to create an API key. 
-
-Ensure you have an EVM browser wallet (i.e. Metamask) + a Cosmos based walled (i.e. Keplr)
+Open up the [nilPay Subscription Portal](https://subscription.nillion.com) to create an API key. Sign in via your desired EVM browser wallet.
 
 ![nilPay Page](/img/nilpay-main-page.png)
 
+## Connecting to Sepolia
+Your EVM wallet should connect to the nilPay Portal. Select `Sepolia` for your desired network.
+
+![nilPay Page](/img/nilpay-identity.png)
+
 ## Identity Options
 
-For those that may have used the previous nilPay Portal, here is more context regarding the `did:nil` and `did:eth` formats.
+<center><img src="/img/nilpay-identity-explainer.png" alt="nilPay Choose Recipient" style={{width: '60%'}} /></center>
 
-A DID (Decentralized Identifier) is an unique cryptographic identifier for builders, users, and nodes. Format: `did:nil:[66-character-hex-string]`. Derived from public keys for verifiable authentication.
+The **Choose Recipient** step lets you decide which identity will have access to your nilDB and/or nilAI subscription. There are two categories:
 
-If you are using an Ethereum wallet, this also maps to the `did:eth` format. 
+| Category | Options | How it works |
+|---|---|---|
+| **Wallet-based** | My Wallet, Another Identity | Access is tied directly to an Ethereum address. Use **My Wallet** for your connected address, or **Another Identity** to grant access to a different Ethereum address. |
+| **Key-based** | Generate New Identity, Import Secret Key | Works like a standard API key approach — a Secp256k1 private key authenticates your requests directly. Use **Generate New Identity** to create a new key, or **Import Secret Key** to reuse an existing one. The key is associated with your Ethereum address at creation time. |
+
+:::note
+        Your address may appear as `did:ethr:0xXXX`. This is a DID (Decentralized Identifier) — a unique cryptographic identifier derived from your public key, used for verifiable authentication.
+:::
 
 <Tabs>
 <TabItem value='nilDB' label='Private Storage' default>
 
-![nilPay Payment Types](/img/nilpay-payment-types.png)
-
-For nilDB, you can use all of these options to pay for the subscription.
-- If you want an Ethereum wallet to be the authority for your keys you can use the `Brower Wallet` option.
-- Otherwise if you prefer to be key based, you may import one of your older keys via `Use Secret Key` or `Generate New Key` to create a new one.
-
-If using the Browser Wallet option, you have two options:
-1. Pay for yourself which is recommended if you are the developer of the application.
-2. Paying for others which is recommended if you are subscribing on behalf of someone else .
+For nilDB, all four identity options are available — both wallet-based and key-based.
 
 </TabItem>
 
 <TabItem value='nilAI' label='Private LLM' default>
 
-![nilPay Payment Types](/img/nilpay-payment-ai-flow.png)
-
-For nilAI, you can either use the `Use Secret Key` or `Generate New Key` option for now.
-
-Also ensure to mark the `Create legacy did:nil (for backwards compatibility). This must be selected for nilAI` checkbox for backwards compatibility.
+For nilAI, only key-based options are supported: **Generate New Identity** or **Import Secret Key**. This works like a standard API key approach — your secret key authenticates requests directly. Do not lose your Secret Key.
 
 </TabItem>
 </Tabs>
 
 ## Subscription to nilAI and/or nilDB
 
-In order to subscribe to a nillion service, you must have a subscription. This is possible by using a set amount of uNIL tokens.
+You have the required NIL from the [prerequisite](#prerequisite) / [testnet faucet](https://faucet.testnet.nillion.network/), so you should be able to subscribe to either of the services.
 
-This is currently for testnet, therefore you can get free NIL from the [testnet faucet.](https://faucet.testnet.nillion.com/) We also have a testnet faucet [guide](/community/guides/testnet-faucet) to help you get started.
-
-Click on the either the **Subscribe to nilAI** or **Subscribe to nilDB** button to subscribe and follow the wallet prompts.
+Click on the either `Purchase` for `nilDB` or `nilAI` to subscribe and follow the wallet prompts.
 
 After the payment goes through, you will have a 28 day subscription to the service and can now use your keys.
 
-![nilAI Subscription](/img/nildb_subscription.png)
-
-This is possible for both services by following the same steps.
-
-![nilDB payment](/img/nilpay_bothservice_subscription.png)
+<center><img src="/img/nilpay-successful-payment.png" alt="nilPay Successful Subscription" style={{width: '60%'}} /></center>

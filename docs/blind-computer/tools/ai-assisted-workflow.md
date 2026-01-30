@@ -20,7 +20,6 @@ The [Nillion Builder Guide LLM](https://chatgpt.com/g/g-687e6e6b52508191bb1537b4
 />
 
 ## llm.txt
-\\
 Our `llm.txt` file contains comprehensive information about Nillion's architecture, developer tools, and integration guides. AI assistants can use this to understand:
 
 - Core concepts like Blind Computation and Blind Modules

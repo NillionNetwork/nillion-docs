@@ -6,20 +6,7 @@ const communitySidebar = [
     defaultStyle: true,
   },
   'community/community-and-support',
-
-  {
-    type: 'category',
-    label: 'nilChain',
-    link: {
-      type: 'doc',
-      id: 'community/nilchain',
-    },
-    items: [
-      'community/guides/nillion-wallet',
-      'community/guides/sending-nil',
-      'community/guides/testnet-faucet',
-    ],
-  },
+  'community/guides/testnet-faucet',
   {
     type: 'link',
     label: 'Tokenomics',
