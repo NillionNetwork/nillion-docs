@@ -13,9 +13,9 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 
 <ToolFeatureItem
   title="NIL Faucet"
-  description="Get NIL (nilChain Testnet tokens) to start building apps."
+  description="Get NIL (Nillion Testnet tokens) to start building apps."
   icon="💧"
-  href="https://faucet.testnet.nillion.com"
+  href="https://faucet.testnet.nillion.network/"
   external={true}
   guideHref="/community/guides/testnet-faucet"
   guideExternal={false}
@@ -25,7 +25,7 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
   title="nilPay Subscription Platform"
   description="Pay NIL to get a Nillion API Key and subscribe to nilDB (Private Storage) or nilAI (Private LLMs) services."
   icon="🔑"
-  href="https://nilpay.vercel.app/"
+  href="https://subscription.nillion.com/"
   external={true}
   guideHref="/blind-computer/build/network-api-access"
   guideExternal={false}

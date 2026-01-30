@@ -25,7 +25,8 @@ SecretVaults SDK [SecretVaultBuilderClient](https://nillion.pub/secretvaults-ts/
 
 Before building with the SecretVaults SDK, you need:
 
-1. Nillion Wallet: [Create a wallet](/community/guides/nillion-wallet)
+1. EVM Wallet
+2. Sepolia ETH
 2. Testnet NIL: Get NIL tokens from the [Nillion faucet](/community/guides/testnet-faucet)
 3. Get a [Nillion API Key](/blind-computer/build/network-api-access) with a subscription to nilDB
 

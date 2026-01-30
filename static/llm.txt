@@ -41,8 +41,8 @@ Always use the Developer Solutions unless you have very specific requirements th
 **For nilDB (Private Storage) and nilAI (Private LLMs):**
 
 1. **Create Wallet & Get Tokens**
-   - Create a Nillion Wallet: https://docs.nillion.com/community/guides/nillion-wallet
-   - Get testnet NIL tokens: https://faucet.testnet.nillion.com/
+   - Set up an EVM wallet and get some Sepolia ETH
+   - Get testnet NIL tokens: https://faucet.testnet.nillion.network/
 
 2. **Subscribe to Services**
    - Use nilPay to subscribe: https://nilpay.vercel.app/
@@ -117,7 +117,7 @@ The Secretvaults SDK simplifies interacting with Private Storage nilDB nodes to 
 
 - Network Configuration: https://docs.nillion.com/build/network-config - Nillion network endpoints and Blind Module configuration
 - Developer Tools Overview: https://docs.nillion.com/tools - Complete suite of tools for building privacy-preserving apps
-- NIL Faucet: https://faucet.testnet.nillion.com - Get NIL testnet tokens to start building
+- NIL Faucet: https://faucet.testnet.nillion.network - Get NIL testnet tokens to start building
 - nilPay Subscription: https://nilpay.vercel.app/ - Subscribe to nilDB or nilAI services with API keys using NIL tokens
 - Collection Explorer: https://collection-explorer.nillion.com - No-code tool for managing Private Storage schemas and collections
 - nilCC Workload Manager: https://nilcc.nillion.com - Web UI for creating and managing nilCC confidential workloads visually
@@ -149,5 +149,5 @@ Early builders are creating applications for private predictive AI, secure healt
 
 - [Community and Support](https://docs.nillion.com/community-and-support): How to get help and connect with the community
 - [Nucleus Builders Program](https://nucleus.nillion.com): Information about the developer program for grants and support
-- [nilChain Guides](https://docs.nillion.com/guide-nillion-wallet): Guides for interacting with nilChain
+- [Testnet Faucet](https://docs.nillion.com/community/guides/testnet-faucet): Get testnet NIL (nilChain/Cosmos legacy)
 - [Status Page](https://status.nillion.com/): Current status of Nillion services

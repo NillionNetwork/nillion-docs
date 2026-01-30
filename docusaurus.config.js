@@ -552,16 +552,8 @@ const config = {
             from: '/testnet-guides',
           },
           {
-            to: '/community/guides/nillion-wallet',
-            from: '/guide-nillion-wallet',
-          },
-          {
             to: '/community/guides/testnet-faucet',
             from: '/guide-testnet-faucet',
-          },
-          {
-            to: '/community/guides/sending-nil',
-            from: '/guide-sending-nil',
           },
         ],
       },

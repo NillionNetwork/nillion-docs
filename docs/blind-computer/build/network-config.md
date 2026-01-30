@@ -22,13 +22,12 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
 
 <Tabs>
     <TabItem value="nilDB-testnet" label="nilDB Testnet" default>
-
+    
+    ### [nilauth-stg](https://nilauth-1bc3.nillion.network/about)
     ```
-    NILCHAIN_URL=http://rpc.testnet.nilchain-rpc-proxy.nilogy.xyz
-    NILAUTH_URL=https://nilauth.sandbox.app-cluster.sandbox.nilogy.xyz
-    NILAUTH_PUBLIC_KEY=03e3ba1eb887b4e972fbf395d479ff6cdb2cec91ba477ffc287b2b9cb5ec2161aa
+    NILAUTH_URL=https://nilauth-1bc3.staging.nillion.network
+    NILAUTH_PUBLIC_KEY=02188ca67e3410e31ca2d2562059d7d8cfec29c5fe1d0e52a1ee4b003648f01bc3
     ```
-    ### Nodes
 
     ### [nildb-stg-n1](https://nildb-stg-n1.nillion.network/about)
 
@@ -54,13 +53,11 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
     </TabItem>
 
     <TabItem value="nilDB-mainnet" label="nilDB Mainnet">
-
+    ### [nilauth](https://nilauth-eb42.nillion.network/about)
     ```
-    NILCHAIN_URL=http://nilchain-rpc.nillion.network
-    NILAUTH_URL=https://nilauth-cf7f.nillion.network
-    NILAUTH_PUBLIC_KEY=020b419e17d0d11445ea46520086952772eb18f5cb9f949c0ad0b418282617cf7f
+    NILAUTH_URL=https://nilauth-eb42.nillion.network
+    NILAUTH_PUBLIC_KEY=03658600f1c0876067c66488f962e7f0ad611bdb0c9446e05f000d7bfc2b09eb42
     ```
-    ### Nodes
 
     ### [nildb-5ab1](https://nildb-5ab1.nillion.network/about)
 
@@ -125,6 +122,14 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
        ```
        nilAI Node URL: https://nilai-f910.nillion.network
        API docs: https://nilai-f910.nillion.network/docs
+       Models: openai/gpt-oss-20b
+       ```
+        
+       ### [nilai](https://api.nilai.nillion.network/docs)
+
+       ```
+       nilAI Node URL: https://api.nilai.nillion.network
+       API docs: https://api.nilai.nillion.network/docs
        Models: openai/gpt-oss-20b
        ```
 
