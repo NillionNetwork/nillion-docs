@@ -34,7 +34,7 @@ Your EVM wallet should connect to the nilPay Portal. Select `Sepolia` for your d
 
 ## Identity Options
 
-![nilPay Choose Recipient](/img/nilpay-identity-explainer.png)
+<center><img src="/img/nilpay-identity-explainer.png" alt="nilPay Choose Recipient" style={{width: '60%'}} /></center>
 
 The **Choose Recipient** step lets you decide which identity will have access to your nilDB and/or nilAI subscription. There are two categories:
 
@@ -43,7 +43,9 @@ The **Choose Recipient** step lets you decide which identity will have access to
 | **Wallet-based** | My Wallet, Another Identity | Access is tied directly to an Ethereum address. Use **My Wallet** for your connected address, or **Another Identity** to grant access to a different Ethereum address. |
 | **Key-based** | Generate New Identity, Import Secret Key | Works like a standard API key approach — a Secp256k1 private key authenticates your requests directly. Use **Generate New Identity** to create a new key, or **Import Secret Key** to reuse an existing one. The key is associated with your Ethereum address at creation time. |
 
-Note: Your address may appear as `did:ethr:0xXXX`. This is a DID (Decentralized Identifier) — a unique cryptographic identifier derived from your public key, used for verifiable authentication.
+:::note
+        Your address may appear as `did:ethr:0xXXX`. This is a DID (Decentralized Identifier) — a unique cryptographic identifier derived from your public key, used for verifiable authentication.
+:::
 
 <Tabs>
 <TabItem value='nilDB' label='Private Storage' default>
@@ -61,10 +63,10 @@ For nilAI, only key-based options are supported: **Generate New Identity** or **
 
 ## Subscription to nilAI and/or nilDB
 
-You have the required NIL from the [prerequisite](#prerequisite) / [testnet faucet.](https://faucet.testnet.nillion.network/) so you should be able to subscribe to either of the services.
+You have the required NIL from the [prerequisite](#prerequisite) / [testnet faucet](https://faucet.testnet.nillion.network/), so you should be able to subscribe to either of the services.
 
 Click on the either `Purchase` for `nilDB` or `nilAI` to subscribe and follow the wallet prompts.
 
 After the payment goes through, you will have a 28 day subscription to the service and can now use your keys.
 
-![nilPay Successful Subscription](/img/nilpay-successful-payment.png)
+<center><img src="/img/nilpay-successful-payment.png" alt="nilPay Successful Subscription" style={{width: '60%'}} /></center>
