@@ -21,6 +21,8 @@ Users running Blacklight verifier nodes and developers registering their apps fo
 | --------------- | ----------------------------------------------- |
 | NIL             | [0x32DEAe728473cb948B4D8661ac0f2755133D4173](https://explorer.nillion.network/token/0x32DEAe728473cb948B4D8661ac0f2755133D4173) |
 
+---
+
 ## Testnet
 
 ### Network
