@@ -6,7 +6,7 @@ This page describes the verification protocol utilized within Nillion Blacklight
 ## TEE Operators
 
 Developers run their workloads inside trusted execution environments (TEEs), such as [nilCC](/blind-computer/build/compute/overview).
-For each active workload, the TEE operators periodically submit heartbeat transactions (HTXs) to [Nillion's Ethereum L2](/blacklight/verify/network) at custom intervals (e.g., one every hour).
+For each active workload, the TEE operators periodically submit heartbeat transactions (HTXs) to [Nillion's Ethereum L2](/blacklight/learn/network) at custom intervals (e.g., one every hour).
 
 ### Heartbeat Transaction (HTX)
 
@@ -61,7 +61,7 @@ The workload ID tracking (with both current and previous IDs) enables the networ
 
 ## Nillion's Ethereum L2
 
-[Nillion's Ethereum L2](/blacklight/verify/network) acts as the coordination and settlement layer for Nillion Blacklight.
+[Nillion's Ethereum L2](/blacklight/learn/network) acts as the coordination and settlement layer for Nillion Blacklight.
 It orchestrates the verification process through smart contracts that handle committee selection, consensus evaluation, and reward distribution.
 
 ### Committee Selection

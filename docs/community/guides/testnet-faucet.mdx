@@ -1,3 +1,7 @@
+import AddNetworkButton from '@site/src/components/MetamaskConnect';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Testnet Faucet Guide
 
 <div style={{display: 'flex', gap: '2rem', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap'}}>
@@ -24,25 +28,31 @@ Install the browser extension (or mobile app), create or import a wallet, and ma
 
 ## Step 2: Add the Sepolia network
 
-You will need Sepolia (Ethereum testnet) in your wallet to receive testnet ETH and to use the Nillion faucet.
+We recommend adding the Sepolia network to your wallet so you can view your Sepolia ETH and testnet NIL balance.
 
-### Manual setup
+<Tabs>
+  <TabItem value="auto" label="Automatic" default>
+    Click the button below to add Sepolia to your wallet in one step.
+    <AddNetworkButton chainId="11155111" chainName="Sepolia" rpcUrl="https://ethereum-sepolia-rpc.publicnode.com" symbol="ETH" explorer="https://sepolia.etherscan.io" />
+  </TabItem>
+  <TabItem value="manual" label="Manual">
+    1. Open your wallet and go to **Settings** or the network dropdown.
+    2. Click **Add network** or **Add a network manually**.
+    3. Enter the following details:
 
-1. Open your wallet and go to **Settings** or the network dropdown.
-2. Click **Add network** or **Add a network manually**.
-3. Enter the following details:
+    <div style={{marginLeft: '1.5rem'}}>
 
-<div style={{marginLeft: '1.5rem'}}>
+    - **Network Name:** Sepolia
+    - **New RPC URL:** https://ethereum-sepolia-rpc.publicnode.com
+    - **Chain ID:** 11155111
+    - **Currency Symbol:** ETH
+    - **Block Explorer:** https://sepolia.etherscan.io
 
-- **Network Name:** Sepolia
-- **New RPC URL:** https://ethereum-sepolia-rpc.publicnode.com
-- **Chain ID:** 11155111
-- **Currency Symbol:** ETH
-- **Block Explorer:** https://sepolia.etherscan.io
+    </div>
 
-</div>
-
-4. Save the network and switch to Sepolia.
+    4. Save the network and switch to Sepolia.
+  </TabItem>
+</Tabs>
 
 ## Step 3: Get Sepolia ETH
 

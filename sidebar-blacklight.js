@@ -9,37 +9,37 @@ const blacklightSidebar = [
   'blacklight/learn/architecture',
   'blacklight/learn/verification',
   'blacklight/learn/staking-and-rewards',
-  // {
-  //   type: 'category',
-  //   label: 'Run a Verifier Node',
-  //   link: {
-  //     type: 'doc',
-  //     id: 'blacklight/verify/run-node',
-  //   },
-  //   items: [],
-  // },
-  // {
-  //   type: 'category',
-  //   label: 'Register your Apps',
-  //   link: {
-  //     type: 'doc',
-  //     id: 'blacklight/verify/register-apps',
-  //   },
-  //   items: [],
-  // },
-  // 'blacklight/verify/contracts',
-  {
-    type: 'html',
-    className: 'sidebar-title',
-    value: 'Verify',
-    defaultStyle: true,
-  },
+  'blacklight/learn/contracts',
   {
     type: 'category',
     label: 'Network Configuration',
     link: {
       type: 'doc',
-      id: 'blacklight/verify/network',
+      id: 'blacklight/learn/network',
+    },
+    items: [],
+  },
+  {
+    type: 'html',
+    className: 'sidebar-title',
+    value: 'Run a Blacklight Node',
+    defaultStyle: true,
+  },
+  {
+    type: 'category',
+    label: 'Prerequisites',
+    link: {
+      type: 'doc',
+      id: 'blacklight/run-node/prerequisites',
+    },
+    items: [],
+  },
+  {
+    type: 'category',
+    label: 'Setup your Node',
+    link: {
+      type: 'doc',
+      id: 'blacklight/run-node/setup',
     },
     items: [],
   },
@@ -63,7 +63,7 @@ const blacklightSidebar = [
     label: 'Set Up a Wallet',
     link: {
       type: 'doc',
-      id: 'blacklight/verify/wallet-setup',
+      id: 'blacklight/tools/wallet-setup',
     },
     items: [],
   },
@@ -82,6 +82,15 @@ const blacklightSidebar = [
     link: {
       type: 'doc',
       id: 'blacklight/tools/block-explorer',
+    },
+    items: [],
+  },
+  {
+    type: 'category',
+    label: 'Register your Apps',
+    link: {
+      type: 'doc',
+      id: 'blacklight/tools/register-apps',
     },
     items: [],
   },
