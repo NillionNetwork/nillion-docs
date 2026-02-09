@@ -24,9 +24,9 @@ This database management interface is specifically designed for privacy-preservi
   question='Prerequisite: having a Nillion API Key'
   instruction='You need a Nillion API Key with an active nilDB subscription to use the Collection Explorer tool.'
   buttonText='Get a Nillion API Key'
-  buttonLink='https://subscription.nillion.com'
+  buttonLink='/blind-computer/build/network-api-access'
   event='collections-explorer-api-key-cta'
-  external={true}
+  external={false}
 />
 
 Once you have a Nillion API Key with an active nilDB subscription, go to the [Collection Explorer](https://collection-explorer.nillion.com/) and configure your connection to the Nillion Network:

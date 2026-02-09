@@ -51,7 +51,7 @@ Collections are immutable once created.
 
 ### DID (Decentralized Identifier)
 
-A unique cryptographic identifier for builders, users, and nodes. Format: `did:nil:[66-character-hex-string]`. Derived from public keys for verifiable authentication.
+A unique cryptographic identifier for builders, users, and nodes. Format: `did:key:[49-character-hex-string]`. Derived from public keys for verifiable authentication.
 
 ### Field Types
 

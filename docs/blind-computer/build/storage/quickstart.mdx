@@ -5,23 +5,24 @@ import ThumbsUpDown from '@site/src/components/ThumbsUpDown';
 
 This guide demonstrates how to build a passwordless notes application using nilDB.
 
-We will be using **secretvaults** for private storage, **MetaMask** for identity and **Nillion's Network User Credentials (NUC)** for secure, decentralized authentication.
+We will be using **secretvaults** for private storage, **MetaMask** for identity, and **Nillion's Network User Credentials (NUC)** for secure, decentralized authentication.
 
 ## What You'll Build
 
 In this quickstart, you'll create a simple notes app that requires login via MetaMask and learn:
 
 1. **Builder setup**: You (as a builder/application) will register for a Nillion API key
-2. **Create an owned collection**: Define an owned collection with a specific schema where users can store private data
-3. **User data storage**: A user stores private data in their collection with create, read, update, and delete (CRUD) capabilities
+2. **Create a standard collection**: Define a standard collection with an encrypted content field
+3. **Wallet-scoped data storage**: Store and manage a user's notes with create, read, update, and delete (CRUD) operations
 
-This showcases Nillion's core value: users own their data, but can selectively share it with applications.
+This showcases Nillion's core value: builders can preserve privacy by default while storing data securely across multiple nilDB nodes.
 
 ## What You'll Learn
 
-- How builders create **owned collections** for user data
-- How users store private data with **individual access controls**
-- How to grant and revoke specific permissions (read/write/execute)
+- How builders create **standard collections** with encrypted fields
+- How users authenticate with **MetaMask** and get a DID-backed NUC session
+- How sessions persist via **root token + invocation tokens**
+- How to use `%share` (schema) and `%allot` (write payload) correctly
 - How the **@nillion/secretvaults** library handles encryption and share distribution automatically
 
 ## Code Reference
@@ -29,27 +30,23 @@ This showcases Nillion's core value: users own their data, but can selectively s
 - The completed full tutorial code is [here.](https://github.com/NillionNetwork/blind-module-examples/tree/main/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full)
 ---
 
-## Prerequisites
+## 1. Prerequisites
 
 - MetaMask browser extension
-- Keplr browser extension
+- Active `nilDB` subscription and API key
+- Node.js 20+ and pnpm
 
-### 1. Get your API key and subscription
+### Get your nilDB subscription and API key
 
-You will need an Ethereum and Cosmos wallet (i.e., MetaMask and Keplr) to get your API keys. As a best practice, we recommend setting up separate wallets for development.
+You only need an **EVM wallet** (MetaMask) for this flow.
 <CTABanner
   question="Get your Nillion API keys here"
-  instruction="Visit the Nillion subscription portal to get your API keys for secretvaults!"
-  buttonText="Get your keys"
-  buttonLink="https://subscription.nillion.com"
+  instruction="You need a Nillion API Key with an active nilDB subscription to proceed."
+  buttonText="Get a Nillion API Key"
+  buttonLink="/blind-computer/build/network-api-access"
   event="quickstart-svaults-v1-cta-banner"
-  external={true}
+  external={false}
 />
-
-1. Switch to the `Testnet` network
-2. Connect your developer MetaMask and Keplr wallets
-3. [Fund your account with Testnet NIL](https://faucet.testnet.nillion.network)
-4. Subscribe to `nilDB` using your subscription wallet
 
 ## 2. Project Setup
 
@@ -57,8 +54,8 @@ Clone the demo repository.
 
 ```bash
 git clone https://github.com/NillionNetwork/blind-module-examples
-cd nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full
-pnpm i 
+cd blind-module-examples/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full
+pnpm install
 pnpm run dev
 ```
 
@@ -74,9 +71,13 @@ src/
       Notes.tsx
       ProtectedRoute.tsx
   context/
-      NillionContext.tsx
       AuthFlowManager.tsx
+      LogContext.tsx
+      NillionContext.tsx
+      NillionState.ts
   hooks/
+      useBuilderProfileQuery.ts
+      useProfile.ts
       useNillion.ts
       usePersistedConnection.ts
       useSessionQuery.ts
@@ -85,8 +86,6 @@ src/
       useNillionClient.ts
       useNotesCollection.ts
       useNotes.ts
-  types/
-    NillionState.ts
   config.ts
 ```
 
@@ -99,7 +98,7 @@ This configuration is required to connect to the three nilDB nodes.
 https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full/src/config.ts
 ```
 
-## 3. MetaMask flow
+## 3. MetaMask + Session Flow
 
 We subscribed to the nilPay platform using a MetaMask account, so now we want to sign in with that account. This requires interfacing with a web3 wallet and is primarily done in `src/context/NillionContext.tsx`.
 
@@ -110,7 +109,7 @@ We also use the `viem` library to detect and prove ownership of the account.
 `Signer.fromWeb3()` wraps MetaMask's signing capability so Nillion can use it for NUC token creation.
 
 ```typescript reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/3af300286616aadc796e8e6d53228eab5df8cdf4/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full/src/context/NillionContext.tsx#L71-L96
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full/src/context/NillionContext.tsx
 ``` 
 
 Relevant files:
@@ -121,19 +120,24 @@ Relevant files:
   - Checks `subscriptionStatus`
   - Builds `SecretVaultBuilderClient.from({ blindfold: { operation: "store" } })`
   - Calls `refreshRootToken()`
-  - Mints per-node invocation tokens 
+  - Mints per-node invocation tokens
+  - Ensures builder profile exists (`readProfile`, then `register` if needed)
   - Returns `{ nillionClient, nilauthClient, rootToken, nildbTokens }`.
-  - On success, saves the session into React Query (["session"]) and persists tokens via `usePersistedConnection`.
+  - On success, saves the session into React Query (`["session"]`) and persists tokens via `usePersistedConnection`.
 
 `src/context/AuthFlowManager.tsx`
-- Decides whether to initialize or log in based on MetaMask connection and whether a stored session exists.
+- Decides whether to initialize or log in based on MetaMask connection and whether a stored session already exists.
 
 `src/hooks/useLoginMutation.ts`
-- Rehydrates from localStorage
-- Validates the root token
-- Reuses or mints invocation tokens
+- Rehydrates from localStorage (`rootToken`, `nildbTokens`)
+- Validates the stored root token
+- Reuses invocation tokens when available, otherwise mints fresh tokens
+- Ensures builder profile exists
 - Writes session back to React Query.
 
+`src/hooks/usePersistedConnection.ts`
+- Persists connection state and session credentials in localStorage
+- Exposes `hasStoredSession` used by `AuthFlowManager`
 
 ***Key concepts***:
 
@@ -141,15 +145,18 @@ Relevant files:
 - Invocation Tokens: Node-specific tokens (one per nilDB node)
 - Blindfold: Enables automatic encryption for %allot fields
 
-## 5. Collection creation
+## 4. Collection Creation (Standard Collection)
 
-Before storing notes, we need a collection with a schema. Encrypted fields use %allot in the schema.
+Before storing notes, we need a **standard collection** with a schema.
+
+- In the schema, encrypted fields use `%share`
+- In write payloads, encrypted values use `%allot`
 
 ```typescript reference showGithubLink
 https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full/src/hooks/useNotesCollection.ts
 ```
 
-## 6. Create, Read, Update, Delete (CRUD) operations
+## 5. Create, Read, Update, Delete (CRUD) Operations
 
 ***Key patterns***
 
@@ -161,20 +168,27 @@ The SDK automatically:
 3. Splits it into secret shares
 4. Sends one share to each nilDB node
 
+In this example:
+- Notes are written with `createStandardData`
+- Reads are filtered by `walletAddress`
+- Updates and deletes use `_id` filters on the same collection
+
 ```typescript reference showGithubLink
 https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretvaults-ts/standard-collection/nextjs-app-metamask-full/src/hooks/useNotes.ts
 ```
 
 
-## 8. UI layout 
+## 6. UI Layout
 
 `src/app/page.tsx`: 
 - `useNillion()` to connect to MetaMask, log out, and access state (address/DID)
-- `useSessionQuery()` to know when the session is ready.
+- `useSessionQuery()` to know when the session is ready
+- Displays authentication logs so users can follow session setup progress
 
 `src/app/profile/page.tsx`: 
 - Wrapped with `<ProtectedRoute>` to ensure only authenticated users can access.
-- Renders `<Notes />`, which is where CRUD happens.
+- Uses `useProfile()` to display builder profile details
+- Renders `<Notes />`, which is where CRUD happens
 
 `src/components/Notes.tsx`:
 - Hook integration
@@ -184,15 +198,20 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
     - All CRUD operations
     - Encryption happens in the hook via `ensureAllot()` which wraps content as `{ "%allot": string }`.
 
-## 9. Running your app
+## 7. Running Your App
 
 After you run your app with `pnpm run dev`, open `http://localhost:3000` and:
 
 1. Click "Connect with MetaMask"
 2. Approve the MetaMask connection
 3. Wait for session initialization
-4. Create a note - the content is automatically encrypted!
-5. Refresh the page - your session persists
+4. Open the profile page
+5. Create a note - the content is automatically encrypted
+6. Refresh the page - your session persists
+
+:::note
+During session initialization, MetaMask may prompt you to sign **3 or more times**. This is expected: nilDB uses per-node invocation authorization (typically one signature per node) in addition to the root session flow.
+:::
 
 ---
 ## What Just Happened?
@@ -200,10 +219,11 @@ After you run your app with `pnpm run dev`, open `http://localhost:3000` and:
 🎉 Congratulations! You built a privacy-preserving notes app where:
 
 1. Users authenticate with MetaMask - no passwords needed
-2. Note titles are plaintext - for easy display and filtering
-3. Note content is encrypted - split into 3 secret shares across nodes
-4. Only the owner can decrypt - using their MetaMask signature
-5. Sessions persist - via NUC tokens stored in localStorage
+2. A builder profile is created (or reused) automatically during session setup
+3. A standard notes collection is created (or reused) per wallet
+4. Note titles and wallet addresses stay plaintext for filtering/display
+5. Note content is encrypted and split into secret shares across nilDB nodes
+6. Sessions persist via root token + per-node invocation tokens in localStorage
 
 <ThumbsUpDown
   thumbsUpEvent="quickstart_secretvaults_completed_yes"
