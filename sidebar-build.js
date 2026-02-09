@@ -86,56 +86,59 @@ const buildSidebar = [
         id: 'blind-computer/build/storage/key-concepts',
       },
       {
-        type: 'category',
+        type: 'doc',
         label: 'Secretvaults SDK',
-        link: {
-          type: 'doc',
-          id: 'blind-computer/build/storage/secretvaults',
-        },
-        collapsed: false,
-        items: [
-          {
-            type: 'category',
-            label: 'Integration by Platform',
-            link: {
-              type: 'doc',
-              id: 'blind-computer/build/storage/platform',
-            },
-            collapsed: false,
-            items: [
-              {
-                type: 'doc',
-                label: 'TypeScript SDK Docs',
-                id: 'blind-computer/build/storage/ts-docs',
-              },
-              {
-                type: 'doc',
-                label: 'Node.js',
-                id: 'blind-computer/build/storage/platform-nodejs',
-              },
-              {
-                type: 'doc',
-                label: 'Next.js',
-                id: 'blind-computer/build/storage/platform-nextjs',
-              },
-              {
-                type: 'doc',
-                label: 'React',
-                id: 'blind-computer/build/storage/platform-react',
-              },
-              {
-                type: 'link',
-                label: 'Python',
-                href: 'https://github.com/NillionNetwork/secretvaults-py/tree/main/examples#example-scripts',
-              },
-            ],
-          },
-          {
-            type: 'link',
-            label: 'nilDB Encryption',
-            href: '/articles/nildb-encryption',
-          },
-        ],
+        id: 'blind-computer/build/storage/secretvaults',
+        // type: 'category',
+        // label: 'Secretvaults SDK',
+        // link: {
+        //   type: 'doc',
+        //   id: 'blind-computer/build/storage/secretvaults',
+        // },
+        // collapsed: false,
+        // items: [
+        //   {
+        //     type: 'category',
+        //     label: 'Integration by Platform',
+        //     link: {
+        //       type: 'doc',
+        //       id: 'blind-computer/build/storage/platform',
+        //     },
+        //     collapsed: false,
+        //     items: [
+        //       {
+        //         type: 'doc',
+        //         label: 'TypeScript SDK Docs',
+        //         id: 'blind-computer/build/storage/ts-docs',
+        //       },
+        //       {
+        //         type: 'doc',
+        //         label: 'Node.js',
+        //         id: 'blind-computer/build/storage/platform-nodejs',
+        //       },
+        //       {
+        //         type: 'doc',
+        //         label: 'Next.js',
+        //         id: 'blind-computer/build/storage/platform-nextjs',
+        //       },
+        //       {
+        //         type: 'doc',
+        //         label: 'React',
+        //         id: 'blind-computer/build/storage/platform-react',
+        //       },
+        //       {
+        //         type: 'link',
+        //         label: 'Python',
+        //         href: 'https://github.com/NillionNetwork/secretvaults-py/tree/main/examples#example-scripts',
+        //       },
+        //     ],
+        //   },
+        // ],
+      },
+      {
+        type: 'link',
+        label: 'nilDB Encryption',
+        href: '/articles/nildb-encryption',
       },
       {
         type: 'category',
