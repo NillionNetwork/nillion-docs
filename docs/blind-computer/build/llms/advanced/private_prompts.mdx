@@ -3,10 +3,6 @@ import TabItem from '@theme/TabItem';
 
 # Private Prompts
 
-:::warning
-Private prompts are currently only available in **production mode**. Sandbox support is not yet available.
-:::
-
 Private prompts allow you to store sensitive system prompts in nilDB (Nillion's decentralized database) and use them with LLM inference without exposing the prompt content. This is useful for protecting proprietary instructions, custom behaviors, or sensitive context.
 
 ## Overview
@@ -23,74 +19,14 @@ First, store your private prompt to nilDB. This returns document IDs and owner i
 
 <Tabs>
     <TabItem value="python" label="Python">
-        ```python
-        from nilai_py import Client, NilAuthInstance
-        from config import API_KEY
-
-        def main():
-            # Initialize the client in API key mode
-            client = Client(
-                base_url="https://nilai-xxxx.nillion.network/nuc/v1/",
-                api_key=API_KEY,
-                nilauth_instance=NilAuthInstance.PRODUCTION,
-            )
-
-            # List existing prompts from nilDB
-            client.list_prompts_from_nilDB()
-
-            # Store a new prompt to nilDB
-            store_ids = client.store_prompt_to_nilDB(
-                prompt="You are a very clever model that answers with cheese answers and always starting with the word cheese"
-            )
-            print("Stored document IDs:", store_ids)
-
-            # List prompts again to verify
-            client.list_prompts_from_nilDB()
-
-        if __name__ == "__main__":
-            main()
+        ```python reference showGithubLink
+        https://github.com/NillionNetwork/nilai-py/blob/main/examples/5-nildb-prompt-storage.py
         ```
     </TabItem>
     <TabItem value="typescript" label="TypeScript" default>
-        ```typescript
-        import "dotenv/config";
-        import {
-          NilaiOpenAIClient,
-          NilAuthInstance,
-        } from "@nillion/nilai-ts";
-        import { Did as DidClass } from "@nillion/nuc";
-
-        const API_KEY = process.env.NILLION_API_KEY;
-
-        async function store_to_nilDB(prompt: string): Promise<[string, string]> {
-          // Initialize the client in API key mode
-          const client = new NilaiOpenAIClient({
-            baseURL: "https://nilai-xxxx.nillion.network/nuc/v1/",
-            apiKey: API_KEY,
-            nilauthInstance: NilAuthInstance.PRODUCTION,
-          });
-
-          const createdIds: string[] = await client.createPrompt(prompt);
-          console.log(`Created IDS on nilDB: ${createdIds}`);
-
-          const ownerDid = new DidClass(client.getKeypair()!.publicKey()).toString();
-          return [createdIds[0], ownerDid];
-        }
-
-        async function main() {
-          if (!API_KEY) {
-            throw new Error("NILLION_API_KEY environment variable is required");
-          }
-
-          const [doc_id, owner_did] = await store_to_nilDB(
-            "You are a very clever model that answers with cheese answers and always starting with the word cheese"
-          );
-
-          console.log(`Document ID: ${doc_id}`);
-          console.log(`Owner DID: ${owner_did}`);
-        }
-
-        main().catch(console.error);
+        <p><strong>Note:</strong> The TypeScript example combines storing and using prompts in a single file. See the <strong>store_to_nildb()</strong> section:</p>
+        ```typescript reference showGithubLink
+        https://github.com/NillionNetwork/nilai-ts/blob/main/examples/2-nildb-prompt-store-retrieve.ts#L1-L31
         ```
     </TabItem>
 </Tabs>
@@ -105,130 +41,14 @@ To use stored prompts, you need to set up a delegation token flow. This involves
 
 <Tabs>
     <TabItem value="python" label="Python">
-
-        Key components of the implementation:
-
-        ```python
-        from nilai_py import (
-            Client,
-            DelegationTokenServer,
-            AuthType,
-            DelegationServerConfig,
-            NilAuthInstance,
-            PromptDocumentInfo,
-            DelegationTokenServerType,
-        )
-
-        # Create subscription owner server
-        subscription_owner_server = DelegationTokenServer(
-            private_key=API_KEY,
-            config=DelegationServerConfig(
-                expiration_time=10 * 60 * 60,  # 10 hours
-                token_max_uses=10,
-            ),
-            nilauth_instance=NilAuthInstance.PRODUCTION,
-        )
-
-        # Create prompt data owner server
-        prompt_data_owner_server = DelegationTokenServer(
-            private_key=private_key,
-            config=DelegationServerConfig(
-                mode=DelegationTokenServerType.DELEGATION_ISSUER,
-                expiration_time=10,  # 10 seconds
-                token_max_uses=1,
-                prompt_document=PromptDocumentInfo(
-                    doc_id=stored_prompt_data["doc_id"],
-                    owner_did=stored_prompt_data["did"]
-                ),
-            ),
-            nilauth_instance=NilAuthInstance.PRODUCTION,
-        )
-
-        # Set up delegation chain
-        prompt_request = prompt_data_owner_server.get_delegation_request()
-        delegation_token = subscription_owner_server.create_delegation_token(prompt_request)
-        prompt_data_owner_server.update_delegation_token(delegation_token.delegation_token)
-
-        # Initialize client and set up delegation
-        client = Client(
-            base_url="https://nilai-xxxx.nillion.network/nuc/v1/",
-            auth_type=AuthType.DELEGATION_TOKEN,
-            nilauth_instance=NilAuthInstance.PRODUCTION,
-        )
-
-        delegation_request = client.get_delegation_request()
-        delegation_token = prompt_data_owner_server.create_delegation_token(delegation_request)
-        client.update_delegation(delegation_token)
-
-        # Make request using stored prompt
-        response = client.chat.completions.create(
-            model="openai/gpt-oss-20b",
-            messages=[
-                {"role": "user", "content": "Hello! Can you help me with something?"}
-            ],
-        )
-
-        print(f"Response: {response.choices[0].message.content}")
+        ```python reference showGithubLink
+        https://github.com/NillionNetwork/nilai-py/blob/main/examples/6-nildb-stored-prompt.py
         ```
     </TabItem>
     <TabItem value="typescript" label="TypeScript" default>
-        Key components of the implementation:
-
-        ```typescript
-        import {
-          NilaiOpenAIClient,
-          DelegationTokenServer,
-          AuthType,
-          type DelegationTokenRequest,
-          type DelegationTokenResponse,
-          NilAuthInstance,
-        } from "@nillion/nilai-ts";
-
-        const API_KEY = process.env.NILLION_API_KEY;
-
-        // First, store the prompt in nilDB (see previous section)
-        const [doc_id, owner_did] = await store_to_nilDB(
-          "You are a very clever model that answers with cheese answers and always starting with the word cheese"
-        );
-
-        // Server initializes a delegation token server
-        const server = new DelegationTokenServer(API_KEY, {
-          nilauthInstance: NilAuthInstance.PRODUCTION,
-          expirationTime: 60 * 60, // 1 hour validity
-          tokenMaxUses: 10,
-          prompt_document: {
-            owner_did: owner_did,
-            doc_id: doc_id,
-          },
-        });
-
-        // Client initializes without API key but with delegation auth
-        const client = new NilaiOpenAIClient({
-          baseURL: "https://nilai-xxxx.nillion.network/nuc/v1/",
-          authType: AuthType.DELEGATION_TOKEN,
-          nilauthInstance: NilAuthInstance.PRODUCTION,
-        });
-
-        // Client produces a delegation request
-        const delegationRequest: DelegationTokenRequest =
-          client.getDelegationRequest();
-
-        // Server creates a delegation token
-        const delegationToken: DelegationTokenResponse =
-          await server.createDelegationToken(delegationRequest);
-
-        // Client sets the delegation token
-        client.updateDelegation(delegationToken);
-
-        // Client uses the delegation token to make a request
-        const response = await client.chat.completions.create({
-          model: "openai/gpt-oss-20b",
-          messages: [
-            { role: "user", content: "Hello! Can you help me with something?" },
-          ],
-        });
-
-        console.log(`Response: ${response.choices[0].message.content}`);
+        <p><strong>Note:</strong> The TypeScript example combines storing and using prompts in a single file. See the <strong>post store_to_nildb()</strong> section:</p>
+        ```typescript reference showGithubLink
+        https://github.com/NillionNetwork/nilai-ts/blob/main/examples/2-nildb-prompt-store-retrieve.ts
         ```
     </TabItem>
 </Tabs>

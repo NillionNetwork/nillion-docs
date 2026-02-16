@@ -420,7 +420,7 @@ const config = {
             from: ['/build/private-llms/key-concepts'],
           },
           {
-            to: '/blind-computer/build/network-api-access',
+            to: '/blind-computer/build/storage/api-access',
             from: ['/build/network-api-access'],
           },
           {
@@ -534,7 +534,7 @@ const config = {
             from: '/network',
           },
           {
-            to: '/blind-computer/build/network-api-access',
+            to: '/blind-computer/build/storage/api-access',
             from: [
               '/build/permissions-and-payments/overview',
               '/build/secretVault-secretDataAnalytics/generate-tokens',

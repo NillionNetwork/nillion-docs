@@ -16,7 +16,7 @@ info:
     pip install openapi-generator-cli
 
     # Generate your Python client
-    openapi-generator-cli generate -i https://nilai.sandbox.nilogy.xyz/openapi.json -g python -o ./python-client
+    openapi-generator-cli generate -i https://api.nilai.nillion.network/openapi.json -g python -o ./python-client
     ```
 
     ### For JavaScript/TypeScript Developers
@@ -25,7 +25,7 @@ info:
     npm install @openapitools/openapi-generator-cli -g
 
     # Generate your TypeScript client
-    openapi-generator-cli generate -i https://nilai.sandbox.nilogy.xyz/openapi.json -o ./typescript-client
+    openapi-generator-cli generate -i https://api.nilai.nillion.network/openapi.json -o ./typescript-client
     ```
 
     After generating, you'll have a fully functional client library that makes it easy to interact with our AI services. No more manual API request handling!
@@ -39,8 +39,8 @@ info:
   version: 0.1.0
 
 servers:
-  - url: https://nilai-a779.nillion.network
-    description: Sandbox environment
+  - url: https://api.nilai.nillion.network
+    description: nilAI API
 
 paths:
   '/v1/health':
@@ -84,7 +84,7 @@ paths:
       description: |-
 
         :::info
-            Feel free to use the `Nillion2025` as a test Bearer Token
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
         :::
 
         Retrieve the current token usage for the authenticated user.
@@ -115,11 +115,12 @@ paths:
       description: |-
 
         :::info
-            Feel free to use the `Nillion2025` as a test Bearer Token
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
         :::
 
         Generate a cryptographic attestation report.
 
+        - **nonce**: Nonce for the attestation request (64 character hex string)
         - **user**: Authenticated user information (through HTTP Bearer header)
         - **Returns**: Attestation details for service verification
 
@@ -131,13 +132,26 @@ paths:
         ### Security Note
         Provides cryptographic proof of the service's integrity and environment.
       operationId: get_attestation_v1_attestation_report_get
+      parameters:
+        - name: nonce
+          in: query
+          required: true
+          schema:
+            type: string
+            title: Nonce
       responses:
         '200':
           description: Successful Response
           content:
             application/json:
               schema:
-                '$ref': '#/components/schemas/AttestationResponse'
+                '$ref': '#/components/schemas/AttestationReport'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: []
   '/v1/models':
@@ -148,7 +162,7 @@ paths:
       description: |-
 
         :::info
-            Feel free to use the `Nillion2025` as a test Bearer Token
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
         :::
 
         List all available models in the system.
@@ -182,7 +196,7 @@ paths:
       description: |-
 
         :::info
-            Feel free to use the `Nillion2025` as a test Bearer Token
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
         :::
 
         Generate a chat completion response from the AI model.
@@ -250,25 +264,318 @@ paths:
                 '$ref': '#/components/schemas/HTTPValidationError'
       security:
         - HTTPBearer: []
+  '/v1/responses':
+    post:
+      tags:
+        - Responses
+      summary: Responses
+      description: |-
+
+        :::info
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
+        :::
+
+        Generate a response from the AI model using the Responses API.
+
+        This endpoint provides a more flexible and powerful way to interact with models,
+        supporting complex inputs and a structured event stream.
+
+        - **req**: Response request containing input and model specifications
+        - **Returns**: Full response with model output, usage statistics, and cryptographic signature
+
+        ### Request Requirements
+        - Must include non-empty input (string or structured input)
+        - Must specify a model
+        - Supports optional instructions to guide the model's behavior
+        - Optional web_search parameter to enhance context with current information
+
+        ### Response Components
+        - Model-generated text completion
+        - Token usage metrics
+        - Cryptographically signed response for verification
+
+        ### Processing Steps
+        1. Validate input request parameters
+        2. If web_search is enabled, perform web search and enhance context
+        3. Prepare input for model processing
+        4. Generate AI model response
+        5. Track and update token usage
+        6. Cryptographically sign the response
+
+        ### Web Search Feature
+        When web_search=True, the system will:
+        - Extract the user's query from the input
+        - Perform a web search using Brave API
+        - Enhance the context with current information
+        - Add search results to instructions for better responses
+
+        ### Potential HTTP Errors
+        - **400 Bad Request**:
+          - Missing or empty input
+          - No model specified
+        - **500 Internal Server Error**:
+          - Model fails to generate a response
+      operationId: create_response_v1_responses_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/ResponseRequest'
+                - example:
+                    model: 'openai/gpt-oss-20b'
+                    instructions: 'You are a helpful assistant.'
+                    input:
+                      - role: 'user'
+                        content: 'What is your name?'
+                    stream: false
+                    web_search: false
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/SignedResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: []
+  '/v1/delegation':
+    get:
+      tags:
+        - Delegation
+      summary: Delegation
+      description: |-
+
+        :::info
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
+        :::
+
+        Get a delegation token for prompt store access.
+
+        - **prompt_delegation_request**: Query parameter containing the delegation request
+        - **user**: Authenticated user information (through HTTP Bearer header)
+        - **Returns**: Delegation token for prompt store access
+
+        ### Delegation Token Details
+        - `token`: The delegation token to be used
+        - `did`: Decentralized identifier associated with the token
+
+        ### Security Note
+        Delegation tokens provide controlled access to prompt store resources. Store them securely and monitor their usage.
+      operationId: get_prompt_store_delegation_v1_delegation_get
+      parameters:
+        - name: prompt_delegation_request
+          in: query
+          required: true
+          schema:
+            type: string
+            title: Prompt Delegation Request
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/PromptDelegationToken'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: []
+  '/v1/pricing':
+    get:
+      tags:
+        - Pricing
+      summary: All Prices
+      description: |-
+
+        :::info
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
+        :::
+
+        Get all model prices.
+
+        Returns a dictionary mapping model names to their pricing configurations.
+
+        - **user**: Authenticated user information (through HTTP Bearer header)
+        - **Returns**: Dictionary of model names to pricing configurations
+
+        ### Pricing Configuration
+        Each model's pricing includes:
+        - `prompt_tokens_price`: Cost per 1M prompt tokens (default: 2.0)
+        - `completion_tokens_price`: Cost per 1M completion tokens (default: 2.0)
+        - `web_search_cost`: Cost per web search (default: 0.05)
+      operationId: get_all_prices_v1_pricing_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  '$ref': '#/components/schemas/LLMPriceConfig'
+                type: object
+                title: Response Get All Prices V1 Pricing Get
+      security:
+        - HTTPBearer: []
+  '/v1/pricing/{model_name}':
+    get:
+      tags:
+        - Pricing
+      summary: Model Price
+      description: |-
+
+        :::info
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
+        :::
+
+        Get price for a specific model.
+
+        - **model_name**: The model name (e.g., `meta-llama/Llama-3.2-1B-Instruct`)
+        - **Returns**: Pricing configuration for the model
+
+        If no specific pricing is set for the model, returns default pricing.
+      operationId: get_model_price_v1_pricing__model_name__get
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Model Name
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/LLMPriceConfig'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: []
+    put:
+      tags:
+        - Pricing
+      summary: Update Model Price
+      description: |-
+
+        :::info
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
+        :::
+
+        Update price for a specific model (admin only).
+
+        - **model_name**: The model name (e.g., `meta-llama/Llama-3.2-1B-Instruct`)
+        - **price_config**: New pricing configuration
+
+        Requires admin token in Authorization header.
+      operationId: update_model_price_v1_pricing__model_name__put
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Model Name
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              '$ref': '#/components/schemas/LLMPriceConfig'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/LLMPriceConfig'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: []
+    delete:
+      tags:
+        - Pricing
+      summary: Delete Model Price
+      description: |-
+
+        :::info
+            Get an API Token (Bearer Token) via http://nilai.nillion.com
+        :::
+
+        Delete custom price for a model (admin only).
+
+        - **model_name**: The model name to delete pricing for
+
+        After deletion, the model will use default pricing.
+        Requires admin token in Authorization header.
+      operationId: delete_model_price_v1_pricing__model_name__delete
+      parameters:
+        - name: model_name
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Model Name
+      responses:
+        '204':
+          description: Successful Response
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                '$ref': '#/components/schemas/HTTPValidationError'
+      security:
+        - HTTPBearer: []
 components:
   schemas:
-    AttestationResponse:
+    AttestationReport:
       properties:
+        nonce:
+          type: string
+          maxLength: 64
+          minLength: 64
+          title: Nonce
+          description: The nonce to be used for the attestation
         verifying_key:
           type: string
           title: Verifying Key
+          description: PEM encoded public key
         cpu_attestation:
           type: string
           title: Cpu Attestation
+          description: The attestation token from AMD's attestation service
         gpu_attestation:
           type: string
           title: Gpu Attestation
+          description: The attestation token from NVIDIA's attestation service
       type: object
       required:
+        - nonce
         - verifying_key
         - cpu_attestation
         - gpu_attestation
-      title: AttestationResponse
+      title: AttestationReport
     ChatCompletionAudio:
       properties:
         id:
@@ -568,6 +875,289 @@ components:
         - msg
         - type
       title: ValidationError
+    PromptDelegationToken:
+      properties:
+        token:
+          type: string
+          title: Token
+        did:
+          type: string
+          title: Did
+      type: object
+      required:
+        - token
+        - did
+      title: PromptDelegationToken
+      description: Delegation token model
+    LLMPriceConfig:
+      properties:
+        prompt_tokens_price:
+          type: number
+          title: Prompt Tokens Price
+          description: Cost per 1M prompt tokens
+          default: 2.0
+        completion_tokens_price:
+          type: number
+          title: Completion Tokens Price
+          description: Cost per 1M completion tokens
+          default: 2.0
+        web_search_cost:
+          type: number
+          title: Web Search Cost
+          description: Cost per web search
+          default: 0.05
+      type: object
+      title: LLMPriceConfig
+      description: Pricing configuration for a single LLM model.
+    ResponseRequest:
+      properties:
+        model:
+          type: string
+          title: Model
+        input:
+          anyOf:
+            - type: string
+            - items:
+                additionalProperties: true
+                type: object
+              type: array
+          title: Input
+        instructions:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Instructions
+        stream:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Stream
+          description: If true, the response will stream using SSE. Matches the official ResponseCreateParamsStreaming vs NonStreaming union behavior.
+          default: false
+        stream_options:
+          anyOf:
+            - additionalProperties: true
+              type: object
+            - type: 'null'
+          title: Stream Options
+        tools:
+          anyOf:
+            - items:
+                additionalProperties: true
+                type: object
+              type: array
+            - type: 'null'
+          title: Tools
+        tool_choice:
+          anyOf:
+            - type: string
+              enum:
+                - 'none'
+                - 'auto'
+                - 'required'
+            - additionalProperties: true
+              type: object
+            - type: 'null'
+          title: Tool Choice
+        parallel_tool_calls:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Parallel Tool Calls
+        max_tool_calls:
+          anyOf:
+            - type: integer
+            - type: 'null'
+          title: Max Tool Calls
+        background:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Background
+        conversation:
+          anyOf:
+            - type: string
+            - additionalProperties: true
+              type: object
+            - type: 'null'
+          title: Conversation
+        previous_response_id:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Previous Response Id
+        include:
+          anyOf:
+            - items:
+                type: string
+                enum:
+                  - 'file_search_call.results'
+                  - 'web_search_call.results'
+                  - 'web_search_call.action.sources'
+                  - 'message.input_image.image_url'
+                  - 'computer_call_output.output.image_url'
+                  - 'code_interpreter_call.outputs'
+                  - 'reasoning.encrypted_content'
+                  - 'message.output_text.logprobs'
+              type: array
+            - type: 'null'
+          title: Include
+        prompt:
+          anyOf:
+            - additionalProperties: true
+              type: object
+            - type: 'null'
+          title: Prompt
+        max_output_tokens:
+          anyOf:
+            - type: integer
+            - type: 'null'
+          title: Max Output Tokens
+        temperature:
+          anyOf:
+            - type: number
+            - type: 'null'
+          title: Temperature
+        top_p:
+          anyOf:
+            - type: number
+            - type: 'null'
+          title: Top P
+        top_logprobs:
+          anyOf:
+            - type: integer
+            - type: 'null'
+          title: Top Logprobs
+        text:
+          anyOf:
+            - additionalProperties: true
+              type: object
+            - type: 'null'
+          title: Text
+        reasoning:
+          anyOf:
+            - additionalProperties: true
+              type: object
+            - type: 'null'
+          title: Reasoning
+        prompt_cache_key:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Prompt Cache Key
+        safety_identifier:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Safety Identifier
+        service_tier:
+          anyOf:
+            - type: string
+              enum:
+                - 'auto'
+                - 'default'
+                - 'flex'
+                - 'scale'
+                - 'priority'
+            - type: 'null'
+          title: Service Tier
+        store:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Store
+        truncation:
+          anyOf:
+            - type: string
+              enum:
+                - 'auto'
+                - 'disabled'
+            - type: 'null'
+          title: Truncation
+        user:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: User
+        metadata:
+          anyOf:
+            - additionalProperties:
+                type: string
+              type: object
+            - type: 'null'
+          title: Metadata
+        web_search:
+          anyOf:
+            - type: boolean
+            - type: 'null'
+          title: Web Search
+          description: Enable web search to enhance context with current information
+          default: false
+      type: object
+      required:
+        - model
+        - input
+      title: ResponseRequest
+      description: Request model for generating AI responses with various configuration options.
+    SignedResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+        created_at:
+          type: number
+          title: Created At
+        model:
+          type: string
+          title: Model
+        object:
+          type: string
+          const: response
+          title: Object
+        output:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Output
+        signature:
+          type: string
+          title: Signature
+        usage:
+          anyOf:
+            - '$ref': '#/components/schemas/CompletionUsage'
+            - type: 'null'
+        sources:
+          anyOf:
+            - items:
+                '$ref': '#/components/schemas/Source'
+              type: array
+            - type: 'null'
+          title: Sources
+          description: Sources used for web search when enabled
+      type: object
+      required:
+        - id
+        - created_at
+        - model
+        - object
+        - output
+        - signature
+      title: SignedResponse
+      description: An extension of the official Response object with cryptographic signature and web search sources.
+    Source:
+      properties:
+        source:
+          type: string
+          title: Source
+        content:
+          type: string
+          title: Content
+      type: object
+      required:
+        - source
+        - content
+      title: Source
   securitySchemes:
     HTTPBearer:
       type: http
@@ -577,9 +1167,15 @@ tags:
     description: Retrieve cryptographic attestation information for service verification
   - name: Chat
     description: AI-powered chat completion endpoint for generating conversational responses
+  - name: Delegation
+    description: Create and manage delegation tokens for API access
   - name: Health
     description: System health and status monitoring endpoint
   - name: Model
     description: Retrieve information about available AI models
+  - name: Pricing
+    description: Retrieve pricing information and subscription details
+  - name: Responses
+    description: Access response history and details
   - name: Usage
     description: Track and retrieve user token consumption metrics

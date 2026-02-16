@@ -1,0 +1,87 @@
+---
+id: get-prompt-store-delegation-v-1-delegation-get
+title: "Delegation"
+description: ":::info"
+sidebar_label: "Delegation"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV0tz2zYQ/isb+NDEQ0m2JydeGjV2XXdSx7XUdjqWJ4LIFQkbBBAAlKpq+N87C1AS5Vc6mWlPOYkCdr/d/bgvrpnnhWPpDTtFiQX3Qit2m7AcXWaFCX9TNlFpmgo11xMFAHCOHriC4dUFjPU9Knj9A3KLNv57AwvBofTepIOBEpKLvhJSCq36ma4C1ERNVACBfGsVfICaawvG6sp4cF5bBJ5l6FyfVHpweBjvPu30Pln8XKPzh4cp/FqjXYHhllfo0UKmledCCVWAL7FrrFWKmLVDS+rD2peovMi4xxzoFChoW0Wd1760ui5K+Gk8voI25BJ5jvZNBLpGX1vlCOv0XwZGcR0cHHTlI6en6LmQjoCnAWGawng/iAjsNcyQvM2DbC7yKZnPUHnLpfgbcxA5hTUXaIE7pzMRAlwKXwZeAs7GkRFmtRV+BZfa40Q9jMNREAuRYyDXaikxb0MhT/YitOh0bTN0fRiFA19iBY4MoFwBVzlUWgmvLd0IC7XjBfZZwrRBG4xe5CxlBfpP7XsPwN23vzju/ivQs4RtE4ASe80Ur5Cl7NnMYQkTlOWfKXtYwuhYWMxZ6m2NCXNZiRVn6Zr5lSEk561QBUuYF17SwVWMusPVdQvdNLcE6IxWDh1hnBwd0c9+gY3qwOC8lnDdCrOEEcOoPIlzYyTlpdBqcOdIZ93xy1gizItoIbynl9wNCcaahOUif0nuVOSsaZLNvZ7dYeb3CLppjUWo24eM7AgZb8T2wn5UJJXOUbKmIatvT04eE/U7lyKPGmfWavv1LOWhvuhJeKzcYwGps71brlYf5yGh9vlqku2JUB4LtKy53bHGreWrDqkfdHSQ+K9c8RL/v6CjgmBbsOdFAxkwptsvvTGKK5pu5TqvbUdvZPf5MGJ7etLYRoTa5CPA+G5d22QCnSQXuylLb26pYCr0pW4rP9SzL1nKBovjwa56GaHYxabIaytZymjquHQw4CYMnc7oUeiX2t4/SkEl5PCCRhkjwxu/RpQ0MQ263m35Jzus7Qz0fxYFKDSaGEGyZeGSDDwyO1FDBcOLmPBAgdCQMpJ7mjdg9BIt5jBbte0yoXY7j32cS8h0ZWovVNGPbRvOuFuFgfxeClQezlG1HZQE/uDKU3euHYKubRAUClb0bKym9/Y9nFvkHhQu3Sv4U9eQcQW89pqmX8alXEERQRE4ZNGMFDPL7YrA7mpHA32OS3CiMhLBeTSuv5krP2oLVytfahptC5RUam6iptPpjLtyog7gQjnPpQwj6aNBRV62JrWdKCMMiFZEG1TciN72updJESxtIscYXWsxujtRT+rt4uoJ+GIGDVqMPjUY6BVgoomehv4gPvc25qbTaTf8n/mCj0ISDKhS4+NXsqFMtWXjXeuS11q6wdMx9oqn6Om48d9RRMRQ3cT8f0jOcE6bWosvVJGQZ99JCSVfUKbNa0q9ea0yymbK/f3U8yX3UPF7dCA8INWB10Cd2PLMxyUn5PxFLLOwjlxqqGghqbiquQz10C4DUHKVS6GKVxNqMR5t5T7OR1Gz02E6K207g3gWZlC7bVzGezI7qo3RlhoZVmHksDvtsJ/xmUWr33WRmoRJkSGN/x3U0PCsRDjpH7HkQZ9bLpd9Hq772haDVtcNPly8P7scnfVIp0kYdcnYd476x/HIaOcrrjpmTrutda9brXcz9tunwLdPgf/3U6CduB7/8gMjuQiLU6iCdbsY3LDFcUjZ7gdsqZ2nq/V6xh3+ZmXT0HHc8WlhyIXjM0kr0ZxLhy+k/Ovrdnt6A8/5c4+rL3xhLLisSS+sGQtuBRkP+07CYuIEryLQMMvQdLUeLbZ7W9L52ZgljNdExnZFaVeSZPPQWVy5WnWw1+soEXKtadgmmrjZN7dN0/wDrdS1KA==
+sidebar_class_name: "get api-method"
+info_path: api/nilai/nilai
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delegation"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/delegation"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+
+:::info
+    Get an API Token (Bearer Token) via http://nilai.nillion.com
+:::
+
+Get a delegation token for prompt store access.
+
+- **prompt_delegation_request**: Query parameter containing the delegation request
+- **user**: Authenticated user information (through HTTP Bearer header)
+- **Returns**: Delegation token for prompt store access
+
+### Delegation Token Details
+- `token`: The delegation token to be used
+- `did`: Decentralized identifier associated with the token
+
+### Security Note
+Delegation tokens provide controlled access to prompt store resources. Store them securely and monitor their usage.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"prompt_delegation_request","in":"query","required":true,"schema":{"type":"string","title":"Prompt Delegation Request"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"properties":{"token":{"type":"string","title":"Token"},"did":{"type":"string","title":"Did"}},"type":"object","required":["token","did"],"title":"PromptDelegationToken","description":"Delegation token model"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"properties":{"detail":{"items":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

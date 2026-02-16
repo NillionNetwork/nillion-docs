@@ -12,10 +12,10 @@ Private LLMs are supported via a set of OpenAI-compatible APIs that run AI model
 
 ## Available Models
 
-| Model                            | Parameters | Features                                                             | Best For                                                                                      | Access                                                                                          |
-| -------------------------------- | ---------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| google/gemma-3-27b-it            | 27B        | Multimodal (text + images), 128K context, 140+ languages             | Visual reasoning, long-context analysis, multilingual applications.                           | Testnet                                                                                         |
-| openai/gpt-oss-20b               | 20B        | Chain-of-thought reasoning, tool calling, configurable effort levels | Agentic workflows, complex reasoning tasks.                                                   | [Apply for access](https://surveys.nillion.com/developers/7d516c7a-66ae-4c78-b927-bbd912ae7a16) |
+| Model                            | Parameters | Features                                                             | Best For                                                                                      |
+| -------------------------------- | ---------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| google/gemma-3-27b-it            | 27B        | Multimodal (text + images), 128K context, 140+ languages             | Visual reasoning, long-context analysis, multilingual applications.                           |
+| openai/gpt-oss-20b               | 20B        | Chain-of-thought reasoning, tool calling, configurable effort levels | Agentic workflows, complex reasoning tasks.                                                   |
 
 ## Key Features
 

@@ -1,0 +1,79 @@
+---
+id: get-all-prices-v-1-pricing-get
+title: "All Prices"
+description: ":::info"
+sidebar_label: "All Prices"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV01vGzcQ/SsT+pDEWEl2gF720qiO66pwEiFyGxSWIVHUaJc2l2RIrlRB2P9eDLn6iOy4RdHeootWy+GbN8OZx9GGBV54lt+yoZNC6oLdZWyOXjhpgzSa5Wys8zyXemHGGgDgCgNwDf3hAG7MA2p49RNyhy79eg1LyaEMwea9npaKy66WSkmju8JUEWqsxzqCKAWVmaMC66RA36WFTxhqpz1wmEtBBLhbQ8WtlbporTWv0EMwEEqULm6mRWH0Qha147QrgXXg9LT26E5Pc+jXoUQdpOAB50BvgWJyVbSHV6F0pi5K+OXmZghtRCXyObrXCahlRljv9tTM4pjV03yIzsnJCbRZhovD1bG+5KJMQC/9DkFqoeo5+pwITK0zlQ2TQFn2k5iyaQ4Xxgew6OD8PSQLSBbwao4LXquQw5vuWYxhKkxlFZLH52D2Vs9ArXA28cidKCfC+HAIscIZpKWDjWfdsx9es4wZiynmwZzlrMAw4UolGn6yPJ+0sU8KDCxjDr012qNn+Ya9OTujr6+Lc1QLgd4vagWfWmOWMWF0QB3InFur6NCl0b17T3s2zIsSKx5X53MZj1INHVELMvmyx7+OU0+vw9oiy5muqxk6lrEgg6IXw3QONyl5w2h+3FTfPLdoGZPG8jcNhfLkmT3n/2J/gP+Yw6NDP+ZxdODP+f+MMxilAiAX3/a7r5RDb1QqTZNt4c3sHkU4gL++fh/jSS30CH34VP/Bwjjg4KUuFML19fvUbF32jJ9tPUXF6yuVsujh9/NdF19hYA19MuZR1E6GNctvN4xEJGkIy2/vmruMVRhK05Y8y5jloWQ56y3Pe23FM4JwS3Q+ItROsZyRjvq81+M2yuiBmGoMK+MeHkWvpeoPSJwZed2SGlHBp1o+pLY7QvJDBKIZy9ksGVBcJJLRss3KB3LwyO1Y9zX0B60WUiCUHqt4IIkFa1bocA6zNURKmKXjmZMicxWrrw5SF92kk3DJ/TpeMRdKog5whRq3WjnWn7mmdiEVB1O7aCg1rOnZOkPn+CNcOeQBNK78C/jD1CC4Bl4HQ4IvuFJrKBIoAgeR3Cg5c6TqUsN97QNwWOAKvKTeAB/Q+u5WyH82DobrUBoN73CJivTCj/V0Op1xX471CQy0D3THhRLho0VNLFuXxo21lRZka2Isam5lZ7fcEUpGT9vIMUXXekx0x/rJffu4OhL+toJ6LUaXxBE6BdjkomOg20vPna276XR6GP6vfMlHsQh6N2uL6fFfZkPbapeNty2lYIzyvadj7BRPpeeAxv+XIkoM9U2q/+Pk9BcB3RZf6iIjZi+VgpIvqdIWNZXeotZphFDHpRdKHqDiD+hBBkDqg2BA6oCOiwArGcpU84PUZjQ4wQcDlXEIFdc1V7EfHH6p0QcouZ4rqYsXY03ahq7yHxejtPNAYQ6GtPb+5CKKPM01qe1pndyOamuNIxXDikuSqXvjsSv4zKEzbw+RmowpKZAu5T1U33JRIo0SLDvSudVq1eVxuWtc0Wv3+t714OLyw+iyQ3uajJFKJt05656nV9b4UHF96Gan2MdqtdnPB9+H2+/D7X833La3acA/Q88qLjVVZqzwTXvj37LlOV3/+/9aZRymbtlmM+Mef3Oqaej1lxodzRJ3GVtyJ/mMLt/buyZj6dzikPCAayp0IdBSOy65qsn/o5H3qwHk6vKGZYzXRGc3ALQXfrZ9IPR2iev1AfZmkyxiPzQNy1oSMZmsuWua5i/2HAuS
+sidebar_class_name: "get api-method"
+info_path: api/nilai/nilai
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"All Prices"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/pricing"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+
+:::info
+    Get an API Token (Bearer Token) via http://nilai.nillion.com
+:::
+
+Get all model prices.
+
+Returns a dictionary mapping model names to their pricing configurations.
+
+- **user**: Authenticated user information (through HTTP Bearer header)
+- **Returns**: Dictionary of model names to pricing configurations
+
+### Pricing Configuration
+Each model's pricing includes:
+- `prompt_tokens_price`: Cost per 1M prompt tokens (default: 2.0)
+- `completion_tokens_price`: Cost per 1M completion tokens (default: 2.0)
+- `web_search_cost`: Cost per web search (default: 0.05)
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"additionalProperties":{"properties":{"prompt_tokens_price":{"type":"number","title":"Prompt Tokens Price","description":"Cost per 1M prompt tokens","default":2},"completion_tokens_price":{"type":"number","title":"Completion Tokens Price","description":"Cost per 1M completion tokens","default":2},"web_search_cost":{"type":"number","title":"Web Search Cost","description":"Cost per web search","default":0.05}},"type":"object","title":"LLMPriceConfig","description":"Pricing configuration for a single LLM model."},"type":"object","title":"Response Get All Prices V1 Pricing Get"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

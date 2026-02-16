@@ -23,11 +23,11 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 
 <ToolFeatureItem
   title="nilPay Subscription Platform"
-  description="Pay NIL to get a Nillion API Key and subscribe to nilDB (Private Storage) or nilAI (Private LLMs) services."
+  description="Pay NIL to get a Nillion API Key and subscribe to the nilDB (Private Storage) service."
   icon="🔑"
   href="https://subscription.nillion.com/"
   external={true}
-  guideHref="/blind-computer/build/network-api-access"
+  guideHref="/blind-computer/build/storage/api-access"
   guideExternal={false}
 />
 
@@ -46,6 +46,14 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
   description="Web dashboard for deploying, managing, and monitoring confidential workloads on nilCC."
   icon="🎛️"
   href="https://nilcc.nillion.com"
+  external={true}
+/>
+
+<ToolFeatureItem
+  title="nilAI Developer Dashboard"
+  description="Manage your nilAI API keys, credits, usage, and get model information."
+  icon="🤖"
+  href="https://nilai.nillion.com/"
   external={true}
 />
 

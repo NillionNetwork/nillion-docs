@@ -7,7 +7,7 @@ import BlockExplorers from '../\_testnet_block_explorers.mdx';
 
 The Blind Computer is powered by a network of nodes in which each node implements one of the [blind modules](/blind-computer/learn/blind-modules). In some cases, collections of multiple nodes can be treated as clusters by builders.
 
-## nilCC Nodes
+## nilCC API
 
 [Private Compute](/blind-computer/build/compute/overview) can be leveraged by connecting to a nilCC node.
 
@@ -92,48 +92,13 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
 </Tabs>
 <br/>
 
-## nilAI Nodes
+## nilAI API
 
-[Private LLMs](/blind-computer/build/llms/overview) can be leveraged by connecting to a [nilAI](/blind-computer/learn/blind-modules#nil-ai) node, which runs AI models within a TEE.
+[Private LLMs](/blind-computer/build/llms/overview) can be leveraged by connecting to the [nilAI](/blind-computer/learn/blind-modules#nil-ai) API, which runs AI models within a TEE.
 
-<Tabs>
-    <TabItem value="nilAI-testnet" label="nilAI Testnet" default>
+```
+nilAI API URL: https://api.nilai.nillion.network
+API docs: https://api.nilai.nillion.network/docs
+```
 
-       ### [nilai-a779](https://nilai-a779.nillion.network/docs)
-
-       ```
-       nilAI Node URL: https://nilai-a779.nillion.network
-       API docs: https://nilai-a779.nillion.network/docs
-       Models: google/gemma-3-27b-it
-       ```
-    </TabItem>
-    <TabItem value="nilAI-mainnet" label="nilAI Mainnet" default>
-
-       ### [nilai-e176](https://nilai-e176.nillion.network/docs)
-
-       ```
-       nilAI Node URL: https://nilai-e176.nillion.network
-       API docs: https://nilai-e176.nillion.network/docs
-       Models: google/gemma-3-27b-it
-       ```
-        
-       ### [nilai-f910](https://nilai-f910.nillion.network/docs)
-
-       ```
-       nilAI Node URL: https://nilai-f910.nillion.network
-       API docs: https://nilai-f910.nillion.network/docs
-       Models: openai/gpt-oss-20b
-       ```
-        
-       ### [nilai](https://api.nilai.nillion.network/docs)
-
-       ```
-       nilAI Node URL: https://api.nilai.nillion.network
-       API docs: https://api.nilai.nillion.network/docs
-       Models: openai/gpt-oss-20b
-       ```
-
-    </TabItem>
-
-</Tabs>
 <br/>

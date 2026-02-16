@@ -28,7 +28,7 @@ Before building with the SecretVaults SDK, you need:
 1. EVM Wallet
 2. Sepolia ETH
 2. Testnet NIL: Get NIL tokens from the [Nillion faucet](/community/guides/testnet-faucet)
-3. Get a [Nillion API Key](/blind-computer/build/network-api-access) with a subscription to nilDB
+3. Get a [Nillion API Key](/blind-computer/build/storage/api-access) with a subscription to nilDB
 
 :::
 
@@ -36,7 +36,7 @@ Before building with the SecretVaults SDK, you need:
 
 Initialize the client with your Nillion API Key and a valid nilDB subscription. Connect to [nilDB nodes](/blind-computer/build/network-config#nildb-nodes) of choice. Call `refreshRootToken()` after initialization to obtain authentication tokens.
 
-- builder keypair: from your [Nillion API Key](/blind-computer/build/network-api-access)
+- builder keypair: from your [Nillion API Key](/blind-computer/build/storage/api-access)
 - urls: [nilDB Network Config](/blind-computer/build/network-config#nildb-nodes)
 - blindfold.operation: Set to 'store' operation for storing data
 

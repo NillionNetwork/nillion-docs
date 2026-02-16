@@ -7,11 +7,6 @@ const buildSidebar = [
   },
   'blind-computer/build/network-config',
   {
-    type: 'doc',
-    label: 'Network API Access',
-    id: 'blind-computer/build/network-api-access',
-  },
-  {
     type: 'category',
     label: 'Private Compute with nilCC',
     link: {
@@ -74,6 +69,11 @@ const buildSidebar = [
         type: 'doc',
         label: 'Quickstart',
         id: 'blind-computer/build/storage/quickstart',
+      },
+      {
+        type: 'doc',
+        label: 'API Access',
+        id: 'blind-computer/build/storage/api-access',
       },
       {
         type: 'doc',
@@ -183,11 +183,6 @@ const buildSidebar = [
         id: 'blind-computer/build/llms/key-concepts',
       },
       {
-        type: 'link',
-        label: 'Examples',
-        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai',
-      },
-      {
         type: 'category',
         label: 'Advanced Usage',
         items: [
@@ -197,23 +192,24 @@ const buildSidebar = [
       },
       {
         type: 'category',
-        label: 'nilRAG Library',
-        link: {
-          type: 'doc',
-          id: 'blind-computer/build/llms/nilRAG',
-        },
+        label: 'Examples',
         items: [
           {
             type: 'link',
-            label: 'nilrag-py',
-            href: 'https://github.com/NillionNetwork/nilrag',
+            label: 'Python',
+            href: 'https://github.com/NillionNetwork/nilai-py/tree/main/examples',
           },
           {
             type: 'link',
-            label: 'Examples',
-            href: 'https://github.com/NillionNetwork/nilrag/tree/main/examples',
+            label: 'TypeScript',
+            href: 'https://github.com/NillionNetwork/nilai-ts/tree/main/examples',
           },
         ],
+      },
+      {
+        type: 'link',
+        label: 'nilAI Developer Dashboard',
+        href: 'https://nilai.nillion.com/',
       },
       {
         type: 'doc',
