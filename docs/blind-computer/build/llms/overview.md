@@ -42,7 +42,3 @@ Two layers of cryptographic proof are provided:
 2. Use your API key to check the `/models` endpoint for available models
 3. Start running private AI using your chosen model
 4. Optionally, verify your environment using the attestation API
-
-### Enhance by Providing Context from Private Storage and nilRAG
-
-Optionally, you can use nilRAG to allow private LLMs to access nilDB private storage in order to retrieve relevant context! See [nilRAG documentation](/blind-computer/build/llms/nilRAG) for details.
