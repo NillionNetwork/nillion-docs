@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # Usage
 
-Once you have [nilAI API access](/blind-computer/build/network-api-access), you can start using LLMs on nilAI nodes with any OpenAI-compatible library.
+Once you have [nilAI API access](https://nilai.nillion.com), you can start using LLMs on nilAI with any OpenAI-compatible library.
 
 ## Getting Started with Private LLMs
 
@@ -38,54 +38,21 @@ You can either use:
 
 ### API Key Flow
 
-1. Use `https://nilai-a779.nillion.network/v1` as the BASE URL
+1. Use `https://api.nilai.nillion.network/v1` as the BASE URL
 2. Check [available models](/blind-computer/build/llms/overview#available-models) or query the [`/v1/models`](/api/nilai/get-models-v-1-models-get) endpoint or
 3. Select an available model and use it with the [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) nilAI node endpoint
 
-With OpenAI compatibility, you can use any OpenAI library. Here's an example for querying the `gemma-3-27b-it` model:
+With OpenAI compatibility, you can use any OpenAI library. Here's an example for querying the `gpt-oss-20b` model:
 
 <Tabs>
     <TabItem value="python" label="Python">
         ```python reference showGithubLink
-        https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_python_nucs/api_key_mode.py
+        https://github.com/NillionNetwork/nilai-py/blob/main/examples/0-api_key_mode.py
         ```
     </TabItem>
     <TabItem value="typescript" label="Typescript" default>
-        ```typescript
-        import "dotenv/config";
-        import { NilaiOpenAIClient, NilAuthInstance } from "@nillion/nilai-ts";
-
-        // To obtain an API key, navigate to https://subscription.nillion.com
-        // and create a new subscription.
-        // The API key will be displayed in the subscription details.
-        // The NilaiOpenAIClient class automatically handles the NUC token creation and management.
-
-        const API_KEY = process.env.NILLION_API_KEY;
-
-        async function main() {
-        // Initialize the client in API key mode
-        // For sandbox, use the following:
-        const client = new NilaiOpenAIClient({
-            baseURL: "https://nilai-a779.nillion.network/v1/",
-            apiKey: API_KEY,
-            nilauthInstance: NilAuthInstance.SANDBOX,
-            // For production, use the following:
-            // nilauthInstance: NilAuthInstance.PRODUCTION,
-        });
-
-        // Make a request to the Nilai API
-        const response = await client.chat.completions.create({
-            model: "google/gemma-3-27b-it",
-            messages: [
-            { role: "user", content: "Hello! Can you help me with something?" }
-            ],
-        });
-
-        console.log(`Response: ${response.choices[0].message.content}`);
-        }
-
-        // Run the example
-        main().catch(console.error);
+        ```typescript reference showGithubLink
+        https://github.com/NillionNetwork/nilai-ts/blob/main/examples/0-api-key.ts
         ```
     </TabItem>
 
@@ -101,7 +68,7 @@ The server then creates the delegation tokens and managing their expiration and 
 
     <TabItem value="python" label="Python">
         ```python reference showGithubLink
-        https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_python_nucs/delegation_acess_mode.py
+        https://github.com/NillionNetwork/nilai-py/blob/main/examples/1-delegation_token_mode.py
         ```
     </TabItem>
     <TabItem value="typescript" label="Typescript" default>

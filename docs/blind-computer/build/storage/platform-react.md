@@ -28,7 +28,7 @@ This recipe is AI friendly! Give this entire [recipe markdown doc](https://githu
 
 Before starting this guide, you'll need:
 
-1. **A Nillion API Key** - Follow the [Network API Access guide](/blind-computer/build/network-api-access) to get your API key and subscribe to nilDB services
+1. **A Nillion API Key** - Follow the [API Access guide](/blind-computer/build/storage/api-access) to get your API key and subscribe to nilDB services
 2. **A Nillion Private Storage collection with data** - Use the [Collection Explorer](/blind-computer/build/storage/collection-explorer) to create collections and add records using the no-code builder
 
 ## Step 1: Create React App & Install Dependencies
@@ -210,7 +210,7 @@ function App() {
     setError(null);
 
     try {
-      // get a Nillion API Key: https://docs.nillion.com/blind-computer/build/network-api-access
+      // get a Nillion API Key: https://docs.nillion.com/blind-computer/build/storage/api-access
       // see Nillion Testnet Config: https://docs.nillion.com/blind-computer/build/network-config#nildb-nodes
       const builder = await SecretVaultBuilderClient.from({
         keypair: Keypair.from(NILLION_API_KEY),
@@ -297,7 +297,7 @@ export default App;
 
 ### Create .env
 
-Update .env values based on your [Network API Key](/blind-computer/build/network-api-access) and your custom [Collection ID](/blind-computer/build/storage/collection-explorer#create-new-collections)
+Update .env values based on your [API Key](/blind-computer/build/storage/api-access) and your custom [Collection ID](/blind-computer/build/storage/collection-explorer#create-new-collections)
 
 ```bash
 REACT_APP_NILLION_API_KEY=your-api-key-here

@@ -27,7 +27,6 @@ When using the blind computer, developers rely on two components: the **Petnet**
           SECRETVAULTS[<a style="color:#000000" href="/blind-computer/build/storage/secretvaults"><b>secretvaults</b></a>]
           -.-BLINDFOLD[<a style="color:#000000" href="/blind-computer/build/storage/blindfold"><b>blindfold</b></a>]
           -.-NUC[<a style="color:#000000" href="/blind-computer/build/permissions-and-payments"><b>nuc</b></a>]
-          -.-NILRAG[<a style="color:#000000" href="/blind-computer/build/llms/nilRAG"><b>nilRAG</b></a>]
       end
       classDef COLLECTION padding-left:230px,padding-right:230px,color:#888888,font-weight:bold
       SDKS_AND_LIBRARIES:::COLLECTION
@@ -36,7 +35,6 @@ When using the blind computer, developers rely on two components: the **Petnet**
       SECRETVAULTS:::LIBRARY_SDK
       BLINDFOLD:::LIBRARY_SDK
       NUC:::LIBRARY_SDK
-      NILRAG:::LIBRARY_SDK
 
       subgraph PETNET [<b>Petnet</b>]
           subgraph BLIND_MODULES [<b>Blind Modules</b>]
@@ -76,7 +74,7 @@ When using the blind computer, developers rely on two components: the **Petnet**
       SDKS_AND_LIBRARIES ---> NILCHAIN
 
       linkStyle default stroke-width:3px,stroke:#5555CC
-      linkStyle 0,1,2,3,4,5,6 stroke-width:0px !important,stroke:transparent !important
+      linkStyle 0,1,2,3,4,5 stroke-width:0px !important,stroke:transparent !important
 ```
 
 <br/>

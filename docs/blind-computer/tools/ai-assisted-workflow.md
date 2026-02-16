@@ -41,7 +41,7 @@ When working with AI assistants on Nillion projects:
 
 ### Example Prompts
 
-**Note:** These prompts assume you already have a Nillion API Key. If you don't have one yet, follow the [nilPay Guide](/blind-computer/build/network-api-access) to subscribe to services.
+**Note:** These prompts assume you already have a Nillion API Key. If you don't have one yet, follow the [API Access guide](/blind-computer/build/storage/api-access) for nilDB or visit [nilai.nillion.com](https://nilai.nillion.com) for nilAI to subscribe to services.
 
 <Tabs>
 <TabItem value='nilDB' label='Private Storage' default>

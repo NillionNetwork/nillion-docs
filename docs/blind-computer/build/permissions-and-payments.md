@@ -9,4 +9,4 @@ Built on an extension of [UCAN](https://ucan.xyz/), the NUC framework supports u
 - TypeScript library for web and Node.js environments: [GitHub repository](https://github.com/NillionNetwork/nuc-ts) and [NPM package](https://www.npmjs.com/package/@nillion/nuc)
 - Python library for server-side applications: [GitHub repository](https://github.com/NillionNetwork/nuc-py) and [PyPI package](https://pypi.org/p/nuc)
 
-To get started with NUCs, see [Network API Access](/blind-computer/build/network-api-access).
+To get started with NUCs, see [API Access](/blind-computer/build/storage/api-access).

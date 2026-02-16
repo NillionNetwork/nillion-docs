@@ -1,11 +1,20 @@
 # Overview
 
-Each [nilAI node](/blind-computer/build/network-config#nilai-nodes) API provides the following endpoints for interfacing with [Private LLMs](/blind-computer/build/llms/overview):
+The [nilAI API](/blind-computer/build/network-config#nilai-api) provides the following endpoints for interfacing with [Private LLMs](/blind-computer/build/llms/overview):
 
-| Name | Endpoint | Description |
-|----------|----------|-------------|
-| Chat | [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) | Generate AI responses |
-| Models | [`/v1/models`](/api/nilai/get-models-v-1-models-get) | List available models |
-| Attestation | [`/v1/attestation/report`](/api/nilai/get-attestation-v-1-attestation-report-get) | Get cryptographic proof of environment |
-| Usage | [`/v1/usage`](/api/nilai/get-usage-v-1-usage-get) | Track your token usage |
-| Health | [`/v1/health`](/api/nilai/health-check-v-1-health-get) | Check service status |
+| Name | Method | Endpoint | Description |
+|----------|----------|----------|-------------|
+| Chat Completion | POST | [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) | Generate AI chat responses |
+| Responses | POST | [`/v1/responses`](/api/nilai/create-response-v-1-responses-post) | Generate AI responses with flexible input formats |
+| Models | GET | [`/v1/models`](/api/nilai/get-models-v-1-models-get) | List available models |
+| Attestation | GET | [`/v1/attestation/report`](/api/nilai/get-attestation-v-1-attestation-report-get) | Get cryptographic proof of environment |
+| Usage | GET | [`/v1/usage`](/api/nilai/get-usage-v-1-usage-get) | Track your token usage |
+| Delegation | GET | [`/v1/delegation`](/api/nilai/get-prompt-store-delegation-v-1-delegation-get) | Get prompt store delegation token |
+| Health Check | GET | [`/v1/health`](/api/nilai/health-check-v-1-health-get) | Check service status |
+
+## Pricing Endpoints
+
+| Name | Method | Endpoint | Description |
+|----------|----------|----------|-------------|
+| All Prices | GET | [`/v1/pricing`](/api/nilai/get-all-prices-v-1-pricing-get) | Get pricing for all models |
+| Model Price | GET | [`/v1/pricing/{model_name}`](/api/nilai/get-model-price-v-1-pricing-model-name-get) | Get pricing for a specific model |
