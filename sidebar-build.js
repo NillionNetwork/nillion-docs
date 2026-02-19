@@ -176,7 +176,6 @@ const buildSidebar = [
     },
     items: [
       'blind-computer/build/llms/quickstart',
-      'blind-computer/build/llms/usage',
       {
         type: 'doc',
         label: 'Key Concepts',
@@ -184,27 +183,27 @@ const buildSidebar = [
       },
       {
         type: 'category',
-        label: 'Advanced Usage',
+        label: 'SDKs',
         items: [
-          'blind-computer/build/llms/advanced/web_search',
-          'blind-computer/build/llms/advanced/private_prompts',
-        ],
-      },
-      {
-        type: 'category',
-        label: 'Examples',
-        items: [
+          'blind-computer/build/llms/sdks/quickstart',
+          'blind-computer/build/llms/sdks/web_search',
+          'blind-computer/build/llms/sdks/private_prompts',
           {
             type: 'link',
-            label: 'Python',
+            label: 'Python Examples',
             href: 'https://github.com/NillionNetwork/nilai-py/tree/main/examples',
           },
           {
             type: 'link',
-            label: 'TypeScript',
+            label: 'TypeScript Examples',
             href: 'https://github.com/NillionNetwork/nilai-ts/tree/main/examples',
           },
         ],
+      },
+      {
+        type: 'link',
+        label: 'Example Apps',
+        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai',
       },
       {
         type: 'link',

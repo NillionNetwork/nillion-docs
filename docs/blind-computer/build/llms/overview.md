@@ -38,7 +38,6 @@ Two layers of cryptographic proof are provided:
 
 ## Getting Started
 
-1. Get access to private LLMs by obtaining your nilAI API key and node URL
-2. Use your API key to check the `/models` endpoint for available models
-3. Start running private AI using your chosen model
-4. Optionally, verify your environment using the attestation API
+Start with the [Quickstart](/blind-computer/build/llms/quickstart) to get your first app running. You'll get your API keys via the [nilAI Developer Dashboard](https://nilai.nillion.com/), where you can already make your first interactive use of nilAI.
+
+SDKs are available for both **Direct** and **Delegated** signing access modes. You can find basic and advanced usage examples in the [SDKs section](/blind-computer/build/llms/sdks/quickstart).

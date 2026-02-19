@@ -3,67 +3,80 @@ import ThumbsUpDown from '@site/src/components/ThumbsUpDown';
 
 # Quickstart
 
-With nilAI, it is possible to run AI models within a trusted execution environment (TEE) via the secretLLM SDK. This makes it possible to build new private AI applications or migrate existing ones to run on a secure nilAI node so that your data remains private.
+With nilAI, it is possible to run AI models within a trusted execution environment (TEE). Once you have nilAI API access, you can start using LLMs on nilAI with any OpenAI-compatible library. This quickstart uses the latest `secretllm_nextjs` example to build a private chat app with API key authentication.
 
 ## Getting Started
 
-In this quickstart, we will interact with a private AI chat/response application via Next.js. Let's get started by cloning our examples repo.
+In this quickstart, you will run a private AI chat application via Next.js.
 
-```
+## Prerequisites
+
+- Node.js 18 or newer
+- A package manager (pnpm recommended)
+- A nilAI API key
+
+## Project Setup
+
+1. Clone the examples repo and move into the Next.js example:
+
+```bash
 gh repo clone NillionNetwork/blind-module-examples
-cd blind-module-examples/nilai/secretllm_nextjs_nucs
+cd blind-module-examples/nilai/secretllm_nextjs
 ```
 
-## Authentication
+2. Create your `.env` file:
 
-```
+```bash
 cp .env.example .env
 ```
 
-Now we need to set `NILLION_API_KEY` using a DID private key created via the nilAI Developer Dashboard.
+Now we need to set `NILLION_API_KEY` using the API KEY from the nilAI Developer Dashboard.
 
 <CTABanner
   question='Get your nilAI API keys here'
-  instruction='Visit the nilAI Developer Dashboard and create a public DID / private API key'
+  instruction='Visit the nilAI Developer Dashboard and create a API key'
   buttonText='Get your keys'
   buttonLink='https://nilai.nillion.com'
   event='quickstart-sllm-cta-banner'
   external={true}
 />
 
+3. Get your API Key from above and then add your nilAI API key:
+
+```bash
+NILLION_API_KEY=YOUR_API_KEY_HERE
+```
+
+4. Install dependencies and run the app:
+
+```bash
+pnpm i
+pnpm run dev
+```
+
+5. Open `http://localhost:3000` and send a chat message.
+
 ## Usage
 
 ![secretLLM quickstart](/img/secretllm-quickstart.png)
 
-We have two approaches for using the nilAI API via secretLLM:
+The Next.js route in this example:
 
-- Direct API Access: Recommended for a solo developer/organization.
-- Delegation Token: Provides permissions to another user or organization.
-
-### Direct API Access
-
-1. Get the API key from your `.env` file.
-2. Check if the message and API key exist.
-3. Initialize the nilAI OpenAI client with `baseURL`, `apiKey`, and `nilauthInstance`.
-4. Make a request to the chat client with the `model` and `message`.
-5. Receive the response from `message.content`.
+1. Reads `NILLION_API_KEY` from your `.env` file.
+2. Sends your messages to `https://api.nilai.nillion.network/v1/chat/completions`.
+3. Uses model `openai/gpt-oss-20b`.
+4. Returns the response text (and signature when present).
 
 ```typescript reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nextjs_nucs/app/api/chat/route.ts
+https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nextjs/app/api/chat/route.ts
 ```
 
-### Delegation Token Access
+## Verification
 
-1. Similar to Direct API access, except using `DELEGATION_TOKEN` authentication.
-2. Server initializes a delegation token server.
-3. Client produces a delegation request.
-4. Server creates the delegation token.
-5. Client uses the delegation token with the `model` and `message` for the request.
-6. Response is delivered.
+After submitting a prompt in the UI:
 
-```typescript reference showGithubLink
-https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nextjs_nucs/app/api/chat-delegation/route.ts
-```
+- You should see an assistant reply in the chat panel.
+- If configuration is wrong, the chat UI shows the API error message.
 
 ### Customization
 
@@ -75,7 +88,7 @@ You can also customize the types of models you want to use. Currently available 
 
 1. **You (Builder)** get access to the secretLLM SDK.
 2. **You (User)** can provide a prompt to the LLM.
-3. **The LLM** understands your prompt and returns an answer via direct or delegated access.
+3. **The LLM** understands your prompt and returns an answer via direct API key access.
 
 This demonstrates a core principle of private AI: you can create endless private AI applications via Nillion.
 
