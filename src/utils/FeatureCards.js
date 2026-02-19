@@ -30,13 +30,6 @@ export const Libraries = [
     icon: '🔐',
     href: '/blind-computer/build/storage/blindfold',
   },
-  {
-    title: 'nilRAG',
-    description:
-      'Provide context to SecretLLM from SecretVault with nilRAG library.',
-    icon: '🔍',
-    href: '/blind-computer/build/llms/nilRAG',
-  },
 ];
 
 export const Platforms = [

@@ -1,9 +1,9 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Network API Access
+# API Access
 
-The nilPay Subscription Portal allows you to subscribe and create credentials for using the [Private Storage](/blind-computer/build/storage/overview) and [Private LLMs](/blind-computer/build/llms/overview) network APIs.
+The nilPay Subscription Portal allows you to subscribe and create credentials for using the [Private Storage](/blind-computer/build/storage/overview) network APIs and SDK.
 
 This guide walks you through the process of creating an API key.
 
@@ -47,25 +47,11 @@ The **Choose Recipient** step lets you decide which identity will have access to
         Your address may appear as `did:ethr:0xXXX`. This is a DID (Decentralized Identifier) — a unique cryptographic identifier derived from your public key, used for verifiable authentication.
 :::
 
-<Tabs>
-<TabItem value='nilDB' label='Private Storage' default>
-
-For nilDB, all four identity options are available — both wallet-based and key-based.
-
-</TabItem>
-
-<TabItem value='nilAI' label='Private LLM' default>
-
-For nilAI, only key-based options are supported: **Generate New Identity** or **Import Secret Key**. This works like a standard API key approach — your secret key authenticates requests directly. Do not lose your Secret Key.
-
-</TabItem>
-</Tabs>
-
-## Subscription to nilAI and/or nilDB
+## Subscription to nilDB
 
 You have the required NIL from the [prerequisite](#prerequisite) / [testnet faucet](https://faucet.testnet.nillion.network/), so you should be able to subscribe to either of the services.
 
-Click on the either `Purchase` for `nilDB` or `nilAI` to subscribe and follow the wallet prompts.
+Click on the either `Purchase` for `nilDB` to subscribe and follow the wallet prompts.
 
 After the payment goes through, you will have a 28 day subscription to the service and can now use your keys.
 

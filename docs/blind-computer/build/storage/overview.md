@@ -22,7 +22,7 @@ Interact with the private storage solution using the TypeScript or Python [secre
 
 **For Builders (Applications)**
 
-- Get [Nillion Network Access](/blind-computer/build/network-api-access) to connect to nilDB nodes
+- Get [Nillion API Access](/blind-computer/build/storage/api-access) to connect to nilDB nodes
 - Define collections with schemas programmatically or by using the no-code, visual, **[Collection Explorer Tool](/blind-computer/build/storage/collection-explorer) (recommended)**
 - Store and query data
 - Create aggregation queries

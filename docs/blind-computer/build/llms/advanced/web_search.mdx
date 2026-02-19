@@ -17,72 +17,13 @@ To enable web search in your LLM requests, you need to:
 
 <Tabs>
     <TabItem value="python" label="Python">
-        ```python
-        from nilai_py import Client, NilAuthInstance
-        from config import API_KEY
-
-        def main():
-            # Initialize the client in API key mode
-            client = Client(
-                base_url="https://nilai-a779.nillion.network/nuc/v1/",
-                api_key=API_KEY,
-            )
-
-            # Make a request with web search enabled
-            response = client.chat.completions.create(
-                model="google/gemma-3-27b-it",
-                messages=[
-                    {
-                        "role": "user",
-                        "content": "Can you look for the latest news about AI and summarize them?",
-                    }
-                ],
-                extra_body={"web_search": True},
-            )
-
-            print(f"Response: {response.choices[0].message.content}")
-
-        if __name__ == "__main__":
-            main()
+        ```python reference showGithubLink
+        https://github.com/NillionNetwork/nilai-py/blob/main/examples/7-web-search.py
         ```
     </TabItem>
     <TabItem value="typescript" label="TypeScript" default>
-        ```typescript
-        import "dotenv/config";
-        import { NilaiOpenAIClient, NilAuthInstance } from "@nillion/nilai-ts";
-
-        const API_KEY = process.env.NILLION_API_KEY;
-
-        async function main() {
-          // Initialize the client in API key mode
-          const client = new NilaiOpenAIClient({
-            baseURL: "https://nilai-a779.nillion.network/v1/",
-            apiKey: API_KEY,
-            nilauthInstance: NilAuthInstance.SANDBOX,
-            // For production, use the following:
-            // nilauthInstance: NilAuthInstance.PRODUCTION,
-          });
-
-          // Make a request with web search enabled
-          const response = await client.chat.completions.create(
-            {
-              model: "google/gemma-3-27b-it",
-              messages: [
-                {
-                  role: "user",
-                  content: "Hello! Can you help me understand the latest news of AI?",
-                },
-              ],
-            },
-            {
-              extra_body: { web_search: true }, // Enable web search
-            } as any,
-          );
-
-          console.log(`Response: ${response.choices[0].message.content}`);
-        }
-
-        main().catch(console.error);
+        ```typescript reference showGithubLink
+        https://github.com/NillionNetwork/nilai-ts/blob/main/examples/3-web-search.ts
         ```
     </TabItem>
 </Tabs>
