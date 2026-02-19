@@ -34,7 +34,7 @@ Once you have [nilAI API access](/blind-computer/build/network-api-access), you 
 You can either use:
 
 - `API Key` flow as the sole developer / organization or
-- `Delegation Flow` to provide permissions to another user / organization.
+- `Direct Signing.` to provide permissions to another user / organization.
 
 ### API Key Flow
 
@@ -91,22 +91,35 @@ With OpenAI compatibility, you can use any OpenAI library. Here's an example for
 
 </Tabs>
 
-### Delegation flow
+### Direct Signing.
 
-To use the delegation flow, you need to create a delegation token server.
+To use the direct signing flow, you need to create a delegation token server.
 
-The server then creates the delegation tokens and managing their expiration and usage. Then the delegation token allows you to make requests to the nilAI API.
+The server creates delegation tokens and manages their expiration and usage. Then the delegation token allows clients to make requests to the nilAI API.
 
-    <Tabs>
+<Tabs>
+    <TabItem value="nextjs-nucs" label="Next.js" default>
+        This flow matches the older `secretllm_nextjs_nucs` tutorial:
 
+        1. Server initializes `DelegationTokenServer` with `expirationTime` and `tokenMaxUses`.
+        2. Client initializes `NilaiOpenAIClient` with `authType: AuthType.DELEGATION_TOKEN`.
+        3. Client produces a delegation request with `client.getDelegationRequest()`.
+        4. Server creates the delegation token with `server.createDelegationToken(...)`.
+        5. Client sets the token with `client.updateDelegation(...)`.
+        6. Client uses the delegation token to call chat completions and reads `response.choices[0].message.content`.
+
+        ```typescript reference showGithubLink
+        https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nextjs_nucs/app/api/chat-delegation/route.ts
+        ```
+    </TabItem>
     <TabItem value="python" label="Python">
         ```python reference showGithubLink
         https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_python_nucs/delegation_acess_mode.py
         ```
     </TabItem>
-    <TabItem value="typescript" label="Typescript" default>
+    <TabItem value="typescript" label="Typescript">
         ```typescript reference showGithubLink
         https://github.com/NillionNetwork/nilai-ts/blob/main/examples/1-delegation-token.ts
         ```
     </TabItem>
-    </Tabs>
+</Tabs>
