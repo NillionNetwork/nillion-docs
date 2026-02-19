@@ -1,9 +1,19 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CTABanner from '@site/src/components/CTABanner';
 
-# Usage
+# Quickstart
 
-Once you have [nilAI API access](https://nilai.nillion.com), you can start using LLMs on nilAI with any OpenAI-compatible library.
+The nilAI SDKs operate under the `Direct Signing` & `Delegated Signing` access modes. You will need a `Public DID / Private Key` to use the SDKs - not a plain `API Key`.
+
+<CTABanner
+  question='Get your nilAI Public DID / Private Key here'
+  instruction='Visit the nilAI Developer Dashboard and create a Public DID / Private Key'
+  buttonText='Get your keys'
+  buttonLink='https://nilai.nillion.com'
+  event='quickstart-sllm-cta-banner'
+  external={true}
+/>
 
 ## Getting Started with Private LLMs
 
@@ -33,12 +43,12 @@ Once you have [nilAI API access](https://nilai.nillion.com), you can start using
 
 You can either use:
 
-- `API Key` flow as the sole developer / organization or
-- `Direct Signing.` to provide permissions to another user / organization.
+- `Direct Signing` flow as the sole developer / organization or
+- `Delegated Signing` to provide permissions to another user / organization.
 
-### API Key Flow
+### Direct Signing Flow
 
-1. Use `https://api.nilai.nillion.network/v1` as the BASE URL
+1. Use `https://api.nilai.nillion.network/nuc/v1` as the BASE URL
 2. Check [available models](/blind-computer/build/llms/overview#available-models) or query the [`/v1/models`](/api/nilai/get-models-v-1-models-get) endpoint or
 3. Select an available model and use it with the [`/v1/chat/completions`](/api/nilai/chat-completion-v-1-chat-completions-post) nilAI node endpoint
 
@@ -58,9 +68,9 @@ With OpenAI compatibility, you can use any OpenAI library. Here's an example for
 
 </Tabs>
 
-### Direct Signing.
+### Delegated Signing
 
-To use the direct signing flow, you need to create a delegation token server.
+To use the delegated signing flow, you need to create a delegation token server.
 
 The server creates delegation tokens and manages their expiration and usage. Then the delegation token allows clients to make requests to the nilAI API.
 
@@ -76,7 +86,7 @@ The server creates delegation tokens and manages their expiration and usage. The
         6. Client uses the delegation token to call chat completions and reads `response.choices[0].message.content`.
 
         ```typescript reference showGithubLink
-        https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nextjs_nucs/app/api/chat-delegation/route.ts
+        https://github.com/NillionNetwork/blind-module-examples/blob/main/nilai/secretllm_nextjs_sdk/app/api/chat-delegation/route.ts
         ```
     </TabItem>
     <TabItem value="python" label="Python">

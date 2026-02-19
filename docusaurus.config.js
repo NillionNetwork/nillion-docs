@@ -392,15 +392,15 @@ const config = {
             ],
           },
           {
-            to: '/blind-computer/build/llms/advanced/web_search',
+            to: '/blind-computer/build/llms/sdks/web_search',
             from: ['/build/private-llms/advanced/web_search'],
           },
           {
-            to: '/blind-computer/build/llms/advanced/private_prompts',
+            to: '/blind-computer/build/llms/sdks/private_prompts',
             from: ['/build/private-llms/advanced/private_prompts'],
           },
           {
-            to: '/blind-computer/build/llms/usage',
+            to: '/blind-computer/build/llms/sdks/quickstart',
             from: ['/build/private-llms/usage'],
           },
           {

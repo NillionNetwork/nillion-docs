@@ -2,6 +2,14 @@
 
 This glossary defines key terms as they are used throughout the nilAI documentation and system.
 
+## Access Modes
+
+There are 3 access modes available for using nilAI:
+
+- `API Key` mode is the plain, straightforward, string key that can be used as a Bearer Token
+- `Direct Signing` used with the nilAI SDKs takes advantage of Nillion's [NUCs](/blind-computer/build/permissions-and-payments#nuc) and consists of a Public DID & Private Key
+- `Delegated Signing` is similar to the above, but used to provide permissions to another users
+
 ## Attestation
 
 A cryptographic proof mechanism that verifies the integrity of the TEE environment. nilAI provides two layers of attestation:
@@ -9,7 +17,7 @@ A cryptographic proof mechanism that verifies the integrity of the TEE environme
 - **Environment Attestation**: Verifies the GPU environment and service integrity through a verifying key
 - **Response Signatures**: Cryptographic signatures included with every chat completion response, proving the response originated from the attested environment
 
-## Chunks
+<!-- ## Chunks
 
 Segments of data created when files are processed for nilRAG. When a data owner uploads files:
 
@@ -25,7 +33,7 @@ Numerical vector representations of text used for similarity search in nilRAG:
 - Generated from chunks when data owners upload files
 - Used to match client queries against stored content
 - Stored in secret-shared form in Private Storage
-- Enable privacy-preserving similarity comparisons without exposing raw data
+- Enable privacy-preserving similarity comparisons without exposing raw data -->
 
 
 ## NVIDIA Confidential Computing
