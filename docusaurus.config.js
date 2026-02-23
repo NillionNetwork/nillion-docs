@@ -401,7 +401,10 @@ const config = {
           },
           {
             to: '/blind-computer/build/llms/sdks/quickstart',
-            from: ['/build/private-llms/usage'],
+            from: [
+              '/build/private-llms/usage',
+              '/blind-computer/build/llms/usage',
+            ],
           },
           {
             to: '/blind-computer/build/llms/quickstart',

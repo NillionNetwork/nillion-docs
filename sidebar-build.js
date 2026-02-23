@@ -185,7 +185,11 @@ const buildSidebar = [
         type: 'category',
         label: 'SDKs',
         items: [
-          'blind-computer/build/llms/sdks/quickstart',
+          {
+            type: 'doc',
+            label: 'Usage',
+            id: 'blind-computer/build/llms/sdks/quickstart',
+          },
           'blind-computer/build/llms/sdks/web_search',
           'blind-computer/build/llms/sdks/private_prompts',
           {
