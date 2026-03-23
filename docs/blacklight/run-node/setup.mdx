@@ -88,13 +88,13 @@ Below is a high‑level walkthrough of the full process so you know what to expe
     <p><b>First, pull the Blacklight node Docker image:</b></p>
 
     ```bash
-    docker pull ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.9.0
+    docker pull ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.10.0
     ```
 
     <p><b>Next, run the node once to initialize it and generate a wallet:</b></p>
 
     ```bash
-    docker run -it --rm -v ./blacklight_node:/app/ -v ./blacklight_node:/tmp/blacklight-cache ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.9.0 --rpc-url https://rpc.testnet.nillion.network --manager-contract-address 0x8d683fb2CC794E085E8366c4f28f8CC991107576 --staking-contract-address 0x595A112FA10ED66Bc518b28781035BA50C9f2216 --token-contract-address 0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35
+    docker run -it --rm -v ./blacklight_node:/app/ -v ./blacklight_node:/tmp/blacklight-cache ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.10.0 --rpc-url https://rpc.testnet.nillion.network --manager-contract-address 0x8d683fb2CC794E085E8366c4f28f8CC991107576 --staking-contract-address 0x595A112FA10ED66Bc518b28781035BA50C9f2216 --token-contract-address 0x69AD6D3E17C99A3f66b5Ae410a5D1D4E14C7da35
     ```
 
     <p>On first run, the node will:</p>
@@ -157,7 +157,7 @@ Below is a high‑level walkthrough of the full process so you know what to expe
     <p><b>Finally, you need to set your Blacklight node running.</b> Run the command below.</p>
 
     ```bash
-    docker run -it --rm -v ./blacklight_node:/app/ -v ./blacklight_node:/tmp/blacklight-cache ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.9.0 --rpc-url https://rpc.nillion.network --manager-contract-address 0x0Ee49a8f50293Fa5d05Ba6d1FC136e7F79b2eA4f --staking-contract-address 0x89c1312Cedb0B0F67e4913D2076bd4a860652B69 --token-contract-address 0x32DEAe728473cb948B4D8661ac0f2755133D4173
+    docker run -it --rm -v ./blacklight_node:/app/ -v ./blacklight_node:/tmp/blacklight-cache ghcr.io/nillionnetwork/blacklight-node/blacklight_node:0.10.0 --rpc-url https://rpc.nillion.network --manager-contract-address 0x0Ee49a8f50293Fa5d05Ba6d1FC136e7F79b2eA4f --staking-contract-address 0x89c1312Cedb0B0F67e4913D2076bd4a860652B69 --token-contract-address 0x32DEAe728473cb948B4D8661ac0f2755133D4173
     ```
 
     <p>After running this command, you should see <b>"✅ Ready to operate"</b> followed by <b>"Node registered successfully"</b> in your terminal. This means your Blacklight node is successfully running correctly.</p>
