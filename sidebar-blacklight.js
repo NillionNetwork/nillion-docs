@@ -44,6 +44,15 @@ const blacklightSidebar = [
     items: [],
   },
   {
+    type: 'category',
+    label: 'Setup a Managed Node',
+    link: {
+      type: 'doc',
+      id: 'blacklight/run-node/managed-node',
+    },
+    items: [],
+  },
+  {
     type: 'html',
     className: 'sidebar-title',
     value: 'Tools',
