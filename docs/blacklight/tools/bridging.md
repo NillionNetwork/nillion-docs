@@ -13,27 +13,22 @@ flowchart LR
         BL[Nillion's<br/>L2]
     end
 
-    NC -->|NIL<br/>Cosmos Bridge| ETH
+    NC -->|NIL<br/>Merkle Proof | ETH
     ETH -->|ETH / NIL<br/>Nillion's L2 Bridge| BL
 ```
 
 ## From Cosmos to Ethereum
 
-You can bridge `NIL` tokens from nilChain (Cosmos) to Ethereum using our [Cosmos-Ethereum bridge](https://migrate.nillion.com/).
+The NilChain was halted on March 23rd at 14:18 UTC (block #6,222,000), and a final snapshot of all remaining balances was taken.
+If you still had an unbridged balance at that point, your tokens have been pre-minted on Ethereum and can be claimed once using a Merkle proof:
 
-To bridge NIL from Cosmos to Ethereum:
-
-1. Visit the [Cosmos-Ethereum bridge](https://migrate.nillion.com/)
+1. Visit the [Cosmos-Ethereum claim page](https://claim.nillion.com/)
 2. Connect your wallets - both on the Cosmos and EVM side
-3. Note: The source chain (nilChain `nillion-1`), destination chain (Ethereum `1`), source asset (NIL), and destination asset are pre-populated
-4. Enter the amount of `NIL` you want to bridge
-5. Review and confirm the transaction
+3. Sign with your Cosmos wallet
+4. Claim your NIL on Ethereum - the whole balance will be claimed
 
-The bridge will handle the cross-chain transfer and your NIL tokens will be available on Ethereum once the transaction is complete.
+Your NIL tokens will be available on Ethereum once the transaction is complete.
 
-Watch the video below for a run through on how to bridge NIL from Cosmos to Ethereum.
-
-<iframe width='100%' height='500' src="https://www.youtube.com/embed/LHTjCh9-dMs?si=9GZvnEmIRJgVbeOz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
