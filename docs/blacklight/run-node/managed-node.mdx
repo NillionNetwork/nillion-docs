@@ -1,7 +1,7 @@
 import CTABanner from '@site/src/components/CTABanner';
 
 
-# Set up a Managed Node
+# Setup a Managed Node
 
 A managed Blacklight node lets you participate in Blacklight without running any infrastructure yourself. The node is run on your behalf - you simply stake your NIL tokens and start earning rewards.
 
@@ -11,7 +11,7 @@ The minimum stake for a managed node is 500,000 NIL. You can unstake at any poin
   question='Getting Started'
   instruction='The easiest way to set up a managed Blacklight node is through the Managed Node WebApp, which guides you step by step through bridging, staking, and operation.'
   buttonText='Visit the Managed Node WebApp'
-  buttonLink='https://blacklight-app-managed.vercel.app/'
+  buttonLink='https://managed-blacklight.nillion.com/'
   external={true}
 />
 
@@ -25,7 +25,7 @@ on a decentralised exchange, for example Uniswap.
 
 ## Walkthrough
 
-Below is a step-by-step walkthrough of the full process of setting up your managed node using the [webapp](https://blacklight-app-managed.vercel.app/setup). If you get stuck, feel free to reach out to us on [Discord](https://discord.com/invite/nillionnetwork).
+Below is a step-by-step walkthrough of the full process of setting up your managed node using the [webapp](https://managed-blacklight.nillion.com/). If you get stuck, feel free to reach out to us on [Discord](https://discord.com/invite/nillionnetwork).
 
 
 <div style={{borderTop: '2px solid var(--ifm-color-emphasis-200)', paddingTop: '2rem', marginTop: '2rem'}}>
@@ -46,7 +46,7 @@ Below is a step-by-step walkthrough of the full process of setting up your manag
     <p>Your NIL tokens will be available on Nillion's L2 after the bridge transaction is confirmed.</p>
   </div>
   <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
-    <img src="/img/bridge_nil_managed_node.png" alt="Bridge NIL to Nillion's L2" style={{width: '100%'}} />
+    <img src="/img/blacklight_managed_bridge_nil.png" alt="Bridge NIL to Nillion's L2" style={{width: '100%'}} />
   </div>
 </div>
 </div>
@@ -68,7 +68,7 @@ Below is a step-by-step walkthrough of the full process of setting up your manag
     <p>Once the bridge transaction is confirmed, your ETH will be available on Nillion's L2.</p>
   </div>
   <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
-    <img src="/img/bridge_eth_manged_node.png" alt="Bridge ETH to Nillion's L2" style={{width: '100%'}} />
+    <img src="/img/blacklight_managed_bridge_eth.png" alt="Bridge ETH to Nillion's L2" style={{width: '100%'}} />
   </div>
 </div>
 </div>
@@ -90,7 +90,7 @@ the [Network Configuration page](/blacklight/learn/network#mainnet).
     <p>In the webapp, enter the amount you would like to stake, click stake and sign the transaction in your wallet. After this is complete, click "view node" to see your node dashboard.</p>
   </div>
   <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
-    <img src="/img/stake_to_managed_node.png" alt="Stake to managed node" style={{width: '100%'}} />
+    <img src="/img/blacklight_managed_stake_nil.png" alt="Stake to managed node" style={{width: '100%'}} />
   </div>
 </div>
 </div>
@@ -106,10 +106,13 @@ the [Network Configuration page](/blacklight/learn/network#mainnet).
     <p>You will be given a link to your node's dashboard, where you can:</p>
 
     - Monitor your node's status
-    - Claim your rewards
     - Stake additional NIL or unstake your existing stake
+    - Edit reward distribution method and claim rewards (rewards are also automatically claimed every 20')
 
     <p>Note there is a <b>7 day unbonding period</b> when unstaking. Only after this period can you withdraw your funds.</p>
   </div>
+  <div style={{flex: '0 0 auto', minWidth: '300px', maxWidth: '500px'}}>
+      <img src="/img/blacklight_managed_switch_reward_distribution.png" alt="Stake to managed node" style={{width: '100%'}} />
+    </div>
 </div>
 </div>

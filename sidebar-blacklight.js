@@ -45,7 +45,7 @@ const blacklightSidebar = [
   },
   {
     type: 'category',
-    label: 'Set up a Managed Node',
+    label: 'Setup a Managed Node',
     link: {
       type: 'doc',
       id: 'blacklight/run-node/managed-node',
