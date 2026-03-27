@@ -12,6 +12,8 @@ The core Solidity smart contracts for Blacklight are deployed on [Nillion's Ethe
 - [NoOpSlashingPolicy](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/NoOpSlashingPolicy.sol) - Slashing policy implementation that intentionally applies no penalties or jailing
 - [EmissionsController](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/EmissionsController.sol) - Token emissions scheduler with L1-to-L2 bridging
 - [Interfaces](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/Interfaces.sol) - Shared contract interfaces for pluggable modules
+- [NodeOperator](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/NodeOperator.sol) - Managed node operator
+- [NodeOperatorFactory](https://github.com/NillionNetwork/blacklight-contracts/blob/main/src/NodeOperatorFactory.sol) - Handling managed nodes orchestration
 
 ## Addresses and Token Information
 
@@ -25,6 +27,7 @@ The core Solidity smart contracts for Blacklight are deployed on [Nillion's Ethe
 | HeartbeatManager          | [0x0Ee49a8f50293Fa5d05Ba6d1FC136e7F79b2eA4f](https://explorer.nillion.network/address/0x0Ee49a8f50293Fa5d05Ba6d1FC136e7F79b2eA4f) |
 | RewardPolicy              | [0x78E0FEBF3B8936f961729328a25dBA88d4Fea86B](https://explorer.nillion.network/address/0x78E0FEBF3B8936f961729328a25dBA88d4Fea86B) |
 | NoOpSlashingPolicy        | [0x9a75E816941F692C23166eE9d61328544fb99490](https://explorer.nillion.network/address/0x9a75E816941F692C23166eE9d61328544fb99490) |
+| NodeOperatorFactory       | [0x357A349D1a0517f6e234dE99D3a2767E2D871451](https://explorer.nillion.network/address/0x357A349D1a0517f6e234dE99D3a2767E2D871451) |
 
 ### Testnet
 
@@ -36,3 +39,4 @@ The core Solidity smart contracts for Blacklight are deployed on [Nillion's Ethe
 | HeartbeatManager          | [0x3dbE95E20B370C5295E7436e2d887cFda8bcb02c](https://explorer.testnet.nillion.network/address/0x3dbe95e20b370c5295e7436e2d887cfda8bcb02c) |
 | RewardPolicy              | [0xB7223d0a84A8e0c5a5D384b57F2bA3b2Cb216ed9](https://explorer.testnet.nillion.network/address/0xb7223d0a84a8e0c5a5d384b57f2ba3b2cb216ed9) |
 | NoOpSlashingPolicy        | [0x4a76Cb88D6FFb85cBe0ad28e7FFB3D51678e440d](https://explorer.testnet.nillion.network/address/0x4a76Cb88D6FFb85cBe0ad28e7FFB3D51678e440d) |
+| NodeOperatorFactory        | [0x3c3597E9D70b8905fA2D12D94864433aeC614892](https://explorer.testnet.nillion.network/address/0x3c3597E9D70b8905fA2D12D94864433aeC614892) |
