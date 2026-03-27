@@ -21,7 +21,7 @@ This showcases Nillion's core value: builders can preserve privacy by default wh
 
 - How builders create **standard collections** with encrypted fields
 - How users authenticate with **MetaMask** and get a DID-backed NUC session
-- How sessions persist via **root token + invocation tokens**
+- How sessions persist via **invocation tokens**
 - How to use `%share` (schema) and `%allot` (write payload) correctly
 - How the **@nillion/secretvaults** library handles encryption and share distribution automatically
 
@@ -32,21 +32,8 @@ This showcases Nillion's core value: builders can preserve privacy by default wh
 
 ## 1. Prerequisites
 
-- MetaMask browser extension
-- Active `nilDB` subscription and API key
+- MetaMask browser extension and wallet
 - Node.js 20+ and pnpm
-
-### Get your nilDB subscription and API key
-
-You only need an **EVM wallet** (MetaMask) for this flow.
-<CTABanner
-  question="Get your Nillion API keys here"
-  instruction="You need a Nillion API Key with an active nilDB subscription to proceed."
-  buttonText="Get a Nillion API Key"
-  buttonLink="/blind-computer/build/storage/api-access"
-  event="quickstart-svaults-v1-cta-banner"
-  external={false}
-/>
 
 ## 2. Project Setup
 
@@ -115,22 +102,19 @@ https://github.com/NillionNetwork/blind-module-examples/blob/main/nildb/secretva
 Relevant files:
 
 `src/hooks/useInitializeSessionMutation.ts`:
-- `initializeSession()`: 
-  - Creates `NilauthClient`
+- `initializeSession()`:
   - Checks `subscriptionStatus`
   - Builds `SecretVaultBuilderClient.from({ blindfold: { operation: "store" } })`
-  - Calls `refreshRootToken()`
   - Mints per-node invocation tokens
   - Ensures builder profile exists (`readProfile`, then `register` if needed)
-  - Returns `{ nillionClient, nilauthClient, rootToken, nildbTokens }`.
+  - Returns `{ nillionClient, nildbTokens }`.
   - On success, saves the session into React Query (`["session"]`) and persists tokens via `usePersistedConnection`.
 
 `src/context/AuthFlowManager.tsx`
 - Decides whether to initialize or log in based on MetaMask connection and whether a stored session already exists.
 
 `src/hooks/useLoginMutation.ts`
-- Rehydrates from localStorage (`rootToken`, `nildbTokens`)
-- Validates the stored root token
+- Rehydrates from localStorage (`nildbTokens`)
 - Reuses invocation tokens when available, otherwise mints fresh tokens
 - Ensures builder profile exists
 - Writes session back to React Query.
@@ -141,7 +125,6 @@ Relevant files:
 
 ***Key concepts***:
 
-- Root token: Master authorization from nilauth
 - Invocation Tokens: Node-specific tokens (one per nilDB node)
 - Blindfold: Enables automatic encryption for %allot fields
 
@@ -223,7 +206,7 @@ During session initialization, MetaMask may prompt you to sign **3 or more times
 3. A standard notes collection is created (or reused) per wallet
 4. Note titles and wallet addresses stay plaintext for filtering/display
 5. Note content is encrypted and split into secret shares across nilDB nodes
-6. Sessions persist via root token + per-node invocation tokens in localStorage
+6. Sessions persist via per-node invocation tokens in localStorage
 
 <ThumbsUpDown
   thumbsUpEvent="quickstart_secretvaults_completed_yes"
