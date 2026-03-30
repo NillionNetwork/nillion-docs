@@ -3,56 +3,25 @@ import TabItem from '@theme/TabItem';
 
 # API Access
 
-The nilPay Subscription Portal allows you to subscribe and create credentials for using the [Private Storage](/blind-computer/build/storage/overview) network APIs and SDK.
-
-This guide walks you through the process of creating an API key.
-
-{/* <iframe
-  width='100%'
-  height='500'
-  src='https://www.youtube.com/embed/F1pWAUV78rg'
-  title='YouTube video player'
-  frameborder='0'
-  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-  allowfullscreen
-></iframe> */}
+The nilPay Portal allows you to register directly on the nilDB nodes and getting ready to use the [Private Storage](/blind-computer/build/storage/overview) network APIs and SDK. This guide walks you through the process.
 
 
 ## Prerequisites
-You must have acquired some Sepolia ETH + NIL via this [faucet guide.](/community/guides/testnet-faucet)
+You must have an EVM wallet address and browser extension (MetaMask, Rabby, etc)
 
-## Create an API Key
+## Getting Started
 
-Open up the [nilPay Subscription Portal](https://subscription.nillion.com) to create an API key. Sign in via your desired EVM browser wallet.
+Open up the [nilPay Portal](https://subscription.nillion.com) and sign in via your desired EVM browser wallet.
 
-![nilPay Page](/img/nilpay-main-page.png)
+![nilPay Page](/img/nilpay-sign-in.png)
 
-## Connecting to Sepolia
-Your EVM wallet should connect to the nilPay Portal. Select `Sepolia` for your desired network.
+## Registering on nilDB nodes
+You can now register directly on the nodes of your preference. We recommend at least 3 nodes for your Private Storage cluster.
 
-![nilPay Page](/img/nilpay-identity.png)
+![nilPay Page](/img/nilpay-mainnet.png)
 
-## Identity Options
-
-<center><img src="/img/nilpay-identity-explainer.png" alt="nilPay Choose Recipient" style={{width: '60%'}} /></center>
-
-The **Choose Recipient** step lets you decide which identity will have access to your nilDB and/or nilAI subscription. There are two categories:
-
-| Category | Options | How it works |
-|---|---|---|
-| **Wallet-based** | My Wallet, Another Identity | Access is tied directly to an Ethereum address. Use **My Wallet** for your connected address, or **Another Identity** to grant access to a different Ethereum address. |
-| **Key-based** | Generate New Identity, Import Secret Key | Works like a standard API key approach — a Secp256k1 private key authenticates your requests directly. Use **Generate New Identity** to create a new key, or **Import Secret Key** to reuse an existing one. The key is associated with your Ethereum address at creation time. |
-
-:::note
-        Your address may appear as `did:ethr:0xXXX`. This is a DID (Decentralized Identifier) — a unique cryptographic identifier derived from your public key, used for verifiable authentication.
-:::
-
-## Subscription to nilDB
-
-You have the required NIL from the [prerequisite](#prerequisite) / [testnet faucet](https://faucet.testnet.nillion.network/), so you should be able to subscribe to either of the services.
-
-Click on the either `Purchase` for `nilDB` to subscribe and follow the wallet prompts.
-
-After the payment goes through, you will have a 28 day subscription to the service and can now use your keys.
-
-<center><img src="/img/nilpay-successful-payment.png" alt="nilPay Successful Subscription" style={{width: '60%'}} /></center>
+## Free Tier & Topping up
+You have 100MB of free storage on each node. Beyond the free tier, you should top up your credits on each node using NIL - the rate per GB/hr is displayed on the portal.
+- To obtain NIL you can buy or swap to NIL on a decentralised exchange (for example Uniswap) or directly from your wallet browser extension
+- You will also need a tiny amount of ETH for gas fees
+![nilPay Page](/img/nilpay-topup.png)

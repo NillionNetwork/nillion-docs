@@ -18,28 +18,18 @@ This database management interface is specifically designed for privacy-preservi
 
 ## Getting Started
 
-### Set Your Nillion Network Configuration
+### Network Settings Configuration
 
-<CTABanner
-  question='Prerequisite: having a Nillion API Key'
-  instruction='You need a Nillion API Key with an active nilDB subscription to use the Collection Explorer tool.'
-  buttonText='Get a Nillion API Key'
-  buttonLink='/blind-computer/build/storage/api-access'
-  event='collections-explorer-api-key-cta'
-  external={false}
-/>
-
-Once you have a Nillion API Key with an active nilDB subscription, go to the [Collection Explorer](https://collection-explorer.nillion.com/) and configure your connection to the Nillion Network:
+Go to the [Collection Explorer](https://collection-explorer.nillion.com/) and configure your connection to the Nillion Network:
 
 1. Navigate to "⚙️ Network Settings" in the navbar
 2. Configure your nilDB Network settings:
+   - **Auth Method**: Wallet sign-in or API Key (legacy)
    - **Node endpoints**: Defaults to [nilDB Testnet nodes](/blind-computer/build/network-config#nildb-nodes)
-   - **nilAuth**: Uses Testnet nilAuth by default
-   - **nilChain**: Points to Testnet nilChain URL
-3. Enter your [Nillion API Key](/blind-computer/build/storage/api-access) for authenticated access
+3. Sign-in with your wallet or enter your [Nillion API Key](/blind-computer/build/storage/api-access)
 4. Save your configuration - these settings will persist across Collection Explorer sessions
 
-[![Set API Key](/img/collection-explorer/collection-explorer-set-nillion-api-key.png)](https://collection-explorer.nillion.com/)
+[![Set API Key](/img/collection-explorer/collection-explorer-settings.png)](https://collection-explorer.nillion.com/)
 
 ## Managing Collections
 
