@@ -22,12 +22,6 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
 
 <Tabs>
     <TabItem value="nilDB-testnet" label="nilDB Testnet" default>
-    
-    ### [nilauth-stg](https://nilauth-1bc3.nillion.network/about)
-    ```
-    NILAUTH_URL=https://nilauth-1bc3.staging.nillion.network
-    NILAUTH_PUBLIC_KEY=02188ca67e3410e31ca2d2562059d7d8cfec29c5fe1d0e52a1ee4b003648f01bc3
-    ```
 
     ### [nildb-stg-n1](https://nildb-stg-n1.nillion.network/about)
 
@@ -53,11 +47,6 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
     </TabItem>
 
     <TabItem value="nilDB-mainnet" label="nilDB Mainnet">
-    ### [nilauth](https://nilauth-eb42.nillion.network/about)
-    ```
-    NILAUTH_URL=https://nilauth-eb42.nillion.network
-    NILAUTH_PUBLIC_KEY=03658600f1c0876067c66488f962e7f0ad611bdb0c9446e05f000d7bfc2b09eb42
-    ```
 
     ### [nildb-5ab1](https://nildb-5ab1.nillion.network/about)
 
