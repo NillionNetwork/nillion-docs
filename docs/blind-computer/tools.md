@@ -12,6 +12,14 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 <section className="tools-grid">
 
 <ToolFeatureItem
+  title="Developer Portal"
+  description="Manage your nilDB, nilCC, and nilAI accounts from one place."
+  icon="🛠️"
+  href="https://developer.nillion.com/"
+  external={true}
+/>
+
+<ToolFeatureItem
   title="NIL Faucet"
   description="Get NIL (Nillion Testnet tokens) to start building apps."
   icon="💧"

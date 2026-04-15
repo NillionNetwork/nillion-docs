@@ -6,11 +6,6 @@ import ThumbsUpDown from '@site/src/components/ThumbsUpDown';
 
 Get started with nilCC in under 5 minutes by deploying your first secure workload.
 
-:::info
-
-Before you start building, you'll need a nilCC API Key. Request a **nilCC API Key** by filling out [this form](https://surveys.nillion.com/developers/07089b92-f409-4b65-b825-d61132971869)
-:::
-
 ## Deploy Your First Workload
 
 Let's deploy a simple "Hello World" API service that runs in a secure Confidential VM.
@@ -34,21 +29,20 @@ Choose your preferred workload creation method. Both options create the same sec
 <Tabs>
 <TabItem value="ui" label="Create Workload with UI (Recommended)" default>
 
-Create a new workload with the ***[nilCC Workload Manager UI](https://nilcc.nillion.com).*** 
+Create a new workload with the [Developer Portal nilCC UI](https://developer.nillion.com/nilcc?section=create-workload).
 
 This workload creation method is recommended for first-time nilCC users, visual workflow management, and ongoing monitoring.
 
 [![nilCC Create Workload](/img/nilcc-create-workload.png)](https://nilcc.nillion.com/workloads/create)
 
-1. **Visit**: [nilCC Workload Manager](https://nilcc.nillion.com)
-2. **Authenticate**: Enter your nilCC API Key to log in
-3. **Create New Workload**:
+1. **Visit**: [Developer Portal](https://developer.nillion.com/nilcc?section=create-workload)
+2. **Create New Workload**:
    - **Name**: `hello-world-api`
    - **Docker Compose**: Paste the YAML content from Step 1
    - **Service to Expose**: `web` (automatically detected)
    - **Port**: `8080` (automatically detected)
    - **Resources**: Optionally adjust the resource tier as needed
-4. **Deploy**: Click "Create Workload" and monitor the deployment status in real-time
+3. **Deploy**: Click "Create Workload" and monitor the deployment status in real-time
 
 </TabItem>
 <TabItem value="api" label="Create Workload with API">

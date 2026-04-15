@@ -2,9 +2,9 @@ import CTABanner from '@site/src/components/CTABanner';
 
 # Collection Explorer
 
-[![Collection Explorer](/img/collection-explorer/collection-explorer-card.png)](https://collection-explorer.nillion.com/)
+[![Collection Explorer](/img/collection-explorer/collection-explorer-card.png)](https://developer.nillion.com/nildb?section=my-collections)
 
-The [Nillion Collection Explorer](https://collection-explorer.nillion.com) is a no-code builder tool for creating and managing Nillion Private Storage schemas, collections, and records. This web-based interface provides a UI abstraction that speeds up and simplifies development by allowing builders to interact with Nillion's private data storage infrastructure without requiring programming knowledge or command-line tools. Everything possible through the Collection Explorer is also available programmatically via the Nillion [Secretvaults SDK](/blind-computer/build/storage/secretvaults).
+The [Nillion Collection Explorer](https://developer.nillion.com/nildb?section=my-collections) is a no-code builder tool for creating and managing Nillion Private Storage schemas, collections, and records. This web-based interface provides a UI abstraction that speeds up and simplifies development by allowing builders to interact with Nillion's private data storage infrastructure without requiring programming knowledge or command-line tools. Everything possible through the Collection Explorer is also available programmatically via the Nillion [Secretvaults SDK](/blind-computer/build/storage/secretvaults).
 
 ## What is the Collection Explorer?
 
@@ -15,21 +15,6 @@ The Collection Explorer is your gateway to [Nillion Private Storage](/blind-comp
 - **Control data privacy** by marking specific fields as encrypted for distribution across nilDB nodes
 
 This database management interface is specifically designed for privacy-preserving data storage across distributed clusters.
-
-## Getting Started
-
-### Network Settings Configuration
-
-Go to the [Collection Explorer](https://collection-explorer.nillion.com/) and configure your connection to the Nillion Network:
-
-1. Navigate to "⚙️ Network Settings" in the navbar
-2. Configure your nilDB Network settings:
-   - **Auth Method**: Wallet sign-in or API Key (legacy)
-   - **Node endpoints**: Defaults to [nilDB Testnet nodes](/blind-computer/build/network-config#nildb-nodes)
-3. Sign-in with your wallet or enter your [Nillion API Key](/blind-computer/build/storage/api-access)
-4. Save your configuration - these settings will persist across Collection Explorer sessions
-
-[![Set API Key](/img/collection-explorer/collection-explorer-settings.png)](https://collection-explorer.nillion.com/)
 
 ## Managing Collections
 
@@ -42,7 +27,7 @@ The Collections dashboard provides an overview of all collections where your bui
 - View key metrics like record count and creation timestamps
 - See collection types (standard or owned)
 
-[![View Collections](/img/collection-explorer/collection-explorer-view-collections.png)](https://collection-explorer.nillion.com/collections)
+![View Collections](/img/collection-explorer/collection-explorer-view-collections.png)
 
 ### Create New Collections
 
@@ -59,7 +44,7 @@ The custom schema builder provides an intuitive, visual interface:
 - **Live preview**: See your JSON Schema update in real-time as you build
 - **Schema validation**: Automatic validation ensures your schema is properly formatted
 
-[![Create Collection with the UI](/img/collection-explorer/collection-explorer-create-collection-ui.png)](https://collection-explorer.nillion.com/)
+![Create Collection with the UI](/img/collection-explorer/collection-explorer-create-collection-ui.png)
 
 #### Option 2: JSON Schema Upload (for devs with existing JSON schema code)
 
@@ -69,8 +54,6 @@ If you already have a JSON Schema or prefer working with code:
 - **Automatic validation**: The system validates your JSON Schema structure before creation
 - **Error feedback**: Get immediate feedback on any schema formatting issues
 - **Faster setup**: Skip the visual builder if you're comfortable with JSON
-
-[![Create Collection by uploading json](/img/collection-explorer/collection-explorer-create-collection-json.png)](https://collection-explorer.nillion.com/)
 
 ## Working with Records and Schemas
 
@@ -101,8 +84,6 @@ Once you have a collection, you can fully manage its data:
 ### Viewing and Managing Schemas
 
 Understanding and modifying your collection's structure:
-
-[![View Collection Schema](/img/collection-explorer/collection-explorer-view-schema.png)](https://collection-explorer.nillion.com/)
 
 - **Schema visualization**: See the complete JSON Schema that defines your collection's structure and validation rules
 - **Copy functionality**: Easily copy schema JSON for use in other applications or for backup

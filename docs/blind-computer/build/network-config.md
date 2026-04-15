@@ -21,7 +21,7 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
 [Private Storage](/blind-computer/build/storage/overview) solutions leverage a decentralized cluster of [nilDB](/blind-computer/learn/blind-modules#nildb) nodes, making it possible to store in the cluster and to query both plaintext and encrypted data. Builders can treat any collection of one or more nilDB nodes as a cluster. To work with a cluster, builders either can connect to it using the [secretvaults SDK](/blind-computer/build/storage/secretvaults) or can interact directly with individual nodes via the [nilDB API](/api/nildb/overview) and [blindfold library](/blind-computer/build/storage/blindfold).
 
 <Tabs>
-    <TabItem value="nilDB-testnet" label="nilDB Testnet" default>
+    <TabItem value="nilDB-testnet" label="nilDB Testnet">
 
     ### [nildb-stg-n1](https://nildb-stg-n1.nillion.network/about)
 
@@ -46,7 +46,7 @@ nilCC OpenAPI Spec: https://api.nilcc.nillion.network/openapi.json
 
     </TabItem>
 
-    <TabItem value="nilDB-mainnet" label="nilDB Mainnet">
+    <TabItem value="nilDB-mainnet" label="nilDB Mainnet" default>
 
     ### [nildb-5ab1](https://nildb-5ab1.nillion.network/about)
 
