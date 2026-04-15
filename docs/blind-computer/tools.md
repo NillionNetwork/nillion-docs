@@ -35,8 +35,6 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
   icon="🔑"
   href="https://subscription.nillion.com/"
   external={true}
-  guideHref="/blind-computer/build/storage/api-access"
-  guideExternal={false}
 />
 
 <ToolFeatureItem
@@ -45,8 +43,6 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
   icon="📦"
   href="https://collection-explorer.nillion.com"
   external={true}
-  guideHref="/blind-computer/build/storage/collection-explorer"
-  guideExternal={false}
 />
 
 <ToolFeatureItem
