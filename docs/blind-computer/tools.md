@@ -12,6 +12,14 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 <section className="tools-grid">
 
 <ToolFeatureItem
+  title="Developer Portal"
+  description="Manage your nilDB, nilCC, and nilAI accounts from one place."
+  icon="🛠️"
+  href="https://developer.nillion.com/"
+  external={true}
+/>
+
+<ToolFeatureItem
   title="NIL Faucet"
   description="Get NIL (Nillion Testnet tokens) to start building apps."
   icon="💧"
@@ -27,8 +35,6 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
   icon="🔑"
   href="https://subscription.nillion.com/"
   external={true}
-  guideHref="/blind-computer/build/storage/api-access"
-  guideExternal={false}
 />
 
 <ToolFeatureItem
@@ -37,8 +43,6 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
   icon="📦"
   href="https://collection-explorer.nillion.com"
   external={true}
-  guideHref="/blind-computer/build/storage/collection-explorer"
-  guideExternal={false}
 />
 
 <ToolFeatureItem

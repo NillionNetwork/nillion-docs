@@ -274,6 +274,11 @@ const config = {
             items: [
               {
                 type: 'link',
+                label: 'Developer Portal',
+                href: 'https://developer.nillion.com/',
+              },
+              {
+                type: 'link',
                 label: 'Github',
                 href: 'https://github.com/NillionNetwork',
               },

@@ -1,0 +1,43 @@
+import CTABanner from '@site/src/components/CTABanner';
+
+# Developer Portal
+
+The [Developer Portal](https://developer.nillion.com/) is the main place to manage your Blind Module accounts across the Blind Computer stack.
+
+Use it to access and manage your nilDB, nilCC, and nilAI accounts, along with related developer resources and tools.
+
+From the portal, you can:
+
+- View usage stats across nilCC, nilDB & nilAI
+- Explore free tier options and available plans
+- Manage API keys and account settings
+- Access module-specific tools and onboarding resources
+
+<div
+  style={{
+    display: 'flex',
+    gap: '1.5rem',
+    alignItems: 'stretch',
+    flexWrap: 'wrap',
+  }}
+>
+  <div style={{ flex: '1 1 320px', minWidth: '280px' }}>
+    <CTABanner
+      question="Open the Developer Portal"
+      instruction="Manage your nilDB, nilCC, and nilAI accounts in one place."
+      buttonText="Go to Developer Portal"
+      buttonLink="https://developer.nillion.com/"
+      event="developer-portal-cta-banner"
+      external={true}
+    />
+  </div>
+  <div style={{ flex: '1 1 320px', minWidth: '280px' }}>
+    <a href="https://developer.nillion.com/" target="_blank" rel="noopener noreferrer">
+      <img
+        src="/img/developer-portal.png"
+        alt="Developer Portal dashboard"
+        style={{ width: 'auto', maxWidth: '100%', height: 'auto', borderRadius: '12px' }}
+      />
+    </a>
+  </div>
+</div>

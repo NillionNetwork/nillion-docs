@@ -13,4 +13,4 @@ To get started with NUCs, see [API Access](/blind-computer/build/storage/api-acc
 
 ## Credits
 
-Regarding payments, nilDB and nilCC use a NIL based credit system whereas nilAI - as a product built on top of nilCC - has a Stripe integration. The credits are used in a pay-as-you-go fashion and can be topped up from the respective management portals for these modules. Both nilDB and nilAI provide have a free tier available.
+Regarding payments, nilDB and nilCC use a NIL based credit system whereas nilAI - as a product built on top of nilCC - has a Stripe integration. The credits are used in a pay-as-you-go fashion and can be topped up from the respective management portals for these modules. Both nilDB and nilAI provide have a free tier available. Visit the [Developer Portal](https://developer.nillion.com/) to explore these options.

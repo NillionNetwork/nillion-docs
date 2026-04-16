@@ -5,7 +5,7 @@ const buildSidebar = [
     value: 'Build',
     defaultStyle: true,
   },
-  'blind-computer/build/network-config',
+  'blind-computer/build/developer-portal',
   {
     type: 'category',
     label: 'Private Compute with nilCC',
@@ -34,11 +34,11 @@ const buildSidebar = [
         label: 'API Reference',
         id: 'blind-computer/build/compute/api-reference',
       },
-      {
-        type: 'doc',
-        label: 'Verification',
-        id: 'blind-computer/build/compute/verification',
-      },
+      // {
+      //   type: 'doc',
+      //   label: 'Verification',
+      //   id: 'blind-computer/build/compute/verification',
+      // },
       {
         type: 'doc',
         label: 'Limitations',
@@ -210,17 +210,13 @@ const buildSidebar = [
         href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai',
       },
       {
-        type: 'link',
-        label: 'nilAI Developer Dashboard',
-        href: 'https://nilai.nillion.com/',
-      },
-      {
         type: 'doc',
         label: 'nilAI API',
         id: 'api/nilai/overview',
       },
     ],
   },
+  'blind-computer/build/network-config',
   {
     type: 'doc',
     label: 'Permissions and Payments',
