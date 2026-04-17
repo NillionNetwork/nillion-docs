@@ -84,7 +84,7 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         Retrieve the current token usage for the authenticated user.
@@ -115,7 +115,7 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         Generate a cryptographic attestation report.
@@ -162,7 +162,7 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         List all available models in the system.
@@ -196,7 +196,7 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         Generate a chat completion response from the AI model.
@@ -236,7 +236,7 @@ paths:
               allOf:
                 - $ref: '#/components/schemas/ChatRequest'
                 - example:
-                    model: 'openai/gpt-oss-20b'
+                    model: 'google/gemma-4-26B-A4B-it'
                     messages:
                       [
                         {
@@ -272,7 +272,7 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         Generate a response from the AI model using the Responses API.
@@ -323,7 +323,7 @@ paths:
               allOf:
                 - $ref: '#/components/schemas/ResponseRequest'
                 - example:
-                    model: 'openai/gpt-oss-20b'
+                    model: 'google/gemma-4-26B-A4B-it'
                     instructions: 'You are a helpful assistant.'
                     input:
                       - role: 'user'
@@ -353,7 +353,7 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         Get a delegation token for prompt store access.
@@ -399,7 +399,7 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         Get all model prices.
@@ -435,12 +435,12 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         Get price for a specific model.
 
-        - **model_name**: The model name (e.g., `meta-llama/Llama-3.2-1B-Instruct`)
+        - **model_name**: The model name (e.g., `google/gemma-4-26B-A4B-it`)
         - **Returns**: Pricing configuration for the model
 
         If no specific pricing is set for the model, returns default pricing.
@@ -474,12 +474,12 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         Update price for a specific model (admin only).
 
-        - **model_name**: The model name (e.g., `meta-llama/Llama-3.2-1B-Instruct`)
+        - **model_name**: The model name (e.g., `google/gemma-4-26B-A4B-it`)
         - **price_config**: New pricing configuration
 
         Requires admin token in Authorization header.
@@ -519,7 +519,7 @@ paths:
       description: |-
 
         :::info
-            Get an API Token (Bearer Token) via http://nilai.nillion.com
+            Get an API Token (Bearer Token) via http://developer.nillion.com
         :::
 
         Delete custom price for a model (admin only).
