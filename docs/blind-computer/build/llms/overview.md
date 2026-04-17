@@ -14,8 +14,8 @@ Private LLMs are supported via a set of OpenAI-compatible APIs that run AI model
 
 | Model                            | Parameters | Features                                                             | Best For                                                                                      |
 | -------------------------------- | ---------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| google/gemma-3-27b-it            | 27B        | Multimodal (text + images), 128K context, 140+ languages             | Visual reasoning, long-context analysis, multilingual applications.                           |
-| openai/gpt-oss-20b               | 20B        | Chain-of-thought reasoning, tool calling, configurable effort levels | Agentic workflows, complex reasoning tasks.                                                   |
+| google/gemma-4-26B-A4B-it        | 27B        | Multimodal (text + images), 128K context, 140+ languages             | Visual reasoning, long-context analysis, multilingual applications.                           |
+| Qwen/Qwen3.6-35B-A3B             | 20B        | Chain-of-thought reasoning, tool calling, configurable effort levels | Agentic workflows, complex reasoning tasks.                                                   |
 
 ## Key Features
 
@@ -38,6 +38,6 @@ Two layers of cryptographic proof are provided:
 
 ## Getting Started
 
-Start with the [Quickstart](/blind-computer/build/llms/quickstart) to get your first app running. You'll get your API keys via the [nilAI Developer Dashboard](https://nilai.nillion.com/), where you can already make your first interactive use of nilAI.
+Start with the [Quickstart](/blind-computer/build/llms/quickstart) to get your first app running. You'll get your API keys via the [Developer Portal](https://developer.nillion.com/), where you can already make your first interactive use of nilAI.
 
 SDKs are available for both **Direct** and **Delegated** signing access modes. You can find basic and advanced usage examples in the [SDKs section](/blind-computer/build/llms/sdks/quickstart).
