@@ -29,11 +29,11 @@ function HeroSection() {
         </div>
       </div>
       <div className={styles.heroImageContainer}>
-        <img
-          src="https://nillion.com/wp-content/themes/nillion/assets/images/index/web-summit.svg"
-          alt="Nillion Network Illustration"
-          className={styles.spinningImage}
-        />
+        {/*<img*/}
+        {/*  src="https://nillion.com/wp-content/themes/nillion/assets/images/index/web-summit.svg"*/}
+        {/*  alt="Nillion Network Illustration"*/}
+        {/*  className={styles.spinningImage}*/}
+        {/*/>*/}
       </div>
     </header>
   );
