@@ -315,6 +315,12 @@ const config = {
   plugins: [
     'docusaurus-plugin-copy-page-button',
     [
+      '@docusaurus/plugin-vercel-analytics',
+      {
+        mode: 'auto',
+      },
+    ],
+    [
       'docusaurus-plugin-openapi-docs',
       {
         id: 'api',
