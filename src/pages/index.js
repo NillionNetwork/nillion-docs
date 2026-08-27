@@ -39,10 +39,18 @@ function HeroSection() {
   );
 }
 
-function FeatureItem({ title, description, href, icon }) {
+function FeatureItem({ title, description, href, icon, badge }) {
   return (
     <Link to={href} className={styles.featureItem}>
       <div className={styles.featureIcon}>{icon}</div>
+      {badge && (
+        <span className={styles.featureBadge}>
+          {/* aria-hidden: the dot is decoration signalling "live", and the badge text
+              already carries the meaning for a screen reader. */}
+          <span className={styles.featureBadgeDot} aria-hidden="true" />
+          {badge}
+        </span>
+      )}
       <h3>{title}</h3>
       <p>{description}</p>
     </Link>
@@ -52,9 +60,17 @@ function FeatureItem({ title, description, href, icon }) {
 function FeaturesSection() {
   const features = [
     {
-      title: 'Blacklight',
+      title: 'Blacklight L1',
       description:
-        'The verification layer of the Blind Computer — plus Blacklight L1, a threshold-encryption network for conditional secrets, now on testnet.',
+        'A network for conditional secrets: seal a payload to a committee of nodes and it stays encrypted until an on-chain condition is met.',
+      icon: '🔐',
+      href: './blacklight/l1/overview',
+      badge: 'Testnet',
+    },
+    {
+      title: 'Blacklight L2',
+      description:
+        'Blacklight is the verification layer of the Blind Computer. Run a node to verify TEE workloads, or have your own apps verified.',
       icon: '🌐',
       href: './blacklight/learn/overview',
     },

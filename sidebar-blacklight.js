@@ -22,18 +22,6 @@ const blacklightSidebar = [
   {
     type: 'html',
     className: 'sidebar-title',
-    value: 'Blacklight L1 (Testnet)',
-    defaultStyle: true,
-  },
-  'blacklight/l1/how-it-works',
-  'blacklight/l1/cryptography',
-  'blacklight/l1/contracts',
-  'blacklight/l1/run-a-node',
-  'blacklight/l1/faucet',
-  'blacklight/l1/sdk',
-  {
-    type: 'html',
-    className: 'sidebar-title',
     value: 'Run a Blacklight Node',
     defaultStyle: true,
   },

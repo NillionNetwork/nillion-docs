@@ -109,9 +109,15 @@
 }
 
 .featureItem {
-  flex: 0 1 calc(33.333% - 1rem);
+  /* Four cards, so 4-up on desktop. The responsive ladder below already steps to 2-up at
+     1024px and 1-up at 768px, which stays coherent for four: 4 -> 2x2 -> stacked. Leaving
+     this at 33.333% would put three on the first row and orphan the fourth. */
+  flex: 0 1 calc(25% - 1rem);
   display: flex;
   flex-direction: column;
+  /* Positioning context for .featureBadge. Without it the absolutely-positioned pill
+     escapes to the nearest positioned ancestor, which is the page. */
+  position: relative;
   padding: 2rem;
   background-color: var(--ifm-card-primary-grey);
   border-radius: var(--ifm-card-border-radius);
@@ -132,6 +138,64 @@
 .featureIcon {
   font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+/* Status pill, top-right of a card. Placed opposite the icon rather than trailing the
+   description, so "this is a testnet" is legible before the prose is read — a caveat at the
+   end of a paragraph is the part people skip. The dot does the signalling; the word does the
+   explaining. */
+.featureBadge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #b45309;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.featureBadgeDot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #f59e0b;
+  /* Reads as "running now", which is the useful half of "testnet" — it is live, just not
+     final. Slow and low-contrast on purpose: a fast blink on a docs landing page is a
+     distraction, not information. */
+  animation: featureBadgePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes featureBadgePulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+  }
+  50% {
+    opacity: 0.55;
+    box-shadow: 0 0 0 0.25rem rgba(245, 158, 11, 0);
+  }
+}
+
+/* Motion is decorative here, so it goes away entirely rather than being slowed down. */
+@media (prefers-reduced-motion: reduce) {
+  .featureBadgeDot {
+    animation: none;
+  }
+}
+
+[data-theme='dark'] .featureBadge {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.4);
 }
 
 .featureTitle {
