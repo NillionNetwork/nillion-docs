@@ -1,4 +1,9 @@
-# Blacklight L1 SDK
+---
+title: Building on Blacklight L1
+description: TypeScript SDK and CLI for Blacklight L1 — seal a payload to a committee of nodes, post it with an on-chain release condition, and reconstruct it when the condition fires.
+---
+
+# Building on Blacklight L1
 
 `@nillion/blacklight-l1-sdk` is the TypeScript SDK and CLI for Blacklight L1: seal a payload to a committee of nodes, post it with an on-chain release condition, and reconstruct it when the condition fires.
 

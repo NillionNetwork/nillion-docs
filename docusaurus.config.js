@@ -171,10 +171,25 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
+            // A dropdown, because Blacklight is now two separate networks: the L2
+            // verification layer on mainnet, and Blacklight L1 on testnet. A single item
+            // could only point at one of them, which left L1 reachable from the landing
+            // page and one admonition and nowhere else.
+            type: 'dropdown',
             position: 'left',
-            docId: 'blacklight/learn/overview',
             label: 'Blacklight',
+            items: [
+              {
+                type: 'doc',
+                docId: 'blacklight/learn/overview',
+                label: 'Blacklight L2',
+              },
+              {
+                type: 'doc',
+                docId: 'blacklight/l1/overview',
+                label: 'Blacklight L1',
+              },
+            ],
           },
           {
             type: 'doc',
