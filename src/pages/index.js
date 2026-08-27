@@ -54,7 +54,7 @@ function FeaturesSection() {
     {
       title: 'Blacklight',
       description:
-        'Blacklight is the verification layer of the Blind Computer.',
+        'The verification layer of the Blind Computer — plus Blacklight L1, a threshold-encryption network for conditional secrets, now on testnet.',
       icon: '🌐',
       href: './blacklight/learn/overview',
     },
