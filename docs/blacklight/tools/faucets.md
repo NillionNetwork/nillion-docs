@@ -21,7 +21,3 @@ To get ETH on Nillion's Ethereum L2 Testnet, you'll need to first obtain Sepolia
 5. Complete the bridge transaction
 
 Once the bridge transaction is confirmed, your ETH will be available on Blacklight Testnet.
-
-## Get NIL on Nillion's Ethereum L2 Testnet
-
-A direct NIL faucet for Nillion's Ethereum L2 Testnet is not yet available.

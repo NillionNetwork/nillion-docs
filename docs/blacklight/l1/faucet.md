@@ -9,7 +9,8 @@ Get it from the Blacklight L1 faucet:
 **[faucet.testnet.nillion.network/?chain=blacklight](https://faucet.testnet.nillion.network/?chain=blacklight)**
 
 - **20 NIL per day** per address.
-- Connect the wallet you intend to use as your node's **owner**, or the wallet you will author triggers from.
+- **Connect the wallet** you intend to use as your node's **owner**, or the wallet you will author triggers from.
+- Or send **straight to an address**, with no wallet connection. Paste any address into the field on that page and press **Send NIL**.
 
 :::note One faucet, two tokens
 
