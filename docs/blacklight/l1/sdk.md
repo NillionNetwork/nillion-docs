@@ -3,12 +3,16 @@ title: Building on Blacklight L1
 description: TypeScript SDK and CLI for Blacklight L1 — seal a payload to a committee of nodes, post it with an on-chain release condition, and reconstruct it when the condition fires.
 ---
 
+import AgentPrompt from '@site/src/components/AgentPrompt';
+
 # Building on Blacklight L1
 
 `@nillion/blacklight-l1-sdk` is the TypeScript SDK and CLI for Blacklight L1: seal a payload to a committee of nodes, post it with an on-chain release condition, and reconstruct it when the condition fires.
 
 - **npm:** [`@nillion/blacklight-l1-sdk`](https://www.npmjs.com/package/@nillion/blacklight-l1-sdk)
 - Works in Node and in the browser. Both bindings drive the same Rust core compiled to WASM — the same code the nodes run natively.
+
+<AgentPrompt />
 
 :::info Testnet only
 
@@ -182,87 +186,8 @@ Also exported: `openLayer`, `mpkFromSecret`, `validateMpk`, `rankSlots`, `layerL
 | `exit-status --node N` | stake, pending tranches, and maturity dates |
 | `retire` / `unretire` | stop or resume accepting work and emissions |
 
-<details>
-<summary><b>Prompt for coding agents</b> — paste this to give an assistant working context</summary>
-
-```text
-You are helping me build on Blacklight L1, a network for conditional secrets on
-Ethereum Sepolia (chain 11155111). Testnet only; tokens have no value.
-
-## Model
-An author seals a payload into m Shamir shares, each encrypted to one node's
-identity-based public key, and posts the ciphertext layers on-chain with a release
-condition and escrow. When the condition is met, committee nodes each post their
-share. Once k shares are on-chain, ANYONE can interpolate them, recover the payload,
-and reveal it, earning a bounty. The contract verifies the revealed payload against
-keccak256(payload ‖ nonce), committed at post time.
-
-Guarantees: fewer than k shares reveal nothing; the payload cannot be substituted at
-reveal; reconstruction needs no trusted party. NOT protected: timing and metadata are
-public, and a colluding coalition of k nodes can open the payload early.
-
-## Package
-@nillion/blacklight-l1-sdk — TypeScript SDK + CLI. Node and browser; both drive the
-same Rust/WASM core the nodes run natively.
-
-Install:  npm install @nillion/blacklight-l1-sdk
-CLI:      npx blacklight-l1-sdk <command>
-
-## Environment
-Reads need NO configuration — the defaults point at the live Sepolia deployment.
-
-AUTHOR_KEY      REQUIRED FOR WRITES ONLY (post, reveal, reconstruct, claim-recon,
-                withdraw-refund). No default; the CLI refuses rather than guess. Needs
-                Sepolia ETH for gas and NIL for escrow. Read from the environment only,
-                never a flag, so it cannot land in shell history.
-RPC_URL         optional — defaults to https://ethereum-sepolia-rpc.publicnode.com
-CONFIG_ADDRESS  optional — defaults to the deployment that was live when this version was
-                published, and is printed on stderr every run. Pin it explicitly for
-                anything other than the current testnet: a superseded deployment keeps
-                answering rather than going dark.
-CHAIN_ID        optional — detected from RPC_URL
-
-Resolve every other contract address from CONFIG_ADDRESS on-chain. Never hardcode them.
-
-## Core flow
-npx blacklight-l1-sdk candidates
-npx blacklight-l1-sdk post --condition "BTC >= 100000" --payload "secret" \
-    --mode private --k 3 --m 5
-npx blacklight-l1-sdk status --id N
-npx blacklight-l1-sdk shares --id N
-npx blacklight-l1-sdk reconstruct --id N
-npx blacklight-l1-sdk reveal --id N
-
-Modes: --mode private hides the condition on-chain; --mode public publishes it.
-
-Committee: --nodes 3,7,12 for explicit, or --strategy balanced|experienced|staked|cheapest
-with --m and --k. Escrow is the SUM OF THE k HIGHEST markups, not the average, so
-raising k raises cost as well as collusion resistance.
-
-Conditions: absolute ("BTC >= 100000") or relative ("BTC >= @market" with
---at-market-bps -100). Optional --window +60:+900 bounds when it may fire.
-
-Hooks: --hook 0xAddr [--hook-gas N] calls a contract atomically on reveal; gas is
-escrowed at your ceiling and refunded down to actual use. retry --id N re-runs an
-unacknowledged settlement.
-
-Sponsored: sign-authorization (offline, no gas) then post-sponsored --authorization FILE.
-Without --payer the bundle is a bearer instrument — transmit privately.
-
-## Programmatic
-import { seal, post, reconstruct, commitOf, openLayer } from '@nillion/blacklight-l1-sdk';
-Also: mpkFromSecret, validateMpk, rankSlots, layerLenForPayload, types Mode and SealResult.
-Check the shipped .d.ts for exact signatures rather than guessing.
-
-## Rules
-- Never invent contract addresses; read them from ProtocolConfig.
-- Keep the 32-byte nonce with the payload — plaintext is payload ‖ nonce, and the
-  on-chain commitment cannot be reproduced without it.
-- Do not build a committee where one operator holds k slots; the SDK refuses this.
-- Nodes need funded operator keys to post shares; an unfunded node silently stops working.
-```
-
-</details>
+The full brief lives in the **Agentic coding** banner at the top of this page —
+copy it straight to your clipboard there, no expanding required.
 
 ## Where next
 
