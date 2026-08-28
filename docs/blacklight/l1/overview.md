@@ -42,4 +42,4 @@ The chain verifies the revealed payload against a commitment made at post time, 
 
 ## Not the same as Blacklight
 
-Blacklight L1 is a **separate network** from [Blacklight](/blacklight/learn/overview), the TEE verification layer of the Blind Computer that runs on Nillion's Ethereum L2. They share a name and a token, not a chain or a purpose.
+Blacklight L1 is a **separate network** from [Blacklight](/blacklight/learn/overview), the TEE verification layer of the Blind Computer that runs on Nillion's Ethereum L2. They share a name and a token, not a chain or a purpose. Blacklight L1 will eventually replace Blacklight L2.
