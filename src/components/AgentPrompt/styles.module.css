@@ -124,12 +124,27 @@
   padding: 0 1.35rem 1.1rem;
 }
 
-/* The brief is ~335 lines. Left unbounded it would push every other section of the page
-   off-screen once opened, so it scrolls within the banner instead. */
+/* The brief is ~350 lines. Left unbounded it would push every other section of the page
+   off-screen once opened, so it scrolls VERTICALLY within the banner instead. */
 .body :global(.theme-code-block) {
   max-height: 32rem;
   overflow: auto;
   margin-bottom: 0;
+}
+
+/* Soft-wrap instead of scrolling sideways.
+   The brief is hard-wrapped at ~100 columns, which is right for a file saved as
+   AGENT-BRIEF.md but wider than this banner at most viewport sizes — so the default
+   `white-space: pre` pushed the ends of sentences out of sight behind a horizontal
+   scrollbar. Wrapping here rather than rewrapping the source keeps the copied bytes
+   identical to the file the reader is told to save, and it holds at ANY width, which a
+   narrower hard wrap would not (80 columns still overflows on a phone). */
+.body :global(.theme-code-block) pre,
+.body :global(.theme-code-block) code {
+  white-space: pre-wrap;
+  /* break-word, not anywhere: long URLs and code spans stay intact unless they genuinely
+     cannot fit, so the wrapping does not chop identifiers mid-token. */
+  overflow-wrap: break-word;
 }
 
 @media screen and (max-width: 600px) {
