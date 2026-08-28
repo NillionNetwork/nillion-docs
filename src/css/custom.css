@@ -40,7 +40,20 @@
   background-color: #333352 !important;
 }
 
-[data-theme='dark'] {
+/* `html[data-theme='…']` and not `[data-theme='…']`, deliberately.
+ *
+ * A bare `[data-theme='dark']` has the SAME specificity as `:root` (0,1,0), so which one
+ * wins is decided purely by source order in the final stylesheet. The dev server injects
+ * CSS per module and the theme block lands last, so dark mode looks right locally. The
+ * production bundle orders them the other way, `:root` wins, and dark mode silently
+ * renders the LIGHT palette — 11 custom properties, including the whole
+ * --ifm-color-primary ramp. That is why the site looked different deployed than it did
+ * on localhost.
+ *
+ * Adding `html` makes it (0,1,1), which outranks `:root` regardless of order. The
+ * DocSearch theme already does exactly this, which is why its dark palette never broke.
+ */
+html[data-theme='dark'] {
   /* Nillion brand colors for dark mode */
   --ifm-color-primary: #8888FF;
   --ifm-color-primary-dark: #6f6eff;
@@ -326,7 +339,7 @@ h4 {
 }
 
 /* Mermaid light mode theming */
-[data-theme='light'] {
+html[data-theme='light'] {
   --mermaid-bg-color: #f5f5f5;
   --mermaid-edge-color: #5555CC;
   --mermaid-node-bg-color: #ffffff;
@@ -399,7 +412,7 @@ h4 {
 }
 
 /* Mermaid dark mode theming */
-[data-theme='dark'] {
+html[data-theme='dark'] {
   --mermaid-bg-color: #212134;
   --mermaid-edge-color: #8888FF;
   --mermaid-node-bg-color: #2a2a2a;
