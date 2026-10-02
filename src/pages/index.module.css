@@ -109,10 +109,9 @@
 }
 
 .featureItem {
-  /* Four cards, so 4-up on desktop. The responsive ladder below already steps to 2-up at
-     1024px and 1-up at 768px, which stays coherent for four: 4 -> 2x2 -> stacked. Leaving
-     this at 33.333% would put three on the first row and orphan the fourth. */
-  flex: 0 1 calc(25% - 1rem);
+  /* Three cards, so 3-up on desktop. Keep the basis in step with the card count in
+     index.js: at 25% three cards leave an empty slot, and four at 33.333% orphan the last. */
+  flex: 0 1 calc(33.333% - 1rem);
   display: flex;
   flex-direction: column;
   /* Positioning context for .featureBadge. Without it the absolutely-positioned pill

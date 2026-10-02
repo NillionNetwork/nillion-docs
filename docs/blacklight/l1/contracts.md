@@ -1,40 +1,46 @@
 # Contracts
 
-Blacklight L1's testnet contracts are deployed to **Ethereum Sepolia** (chain ID `11155111`).
+Blacklight L1 is deployed to **Ethereum mainnet** (chain ID `1`), with a testnet on **Ethereum Sepolia** (chain ID `11155111`). Always resolve addresses from `ProtocolConfig` rather than hardcoding them.
 
-:::warning Testnet deployment
-
-These addresses are for testing only. Tokens have no value, and the deployment may be replaced without notice. Always resolve addresses from `ProtocolConfig` rather than hardcoding them.
-
-:::
-
-## Deployed addresses
+## Mainnet
 
 | Contract | Address |
 | --- | --- |
-| `ProtocolConfig` | [`0xebB338689fB32317DDFD8282F8a42dcA6271cB2d`](https://sepolia.etherscan.io/address/0xebB338689fB32317DDFD8282F8a42dcA6271cB2d) |
-| `TriggerMarket` | [`0x68BC854300003f2b6831EC483E8Be6DF4bcc1bEF`](https://sepolia.etherscan.io/address/0x68BC854300003f2b6831EC483E8Be6DF4bcc1bEF) |
-| `NodeRegistry` | [`0xfEEa22905753B2dcaf4231e9f4EF1465AaA5dE03`](https://sepolia.etherscan.io/address/0xfEEa22905753B2dcaf4231e9f4EF1465AaA5dE03) |
-| `Staking` | [`0x2150a9B3a27434c96abE2C0B03A1F240D2F47dE3`](https://sepolia.etherscan.io/address/0x2150a9B3a27434c96abE2C0B03A1F240D2F47dE3) |
-| `Emissions` | [`0x37178D6C1EFC21079f1E1a8e1A9FC4766C98979c`](https://sepolia.etherscan.io/address/0x37178D6C1EFC21079f1E1a8e1A9FC4766C98979c) |
-| `NIL` (testnet token) | [`0xA7526a2ABB3D01BD21B3ac59B9201cC018560Dfd`](https://sepolia.etherscan.io/address/0xA7526a2ABB3D01BD21B3ac59B9201cC018560Dfd) |
+| `ProtocolConfig` | `0x0000000000000000000000000000000000000000` |
+| `TriggerMarket` | `0x0000000000000000000000000000000000000000` |
+| `NodeRegistry` | `0x0000000000000000000000000000000000000000` |
+| `Staking` | `0x0000000000000000000000000000000000000000` |
+| `Emissions` | `0x0000000000000000000000000000000000000000` |
+| `NIL` | `0x0000000000000000000000000000000000000000` |
 
-The NIL address above is the **proxy**. Always interact with the proxy, never with the implementation behind it.
+## Testnet (Sepolia)
+
+Tokens have no value, and the testnet deployment may be replaced without notice.
+
+| Contract | Address |
+| --- | --- |
+| `ProtocolConfig` | [`0x137c8BFdEd755FD61486e648b2494BE1A1264619`](https://sepolia.etherscan.io/address/0x137c8BFdEd755FD61486e648b2494BE1A1264619) |
+| `TriggerMarket` | [`0x60Ab22031E47ff93bB9b88Aa2bfb9FEf90d435A6`](https://sepolia.etherscan.io/address/0x60Ab22031E47ff93bB9b88Aa2bfb9FEf90d435A6) |
+| `NodeRegistry` | [`0xF90839b2e303Dc2190d69290F0f0303D3C7D652F`](https://sepolia.etherscan.io/address/0xF90839b2e303Dc2190d69290F0f0303D3C7D652F) |
+| `Staking` | [`0xDe9a9e0473F85D53AA7Cac29E15Aa91010894795`](https://sepolia.etherscan.io/address/0xDe9a9e0473F85D53AA7Cac29E15Aa91010894795) |
+| `Emissions` | [`0x93B25ADaA711D0574548873BcEab76dB08AAfc35`](https://sepolia.etherscan.io/address/0x93B25ADaA711D0574548873BcEab76dB08AAfc35) |
+| `NIL` (testnet token) | [`0x38E6D66fCbe15B7D68aa2E25Ba065A6c6da0c367`](https://sepolia.etherscan.io/address/0x38E6D66fCbe15B7D68aa2E25Ba065A6c6da0c367) |
+
+The NIL addresses are **proxies**. Always interact with the proxy, never with the implementation behind it.
 
 ## Start from ProtocolConfig
 
 `ProtocolConfig` is the single entry point. Every other address, and every tunable protocol parameter, is readable from it — so tools and nodes only need one address configured.
 
 ```bash
-cast call 0xebB338689fB32317DDFD8282F8a42dcA6271cB2d \
-  "triggerMarket()(address)" --rpc-url $RPC_URL
+cast call $CONFIG_ADDRESS "triggerMarket()(address)" --rpc-url $RPC_URL
 ```
 
 This is why running a node only requires `CONFIG_ADDRESS`: the node resolves the market and registry itself at boot. See [Run a Node](/blacklight/l1/run-a-node).
 
 ## What each contract does
 
-**`ProtocolConfig`** — holds protocol parameters (minimum stake, key TTL, epoch length, gas ceilings) and the addresses of every other contract. The address above is stable across future redeployments of the contracts below.
+**`ProtocolConfig`** — holds protocol parameters (minimum stake, key TTL, gas ceilings) and the addresses of every other contract. Its address is stable across future redeployments of the contracts below.
 
 **`TriggerMarket`** — the core. Accepts posted triggers with their sealed layers and escrow, accepts shares from committee nodes, verifies reconstruction against the author's commitment, pays out fees and bounties, and calls settlement hooks.
 
@@ -42,8 +48,8 @@ This is why running a node only requires `CONFIG_ADDRESS`: the node resolves the
 
 **`Staking`** — bonds NIL at registration, tracks the owner of each node, and releases stake through an unbonding queue. Both stake withdrawal and earnings are controlled by the node's owner wallet.
 
-**`Emissions`** — distributes protocol rewards per epoch (6 hours on testnet), proportional to active stake.
+**`Emissions`** — pays NIL emissions to eligible nodes, accruing every second and weighted by stake. Node owners claim them as availability rewards.
 
 ## Verifying
 
-All contracts are verified on Sepolia Etherscan; source is browsable from the links above.
+All contracts are verified on Etherscan; source is browsable from the address links.

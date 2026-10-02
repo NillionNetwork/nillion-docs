@@ -4,7 +4,7 @@ Blacklight L1 combines three well-understood primitives. Nothing here is novel c
 
 :::note
 
-This page describes the scheme at a level useful for evaluating the guarantees. It is not a specification, and the testnet implementation may change.
+This page describes the scheme at a level useful for evaluating the guarantees. It is not a full specification.
 
 :::
 
@@ -52,7 +52,7 @@ This is what makes reconstruction permissionless without being exploitable: a re
 
 ## Key rotation
 
-Node keys carry a TTL and are rotated on a schedule (24 hours on testnet). Rotation is additive, not destructive: a node retains older master secrets until the triggers sealed to them have expired, so a rotation never strands work in flight.
+Node keys carry a TTL and are rotated on a schedule (every 30 days on mainnet, every 24 hours on testnet). Rotation is additive, not destructive: a node retains older master secrets until the triggers sealed to them have expired, so a rotation never strands work in flight.
 
 Each rotation registers a new `mpk` on-chain, and new triggers are sealed to the newest key. A node that somehow finds the chain's newest key is one it cannot decrypt will detect that at boot and rotate immediately rather than accept work it cannot serve.
 

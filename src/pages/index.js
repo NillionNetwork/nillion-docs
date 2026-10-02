@@ -65,14 +65,6 @@ function FeaturesSection() {
         'A network for conditional secrets: seal a payload to a committee of nodes and it stays encrypted until an on-chain condition is met.',
       icon: '🔐',
       href: './blacklight/l1/overview',
-      badge: 'Testnet',
-    },
-    {
-      title: 'Blacklight L2',
-      description:
-        'Blacklight is the verification layer of the Blind Computer. Run a node to verify TEE workloads, or have your own apps verified.',
-      icon: '🌐',
-      href: './blacklight/learn/overview',
     },
     {
       title: 'Blind Computer',

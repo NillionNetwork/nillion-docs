@@ -4,13 +4,7 @@ Blacklight L1 is a network for **conditional secrets**. You seal a payload to a 
 
 No single node ever holds the whole secret, and no one has to be trusted to release it on time.
 
-:::warning Testnet now, mainnet soon
-
-Blacklight L1 is currently on **testnet only**, deployed to Ethereum Sepolia. Tokens have no value and deployments may be replaced.
-
-**Mainnet is releasing soon.** Testnet node ids, contract addresses, and stake do not carry over, so treat anything you build or stake now as disposable — but the APIs and the SDK are the ones you will use on mainnet.
-
-:::
+Blacklight L1 runs on **Ethereum mainnet**. A testnet on Ethereum Sepolia stays up for trying things out with tokens that have no value.
 
 ## Why it exists
 
@@ -35,11 +29,11 @@ The chain verifies the revealed payload against a commitment made at post time, 
 
 - [**How it Works**](/blacklight/l1/how-it-works) — the lifecycle end to end
 - [**Cryptography**](/blacklight/l1/cryptography) — the primitives and, importantly, what is *not* protected
-- [**Contracts**](/blacklight/l1/contracts) — deployed Sepolia addresses
-- [**Building on Blacklight L1**](/blacklight/l1/sdk) — the SDK and CLI, plus a prompt for coding agents
-- [**Run a Node**](/blacklight/l1/run-a-node) — earn fees and emissions
+- [**Contracts**](/blacklight/l1/contracts) — deployed mainnet and testnet addresses
+- [**Build a Covenants app**](/blacklight/l1/sdk) — the SDK and CLI, plus a prompt for coding agents
+- [**Run a Node**](/blacklight/l1/run-a-node) — earn ETH and NIL rewards
 - [**Faucet**](/blacklight/l1/faucet) — testnet NIL and Sepolia ETH
 
-## Not the same as Blacklight
+## Not the same as Blacklight L2
 
-Blacklight L1 is a **separate network** from [Blacklight](/blacklight/learn/overview), the TEE verification layer of the Blind Computer that runs on Nillion's Ethereum L2. They share a name and a token, not a chain or a purpose. Blacklight L1 will eventually replace Blacklight L2.
+Blacklight L1 is a **separate network** from [Blacklight L2](/blacklight/learn/overview), the TEE verification layer of the Blind Computer that runs on Nillion's Ethereum L2. They share a name and a token, not a chain or a purpose. Blacklight L1 replaces Blacklight L2.

@@ -2,12 +2,6 @@
 
 Blacklight L1 is a network for **conditional secrets**. An author seals a payload so that it can only be opened once a condition they specify has been met on-chain. Until then the payload does not exist in one piece anywhere — not on the author's machine, not on the chain, and not on any single node.
 
-:::info Testnet only
-
-Blacklight L1 is currently deployed to **Ethereum Sepolia** and is not on mainnet. Tokens have no value, and deployments may be replaced. See [Contracts](/blacklight/l1/contracts) for live addresses.
-
-:::
-
 ## The problem it solves
 
 "Reveal this, but only when X happens" normally needs somebody trustworthy to hold the secret and honour the rule. That party can leak early, refuse to release, or simply go offline. Blacklight L1 removes them.
@@ -63,7 +57,7 @@ If the trigger carried a settlement hook, revealing also calls it, letting a dow
 
 ## Staking and rewards
 
-Node operators bond NIL to register, and set a markup that prices their participation. They earn from two sources: fees paid by authors whose triggers they serve, and protocol emissions distributed per epoch (currently every 6 hours on testnet).
+Node operators bond NIL to register, and set a markup that prices their participation. They earn in two ways: ETH from the escrow of the triggers they serve, for posting shares and reconstructing, and NIL emissions that accrue every second, weighted by stake.
 
 Stake leaves only through an unbonding queue. Earnings and stake are both controlled by the operator's **owner** wallet, which is separate from the hot key the node itself runs with.
 
@@ -71,5 +65,5 @@ Stake leaves only through an unbonding queue. Earnings and stake are both contro
 
 - [Cryptography](/blacklight/l1/cryptography) — the primitives underneath
 - [Contracts](/blacklight/l1/contracts) — deployed addresses
-- [Run a Node](/blacklight/l1/run-a-node) — join the testnet
-- [SDK](/blacklight/l1/sdk) — seal, post, and reconstruct from TypeScript
+- [Run a Node](/blacklight/l1/run-a-node) — join the network
+- [Build a Covenants app](/blacklight/l1/sdk) — seal, post, and reconstruct from TypeScript
