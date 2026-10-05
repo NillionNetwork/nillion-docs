@@ -29,28 +29,17 @@ The package installs a `covenants` binary. To use the CLI without installing the
 npx -p @nillion/covenants-sdk covenants candidates
 ```
 
-:::note Renamed from `@nillion/blacklight-l1-sdk`
-
-The SDK was published as `@nillion/blacklight-l1-sdk`, with a `blacklight-l1-sdk` binary. It is now `@nillion/covenants-sdk`, and the binary is `covenants`. If a tutorial uses the old names, swap in the new ones.
-
-:::
-
 ## Configure
 
-Two settings pick the network: `RPC_URL`, and `CONFIG_ADDRESS`, the `ProtocolConfig` address of the deployment you target. On mainnet, set both:
-
-```bash
-export RPC_URL=https://mainnet.infura.io/v3/YOUR_KEY
-export CONFIG_ADDRESS=0x0000000000000000000000000000000000000000   # mainnet ProtocolConfig, see Contracts
-```
-
-With neither set, the CLI reads the Sepolia testnet, so reads work on a machine with nothing set up:
+Two settings pick the network: `RPC_URL`, and `CONFIG_ADDRESS`, the `ProtocolConfig` address of the deployment you target. The CLI defaults to mainnet, and picks the deployment from the chain `RPC_URL` serves, so reads work on a machine with nothing set up:
 
 ```bash
 npx covenants candidates      # who can be picked
 npx covenants status --id N   # is it resolved
 npx covenants shares --id N   # what has been posted
 ```
+
+The default endpoint is a keyless public one with no SLA. For anything that matters, use your own:
 
 ### Writing needs one thing: `AUTHOR_KEY`
 
@@ -67,11 +56,41 @@ That key needs ETH for gas and the escrow, and NIL for the protocol fee. It is r
 | var | required | default |
 | --- | --- | --- |
 | `AUTHOR_KEY` | **writes only** | none — writes refuse without it |
-| `RPC_URL` | on mainnet | `https://ethereum-sepolia-rpc.publicnode.com` |
-| `CONFIG_ADDRESS` | on mainnet | the Sepolia testnet deployment, announced on stderr each run |
+| `RPC_URL` | no | `https://ethereum-rpc.publicnode.com` (mainnet) |
+| `CONFIG_ADDRESS` | no | the live deployment on the chain `RPC_URL` serves, announced on stderr each run |
 | `CHAIN_ID` | no | detected from `RPC_URL` |
 
-`CONFIG_ADDRESS` is the one address an integration pins — every other address resolves from it on-chain. When you rely on the built-in default, the CLI prints it on stderr on every run, because a superseded deployment keeps answering rather than going dark. See [Contracts](/blacklight/l1/contracts) for the current addresses.
+`CONFIG_ADDRESS` is the one address an integration pins — every other address resolves from it on-chain. The CLI has a built-in default for mainnet (chain `1`) and the Sepolia testnet (chain `11155111`): whichever deployment was live when that SDK version was published. When you rely on it, the CLI prints it on stderr on every run, because a superseded deployment keeps answering rather than going dark. To target any other deployment, set `CONFIG_ADDRESS` explicitly. See [Contracts](/blacklight/l1/contracts) for what is live.
+
+## Testnet
+
+Pointing `RPC_URL` at a Sepolia endpoint is all it takes:
+
+```bash
+export RPC_URL=https://ethereum-sepolia-rpc.publicnode.com
+npx covenants candidates
+```
+
+The CLI then uses the built-in testnet `CONFIG_ADDRESS`, and announces it on stderr. Every command on this page works the same way on testnet.
+
+Testnet NIL and ETH have no value. Get testnet NIL from the [Faucet](/blacklight/l1/faucet), and Sepolia ETH from any public Sepolia faucet. The testnet deployment may be replaced without notice.
+
+In code, the library takes no defaults: create your viem clients for Sepolia, and pass the testnet `CONFIG_ADDRESS` to `resolveAddresses`:
+
+```ts
+import { createPublicClient, http } from 'viem';
+import { sepolia } from 'viem/chains';
+import { resolveAddresses } from '@nillion/covenants-sdk';
+
+const pub = createPublicClient({ chain: sepolia, transport: http(process.env.RPC_URL) });
+const addresses = await resolveAddresses(pub, '0x137c8BFdEd755FD61486e648b2494BE1A1264619');
+```
+
+:::note Renamed from `@nillion/blacklight-l1-sdk`
+
+The SDK was published as `@nillion/blacklight-l1-sdk`, with a `blacklight-l1-sdk` binary. It is now `@nillion/covenants-sdk`, and the binary is `covenants`. If a testnet tutorial uses the old names, swap in the new ones.
+
+:::
 
 ## Quickstart
 
@@ -176,7 +195,7 @@ The same operations are available as functions. `seal` produces the ciphertext l
 import { seal, post, reconstruct, commitOf } from '@nillion/covenants-sdk';
 ```
 
-Also exported: `openLayer`, `mpkFromSecret`, `validateMpk`, `rankSlots`, `layerLenForPayload`, and the `Mode` and `SealResult` types. Exact signatures ship with the package's type definitions.
+Also exported: `resolveAddresses`, `openLayer`, `mpkFromSecret`, `validateMpk`, `rankSlots`, `layerLenForPayload`, and the `Mode` and `SealResult` types. Exact signatures ship with the package's type definitions.
 
 ## Command reference
 
