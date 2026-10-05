@@ -8,7 +8,7 @@ Node operators are rewarded in NIL, proportional to their stake, for their avail
 
 The **Blacklight L1 node app** walks you through the whole process, including the on-chain registration that needs your wallet. Start there rather than assembling the steps by hand.
 
-- **Mainnet:** [Blacklight L1 node app](https://TODO-mainnet-app-url) (coming soon)
+- **Mainnet:** [blacklight-l1.nillion.com](https://blacklight-l1.nillion.com/)
 - **Testnet:** [blacklight-l1.testnet.nillion.com](https://blacklight-l1.testnet.nillion.com/)
 
 :::

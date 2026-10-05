@@ -6,12 +6,12 @@ Blacklight L1 is deployed to **Ethereum mainnet** (chain ID `1`), with a testnet
 
 | Contract | Address |
 | --- | --- |
-| `ProtocolConfig` | `0x0000000000000000000000000000000000000000` |
-| `TriggerMarket` | `0x0000000000000000000000000000000000000000` |
-| `NodeRegistry` | `0x0000000000000000000000000000000000000000` |
-| `Staking` | `0x0000000000000000000000000000000000000000` |
-| `Emissions` | `0x0000000000000000000000000000000000000000` |
-| `NIL` | `0x0000000000000000000000000000000000000000` |
+| `ProtocolConfig` | [`0xa75716772c17818A73104344b5A8888ae24ADc03`](https://etherscan.io/address/0xa75716772c17818A73104344b5A8888ae24ADc03) |
+| `TriggerMarket` | [`0xe04AB2338e53CEf004512687bd7957Ab18B85744`](https://etherscan.io/address/0xe04AB2338e53CEf004512687bd7957Ab18B85744) |
+| `NodeRegistry` | [`0x9A2667ec55c769f49906d7aB718d36aE26c23be2`](https://etherscan.io/address/0x9A2667ec55c769f49906d7aB718d36aE26c23be2) |
+| `Staking` | [`0xAcD5D3d8Eacb9f60CfEb6F26D65FB9CB9b06D21b`](https://etherscan.io/address/0xAcD5D3d8Eacb9f60CfEb6F26D65FB9CB9b06D21b) |
+| `Emissions` | [`0xeff51614B2ccB89264e75a1303A17878cEA59C62`](https://etherscan.io/address/0xeff51614B2ccB89264e75a1303A17878cEA59C62) |
+| `NIL` | [`0x7Cf9a80db3B29eE8efE3710AadB7b95270572d47`](https://etherscan.io/address/0x7Cf9a80db3B29eE8efE3710AadB7b95270572d47) |
 
 ## Testnet (Sepolia)
 
