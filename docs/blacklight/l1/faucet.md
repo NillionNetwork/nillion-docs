@@ -1,6 +1,6 @@
 # Testnet Faucet
 
-Blacklight L1 testnet needs two tokens: **testnet NIL** for staking and fees, and **Sepolia ETH** for gas.
+Blacklight L1 testnet needs two tokens: **testnet NIL** for staking and fees, and **Sepolia ETH** for gas. Mainnet has no faucet: there you use real NIL and ETH.
 
 ## Testnet NIL
 
@@ -35,4 +35,4 @@ A node spends a little ETH on every share it posts and every key rotation, so ke
 ## Where next
 
 - [Run a Node](/blacklight/l1/run-a-node) — stake the NIL you just claimed
-- [SDK](/blacklight/l1/sdk) — post your first trigger
+- [Build a Covenants app](/blacklight/l1/sdk) — post your first trigger

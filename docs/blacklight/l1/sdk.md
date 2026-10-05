@@ -1,74 +1,103 @@
 ---
-title: Building on Blacklight L1
-description: TypeScript SDK and CLI for Blacklight L1 — seal a payload to a committee of nodes, post it with an on-chain release condition, and reconstruct it when the condition fires.
+title: Build a Covenants app
+description: Build a Covenants app on Blacklight L1 with @nillion/covenants-sdk — seal a payload to a committee of nodes, post it with an on-chain release condition, and reconstruct it when the condition fires.
 ---
 
 import AgentPrompt from '@site/src/components/AgentPrompt';
 
-# Building on Blacklight L1
+# Build a Covenants app
 
-`@nillion/blacklight-l1-sdk` is the TypeScript SDK and CLI for Blacklight L1: seal a payload to a committee of nodes, post it with an on-chain release condition, and reconstruct it when the condition fires.
+A Covenants app seals a payload to a committee of Blacklight L1 nodes, posts it with an on-chain release condition, and reconstructs it when the condition fires. `@nillion/covenants-sdk` is the TypeScript SDK and CLI for building one.
 
-- **npm:** [`@nillion/blacklight-l1-sdk`](https://www.npmjs.com/package/@nillion/blacklight-l1-sdk)
+- **npm:** [`@nillion/covenants-sdk`](https://www.npmjs.com/package/@nillion/covenants-sdk)
 - Works in Node and in the browser. Both bindings drive the same Rust core compiled to WASM — the same code the nodes run natively.
 
 <AgentPrompt />
 
-:::info Testnet only
-
-Blacklight L1 is deployed to Ethereum Sepolia. Tokens have no value and deployments may be replaced, so treat anything you build against it as disposable.
-
-:::
-
 ## Install
 
 ```bash
-npm install @nillion/blacklight-l1-sdk
+npm install @nillion/covenants-sdk viem
+npm pkg set type=module   # required: the package is ESM-only
 ```
 
-Or use the CLI without installing:
+`viem` is a **peer** dependency, so it is not bundled and you will not end up with two copies.
+
+The package installs a `covenants` binary. To use the CLI without installing the package:
 
 ```bash
-npx blacklight-l1-sdk candidates
+npx -p @nillion/covenants-sdk covenants candidates
 ```
 
 ## Configure
 
-**Reads need no configuration at all.** The defaults point at the live Sepolia deployment, so this works on a machine with nothing set up:
+Two settings pick the network: `RPC_URL`, and `CONFIG_ADDRESS`, the `ProtocolConfig` address of the deployment you target. The CLI defaults to mainnet, and picks the deployment from the chain `RPC_URL` serves, so reads work on a machine with nothing set up:
 
 ```bash
-npx blacklight-l1-sdk candidates      # who can be picked
-npx blacklight-l1-sdk status --id N   # is it resolved
-npx blacklight-l1-sdk shares --id N   # what has been posted
+npx covenants candidates      # who can be picked
+npx covenants status --id N   # is it resolved
+npx covenants shares --id N   # what has been posted
 ```
+
+The default endpoint is a keyless public one with no SLA. For anything that matters, use your own:
 
 ### Writing needs one thing: `AUTHOR_KEY`
 
-Anything that sends a transaction — `post`, `reveal`, `reconstruct`, `claim-recon`, `withdraw-refund` — needs your own funded Sepolia key. There is no default, and the CLI refuses rather than guess:
+Anything that sends a transaction — `post`, `reveal`, `reconstruct`, `claim-recon`, `withdraw-refund` — needs your own funded key. There is no default, and the CLI refuses rather than guess:
 
 ```bash
-AUTHOR_KEY=0xYOUR_PRIVATE_KEY npx blacklight-l1-sdk post ...
+AUTHOR_KEY=0xYOUR_PRIVATE_KEY npx covenants post ...
 ```
 
-That key needs Sepolia ETH for gas and NIL for escrow. It is read from the environment only, never a flag, so it cannot land in your shell history.
+That key needs ETH for gas and the escrow, and NIL for the protocol fee. It is read from the environment only, never a flag, so it cannot land in your shell history.
 
 ### Environment
 
 | var | required | default |
 | --- | --- | --- |
 | `AUTHOR_KEY` | **writes only** | none — writes refuse without it |
-| `RPC_URL` | no | `https://ethereum-sepolia-rpc.publicnode.com` |
-| `CONFIG_ADDRESS` | no | the live Sepolia deployment, announced on stderr each run |
+| `RPC_URL` | no | `https://ethereum-rpc.publicnode.com` (mainnet) |
+| `CONFIG_ADDRESS` | no | the live deployment on the chain `RPC_URL` serves, announced on stderr each run |
 | `CHAIN_ID` | no | detected from `RPC_URL` |
 
-`CONFIG_ADDRESS` is the one address an integration pins — every other address resolves from it on-chain. The built-in default is whatever was live when your version was published, and it is printed on stderr on every run, because a superseded deployment keeps answering rather than going dark. If you are working against anything other than the current testnet, set it explicitly. See [Contracts](/blacklight/l1/contracts).
+`CONFIG_ADDRESS` is the one address an integration pins — every other address resolves from it on-chain. The CLI has a built-in default for mainnet (chain `1`) and the Sepolia testnet (chain `11155111`): whichever deployment was live when that SDK version was published. When you rely on it, the CLI prints it on stderr on every run, because a superseded deployment keeps answering rather than going dark. To target any other deployment, set `CONFIG_ADDRESS` explicitly. See [Contracts](/blacklight/l1/contracts) for what is live.
+
+## Testnet
+
+Pointing `RPC_URL` at a Sepolia endpoint is all it takes:
+
+```bash
+export RPC_URL=https://ethereum-sepolia-rpc.publicnode.com
+npx covenants candidates
+```
+
+The CLI then uses the built-in testnet `CONFIG_ADDRESS`, and announces it on stderr. Every command on this page works the same way on testnet.
+
+Testnet NIL and ETH have no value. Get testnet NIL from the [Faucet](/blacklight/l1/faucet), and Sepolia ETH from any public Sepolia faucet. The testnet deployment may be replaced without notice.
+
+In code, the library takes no defaults: create your viem clients for Sepolia, and pass the testnet `CONFIG_ADDRESS` to `resolveAddresses`:
+
+```ts
+import { createPublicClient, http } from 'viem';
+import { sepolia } from 'viem/chains';
+import { resolveAddresses } from '@nillion/covenants-sdk';
+
+const pub = createPublicClient({ chain: sepolia, transport: http(process.env.RPC_URL) });
+const addresses = await resolveAddresses(pub, '0x137c8BFdEd755FD61486e648b2494BE1A1264619');
+```
+
+:::note Renamed from `@nillion/blacklight-l1-sdk`
+
+The SDK was published as `@nillion/blacklight-l1-sdk`, with a `blacklight-l1-sdk` binary. It is now `@nillion/covenants-sdk`, and the binary is `covenants`. If a testnet tutorial uses the old names, swap in the new ones.
+
+:::
 
 ## Quickstart
 
 **1. See who is available.**
 
 ```bash
-npx blacklight-l1-sdk candidates
+npx covenants candidates
 ```
 
 Lists registered nodes with their stake, markup, and how many shares they have posted. No configuration needed.
@@ -76,7 +105,7 @@ Lists registered nodes with their stake, markup, and how many shares they have p
 **2. Post a trigger.** This sends a transaction, so it needs `AUTHOR_KEY`.
 
 ```bash
-AUTHOR_KEY=0xYOUR_PRIVATE_KEY npx blacklight-l1-sdk post \
+AUTHOR_KEY=0xYOUR_PRIVATE_KEY npx covenants post \
   --condition "BTC >= 100000" \
   --payload "the secret" \
   --mode private \
@@ -88,15 +117,15 @@ This seals the payload to a committee of 5, requires any 3 of them to open it, a
 **3. Watch it.**
 
 ```bash
-npx blacklight-l1-sdk status --id 1
-npx blacklight-l1-sdk shares --id 1
+npx covenants status --id 1
+npx covenants shares --id 1
 ```
 
 **4. Reconstruct once `k` shares are in.**
 
 ```bash
-npx blacklight-l1-sdk reconstruct --id 1
-npx blacklight-l1-sdk reveal --id 1
+npx covenants reconstruct --id 1
+npx covenants reveal --id 1
 ```
 
 Reconstruction is permissionless and carries a bounty the author escrowed, so anyone can perform it — the contract checks the result against the author's commitment.
@@ -106,7 +135,7 @@ Reconstruction is permissionless and carries a bounty the author escrowed, so an
 Either name the nodes explicitly:
 
 ```bash
-npx blacklight-l1-sdk post --condition "…" --nodes 3,7,12,15,19 --k 3
+npx covenants post --condition "…" --nodes 3,7,12,15,19 --k 3
 ```
 
 Or pick a strategy and let the SDK select:
@@ -119,7 +148,7 @@ Or pick a strategy and let the SDK select:
 | `cheapest` | lowest committee cost |
 
 ```bash
-npx blacklight-l1-sdk post --condition "…" --strategy staked --m 5 --k 3
+npx covenants post --condition "…" --strategy staked --m 5 --k 3
 ```
 
 Escrow for a committee is the **sum of the `k` highest markups**, not the average — raising `k` can raise your cost as well as your collusion resistance.
@@ -142,7 +171,7 @@ An optional `--window +60:+900` restricts when the condition may fire.
 A trigger can name a contract to call on reveal, so a downstream protocol acts on the revealed value atomically:
 
 ```bash
-npx blacklight-l1-sdk post --condition "…" --hook 0xYourContract --hook-gas 250000
+npx covenants post --condition "…" --hook 0xYourContract --hook-gas 250000
 ```
 
 Hook gas is escrowed at your ceiling and refunded down to what it actually uses. If a settlement resolves without acknowledging, `retry --id N` re-runs it.
@@ -152,8 +181,8 @@ Hook gas is escrowed at your ceiling and refunded down to what it actually uses.
 An author with an empty wallet can seal and sign offline, and let somebody else pay:
 
 ```bash
-npx blacklight-l1-sdk sign-authorization --condition "…" --out auth.json
-npx blacklight-l1-sdk post-sponsored --authorization auth.json
+npx covenants sign-authorization --condition "…" --out auth.json
+npx covenants post-sponsored --authorization auth.json
 ```
 
 Omitting `--payer` means anyone may submit the bundle, so treat the file as a bearer instrument and transmit it privately.
@@ -163,10 +192,10 @@ Omitting `--payer` means anyone may submit the bundle, so treat the file as a be
 The same operations are available as functions. `seal` produces the ciphertext layers and the commitment; `post` submits them; `reconstruct` and `reconstructAndPost` recover the payload.
 
 ```ts
-import { seal, post, reconstruct, commitOf } from '@nillion/blacklight-l1-sdk';
+import { seal, post, reconstruct, commitOf } from '@nillion/covenants-sdk';
 ```
 
-Also exported: `openLayer`, `mpkFromSecret`, `validateMpk`, `rankSlots`, `layerLenForPayload`, and the `Mode` and `SealResult` types. Exact signatures ship with the package's type definitions.
+Also exported: `resolveAddresses`, `openLayer`, `mpkFromSecret`, `validateMpk`, `rankSlots`, `layerLenForPayload`, and the `Mode` and `SealResult` types. Exact signatures ship with the package's type definitions.
 
 ## Command reference
 
@@ -193,4 +222,5 @@ copy it straight to your clipboard there, no expanding required.
 
 - [How it Works](/blacklight/l1/how-it-works) — the lifecycle end to end
 - [Cryptography](/blacklight/l1/cryptography) — what the guarantees rest on
+- [Contracts](/blacklight/l1/contracts) — mainnet and testnet addresses
 - [Faucet](/blacklight/l1/faucet) — testnet NIL and Sepolia ETH

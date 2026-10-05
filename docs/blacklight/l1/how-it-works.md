@@ -1,29 +1,18 @@
 # How Blacklight L1 Works
 
-Blacklight L1 is a network for **conditional secrets**. An author seals a payload so that it can only be opened once a condition they specify has been met on-chain. Until then the payload does not exist in one piece anywhere — not on the author's machine, not on the chain, and not on any single node.
+Blacklight L1 is the network that powers Nillion Covenants. Nillion Covenants let you seal a secret payload or action to a committee of nodes together with a release condition. The payload remains encrypted until that a threshold of nodes agree the condition is met and subsequently post their shares on-chain. For example: "If ETH &lt; $2,000, sell 0.5 ETH."
 
-:::info Testnet only
 
-Blacklight L1 is currently deployed to **Ethereum Sepolia** and is not on mainnet. Tokens have no value, and deployments may be replaced. See [Contracts](/blacklight/l1/contracts) for live addresses.
+"If X happens, then do this" normally needs somebody trustworthy to hold the secret and honour the rule. That party can leak early, refuse to release, or simply go offline. Blacklight L1 removes them.
 
-:::
 
-## The problem it solves
+## The lifecycle of a Covenant
 
-"Reveal this, but only when X happens" normally needs somebody trustworthy to hold the secret and honour the rule. That party can leak early, refuse to release, or simply go offline. Blacklight L1 removes them.
-
-Typical uses:
-
-- **Sealed-bid auctions** — bids stay sealed until the auction closes, then all open at once.
-- **Timelocked disclosure** — a document that becomes readable at a fixed time.
-- **Dead-man switches** — material that unseals if a heartbeat stops.
-- **Conditional order flow** — an instruction that only becomes legible once a price is reached.
-
-## The lifecycle
+Below, we walk through the lifecycle of Nillion Covenants. Blacklight nodes, which power Nillion Covenants, are registered on-chain with a stake and a price (their *markup*).
 
 ### 1. Choose a committee
 
-Nodes register on-chain with a stake and a price (their *markup*). An author picks **m** of them and a threshold **k**: any `k` of the `m` can open the payload together, and any `k-1` of them cannot.
+A covenant author picks **m** nodes and a threshold **k**: any `k` of the `m` can open the payload together, and any `k-1` of them cannot.
 
 Selection can be explicit (name the node IDs) or by strategy — balanced, most experienced, highest staked, or cheapest. See the [SDK](/blacklight/l1/sdk).
 
@@ -31,11 +20,11 @@ Selection can be explicit (name the node IDs) or by strategy — balanced, most 
 
 The payload is split into `m` Shamir shares and each share is encrypted to one node's public key. The author gets back `m` ciphertext layers and a `keccak256` commitment to the payload.
 
-Only the recipient of a layer can open it, and only a share is inside — so a node learns nothing on its own. See [Cryptography](/blacklight/l1/cryptography).
+Only the node-recipient of a layer can open it, and only a share is inside — so a node learns nothing on its own. See [Cryptography](/blacklight/l1/cryptography).
 
 ### 3. Post the trigger
 
-The author sends the layers and the release condition to the `TriggerMarket` contract, along with escrow to cover the committee's fees, the reconstruction bounty, and (optionally) gas for a settlement callback.
+The author sends the layers and the release condition (e.g. "ETH &lt; $2000") to the `TriggerMarket` contract, along with escrow to cover the committee's fees, (optionally) the reconstruction bounty, and (optionally) gas for a settlement callback.
 
 Conditions come in two modes:
 
@@ -44,13 +33,15 @@ Conditions come in two modes:
 
 ### 4. Nodes watch and post shares
 
+Currently, conditions can be price conditions for ETH, BTC, USDC and SOL - however the scope of this will be expanded in future eras. 
+
 Every node runs a price feed aggregated across several venues, and watches the chain for triggers addressed to its key. When a trigger's condition is satisfied, each node decrypts its own layer and posts its share on-chain.
 
-Nodes are paid for posting. They are not asked to agree with each other, and there is no voting: a share is either valid against the commitment or it is not.
+Nodes are paid for posting. In this era they are not asked to agree with each other, and there is no voting: a share is either valid against the commitment or it is not.
 
 ### 5. Reconstruct
 
-Once `k` shares are on-chain, anyone can interpolate them, recover the payload, and reveal it — earning the reconstruction bounty the author escrowed. The contract checks the result against the original commitment, so a wrong payload cannot be passed off as the real one.
+Once `k` shares have been posted by nodes on-chain, anyone can interpolate them, recover the payload, and reveal it — earning the reconstruction bounty the author escrowed. The contract checks the result against the original commitment, so a wrong payload cannot be passed off as the real one.
 
 If the trigger carried a settlement hook, revealing also calls it, letting a downstream contract act on the revealed value in the same transaction.
 
@@ -63,7 +54,7 @@ If the trigger carried a settlement hook, revealing also calls it, letting a dow
 
 ## Staking and rewards
 
-Node operators bond NIL to register, and set a markup that prices their participation. They earn from two sources: fees paid by authors whose triggers they serve, and protocol emissions distributed per epoch (currently every 6 hours on testnet).
+Node operators bond NIL to register, and set a markup that prices their participation. They earn in two ways: ETH from the escrow of the triggers they serve, for posting shares and reconstructing, and NIL emissions that accrue every second, weighted by stake.
 
 Stake leaves only through an unbonding queue. Earnings and stake are both controlled by the operator's **owner** wallet, which is separate from the hot key the node itself runs with.
 
@@ -71,5 +62,5 @@ Stake leaves only through an unbonding queue. Earnings and stake are both contro
 
 - [Cryptography](/blacklight/l1/cryptography) — the primitives underneath
 - [Contracts](/blacklight/l1/contracts) — deployed addresses
-- [Run a Node](/blacklight/l1/run-a-node) — join the testnet
-- [SDK](/blacklight/l1/sdk) — seal, post, and reconstruct from TypeScript
+- [Run a Node](/blacklight/l1/run-a-node) — join the network
+- [Build a Covenants app](/blacklight/l1/sdk) — seal, post, and reconstruct from TypeScript

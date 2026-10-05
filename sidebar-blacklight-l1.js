@@ -1,7 +1,6 @@
 // Blacklight L1 has its own sidebar rather than a section inside the Blacklight (L2) one.
-// They are separate networks with separate lifecycles — L1 is on testnet while L2 is on
-// mainnet — and nesting one inside the other made the L2 sidebar read as though L1 were a
-// component of it. Docusaurus picks the sidebar from whichever one contains the current doc,
+// They are separate networks with separate lifecycles, and nesting one inside the other made
+// the L2 sidebar read as though L1 were a component of it. Docusaurus picks the sidebar from whichever one contains the current doc,
 // so every page under docs/blacklight/l1 gets this automatically.
 const blacklightL1Sidebar = [
   {
