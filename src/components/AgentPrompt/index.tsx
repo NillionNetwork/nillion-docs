@@ -56,7 +56,7 @@ export default function AgentPrompt(): JSX.Element {
             Building with an AI assistant? Copy this brief into your project as{' '}
             <code>AGENT-BRIEF.md</code> and tell your agent to read it. It covers the
             primitive, what conditions can and cannot express, hooks, and the traps —
-            verified against the live deployment.
+            verified by settling a real application on testnet.
           </p>
         </div>
 

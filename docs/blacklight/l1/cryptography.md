@@ -1,18 +1,13 @@
 # Cryptography
 
-Blacklight L1 combines three well-understood primitives. Nothing here is novel cryptography; the design choice is in how they are composed so that no participant is trusted individually.
+Nillion Covenant powered by  Blacklight L1 combines three well-understood primitives: threshold secret sharing, identity-based encryption, authenticated symmetric encryption. Here we give a high-level overview of them and how they are combined in Nillion Covenants.
 
-:::note
-
-This page describes the scheme at a level useful for evaluating the guarantees. It is not a full specification.
-
-:::
 
 ## The three pieces
 
 ### 1. Threshold secret sharing
 
-The payload is split with **Shamir secret sharing** into `m` shares, with a threshold of `k`. Any `k` shares reconstruct the payload exactly; any `k-1` reveal nothing at all about it — not a partial value, not a narrowed range.
+A Coventants secret payload is split with **Shamir secret sharing** into `m` shares, with a threshold of `k`. Any `k` shares reconstruct the payload exactly; any `k-1` reveal nothing at all about it.
 
 This is what removes the trusted party. There is no single holder to compromise, and the author chooses how much redundancy (`m`) and how much collusion resistance (`k`) they want.
 
@@ -26,7 +21,7 @@ layer = version(1) ‖ U(48) ‖ V(32) ‖ W(32) ‖ dem_len(4) ‖ body ‖ tag
 
 `U` is a compressed BLS12-381 group element (48 bytes); `V` and `W` mask the session key and the payload key.
 
-Each node holds an IBE **master secret** and publishes the corresponding **master public key** (its `mpk`) on-chain at registration. Sealing to a node requires only its `mpk` — the author never talks to the node directly, and the node need not be online when the payload is sealed.
+Each node holds an IBE **master secret** and publishes the corresponding **master public key** (its `mpk`) on-chain at registration. Sealing to a node requires only its `mpk` — the Covenants author never talks to the node directly, and the node need not be online when the payload is sealed.
 
 ### 3. Authenticated symmetric encryption
 
@@ -60,7 +55,6 @@ Each rotation registers a new `mpk` on-chain, and new triggers are sealed to the
 
 The cryptography is implemented once, in Rust, and compiled to WASM. The [SDK](/blacklight/l1/sdk) is a thin typed wrapper over that same core — so an author sealing in a browser, an author sealing in Node, and a node opening a layer natively are all running byte-identical code. That removes the classic failure mode where a client and a server disagree subtly about a wire format.
 
-An independent pure-TypeScript implementation is used in CI as a differential oracle against the WASM core, but it never ships to users.
 
 ## What is and is not protected
 

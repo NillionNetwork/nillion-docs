@@ -1,8 +1,10 @@
 # Run a Blacklight L1 Node
 
-Node operators hold key shares for authors' sealed payloads, post their share when a trigger's condition is met, and earn ETH and NIL rewards for doing so.
+Node operators are selected to watch conditions by Nillion governance authors. When a condition is met, they post their share of the secret payload on-chain. 
 
-:::info Guided setup
+Node operators are rewarded in NIL, proportional to their stake, for their availability to accept covenants assignments. They are also rewarded for the work they do in ETH as a markup of the gas they spend when a covenant is triggered.  
+
+:::info setting up your Blacklight L1 node 
 
 The **Blacklight L1 node app** walks you through the whole process, including the on-chain registration that needs your wallet. Start there rather than assembling the steps by hand.
 
@@ -16,7 +18,7 @@ The **Blacklight L1 node app** walks you through the whole process, including th
 - **A machine that stays online.** A node ticks continuously and misses paid work while it is down. A small VPS is plenty.
 - **Docker.**
 - **Your own RPC endpoint** for the network you run on. See [step 3](#3-set-your-rpc-endpoint) for what it needs.
-- **A wallet with ETH and NIL** for the stake, the registration and the node's initial gas float:
+- **A wallet with ETH and NIL (both L1)** for the stake, the registration and the node's initial gas float:
 
 | | NIL | ETH |
 | --- | --- | --- |
