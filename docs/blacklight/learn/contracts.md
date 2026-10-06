@@ -29,14 +29,3 @@ The core Solidity smart contracts for Blacklight are deployed on [Nillion's Ethe
 | NoOpSlashingPolicy        | [0x9a75E816941F692C23166eE9d61328544fb99490](https://explorer.nillion.network/address/0x9a75E816941F692C23166eE9d61328544fb99490) |
 | NodeOperatorFactory       | [0x357A349D1a0517f6e234dE99D3a2767E2D871451](https://explorer.nillion.network/address/0x357A349D1a0517f6e234dE99D3a2767E2D871451) |
 
-### Testnet
-
-| Contract                  | Address                                                                                                                                   |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------|
-| ProtocolConfig            | [0xfa718d54f31bcf49CcaC3a79C276fa87d11E2F44](https://explorer.testnet.nillion.network/address/0xfa718d54f31bcf49ccac3a79c276fa87d11e2f44) |
-| StakingOperators          | [0x2913f0A4C1BE4e991CCf76F04C795E5646e02049](https://explorer.testnet.nillion.network/address/0x2913f0a4c1be4e991ccf76f04c795e5646e02049) |
-| WeightedCommitteeSelector | [0xc66b2b6a28a4212B1364D17514A03Cf2c5f2DD7C](https://explorer.testnet.nillion.network/address/0xc66b2b6a28a4212b1364d17514a03cf2c5f2dd7c) |
-| HeartbeatManager          | [0x3dbE95E20B370C5295E7436e2d887cFda8bcb02c](https://explorer.testnet.nillion.network/address/0x3dbe95e20b370c5295e7436e2d887cfda8bcb02c) |
-| RewardPolicy              | [0xB7223d0a84A8e0c5a5D384b57F2bA3b2Cb216ed9](https://explorer.testnet.nillion.network/address/0xb7223d0a84a8e0c5a5d384b57f2ba3b2cb216ed9) |
-| NoOpSlashingPolicy        | [0x4a76Cb88D6FFb85cBe0ad28e7FFB3D51678e440d](https://explorer.testnet.nillion.network/address/0x4a76Cb88D6FFb85cBe0ad28e7FFB3D51678e440d) |
-| NodeOperatorFactory        | [0x3c3597E9D70b8905fA2D12D94864433aeC614892](https://explorer.testnet.nillion.network/address/0x3c3597E9D70b8905fA2D12D94864433aeC614892) |

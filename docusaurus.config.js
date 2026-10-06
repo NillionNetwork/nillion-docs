@@ -358,6 +358,10 @@ const config = {
       {
         redirects: [
           {
+            to: '/blacklight/l1/faucet',
+            from: ['/blacklight/tools/faucets'],
+          },
+          {
             to: '/blind-computer/learn/overview',
             from: ['/blind-computer/build/quickstart'],
           },

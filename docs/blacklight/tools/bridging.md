@@ -1,6 +1,6 @@
 # Bridging to Nillion's Ethereum L2
 
-Bridging allows you to transfer assets between Nillion's Ethereum L2 and other networks. This **Mainnet** guide covers the available bridges for moving assets to and from Nillion's L2. For **Testnet**, we recommend going directly to the [faucet](../tools/faucets.md).
+Bridging allows you to transfer assets between Nillion's Ethereum L2 and other networks. This guide covers the available bridges for moving assets to and from Nillion's L2 mainnet.
 
 ```mermaid
 flowchart LR

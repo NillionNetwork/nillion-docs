@@ -5,7 +5,3 @@ Block explorers allow you to view transactions, blocks, addresses, and other onc
 ## Mainnet
 
 The block explorer for mainnet can be viewed at: [https://explorer.nillion.network](https://explorer.nillion.network).
-
-## Testnet
-
-The block explorer for testnet can be viewed at: [https://explorer.testnet.nillion.network](https://explorer.testnet.nillion.network).
