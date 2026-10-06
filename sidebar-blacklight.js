@@ -78,15 +78,6 @@ const blacklightSidebar = [
   },
   {
     type: 'category',
-    label: 'Faucets',
-    link: {
-      type: 'doc',
-      id: 'blacklight/tools/faucets',
-    },
-    items: [],
-  },
-  {
-    type: 'category',
     label: 'Block Explorers',
     link: {
       type: 'doc',
