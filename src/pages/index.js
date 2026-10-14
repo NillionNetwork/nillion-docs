@@ -23,7 +23,7 @@ function HeroSection() {
         <div className={styles.getStartedButton}>
           <LinkButton
             text="Get Started"
-            link="/blind-computer/learn/overview"
+            link="/blacklight/l1/overview"
             small={true}
           />
         </div>
