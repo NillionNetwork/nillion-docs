@@ -171,24 +171,10 @@ const config = {
         },
         items: [
           {
-            // A dropdown, because Blacklight is two separate networks: the L2 verification
-            // layer and Blacklight L1. The landing page only links L1 now, so this menu is
-            // the way into the L2 docs; a single item could only point at one of them.
-            type: 'dropdown',
+            type: 'doc',
             position: 'left',
+            docId: 'blacklight/l1/overview',
             label: 'Blacklight',
-            items: [
-              {
-                type: 'doc',
-                docId: 'blacklight/learn/overview',
-                label: 'Blacklight L2',
-              },
-              {
-                type: 'doc',
-                docId: 'blacklight/l1/overview',
-                label: 'Blacklight L1',
-              },
-            ],
           },
           {
             type: 'doc',
