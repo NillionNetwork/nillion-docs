@@ -1,6 +1,6 @@
 ---
 title: Covenants MCP
-description: Connect Claude, Cursor, VS Code and other AI assistants to Nillion Covenants with the Covenants MCP server. Explain the protocol, test app ideas, encode conditions, and build on testnet.
+description: Connect Claude, ChatGPT, Codex, Cursor, VS Code and other AI assistants to Nillion Covenants with the Covenants MCP server. Explain the protocol, test app ideas, encode conditions, and build on testnet.
 sidebar_label: Covenants MCP
 ---
 
@@ -13,7 +13,7 @@ There are two ways to connect:
 | | Hosted server | Local server and Claude Code plugin |
 | --- | --- | --- |
 | **Best for** | Learning, judging ideas, designing an app | Building and testing an app on Sepolia |
-| **Works in** | Claude (web, desktop, mobile), Claude Code, Cursor, VS Code and any client that supports remote MCP servers | Claude Code (as a plugin), or any client that starts local MCP servers |
+| **Works in** | Claude (web, desktop, mobile), ChatGPT, Claude Code, Codex, Cursor, VS Code and any client that supports remote MCP servers | Claude Code (as a plugin), Codex, or any client that starts local MCP servers |
 | **Tools** | 11, all read-only | The same 11 plus live network reads, testnet setup and a testnet toolbox |
 | **You need** | Nothing: no account or sign-in | Node.js 20+, your own Ethereum RPC endpoint, and [Foundry](https://getfoundry.sh) to build apps |
 
@@ -45,6 +45,32 @@ claude mcp add --transport http covenants https://covenants-mcp.nillion.network/
 ```
 
 For the full toolbox, install the [plugin](#install-the-local-server) instead.
+
+### ChatGPT
+
+ChatGPT connects to custom MCP servers in developer mode.
+
+1. In ChatGPT, open **Settings → Apps & Connectors → Advanced settings** and turn on **Developer mode**. In Business, Enterprise and Edu workspaces, an admin may need to allow it first.
+2. Back in **Apps & Connectors**, choose **Create**.
+3. Name it `Nillion Covenants`, paste the address above, set authentication to **No authentication**, and select **Create**.
+4. In a new chat, select **+ → More** and choose **Nillion Covenants**.
+
+Menu names can differ slightly between plans and workspaces.
+
+### Codex
+
+The Codex CLI, the Codex IDE extension and the ChatGPT desktop app share one configuration. Add the server from a terminal:
+
+```bash
+codex mcp add covenants --url https://covenants-mcp.nillion.network/mcp
+```
+
+Or add it to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.covenants]
+url = "https://covenants-mcp.nillion.network/mcp"
+```
 
 ### Cursor
 
@@ -119,6 +145,14 @@ For Cursor, VS Code, Claude Desktop's config file, or any client that starts loc
     }
   }
 }
+```
+
+For Codex, add it to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.covenants]
+command = "npx"
+args = ["-y", "@nillion/covenants-mcp"]
 ```
 
 Then ask your assistant to *"set me up to build on Covenants testnet"*. It will check your setup and help you set an RPC endpoint, create a testnet wallet, and claim testnet NIL from the [Faucet](/blacklight/l1/faucet).
