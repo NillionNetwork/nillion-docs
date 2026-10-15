@@ -83,6 +83,8 @@ Add this to `~/.cursor/mcp.json`, or to `.cursor/mcp.json` in your project:
 }
 ```
 
+In Cursor's MCP settings, `covenants` should then show as connected, with 11 tools. Cursor's Ask mode doesn't run MCP tools, so use the chat in Agent mode, the default.
+
 ### VS Code
 
 Add this to `.vscode/mcp.json` in your workspace:
