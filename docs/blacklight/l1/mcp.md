@@ -13,7 +13,7 @@ There are two ways to connect:
 | | Hosted server | Local server and Claude Code plugin |
 | --- | --- | --- |
 | **Best for** | Learning, judging ideas, designing an app | Building and testing an app on Sepolia |
-| **Works in** | Claude (web, desktop, mobile), ChatGPT, Claude Code, Codex, Cursor, VS Code and any client that supports remote MCP servers | Claude Code (as a plugin), Codex, or any client that starts local MCP servers |
+| **Works in** | Claude (web, desktop, mobile), ChatGPT desktop app, Claude Code, Codex, Cursor, VS Code and any client that supports remote MCP servers | Claude Code (as a plugin), Codex, or any client that starts local MCP servers |
 | **Tools** | 11, all read-only | The same 11 plus live network reads, testnet setup and a testnet toolbox |
 | **You need** | Nothing: no account or sign-in | Node.js 20+, your own Ethereum RPC endpoint, and [Foundry](https://getfoundry.sh) to build apps |
 
@@ -48,14 +48,14 @@ For the full toolbox, install the [plugin](#install-the-local-server) instead.
 
 ### ChatGPT
 
-ChatGPT connects to custom MCP servers in developer mode.
+In the ChatGPT desktop app:
 
-1. In ChatGPT, open **Settings → Apps & Connectors → Advanced settings** and turn on **Developer mode**. In Business, Enterprise and Edu workspaces, an admin may need to allow it first.
-2. Back in **Apps & Connectors**, choose **Create**.
-3. Name it `Nillion Covenants`, paste the address above, set authentication to **No authentication**, and select **Create**.
-4. In a new chat, select **+ → More** and choose **Nillion Covenants**.
+1. Open **Settings → Plugins**.
+2. Choose **Add → Add MCP server**.
+3. Name it `covenants`, set **Type** to **Streamable HTTP**, and paste the address above. Leave the other fields empty.
+4. Select **Save**.
 
-Menu names can differ slightly between plans and workspaces.
+Then ask a question such as *"Using Nillion Covenants, how does a covenant stay secret until its condition is met?"*
 
 ### Codex
 
@@ -146,6 +146,8 @@ For Cursor, VS Code, Claude Desktop's config file, or any client that starts loc
   }
 }
 ```
+
+In the ChatGPT desktop app, add an MCP server under **Settings → Plugins → Add → Add MCP server** with **Type** set to **STDIO**, the command `npx`, and two arguments: `-y` and `@nillion/covenants-mcp`.
 
 For Codex, add it to `~/.codex/config.toml`:
 
