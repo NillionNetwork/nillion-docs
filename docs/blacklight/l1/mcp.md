@@ -8,9 +8,9 @@ sidebar_label: Covenants MCP
 
 The Covenants MCP server connects AI assistants to Nillion Covenants through the [Model Context Protocol](https://modelcontextprotocol.io). With it, your assistant can help you:
 
-- **Understand:** explain how Covenants works, what a term means, and what the cryptography does and doesn't protect, answering from the Covenants docs.
-- **Ideate:** check whether an app idea fits Covenants, reshape it if it doesn't, and work out the release condition it needs, using live prices read the way the nodes read them.
-- **Build:** start from tested app patterns, look up the SDK, encode release conditions, and decode errors when a transaction reverts.
+- **Understand:** learn how Covenants works, what its terms mean and how the cryptography works, with answers drawn from the Covenants docs.
+- **Ideate:** come up with ideas you could build with Covenants and iterate on them. Your assistant works through whether an idea fits, how it could be built and how to make it better.
+- **Build:** set up your agentic build environment for Covenants, so your agent knows how to start building: from tested app patterns and the SDK reference, encoding release conditions and decoding errors along the way.
 
 ## Connect
 
