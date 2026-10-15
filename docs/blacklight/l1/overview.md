@@ -31,6 +31,7 @@ The chain verifies the revealed payload against a commitment made at post time, 
 - [**Cryptography**](/blacklight/l1/cryptography) — the primitives and, importantly, what is *not* protected
 - [**Contracts**](/blacklight/l1/contracts) — deployed mainnet and testnet addresses
 - [**Build a Covenants app**](/blacklight/l1/sdk) — the SDK and CLI, plus a prompt for coding agents
+- [**Covenants MCP**](/blacklight/l1/mcp) — connect Claude, Cursor and other AI assistants to Covenants
 - [**Run a Node**](/blacklight/l1/run-a-node) — earn ETH and NIL rewards
 - [**Faucet**](/blacklight/l1/faucet) — testnet NIL and Sepolia ETH
 

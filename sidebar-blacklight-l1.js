@@ -20,6 +20,7 @@ const blacklightL1Sidebar = [
     defaultStyle: true,
   },
   'blacklight/l1/sdk',
+  'blacklight/l1/mcp',
   {
     type: 'html',
     className: 'sidebar-title',
