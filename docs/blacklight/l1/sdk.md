@@ -224,3 +224,4 @@ copy it straight to your clipboard there, no expanding required.
 - [Cryptography](/blacklight/l1/cryptography) — what the guarantees rest on
 - [Contracts](/blacklight/l1/contracts) — mainnet and testnet addresses
 - [Faucet](/blacklight/l1/faucet) — testnet NIL and Sepolia ETH
+- [Covenants MCP](/blacklight/l1/mcp) — let an AI assistant explain, design and build with you
