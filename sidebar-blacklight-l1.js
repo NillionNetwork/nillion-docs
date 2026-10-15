@@ -13,6 +13,7 @@ const blacklightL1Sidebar = [
   'blacklight/l1/how-it-works',
   'blacklight/l1/cryptography',
   'blacklight/l1/contracts',
+  'blacklight/l1/mcp',
   {
     type: 'html',
     className: 'sidebar-title',
@@ -20,7 +21,6 @@ const blacklightL1Sidebar = [
     defaultStyle: true,
   },
   'blacklight/l1/sdk',
-  'blacklight/l1/mcp',
   {
     type: 'html',
     className: 'sidebar-title',

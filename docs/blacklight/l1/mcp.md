@@ -1,42 +1,39 @@
 ---
 title: Covenants MCP
-description: Connect Claude, ChatGPT, Codex, Cursor, VS Code and other AI assistants to Nillion Covenants with the Covenants MCP server. Explain the protocol, test app ideas, encode conditions, and build on testnet.
+description: Connect Claude, ChatGPT, Codex, Cursor, VS Code and other AI assistants to Nillion Covenants with the Covenants MCP server. Explain the protocol, test app ideas, encode conditions, and start building from tested patterns.
 sidebar_label: Covenants MCP
 ---
 
 # Covenants MCP
 
-The Covenants MCP server connects AI assistants to Nillion Covenants through the [Model Context Protocol](https://modelcontextprotocol.io). With it, an assistant can explain how Covenants works, check whether an app idea fits, encode a release condition, read live prices the way the nodes see them, and hand you tested starting points for real apps.
+The Covenants MCP server connects AI assistants to Nillion Covenants through the [Model Context Protocol](https://modelcontextprotocol.io). With it, your assistant can help you:
 
-There are two ways to connect:
+- **Understand:** explain how Covenants works, what a term means, and what the cryptography does and doesn't protect, answering from the Covenants docs.
+- **Ideate:** check whether an app idea fits Covenants, reshape it if it doesn't, and work out the release condition it needs, using live prices read the way the nodes read them.
+- **Build:** start from tested app patterns, look up the SDK, encode release conditions, and decode errors when a transaction reverts.
 
-| | Hosted server | Local server and Claude Code plugin |
-| --- | --- | --- |
-| **Best for** | Learning, judging ideas, designing an app | Building and testing an app on Sepolia |
-| **Works in** | Claude (web, desktop, mobile), ChatGPT desktop app, Claude Code, Codex, Cursor, VS Code and any client that supports remote MCP servers | Claude Code (as a plugin), Codex, or any client that starts local MCP servers |
-| **Tools** | 11, all read-only | The same 11 plus live network reads, testnet setup and a testnet toolbox |
-| **You need** | Nothing: no account or sign-in | Node.js 20+, your own Ethereum RPC endpoint, and [Foundry](https://getfoundry.sh) to build apps |
+## Connect
 
-Start with the hosted server. Add the local server when you want your assistant to read the live network or post triggers on testnet.
-
-## Connect the hosted server
-
-The hosted server's address is:
+The server's address is:
 
 ```text
 https://covenants-mcp.nillion.network/mcp
 ```
 
-It needs no API key or account, and it never sees your RPC endpoint, wallet or payloads.
+It works in Claude (web, desktop and mobile), the ChatGPT desktop app, Claude Code, Codex, Cursor, VS Code and any client that supports remote MCP servers. It needs no API key, account or sign-in, and all of its tools are read-only.
+
+None of its tools ask for your RPC endpoint, wallet or payloads, so there's no reason to share them. An assistant can still put anything from your conversation into a tool call, so keep private keys and secret payloads out of chats that use it.
 
 ### Claude
 
-1. In Claude, open **Settings → Connectors**.
-2. Choose **Add custom connector**.
-3. Name it `Nillion Covenants`, paste the address above, and select **Add**.
-4. In a new chat, turn the connector on from the **+** menu, then ask a question such as *"How does a covenant stay secret until its condition is met?"*
+1. In Claude, open **Customize → Connectors**.
+2. Choose **+ Add → Add custom connector**.
+3. Name it `Nillion Covenants`, paste the address above, and select **Continue**. If you're asked about authentication, choose **No sign-in**. Then select **Add**.
+4. In a chat, select **+ → Connectors** and turn on Nillion Covenants. Then ask a question such as *"How does a covenant stay secret until its condition is met?"*
 
-On Team and Enterprise plans, an owner may need to add the connector for the organization first.
+Add the connector on web or desktop. It then works in the Claude mobile apps too. On the Free plan, you can add one custom connector.
+
+On Team and Enterprise plans, only an Owner can add it, under **Organization settings → Connectors**. Members then find it in **Customize → Connectors** and select **Connect**.
 
 ### Claude Code
 
@@ -44,7 +41,7 @@ On Team and Enterprise plans, an owner may need to add the connector for the org
 claude mcp add --transport http covenants https://covenants-mcp.nillion.network/mcp
 ```
 
-For the full toolbox, install the [plugin](#install-the-local-server) instead.
+This adds it to the current project. Add `--scope user` to use it in every project.
 
 ### ChatGPT
 
@@ -105,69 +102,7 @@ Add this to `.vscode/mcp.json` in your workspace:
 
 Any client that supports remote MCP servers over Streamable HTTP can connect with the address above.
 
-## Install the local server
-
-The local server runs on your computer with your own settings. On top of the hosted tools, it adds:
-
-- **Live network reads:** nodes, triggers, recent activity, protocol limits and costs.
-- **Testnet setup:** a Sepolia RPC endpoint, a testnet wallet, and testnet NIL.
-- **A testnet toolbox:** quote, post, watch and reconstruct triggers, and deploy a test hook.
-
-It signs on **Sepolia testnet** by default, and it asks before every write.
-
-### Claude Code plugin (recommended)
-
-The plugin adds the local server plus five skills that guide Claude through each kind of request: understand, explore, ideate, set up and build.
-
-```bash
-claude plugin marketplace add https://covenants-mcp.nillion.network/marketplace.json
-claude plugin install covenants@nillion
-```
-
-Start a new session, then ask a question or type `/covenants:` to see the skills.
-
-To update:
-
-```bash
-claude plugin marketplace update nillion && claude plugin update covenants@nillion
-```
-
-### Other clients
-
-For Cursor, VS Code, Claude Desktop's config file, or any client that starts local servers:
-
-```json
-{
-  "mcpServers": {
-    "covenants": {
-      "command": "npx",
-      "args": ["-y", "@nillion/covenants-mcp"]
-    }
-  }
-}
-```
-
-In the ChatGPT desktop app, add an MCP server under **Settings → Plugins → Add → Add MCP server** with **Type** set to **STDIO**, the command `npx`, and two arguments: `-y` and `@nillion/covenants-mcp`.
-
-For Codex, add it to `~/.codex/config.toml`:
-
-```toml
-[mcp_servers.covenants]
-command = "npx"
-args = ["-y", "@nillion/covenants-mcp"]
-```
-
-Then ask your assistant to *"set me up to build on Covenants testnet"*. It will check your setup and help you set an RPC endpoint, create a testnet wallet, and claim testnet NIL from the [Faucet](/blacklight/l1/faucet).
-
-Your settings are stored in `~/.covenants/testnet.env` with permissions `600`. The testnet key is generated for you and is never shown in the conversation.
-
-:::warning Mainnet uses real funds
-Mainnet writes are off until you set up a separate mainnet wallet. Even then, every mainnet transaction needs your confirmation in a dialog, and spending caps apply. Transactions can't be undone, and an AI assistant can make mistakes. Use a dedicated wallet that holds only what you can afford to lose, never your main wallet.
-:::
-
 ## What you can ask
-
-Try these with the hosted server:
 
 | Ask | What happens |
 | --- | --- |
@@ -178,11 +113,9 @@ Try these with the hosted server:
 | *"Show me the timed-disclosure pattern's hook contract and explain how it works."* | Fetches the pattern's files and walks through the contract. |
 | *"My trigger post reverted with `0x…`. What went wrong?"* | Decodes the revert data against the protocol's contracts and suggests a fix. |
 
-With the local server, you can also ask things like *"Set me up to build on testnet"*, *"List the active nodes"*, or *"Post a test trigger to nodes 1, 2 and 3 that opens when ETH is above $2,000"*.
-
 ## Tools
 
-The hosted server has 11 tools. All of them are read-only.
+The server has 11 tools. All of them are read-only.
 
 | Tool | What it does |
 | --- | --- |
@@ -198,12 +131,9 @@ The hosted server has 11 tools. All of them are read-only.
 | `encode_condition` | Encodes a price and/or time condition into a trigger's condition record, and reads it back in words. |
 | `explain_error` | Decodes revert data or an error message and suggests the likely cause and fix. |
 
-The local server adds tools for live reads (`list_nodes`, `get_trigger`, `recent_activity`, `estimate_cost` and others), setup (`check_setup`, `set_rpc`, `create_testnet_wallet`, `claim_testnet_nil`), and testnet writes (`post_trigger`, `reconstruct_trigger`, `withdraw_refund` and others). Every write asks for your approval first.
-
 ## Data and privacy
 
-- **Hosted server:** no account and no sign-in. It never receives your RPC endpoint, private keys or payloads, and it keeps no session state between requests. It doesn't log what you ask or what its tools return. Our hosting provider keeps standard request metadata (such as IP address, user agent, request path and status) for one day for operations and rate limiting. To compute spot prices, the server queries public exchange price feeds.
-- **Local server:** runs on your computer and talks only to the RPC endpoint you choose, the testnet faucet and public price feeds. Keys stay in files under `~/.covenants` and are never put into the conversation. The Claude Code plugin also blocks Claude's file tools from reading that folder.
+The server needs no account and no sign-in. None of its tools ask for your RPC endpoint, private keys or payloads, and it keeps no session state between requests. It doesn't log what you ask or what its tools return. Our hosting provider keeps standard request metadata (such as IP address, user agent, request path and status) for one day for operations and rate limiting. To compute spot prices, the server queries public exchange price feeds.
 
 See Nillion's [Privacy Policy](https://nillion.com/privacy) and [Terms of Service](https://nillion.com/terms).
 
@@ -211,13 +141,9 @@ See Nillion's [Privacy Policy](https://nillion.com/privacy) and [Terms of Servic
 
 | Problem | Fix |
 | --- | --- |
-| The assistant says it can't read the live network or post triggers | The hosted server is read-only. Install the [local server](#install-the-local-server). |
-| A live read fails on the local server | Set your RPC endpoint: ask the assistant to run `set_rpc`, or set `SEPOLIA_RPC_URL` in `~/.covenants/testnet.env`. |
-| `rate limited` (HTTP 429) from the hosted server | Wait a minute and try again. |
+| The assistant says it can't read the live network or post triggers | The server is read-only. To read the chain or post triggers, use the [SDK and CLI](/blacklight/l1/sdk). |
+| `rate limited` (HTTP 429) | Wait a minute and try again. |
 | A condition on LINK or XRP never fires | Nodes don't price those assets. Ask for `list_assets` to see which assets can fire. |
-| Mainnet tools don't appear | They appear only after you set up a mainnet wallet. Ask the assistant to `check_setup` on mainnet. |
-| A mainnet write is refused with no dialog | Your client doesn't support MCP confirmation dialogs. Use Claude Code in a terminal. |
-| The plugin doesn't pick up a new version | Run `claude plugin marketplace update nillion && claude plugin update covenants@nillion`, then start a new session. |
 
 ## Support
 
