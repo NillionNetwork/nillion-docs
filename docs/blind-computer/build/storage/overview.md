@@ -1,7 +1,7 @@
 # Private Storage with nilDB
 
 :::warning[The Nillion-coordinated nilDB cluster has been sunset]
-Nillion no longer runs a nilDB cluster, so there is no Nillion-hosted private storage to connect to. The technology is still here: nilDB is open source. The [nilDB node](https://github.com/NillionNetwork/nildb), the [secretvaults SDK](https://github.com/NillionNetwork/secretvaults-ts) and the [blindfold libraries](/blind-computer/build/storage/blindfold) remain available, and anyone can run a nilDB node or a cluster of their own. The rest of this section describes how private storage works and how to use it with a cluster you run.
+The technology is still here: nilDB is open source. The [nilDB node](https://github.com/NillionNetwork/nildb), the [secretvaults SDK](https://github.com/NillionNetwork/secretvaults-ts) and the [blindfold libraries](/blind-computer/build/storage/blindfold) remain available, and anyone can run a nilDB node or a cluster of their own. The rest of this section describes how private storage works and how to use it with a cluster you run.
 :::
 
 ## What is Private Storage

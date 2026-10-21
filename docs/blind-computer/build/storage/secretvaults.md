@@ -1,7 +1,7 @@
 # Secretvaults SDK
 
 :::warning[The Nillion-coordinated nilDB cluster has been sunset]
-Nillion no longer runs a nilDB cluster, so the SDK has no Nillion-hosted nodes to connect to. It still works with any nilDB nodes: wire it to a new node or cluster by configuring that cluster's node URLs. The technology is still here: nilDB is open source. The [nilDB node](https://github.com/NillionNetwork/nildb), the [secretvaults SDK](https://github.com/NillionNetwork/secretvaults-ts) and the [blindfold libraries](/blind-computer/build/storage/blindfold) remain available, and anyone can run a nilDB node or a cluster of their own.
+The SDK still works with any nilDB nodes: wire it to a new node or cluster by configuring that cluster's node URLs. The technology is still here: nilDB is open source. The [nilDB node](https://github.com/NillionNetwork/nildb), the [secretvaults SDK](https://github.com/NillionNetwork/secretvaults-ts) and the [blindfold libraries](/blind-computer/build/storage/blindfold) remain available, and anyone can run a nilDB node or a cluster of their own.
 :::
 
 secretvaults is an SDK that simplifies interacting with Private Storage nilDB nodes to create Nillion Private Storage collections, and store and retrieve encrypted records.
