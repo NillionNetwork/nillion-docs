@@ -6,12 +6,12 @@ The blind computer enables a variety of use cases in which sensitive data is lev
 
 With [private storage](/blind-computer/build/storage/overview), it is possible to store and retrieve secrets via a RESTful API. It is up to the developer which privacy-enhancing technology (PET) they want to use and on which node or cluster of nodes they want to rely. Typical database operations such as queries and aggregate computations can be executed on encrypted data. Homomorphic encryption offers data protection and supports computation over data even if only one node is being used. Secure multi-party computation makes it possible to go one step further, making it possible to store in a decentralized way while relying on the strongest form of encryption possible (*i.e.*, [information-theoretic security](https://en.wikipedia.org/wiki/Information-theoretic_security)).
 
-One straightforward example can be seen in [**nilGPT**](https://nilgpt.xyz/), which encrypts a user's chat histories with that user's passphrase and then stores secret shares of that data across three nodes within a nilDB cluster. Similarly, a number of third-party projects leverage secret sharing and nilDB to store and query user data.
+One straightforward example was [**nilGPT**](https://nilgpt.xyz/), which encrypted a user's chat histories with that user's passphrase and then stored secret shares of that data across three nodes within a nilDB cluster. Similarly, a number of third-party projects used secret sharing and nilDB to store and query user data.
 
-* [**Monadic DNA**](https://monadicdna.com/) stores DNA data in secret-shared form while keeping the users that own that data in control.
-* [**HealthBlocks**](https://www.healthblocks.ai/) provides adaptive goals and gamified challenges
-that make health engaging and rewarding by [storing and leveraging secret-shared user-owned health data](https://nillion.pub/healthblocks-case-study.pdf).
-* [**Soarchain**](https://www.soarchain.com/) stores and queries vehicle data in a privacy-preserving manner, allowing users who own that data to benefit from monetizing the collective insights that can be derived from that data.
+* [**Monadic DNA**](https://monadicdna.com/) stored DNA data in secret-shared form while keeping the users that owned that data in control.
+* [**HealthBlocks**](https://www.healthblocks.ai/) provided adaptive goals and gamified challenges
+that made health engaging and rewarding by [storing and leveraging secret-shared user-owned health data](https://nillion.pub/healthblocks-case-study.pdf).
+* [**Soarchain**](https://www.soarchain.com/) stored and queried vehicle data in a privacy-preserving manner, allowing users who owned that data to benefit from monetizing the collective insights that could be derived from that data.
 
 ## Blind Computation Workflows
 

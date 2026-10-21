@@ -1,5 +1,9 @@
 # Secretvaults SDK
 
+:::warning[The Nillion-coordinated nilDB cluster has been sunset]
+Nillion no longer runs a nilDB cluster, so the SDK has no Nillion-hosted nodes to connect to. It still works with any nilDB nodes: wire it to a new node or cluster by configuring that cluster's node URLs. The technology is still here: nilDB is open source. The [nilDB node](https://github.com/NillionNetwork/nildb), the [secretvaults SDK](https://github.com/NillionNetwork/secretvaults-ts) and the [blindfold libraries](/blind-computer/build/storage/blindfold) remain available, and anyone can run a nilDB node or a cluster of their own.
+:::
+
 secretvaults is an SDK that simplifies interacting with Private Storage nilDB nodes to create Nillion Private Storage collections, and store and retrieve encrypted records.
 
 ## SDK versions
@@ -27,14 +31,3 @@ secretvaults-ts is a TypeScript library for web and Node.js environments
 [//]: # (- [PyPi package]&#40;https://pypi.org/project/secretvaults&#41;)
 
 [//]: # (- [Python Examples]&#40;https://github.com/NillionNetwork/secretvaults-py/tree/main/examples&#41;`)
-
-## No-Code Alternative: Collection Explorer
-
-If you prefer a visual interface, check out the [Collection Explorer](/blind-computer/build/storage/collection-explorer). This no-code web tool provides the same functionality as the Secretvaults SDK through an intuitive UI, allowing you to:
-
-- Create and manage schemas, collections, and records without coding
-- Build production-ready collections through a visual interface
-- Export schemas for use in programmatic applications
-- Enable non-technical team members to work directly with Nillion Private Storage
-
-Collections and schemas created through the Collection Explorer are fully compatible with the Secretvaults SDK, giving you the flexibility to use whichever approach fits your workflow best.

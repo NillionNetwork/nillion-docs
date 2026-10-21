@@ -58,6 +58,79 @@ const buildSidebar = [
   },
   {
     type: 'category',
+    label: 'Private LLMs with nilAI',
+    link: {
+      type: 'doc',
+      id: 'blind-computer/build/llms/overview',
+    },
+    items: [
+      'blind-computer/build/llms/quickstart',
+      {
+        type: 'doc',
+        label: 'Key Concepts',
+        id: 'blind-computer/build/llms/key-concepts',
+      },
+      {
+        type: 'category',
+        label: 'SDKs',
+        items: [
+          {
+            type: 'doc',
+            label: 'Usage',
+            id: 'blind-computer/build/llms/sdks/quickstart',
+          },
+          'blind-computer/build/llms/sdks/web_search',
+          'blind-computer/build/llms/sdks/private_prompts',
+          {
+            type: 'link',
+            label: 'Python Examples',
+            href: 'https://github.com/NillionNetwork/nilai-py/tree/main/examples',
+          },
+          {
+            type: 'link',
+            label: 'TypeScript Examples',
+            href: 'https://github.com/NillionNetwork/nilai-ts/tree/main/examples',
+          },
+        ],
+      },
+      {
+        type: 'link',
+        label: 'Example Apps',
+        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai',
+      },
+      {
+        type: 'doc',
+        label: 'nilAI API',
+        id: 'api/nilai/overview',
+      },
+    ],
+  },
+  'blind-computer/build/network-config',
+  {
+    type: 'doc',
+    label: 'Permissions and Payments',
+    id: 'blind-computer/build/permissions-and-payments',
+  },
+  {
+    type: 'html',
+    className: 'sidebar-title',
+    value: 'Tools',
+    defaultStyle: true,
+  },
+  {
+    type: 'doc',
+    label: 'Developer Tools',
+    id: 'blind-computer/tools',
+  },
+  'blind-computer/tools/ai-assisted-workflow',
+  {
+    type: 'html',
+    className: 'sidebar-title',
+    value: 'Legacy',
+    defaultStyle: true,
+  },
+  {
+    type: 'category',
     label: 'Private Storage with nilDB',
     link: {
       type: 'doc',
@@ -69,16 +142,6 @@ const buildSidebar = [
         type: 'doc',
         label: 'Quickstart',
         id: 'blind-computer/build/storage/quickstart',
-      },
-      {
-        type: 'doc',
-        label: 'API Access',
-        id: 'blind-computer/build/storage/api-access',
-      },
-      {
-        type: 'doc',
-        label: 'Collection Explorer Tool',
-        id: 'blind-computer/build/storage/collection-explorer',
       },
       {
         type: 'doc',
@@ -167,73 +230,6 @@ const buildSidebar = [
       // },
     ],
   },
-  {
-    type: 'category',
-    label: 'Private LLMs with nilAI',
-    link: {
-      type: 'doc',
-      id: 'blind-computer/build/llms/overview',
-    },
-    items: [
-      'blind-computer/build/llms/quickstart',
-      {
-        type: 'doc',
-        label: 'Key Concepts',
-        id: 'blind-computer/build/llms/key-concepts',
-      },
-      {
-        type: 'category',
-        label: 'SDKs',
-        items: [
-          {
-            type: 'doc',
-            label: 'Usage',
-            id: 'blind-computer/build/llms/sdks/quickstart',
-          },
-          'blind-computer/build/llms/sdks/web_search',
-          'blind-computer/build/llms/sdks/private_prompts',
-          {
-            type: 'link',
-            label: 'Python Examples',
-            href: 'https://github.com/NillionNetwork/nilai-py/tree/main/examples',
-          },
-          {
-            type: 'link',
-            label: 'TypeScript Examples',
-            href: 'https://github.com/NillionNetwork/nilai-ts/tree/main/examples',
-          },
-        ],
-      },
-      {
-        type: 'link',
-        label: 'Example Apps',
-        href: 'https://github.com/NillionNetwork/blind-module-examples/tree/main/nilai',
-      },
-      {
-        type: 'doc',
-        label: 'nilAI API',
-        id: 'api/nilai/overview',
-      },
-    ],
-  },
-  'blind-computer/build/network-config',
-  {
-    type: 'doc',
-    label: 'Permissions and Payments',
-    id: 'blind-computer/build/permissions-and-payments',
-  },
-  {
-    type: 'html',
-    className: 'sidebar-title',
-    value: 'Tools',
-    defaultStyle: true,
-  },
-  {
-    type: 'doc',
-    label: 'Developer Tools',
-    id: 'blind-computer/tools',
-  },
-  'blind-computer/tools/ai-assisted-workflow',
 ];
 
 module.exports = {
