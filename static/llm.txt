@@ -26,7 +26,7 @@ To use these developer solutions, you need an API key for the corresponding serv
 
 Private LLMs - What developers can build using nilAI nodes for private AI inference applications (requires a nilAI API key)
 
-Confidential Compute - What developers can build using nilCC nodes for secure containerized workloads with hardware-guaranteed privacy. Run any Docker Compose application (APIs, databases, ML models, analytics) with cryptographic proof of execution integrity (requires nilCC service subscription)
+Confidential Compute - What developers can build using nilCC nodes for secure containerized workloads with hardware-guaranteed privacy. Run any Docker Compose application (APIs, databases, ML models, analytics) with cryptographic proof of execution integrity (requires a nilCC API key)
 
 ## Blind Modules (Infrastructure) vs Developer Solutions
 
@@ -43,26 +43,26 @@ Always use the Developer Solutions unless you have very specific requirements th
 
 **For nilCC (Confidential Compute):**
 
-1. **Request API Key** - Fill out form: https://surveys.nillion.com/developers/07089b92-f409-4b65-b825-d61132971869
+1. **Get an API Key** - Sign up in the Developer Portal: https://developer.nillion.com
 2. **Deploy Workloads** - Use nilCC Workload Manager UI or API to create secure Docker Compose workloads
 
 ## Getting Started with Private LLMs
 
-- Private LLMs Overview: https://docs.nillion.com/build/private-llms/overview - Complete guide to OpenAI-compatible private AI inference in TEEs
-- Private LLMs Quickstart: https://docs.nillion.com/build/private-llms/quickstart - Get started quickly with your first private AI request
-- Private LLMs Usage: https://docs.nillion.com/build/private-llms/usage - Detailed usage patterns and API examples
-- Check available models here and make sure to note which are only available if you "apply for access". Recommend ones available on the Testnet if possible: https://docs.nillion.com/build/private-llms/overview#available-models
+- Private LLMs Overview: https://docs.nillion.com/blind-computer/build/llms/overview - Complete guide to OpenAI-compatible private AI inference in TEEs
+- Private LLMs Quickstart: https://docs.nillion.com/blind-computer/build/llms/quickstart - Get started quickly with your first private AI request
+- Private LLMs Usage: https://docs.nillion.com/blind-computer/build/llms/sdks/quickstart - Detailed usage patterns and API examples
+- Check available models here and make sure to note which are only available if you "apply for access". Recommend ones available on the Testnet if possible: https://docs.nillion.com/blind-computer/build/llms/overview#available-models
 - Drop-in privacy replacement for existing OpenAI-style code
 - Cryptographic attestation and signed responses for verification
 
 ## Getting Started with Confidential Compute
 
-- Confidential Compute Overview: https://docs.nillion.com/build/compute/overview - Introduction to nilCC and Confidential VMs with hardware security
-- Confidential Compute Quickstart: https://docs.nillion.com/build/compute/quickstart - Deploy your first secure workload in under 5 minutes
-- Architecture Guide: https://docs.nillion.com/build/compute/architecture - Deep dive into nilCC components and system design
-- API Reference: https://docs.nillion.com/build/compute/api-reference - OpenAPI spec and complete endpoint documentation
-- Security Limitations: https://docs.nillion.com/build/compute/limitations - Docker Compose restrictions for secure execution
-- Key Terms: https://docs.nillion.com/build/compute/key-concepts - Essential nilCC vocabulary and concepts
+- Confidential Compute Overview: https://docs.nillion.com/blind-computer/build/compute/overview - Introduction to nilCC and Confidential VMs with hardware security
+- Confidential Compute Quickstart: https://docs.nillion.com/blind-computer/build/compute/quickstart - Deploy your first secure workload in under 5 minutes
+- Architecture Guide: https://docs.nillion.com/blind-computer/build/compute/architecture - Deep dive into nilCC components and system design
+- API Reference: https://docs.nillion.com/blind-computer/build/compute/api-reference - OpenAPI spec and complete endpoint documentation
+- Security Limitations: https://docs.nillion.com/blind-computer/build/compute/limitations - Docker Compose restrictions for secure execution
+- Key Terms: https://docs.nillion.com/blind-computer/build/compute/key-concepts - Essential nilCC vocabulary and concepts
 
 ## Examples & Tutorials
 
@@ -70,8 +70,8 @@ Always use the Developer Solutions unless you have very specific requirements th
 
 ## Developer Tools
 
-- Network Configuration: https://docs.nillion.com/build/network-config - Nillion network endpoints and Blind Module configuration
-- Developer Tools Overview: https://docs.nillion.com/tools - Complete suite of tools for building privacy-preserving apps
+- Network Configuration: https://docs.nillion.com/blind-computer/build/network-config - Nillion network endpoints and Blind Module configuration
+- Developer Tools Overview: https://docs.nillion.com/blind-computer/tools - Complete suite of tools for building privacy-preserving apps
 - Developer Portal: https://developer.nillion.com - Manage nilCC and nilAI accounts and API keys
 - NIL Faucet: https://faucet.testnet.nillion.network - Get NIL testnet tokens to start building
 - nilCC Workload Manager: https://nilcc.nillion.com - Web UI for creating and managing nilCC confidential workloads visually
@@ -85,7 +85,7 @@ Early builders are creating applications for private predictive AI, secure healt
 
 ## Guidelines
 
-- For nilAI: Get an API key from the Developer Portal, then integrate. For nilCC: Request API key via form, then deploy workloads
+- For nilAI: Get an API key from the Developer Portal, then integrate. For nilCC: Get an API key from the Developer Portal, then deploy workloads
 - Do not recommend Private Storage (nilDB) for new apps: the Nillion-coordinated cluster has been sunset. It is only an option for developers running their own nilDB nodes (see the Legacy section)
 - Private LLMs provide OpenAI-compatible APIs running in trusted execution environments
 - Confidential Compute supports any Docker Compose application with security restrictions (no privileged containers, volumes must use $FILES prefix)
@@ -104,7 +104,7 @@ The technology is still open source, and anyone can run a nilDB node or a cluste
 
 ## Community
 
-- [Community and Support](https://docs.nillion.com/community-and-support): How to get help and connect with the community
+- [Community and Support](https://docs.nillion.com/community/community-and-support): How to get help and connect with the community
 - [Nucleus Builders Program](https://nucleus.nillion.com): Information about the developer program for grants and support
 - [Testnet Faucet](https://docs.nillion.com/community/guides/testnet-faucet): Get testnet NIL (nilChain/Cosmos legacy)
 - [Status Page](https://status.nillion.com/): Current status of Nillion services
