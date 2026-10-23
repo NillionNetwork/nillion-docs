@@ -7,13 +7,6 @@ export const QuickStartFeatures = [
     href: '/blind-computer/build/compute/quickstart',
   },
   {
-    title: 'Private Storage',
-    description:
-      'Read and write records to an encrypted database using nilDB APIs.',
-    icon: '🏛️',
-    href: '/blind-computer/build/storage/quickstart',
-  },
-  {
     title: 'Private LLMs',
     description:
       'Run OpenAI-compatible LLMs privately in a TEE within a nilAI node, without exposing user data.',

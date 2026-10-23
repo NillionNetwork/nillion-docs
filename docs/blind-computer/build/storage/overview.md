@@ -1,5 +1,9 @@
 # Private Storage with nilDB
 
+:::warning[The Nillion-coordinated nilDB cluster has been sunset]
+The technology is still here: nilDB is open source. The [nilDB node](https://github.com/NillionNetwork/nildb), the [secretvaults SDK](https://github.com/NillionNetwork/secretvaults-ts) and the [blindfold libraries](/blind-computer/build/storage/blindfold) remain available, and anyone can run a nilDB node or a cluster of their own. The rest of this section describes how private storage works and how to use it with a cluster you run.
+:::
+
 ## What is Private Storage
 
 Nillion's decentralized storage system keeps sensitive data secret by storing encrypted shares across a cluster of nilDB nodes. Each nilDB node stores a separate share of the encrypted data, ensuring no single node can reveal the original value.
@@ -22,8 +26,8 @@ Interact with the private storage solution using the TypeScript or Python [secre
 
 **For Builders (Applications)**
 
-- Get [Nillion API Access](/blind-computer/build/storage/api-access) to connect to nilDB nodes
-- Define collections with schemas programmatically or by using the no-code, visual, **[Collection Explorer Tool](/blind-computer/build/storage/collection-explorer) (recommended)**
+- Get access to the nilDB nodes of your cluster
+- Define collections with schemas
 - Store and query data
 - Create aggregation queries
 

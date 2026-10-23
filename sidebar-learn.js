@@ -7,7 +7,6 @@ const learnSidebar = [
   },
   'blind-computer/learn/overview',
   'blind-computer/learn/use-cases',
-  'blind-computer/learn/architecture',
   'blind-computer/learn/blind-modules',
   'blind-computer/learn/protocols',
 ];

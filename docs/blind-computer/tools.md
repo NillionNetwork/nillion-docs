@@ -13,7 +13,7 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 
 <ToolFeatureItem
   title="Developer Portal"
-  description="Manage your nilDB, nilCC, and nilAI accounts from one place."
+  description="Manage your nilCC and nilAI accounts from one place."
   icon="🛠️"
   href="https://developer.nillion.com/"
   external={true}
@@ -30,22 +30,6 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 />
 
 <ToolFeatureItem
-  title="nilPay Subscription Platform"
-  description="Pay NIL to get a Nillion API Key and subscribe to the nilDB (Private Storage) service."
-  icon="🔑"
-  href="https://subscription.nillion.com/"
-  external={true}
-/>
-
-<ToolFeatureItem
-  title="Collection Explorer"
-  description="A no-code tool for creating and managing nilDB schemas, collections, and records."
-  icon="📦"
-  href="https://collection-explorer.nillion.com"
-  external={true}
-/>
-
-<ToolFeatureItem
   title="nilCC Workload Manager"
   description="Web dashboard for deploying, managing, and monitoring confidential workloads on nilCC."
   icon="🎛️"
@@ -54,16 +38,8 @@ import ToolFeatureItem from '@site/src/components/ToolFeatureItem';
 />
 
 <ToolFeatureItem
-  title="nilAI Developer Dashboard"
-  description="Manage your nilAI API keys, credits, usage, and get model information."
-  icon="🤖"
-  href="https://nilai.nillion.com/"
-  external={true}
-/>
-
-<ToolFeatureItem
   title="Network Status Page"
-  description="Check the status of nilDB, nilCC, and other nodes."
+  description="Check the status of nilCC and other nodes."
   icon="⚡"
   href="https://status.nillion.com"
   external={true}

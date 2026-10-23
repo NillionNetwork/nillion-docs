@@ -47,7 +47,6 @@ Collections are immutable once created.
 - Each document has individual ACLs
 - Users control access permissions
 - Support fine-grained permission types
-- 🚧 Note: User Owned Collections are not fully supported by the [Collection Explorer Tool](/blind-computer/build/storage/collection-explorer)
 
 ### DID (Decentralized Identifier)
 
