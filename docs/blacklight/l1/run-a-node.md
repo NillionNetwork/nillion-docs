@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Run a Blacklight L1 Node
 
 Node operators are selected to watch conditions by Nillion governance authors. When a condition is met, they post their share of the secret payload on-chain. 
@@ -92,19 +95,110 @@ Stake and earnings always follow the **owner**, which is why losing the node's s
 
 On first boot the node writes its operator key and its IBE master secret to a state file in its Docker volume. **Back this file up once**, right after that first boot, while the container is still running:
 
-```bash
-# Mainnet
-docker cp blacklight-l1-node-mainnet:/data/state/node-state.json ./blacklight-l1-node-state-mainnet-backup.json
+<Tabs groupId="network" queryString="network">
+  <TabItem value="mainnet" label="Mainnet" default>
 
-# Testnet
+```bash
+docker cp blacklight-l1-node-mainnet:/data/state/node-state.json ./blacklight-l1-node-state-mainnet-backup.json
+```
+
+  </TabItem>
+  <TabItem value="testnet" label="Testnet">
+
+```bash
 docker cp blacklight-l1-node:/data/state/node-state.json ./blacklight-l1-node-state-backup.json
 ```
+
+  </TabItem>
+</Tabs>
 
 The app shows the same command at step 4. `docker cp` needs the container to be running: the run command uses `--rm`, so a stopped container is gone, and you would have to start the node again to copy the file out.
 
 The operator key is never rotated, so a single backup stays a valid rescue for the life of the node even after many key rotations. Treat it like a wallet private key: it is unencrypted, and anyone holding it can act as your node.
 
 Losing it does **not** cost you your stake or your earnings — both follow your owner wallet. It costs you this node: you would have to register a new one, and any work already assigned to the old one goes unpaid.
+
+## Restart or move your node
+
+The node's keys live in its Docker volume, not in the container. The run command uses `--rm`, so stopping the node or rebooting the machine deletes the container, but the volume and the keys in it stay. To bring the node back, run the same command again. It picks up its keys and catches up with the chain on its own; there is nothing to register and nothing to sign.
+
+### The run command
+
+This is the command the app gives you at step 4. Replace the RPC placeholder with your endpoint.
+
+<Tabs groupId="network" queryString="network">
+  <TabItem value="mainnet" label="Mainnet" default>
+
+```bash
+docker run -it --rm --init --name blacklight-l1-node-mainnet \
+  -v blacklight-l1-node-state-mainnet:/data/state \
+  -e RPC_URL=<YOUR_MAINNET_RPC_URL> \
+  -e CONFIG_ADDRESS=0xa75716772c17818A73104344b5A8888ae24ADc03 \
+  -e STATE_FILE=/data/state/node-state.json \
+  -e FEED_MODE=real \
+  ghcr.io/nillionnetwork/blacklight-l1-node/node:0.2.6
+```
+
+  </TabItem>
+  <TabItem value="testnet" label="Testnet">
+
+```bash
+docker run -it --rm --init --name blacklight-l1-node \
+  -v blacklight-l1-node-state:/data/state \
+  -e RPC_URL=<YOUR_SEPOLIA_RPC_URL> \
+  -e CONFIG_ADDRESS=0x137c8BFdEd755FD61486e648b2494BE1A1264619 \
+  -e STATE_FILE=/data/state/node-state.json \
+  -e FEED_MODE=real \
+  ghcr.io/nillionnetwork/blacklight-l1-node/node:0.2.6
+```
+
+  </TabItem>
+</Tabs>
+
+- **Windows:** put the command on one line and drop the `\` line breaks.
+- **Image tag:** the app always shows the current one. If it differs from the tag here, use the app's.
+- **Keep the volume name.** A different volume name starts a node with new keys, which would need registering again.
+
+If the node was down long enough for its key to expire, it was removed from emissions and stopped earning NIL. On startup it rotates a fresh key; then open the node in the app and click **Rejoin emissions**. Emissions resume from that moment.
+
+### Moving to a new machine
+
+You need the state file backup from the [section above](#back-up-the-nodes-state-file).
+
+1. **Stop the node on the old machine.** Never run two copies with the same state file: both would act as the same node.
+2. **On the new machine,** install Docker, put the backup file in your current directory, and restore it into the node's volume **before** starting the node:
+
+   <Tabs groupId="network" queryString="network">
+     <TabItem value="mainnet" label="Mainnet" default>
+
+   ```bash
+   docker run --rm --user root \
+     -v blacklight-l1-node-state-mainnet:/data/state \
+     -v "$PWD":/backup \
+     --entrypoint install \
+     ghcr.io/nillionnetwork/blacklight-l1-node/node:0.2.6 \
+     -o dusk -g dusk -m 600 /backup/blacklight-l1-node-state-mainnet-backup.json /data/state/node-state.json
+   ```
+
+     </TabItem>
+     <TabItem value="testnet" label="Testnet">
+
+   ```bash
+   docker run --rm --user root \
+     -v blacklight-l1-node-state:/data/state \
+     -v "$PWD":/backup \
+     --entrypoint install \
+     ghcr.io/nillionnetwork/blacklight-l1-node/node:0.2.6 \
+     -o dusk -g dusk -m 600 /backup/blacklight-l1-node-state-backup.json /data/state/node-state.json
+   ```
+
+     </TabItem>
+   </Tabs>
+
+   This copies the file into the volume, owned by the node's user and readable only by it. On Windows, use one line; in cmd.exe, replace `"$PWD"` with `"%cd%"`.
+3. **Start the node** with the run command above. It boots as the same node, with the same operator address the app shows for it.
+
+If the node prints a **REGISTRATION REQUIRED** card instead, it did not find the restored file and generated new keys. Stop it and repeat step 2, which overwrites them. Don't register the new keys: that creates a second node.
 
 ## Earning
 
