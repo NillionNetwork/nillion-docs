@@ -15,6 +15,11 @@ const blacklightL1Sidebar = [
   'blacklight/l1/contracts',
   'blacklight/l1/mcp',
   {
+    type: 'link',
+    label: 'Try covenants on testnet',
+    href: 'https://blacklight-l1.testnet.nillion.com/try',
+  },
+  {
     type: 'html',
     className: 'sidebar-title',
     value: 'Build',
